@@ -1,0 +1,570 @@
+{
+  "calculate_output": "calculate_output_add",
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/prestations_familiales/asf.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 64,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 2,
+                "id": "pfam",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "prestations_familiales",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 64,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 22,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 28,
+                      "end_lineno": 2,
+                      "id": "period",
+                      "lineno": 2
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 11,
+                  "end_col_offset": 29,
+                  "end_lineno": 2,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 21,
+                    "end_lineno": 2,
+                    "id": "parameters",
+                    "lineno": 2
+                  },
+                  "keywords": [],
+                  "lineno": 2
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 8,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 4,
+                "id": "asf_par_enfant",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 32,
+              "end_lineno": 7,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 22,
+                "end_lineno": 6,
+                "left": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 24,
+                      "end_col_offset": 41,
+                      "end_lineno": 5,
+                      "lineno": 5,
+                      "value": "asf_elig_enfant"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 43,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 49,
+                      "end_lineno": 5,
+                      "id": "period",
+                      "lineno": 5
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 50,
+                  "end_lineno": 5,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 5,
+                    "lineno": 5,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 15,
+                      "end_lineno": 5,
+                      "id": "famille",
+                      "lineno": 5
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 5
+                },
+                "lineno": 5,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Attribute",
+                  "attr": "bmaf",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "af",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 17,
+                    "end_lineno": 6,
+                    "lineno": 6,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 14,
+                      "end_lineno": 6,
+                      "id": "pfam",
+                      "lineno": 6
+                    }
+                  }
+                }
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Attribute",
+                "attr": "taux_1_parent",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "asf",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 14,
+                    "end_lineno": 7,
+                    "id": "pfam",
+                    "lineno": 7
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 64,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 10,
+                "id": "montant",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 10,
+                  "id": "asf_par_enfant",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 64,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 14,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 21,
+                  "end_lineno": 10,
+                  "id": "famille",
+                  "lineno": 10
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 42,
+                  "end_col_offset": 63,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "ENFANT",
+                    "col_offset": 49,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 63,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 49,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 56,
+                      "end_lineno": 10,
+                      "id": "Famille",
+                      "lineno": 10
+                    }
+                  }
+                }
+              ],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 105,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 11,
+                "id": "pensions_alimentaires_percues",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 64,
+                      "end_col_offset": 95,
+                      "end_lineno": 11,
+                      "lineno": 11,
+                      "value": "pensions_alimentaires_percues"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 97,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 103,
+                      "end_lineno": 11,
+                      "id": "period",
+                      "lineno": 11
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 48,
+                  "end_col_offset": 104,
+                  "end_lineno": 11,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 48,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 63,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 48,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 55,
+                      "end_lineno": 11,
+                      "id": "famille",
+                      "lineno": 11
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 105,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 47,
+                "end_lineno": 11,
+                "lineno": 11,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 36,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 43,
+                  "end_lineno": 11,
+                  "id": "famille",
+                  "lineno": 11
+                }
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 13,
+            "lineno": 13,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 16,
+                  "end_col_offset": 55,
+                  "end_lineno": 13,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 13,
+                    "id": "montant",
+                    "lineno": 13
+                  },
+                  "lineno": 13,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 26,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 55,
+                    "end_lineno": 13,
+                    "id": "pensions_alimentaires_percues",
+                    "lineno": 13
+                  }
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 57,
+                  "end_col_offset": 58,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": 0
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 59,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 13,
+                "id": "max_",
+                "lineno": 13
+              },
+              "keywords": [],
+              "lineno": 13
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 59,
+        "end_lineno": 13,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/prestations_familiales/asf.py",
+      "parameters": [
+        "prestations.prestations_familiales.af.bmaf",
+        "prestations.prestations_familiales.asf.taux_1_parent"
+      ],
+      "source_code": "def formula(famille, period, parameters):\n    pfam = parameters(period).prestations.prestations_familiales\n\n    asf_par_enfant = (\n        famille.members('asf_elig_enfant', period)\n        * pfam.af.bmaf\n        * pfam.asf.taux_1_parent\n        )\n\n    montant = famille.sum(asf_par_enfant, role = Famille.ENFANT)\n    pensions_alimentaires_percues = famille.sum(famille.members('pensions_alimentaires_percues', period))\n\n    return max_(montant - pensions_alimentaires_percues, 0)\n",
+      "start_line_number": 49,
+      "stop_line_number": 62
+    }
+  },
+  "json_type": "number",
+  "label": "Montant de l'allocation de soutien familial (ASF)",
+  "name": "asf_montant",
+  "referring_variables": [
+    "asf"
+  ],
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 41,
+  "stop_line_number": 62,
+  "value_type": "float"
+}

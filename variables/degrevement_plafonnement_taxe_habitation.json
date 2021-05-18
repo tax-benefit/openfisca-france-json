@@ -1,0 +1,1549 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+  "formulas": {
+    "2017-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 29,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 31,
+              "end_col_offset": 37,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 39,
+              "end_col_offset": 49,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 10,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 10,
+              "lineno": 2,
+              "value": "\n    Notes :\n        (1) On ne prend pas en compte la majoration du dégrèvement pour les cas spécifiques où le montant\n            de taxe résulte exclusivement de la réduction du dégrèvement dépendant des hausses de taux\n            depuis 2000 (3. du III. de l'art 1414 A du CGI)\n        (2) Pour la réduction du dégrèvement, on ne prend pas en compte les cas où les abattements du\n            département en 2010 étaient plus avantageux que les abattements de la commune ou de l'EPCI\n            en 2018 (a. du 1. du III. de l'art 1414 A du CGI)\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 117,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 11,
+                "id": "taxe_habitation_commune_epci_avant_degrevement",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 60,
+                  "end_col_offset": 108,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "taxe_habitation_commune_epci_avant_degrevement"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 110,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 116,
+                  "end_lineno": 11,
+                  "id": "period",
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 53,
+              "end_col_offset": 117,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 53,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 59,
+                "end_lineno": 11,
+                "id": "menage",
+                "lineno": 11
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 95,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 12,
+                "id": "plafond_taxe_habitation_eligibilite",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 49,
+                  "end_col_offset": 86,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "plafond_taxe_habitation_eligibilite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 88,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 94,
+                  "end_lineno": 12,
+                  "id": "period",
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 42,
+              "end_col_offset": 95,
+              "end_lineno": 12,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 42,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 48,
+                "end_lineno": 12,
+                "id": "menage",
+                "lineno": 12
+              },
+              "keywords": [],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 71,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 13,
+                "id": "plafond_taxe_habitation",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 62,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": "plafond_taxe_habitation"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 64,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 70,
+                  "end_lineno": 13,
+                  "id": "period",
+                  "lineno": 13
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 30,
+              "end_col_offset": 71,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 13,
+                "id": "menage",
+                "lineno": 13
+              },
+              "keywords": [],
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 67,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 14,
+                "id": "base_nette_th_commune",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 58,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "base_nette_th_commune"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 60,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 66,
+                  "end_lineno": 14,
+                  "id": "period",
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 67,
+              "end_lineno": 14,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 14,
+                "id": "menage",
+                "lineno": 14
+              },
+              "keywords": [],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 15,
+                "id": "base_nette_th_epci",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 32,
+                  "end_col_offset": 52,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": "base_nette_th_epci"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 54,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 15,
+                  "id": "period",
+                  "lineno": 15
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 61,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 15,
+                "id": "menage",
+                "lineno": 15
+              },
+              "keywords": [],
+              "lineno": 15
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 80,
+            "end_lineno": 16,
+            "lineno": 16,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 16,
+                "id": "base_reduction_degrevement",
+                "lineno": 16
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 38,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 59,
+                  "end_lineno": 16,
+                  "id": "base_nette_th_commune",
+                  "lineno": 16
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 61,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 79,
+                  "end_lineno": 16,
+                  "id": "base_nette_th_epci",
+                  "lineno": 16
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 33,
+              "end_col_offset": 80,
+              "end_lineno": 16,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 33,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 16,
+                "id": "min_",
+                "lineno": 16
+              },
+              "keywords": [],
+              "lineno": 16
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 55,
+            "end_lineno": 18,
+            "lineno": 18,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 18,
+                "id": "taux_th_commune",
+                "lineno": 18
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 46,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": "taux_th_commune"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 48,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 54,
+                  "end_lineno": 18,
+                  "id": "period",
+                  "lineno": 18
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 55,
+              "end_lineno": 18,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 18,
+                "id": "menage",
+                "lineno": 18
+              },
+              "keywords": [],
+              "lineno": 18
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 49,
+            "end_lineno": 19,
+            "lineno": 19,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 19,
+                "id": "taux_th_epci",
+                "lineno": 19
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 26,
+                  "end_col_offset": 40,
+                  "end_lineno": 19,
+                  "lineno": 19,
+                  "value": "taux_th_epci"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 19,
+                  "id": "period",
+                  "lineno": 19
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 19,
+              "end_col_offset": 49,
+              "end_lineno": 19,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 19,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 19,
+                "id": "menage",
+                "lineno": 19
+              },
+              "keywords": [],
+              "lineno": 19
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 73,
+            "end_lineno": 20,
+            "lineno": 20,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 20,
+                "id": "ecart_avec_2000",
+                "lineno": 20
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 22,
+              "end_col_offset": 73,
+              "end_lineno": 20,
+              "left": {
+                "ast_class": "Attribute",
+                "attr": "year",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 66,
+                "end_lineno": 20,
+                "lineno": 20,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 42,
+                      "end_col_offset": 52,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": "first-of"
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 54,
+                      "end_col_offset": 60,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": "year"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 22,
+                  "end_col_offset": 61,
+                  "end_lineno": 20,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "offset",
+                    "col_offset": 22,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 41,
+                    "end_lineno": 20,
+                    "lineno": 20,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "start",
+                      "col_offset": 22,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 34,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 22,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 28,
+                        "end_lineno": 20,
+                        "id": "period",
+                        "lineno": 20
+                      }
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 20
+                }
+              },
+              "lineno": 20,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 69,
+                "end_col_offset": 73,
+                "end_lineno": 20,
+                "lineno": 20,
+                "value": 2000
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 96,
+            "end_lineno": 21,
+            "lineno": 21,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 21,
+                "id": "annee_2000",
+                "lineno": 21
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "UnaryOp",
+                  "col_offset": 79,
+                  "end_col_offset": 95,
+                  "end_lineno": 21,
+                  "lineno": 21,
+                  "op": {
+                    "ast_class": "USub"
+                  },
+                  "operand": {
+                    "ast_class": "Name",
+                    "col_offset": 80,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 95,
+                    "end_lineno": 21,
+                    "id": "ecart_avec_2000",
+                    "lineno": 21
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 96,
+              "end_lineno": 21,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "offset",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 78,
+                "end_lineno": 21,
+                "lineno": 21,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 64,
+                      "end_col_offset": 70,
+                      "end_lineno": 21,
+                      "lineno": 21,
+                      "value": "year"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 17,
+                  "end_col_offset": 71,
+                  "end_lineno": 21,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "period",
+                    "col_offset": 17,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 63,
+                    "end_lineno": 21,
+                    "lineno": 21,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 37,
+                          "end_col_offset": 47,
+                          "end_lineno": 21,
+                          "lineno": 21,
+                          "value": "first-of"
+                        },
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 49,
+                          "end_col_offset": 55,
+                          "end_lineno": 21,
+                          "lineno": 21,
+                          "value": "year"
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 17,
+                      "end_col_offset": 56,
+                      "end_lineno": 21,
+                      "func": {
+                        "ast_class": "Attribute",
+                        "attr": "offset",
+                        "col_offset": 17,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 36,
+                        "end_lineno": 21,
+                        "lineno": 21,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "start",
+                          "col_offset": 17,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 29,
+                          "end_lineno": 21,
+                          "lineno": 21,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 17,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 23,
+                            "end_lineno": 21,
+                            "id": "period",
+                            "lineno": 21
+                          }
+                        }
+                      },
+                      "keywords": [],
+                      "lineno": 21
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 21
+                }
+              },
+              "keywords": [],
+              "lineno": 21
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 64,
+            "end_lineno": 22,
+            "lineno": 22,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 22,
+                "id": "taux_th_commune_2000",
+                "lineno": 22
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 34,
+                  "end_col_offset": 51,
+                  "end_lineno": 22,
+                  "lineno": 22,
+                  "value": "taux_th_commune"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 53,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 22,
+                  "id": "annee_2000",
+                  "lineno": 22
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 27,
+              "end_col_offset": 64,
+              "end_lineno": 22,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 22,
+                "id": "menage",
+                "lineno": 22
+              },
+              "keywords": [],
+              "lineno": 22
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 23,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 23,
+                "id": "taux_th_epci_2000",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 31,
+                  "end_col_offset": 45,
+                  "end_lineno": 23,
+                  "lineno": 23,
+                  "value": "taux_th_epci"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 57,
+                  "end_lineno": 23,
+                  "id": "annee_2000",
+                  "lineno": 23
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 24,
+              "end_col_offset": 58,
+              "end_lineno": 23,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 24,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 23,
+                "id": "menage",
+                "lineno": 23
+              },
+              "keywords": [],
+              "lineno": 23
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 25,
+            "lineno": 25,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 25,
+                "id": "P",
+                "lineno": 25
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "taxe_habitation",
+              "col_offset": 8,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 58,
+              "end_lineno": 25,
+              "lineno": 25,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "taxation_locale",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 25,
+                "lineno": 25,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 25,
+                      "id": "period",
+                      "lineno": 25
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 26,
+                  "end_lineno": 25,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 18,
+                    "end_lineno": 25,
+                    "id": "parameters",
+                    "lineno": 25
+                  },
+                  "keywords": [],
+                  "lineno": 25
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 182,
+            "end_lineno": 26,
+            "lineno": 26,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 26,
+                "id": "reduction_degrevement",
+                "lineno": 26
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 28,
+              "end_col_offset": 182,
+              "end_lineno": 26,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 54,
+                "end_lineno": 26,
+                "id": "base_reduction_degrevement",
+                "lineno": 26
+              },
+              "lineno": 26,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 58,
+                "end_col_offset": 181,
+                "end_lineno": 26,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 58,
+                  "end_col_offset": 88,
+                  "end_lineno": 26,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 58,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 73,
+                    "end_lineno": 26,
+                    "id": "taux_th_commune",
+                    "lineno": 26
+                  },
+                  "lineno": 26,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 76,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 88,
+                    "end_lineno": 26,
+                    "id": "taux_th_epci",
+                    "lineno": 26
+                  }
+                },
+                "lineno": 26,
+                "op": {
+                  "ast_class": "Sub"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 91,
+                  "end_col_offset": 181,
+                  "end_lineno": 26,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 92,
+                    "end_col_offset": 132,
+                    "end_lineno": 26,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 92,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 112,
+                      "end_lineno": 26,
+                      "id": "taux_th_commune_2000",
+                      "lineno": 26
+                    },
+                    "lineno": 26,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 115,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 132,
+                      "end_lineno": 26,
+                      "id": "taux_th_epci_2000",
+                      "lineno": 26
+                    }
+                  },
+                  "lineno": 26,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "coeff_multiplicateur_taux_2000",
+                    "col_offset": 136,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 181,
+                    "end_lineno": 26,
+                    "lineno": 26,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "plafonnement",
+                      "col_offset": 136,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 150,
+                      "end_lineno": 26,
+                      "lineno": 26,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 136,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 137,
+                        "end_lineno": 26,
+                        "id": "P",
+                        "lineno": 26
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 130,
+            "end_lineno": 27,
+            "lineno": 27,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 27,
+                "id": "reduction_degrevement",
+                "lineno": 27
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 28,
+              "end_col_offset": 130,
+              "end_lineno": 27,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 27,
+                "id": "reduction_degrevement",
+                "lineno": 27
+              },
+              "lineno": 27,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 53,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "valeur_minimale_reduction_degrevement",
+                    "col_offset": 77,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 129,
+                    "end_lineno": 27,
+                    "lineno": 27,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "plafonnement",
+                      "col_offset": 77,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 91,
+                      "end_lineno": 27,
+                      "lineno": 27,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 77,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 78,
+                        "end_lineno": 27,
+                        "id": "P",
+                        "lineno": 27
+                      }
+                    }
+                  }
+                ],
+                "end_col_offset": 129,
+                "end_lineno": 27,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 53,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 74,
+                  "end_lineno": 27,
+                  "id": "reduction_degrevement",
+                  "lineno": 27
+                },
+                "lineno": 27,
+                "ops": [
+                  {
+                    "ast_class": "Gt"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 35,
+            "lineno": 31,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 31,
+                "id": "reduction_degrevement",
+                "lineno": 31
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Compare",
+                  "col_offset": 8,
+                  "comparators": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 52,
+                      "end_col_offset": 53,
+                      "end_lineno": 32,
+                      "lineno": 32,
+                      "value": 0
+                    }
+                  ],
+                  "end_col_offset": 53,
+                  "end_lineno": 32,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 48,
+                    "end_lineno": 32,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 28,
+                      "end_lineno": 32,
+                      "id": "taux_th_commune_2000",
+                      "lineno": 32
+                    },
+                    "lineno": 32,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 31,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 48,
+                      "end_lineno": 32,
+                      "id": "taux_th_epci_2000",
+                      "lineno": 32
+                    }
+                  },
+                  "lineno": 32,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 9,
+                  "end_lineno": 33,
+                  "lineno": 33,
+                  "value": 0
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 29,
+                  "end_lineno": 34,
+                  "id": "reduction_degrevement",
+                  "lineno": 34
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 9,
+              "end_lineno": 35,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 31,
+                "id": "where",
+                "lineno": 31
+              },
+              "keywords": [],
+              "lineno": 31
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 41,
+            "lineno": 37,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 37,
+                "id": "degrevement",
+                "lineno": 37
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 31,
+              "end_lineno": 40,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 33,
+                "end_lineno": 39,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 54,
+                  "end_lineno": 38,
+                  "id": "taxe_habitation_commune_epci_avant_degrevement",
+                  "lineno": 38
+                },
+                "lineno": 38,
+                "op": {
+                  "ast_class": "Sub"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 33,
+                  "end_lineno": 39,
+                  "id": "plafond_taxe_habitation",
+                  "lineno": 39
+                }
+              },
+              "lineno": 38,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 40,
+                "id": "reduction_degrevement",
+                "lineno": 40
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 42,
+            "lineno": 42,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 69,
+              "end_lineno": 42,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 27,
+                    "end_lineno": 42,
+                    "id": "degrevement",
+                    "lineno": 42
+                  },
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 29,
+                    "end_col_offset": 30,
+                    "end_lineno": 42,
+                    "lineno": 42,
+                    "value": 0
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 11,
+                "end_col_offset": 31,
+                "end_lineno": 42,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 15,
+                  "end_lineno": 42,
+                  "id": "max_",
+                  "lineno": 42
+                },
+                "keywords": [],
+                "lineno": 42
+              },
+              "lineno": 42,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 34,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 69,
+                "end_lineno": 42,
+                "id": "plafond_taxe_habitation_eligibilite",
+                "lineno": 42
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 69,
+        "end_lineno": 42,
+        "lineno": 1,
+        "name": "formula_2017_01_01"
+      },
+      "documentation": "\nNotes :\n    (1) On ne prend pas en compte la majoration du dégrèvement pour les cas spécifiques où le montant\n        de taxe résulte exclusivement de la réduction du dégrèvement dépendant des hausses de taux\n        depuis 2000 (3. du III. de l'art 1414 A du CGI)\n    (2) Pour la réduction du dégrèvement, on ne prend pas en compte les cas où les abattements du\n        département en 2010 étaient plus avantageux que les abattements de la commune ou de l'EPCI\n        en 2018 (a. du 1. du III. de l'art 1414 A du CGI)\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "parameters": [
+        "taxation_locale.taxe_habitation.plafonnement.coeff_multiplicateur_taux_2000",
+        "taxation_locale.taxe_habitation.plafonnement.valeur_minimale_reduction_degrevement"
+      ],
+      "source_code": "def formula_2017_01_01(menage, period, parameters):\n    '''\n    Notes :\n        (1) On ne prend pas en compte la majoration du dégrèvement pour les cas spécifiques où le montant\n            de taxe résulte exclusivement de la réduction du dégrèvement dépendant des hausses de taux\n            depuis 2000 (3. du III. de l'art 1414 A du CGI)\n        (2) Pour la réduction du dégrèvement, on ne prend pas en compte les cas où les abattements du\n            département en 2010 étaient plus avantageux que les abattements de la commune ou de l'EPCI\n            en 2018 (a. du 1. du III. de l'art 1414 A du CGI)\n    '''\n    taxe_habitation_commune_epci_avant_degrevement = menage('taxe_habitation_commune_epci_avant_degrevement', period)\n    plafond_taxe_habitation_eligibilite = menage('plafond_taxe_habitation_eligibilite', period)\n    plafond_taxe_habitation = menage('plafond_taxe_habitation', period)\n    base_nette_th_commune = menage('base_nette_th_commune', period)\n    base_nette_th_epci = menage('base_nette_th_epci', period)\n    base_reduction_degrevement = min_(base_nette_th_commune, base_nette_th_epci)\n\n    taux_th_commune = menage('taux_th_commune', period)\n    taux_th_epci = menage('taux_th_epci', period)\n    ecart_avec_2000 = period.start.offset('first-of', 'year').year - 2000\n    annee_2000 = period.start.offset('first-of', 'year').period('year').offset(-ecart_avec_2000)\n    taux_th_commune_2000 = menage('taux_th_commune', annee_2000)\n    taux_th_epci_2000 = menage('taux_th_epci', annee_2000)\n\n    P = parameters(period).taxation_locale.taxe_habitation\n    reduction_degrevement = base_reduction_degrevement * (taux_th_commune + taux_th_epci - (taux_th_commune_2000 + taux_th_epci_2000) * P.plafonnement.coeff_multiplicateur_taux_2000)\n    reduction_degrevement = reduction_degrevement * (reduction_degrevement > P.plafonnement.valeur_minimale_reduction_degrevement)\n\n    # Les taux de taxe d'habitation de l'année 2000 utilisés pour la réduction du plafonnement\n    # ne sont pas disponibles pour cette commune. Nous mettons donc cette réduction à zéro.\n    reduction_degrevement = where(\n        taux_th_commune_2000 + taux_th_epci_2000 == 0,\n        0,\n        reduction_degrevement,\n        )\n\n    degrevement = (\n        taxe_habitation_commune_epci_avant_degrevement\n        - plafond_taxe_habitation\n        - reduction_degrevement\n        )\n    return max_(degrevement, 0) * plafond_taxe_habitation_eligibilite\n",
+      "start_line_number": 307,
+      "stop_line_number": 349,
+      "variables": [
+        "base_nette_th_commune",
+        "base_nette_th_epci",
+        "plafond_taxe_habitation",
+        "plafond_taxe_habitation_eligibilite",
+        "taux_th_commune",
+        "taux_th_epci",
+        "taxe_habitation_commune_epci_avant_degrevement"
+      ]
+    },
+    "2020-01-01": null
+  },
+  "json_type": "number",
+  "label": "Dégrèvement de la taxe d'habitation au titre du plafonnement",
+  "name": "degrevement_plafonnement_taxe_habitation",
+  "reference": [
+    "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006069577&idArticle=LEGIARTI000006312070&dateTexte=&categorieLien=cid"
+  ],
+  "referring_variables": [
+    "prelevement_base_imposition_elevee_taxe_habitation",
+    "taxe_habitation_commune_epci_apres_degrevement_plafonnement"
+  ],
+  "start_line_number": 299,
+  "stop_line_number": 349,
+  "value_type": "float"
+}

@@ -1,0 +1,1045 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 8,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 8,
+              "lineno": 2,
+              "value": "\n    Montant après seuil de recouvrement (hors ppe)\n    NB : ce montant l'impôt correspond à une notion administrative :\n    dans certains cas, il existe des prélèvements à la source faisant\n    office d'acomptes d'impôt sur le revenu (cf. variable acomptes_ir). Ces acomptes sont comptabilisés\n    dans la feuille d'impôt comme des crédits d'impôt, mais correspondent économiquement à des montants d'impôt dus.\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 37,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 9,
+                "id": "iai",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 28,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "iai"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 30,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 36,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 37,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 9,
+                "id": "foyer_fiscal",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 57,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 10,
+                "id": "credits_impot",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 48,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "credits_impot"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 50,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 56,
+                  "end_lineno": 10,
+                  "id": "period",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 57,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 10,
+                "id": "foyer_fiscal",
+                "lineno": 10
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 11,
+                "id": "acomptes_ir",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 31,
+                  "end_col_offset": 44,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "acomptes_ir"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 11,
+                  "id": "period",
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 53,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 11,
+                "id": "foyer_fiscal",
+                "lineno": 11
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 39,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 12,
+                "id": "cehr",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 30,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "cehr"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 32,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 38,
+                  "end_lineno": 12,
+                  "id": "period",
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 39,
+              "end_lineno": 12,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 12,
+                "id": "foyer_fiscal",
+                "lineno": 12
+              },
+              "keywords": [],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 52,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 13,
+                "id": "P",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "recouvrement",
+              "col_offset": 8,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 52,
+              "end_lineno": 13,
+              "lineno": 13,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "impot_revenu",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 13,
+                "lineno": 13,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 13,
+                      "id": "period",
+                      "lineno": 13
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 26,
+                  "end_lineno": 13,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 18,
+                    "end_lineno": 13,
+                    "id": "parameters",
+                    "lineno": 13
+                  },
+                  "keywords": [],
+                  "lineno": 13
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 57,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 15,
+                "id": "pre_result",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 17,
+              "end_col_offset": 57,
+              "end_lineno": 15,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 17,
+                "end_col_offset": 50,
+                "end_lineno": 15,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 17,
+                  "end_col_offset": 36,
+                  "end_lineno": 15,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 17,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 20,
+                    "end_lineno": 15,
+                    "id": "iai",
+                    "lineno": 15
+                  },
+                  "lineno": 15,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 23,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 36,
+                    "end_lineno": 15,
+                    "id": "credits_impot",
+                    "lineno": 15
+                  }
+                },
+                "lineno": 15,
+                "op": {
+                  "ast_class": "Sub"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 39,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 50,
+                  "end_lineno": 15,
+                  "id": "acomptes_ir",
+                  "lineno": 15
+                }
+              },
+              "lineno": 15,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 53,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 57,
+                "end_lineno": 15,
+                "id": "cehr",
+                "lineno": 15
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 33,
+            "lineno": 17,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 13,
+              "end_lineno": 32,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 13,
+                "end_lineno": 25,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 9,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "seuil",
+                      "col_offset": 15,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 22,
+                      "end_lineno": 18,
+                      "lineno": 18,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 15,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 16,
+                        "end_lineno": 18,
+                        "id": "P",
+                        "lineno": 18
+                      }
+                    }
+                  ],
+                  "end_col_offset": 22,
+                  "end_lineno": 18,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 12,
+                    "end_lineno": 18,
+                    "id": "iai",
+                    "lineno": 18
+                  },
+                  "lineno": 18,
+                  "ops": [
+                    {
+                      "ast_class": "Gt"
+                    }
+                  ]
+                },
+                "lineno": 18,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 12,
+                  "end_col_offset": 28,
+                  "end_lineno": 24,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 12,
+                    "end_col_offset": 15,
+                    "end_lineno": 22,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 12,
+                      "end_col_offset": 17,
+                      "end_lineno": 21,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 12,
+                        "end_col_offset": 30,
+                        "end_lineno": 20,
+                        "left": {
+                          "ast_class": "Compare",
+                          "col_offset": 13,
+                          "comparators": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "min",
+                              "col_offset": 26,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 31,
+                              "end_lineno": 19,
+                              "lineno": 19,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 26,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 27,
+                                "end_lineno": 19,
+                                "id": "P",
+                                "lineno": 19
+                              }
+                            }
+                          ],
+                          "end_col_offset": 31,
+                          "end_lineno": 19,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 13,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 23,
+                            "end_lineno": 19,
+                            "id": "pre_result",
+                            "lineno": 19
+                          },
+                          "lineno": 19,
+                          "ops": [
+                            {
+                              "ast_class": "Lt"
+                            }
+                          ]
+                        },
+                        "lineno": 19,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 15,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 28,
+                              "end_col_offset": 29,
+                              "end_lineno": 20,
+                              "lineno": 20,
+                              "value": 0
+                            }
+                          ],
+                          "end_col_offset": 29,
+                          "end_lineno": 20,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 15,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 25,
+                            "end_lineno": 20,
+                            "id": "pre_result",
+                            "lineno": 20
+                          },
+                          "lineno": 20,
+                          "ops": [
+                            {
+                              "ast_class": "Gt"
+                            }
+                          ]
+                        }
+                      },
+                      "lineno": 19,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 14,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 17,
+                        "end_lineno": 21,
+                        "id": "iai",
+                        "lineno": 21
+                      }
+                    },
+                    "lineno": 19,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 14,
+                      "end_col_offset": 15,
+                      "end_lineno": 22,
+                      "lineno": 22,
+                      "value": 0
+                    }
+                  },
+                  "lineno": 19,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 14,
+                    "end_col_offset": 28,
+                    "end_lineno": 24,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 15,
+                      "end_col_offset": 56,
+                      "end_lineno": 23,
+                      "left": {
+                        "ast_class": "Compare",
+                        "col_offset": 16,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 30,
+                            "end_col_offset": 31,
+                            "end_lineno": 23,
+                            "lineno": 23,
+                            "value": 0
+                          }
+                        ],
+                        "end_col_offset": 31,
+                        "end_lineno": 23,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 26,
+                          "end_lineno": 23,
+                          "id": "pre_result",
+                          "lineno": 23
+                        },
+                        "lineno": 23,
+                        "ops": [
+                          {
+                            "ast_class": "LtE"
+                          }
+                        ]
+                      },
+                      "lineno": 23,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Compare",
+                        "col_offset": 36,
+                        "comparators": [
+                          {
+                            "ast_class": "Attribute",
+                            "attr": "min",
+                            "col_offset": 50,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 55,
+                            "end_lineno": 23,
+                            "lineno": 23,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 50,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 51,
+                              "end_lineno": 23,
+                              "id": "P",
+                              "lineno": 23
+                            }
+                          }
+                        ],
+                        "end_col_offset": 55,
+                        "end_lineno": 23,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 36,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 46,
+                          "end_lineno": 23,
+                          "id": "pre_result",
+                          "lineno": 23
+                        },
+                        "lineno": 23,
+                        "ops": [
+                          {
+                            "ast_class": "GtE"
+                          }
+                        ]
+                      }
+                    },
+                    "lineno": 23,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "UnaryOp",
+                      "col_offset": 15,
+                      "end_col_offset": 27,
+                      "end_lineno": 24,
+                      "lineno": 24,
+                      "op": {
+                        "ast_class": "USub"
+                      },
+                      "operand": {
+                        "ast_class": "Name",
+                        "col_offset": 17,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 27,
+                        "end_lineno": 24,
+                        "id": "pre_result",
+                        "lineno": 24
+                      }
+                    }
+                  }
+                }
+              },
+              "lineno": 18,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 13,
+                "end_lineno": 32,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 11,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "seuil",
+                      "col_offset": 18,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 26,
+                      "lineno": 26,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 18,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 19,
+                        "end_lineno": 26,
+                        "id": "P",
+                        "lineno": 26
+                      }
+                    }
+                  ],
+                  "end_col_offset": 25,
+                  "end_lineno": 26,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 14,
+                    "end_lineno": 26,
+                    "id": "iai",
+                    "lineno": 26
+                  },
+                  "lineno": 26,
+                  "ops": [
+                    {
+                      "ast_class": "LtE"
+                    }
+                  ]
+                },
+                "lineno": 26,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 12,
+                  "end_col_offset": 17,
+                  "end_lineno": 31,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 12,
+                    "end_col_offset": 27,
+                    "end_lineno": 28,
+                    "left": {
+                      "ast_class": "Compare",
+                      "col_offset": 13,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 26,
+                          "end_col_offset": 27,
+                          "end_lineno": 27,
+                          "lineno": 27,
+                          "value": 0
+                        }
+                      ],
+                      "end_col_offset": 27,
+                      "end_lineno": 27,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 13,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 23,
+                        "end_lineno": 27,
+                        "id": "pre_result",
+                        "lineno": 27
+                      },
+                      "lineno": 27,
+                      "ops": [
+                        {
+                          "ast_class": "Lt"
+                        }
+                      ]
+                    },
+                    "lineno": 27,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "UnaryOp",
+                      "col_offset": 15,
+                      "end_col_offset": 26,
+                      "end_lineno": 28,
+                      "lineno": 28,
+                      "op": {
+                        "ast_class": "USub"
+                      },
+                      "operand": {
+                        "ast_class": "Name",
+                        "col_offset": 16,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 26,
+                        "end_lineno": 28,
+                        "id": "pre_result",
+                        "lineno": 28
+                      }
+                    }
+                  },
+                  "lineno": 27,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 14,
+                    "end_col_offset": 17,
+                    "end_lineno": 31,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 14,
+                      "end_col_offset": 15,
+                      "end_lineno": 30,
+                      "left": {
+                        "ast_class": "Compare",
+                        "col_offset": 15,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 29,
+                            "end_col_offset": 30,
+                            "end_lineno": 29,
+                            "lineno": 29,
+                            "value": 0
+                          }
+                        ],
+                        "end_col_offset": 30,
+                        "end_lineno": 29,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 15,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 25,
+                          "end_lineno": 29,
+                          "id": "pre_result",
+                          "lineno": 29
+                        },
+                        "lineno": 29,
+                        "ops": [
+                          {
+                            "ast_class": "GtE"
+                          }
+                        ]
+                      },
+                      "lineno": 29,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Constant",
+                        "col_offset": 14,
+                        "end_col_offset": 15,
+                        "end_lineno": 30,
+                        "lineno": 30,
+                        "value": 0
+                      }
+                    },
+                    "lineno": 29,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 14,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 17,
+                      "end_lineno": 31,
+                      "id": "iai",
+                      "lineno": 31
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 33,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nMontant après seuil de recouvrement (hors ppe)\nNB : ce montant l'impôt correspond à une notion administrative :\ndans certains cas, il existe des prélèvements à la source faisant\noffice d'acomptes d'impôt sur le revenu (cf. variable acomptes_ir). Ces acomptes sont comptabilisés\ndans la feuille d'impôt comme des crédits d'impôt, mais correspondent économiquement à des montants d'impôt dus.\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "parameters": [
+        "impot_revenu.recouvrement.min",
+        "impot_revenu.recouvrement.seuil"
+      ],
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Montant après seuil de recouvrement (hors ppe)\n    NB : ce montant l'impôt correspond à une notion administrative :\n    dans certains cas, il existe des prélèvements à la source faisant\n    office d'acomptes d'impôt sur le revenu (cf. variable acomptes_ir). Ces acomptes sont comptabilisés\n    dans la feuille d'impôt comme des crédits d'impôt, mais correspondent économiquement à des montants d'impôt dus.\n    '''\n    iai = foyer_fiscal('iai', period)\n    credits_impot = foyer_fiscal('credits_impot', period)\n    acomptes_ir = foyer_fiscal('acomptes_ir', period)\n    cehr = foyer_fiscal('cehr', period)\n    P = parameters(period).impot_revenu.recouvrement\n\n    pre_result = iai - credits_impot - acomptes_ir + cehr\n\n    return (\n        (iai > P.seuil) * (\n            (pre_result < P.min)\n            * (pre_result > 0)\n            * iai\n            * 0\n            + ((pre_result <= 0) + (pre_result >= P.min))\n            * (- pre_result)\n            )\n        + (iai <= P.seuil) * (\n            (pre_result < 0)\n            * (-pre_result)\n            + (pre_result >= 0)\n            * 0\n            * iai\n            )\n        )\n",
+      "start_line_number": 2120,
+      "stop_line_number": 2153,
+      "variables": [
+        "acomptes_ir",
+        "cehr",
+        "credits_impot",
+        "iai"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Impôt sur le revenu des personnes physiques restant à payer, après prise en compte des éventuels acomptes",
+  "name": "irpp",
+  "reference": [
+    "http://www.impots.gouv.fr/portal/dgi/public/particuliers.impot?pageId=part_impot_revenu&espId=1&impot=IR&sfid=50"
+  ],
+  "referring_variables": [
+    "bouclier_imp_gen",
+    "foyer_impose",
+    "irpp_economique",
+    "taux_moyen_imposition"
+  ],
+  "start_line_number": 2113,
+  "stop_line_number": 2153,
+  "value_type": "float"
+}

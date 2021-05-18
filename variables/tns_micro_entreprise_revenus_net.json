@@ -1,0 +1,335 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/revenus/activite/non_salarie.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 2,
+                "id": "tns_micro_entreprise_benefice",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 76,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "tns_micro_entreprise_benefice"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 85,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 92,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 3,
+                "id": "taux_cotisations_sociales",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "cotisations_sociales",
+              "col_offset": 32,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 92,
+              "end_lineno": 3,
+              "lineno": 3,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "micro_entreprise",
+                "col_offset": 32,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 71,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "tns",
+                  "col_offset": 32,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 54,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 43,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 49,
+                        "end_lineno": 3,
+                        "id": "period",
+                        "lineno": 3
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 32,
+                    "end_col_offset": 50,
+                    "end_lineno": 3,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 32,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 42,
+                      "end_lineno": 3,
+                      "id": "parameters",
+                      "lineno": 3
+                    },
+                    "keywords": [],
+                    "lineno": 3
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 101,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 4,
+                "id": "tns_micro_entreprise_charges_sociales",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 44,
+              "end_col_offset": 101,
+              "end_lineno": 4,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 44,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 73,
+                "end_lineno": 4,
+                "id": "tns_micro_entreprise_benefice",
+                "lineno": 4
+              },
+              "lineno": 4,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 76,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 101,
+                "end_lineno": 4,
+                "id": "taux_cotisations_sociales",
+                "lineno": 4
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 83,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 5,
+                "id": "revenus",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 14,
+              "end_col_offset": 83,
+              "end_lineno": 5,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 5,
+                "id": "tns_micro_entreprise_benefice",
+                "lineno": 5
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 46,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 83,
+                "end_lineno": 5,
+                "id": "tns_micro_entreprise_charges_sociales",
+                "lineno": 5
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 18,
+            "end_lineno": 7,
+            "lineno": 7,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 18,
+              "end_lineno": 7,
+              "id": "revenus",
+              "lineno": 7
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 18,
+        "end_lineno": 7,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/revenus/activite/non_salarie.py",
+      "source_code": "def formula(individu, period, parameters):\n    tns_micro_entreprise_benefice = individu('tns_micro_entreprise_benefice', period)\n    taux_cotisations_sociales = parameters(period).tns.micro_entreprise.cotisations_sociales\n    tns_micro_entreprise_charges_sociales = tns_micro_entreprise_benefice * taux_cotisations_sociales\n    revenus = tns_micro_entreprise_benefice - tns_micro_entreprise_charges_sociales\n\n    return revenus\n",
+      "start_line_number": 2046,
+      "stop_line_number": 2053,
+      "variables": [
+        "tns_micro_entreprise_benefice"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Revenu d'un TNS dans une micro-entreprise",
+  "name": "tns_micro_entreprise_revenus_net",
+  "start_line_number": 2040,
+  "stop_line_number": 2053,
+  "value_type": "float"
+}

@@ -1,0 +1,270 @@
+{
+  "default_value": "celibataire",
+  "definition_period": "month",
+  "dtype": "int16",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 79,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 3,
+                "id": "deux_adultes",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 19,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 78,
+                  "end_col_offset": 79,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": 2
+                }
+              ],
+              "end_col_offset": 79,
+              "end_lineno": 3,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT",
+                    "col_offset": 52,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 73,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 52,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 63,
+                      "end_lineno": 3,
+                      "id": "FoyerFiscal",
+                      "lineno": 3
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 19,
+                "end_col_offset": 74,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "nb_persons",
+                  "col_offset": 19,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 51,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "foyer_fiscal",
+                    "col_offset": 19,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 40,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 27,
+                      "end_lineno": 3,
+                      "id": "individu",
+                      "lineno": 3
+                    }
+                  }
+                },
+                "keywords": [],
+                "lineno": 3
+              },
+              "lineno": 3,
+              "ops": [
+                {
+                  "ast_class": "GtE"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 88,
+            "end_lineno": 4,
+            "lineno": 4,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 17,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 29,
+                  "end_lineno": 4,
+                  "id": "deux_adultes",
+                  "lineno": 4
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "pacse",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 55,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 31,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 49,
+                    "end_lineno": 4,
+                    "id": "TypesStatutMarital",
+                    "lineno": 4
+                  }
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "celibataire",
+                  "col_offset": 57,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 87,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 57,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 75,
+                    "end_lineno": 4,
+                    "id": "TypesStatutMarital",
+                    "lineno": 4
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 88,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 4,
+                "id": "where",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 88,
+        "end_lineno": 4,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+      "source_code": "def formula(individu, period, parameters):\n    # Par défault, on considère que deux adultes dans un foyer fiscal sont PACSÉS\n    deux_adultes = individu.foyer_fiscal.nb_persons(FoyerFiscal.DECLARANT) >= 2\n    return where(deux_adultes, TypesStatutMarital.pacse, TypesStatutMarital.celibataire)\n",
+      "start_line_number": 82,
+      "stop_line_number": 86
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "string",
+  "label": "Statut marital",
+  "name": "statut_marital",
+  "possible_values": {
+    "celibataire": "Celibataire",
+    "divorce": "Divorcé",
+    "jeune_veuf": "Jeune veuf",
+    "marie": "Marié",
+    "non_renseigne": "Non renseigné",
+    "pacse": "Pacsé",
+    "veuf": "Veuf"
+  },
+  "referring_variables": [
+    "bourse_criteres_sociaux_etudiant_autonome",
+    "rsa_activite_individu"
+  ],
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 73,
+  "stop_line_number": 86,
+  "value_type": "Enum"
+}

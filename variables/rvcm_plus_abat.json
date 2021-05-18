@@ -1,0 +1,248 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 4,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 4,
+              "lineno": 2,
+              "value": "\n    Revenu catégoriel avec abattement de 40% réintégré.\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 68,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 5,
+                "id": "rev_cat_rvcm",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 32,
+                  "end_col_offset": 59,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "revenu_categoriel_capital"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 61,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 67,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 19,
+              "end_col_offset": 68,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 19,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 5,
+                "id": "foyer_fiscal",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 97,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 6,
+                "id": "rfr_rvcm_abattements_a_reintegrer",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 53,
+                  "end_col_offset": 88,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "rfr_rvcm_abattements_a_reintegrer"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 90,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 96,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 40,
+              "end_col_offset": 97,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 40,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 52,
+                "end_lineno": 6,
+                "id": "foyer_fiscal",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 8,
+            "lineno": 8,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 59,
+              "end_lineno": 8,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 8,
+                "id": "rev_cat_rvcm",
+                "lineno": 8
+              },
+              "lineno": 8,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 59,
+                "end_lineno": 8,
+                "id": "rfr_rvcm_abattements_a_reintegrer",
+                "lineno": 8
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 59,
+        "end_lineno": 8,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nRevenu catégoriel avec abattement de 40% réintégré.\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Revenu catégoriel avec abattement de 40% réintégré.\n    '''\n    rev_cat_rvcm = foyer_fiscal('revenu_categoriel_capital', period)\n    rfr_rvcm_abattements_a_reintegrer = foyer_fiscal('rfr_rvcm_abattements_a_reintegrer', period)\n\n    return rev_cat_rvcm + rfr_rvcm_abattements_a_reintegrer\n",
+      "start_line_number": 637,
+      "stop_line_number": 645,
+      "variables": [
+        "revenu_categoriel_capital",
+        "rfr_rvcm_abattements_a_reintegrer"
+      ]
+    },
+    "2011-01-01": null
+  },
+  "json_type": "number",
+  "label": "rvcm_plus_abat",
+  "name": "rvcm_plus_abat",
+  "referring_variables": [
+    "bouclier_rev"
+  ],
+  "start_line_number": 630,
+  "stop_line_number": 645,
+  "value_type": "float"
+}

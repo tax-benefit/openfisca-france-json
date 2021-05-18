@@ -1,0 +1,360 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 74,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 2,
+                "id": "af_majoration_enfant",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 43,
+                  "end_col_offset": 65,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "af_majoration_enfant"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 67,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 73,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 27,
+              "end_col_offset": 74,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 27,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 2,
+                  "id": "famille",
+                  "lineno": 2
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 92,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 3,
+                "id": "af_majoration_enfants_famille",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 48,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 3,
+                  "id": "af_majoration_enfant",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 92,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 47,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 36,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 43,
+                  "end_lineno": 3,
+                  "id": "famille",
+                  "lineno": 3
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 70,
+                  "end_col_offset": 91,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "ENFANT",
+                    "col_offset": 77,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 91,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 77,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 84,
+                      "end_lineno": 3,
+                      "id": "Famille",
+                      "lineno": 3
+                    }
+                  }
+                }
+              ],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 62,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 5,
+                "id": "af_taux_modulation",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 53,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "af_taux_modulation"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 55,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 61,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 62,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 5,
+                "id": "famille",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 6,
+                "id": "af_majoration_enfants_module",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 35,
+              "end_col_offset": 85,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 35,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 64,
+                "end_lineno": 6,
+                "id": "af_majoration_enfants_famille",
+                "lineno": 6
+              },
+              "lineno": 6,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 67,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 85,
+                "end_lineno": 6,
+                "id": "af_taux_modulation",
+                "lineno": 6
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 39,
+            "end_lineno": 8,
+            "lineno": 8,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 39,
+              "end_lineno": 8,
+              "id": "af_majoration_enfants_module",
+              "lineno": 8
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 39,
+        "end_lineno": 8,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
+      "source_code": "def formula(famille, period):\n    af_majoration_enfant = famille.members('af_majoration_enfant', period)\n    af_majoration_enfants_famille = famille.sum(af_majoration_enfant, role = Famille.ENFANT)\n\n    af_taux_modulation = famille('af_taux_modulation', period)\n    af_majoration_enfants_module = af_majoration_enfants_famille * af_taux_modulation\n\n    return af_majoration_enfants_module\n",
+      "start_line_number": 219,
+      "stop_line_number": 227,
+      "variables": [
+        "af_taux_modulation"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Allocations familiales - majoration pour âge",
+  "name": "af_majoration",
+  "referring_variables": [
+    "af",
+    "af_complement_degressif",
+    "api"
+  ],
+  "start_line_number": 213,
+  "stop_line_number": 227,
+  "value_type": "float"
+}

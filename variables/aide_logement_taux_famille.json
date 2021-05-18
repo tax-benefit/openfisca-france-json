@@ -1,0 +1,1989 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 54,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 2,
+                "id": "al",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "aides_logement",
+              "col_offset": 9,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 54,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 9,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 20,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 26,
+                      "end_lineno": 2,
+                      "id": "period",
+                      "lineno": 2
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 9,
+                  "end_col_offset": 27,
+                  "end_lineno": 2,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 19,
+                    "end_lineno": 2,
+                    "id": "parameters",
+                    "lineno": 2
+                  },
+                  "keywords": [],
+                  "lineno": 2
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 3,
+                "id": "couple",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 21,
+                  "end_col_offset": 32,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "al_couple"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 41,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 3,
+                "id": "famille",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 4,
+                "id": "al_nb_pac",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 50,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "al_nb_personnes_a_charge"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 52,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 59,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 4,
+                "id": "famille",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 5,
+                "id": "residence_dom",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 60,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "residence_dom"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 69,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "menage",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "demandeur",
+                  "col_offset": 20,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 37,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 20,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 27,
+                    "end_lineno": 5,
+                    "id": "famille",
+                    "lineno": 5
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 15,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 7,
+                "id": "TF_metropole",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 85,
+              "end_lineno": 14,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 65,
+                "end_lineno": 13,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 65,
+                  "end_lineno": 12,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 65,
+                    "end_lineno": 11,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 65,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 8,
+                        "end_col_offset": 79,
+                        "end_lineno": 9,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 8,
+                          "end_col_offset": 83,
+                          "end_lineno": 8,
+                          "left": {
+                            "ast_class": "BinOp",
+                            "col_offset": 8,
+                            "end_col_offset": 64,
+                            "end_lineno": 8,
+                            "left": {
+                              "ast_class": "Attribute",
+                              "attr": "taux_1_adulte",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 47,
+                              "end_lineno": 8,
+                              "lineno": 8,
+                              "value": {
+                                "ast_class": "Attribute",
+                                "attr": "taux_participation_fam",
+                                "col_offset": 8,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 33,
+                                "end_lineno": 8,
+                                "lineno": 8,
+                                "value": {
+                                  "ast_class": "Name",
+                                  "col_offset": 8,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 10,
+                                  "end_lineno": 8,
+                                  "id": "al",
+                                  "lineno": 8
+                                }
+                              }
+                            },
+                            "lineno": 8,
+                            "op": {
+                              "ast_class": "Mult"
+                            },
+                            "right": {
+                              "args": [
+                                {
+                                  "ast_class": "Name",
+                                  "col_offset": 56,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 62,
+                                  "end_lineno": 8,
+                                  "id": "couple",
+                                  "lineno": 8
+                                }
+                              ],
+                              "ast_class": "Call",
+                              "col_offset": 51,
+                              "end_col_offset": 63,
+                              "end_lineno": 8,
+                              "func": {
+                                "ast_class": "Name",
+                                "col_offset": 51,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 55,
+                                "end_lineno": 8,
+                                "id": "not_",
+                                "lineno": 8
+                              },
+                              "keywords": [],
+                              "lineno": 8
+                            }
+                          },
+                          "lineno": 8,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Compare",
+                            "col_offset": 68,
+                            "comparators": [
+                              {
+                                "ast_class": "Constant",
+                                "col_offset": 81,
+                                "end_col_offset": 82,
+                                "end_lineno": 8,
+                                "lineno": 8,
+                                "value": 0
+                              }
+                            ],
+                            "end_col_offset": 82,
+                            "end_lineno": 8,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 68,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 77,
+                              "end_lineno": 8,
+                              "id": "al_nb_pac",
+                              "lineno": 8
+                            },
+                            "lineno": 8,
+                            "ops": [
+                              {
+                                "ast_class": "Eq"
+                              }
+                            ]
+                          }
+                        },
+                        "lineno": 8,
+                        "op": {
+                          "ast_class": "Add"
+                        },
+                        "right": {
+                          "ast_class": "BinOp",
+                          "col_offset": 10,
+                          "end_col_offset": 79,
+                          "end_lineno": 9,
+                          "left": {
+                            "ast_class": "BinOp",
+                            "col_offset": 10,
+                            "end_col_offset": 60,
+                            "end_lineno": 9,
+                            "left": {
+                              "ast_class": "Attribute",
+                              "attr": "taux_2_adulte",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 49,
+                              "end_lineno": 9,
+                              "lineno": 9,
+                              "value": {
+                                "ast_class": "Attribute",
+                                "attr": "taux_participation_fam",
+                                "col_offset": 10,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 35,
+                                "end_lineno": 9,
+                                "lineno": 9,
+                                "value": {
+                                  "ast_class": "Name",
+                                  "col_offset": 10,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 12,
+                                  "end_lineno": 9,
+                                  "id": "al",
+                                  "lineno": 9
+                                }
+                              }
+                            },
+                            "lineno": 9,
+                            "op": {
+                              "ast_class": "Mult"
+                            },
+                            "right": {
+                              "ast_class": "Name",
+                              "col_offset": 53,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 59,
+                              "end_lineno": 9,
+                              "id": "couple",
+                              "lineno": 9
+                            }
+                          },
+                          "lineno": 9,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Compare",
+                            "col_offset": 64,
+                            "comparators": [
+                              {
+                                "ast_class": "Constant",
+                                "col_offset": 77,
+                                "end_col_offset": 78,
+                                "end_lineno": 9,
+                                "lineno": 9,
+                                "value": 0
+                              }
+                            ],
+                            "end_col_offset": 78,
+                            "end_lineno": 9,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 64,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 73,
+                              "end_lineno": 9,
+                              "id": "al_nb_pac",
+                              "lineno": 9
+                            },
+                            "lineno": 9,
+                            "ops": [
+                              {
+                                "ast_class": "Eq"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "lineno": 8,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 10,
+                        "end_col_offset": 65,
+                        "end_lineno": 10,
+                        "left": {
+                          "ast_class": "Attribute",
+                          "attr": "taux_1_enf",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 46,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "taux_participation_fam",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 35,
+                            "end_lineno": 10,
+                            "lineno": 10,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 12,
+                              "end_lineno": 10,
+                              "id": "al",
+                              "lineno": 10
+                            }
+                          }
+                        },
+                        "lineno": 10,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 50,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 63,
+                              "end_col_offset": 64,
+                              "end_lineno": 10,
+                              "lineno": 10,
+                              "value": 1
+                            }
+                          ],
+                          "end_col_offset": 64,
+                          "end_lineno": 10,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 50,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 59,
+                            "end_lineno": 10,
+                            "id": "al_nb_pac",
+                            "lineno": 10
+                          },
+                          "lineno": 10,
+                          "ops": [
+                            {
+                              "ast_class": "Eq"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "lineno": 8,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 65,
+                      "end_lineno": 11,
+                      "left": {
+                        "ast_class": "Attribute",
+                        "attr": "taux_2_enf",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 46,
+                        "end_lineno": 11,
+                        "lineno": 11,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "taux_participation_fam",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 35,
+                          "end_lineno": 11,
+                          "lineno": 11,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 12,
+                            "end_lineno": 11,
+                            "id": "al",
+                            "lineno": 11
+                          }
+                        }
+                      },
+                      "lineno": 11,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Compare",
+                        "col_offset": 50,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 63,
+                            "end_col_offset": 64,
+                            "end_lineno": 11,
+                            "lineno": 11,
+                            "value": 2
+                          }
+                        ],
+                        "end_col_offset": 64,
+                        "end_lineno": 11,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 50,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 59,
+                          "end_lineno": 11,
+                          "id": "al_nb_pac",
+                          "lineno": 11
+                        },
+                        "lineno": 11,
+                        "ops": [
+                          {
+                            "ast_class": "Eq"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "lineno": 8,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 65,
+                    "end_lineno": 12,
+                    "left": {
+                      "ast_class": "Attribute",
+                      "attr": "taux_3_enf",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 46,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "taux_participation_fam",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 35,
+                        "end_lineno": 12,
+                        "lineno": 12,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 12,
+                          "end_lineno": 12,
+                          "id": "al",
+                          "lineno": 12
+                        }
+                      }
+                    },
+                    "lineno": 12,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 50,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 63,
+                          "end_col_offset": 64,
+                          "end_lineno": 12,
+                          "lineno": 12,
+                          "value": 3
+                        }
+                      ],
+                      "end_col_offset": 64,
+                      "end_lineno": 12,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 50,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 59,
+                        "end_lineno": 12,
+                        "id": "al_nb_pac",
+                        "lineno": 12
+                      },
+                      "lineno": 12,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "lineno": 8,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 65,
+                  "end_lineno": 13,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_4_enf",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 46,
+                    "end_lineno": 13,
+                    "lineno": 13,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "taux_participation_fam",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 35,
+                      "end_lineno": 13,
+                      "lineno": 13,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 12,
+                        "end_lineno": 13,
+                        "id": "al",
+                        "lineno": 13
+                      }
+                    }
+                  },
+                  "lineno": 13,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 50,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 63,
+                        "end_col_offset": 64,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": 4
+                      }
+                    ],
+                    "end_col_offset": 64,
+                    "end_lineno": 13,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 50,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 59,
+                      "end_lineno": 13,
+                      "id": "al_nb_pac",
+                      "lineno": 13
+                    },
+                    "lineno": 13,
+                    "ops": [
+                      {
+                        "ast_class": "GtE"
+                      }
+                    ]
+                  }
+                }
+              },
+              "lineno": 8,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 85,
+                "end_lineno": 14,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 67,
+                  "end_lineno": 14,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_enf_supp",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 49,
+                    "end_lineno": 14,
+                    "lineno": 14,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "taux_participation_fam",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 35,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 12,
+                        "end_lineno": 14,
+                        "id": "al",
+                        "lineno": 14
+                      }
+                    }
+                  },
+                  "lineno": 14,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 53,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 65,
+                        "end_col_offset": 66,
+                        "end_lineno": 14,
+                        "lineno": 14,
+                        "value": 4
+                      }
+                    ],
+                    "end_col_offset": 66,
+                    "end_lineno": 14,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 53,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 62,
+                      "end_lineno": 14,
+                      "id": "al_nb_pac",
+                      "lineno": 14
+                    },
+                    "lineno": 14,
+                    "ops": [
+                      {
+                        "ast_class": "Gt"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 14,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 71,
+                  "end_col_offset": 84,
+                  "end_lineno": 14,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 71,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 80,
+                    "end_lineno": 14,
+                    "id": "al_nb_pac",
+                    "lineno": 14
+                  },
+                  "lineno": 14,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Constant",
+                    "col_offset": 83,
+                    "end_col_offset": 84,
+                    "end_lineno": 14,
+                    "lineno": 14,
+                    "value": 4
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 26,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 17,
+                "id": "TF_dom",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 64,
+              "end_lineno": 25,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 64,
+                "end_lineno": 24,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 64,
+                  "end_lineno": 23,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 64,
+                    "end_lineno": 22,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 64,
+                      "end_lineno": 21,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 8,
+                        "end_col_offset": 64,
+                        "end_lineno": 20,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 8,
+                          "end_col_offset": 75,
+                          "end_lineno": 19,
+                          "left": {
+                            "ast_class": "BinOp",
+                            "col_offset": 8,
+                            "end_col_offset": 79,
+                            "end_lineno": 18,
+                            "left": {
+                              "ast_class": "BinOp",
+                              "col_offset": 8,
+                              "end_col_offset": 60,
+                              "end_lineno": 18,
+                              "left": {
+                                "ast_class": "Attribute",
+                                "attr": "taux1",
+                                "col_offset": 8,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 43,
+                                "end_lineno": 18,
+                                "lineno": 18,
+                                "value": {
+                                  "ast_class": "Attribute",
+                                  "attr": "dom",
+                                  "col_offset": 8,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 37,
+                                  "end_lineno": 18,
+                                  "lineno": 18,
+                                  "value": {
+                                    "ast_class": "Attribute",
+                                    "attr": "taux_participation_fam",
+                                    "col_offset": 8,
+                                    "ctx": {
+                                      "ast_class": "Load"
+                                    },
+                                    "end_col_offset": 33,
+                                    "end_lineno": 18,
+                                    "lineno": 18,
+                                    "value": {
+                                      "ast_class": "Name",
+                                      "col_offset": 8,
+                                      "ctx": {
+                                        "ast_class": "Load"
+                                      },
+                                      "end_col_offset": 10,
+                                      "end_lineno": 18,
+                                      "id": "al",
+                                      "lineno": 18
+                                    }
+                                  }
+                                }
+                              },
+                              "lineno": 18,
+                              "op": {
+                                "ast_class": "Mult"
+                              },
+                              "right": {
+                                "args": [
+                                  {
+                                    "ast_class": "Name",
+                                    "col_offset": 52,
+                                    "ctx": {
+                                      "ast_class": "Load"
+                                    },
+                                    "end_col_offset": 58,
+                                    "end_lineno": 18,
+                                    "id": "couple",
+                                    "lineno": 18
+                                  }
+                                ],
+                                "ast_class": "Call",
+                                "col_offset": 47,
+                                "end_col_offset": 59,
+                                "end_lineno": 18,
+                                "func": {
+                                  "ast_class": "Name",
+                                  "col_offset": 47,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 51,
+                                  "end_lineno": 18,
+                                  "id": "not_",
+                                  "lineno": 18
+                                },
+                                "keywords": [],
+                                "lineno": 18
+                              }
+                            },
+                            "lineno": 18,
+                            "op": {
+                              "ast_class": "Mult"
+                            },
+                            "right": {
+                              "ast_class": "Compare",
+                              "col_offset": 64,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 77,
+                                  "end_col_offset": 78,
+                                  "end_lineno": 18,
+                                  "lineno": 18,
+                                  "value": 0
+                                }
+                              ],
+                              "end_col_offset": 78,
+                              "end_lineno": 18,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 64,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 73,
+                                "end_lineno": 18,
+                                "id": "al_nb_pac",
+                                "lineno": 18
+                              },
+                              "lineno": 18,
+                              "ops": [
+                                {
+                                  "ast_class": "Eq"
+                                }
+                              ]
+                            }
+                          },
+                          "lineno": 18,
+                          "op": {
+                            "ast_class": "Add"
+                          },
+                          "right": {
+                            "ast_class": "BinOp",
+                            "col_offset": 10,
+                            "end_col_offset": 75,
+                            "end_lineno": 19,
+                            "left": {
+                              "ast_class": "BinOp",
+                              "col_offset": 10,
+                              "end_col_offset": 56,
+                              "end_lineno": 19,
+                              "left": {
+                                "ast_class": "Attribute",
+                                "attr": "taux2",
+                                "col_offset": 10,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 45,
+                                "end_lineno": 19,
+                                "lineno": 19,
+                                "value": {
+                                  "ast_class": "Attribute",
+                                  "attr": "dom",
+                                  "col_offset": 10,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 39,
+                                  "end_lineno": 19,
+                                  "lineno": 19,
+                                  "value": {
+                                    "ast_class": "Attribute",
+                                    "attr": "taux_participation_fam",
+                                    "col_offset": 10,
+                                    "ctx": {
+                                      "ast_class": "Load"
+                                    },
+                                    "end_col_offset": 35,
+                                    "end_lineno": 19,
+                                    "lineno": 19,
+                                    "value": {
+                                      "ast_class": "Name",
+                                      "col_offset": 10,
+                                      "ctx": {
+                                        "ast_class": "Load"
+                                      },
+                                      "end_col_offset": 12,
+                                      "end_lineno": 19,
+                                      "id": "al",
+                                      "lineno": 19
+                                    }
+                                  }
+                                }
+                              },
+                              "lineno": 19,
+                              "op": {
+                                "ast_class": "Mult"
+                              },
+                              "right": {
+                                "ast_class": "Name",
+                                "col_offset": 49,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 55,
+                                "end_lineno": 19,
+                                "id": "couple",
+                                "lineno": 19
+                              }
+                            },
+                            "lineno": 19,
+                            "op": {
+                              "ast_class": "Mult"
+                            },
+                            "right": {
+                              "ast_class": "Compare",
+                              "col_offset": 60,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 73,
+                                  "end_col_offset": 74,
+                                  "end_lineno": 19,
+                                  "lineno": 19,
+                                  "value": 0
+                                }
+                              ],
+                              "end_col_offset": 74,
+                              "end_lineno": 19,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 60,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 69,
+                                "end_lineno": 19,
+                                "id": "al_nb_pac",
+                                "lineno": 19
+                              },
+                              "lineno": 19,
+                              "ops": [
+                                {
+                                  "ast_class": "Eq"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "lineno": 18,
+                        "op": {
+                          "ast_class": "Add"
+                        },
+                        "right": {
+                          "ast_class": "BinOp",
+                          "col_offset": 10,
+                          "end_col_offset": 64,
+                          "end_lineno": 20,
+                          "left": {
+                            "ast_class": "Attribute",
+                            "attr": "taux3",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 45,
+                            "end_lineno": 20,
+                            "lineno": 20,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "dom",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 39,
+                              "end_lineno": 20,
+                              "lineno": 20,
+                              "value": {
+                                "ast_class": "Attribute",
+                                "attr": "taux_participation_fam",
+                                "col_offset": 10,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 35,
+                                "end_lineno": 20,
+                                "lineno": 20,
+                                "value": {
+                                  "ast_class": "Name",
+                                  "col_offset": 10,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 12,
+                                  "end_lineno": 20,
+                                  "id": "al",
+                                  "lineno": 20
+                                }
+                              }
+                            }
+                          },
+                          "lineno": 20,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Compare",
+                            "col_offset": 49,
+                            "comparators": [
+                              {
+                                "ast_class": "Constant",
+                                "col_offset": 62,
+                                "end_col_offset": 63,
+                                "end_lineno": 20,
+                                "lineno": 20,
+                                "value": 1
+                              }
+                            ],
+                            "end_col_offset": 63,
+                            "end_lineno": 20,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 49,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 58,
+                              "end_lineno": 20,
+                              "id": "al_nb_pac",
+                              "lineno": 20
+                            },
+                            "lineno": 20,
+                            "ops": [
+                              {
+                                "ast_class": "Eq"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "lineno": 18,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 10,
+                        "end_col_offset": 64,
+                        "end_lineno": 21,
+                        "left": {
+                          "ast_class": "Attribute",
+                          "attr": "taux4",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 45,
+                          "end_lineno": 21,
+                          "lineno": 21,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "dom",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 39,
+                            "end_lineno": 21,
+                            "lineno": 21,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "taux_participation_fam",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 35,
+                              "end_lineno": 21,
+                              "lineno": 21,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 10,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 12,
+                                "end_lineno": 21,
+                                "id": "al",
+                                "lineno": 21
+                              }
+                            }
+                          }
+                        },
+                        "lineno": 21,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 49,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 62,
+                              "end_col_offset": 63,
+                              "end_lineno": 21,
+                              "lineno": 21,
+                              "value": 2
+                            }
+                          ],
+                          "end_col_offset": 63,
+                          "end_lineno": 21,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 49,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 58,
+                            "end_lineno": 21,
+                            "id": "al_nb_pac",
+                            "lineno": 21
+                          },
+                          "lineno": 21,
+                          "ops": [
+                            {
+                              "ast_class": "Eq"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "lineno": 18,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 64,
+                      "end_lineno": 22,
+                      "left": {
+                        "ast_class": "Attribute",
+                        "attr": "taux5",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 22,
+                        "lineno": 22,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "dom",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 39,
+                          "end_lineno": 22,
+                          "lineno": 22,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "taux_participation_fam",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 35,
+                            "end_lineno": 22,
+                            "lineno": 22,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 12,
+                              "end_lineno": 22,
+                              "id": "al",
+                              "lineno": 22
+                            }
+                          }
+                        }
+                      },
+                      "lineno": 22,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Compare",
+                        "col_offset": 49,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 62,
+                            "end_col_offset": 63,
+                            "end_lineno": 22,
+                            "lineno": 22,
+                            "value": 3
+                          }
+                        ],
+                        "end_col_offset": 63,
+                        "end_lineno": 22,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 49,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 58,
+                          "end_lineno": 22,
+                          "id": "al_nb_pac",
+                          "lineno": 22
+                        },
+                        "lineno": 22,
+                        "ops": [
+                          {
+                            "ast_class": "Eq"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "lineno": 18,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 64,
+                    "end_lineno": 23,
+                    "left": {
+                      "ast_class": "Attribute",
+                      "attr": "taux6",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 23,
+                      "lineno": 23,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "dom",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 39,
+                        "end_lineno": 23,
+                        "lineno": 23,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "taux_participation_fam",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 35,
+                          "end_lineno": 23,
+                          "lineno": 23,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 12,
+                            "end_lineno": 23,
+                            "id": "al",
+                            "lineno": 23
+                          }
+                        }
+                      }
+                    },
+                    "lineno": 23,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 49,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 62,
+                          "end_col_offset": 63,
+                          "end_lineno": 23,
+                          "lineno": 23,
+                          "value": 4
+                        }
+                      ],
+                      "end_col_offset": 63,
+                      "end_lineno": 23,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 49,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 58,
+                        "end_lineno": 23,
+                        "id": "al_nb_pac",
+                        "lineno": 23
+                      },
+                      "lineno": 23,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "lineno": 18,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 64,
+                  "end_lineno": 24,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "taux7",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 45,
+                    "end_lineno": 24,
+                    "lineno": 24,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "dom",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 39,
+                      "end_lineno": 24,
+                      "lineno": 24,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "taux_participation_fam",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 35,
+                        "end_lineno": 24,
+                        "lineno": 24,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 12,
+                          "end_lineno": 24,
+                          "id": "al",
+                          "lineno": 24
+                        }
+                      }
+                    }
+                  },
+                  "lineno": 24,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 49,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 62,
+                        "end_col_offset": 63,
+                        "end_lineno": 24,
+                        "lineno": 24,
+                        "value": 5
+                      }
+                    ],
+                    "end_col_offset": 63,
+                    "end_lineno": 24,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 49,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 58,
+                      "end_lineno": 24,
+                      "id": "al_nb_pac",
+                      "lineno": 24
+                    },
+                    "lineno": 24,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  }
+                }
+              },
+              "lineno": 18,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 64,
+                "end_lineno": 25,
+                "left": {
+                  "ast_class": "Attribute",
+                  "attr": "taux8",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 45,
+                  "end_lineno": 25,
+                  "lineno": 25,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "dom",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 25,
+                    "lineno": 25,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "taux_participation_fam",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 35,
+                      "end_lineno": 25,
+                      "lineno": 25,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 12,
+                        "end_lineno": 25,
+                        "id": "al",
+                        "lineno": 25
+                      }
+                    }
+                  }
+                },
+                "lineno": 25,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Compare",
+                  "col_offset": 49,
+                  "comparators": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 62,
+                      "end_col_offset": 63,
+                      "end_lineno": 25,
+                      "lineno": 25,
+                      "value": 6
+                    }
+                  ],
+                  "end_col_offset": 63,
+                  "end_lineno": 25,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 49,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 58,
+                    "end_lineno": 25,
+                    "id": "al_nb_pac",
+                    "lineno": 25
+                  },
+                  "lineno": 25,
+                  "ops": [
+                    {
+                      "ast_class": "GtE"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 28,
+            "lineno": 28,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 17,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 30,
+                  "end_lineno": 28,
+                  "id": "residence_dom",
+                  "lineno": 28
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 32,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 38,
+                  "end_lineno": 28,
+                  "id": "TF_dom",
+                  "lineno": 28
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 40,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 28,
+                  "id": "TF_metropole",
+                  "lineno": 28
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 53,
+              "end_lineno": 28,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 28,
+                "id": "where",
+                "lineno": 28
+              },
+              "keywords": [],
+              "lineno": 28
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 53,
+        "end_lineno": 28,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "parameters": [
+        "prestations.aides_logement.taux_participation_fam.dom.taux1",
+        "prestations.aides_logement.taux_participation_fam.dom.taux2",
+        "prestations.aides_logement.taux_participation_fam.dom.taux3",
+        "prestations.aides_logement.taux_participation_fam.dom.taux4",
+        "prestations.aides_logement.taux_participation_fam.dom.taux5",
+        "prestations.aides_logement.taux_participation_fam.dom.taux6",
+        "prestations.aides_logement.taux_participation_fam.dom.taux7",
+        "prestations.aides_logement.taux_participation_fam.dom.taux8",
+        "prestations.aides_logement.taux_participation_fam.taux_1_adulte",
+        "prestations.aides_logement.taux_participation_fam.taux_1_enf",
+        "prestations.aides_logement.taux_participation_fam.taux_2_adulte",
+        "prestations.aides_logement.taux_participation_fam.taux_2_enf",
+        "prestations.aides_logement.taux_participation_fam.taux_3_enf",
+        "prestations.aides_logement.taux_participation_fam.taux_4_enf",
+        "prestations.aides_logement.taux_participation_fam.taux_enf_supp"
+      ],
+      "source_code": "def formula(famille, period, parameters):\n    al = parameters(period).prestations.aides_logement\n    couple = famille('al_couple', period)\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n\n    TF_metropole = (\n        al.taux_participation_fam.taux_1_adulte * (not_(couple)) * (al_nb_pac == 0)\n        + al.taux_participation_fam.taux_2_adulte * (couple) * (al_nb_pac == 0)\n        + al.taux_participation_fam.taux_1_enf * (al_nb_pac == 1)\n        + al.taux_participation_fam.taux_2_enf * (al_nb_pac == 2)\n        + al.taux_participation_fam.taux_3_enf * (al_nb_pac == 3)\n        + al.taux_participation_fam.taux_4_enf * (al_nb_pac >= 4)\n        + al.taux_participation_fam.taux_enf_supp * (al_nb_pac > 4) * (al_nb_pac - 4)\n        )\n\n    TF_dom = (\n        al.taux_participation_fam.dom.taux1 * (not_(couple)) * (al_nb_pac == 0)\n        + al.taux_participation_fam.dom.taux2 * (couple) * (al_nb_pac == 0)\n        + al.taux_participation_fam.dom.taux3 * (al_nb_pac == 1)\n        + al.taux_participation_fam.dom.taux4 * (al_nb_pac == 2)\n        + al.taux_participation_fam.dom.taux5 * (al_nb_pac == 3)\n        + al.taux_participation_fam.dom.taux6 * (al_nb_pac == 4)\n        + al.taux_participation_fam.dom.taux7 * (al_nb_pac == 5)\n        + al.taux_participation_fam.dom.taux8 * (al_nb_pac >= 6)\n        )\n\n    return where(residence_dom, TF_dom, TF_metropole)\n",
+      "start_line_number": 1373,
+      "stop_line_number": 1401,
+      "variables": [
+        "al_couple",
+        "al_nb_personnes_a_charge"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Taux représentant la situation familiale, décroissant avec le nombre de personnes à charge",
+  "name": "aide_logement_taux_famille",
+  "referring_variables": [
+    "aide_logement_participation_personnelle"
+  ],
+  "start_line_number": 1367,
+  "stop_line_number": 1401,
+  "value_type": "float"
+}

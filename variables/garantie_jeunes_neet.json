@@ -1,0 +1,673 @@
+{
+  "default_value": false,
+  "definition_period": "month",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/garantie_jeunes.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 60,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 2,
+                "id": "not_in_employment",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 24,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 59,
+                  "end_col_offset": 60,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": 0
+                }
+              ],
+              "end_col_offset": 60,
+              "end_lineno": 2,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 33,
+                    "end_col_offset": 46,
+                    "end_lineno": 2,
+                    "lineno": 2,
+                    "value": "salaire_net"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 48,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 54,
+                    "end_lineno": 2,
+                    "id": "period",
+                    "lineno": 2
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 24,
+                "end_col_offset": 55,
+                "end_lineno": 2,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 24,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 32,
+                  "end_lineno": 2,
+                  "id": "individu",
+                  "lineno": 2
+                },
+                "keywords": [],
+                "lineno": 2
+              },
+              "lineno": 2,
+              "ops": [
+                {
+                  "ast_class": "Eq"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 45,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 4,
+                "id": "scolarite",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 25,
+                  "end_col_offset": 36,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "scolarite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 38,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 44,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 45,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 4,
+                "id": "individu",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 5,
+                "id": "activite",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 34,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "activite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 36,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 42,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 15,
+              "end_col_offset": 43,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 100,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 6,
+                "id": "not_in_education",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 23,
+              "end_col_offset": 100,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 24,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "inconnue",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 60,
+                    "end_lineno": 6,
+                    "lineno": 6,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 37,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 51,
+                      "end_lineno": 6,
+                      "id": "TypesScolarite",
+                      "lineno": 6
+                    }
+                  }
+                ],
+                "end_col_offset": 60,
+                "end_lineno": 6,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 24,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 33,
+                  "end_lineno": 6,
+                  "id": "scolarite",
+                  "lineno": 6
+                },
+                "lineno": 6,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              },
+              "lineno": 6,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 65,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "etudiant",
+                    "col_offset": 77,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 99,
+                    "end_lineno": 6,
+                    "lineno": 6,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 77,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 90,
+                      "end_lineno": 6,
+                      "id": "TypesActivite",
+                      "lineno": 6
+                    }
+                  }
+                ],
+                "end_col_offset": 99,
+                "end_lineno": 6,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 65,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 73,
+                  "end_lineno": 6,
+                  "id": "activite",
+                  "lineno": 6
+                },
+                "lineno": 6,
+                "ops": [
+                  {
+                    "ast_class": "NotEq"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 67,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 8,
+                "id": "no_indemnites_stage",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 26,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 66,
+                  "end_col_offset": 67,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": 0
+                }
+              ],
+              "end_col_offset": 67,
+              "end_lineno": 8,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 35,
+                    "end_col_offset": 53,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": "indemnites_stage"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 55,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 61,
+                    "end_lineno": 8,
+                    "id": "period",
+                    "lineno": 8
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 26,
+                "end_col_offset": 62,
+                "end_lineno": 8,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 8,
+                  "id": "individu",
+                  "lineno": 8
+                },
+                "keywords": [],
+                "lineno": 8
+              },
+              "lineno": 8,
+              "ops": [
+                {
+                  "ast_class": "Eq"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 89,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 9,
+                "id": "no_revenus_stage_formation_pro",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 37,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 88,
+                  "end_col_offset": 89,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": 0
+                }
+              ],
+              "end_col_offset": 89,
+              "end_lineno": 9,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 46,
+                    "end_col_offset": 75,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": "revenus_stage_formation_pro"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 77,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 83,
+                    "end_lineno": 9,
+                    "id": "period",
+                    "lineno": 9
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 37,
+                "end_col_offset": 84,
+                "end_lineno": 9,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 37,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 45,
+                  "end_lineno": 9,
+                  "id": "individu",
+                  "lineno": 9
+                },
+                "keywords": [],
+                "lineno": 9
+              },
+              "lineno": 9,
+              "ops": [
+                {
+                  "ast_class": "Eq"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 74,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 10,
+                "id": "not_in_training",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 22,
+              "end_col_offset": 74,
+              "end_lineno": 10,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 10,
+                "id": "no_indemnites_stage",
+                "lineno": 10
+              },
+              "lineno": 10,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 44,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 74,
+                "end_lineno": 10,
+                "id": "no_revenus_stage_formation_pro",
+                "lineno": 10
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 12,
+            "lineno": 12,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 65,
+              "end_lineno": 12,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 47,
+                "end_lineno": 12,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 28,
+                  "end_lineno": 12,
+                  "id": "not_in_employment",
+                  "lineno": 12
+                },
+                "lineno": 12,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 47,
+                  "end_lineno": 12,
+                  "id": "not_in_education",
+                  "lineno": 12
+                }
+              },
+              "lineno": 12,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 50,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 65,
+                "end_lineno": 12,
+                "id": "not_in_training",
+                "lineno": 12
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 65,
+        "end_lineno": 12,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/garantie_jeunes.py",
+      "source_code": "def formula(individu, period):\n    not_in_employment = individu('salaire_net', period) == 0\n\n    scolarite = individu('scolarite', period)\n    activite = individu('activite', period)\n    not_in_education = (scolarite == TypesScolarite.inconnue) * (activite != TypesActivite.etudiant)\n\n    no_indemnites_stage = individu('indemnites_stage', period) == 0\n    no_revenus_stage_formation_pro = individu('revenus_stage_formation_pro', period) == 0\n    not_in_training = no_indemnites_stage * no_revenus_stage_formation_pro\n\n    return not_in_employment * not_in_education * not_in_training\n",
+      "start_line_number": 12,
+      "stop_line_number": 24,
+      "variables": [
+        "activite",
+        "indemnites_stage",
+        "revenus_stage_formation_pro",
+        "salaire_net",
+        "scolarite"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Variable NEET - Ni étudiant, ni employé, ni stagiaire",
+  "name": "garantie_jeunes_neet",
+  "reference": [
+    "https://fr.wikipedia.org/wiki/NEET"
+  ],
+  "referring_variables": [
+    "garantie_jeunes"
+  ],
+  "start_line_number": 5,
+  "stop_line_number": 24,
+  "value_type": "bool"
+}

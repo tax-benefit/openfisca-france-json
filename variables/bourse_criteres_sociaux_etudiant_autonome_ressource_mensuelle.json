@@ -1,0 +1,122 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 2,
+            "lineno": 2,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 49,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "rsa_base_ressources"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 51,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 57,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 58,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "famille",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 19,
+                  "end_lineno": 2,
+                  "id": "individu",
+                  "lineno": 2
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 58,
+        "end_lineno": 2,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+      "source_code": "def formula(individu, period):\n    return individu.famille('rsa_base_ressources', period)\n",
+      "start_line_number": 175,
+      "stop_line_number": 177
+    }
+  },
+  "json_type": "number",
+  "label": "Ressources mensuelle prise en compte pour déterminer l'autonomie financière de l'étudiant pour la bourse sur critères sociaux de l'enseignement supérieur",
+  "name": "bourse_criteres_sociaux_etudiant_autonome_ressource_mensuelle",
+  "reference": [
+    "Circulaire ESRS2013435C - Annexe 3 - Conditions de ressources et points de charge / 1 - Conditions de ressources / 1.2.2 - Relatives aux revenus",
+    "https://www.education.gouv.fr/bo/20/Hebdo25/ESRS2013435C.htm"
+  ],
+  "referring_variables": [
+    "bourse_criteres_sociaux_etudiant_autonome"
+  ],
+  "start_line_number": 165,
+  "stop_line_number": 177,
+  "value_type": "float"
+}

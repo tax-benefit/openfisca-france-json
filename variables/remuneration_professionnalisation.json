@@ -1,0 +1,1223 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/contrat_professionnalisation.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 33,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 2,
+                "id": "age",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 19,
+                  "end_col_offset": 24,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "age"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 32,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 33,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 64,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 3,
+                "id": "smic",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 64,
+              "end_lineno": 3,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 59,
+                "end_lineno": 3,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 11,
+                  "end_col_offset": 54,
+                  "end_lineno": 3,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "smic_h_b",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 49,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "gen",
+                      "col_offset": 11,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 40,
+                      "end_lineno": 3,
+                      "lineno": 3,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "cotsoc",
+                        "col_offset": 11,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 36,
+                        "end_lineno": 3,
+                        "lineno": 3,
+                        "value": {
+                          "args": [
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 22,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 28,
+                              "end_lineno": 3,
+                              "id": "period",
+                              "lineno": 3
+                            }
+                          ],
+                          "ast_class": "Call",
+                          "col_offset": 11,
+                          "end_col_offset": 29,
+                          "end_lineno": 3,
+                          "func": {
+                            "ast_class": "Name",
+                            "col_offset": 11,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 21,
+                            "end_lineno": 3,
+                            "id": "parameters",
+                            "lineno": 3
+                          },
+                          "keywords": [],
+                          "lineno": 3
+                        }
+                      }
+                    }
+                  },
+                  "lineno": 3,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Constant",
+                    "col_offset": 52,
+                    "end_col_offset": 54,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": 52
+                  }
+                },
+                "lineno": 3,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Constant",
+                  "col_offset": 57,
+                  "end_col_offset": 59,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": 35
+                }
+              },
+              "lineno": 3,
+              "op": {
+                "ast_class": "Div"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 62,
+                "end_col_offset": 64,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": 12
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 67,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 4,
+                "id": "professionnalisation",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 36,
+                  "end_col_offset": 58,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "professionnalisation"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 60,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 66,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 27,
+              "end_col_offset": 67,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 4,
+                "id": "individu",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 5,
+                "id": "qualifie",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 34,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "qualifie"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 36,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 42,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 15,
+              "end_col_offset": 43,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 29,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 6,
+                "id": "salaire_en_smic",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "List",
+              "col_offset": 22,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "elts": [
+                {
+                  "args": [],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 14,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 12,
+                    "end_lineno": 7,
+                    "id": "dict",
+                    "lineno": 7
+                  },
+                  "keywords": [
+                    {
+                      "arg": "part_de_smic_by_qualification",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 17,
+                      "end_lineno": 11,
+                      "lineno": 8,
+                      "value": {
+                        "ast_class": "Dict",
+                        "col_offset": 44,
+                        "end_col_offset": 17,
+                        "end_lineno": 11,
+                        "keys": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 16,
+                            "end_col_offset": 30,
+                            "end_lineno": 9,
+                            "lineno": 9,
+                            "value": "non_qualifie"
+                          },
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 16,
+                            "end_col_offset": 26,
+                            "end_lineno": 10,
+                            "lineno": 10,
+                            "value": "qualifie"
+                          }
+                        ],
+                        "lineno": 8,
+                        "values": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 32,
+                            "end_col_offset": 35,
+                            "end_lineno": 9,
+                            "lineno": 9,
+                            "value": 0.55
+                          },
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 28,
+                            "end_col_offset": 31,
+                            "end_lineno": 10,
+                            "lineno": 10,
+                            "value": 0.65
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "arg": "age_min",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 24,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": {
+                        "ast_class": "Constant",
+                        "col_offset": 22,
+                        "end_col_offset": 24,
+                        "end_lineno": 12,
+                        "lineno": 12,
+                        "value": 16
+                      }
+                    },
+                    {
+                      "arg": "age_max",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 24,
+                      "end_lineno": 13,
+                      "lineno": 13,
+                      "value": {
+                        "ast_class": "Constant",
+                        "col_offset": 22,
+                        "end_col_offset": 24,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": 21
+                      }
+                    }
+                  ],
+                  "lineno": 7
+                },
+                {
+                  "args": [],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 21,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 12,
+                    "end_lineno": 15,
+                    "id": "dict",
+                    "lineno": 15
+                  },
+                  "keywords": [
+                    {
+                      "arg": "part_de_smic_by_qualification",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 17,
+                      "end_lineno": 18,
+                      "lineno": 16,
+                      "value": {
+                        "ast_class": "Dict",
+                        "col_offset": 44,
+                        "end_col_offset": 17,
+                        "end_lineno": 18,
+                        "keys": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 16,
+                            "end_col_offset": 17,
+                            "end_lineno": 17,
+                            "lineno": 17,
+                            "value": 1
+                          }
+                        ],
+                        "lineno": 16,
+                        "values": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 19,
+                            "end_col_offset": 22,
+                            "end_lineno": 17,
+                            "lineno": 17,
+                            "value": 0.7
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "arg": "age_min",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 24,
+                      "end_lineno": 19,
+                      "lineno": 19,
+                      "value": {
+                        "ast_class": "Constant",
+                        "col_offset": 22,
+                        "end_col_offset": 24,
+                        "end_lineno": 19,
+                        "lineno": 19,
+                        "value": 21
+                      }
+                    },
+                    {
+                      "arg": "age_max",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 24,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "Constant",
+                        "col_offset": 22,
+                        "end_col_offset": 24,
+                        "end_lineno": 20,
+                        "lineno": 20,
+                        "value": 25
+                      }
+                    }
+                  ],
+                  "lineno": 15
+                },
+                {
+                  "args": [],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 28,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 12,
+                    "end_lineno": 22,
+                    "id": "dict",
+                    "lineno": 22
+                  },
+                  "keywords": [
+                    {
+                      "arg": "part_de_smic_by_qualification",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 17,
+                      "end_lineno": 25,
+                      "lineno": 23,
+                      "value": {
+                        "ast_class": "Dict",
+                        "col_offset": 44,
+                        "end_col_offset": 17,
+                        "end_lineno": 25,
+                        "keys": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 16,
+                            "end_col_offset": 17,
+                            "end_lineno": 24,
+                            "lineno": 24,
+                            "value": 1
+                          }
+                        ],
+                        "lineno": 23,
+                        "values": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 19,
+                            "end_col_offset": 22,
+                            "end_lineno": 24,
+                            "lineno": 24,
+                            "value": 1.0
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "arg": "age_min",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 24,
+                      "end_lineno": 26,
+                      "lineno": 26,
+                      "value": {
+                        "ast_class": "Constant",
+                        "col_offset": 22,
+                        "end_col_offset": 24,
+                        "end_lineno": 26,
+                        "lineno": 26,
+                        "value": 26
+                      }
+                    },
+                    {
+                      "arg": "age_max",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 24,
+                      "end_lineno": 27,
+                      "lineno": 27,
+                      "value": {
+                        "ast_class": "Constant",
+                        "col_offset": 22,
+                        "end_col_offset": 24,
+                        "end_lineno": 27,
+                        "lineno": 27,
+                        "value": 99
+                      }
+                    }
+                  ],
+                  "lineno": 22
+                }
+              ],
+              "end_col_offset": 9,
+              "end_lineno": 29,
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 25,
+            "end_lineno": 31,
+            "lineno": 31,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 31,
+                "id": "taux_smic",
+                "lineno": 31
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 16,
+              "end_col_offset": 25,
+              "end_lineno": 31,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 31,
+                "id": "age",
+                "lineno": 31
+              },
+              "lineno": 31,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 22,
+                "end_col_offset": 25,
+                "end_lineno": 31,
+                "lineno": 31,
+                "value": 0.0
+              }
+            }
+          },
+          {
+            "ast_class": "For",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 91,
+                "end_lineno": 33,
+                "lineno": 33,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 21,
+                    "end_lineno": 33,
+                    "id": "age_condition",
+                    "lineno": 33
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 24,
+                  "end_col_offset": 91,
+                  "end_lineno": 33,
+                  "left": {
+                    "ast_class": "Compare",
+                    "col_offset": 25,
+                    "comparators": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 52,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 55,
+                        "end_lineno": 33,
+                        "id": "age",
+                        "lineno": 33
+                      }
+                    ],
+                    "end_col_offset": 55,
+                    "end_lineno": 33,
+                    "left": {
+                      "ast_class": "Subscript",
+                      "col_offset": 25,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 48,
+                      "end_lineno": 33,
+                      "lineno": 33,
+                      "slice": {
+                        "ast_class": "Constant",
+                        "col_offset": 38,
+                        "end_col_offset": 47,
+                        "end_lineno": 33,
+                        "lineno": 33,
+                        "value": "age_min"
+                      },
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 37,
+                        "end_lineno": 33,
+                        "id": "age_interval",
+                        "lineno": 33
+                      }
+                    },
+                    "lineno": 33,
+                    "ops": [
+                      {
+                        "ast_class": "LtE"
+                      }
+                    ]
+                  },
+                  "lineno": 33,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 60,
+                    "comparators": [
+                      {
+                        "ast_class": "Subscript",
+                        "col_offset": 67,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 90,
+                        "end_lineno": 33,
+                        "lineno": 33,
+                        "slice": {
+                          "ast_class": "Constant",
+                          "col_offset": 80,
+                          "end_col_offset": 89,
+                          "end_lineno": 33,
+                          "lineno": 33,
+                          "value": "age_max"
+                        },
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 67,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 79,
+                          "end_lineno": 33,
+                          "id": "age_interval",
+                          "lineno": 33
+                        }
+                      }
+                    ],
+                    "end_col_offset": 90,
+                    "end_lineno": 33,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 60,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 63,
+                      "end_lineno": 33,
+                      "id": "age",
+                      "lineno": 33
+                    },
+                    "lineno": 33,
+                    "ops": [
+                      {
+                        "ast_class": "LtE"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 14,
+                "end_lineno": 37,
+                "lineno": 34,
+                "targets": [
+                  {
+                    "ast_class": "Subscript",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 32,
+                    "end_lineno": 34,
+                    "lineno": 34,
+                    "slice": {
+                      "ast_class": "Name",
+                      "col_offset": 18,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 31,
+                      "end_lineno": 34,
+                      "id": "age_condition",
+                      "lineno": 34
+                    },
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 17,
+                      "end_lineno": 34,
+                      "id": "taux_smic",
+                      "lineno": 34
+                    }
+                  }
+                ],
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "ListComp",
+                      "col_offset": 39,
+                      "elt": {
+                        "ast_class": "BinOp",
+                        "col_offset": 12,
+                        "end_col_offset": 69,
+                        "end_lineno": 35,
+                        "left": {
+                          "ast_class": "Compare",
+                          "col_offset": 13,
+                          "comparators": [
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 40,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 53,
+                              "end_lineno": 35,
+                              "id": "qualification",
+                              "lineno": 35
+                            }
+                          ],
+                          "end_col_offset": 53,
+                          "end_lineno": 35,
+                          "left": {
+                            "ast_class": "Subscript",
+                            "col_offset": 13,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 36,
+                            "end_lineno": 35,
+                            "lineno": 35,
+                            "slice": {
+                              "ast_class": "Name",
+                              "col_offset": 22,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 35,
+                              "end_lineno": 35,
+                              "id": "age_condition",
+                              "lineno": 35
+                            },
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 13,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 21,
+                              "end_lineno": 35,
+                              "id": "qualifie",
+                              "lineno": 35
+                            }
+                          },
+                          "lineno": 35,
+                          "ops": [
+                            {
+                              "ast_class": "Eq"
+                            }
+                          ]
+                        },
+                        "lineno": 35,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 57,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 69,
+                          "end_lineno": 35,
+                          "id": "part_de_smic",
+                          "lineno": 35
+                        }
+                      },
+                      "end_col_offset": 13,
+                      "end_lineno": 37,
+                      "generators": [
+                        {
+                          "ast_class": "comprehension",
+                          "ifs": [],
+                          "is_async": 0,
+                          "iter": {
+                            "args": [],
+                            "ast_class": "Call",
+                            "col_offset": 47,
+                            "end_col_offset": 100,
+                            "end_lineno": 36,
+                            "func": {
+                              "ast_class": "Attribute",
+                              "attr": "items",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 98,
+                              "end_lineno": 36,
+                              "lineno": 36,
+                              "value": {
+                                "ast_class": "Subscript",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 92,
+                                "end_lineno": 36,
+                                "lineno": 36,
+                                "slice": {
+                                  "ast_class": "Constant",
+                                  "col_offset": 60,
+                                  "end_col_offset": 91,
+                                  "end_lineno": 36,
+                                  "lineno": 36,
+                                  "value": "part_de_smic_by_qualification"
+                                },
+                                "value": {
+                                  "ast_class": "Name",
+                                  "col_offset": 47,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 59,
+                                  "end_lineno": 36,
+                                  "id": "age_interval",
+                                  "lineno": 36
+                                }
+                              }
+                            },
+                            "keywords": [],
+                            "lineno": 36
+                          },
+                          "target": {
+                            "ast_class": "Tuple",
+                            "col_offset": 16,
+                            "ctx": {
+                              "ast_class": "Store"
+                            },
+                            "elts": [
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 16,
+                                "ctx": {
+                                  "ast_class": "Store"
+                                },
+                                "end_col_offset": 29,
+                                "end_lineno": 36,
+                                "id": "qualification",
+                                "lineno": 36
+                              },
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Store"
+                                },
+                                "end_col_offset": 43,
+                                "end_lineno": 36,
+                                "id": "part_de_smic",
+                                "lineno": 36
+                              }
+                            ],
+                            "end_col_offset": 43,
+                            "end_lineno": 36,
+                            "lineno": 36
+                          }
+                        }
+                      ],
+                      "lineno": 34
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 35,
+                  "end_col_offset": 14,
+                  "end_lineno": 37,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 35,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 38,
+                    "end_lineno": 34,
+                    "id": "sum",
+                    "lineno": 34
+                  },
+                  "keywords": [],
+                  "lineno": 34
+                }
+              }
+            ],
+            "col_offset": 4,
+            "end_col_offset": 14,
+            "end_lineno": 37,
+            "iter": {
+              "ast_class": "Name",
+              "col_offset": 24,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 39,
+              "end_lineno": 32,
+              "id": "salaire_en_smic",
+              "lineno": 32
+            },
+            "lineno": 32,
+            "orelse": [],
+            "target": {
+              "ast_class": "Name",
+              "col_offset": 8,
+              "ctx": {
+                "ast_class": "Store"
+              },
+              "end_col_offset": 20,
+              "end_lineno": 32,
+              "id": "age_interval",
+              "lineno": 32
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 50,
+            "end_lineno": 38,
+            "lineno": 38,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 50,
+              "end_lineno": 38,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 27,
+                "end_lineno": 38,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 38,
+                  "id": "taux_smic",
+                  "lineno": 38
+                },
+                "lineno": 38,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 23,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 27,
+                  "end_lineno": 38,
+                  "id": "smic",
+                  "lineno": 38
+                }
+              },
+              "lineno": 38,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 38,
+                "id": "professionnalisation",
+                "lineno": 38
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 50,
+        "end_lineno": 38,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/contrat_professionnalisation.py",
+      "parameters": [
+        "cotsoc.gen.smic_h_b"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    smic = parameters(period).cotsoc.gen.smic_h_b * 52 * 35 / 12\n    professionnalisation = individu('professionnalisation', period)\n    qualifie = individu('qualifie', period)\n    salaire_en_smic = [\n        dict(\n            part_de_smic_by_qualification = {\n                'non_qualifie': .55,\n                'qualifie': .65\n                },\n            age_min = 16,\n            age_max = 21,\n            ),\n        dict(\n            part_de_smic_by_qualification = {\n                1: .70,\n                },\n            age_min = 21,\n            age_max = 25,\n            ),\n        dict(\n            part_de_smic_by_qualification = {\n                1: 1.0,\n                },\n            age_min = 26,\n            age_max = 99\n            )\n        ]\n\n    taux_smic = age * 0.0\n    for age_interval in salaire_en_smic:\n        age_condition = (age_interval['age_min'] <= age) * (age <= age_interval['age_max'])\n        taux_smic[age_condition] = sum([\n            (qualifie[age_condition] == qualification) * part_de_smic\n            for qualification, part_de_smic in age_interval['part_de_smic_by_qualification'].items()\n            ])\n    return taux_smic * smic * professionnalisation\n",
+      "start_line_number": 58,
+      "stop_line_number": 96,
+      "variables": [
+        "age",
+        "professionnalisation",
+        "qualifie"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Rémunération de l'apprenti sous contrat de professionalisation",
+  "name": "remuneration_professionnalisation",
+  "reference": [
+    "http://www.apce.com/pid927/contrat-d-apprentissage.html?espace=1&tp=1&pagination=2"
+  ],
+  "start_line_number": 33,
+  "stop_line_number": 96,
+  "value_type": "float"
+}

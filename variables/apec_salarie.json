@@ -1,0 +1,329 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 2,
+                "id": "categorie_salarie",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 52,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "categorie_salarie"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 54,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 24,
+              "end_col_offset": 61,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 24,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 10,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 3,
+                "id": "cotisation",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 4,
+                  "id": "individu",
+                  "lineno": 4
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 14,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 6,
+                  "id": "parameters",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 9,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 3,
+                "id": "apply_bareme",
+                "lineno": 3
+              },
+              "keywords": [
+                {
+                  "arg": "cotisation_type",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 35,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 35,
+                    "end_lineno": 7,
+                    "lineno": 7,
+                    "value": "salarie"
+                  }
+                },
+                {
+                  "arg": "bareme_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 28,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 22,
+                    "end_col_offset": 28,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": "apec"
+                  }
+                },
+                {
+                  "arg": "variable_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 38,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 24,
+                    "end_col_offset": 38,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": "apec_salarie"
+                  }
+                }
+              ],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 80,
+            "end_lineno": 11,
+            "lineno": 11,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 80,
+              "end_lineno": 11,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 11,
+                "id": "cotisation",
+                "lineno": 11
+              },
+              "lineno": 11,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 25,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "prive_cadre",
+                    "col_offset": 46,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 79,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 46,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 67,
+                      "end_lineno": 11,
+                      "id": "TypesCategorieSalarie",
+                      "lineno": 11
+                    }
+                  }
+                ],
+                "end_col_offset": 79,
+                "end_lineno": 11,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 25,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 42,
+                  "end_lineno": 11,
+                  "id": "categorie_salarie",
+                  "lineno": 11
+                },
+                "lineno": 11,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 80,
+        "end_lineno": 11,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "source_code": "def formula(individu, period, parameters):\n    categorie_salarie = individu('categorie_salarie', period)\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"salarie\",\n        bareme_name = \"apec\",\n        variable_name = 'apec_salarie',\n        )\n    return cotisation * (categorie_salarie == TypesCategorieSalarie.prive_cadre)  # TODO: check public notamment contractuel\n",
+      "start_line_number": 407,
+      "stop_line_number": 418,
+      "variables": [
+        "categorie_salarie"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Cotisations agence pour l'emploi des cadres (APEC,  salarié)",
+  "name": "apec_salarie",
+  "referring_variables": [
+    "cotisations_salariales_contributives"
+  ],
+  "start_line_number": 401,
+  "stop_line_number": 418,
+  "value_type": "float"
+}

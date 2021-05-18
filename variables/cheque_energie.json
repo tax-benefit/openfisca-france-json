@@ -1,0 +1,359 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prestations/cheque_energie.py",
+  "formulas": {
+    "2017-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 23,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 25,
+              "end_col_offset": 31,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 33,
+              "end_col_offset": 43,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 68,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 2,
+                "id": "eligible",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 22,
+                  "end_col_offset": 59,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "cheque_energie_eligibilite_logement"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 61,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 67,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 15,
+              "end_col_offset": 68,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 2,
+                "id": "menage",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 60,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 3,
+                "id": "declarant",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 16,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 59,
+                  "end_col_offset": 60,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": 0
+                }
+              ],
+              "end_col_offset": 60,
+              "end_lineno": 3,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT",
+                    "col_offset": 34,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 55,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 34,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 3,
+                      "id": "FoyerFiscal",
+                      "lineno": 3
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 16,
+                "end_col_offset": 56,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "nb_persons",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 33,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 22,
+                    "end_lineno": 3,
+                    "id": "menage",
+                    "lineno": 3
+                  }
+                },
+                "keywords": [],
+                "lineno": 3
+              },
+              "lineno": 3,
+              "ops": [
+                {
+                  "ast_class": "Gt"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 64,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 5,
+                "id": "montant",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 21,
+                  "end_col_offset": 45,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "cheque_energie_montant"
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "this_year",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 47,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 53,
+                    "end_lineno": 5,
+                    "id": "period",
+                    "lineno": 5
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 64,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 5,
+                "id": "menage",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 6,
+            "lineno": 6,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 41,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 31,
+                "end_lineno": 6,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 6,
+                  "id": "declarant",
+                  "lineno": 6
+                },
+                "lineno": 6,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 23,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 31,
+                  "end_lineno": 6,
+                  "id": "eligible",
+                  "lineno": 6
+                }
+              },
+              "lineno": 6,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 34,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 6,
+                "id": "montant",
+                "lineno": 6
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 41,
+        "end_lineno": 6,
+        "lineno": 1,
+        "name": "formula_2017"
+      },
+      "file_path": "/openfisca_france/model/prestations/cheque_energie.py",
+      "source_code": "def formula_2017(menage, period, parameters):\n    eligible = menage('cheque_energie_eligibilite_logement', period)\n    declarant = menage.nb_persons(FoyerFiscal.DECLARANT) > 0  # une colocation de personnes à la charge de leurs parents n'est pas éligible aux chèques énergie, par exemple\n\n    montant = menage('cheque_energie_montant', period.this_year)\n    return declarant * eligible * montant\n",
+      "start_line_number": 83,
+      "stop_line_number": 89,
+      "variables": [
+        "cheque_energie_eligibilite_logement",
+        "cheque_energie_montant"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant auquel le ménage peut prétendre au titre du chèque energie",
+  "name": "cheque_energie",
+  "reference": [
+    "https://chequeenergie.gouv.fr"
+  ],
+  "start_line_number": 76,
+  "stop_line_number": 89,
+  "value_type": "float"
+}

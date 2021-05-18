@@ -1,0 +1,399 @@
+{
+  "default_value": "autres_regions",
+  "definition_period": "month",
+  "dtype": "int16",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prestations/logement_social.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 18,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 26,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 37,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 2,
+                "id": "depcom",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 20,
+                  "end_col_offset": 28,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "depcom"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 30,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 36,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 37,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 2,
+                "id": "menage",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 76,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 3,
+                "id": "in_paris_communes_limitrophes",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 41,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 47,
+                  "end_lineno": 3,
+                  "id": "depcom",
+                  "lineno": 3
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 49,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 75,
+                  "end_lineno": 3,
+                  "id": "paris_communes_limitrophes",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 76,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 40,
+                "end_lineno": 3,
+                "id": "isin",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 54,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 4,
+                "id": "in_idf",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 20,
+                  "end_col_offset": 45,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "residence_ile_de_france"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 53,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 54,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 4,
+                "id": "menage",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 16,
+            "lineno": 6,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 41,
+                      "end_lineno": 8,
+                      "id": "in_paris_communes_limitrophes",
+                      "lineno": 8
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 18,
+                      "end_lineno": 9,
+                      "id": "in_idf",
+                      "lineno": 9
+                    }
+                  ],
+                  "end_col_offset": 13,
+                  "end_lineno": 10,
+                  "lineno": 7
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "paris_communes_limitrophes",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 57,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 30,
+                        "end_lineno": 12,
+                        "id": "ZoneLogementSocial",
+                        "lineno": 12
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "ile_de_france",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 13,
+                      "lineno": 13,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 30,
+                        "end_lineno": 13,
+                        "id": "ZoneLogementSocial",
+                        "lineno": 13
+                      }
+                    }
+                  ],
+                  "end_col_offset": 13,
+                  "end_lineno": 14,
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 9,
+              "end_lineno": 16,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 6,
+                "id": "select",
+                "lineno": 6
+              },
+              "keywords": [
+                {
+                  "arg": "default",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 51,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "autres_regions",
+                    "col_offset": 18,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 51,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 18,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 36,
+                      "end_lineno": 15,
+                      "id": "ZoneLogementSocial",
+                      "lineno": 15
+                    }
+                  }
+                }
+              ],
+              "lineno": 6
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 16,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/logement_social.py",
+      "source_code": "def formula(menage, period):\n    depcom = menage('depcom', period)\n    in_paris_communes_limitrophes = isin(depcom, paris_communes_limitrophes)\n    in_idf = menage('residence_ile_de_france', period)\n\n    return select(\n        [\n            in_paris_communes_limitrophes,\n            in_idf\n            ],\n        [\n            ZoneLogementSocial.paris_communes_limitrophes,\n            ZoneLogementSocial.ile_de_france,\n            ],\n        default = ZoneLogementSocial.autres_regions\n        )\n",
+      "start_line_number": 57,
+      "stop_line_number": 73,
+      "variables": [
+        "depcom",
+        "residence_ile_de_france"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "string",
+  "label": "Zone logement social",
+  "name": "zone_logement_social",
+  "possible_values": {
+    "autres_regions": "Autres régions",
+    "ile_de_france": "Île-de-France hors Paris et communes limitrophes",
+    "paris_communes_limitrophes": "Paris et communes limitrophes"
+  },
+  "start_line_number": 49,
+  "stop_line_number": 73,
+  "value_type": "Enum"
+}

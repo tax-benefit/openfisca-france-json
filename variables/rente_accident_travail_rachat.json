@@ -1,0 +1,576 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 2,
+                "id": "rente_at",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "taux",
+              "col_offset": 15,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 61,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "rente",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 56,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "accident_travail",
+                  "col_offset": 15,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 50,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 26,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 32,
+                        "end_lineno": 2,
+                        "id": "period",
+                        "lineno": 2
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 15,
+                    "end_col_offset": 33,
+                    "end_lineno": 2,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 15,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 2,
+                      "id": "parameters",
+                      "lineno": 2
+                    },
+                    "keywords": [],
+                    "lineno": 2
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 55,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 3,
+                "id": "demande_rachat",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 30,
+                  "end_col_offset": 46,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "demande_rachat"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 48,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 54,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 55,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 3,
+                "id": "individu",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 54,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 4,
+                "id": "age",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 29,
+                          "end_col_offset": 34,
+                          "end_lineno": 4,
+                          "lineno": 4,
+                          "value": "age"
+                        },
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 36,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 42,
+                          "end_lineno": 4,
+                          "id": "period",
+                          "lineno": 4
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 20,
+                      "end_col_offset": 43,
+                      "end_lineno": 4,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 20,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 28,
+                        "end_lineno": 4,
+                        "id": "individu",
+                        "lineno": 4
+                      },
+                      "keywords": [],
+                      "lineno": 4
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 45,
+                      "end_col_offset": 47,
+                      "end_lineno": 4,
+                      "lineno": 4,
+                      "value": 16
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 15,
+                  "end_col_offset": 48,
+                  "end_lineno": 4,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 15,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 19,
+                    "end_lineno": 4,
+                    "id": "max_",
+                    "lineno": 4
+                  },
+                  "keywords": [],
+                  "lineno": 4
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 50,
+                  "end_col_offset": 53,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": 100
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 54,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 4,
+                "id": "min_",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 66,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 5,
+                "id": "conversion_rente_capital",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "Subscript",
+              "col_offset": 31,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 66,
+              "end_lineno": 5,
+              "lineno": 5,
+              "slice": {
+                "ast_class": "Name",
+                "col_offset": 62,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 65,
+                "end_lineno": 5,
+                "id": "age",
+                "lineno": 5
+              },
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "capital_representatif",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 61,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 39,
+                  "end_lineno": 5,
+                  "id": "rente_at",
+                  "lineno": 5
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 81,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 6,
+                "id": "rente_accident_travail_base",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 43,
+                  "end_col_offset": 72,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "rente_accident_travail_base"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 74,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 80,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 34,
+              "end_col_offset": 81,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 34,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 6,
+                "id": "individu",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 73,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 7,
+                "id": "rachat",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 13,
+              "end_col_offset": 73,
+              "end_lineno": 7,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 14,
+                "end_col_offset": 68,
+                "end_lineno": 7,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 14,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 41,
+                  "end_lineno": 7,
+                  "id": "rente_accident_travail_base",
+                  "lineno": 7
+                },
+                "lineno": 7,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 44,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 7,
+                  "id": "conversion_rente_capital",
+                  "lineno": 7
+                }
+              },
+              "lineno": 7,
+              "op": {
+                "ast_class": "Div"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 72,
+                "end_col_offset": 73,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": 4
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 34,
+            "end_lineno": 9,
+            "lineno": 9,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 34,
+              "end_lineno": 9,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 9,
+                "id": "rachat",
+                "lineno": 9
+              },
+              "lineno": 9,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 9,
+                "id": "demande_rachat",
+                "lineno": 9
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 34,
+        "end_lineno": 9,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+      "parameters": [
+        "accident_travail.rente.taux.capital_representatif"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    rente_at = parameters(period).accident_travail.rente.taux\n    demande_rachat = individu('demande_rachat', period)\n    age = min_(max_(individu('age', period), 16), 100)\n    conversion_rente_capital = rente_at.capital_representatif[age]\n    rente_accident_travail_base = individu('rente_accident_travail_base', period)\n    rachat = (rente_accident_travail_base * conversion_rente_capital) / 4\n\n    return rachat * demande_rachat\n",
+      "start_line_number": 130,
+      "stop_line_number": 139,
+      "variables": [
+        "age",
+        "demande_rachat",
+        "rente_accident_travail_base"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Rachat de la rente d’accident du travail",
+  "name": "rente_accident_travail_rachat",
+  "reference": [
+    "https://www.legifrance.gouv.fr/eli/arrete/2016/12/19/AFSS1637858A/jo/texte"
+  ],
+  "referring_variables": [
+    "rente_accident_travail_apres_rachat",
+    "rente_accident_travail_exploitant_agricole",
+    "rente_accident_travail_salarie"
+  ],
+  "start_line_number": 123,
+  "stop_line_number": 139,
+  "value_type": "float"
+}

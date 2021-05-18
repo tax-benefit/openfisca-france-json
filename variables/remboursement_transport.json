@@ -1,0 +1,174 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 83,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 3,
+                "id": "remboursement_transport_base",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 44,
+                  "end_col_offset": 74,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "remboursement_transport_base"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 76,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 82,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 35,
+              "end_col_offset": 83,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 35,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 3,
+                "id": "individu",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 46,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 46,
+              "end_lineno": 5,
+              "left": {
+                "ast_class": "UnaryOp",
+                "col_offset": 11,
+                "end_col_offset": 15,
+                "end_lineno": 5,
+                "lineno": 5,
+                "op": {
+                  "ast_class": "USub"
+                },
+                "operand": {
+                  "ast_class": "Constant",
+                  "col_offset": 13,
+                  "end_col_offset": 15,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": 0.5
+                }
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 46,
+                "end_lineno": 5,
+                "id": "remboursement_transport_base",
+                "lineno": 5
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 46,
+        "end_lineno": 5,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "source_code": "def formula(individu, period, parameters):\n\n    remboursement_transport_base = individu('remboursement_transport_base', period)\n    # TODO: paramètres en dur dans le code\n    return - .5 * remboursement_transport_base\n",
+      "start_line_number": 688,
+      "stop_line_number": 693,
+      "variables": [
+        "remboursement_transport_base"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Remboursement partiel des frais de transport par l'employeur",
+  "name": "remboursement_transport",
+  "start_line_number": 682,
+  "stop_line_number": 693,
+  "value_type": "float"
+}

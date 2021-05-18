@@ -1,0 +1,313 @@
+{
+  "default_value": true,
+  "definition_period": "month",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 49,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 2,
+                "id": "nationalite",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 27,
+                  "end_col_offset": 40,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "nationalite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 49,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 111,
+            "end_lineno": 3,
+            "lineno": 3,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "ListComp",
+                  "col_offset": 15,
+                  "elt": {
+                    "ast_class": "Compare",
+                    "col_offset": 16,
+                    "comparators": [
+                      {
+                        "args": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 42,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 53,
+                            "end_lineno": 3,
+                            "id": "etat_membre",
+                            "lineno": 3
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 31,
+                        "end_col_offset": 54,
+                        "end_lineno": 3,
+                        "func": {
+                          "ast_class": "Attribute",
+                          "attr": "encode",
+                          "col_offset": 31,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 41,
+                          "end_lineno": 3,
+                          "lineno": 3,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 31,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 34,
+                            "end_lineno": 3,
+                            "id": "str",
+                            "lineno": 3
+                          }
+                        },
+                        "keywords": [],
+                        "lineno": 3
+                      }
+                    ],
+                    "end_col_offset": 54,
+                    "end_lineno": 3,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 16,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 27,
+                      "end_lineno": 3,
+                      "id": "nationalite",
+                      "lineno": 3
+                    },
+                    "lineno": 3,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  },
+                  "end_col_offset": 110,
+                  "end_lineno": 3,
+                  "generators": [
+                    {
+                      "ast_class": "comprehension",
+                      "ifs": [],
+                      "is_async": 0,
+                      "iter": {
+                        "ast_class": "Attribute",
+                        "attr": "eee",
+                        "col_offset": 74,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 109,
+                        "end_lineno": 3,
+                        "lineno": 3,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "geopolitique",
+                          "col_offset": 74,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 105,
+                          "end_lineno": 3,
+                          "lineno": 3,
+                          "value": {
+                            "args": [
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 85,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 91,
+                                "end_lineno": 3,
+                                "id": "period",
+                                "lineno": 3
+                              }
+                            ],
+                            "ast_class": "Call",
+                            "col_offset": 74,
+                            "end_col_offset": 92,
+                            "end_lineno": 3,
+                            "func": {
+                              "ast_class": "Name",
+                              "col_offset": 74,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 84,
+                              "end_lineno": 3,
+                              "id": "parameters",
+                              "lineno": 3
+                            },
+                            "keywords": [],
+                            "lineno": 3
+                          }
+                        }
+                      },
+                      "target": {
+                        "ast_class": "Name",
+                        "col_offset": 59,
+                        "ctx": {
+                          "ast_class": "Store"
+                        },
+                        "end_col_offset": 70,
+                        "end_lineno": 3,
+                        "id": "etat_membre",
+                        "lineno": 3
+                      }
+                    }
+                  ],
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 111,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 3,
+                "id": "sum",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 111,
+        "end_lineno": 3,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+      "parameters": [
+        "geopolitique.eee"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    nationalite = individu('nationalite', period)\n    return sum([nationalite == str.encode(etat_membre) for etat_membre in parameters(period).geopolitique.eee])  # TOOPTIMIZE: string encoding into bytes array should be done at load time\n",
+      "start_line_number": 311,
+      "stop_line_number": 314,
+      "variables": [
+        "nationalite"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Individu ressortissant d'un pays membre de l'Espace Économique Européen (EEE).",
+  "name": "ressortissant_eee",
+  "referring_variables": [
+    "asi_aspa_condition_nationalite",
+    "bourse_criteres_sociaux_eligibilite_nationalite",
+    "garantie_pret_etudiant_condition_nationalite",
+    "rsa_condition_nationalite"
+  ],
+  "start_line_number": 304,
+  "stop_line_number": 314,
+  "value_type": "bool"
+}

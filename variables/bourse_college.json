@@ -1,0 +1,921 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/education.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 6,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 6,
+              "lineno": 2,
+              "value": "\n    Références législatives :\n        Article D531-7 du code de l'éducation\n        https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000020743197&cidTexte=LEGITEXT000006071191&dateTexte=20160610\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 7,
+                "id": "P",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "bourse_college",
+              "col_offset": 8,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 59,
+              "end_lineno": 7,
+              "lineno": 7,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "bourses_education",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 7,
+                      "id": "period",
+                      "lineno": 7
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 26,
+                  "end_lineno": 7,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 18,
+                    "end_lineno": 7,
+                    "id": "parameters",
+                    "lineno": 7
+                  },
+                  "keywords": [],
+                  "lineno": 7
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 106,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 10,
+                "id": "bmaf_1er_janvier",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "bmaf",
+              "col_offset": 23,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 106,
+              "end_lineno": 10,
+              "lineno": 10,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "af",
+                "col_offset": 23,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 101,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "prestations_familiales",
+                  "col_offset": 23,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 98,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "prestations",
+                    "col_offset": 23,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 75,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "first_month",
+                          "col_offset": 34,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 62,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "this_year",
+                            "col_offset": 34,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 50,
+                            "end_lineno": 10,
+                            "lineno": 10,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 34,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 40,
+                              "end_lineno": 10,
+                              "id": "period",
+                              "lineno": 10
+                            }
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 23,
+                      "end_col_offset": 63,
+                      "end_lineno": 10,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 23,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 33,
+                        "end_lineno": 10,
+                        "id": "parameters",
+                        "lineno": 10
+                      },
+                      "keywords": [],
+                      "lineno": 10
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 54,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 12,
+                "id": "scolarite_i",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 34,
+                  "end_col_offset": 45,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "scolarite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 53,
+                  "end_lineno": 12,
+                  "id": "period",
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 54,
+              "end_lineno": 12,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 12,
+                "lineno": 12,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 18,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 25,
+                  "end_lineno": 12,
+                  "id": "famille",
+                  "lineno": 12
+                }
+              },
+              "keywords": [],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 98,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 13,
+                "id": "nb_enfants_college",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Compare",
+                  "col_offset": 37,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "college",
+                      "col_offset": 52,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 74,
+                      "end_lineno": 13,
+                      "lineno": 13,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 52,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 66,
+                        "end_lineno": 13,
+                        "id": "TypesScolarite",
+                        "lineno": 13
+                      }
+                    }
+                  ],
+                  "end_col_offset": 74,
+                  "end_lineno": 13,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 48,
+                    "end_lineno": 13,
+                    "id": "scolarite_i",
+                    "lineno": 13
+                  },
+                  "lineno": 13,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 98,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 13,
+                "lineno": 13,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 25,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 32,
+                  "end_lineno": 13,
+                  "id": "famille",
+                  "lineno": 13
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 76,
+                  "end_col_offset": 97,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "ENFANT",
+                    "col_offset": 83,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 97,
+                    "end_lineno": 13,
+                    "lineno": 13,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 83,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 90,
+                      "end_lineno": 13,
+                      "id": "Famille",
+                      "lineno": 13
+                    }
+                  }
+                }
+              ],
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 55,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 15,
+                "id": "echelon",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 22,
+                  "end_col_offset": 46,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": "bourse_college_echelon"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 48,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 54,
+                  "end_lineno": 15,
+                  "id": "period",
+                  "lineno": 15
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 55,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 15,
+                "id": "famille",
+                "lineno": 15
+              },
+              "keywords": [],
+              "lineno": 15
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 20,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 17,
+                "id": "montant_par_enfant_en_pourcent_bmaf",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 9,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 20,
+                          "end_col_offset": 21,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 3
+                        }
+                      ],
+                      "end_col_offset": 21,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 16,
+                        "end_lineno": 18,
+                        "id": "echelon",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 23,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 34,
+                          "end_col_offset": 35,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 35,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 23,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 30,
+                        "end_lineno": 18,
+                        "id": "echelon",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 37,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 48,
+                          "end_col_offset": 49,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 1
+                        }
+                      ],
+                      "end_col_offset": 49,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 37,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 44,
+                        "end_lineno": 18,
+                        "id": "echelon",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  ],
+                  "end_col_offset": 50,
+                  "end_lineno": 18,
+                  "lineno": 18
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "montant_taux_3",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 19,
+                      "lineno": 19,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 10,
+                        "end_lineno": 19,
+                        "id": "P",
+                        "lineno": 19
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "montant_taux_2",
+                      "col_offset": 27,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 43,
+                      "end_lineno": 19,
+                      "lineno": 19,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 27,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 28,
+                        "end_lineno": 19,
+                        "id": "P",
+                        "lineno": 19
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "montant_taux_1",
+                      "col_offset": 45,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 61,
+                      "end_lineno": 19,
+                      "lineno": 19,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 45,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 46,
+                        "end_lineno": 19,
+                        "id": "P",
+                        "lineno": 19
+                      }
+                    }
+                  ],
+                  "end_col_offset": 62,
+                  "end_lineno": 19,
+                  "lineno": 19
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 42,
+              "end_col_offset": 9,
+              "end_lineno": 20,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 42,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 48,
+                "end_lineno": 17,
+                "id": "select",
+                "lineno": 17
+              },
+              "keywords": [],
+              "lineno": 17
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 95,
+            "end_lineno": 23,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 23,
+                "id": "montant_par_enfant",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 25,
+              "end_col_offset": 95,
+              "end_lineno": 23,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "BinOp",
+                    "col_offset": 32,
+                    "end_col_offset": 90,
+                    "end_lineno": 23,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 32,
+                      "end_col_offset": 86,
+                      "end_lineno": 23,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 32,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 67,
+                        "end_lineno": 23,
+                        "id": "montant_par_enfant_en_pourcent_bmaf",
+                        "lineno": 23
+                      },
+                      "lineno": 23,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 70,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 86,
+                        "end_lineno": 23,
+                        "id": "bmaf_1er_janvier",
+                        "lineno": 23
+                      }
+                    },
+                    "lineno": 23,
+                    "op": {
+                      "ast_class": "Div"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 89,
+                      "end_col_offset": 90,
+                      "end_lineno": 23,
+                      "lineno": 23,
+                      "value": 3
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 25,
+                "end_col_offset": 91,
+                "end_lineno": 23,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 25,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 31,
+                  "end_lineno": 23,
+                  "id": "round_",
+                  "lineno": 23
+                },
+                "keywords": [],
+                "lineno": 23
+              },
+              "lineno": 23,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 94,
+                "end_col_offset": 95,
+                "end_lineno": 23,
+                "lineno": 23,
+                "value": 3
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 50,
+            "end_lineno": 25,
+            "lineno": 25,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 50,
+              "end_lineno": 25,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 25,
+                "id": "nb_enfants_college",
+                "lineno": 25
+              },
+              "lineno": 25,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 32,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 25,
+                "id": "montant_par_enfant",
+                "lineno": 25
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 50,
+        "end_lineno": 25,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nRéférences législatives :\n    Article D531-7 du code de l'éducation\n    https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000020743197&cidTexte=LEGITEXT000006071191&dateTexte=20160610\n",
+      "file_path": "/openfisca_france/model/prestations/education.py",
+      "parameters": [
+        "bourses_education.bourse_college.montant_taux_1",
+        "bourses_education.bourse_college.montant_taux_2",
+        "bourses_education.bourse_college.montant_taux_3"
+      ],
+      "source_code": "def formula(famille, period, parameters):\n    \"\"\"\n    Références législatives :\n        Article D531-7 du code de l'éducation\n        https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000020743197&cidTexte=LEGITEXT000006071191&dateTexte=20160610\n    \"\"\"\n    P = parameters(period).bourses_education.bourse_college\n\n    # On prends en compte la BMAF du premier janvier de l'année de la rentrée scolaire\n    bmaf_1er_janvier = parameters(period.this_year.first_month).prestations.prestations_familiales.af.bmaf\n\n    scolarite_i = famille.members('scolarite', period)\n    nb_enfants_college = famille.sum(scolarite_i == TypesScolarite.college, role = Famille.ENFANT)\n\n    echelon = famille('bourse_college_echelon', period)\n\n    montant_par_enfant_en_pourcent_bmaf = select(\n        [echelon == 3, echelon == 2, echelon == 1],\n        [P.montant_taux_3, P.montant_taux_2, P.montant_taux_1],\n        )\n\n    # Arrondi au multiple de 3 le plus proche, car 3 trimestres\n    montant_par_enfant = round_(montant_par_enfant_en_pourcent_bmaf * bmaf_1er_janvier / 3) * 3\n\n    return nb_enfants_college * montant_par_enfant\n",
+      "start_line_number": 87,
+      "stop_line_number": 112,
+      "variables": [
+        "bourse_college_echelon"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant annuel de la bourse de collège",
+  "name": "bourse_college",
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 80,
+  "stop_line_number": 112,
+  "value_type": "float"
+}

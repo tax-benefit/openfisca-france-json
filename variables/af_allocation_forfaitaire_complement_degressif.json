@@ -1,0 +1,501 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
+  "formulas": {
+    "2015-07-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 30,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 32,
+              "end_col_offset": 38,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 40,
+              "end_col_offset": 50,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 42,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 2,
+                "id": "af_nbenf",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 33,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "af_nbenf"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 35,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 41,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 15,
+              "end_col_offset": 42,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 2,
+                "id": "famille",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 82,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 3,
+                "id": "af_forfaitaire_nbenf",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 73,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "af_allocation_forfaitaire_nb_enfants"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 75,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 81,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 27,
+              "end_col_offset": 82,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 3,
+                "id": "famille",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 48,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 4,
+                "id": "nb_enf_tot",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 17,
+              "end_col_offset": 48,
+              "end_lineno": 4,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 4,
+                "id": "af_nbenf",
+                "lineno": 4
+              },
+              "lineno": 4,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 48,
+                "end_lineno": 4,
+                "id": "af_forfaitaire_nbenf",
+                "lineno": 4
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 83,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 6,
+                "id": "depassement_mensuel",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 45,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 6,
+                  "id": "famille",
+                  "lineno": 6
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 54,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 72,
+                  "end_lineno": 6,
+                  "id": "parameters",
+                  "lineno": 6
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 74,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 82,
+                  "end_lineno": 6,
+                  "id": "af_nbenf",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 26,
+              "end_col_offset": 83,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 6,
+                "id": "depassement_helper",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 76,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 8,
+                "id": "af_allocation_forfaitaire",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 40,
+                  "end_col_offset": 67,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "af_allocation_forfaitaire"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 69,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 75,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 32,
+              "end_col_offset": 76,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 32,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 8,
+                "id": "famille",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 95,
+            "end_lineno": 9,
+            "lineno": 9,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 95,
+              "end_lineno": 9,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 16,
+                    "end_col_offset": 17,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": 0
+                  },
+                  {
+                    "ast_class": "BinOp",
+                    "col_offset": 19,
+                    "end_col_offset": 66,
+                    "end_lineno": 9,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 9,
+                      "id": "af_allocation_forfaitaire",
+                      "lineno": 9
+                    },
+                    "lineno": 9,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 47,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 66,
+                      "end_lineno": 9,
+                      "id": "depassement_mensuel",
+                      "lineno": 9
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 11,
+                "end_col_offset": 67,
+                "end_lineno": 9,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 15,
+                  "end_lineno": 9,
+                  "id": "max_",
+                  "lineno": 9
+                },
+                "keywords": [],
+                "lineno": 9
+              },
+              "lineno": 9,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 71,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 93,
+                    "end_col_offset": 94,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": 0
+                  }
+                ],
+                "end_col_offset": 94,
+                "end_lineno": 9,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 71,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 90,
+                  "end_lineno": 9,
+                  "id": "depassement_mensuel",
+                  "lineno": 9
+                },
+                "lineno": 9,
+                "ops": [
+                  {
+                    "ast_class": "Gt"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 95,
+        "end_lineno": 9,
+        "lineno": 1,
+        "name": "formula_2015_07_01"
+      },
+      "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
+      "source_code": "def formula_2015_07_01(famille, period, parameters):\n    af_nbenf = famille('af_nbenf', period)\n    af_forfaitaire_nbenf = famille('af_allocation_forfaitaire_nb_enfants', period)\n    nb_enf_tot = af_nbenf + af_forfaitaire_nbenf  # noqa F841\n\n    depassement_mensuel = depassement_helper(famille, period, parameters, af_nbenf)\n\n    af_allocation_forfaitaire = famille('af_allocation_forfaitaire', period)\n    return max_(0, af_allocation_forfaitaire - depassement_mensuel) * (depassement_mensuel > 0)\n",
+      "start_line_number": 256,
+      "stop_line_number": 265,
+      "variables": [
+        "af_allocation_forfaitaire",
+        "af_allocation_forfaitaire_nb_enfants",
+        "af_nbenf"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "AF - Complément dégressif pour l'allocation forfaitaire en cas de dépassement du plafond",
+  "name": "af_allocation_forfaitaire_complement_degressif",
+  "referring_variables": [
+    "af"
+  ],
+  "start_line_number": 250,
+  "stop_line_number": 265,
+  "value_type": "float"
+}

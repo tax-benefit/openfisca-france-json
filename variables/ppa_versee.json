@@ -1,0 +1,448 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 73,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 2,
+                "id": "remainder",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 64,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "ppa_indice_du_mois_trimestre_reference"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 66,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 72,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 73,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 2,
+                "id": "famille",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 7,
+            "lineno": 3,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 73,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 62,
+                "end_lineno": 5,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 51,
+                  "end_lineno": 4,
+                  "left": {
+                    "ast_class": "UnaryOp",
+                    "col_offset": 8,
+                    "end_col_offset": 32,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "op": {
+                      "ast_class": "UAdd"
+                    },
+                    "operand": {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 18,
+                          "end_col_offset": 23,
+                          "end_lineno": 4,
+                          "lineno": 4,
+                          "value": "ppa"
+                        },
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 25,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 31,
+                          "end_lineno": 4,
+                          "id": "period",
+                          "lineno": 4
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 10,
+                      "end_col_offset": 32,
+                      "end_lineno": 4,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 17,
+                        "end_lineno": 4,
+                        "id": "famille",
+                        "lineno": 4
+                      },
+                      "keywords": [],
+                      "lineno": 4
+                    }
+                  },
+                  "lineno": 4,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 36,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 49,
+                        "end_col_offset": 50,
+                        "end_lineno": 4,
+                        "lineno": 4,
+                        "value": 0
+                      }
+                    ],
+                    "end_col_offset": 50,
+                    "end_lineno": 4,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 36,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 4,
+                      "id": "remainder",
+                      "lineno": 4
+                    },
+                    "lineno": 4,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 4,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 62,
+                  "end_lineno": 5,
+                  "left": {
+                    "args": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 18,
+                        "end_col_offset": 23,
+                        "end_lineno": 5,
+                        "lineno": 5,
+                        "value": "ppa"
+                      },
+                      {
+                        "ast_class": "Attribute",
+                        "attr": "last_month",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 42,
+                        "end_lineno": 5,
+                        "lineno": 5,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 25,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 31,
+                          "end_lineno": 5,
+                          "id": "period",
+                          "lineno": 5
+                        }
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 10,
+                    "end_col_offset": 43,
+                    "end_lineno": 5,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 17,
+                      "end_lineno": 5,
+                      "id": "famille",
+                      "lineno": 5
+                    },
+                    "keywords": [],
+                    "lineno": 5
+                  },
+                  "lineno": 5,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 47,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 60,
+                        "end_col_offset": 61,
+                        "end_lineno": 5,
+                        "lineno": 5,
+                        "value": 1
+                      }
+                    ],
+                    "end_col_offset": 61,
+                    "end_lineno": 5,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 47,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 56,
+                      "end_lineno": 5,
+                      "id": "remainder",
+                      "lineno": 5
+                    },
+                    "lineno": 5,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  }
+                }
+              },
+              "lineno": 4,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 73,
+                "end_lineno": 6,
+                "left": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 18,
+                      "end_col_offset": 23,
+                      "end_lineno": 6,
+                      "lineno": 6,
+                      "value": "ppa"
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "last_month",
+                      "col_offset": 25,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 53,
+                      "end_lineno": 6,
+                      "lineno": 6,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "last_month",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 42,
+                        "end_lineno": 6,
+                        "lineno": 6,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 25,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 31,
+                          "end_lineno": 6,
+                          "id": "period",
+                          "lineno": 6
+                        }
+                      }
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 10,
+                  "end_col_offset": 54,
+                  "end_lineno": 6,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 17,
+                    "end_lineno": 6,
+                    "id": "famille",
+                    "lineno": 6
+                  },
+                  "keywords": [],
+                  "lineno": 6
+                },
+                "lineno": 6,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Compare",
+                  "col_offset": 58,
+                  "comparators": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 71,
+                      "end_col_offset": 72,
+                      "end_lineno": 6,
+                      "lineno": 6,
+                      "value": 2
+                    }
+                  ],
+                  "end_col_offset": 72,
+                  "end_lineno": 6,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 58,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 67,
+                    "end_lineno": 6,
+                    "id": "remainder",
+                    "lineno": 6
+                  },
+                  "lineno": 6,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 7,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "source_code": "def formula(famille, period, parameters):\n    remainder = famille('ppa_indice_du_mois_trimestre_reference', period)\n    return (\n        + famille('ppa', period) * (remainder == 0)\n        + famille('ppa', period.last_month) * (remainder == 1)\n        + famille('ppa', period.last_month.last_month) * (remainder == 2)\n        )\n",
+      "start_line_number": 500,
+      "stop_line_number": 507,
+      "variables": [
+        "ppa",
+        "ppa_indice_du_mois_trimestre_reference"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Prime pour l'activité versée en prenant en compte la date de la demande",
+  "name": "ppa_versee",
+  "start_line_number": 494,
+  "stop_line_number": 507,
+  "value_type": "float"
+}

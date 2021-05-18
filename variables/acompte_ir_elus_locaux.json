@@ -1,0 +1,158 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 8,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 8,
+              "lineno": 2,
+              "value": "\n    Si un élu local a été prélevé à la source de l'impôt associé à ses indemnités\n    et qu'il décide au final d'être imposé comme au titre des salaires et traitements,\n    son impôt est calculé après déclaration 2042 des revenus, mais est diminué de l'acompte correspondant au montant déjà prélevé à la source\n    Cf. document 2041 GI. Pour l'année 2016 :\n    https://www.impots.gouv.fr/portail/files/formulaires/2041-gi/2017/2041-gi_1936.pdf\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 39,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 9,
+                "id": "f8th",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 30,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "f8th"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 32,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 38,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 39,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 9,
+                "id": "foyer_fiscal",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 15,
+            "end_lineno": 11,
+            "lineno": 11,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 15,
+              "end_lineno": 11,
+              "id": "f8th",
+              "lineno": 11
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 15,
+        "end_lineno": 11,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nSi un élu local a été prélevé à la source de l'impôt associé à ses indemnités\net qu'il décide au final d'être imposé comme au titre des salaires et traitements,\nson impôt est calculé après déclaration 2042 des revenus, mais est diminué de l'acompte correspondant au montant déjà prélevé à la source\nCf. document 2041 GI. Pour l'année 2016 :\nhttps://www.impots.gouv.fr/portail/files/formulaires/2041-gi/2017/2041-gi_1936.pdf\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+      "source_code": "def formula(foyer_fiscal, period):\n    '''\n    Si un élu local a été prélevé à la source de l'impôt associé à ses indemnités\n    et qu'il décide au final d'être imposé comme au titre des salaires et traitements,\n    son impôt est calculé après déclaration 2042 des revenus, mais est diminué de l'acompte correspondant au montant déjà prélevé à la source\n    Cf. document 2041 GI. Pour l'année 2016 :\n    https://www.impots.gouv.fr/portail/files/formulaires/2041-gi/2017/2041-gi_1936.pdf\n    '''\n    f8th = foyer_fiscal('f8th', period)\n\n    return f8th\n",
+      "start_line_number": 846,
+      "stop_line_number": 857,
+      "variables": [
+        "f8th"
+      ]
+    },
+    "2018-01-01": null
+  },
+  "json_type": "number",
+  "label": "Acompte d'impôt associé au prélèvement à la source des indemnités des élus locaux",
+  "name": "acompte_ir_elus_locaux",
+  "referring_variables": [
+    "acomptes_ir"
+  ],
+  "start_line_number": 839,
+  "stop_line_number": 857,
+  "value_type": "float"
+}

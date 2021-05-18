@@ -1,0 +1,213 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_mobilite_internationale.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 4,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 4,
+              "lineno": 2,
+              "value": "\n    Ce calcul ne détermine qu'une éligibilité potentielle et n'ouvre pas de droits : l'aide est accordée par une évaluation de l'établissement d'origine, en fonction de la durée de votre séjour et de certaines spécificités telles que l'éloignement du pays d'accueil, le coût de la vie du pays choisi.\n    "
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 141,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 141,
+              "end_lineno": 5,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 20,
+                    "end_col_offset": 62,
+                    "end_lineno": 5,
+                    "lineno": 5,
+                    "value": "aide_mobilite_internationale_eligibilite"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 64,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 70,
+                    "end_lineno": 5,
+                    "id": "period",
+                    "lineno": 5
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 11,
+                "end_col_offset": 71,
+                "end_lineno": 5,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 19,
+                  "end_lineno": 5,
+                  "id": "individu",
+                  "lineno": 5
+                },
+                "keywords": [],
+                "lineno": 5
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Attribute",
+                "attr": "montant",
+                "col_offset": 74,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 141,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "aide_mobilite_internationale",
+                  "col_offset": 74,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 133,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "prestations",
+                    "col_offset": 74,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 104,
+                    "end_lineno": 5,
+                    "lineno": 5,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 85,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 91,
+                          "end_lineno": 5,
+                          "id": "period",
+                          "lineno": 5
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 74,
+                      "end_col_offset": 92,
+                      "end_lineno": 5,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 74,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 84,
+                        "end_lineno": 5,
+                        "id": "parameters",
+                        "lineno": 5
+                      },
+                      "keywords": [],
+                      "lineno": 5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 141,
+        "end_lineno": 5,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nCe calcul ne détermine qu'une éligibilité potentielle et n'ouvre pas de droits : l'aide est accordée par une évaluation de l'établissement d'origine, en fonction de la durée de votre séjour et de certaines spécificités telles que l'éloignement du pays d'accueil, le coût de la vie du pays choisi.\n",
+      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_mobilite_internationale.py",
+      "parameters": [
+        "prestations.aide_mobilite_internationale.montant"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    '''\n    Ce calcul ne détermine qu'une éligibilité potentielle et n'ouvre pas de droits : l'aide est accordée par une évaluation de l'établissement d'origine, en fonction de la durée de votre séjour et de certaines spécificités telles que l'éloignement du pays d'accueil, le coût de la vie du pays choisi.\n    '''\n    return individu('aide_mobilite_internationale_eligibilite', period) * parameters(period).prestations.aide_mobilite_internationale.montant\n",
+      "start_line_number": 45,
+      "stop_line_number": 50,
+      "variables": [
+        "aide_mobilite_internationale_eligibilite"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant de l'aide à la mobilité internationale (AMI)",
+  "name": "aide_mobilite_internationale",
+  "reference": [
+    "Circulaire du 8-6-2020 - Modalités d’attribution des bourses d’enseignement supérieur - Annexe 9 : Aide à la mobilité internationale",
+    "https://www.enseignementsup-recherche.gouv.fr/pid20536/bulletin-officiel.html?cid_bo=152353&cbo=1"
+  ],
+  "start_line_number": 35,
+  "stop_line_number": 50,
+  "value_type": "float"
+}

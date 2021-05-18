@@ -1,0 +1,247 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/mesures.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 13,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 13,
+              "lineno": 2,
+              "value": "\n    Cette variable d'IRPP comptabilise dans les montants\n    d'imposition les acomptes qui, dans la déclaration fiscale, sont considérés comme des crédits\n    d'impôt. Ajouter ces acomptes au montant \"administratif\" d'impôt correspond donc au \"véritable impôt\"\n    payé en totalité, alors que la variable 'irpp' correspond à une notion administrative.\n    Exemple :\n    Certains revenus du capital sont soumis à un prélèvement forfaitaire à la source non libératoire,\n    faisant office d'acompte. Puis, l'impôt au barème sur ces revenus est calculé, et confronté à l'acompte.\n    Cet acompte, est en case 2CK, et considéré comme un crédit d'impôt. Retrancher de l'impôt au barème ce\n    crédit permet d'obtenir l'impôt dû suite à la déclaration de revenus, qui correspond à la variable 'irpp'.\n    Cette notion est administrative. L'impôt total payé correspond à cette notion administrative, augmentée des acomptes.\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 39,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 14,
+                "id": "irpp",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 30,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "irpp"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 32,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 38,
+                  "end_lineno": 14,
+                  "id": "period",
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 39,
+              "end_lineno": 14,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 14,
+                "id": "foyer_fiscal",
+                "lineno": 14
+              },
+              "keywords": [],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 15,
+                "id": "acomptes_ir",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 31,
+                  "end_col_offset": 44,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": "acomptes_ir"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 15,
+                  "id": "period",
+                  "lineno": 15
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 53,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 15,
+                "id": "foyer_fiscal",
+                "lineno": 15
+              },
+              "keywords": [],
+              "lineno": 15
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 29,
+            "end_lineno": 17,
+            "lineno": 17,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 29,
+              "end_lineno": 17,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 17,
+                "id": "irpp",
+                "lineno": 17
+              },
+              "lineno": 17,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 17,
+                "id": "acomptes_ir",
+                "lineno": 17
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 29,
+        "end_lineno": 17,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nCette variable d'IRPP comptabilise dans les montants\nd'imposition les acomptes qui, dans la déclaration fiscale, sont considérés comme des crédits\nd'impôt. Ajouter ces acomptes au montant \"administratif\" d'impôt correspond donc au \"véritable impôt\"\npayé en totalité, alors que la variable 'irpp' correspond à une notion administrative.\nExemple :\nCertains revenus du capital sont soumis à un prélèvement forfaitaire à la source non libératoire,\nfaisant office d'acompte. Puis, l'impôt au barème sur ces revenus est calculé, et confronté à l'acompte.\nCet acompte, est en case 2CK, et considéré comme un crédit d'impôt. Retrancher de l'impôt au barème ce\ncrédit permet d'obtenir l'impôt dû suite à la déclaration de revenus, qui correspond à la variable 'irpp'.\nCette notion est administrative. L'impôt total payé correspond à cette notion administrative, augmentée des acomptes.\n",
+      "file_path": "/openfisca_france/model/mesures.py",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Cette variable d'IRPP comptabilise dans les montants\n    d'imposition les acomptes qui, dans la déclaration fiscale, sont considérés comme des crédits\n    d'impôt. Ajouter ces acomptes au montant \"administratif\" d'impôt correspond donc au \"véritable impôt\"\n    payé en totalité, alors que la variable 'irpp' correspond à une notion administrative.\n    Exemple :\n    Certains revenus du capital sont soumis à un prélèvement forfaitaire à la source non libératoire,\n    faisant office d'acompte. Puis, l'impôt au barème sur ces revenus est calculé, et confronté à l'acompte.\n    Cet acompte, est en case 2CK, et considéré comme un crédit d'impôt. Retrancher de l'impôt au barème ce\n    crédit permet d'obtenir l'impôt dû suite à la déclaration de revenus, qui correspond à la variable 'irpp'.\n    Cette notion est administrative. L'impôt total payé correspond à cette notion administrative, augmentée des acomptes.\n    '''\n    irpp = foyer_fiscal('irpp', period)\n    acomptes_ir = foyer_fiscal('acomptes_ir', period)\n\n    return irpp - acomptes_ir  # Car par convention, irpp est un montant négatif et acomptes_ir un montant positif\n",
+      "start_line_number": 587,
+      "stop_line_number": 604,
+      "variables": [
+        "acomptes_ir",
+        "irpp"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Notion économique de l'IRPP",
+  "name": "irpp_economique",
+  "referring_variables": [
+    "total_impots_plafonnement_isf_ifi"
+  ],
+  "start_line_number": 581,
+  "stop_line_number": 604,
+  "value_type": "float"
+}

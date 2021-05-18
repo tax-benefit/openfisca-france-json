@@ -1,0 +1,228 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "int32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 106,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 2,
+                "id": "pts_distance",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 97,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "bourse_criteres_sociaux_points_de_charge_distance_domicile_familial"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 99,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 105,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 19,
+              "end_col_offset": 106,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 19,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 96,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 3,
+                "id": "pts_charges",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 27,
+                  "end_col_offset": 87,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "bourse_criteres_sociaux_points_de_charge_charges_familiale"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 89,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 95,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 96,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 3,
+                "id": "individu",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 37,
+            "end_lineno": 4,
+            "lineno": 4,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 37,
+              "end_lineno": 4,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 4,
+                "id": "pts_distance",
+                "lineno": 4
+              },
+              "lineno": 4,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 4,
+                "id": "pts_charges",
+                "lineno": 4
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 37,
+        "end_lineno": 4,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+      "source_code": "def formula(individu, period):\n    pts_distance = individu('bourse_criteres_sociaux_points_de_charge_distance_domicile_familial', period)\n    pts_charges = individu('bourse_criteres_sociaux_points_de_charge_charges_familiale', period)\n    return pts_distance + pts_charges\n",
+      "start_line_number": 220,
+      "stop_line_number": 224,
+      "variables": [
+        "bourse_criteres_sociaux_points_de_charge_charges_familiale",
+        "bourse_criteres_sociaux_points_de_charge_distance_domicile_familial"
+      ]
+    }
+  },
+  "json_type": "integer",
+  "label": "Nombre de points de charge pour la bourse sur critères sociaux de l'enseignement supérieur",
+  "name": "bourse_criteres_sociaux_points_de_charge",
+  "reference": [
+    "Circulaire ESRS2013435C - Annexe 3 - Conditions de ressources et points de charge / 2 - Points de charge à prendre en considération pour l'attribution d'une bourse sur critères sociaux",
+    "https://www.education.gouv.fr/bo/20/Hebdo25/ESRS2013435C.htm"
+  ],
+  "referring_variables": [
+    "aide_formation_gen",
+    "bourse_criteres_sociaux_echelon"
+  ],
+  "start_line_number": 210,
+  "stop_line_number": 224,
+  "value_type": "int"
+}

@@ -1,0 +1,471 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 2,
+                "id": "previous_year",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "UnaryOp",
+                  "col_offset": 55,
+                  "end_col_offset": 57,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "op": {
+                    "ast_class": "USub"
+                  },
+                  "operand": {
+                    "ast_class": "Constant",
+                    "col_offset": 56,
+                    "end_col_offset": 57,
+                    "end_lineno": 2,
+                    "lineno": 2,
+                    "value": 1
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 58,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "offset",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 54,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 40,
+                      "end_col_offset": 46,
+                      "end_lineno": 2,
+                      "lineno": 2,
+                      "value": "year"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 20,
+                  "end_col_offset": 47,
+                  "end_lineno": 2,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "period",
+                    "col_offset": 20,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 2,
+                    "lineno": 2,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "start",
+                      "col_offset": 20,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 32,
+                      "end_lineno": 2,
+                      "lineno": 2,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 20,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 26,
+                        "end_lineno": 2,
+                        "id": "period",
+                        "lineno": 2
+                      }
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 2
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 106,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 3,
+                "id": "non_salarie_agricole",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 27,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 105,
+                  "end_col_offset": 106,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": 0
+                }
+              ],
+              "end_col_offset": 106,
+              "end_lineno": 3,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 36,
+                    "end_col_offset": 70,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "tns_benefice_exploitant_agricole"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 72,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 85,
+                    "end_lineno": 3,
+                    "id": "previous_year",
+                    "lineno": 3
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 27,
+                "end_col_offset": 101,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 27,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 35,
+                  "end_lineno": 3,
+                  "id": "individu",
+                  "lineno": 3
+                },
+                "keywords": [
+                  {
+                    "arg": "options",
+                    "ast_class": "keyword",
+                    "col_offset": 87,
+                    "end_col_offset": 100,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "List",
+                      "col_offset": 95,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "elts": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 96,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 99,
+                          "end_lineno": 3,
+                          "id": "ADD",
+                          "lineno": 3
+                        }
+                      ],
+                      "end_col_offset": 100,
+                      "end_lineno": 3,
+                      "lineno": 3
+                    }
+                  }
+                ],
+                "lineno": 3
+              },
+              "lineno": 3,
+              "ops": [
+                {
+                  "ast_class": "NotEq"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 87,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 4,
+                "id": "rente_accident_travail_salarie",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 46,
+                  "end_col_offset": 78,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "rente_accident_travail_salarie"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 80,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 86,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 37,
+              "end_col_offset": 87,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 37,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 4,
+                "id": "individu",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 111,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 46,
+                "end_lineno": 5,
+                "id": "rente_accident_travail_exploitant_agricole",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 58,
+                  "end_col_offset": 102,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "rente_accident_travail_exploitant_agricole"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 104,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 110,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 49,
+              "end_col_offset": 111,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 49,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 57,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 114,
+            "end_lineno": 7,
+            "lineno": 7,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 17,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 37,
+                  "end_lineno": 7,
+                  "id": "non_salarie_agricole",
+                  "lineno": 7
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 39,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 81,
+                  "end_lineno": 7,
+                  "id": "rente_accident_travail_exploitant_agricole",
+                  "lineno": 7
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 83,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 113,
+                  "end_lineno": 7,
+                  "id": "rente_accident_travail_salarie",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 114,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 7,
+                "id": "where",
+                "lineno": 7
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 114,
+        "end_lineno": 7,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+      "source_code": "def formula(individu, period):\n    previous_year = period.start.period('year').offset(-1)\n    non_salarie_agricole = individu('tns_benefice_exploitant_agricole', previous_year, options=[ADD]) != 0\n    rente_accident_travail_salarie = individu('rente_accident_travail_salarie', period)\n    rente_accident_travail_exploitant_agricole = individu('rente_accident_travail_exploitant_agricole', period)\n\n    return where(non_salarie_agricole, rente_accident_travail_exploitant_agricole, rente_accident_travail_salarie)\n",
+      "start_line_number": 12,
+      "stop_line_number": 19,
+      "variables": [
+        "rente_accident_travail_exploitant_agricole",
+        "rente_accident_travail_salarie",
+        "tns_benefice_exploitant_agricole"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant mensuel de la rente d’accident du travail",
+  "name": "rente_accident_travail",
+  "reference": [
+    "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000006743072&dateTexte=&categorieLien=cid"
+  ],
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 4,
+  "stop_line_number": 19,
+  "value_type": "float"
+}

@@ -1,0 +1,857 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/prestations_familiales/paje.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 29,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 29,
+              "lineno": 2,
+              "value": "\n    Allocation parentale d'éducation\n\n    L’allocation parentale d’éducation s’adresse aux parents qui souhaitent arrêter ou\n    réduire leur activité pour s’occuper de leurs jeunes enfants, à condition que ceux-ci\n    soient nés avant le 01/01/2004. En effet, pour les enfants nés depuis cette date,\n    dans le cadre de la Prestation d’Accueil du Jeune Enfant, les parents peuvent bénéficier\n    du « complément de libre choix d’activité. »\n\n    Les personnes en couple peuvent toutes deux bénéficier de l’APE à taux plein, mais pas en même temps.\n    En revanche, elles peuvent cumuler deux taux partiels, à condition que leur total ne dépasse pas le montant\n    du taux plein.\n\n    TODO: cumul,  adoption, triplés,\n    Cumul d'allocations : Cette allocation n'est pas cumulable pour un même ménage avec\n    - une autre APE (sauf à taux partiel),\n    - ou l'allocation pour jeune enfant (APJE) versée à partir de la naissance,\n    - ou le complément familial,\n    - ou l'allocation d’adulte handicapé (AAH).\n    Enfin, il est à noter que cette allocation n’est pas cumulable avec :\n    - une pension d’invalidité ou une retraite ;\n    - des indemnités journalières de maladie, de maternité ou d’accident du travail ;\n    - des allocations chômage. Il est tout de même possible de demander aux ASSEDIC la suspension de ces dernières\n      pour percevoir l’APE.\n\n    L'allocation parentale d'éducation n'est pas soumise à condition de ressources, sauf l’APE à taux partiel pour\n    les professions non salariées.\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 40,
+            "end_lineno": 30,
+            "lineno": 30,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 30,
+                "id": "inactif",
+                "lineno": 30
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 22,
+                  "end_col_offset": 31,
+                  "end_lineno": 30,
+                  "lineno": 30,
+                  "value": "inactif"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 33,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 39,
+                  "end_lineno": 30,
+                  "id": "period",
+                  "lineno": 30
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 40,
+              "end_lineno": 30,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 30,
+                "id": "famille",
+                "lineno": 30
+              },
+              "keywords": [],
+              "lineno": 30
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 42,
+            "end_lineno": 31,
+            "lineno": 31,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 31,
+                "id": "partiel1",
+                "lineno": 31
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 33,
+                  "end_lineno": 31,
+                  "lineno": 31,
+                  "value": "partiel1"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 35,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 41,
+                  "end_lineno": 31,
+                  "id": "period",
+                  "lineno": 31
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 15,
+              "end_col_offset": 42,
+              "end_lineno": 31,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 31,
+                "id": "famille",
+                "lineno": 31
+              },
+              "keywords": [],
+              "lineno": 31
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 42,
+            "end_lineno": 32,
+            "lineno": 32,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 32,
+                "id": "partiel2",
+                "lineno": 32
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 33,
+                  "end_lineno": 32,
+                  "lineno": 32,
+                  "value": "partiel2"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 35,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 41,
+                  "end_lineno": 32,
+                  "id": "period",
+                  "lineno": 32
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 15,
+              "end_col_offset": 42,
+              "end_lineno": 32,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 32,
+                "id": "famille",
+                "lineno": 32
+              },
+              "keywords": [],
+              "lineno": 32
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 33,
+            "lineno": 33,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 33,
+                "id": "P",
+                "lineno": 33
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "prestations_familiales",
+              "col_offset": 8,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 61,
+              "end_lineno": 33,
+              "lineno": 33,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 38,
+                "end_lineno": 33,
+                "lineno": 33,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 33,
+                      "id": "period",
+                      "lineno": 33
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 26,
+                  "end_lineno": 33,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 18,
+                    "end_lineno": 33,
+                    "id": "parameters",
+                    "lineno": 33
+                  },
+                  "keywords": [],
+                  "lineno": 33
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 117,
+            "end_lineno": 35,
+            "lineno": 35,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 35,
+                "id": "elig",
+                "lineno": 35
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 117,
+              "end_lineno": 35,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 12,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 68,
+                    "end_col_offset": 69,
+                    "end_lineno": 35,
+                    "lineno": 35,
+                    "value": 1
+                  }
+                ],
+                "end_col_offset": 69,
+                "end_lineno": 35,
+                "left": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 26,
+                      "end_lineno": 35,
+                      "id": "famille",
+                      "lineno": 35
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 28,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 34,
+                      "end_lineno": 35,
+                      "id": "period",
+                      "lineno": 35
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 36,
+                      "end_col_offset": 37,
+                      "end_lineno": 35,
+                      "lineno": 35,
+                      "value": 0
+                    },
+                    {
+                      "ast_class": "BinOp",
+                      "col_offset": 39,
+                      "end_col_offset": 63,
+                      "end_lineno": 35,
+                      "left": {
+                        "ast_class": "Attribute",
+                        "attr": "age_max_enfant",
+                        "col_offset": 39,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 59,
+                        "end_lineno": 35,
+                        "lineno": 35,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "ape",
+                          "col_offset": 39,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 44,
+                          "end_lineno": 35,
+                          "lineno": 35,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 39,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 40,
+                            "end_lineno": 35,
+                            "id": "P",
+                            "lineno": 35
+                          }
+                        }
+                      },
+                      "lineno": 35,
+                      "op": {
+                        "ast_class": "Sub"
+                      },
+                      "right": {
+                        "ast_class": "Constant",
+                        "col_offset": 62,
+                        "end_col_offset": 63,
+                        "end_lineno": 35,
+                        "lineno": 35,
+                        "value": 1
+                      }
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 12,
+                  "end_col_offset": 64,
+                  "end_lineno": 35,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 12,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 18,
+                    "end_lineno": 35,
+                    "id": "nb_enf",
+                    "lineno": 35
+                  },
+                  "keywords": [],
+                  "lineno": 35
+                },
+                "lineno": 35,
+                "ops": [
+                  {
+                    "ast_class": "GtE"
+                  }
+                ]
+              },
+              "lineno": 35,
+              "op": {
+                "ast_class": "BitAnd"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 74,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 115,
+                    "end_col_offset": 116,
+                    "end_lineno": 35,
+                    "lineno": 35,
+                    "value": 2
+                  }
+                ],
+                "end_col_offset": 116,
+                "end_lineno": 35,
+                "left": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 81,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 88,
+                      "end_lineno": 35,
+                      "id": "famille",
+                      "lineno": 35
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 90,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 96,
+                      "end_lineno": 35,
+                      "id": "period",
+                      "lineno": 35
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 98,
+                      "end_col_offset": 99,
+                      "end_lineno": 35,
+                      "lineno": 35,
+                      "value": 0
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "age2",
+                      "col_offset": 101,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 110,
+                      "end_lineno": 35,
+                      "lineno": 35,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "af",
+                        "col_offset": 101,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 105,
+                        "end_lineno": 35,
+                        "lineno": 35,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 101,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 102,
+                          "end_lineno": 35,
+                          "id": "P",
+                          "lineno": 35
+                        }
+                      }
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 74,
+                  "end_col_offset": 111,
+                  "end_lineno": 35,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 74,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 80,
+                    "end_lineno": 35,
+                    "id": "nb_enf",
+                    "lineno": 35
+                  },
+                  "keywords": [],
+                  "lineno": 35
+                },
+                "lineno": 35,
+                "ops": [
+                  {
+                    "ast_class": "GtE"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 130,
+            "end_lineno": 49,
+            "lineno": 49,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 49,
+                "id": "ape",
+                "lineno": 49
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 10,
+              "end_col_offset": 130,
+              "end_lineno": 49,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 49,
+                "id": "elig",
+                "lineno": 49
+              },
+              "lineno": 49,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 18,
+                "end_col_offset": 129,
+                "end_lineno": 49,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 18,
+                  "end_col_offset": 89,
+                  "end_lineno": 49,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 18,
+                    "end_col_offset": 49,
+                    "end_lineno": 49,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 18,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 49,
+                      "id": "inactif",
+                      "lineno": 49
+                    },
+                    "lineno": 49,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Attribute",
+                      "attr": "taux_inactivite",
+                      "col_offset": 28,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 49,
+                      "end_lineno": 49,
+                      "lineno": 49,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "ape",
+                        "col_offset": 28,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 33,
+                        "end_lineno": 49,
+                        "lineno": 49,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 28,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 29,
+                          "end_lineno": 49,
+                          "id": "P",
+                          "lineno": 49
+                        }
+                      }
+                    }
+                  },
+                  "lineno": 49,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 52,
+                    "end_col_offset": 89,
+                    "end_lineno": 49,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 52,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 60,
+                      "end_lineno": 49,
+                      "id": "partiel1",
+                      "lineno": 49
+                    },
+                    "lineno": 49,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Attribute",
+                      "attr": "taux_activite_sup_50",
+                      "col_offset": 63,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 89,
+                      "end_lineno": 49,
+                      "lineno": 49,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "ape",
+                        "col_offset": 63,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 68,
+                        "end_lineno": 49,
+                        "lineno": 49,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 63,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 64,
+                          "end_lineno": 49,
+                          "id": "P",
+                          "lineno": 49
+                        }
+                      }
+                    }
+                  }
+                },
+                "lineno": 49,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 92,
+                  "end_col_offset": 129,
+                  "end_lineno": 49,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 92,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 100,
+                    "end_lineno": 49,
+                    "id": "partiel2",
+                    "lineno": 49
+                  },
+                  "lineno": 49,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_activite_sup_80",
+                    "col_offset": 103,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 129,
+                    "end_lineno": 49,
+                    "lineno": 49,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "ape",
+                      "col_offset": 103,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 108,
+                      "end_lineno": 49,
+                      "lineno": 49,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 103,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 104,
+                        "end_lineno": 49,
+                        "id": "P",
+                        "lineno": 49
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 14,
+            "end_lineno": 51,
+            "lineno": 51,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 14,
+              "end_lineno": 51,
+              "id": "ape",
+              "lineno": 51
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 14,
+        "end_lineno": 51,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nAllocation parentale d'éducation\n\nL’allocation parentale d’éducation s’adresse aux parents qui souhaitent arrêter ou\nréduire leur activité pour s’occuper de leurs jeunes enfants, à condition que ceux-ci\nsoient nés avant le 01/01/2004. En effet, pour les enfants nés depuis cette date,\ndans le cadre de la Prestation d’Accueil du Jeune Enfant, les parents peuvent bénéficier\ndu « complément de libre choix d’activité. »\n\nLes personnes en couple peuvent toutes deux bénéficier de l’APE à taux plein, mais pas en même temps.\nEn revanche, elles peuvent cumuler deux taux partiels, à condition que leur total ne dépasse pas le montant\ndu taux plein.\n\nTODO: cumul,  adoption, triplés,\nCumul d'allocations : Cette allocation n'est pas cumulable pour un même ménage avec\n- une autre APE (sauf à taux partiel),\n- ou l'allocation pour jeune enfant (APJE) versée à partir de la naissance,\n- ou le complément familial,\n- ou l'allocation d’adulte handicapé (AAH).\nEnfin, il est à noter que cette allocation n’est pas cumulable avec :\n- une pension d’invalidité ou une retraite ;\n- des indemnités journalières de maladie, de maternité ou d’accident du travail ;\n- des allocations chômage. Il est tout de même possible de demander aux ASSEDIC la suspension de ces dernières\n  pour percevoir l’APE.\n\nL'allocation parentale d'éducation n'est pas soumise à condition de ressources, sauf l’APE à taux partiel pour\nles professions non salariées.\n",
+      "file_path": "/openfisca_france/model/prestations/prestations_familiales/paje.py",
+      "parameters": [
+        "prestations.prestations_familiales.af.age2",
+        "prestations.prestations_familiales.ape.age_max_enfant",
+        "prestations.prestations_familiales.ape.taux_activite_sup_50",
+        "prestations.prestations_familiales.ape.taux_activite_sup_80",
+        "prestations.prestations_familiales.ape.taux_inactivite"
+      ],
+      "source_code": "def formula(famille, period, parameters):\n    '''\n    Allocation parentale d'éducation\n\n    L’allocation parentale d’éducation s’adresse aux parents qui souhaitent arrêter ou\n    réduire leur activité pour s’occuper de leurs jeunes enfants, à condition que ceux-ci\n    soient nés avant le 01/01/2004. En effet, pour les enfants nés depuis cette date,\n    dans le cadre de la Prestation d’Accueil du Jeune Enfant, les parents peuvent bénéficier\n    du « complément de libre choix d’activité. »\n\n    Les personnes en couple peuvent toutes deux bénéficier de l’APE à taux plein, mais pas en même temps.\n    En revanche, elles peuvent cumuler deux taux partiels, à condition que leur total ne dépasse pas le montant\n    du taux plein.\n\n    TODO: cumul,  adoption, triplés,\n    Cumul d'allocations : Cette allocation n'est pas cumulable pour un même ménage avec\n    - une autre APE (sauf à taux partiel),\n    - ou l'allocation pour jeune enfant (APJE) versée à partir de la naissance,\n    - ou le complément familial,\n    - ou l'allocation d’adulte handicapé (AAH).\n    Enfin, il est à noter que cette allocation n’est pas cumulable avec :\n    - une pension d’invalidité ou une retraite ;\n    - des indemnités journalières de maladie, de maternité ou d’accident du travail ;\n    - des allocations chômage. Il est tout de même possible de demander aux ASSEDIC la suspension de ces dernières\n      pour percevoir l’APE.\n\n    L'allocation parentale d'éducation n'est pas soumise à condition de ressources, sauf l’APE à taux partiel pour\n    les professions non salariées.\n    '''\n    inactif = famille('inactif', period)\n    partiel1 = famille('partiel1', period)\n    partiel2 = famille('partiel2', period)\n    P = parameters(period).prestations.prestations_familiales\n\n    elig = (nb_enf(famille, period, 0, P.ape.age_max_enfant - 1) >= 1) & (nb_enf(famille, period, 0, P.af.age2) >= 2)        # Inactif\n    # Temps partiel 1\n    # Salarié:\n    # Temps de travail ne dépassant pas 50 % de la durée du travail fixée dans l'entreprise\n    # VRP ou non salarié travaillant à temps partiel:\n    # Temps de travail ne dépassant pas 76 heures par mois et un revenu professionnel mensuel inférieur ou égal à\n    # (smic_8.27*169*85 %)\n    # partiel1 = zeros((12,self.taille))\n\n    # Temps partiel 2\n    # Salarié:\n    # Salarié: Temps de travail compris entre 50 et 80 % de la durée du travail fixée dans l'entreprise.\n    # Temps de travail compris entre 77 et 122 heures par mois et un revenu professionnel mensuel ne dépassant pas\n    #  (smic_8.27*169*136 %)\n    ape = elig * (inactif * P.ape.taux_inactivite + partiel1 * P.ape.taux_activite_sup_50 + partiel2 * P.ape.taux_activite_sup_80)\n    # Cummul APE APJE CF\n    return ape  # annualisé\n",
+      "start_line_number": 594,
+      "stop_line_number": 645,
+      "variables": [
+        "inactif",
+        "partiel1",
+        "partiel2"
+      ]
+    },
+    "2004-01-01": null
+  },
+  "json_type": "number",
+  "label": "Allocation parentale d'éducation, avant prise en compte de la non-cumulabilité avec le CF et l'APJE",
+  "name": "ape_avant_cumul",
+  "reference": [
+    "http://fr.wikipedia.org/wiki/Allocation_parentale_d'%C3%A9ducation_en_France"
+  ],
+  "referring_variables": [
+    "ape",
+    "apje",
+    "cf"
+  ],
+  "start_line_number": 586,
+  "stop_line_number": 645,
+  "value_type": "float"
+}

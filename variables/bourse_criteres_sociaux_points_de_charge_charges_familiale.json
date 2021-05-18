@@ -1,0 +1,666 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "int32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 88,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 2,
+                "id": "nb_enf",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 30,
+                  "end_col_offset": 79,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "bourse_criteres_sociaux_nombre_enfants_a_charge"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 81,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 87,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 88,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "famille",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 13,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 21,
+                  "end_lineno": 2,
+                  "id": "individu",
+                  "lineno": 2
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 124,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 3,
+                "id": "nb_enf_ens_sup",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 115,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "bourse_criteres_sociaux_nombre_enfants_a_charge_dans_enseignement_superieur"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 117,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 123,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 124,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "famille",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 29,
+                  "end_lineno": 3,
+                  "id": "individu",
+                  "lineno": 3
+                }
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 49,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 5,
+                "id": "nb_enf_hors_ens_sup",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 26,
+              "end_col_offset": 49,
+              "end_lineno": 5,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 5,
+                "id": "nb_enf",
+                "lineno": 5
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 35,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 5,
+                "id": "nb_enf_ens_sup",
+                "lineno": 5
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 45,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 6,
+                "id": "nb_autre_enf_ens_sup",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 27,
+              "end_col_offset": 45,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 6,
+                "id": "nb_enf_ens_sup",
+                "lineno": 6
+              },
+              "lineno": 6,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 44,
+                "end_col_offset": 45,
+                "end_lineno": 6,
+                "lineno": 6,
+                "value": 1
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 112,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 8,
+                "id": "pts",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "charges_familiales",
+              "col_offset": 10,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 112,
+              "end_lineno": 8,
+              "lineno": 8,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "points_de_charge",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 93,
+                "end_lineno": 8,
+                "lineno": 8,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "criteres_sociaux",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "bourses_enseignement_superieur",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 59,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 21,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 27,
+                          "end_lineno": 8,
+                          "id": "period",
+                          "lineno": 8
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 10,
+                      "end_col_offset": 28,
+                      "end_lineno": 8,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 20,
+                        "end_lineno": 8,
+                        "id": "parameters",
+                        "lineno": 8
+                      },
+                      "keywords": [],
+                      "lineno": 8
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 94,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 9,
+                "id": "pts_enf",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 14,
+              "end_col_offset": 94,
+              "end_lineno": 9,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 14,
+                "end_col_offset": 61,
+                "end_lineno": 9,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 15,
+                  "comparators": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 37,
+                      "end_col_offset": 38,
+                      "end_lineno": 9,
+                      "lineno": 9,
+                      "value": 0
+                    }
+                  ],
+                  "end_col_offset": 38,
+                  "end_lineno": 9,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 15,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 34,
+                    "end_lineno": 9,
+                    "id": "nb_enf_hors_ens_sup",
+                    "lineno": 9
+                  },
+                  "lineno": 9,
+                  "ops": [
+                    {
+                      "ast_class": "Gt"
+                    }
+                  ]
+                },
+                "lineno": 9,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 61,
+                  "end_lineno": 9,
+                  "id": "nb_enf_hors_ens_sup",
+                  "lineno": 9
+                }
+              },
+              "lineno": 9,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Attribute",
+                "attr": "points_par_enfant_a_charge",
+                "col_offset": 64,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 94,
+                "end_lineno": 9,
+                "lineno": 9,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 64,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 67,
+                  "end_lineno": 9,
+                  "id": "pts",
+                  "lineno": 9
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 132,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 10,
+                "id": "pts_ens_sup",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 18,
+              "end_col_offset": 132,
+              "end_lineno": 10,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 18,
+                "end_col_offset": 67,
+                "end_lineno": 10,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 19,
+                  "comparators": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 42,
+                      "end_col_offset": 43,
+                      "end_lineno": 10,
+                      "lineno": 10,
+                      "value": 0
+                    }
+                  ],
+                  "end_col_offset": 43,
+                  "end_lineno": 10,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 19,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 10,
+                    "id": "nb_autre_enf_ens_sup",
+                    "lineno": 10
+                  },
+                  "lineno": 10,
+                  "ops": [
+                    {
+                      "ast_class": "Gt"
+                    }
+                  ]
+                },
+                "lineno": 10,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 67,
+                  "end_lineno": 10,
+                  "id": "nb_autre_enf_ens_sup",
+                  "lineno": 10
+                }
+              },
+              "lineno": 10,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Attribute",
+                "attr": "points_par_enfant_a_charge_etudiant_enseignement_superieur",
+                "col_offset": 70,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 132,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 70,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 73,
+                  "end_lineno": 10,
+                  "id": "pts",
+                  "lineno": 10
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 32,
+            "end_lineno": 11,
+            "lineno": 11,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 32,
+              "end_lineno": 11,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 11,
+                "id": "pts_enf",
+                "lineno": 11
+              },
+              "lineno": 11,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 11,
+                "id": "pts_ens_sup",
+                "lineno": 11
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 32,
+        "end_lineno": 11,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+      "parameters": [
+        "bourses_enseignement_superieur.criteres_sociaux.points_de_charge.charges_familiales.points_par_enfant_a_charge",
+        "bourses_enseignement_superieur.criteres_sociaux.points_de_charge.charges_familiales.points_par_enfant_a_charge_etudiant_enseignement_superieur"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    nb_enf = individu.famille('bourse_criteres_sociaux_nombre_enfants_a_charge', period)\n    nb_enf_ens_sup = individu.famille('bourse_criteres_sociaux_nombre_enfants_a_charge_dans_enseignement_superieur', period)\n\n    nb_enf_hors_ens_sup = nb_enf - nb_enf_ens_sup\n    nb_autre_enf_ens_sup = nb_enf_ens_sup - 1\n\n    pts = parameters(period).bourses_enseignement_superieur.criteres_sociaux.points_de_charge.charges_familiales\n    pts_enf = (nb_enf_hors_ens_sup > 0) * nb_enf_hors_ens_sup * pts.points_par_enfant_a_charge\n    pts_ens_sup = (nb_autre_enf_ens_sup > 0) * nb_autre_enf_ens_sup * pts.points_par_enfant_a_charge_etudiant_enseignement_superieur\n    return pts_enf + pts_ens_sup\n",
+      "start_line_number": 285,
+      "stop_line_number": 296
+    }
+  },
+  "json_type": "integer",
+  "label": "Points de charge associés aux charges de la famille pour le alcul la bourse sur critères sociaux de l'enseignement supérieur",
+  "name": "bourse_criteres_sociaux_points_de_charge_charges_familiale",
+  "reference": [
+    "Circulaire ESRS2013435C - Annexe 3 - Conditions de ressources et points de charge / 2 - Points de charge à prendre en considération pour l'attribution d'une bourse sur critères sociaux / 2.2 - Les charges de la famille",
+    "https://www.education.gouv.fr/bo/20/Hebdo25/ESRS2013435C.htm"
+  ],
+  "referring_variables": [
+    "bourse_criteres_sociaux_points_de_charge"
+  ],
+  "start_line_number": 275,
+  "stop_line_number": 296,
+  "value_type": "int"
+}

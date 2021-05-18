@@ -1,0 +1,921 @@
+{
+  "default_value": false,
+  "definition_period": "month",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_mobilite_internationale.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 7,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 7,
+              "lineno": 2,
+              "value": "\n    Conditions non modélisées :\n    - Éligibilité des boursiers bénéficiaires d'une allocation annuelle (dispositif des aides spécifiques).\n    - La formation ou stage à l'étranger s'inscrit dans le cadre du cursus d'études.\n    - Au cours de l'ensemble des études supérieures, ne peuvent être cumulés plus 9 mois d'aide à la mobilité internationale (sauf pour les étudiants ayant perçu neuf mensualités de l'aide à la mobilité internationale et dont le séjour à l'étranger a été interrompu en raison de l'épidémie de Covid-19, qui peuvent bénéficier de mensualités supplémentaires dans le cadre d'une mobilité ultérieure, dans la limite de la durée de la mobilité non effectuée.)\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 8,
+                "id": "debut_etudes_etranger",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 60,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "debut_etudes_etranger"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 69,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 8,
+                "id": "individu",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 9,
+                "id": "fin_etudes_etranger",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 56,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "fin_etudes_etranger"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 58,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 64,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 26,
+              "end_col_offset": 65,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 9,
+                "id": "individu",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 98,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 10,
+                "id": "duree_etudes_etranger",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 81,
+                  "end_col_offset": 97,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "timedelta64[M]"
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 98,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "astype",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 80,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 29,
+                  "end_col_offset": 72,
+                  "end_lineno": 10,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 29,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 48,
+                    "end_lineno": 10,
+                    "id": "fin_etudes_etranger",
+                    "lineno": 10
+                  },
+                  "lineno": 10,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 51,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 72,
+                    "end_lineno": 10,
+                    "id": "debut_etudes_etranger",
+                    "lineno": 10
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 152,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 11,
+                "id": "eligibilite_duree_min",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 28,
+              "comparators": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "mois_min",
+                      "col_offset": 65,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 146,
+                      "end_lineno": 11,
+                      "lineno": 11,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "duree_sejour",
+                        "col_offset": 65,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 137,
+                        "end_lineno": 11,
+                        "lineno": 11,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "aide_mobilite_internationale",
+                          "col_offset": 65,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 124,
+                          "end_lineno": 11,
+                          "lineno": 11,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "prestations",
+                            "col_offset": 65,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 95,
+                            "end_lineno": 11,
+                            "lineno": 11,
+                            "value": {
+                              "args": [
+                                {
+                                  "ast_class": "Name",
+                                  "col_offset": 76,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 82,
+                                  "end_lineno": 11,
+                                  "id": "period",
+                                  "lineno": 11
+                                }
+                              ],
+                              "ast_class": "Call",
+                              "col_offset": 65,
+                              "end_col_offset": 83,
+                              "end_lineno": 11,
+                              "func": {
+                                "ast_class": "Name",
+                                "col_offset": 65,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 75,
+                                "end_lineno": 11,
+                                "id": "parameters",
+                                "lineno": 11
+                              },
+                              "keywords": [],
+                              "lineno": 11
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 148,
+                      "end_col_offset": 151,
+                      "end_lineno": 11,
+                      "lineno": 11,
+                      "value": "M"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 53,
+                  "end_col_offset": 152,
+                  "end_lineno": 11,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 53,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 64,
+                    "end_lineno": 11,
+                    "id": "timedelta64",
+                    "lineno": 11
+                  },
+                  "keywords": [],
+                  "lineno": 11
+                }
+              ],
+              "end_col_offset": 152,
+              "end_lineno": 11,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 11,
+                "id": "duree_etudes_etranger",
+                "lineno": 11
+              },
+              "lineno": 11,
+              "ops": [
+                {
+                  "ast_class": "GtE"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 152,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 12,
+                "id": "eligibilite_duree_max",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 28,
+              "comparators": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "mois_max",
+                      "col_offset": 65,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 146,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "duree_sejour",
+                        "col_offset": 65,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 137,
+                        "end_lineno": 12,
+                        "lineno": 12,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "aide_mobilite_internationale",
+                          "col_offset": 65,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 124,
+                          "end_lineno": 12,
+                          "lineno": 12,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "prestations",
+                            "col_offset": 65,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 95,
+                            "end_lineno": 12,
+                            "lineno": 12,
+                            "value": {
+                              "args": [
+                                {
+                                  "ast_class": "Name",
+                                  "col_offset": 76,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 82,
+                                  "end_lineno": 12,
+                                  "id": "period",
+                                  "lineno": 12
+                                }
+                              ],
+                              "ast_class": "Call",
+                              "col_offset": 65,
+                              "end_col_offset": 83,
+                              "end_lineno": 12,
+                              "func": {
+                                "ast_class": "Name",
+                                "col_offset": 65,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 75,
+                                "end_lineno": 12,
+                                "id": "parameters",
+                                "lineno": 12
+                              },
+                              "keywords": [],
+                              "lineno": 12
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 148,
+                      "end_col_offset": 151,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": "M"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 53,
+                  "end_col_offset": 152,
+                  "end_lineno": 12,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 53,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 64,
+                    "end_lineno": 12,
+                    "id": "timedelta64",
+                    "lineno": 12
+                  },
+                  "keywords": [],
+                  "lineno": 12
+                }
+              ],
+              "end_col_offset": 152,
+              "end_lineno": 12,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 12,
+                "id": "duree_etudes_etranger",
+                "lineno": 12
+              },
+              "lineno": 12,
+              "ops": [
+                {
+                  "ast_class": "LtE"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 87,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 14,
+                "id": "statuts_etablissement_scolaire",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 46,
+                  "end_col_offset": 78,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "statuts_etablissement_scolaire"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 80,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 86,
+                  "end_lineno": 14,
+                  "id": "period",
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 37,
+              "end_col_offset": 87,
+              "end_lineno": 14,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 37,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 14,
+                "id": "individu",
+                "lineno": 14
+              },
+              "keywords": [],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 186,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 15,
+                "id": "etablissement_eligible",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 29,
+              "end_col_offset": 186,
+              "end_lineno": 15,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 30,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "public",
+                    "col_offset": 64,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 99,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 64,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 92,
+                      "end_lineno": 15,
+                      "id": "StatutsEtablissementScolaire",
+                      "lineno": 15
+                    }
+                  }
+                ],
+                "end_col_offset": 99,
+                "end_lineno": 15,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 30,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 15,
+                  "id": "statuts_etablissement_scolaire",
+                  "lineno": 15
+                },
+                "lineno": 15,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              },
+              "lineno": 15,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 104,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "prive_sous_contrat",
+                    "col_offset": 138,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 185,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 138,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 166,
+                      "end_lineno": 15,
+                      "id": "StatutsEtablissementScolaire",
+                      "lineno": 15
+                    }
+                  }
+                ],
+                "end_col_offset": 185,
+                "end_lineno": 15,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 104,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 134,
+                  "end_lineno": 15,
+                  "id": "statuts_etablissement_scolaire",
+                  "lineno": 15
+                },
+                "lineno": 15,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 97,
+            "end_lineno": 17,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 17,
+                "id": "bourse_criteres_sociaux_eligibilite",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 51,
+                  "end_col_offset": 88,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "value": "bourse_criteres_sociaux_eligibilite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 90,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 96,
+                  "end_lineno": 17,
+                  "id": "period",
+                  "lineno": 17
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 42,
+              "end_col_offset": 97,
+              "end_lineno": 17,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 42,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 17,
+                "id": "individu",
+                "lineno": 17
+              },
+              "keywords": [],
+              "lineno": 17
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 119,
+            "end_lineno": 19,
+            "lineno": 19,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 119,
+              "end_lineno": 19,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 94,
+                "end_lineno": 19,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 11,
+                  "end_col_offset": 70,
+                  "end_lineno": 19,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 46,
+                    "end_lineno": 19,
+                    "id": "bourse_criteres_sociaux_eligibilite",
+                    "lineno": 19
+                  },
+                  "lineno": 19,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 49,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 70,
+                    "end_lineno": 19,
+                    "id": "eligibilite_duree_min",
+                    "lineno": 19
+                  }
+                },
+                "lineno": 19,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 73,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 94,
+                  "end_lineno": 19,
+                  "id": "eligibilite_duree_max",
+                  "lineno": 19
+                }
+              },
+              "lineno": 19,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 97,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 119,
+                "end_lineno": 19,
+                "id": "etablissement_eligible",
+                "lineno": 19
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 119,
+        "end_lineno": 19,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nConditions non modélisées :\n- Éligibilité des boursiers bénéficiaires d'une allocation annuelle (dispositif des aides spécifiques).\n- La formation ou stage à l'étranger s'inscrit dans le cadre du cursus d'études.\n- Au cours de l'ensemble des études supérieures, ne peuvent être cumulés plus 9 mois d'aide à la mobilité internationale (sauf pour les étudiants ayant perçu neuf mensualités de l'aide à la mobilité internationale et dont le séjour à l'étranger a été interrompu en raison de l'épidémie de Covid-19, qui peuvent bénéficier de mensualités supplémentaires dans le cadre d'une mobilité ultérieure, dans la limite de la durée de la mobilité non effectuée.)\n",
+      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_mobilite_internationale.py",
+      "parameters": [
+        "prestations.aide_mobilite_internationale.duree_sejour.mois_max",
+        "prestations.aide_mobilite_internationale.duree_sejour.mois_min"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    '''\n    Conditions non modélisées :\n    - Éligibilité des boursiers bénéficiaires d'une allocation annuelle (dispositif des aides spécifiques).\n    - La formation ou stage à l'étranger s'inscrit dans le cadre du cursus d'études.\n    - Au cours de l'ensemble des études supérieures, ne peuvent être cumulés plus 9 mois d'aide à la mobilité internationale (sauf pour les étudiants ayant perçu neuf mensualités de l'aide à la mobilité internationale et dont le séjour à l'étranger a été interrompu en raison de l'épidémie de Covid-19, qui peuvent bénéficier de mensualités supplémentaires dans le cadre d'une mobilité ultérieure, dans la limite de la durée de la mobilité non effectuée.)\n    '''\n    debut_etudes_etranger = individu('debut_etudes_etranger', period)\n    fin_etudes_etranger = individu('fin_etudes_etranger', period)\n    duree_etudes_etranger = (fin_etudes_etranger - debut_etudes_etranger).astype('timedelta64[M]')\n    eligibilite_duree_min = duree_etudes_etranger >= timedelta64(parameters(period).prestations.aide_mobilite_internationale.duree_sejour.mois_min, 'M')\n    eligibilite_duree_max = duree_etudes_etranger <= timedelta64(parameters(period).prestations.aide_mobilite_internationale.duree_sejour.mois_max, 'M')\n\n    statuts_etablissement_scolaire = individu('statuts_etablissement_scolaire', period)\n    etablissement_eligible = (statuts_etablissement_scolaire == StatutsEtablissementScolaire.public) + (statuts_etablissement_scolaire == StatutsEtablissementScolaire.prive_sous_contrat)\n\n    bourse_criteres_sociaux_eligibilite = individu('bourse_criteres_sociaux_eligibilite', period)\n\n    return bourse_criteres_sociaux_eligibilite * eligibilite_duree_min * eligibilite_duree_max * etablissement_eligible\n",
+      "start_line_number": 14,
+      "stop_line_number": 33,
+      "variables": [
+        "bourse_criteres_sociaux_eligibilite",
+        "debut_etudes_etranger",
+        "fin_etudes_etranger",
+        "statuts_etablissement_scolaire"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Éligibilite à l'aide à la mobilité internationale (AMI)",
+  "name": "aide_mobilite_internationale_eligibilite",
+  "referring_variables": [
+    "aide_mobilite_internationale"
+  ],
+  "start_line_number": 8,
+  "stop_line_number": 33,
+  "value_type": "bool"
+}

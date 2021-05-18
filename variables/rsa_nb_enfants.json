@@ -1,0 +1,158 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "int32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 70,
+            "end_lineno": 2,
+            "lineno": 2,
+            "value": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 39,
+                      "end_col_offset": 60,
+                      "end_lineno": 2,
+                      "lineno": 2,
+                      "value": "rsa_enfant_a_charge"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 62,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 68,
+                      "end_lineno": 2,
+                      "id": "period",
+                      "lineno": 2
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 23,
+                  "end_col_offset": 69,
+                  "end_lineno": 2,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 23,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 38,
+                    "end_lineno": 2,
+                    "lineno": 2,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 23,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 30,
+                      "end_lineno": 2,
+                      "id": "famille",
+                      "lineno": 2
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 70,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 2,
+                  "id": "famille",
+                  "lineno": 2
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 70,
+        "end_lineno": 2,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "source_code": "def formula(famille, period):\n    return famille.sum(famille.members('rsa_enfant_a_charge', period))\n",
+      "start_line_number": 402,
+      "stop_line_number": 404
+    }
+  },
+  "json_type": "integer",
+  "label": "Nombre d'enfants pris en compte pour le calcul du RSA",
+  "name": "rsa_nb_enfants",
+  "referring_variables": [
+    "ppa_forfait_logement",
+    "ppa_montant_forfaitaire_familial_majore",
+    "ppa_montant_forfaitaire_familial_non_majore",
+    "rsa_eligibilite",
+    "rsa_eligibilite_tns",
+    "rsa_forfait_logement",
+    "rsa_majore_eligibilite",
+    "rsa_socle",
+    "rsa_socle_majore"
+  ],
+  "start_line_number": 396,
+  "stop_line_number": 404,
+  "value_type": "int"
+}

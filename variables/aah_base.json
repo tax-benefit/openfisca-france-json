@@ -1,0 +1,708 @@
+{
+  "calculate_output": "calculate_output_add",
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 40,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 2,
+                "id": "law",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "prestations",
+              "col_offset": 10,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 40,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "args": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 21,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 27,
+                    "end_lineno": 2,
+                    "id": "period",
+                    "lineno": 2
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 10,
+                "end_col_offset": 28,
+                "end_lineno": 2,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 2,
+                  "id": "parameters",
+                  "lineno": 2
+                },
+                "keywords": [],
+                "lineno": 2
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 51,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 4,
+                "id": "aah_eligible",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 42,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "aah_eligible"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 44,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 50,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 19,
+              "end_col_offset": 51,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 19,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 4,
+                "id": "individu",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 78,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 5,
+                "id": "aah_base_ressources",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 26,
+              "end_col_offset": 78,
+              "end_lineno": 5,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 43,
+                    "end_col_offset": 64,
+                    "end_lineno": 5,
+                    "lineno": 5,
+                    "value": "aah_base_ressources"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 66,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 72,
+                    "end_lineno": 5,
+                    "id": "period",
+                    "lineno": 5
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 26,
+                "end_col_offset": 73,
+                "end_lineno": 5,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "famille",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 42,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 26,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 34,
+                    "end_lineno": 5,
+                    "id": "individu",
+                    "lineno": 5
+                  }
+                },
+                "keywords": [],
+                "lineno": 5
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Div"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 76,
+                "end_col_offset": 78,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": 12
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 62,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 6,
+                "id": "plaf_ress_aah",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 53,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "aah_plafond_ressources"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 55,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 61,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 62,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 6,
+                "id": "individu",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 48,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 8,
+                "id": "montant_max",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "montant",
+              "col_offset": 18,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 48,
+              "end_lineno": 8,
+              "lineno": 8,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "aah",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 40,
+                "end_lineno": 8,
+                "lineno": 8,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "minima_sociaux",
+                  "col_offset": 18,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 36,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 18,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 21,
+                    "end_lineno": 8,
+                    "id": "law",
+                    "lineno": 8
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 81,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 9,
+                "id": "montant_aah",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 23,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 9,
+                  "id": "montant_max",
+                  "lineno": 9
+                },
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 41,
+                      "end_col_offset": 42,
+                      "end_lineno": 9,
+                      "lineno": 9,
+                      "value": 0
+                    },
+                    {
+                      "ast_class": "BinOp",
+                      "col_offset": 44,
+                      "end_col_offset": 79,
+                      "end_lineno": 9,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 44,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 57,
+                        "end_lineno": 9,
+                        "id": "plaf_ress_aah",
+                        "lineno": 9
+                      },
+                      "lineno": 9,
+                      "op": {
+                        "ast_class": "Sub"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 60,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 79,
+                        "end_lineno": 9,
+                        "id": "aah_base_ressources",
+                        "lineno": 9
+                      }
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 36,
+                  "end_col_offset": 80,
+                  "end_lineno": 9,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 36,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 40,
+                    "end_lineno": 9,
+                    "id": "max_",
+                    "lineno": 9
+                  },
+                  "keywords": [],
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 81,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 9,
+                "id": "min_",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 71,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 11,
+                "id": "aah_base_non_cumulable",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 62,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "aah_base_non_cumulable"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 64,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 70,
+                  "end_lineno": 11,
+                  "id": "period",
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 29,
+              "end_col_offset": 71,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 29,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 11,
+                "id": "individu",
+                "lineno": 11
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 90,
+            "end_lineno": 13,
+            "lineno": 13,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 90,
+              "end_lineno": 13,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 13,
+                "id": "aah_eligible",
+                "lineno": 13
+              },
+              "lineno": 13,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 31,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 42,
+                    "end_lineno": 13,
+                    "id": "montant_aah",
+                    "lineno": 13
+                  },
+                  {
+                    "args": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 49,
+                        "end_col_offset": 50,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": 0
+                      },
+                      {
+                        "ast_class": "BinOp",
+                        "col_offset": 52,
+                        "end_col_offset": 88,
+                        "end_lineno": 13,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 52,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 63,
+                          "end_lineno": 13,
+                          "id": "montant_max",
+                          "lineno": 13
+                        },
+                        "lineno": 13,
+                        "op": {
+                          "ast_class": "Sub"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 66,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 88,
+                          "end_lineno": 13,
+                          "id": "aah_base_non_cumulable",
+                          "lineno": 13
+                        }
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 44,
+                    "end_col_offset": 89,
+                    "end_lineno": 13,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 44,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 48,
+                      "end_lineno": 13,
+                      "id": "max_",
+                      "lineno": 13
+                    },
+                    "keywords": [],
+                    "lineno": 13
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 26,
+                "end_col_offset": 90,
+                "end_lineno": 13,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 30,
+                  "end_lineno": 13,
+                  "id": "min_",
+                  "lineno": 13
+                },
+                "keywords": [],
+                "lineno": 13
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 90,
+        "end_lineno": 13,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+      "source_code": "def formula(individu, period, parameters):\n    law = parameters(period).prestations\n\n    aah_eligible = individu('aah_eligible', period)\n    aah_base_ressources = individu.famille('aah_base_ressources', period) / 12\n    plaf_ress_aah = individu('aah_plafond_ressources', period)\n    # Le montant de l'AAH est plafonné au montant de base.\n    montant_max = law.minima_sociaux.aah.montant\n    montant_aah = min_(montant_max, max_(0, plaf_ress_aah - aah_base_ressources))\n\n    aah_base_non_cumulable = individu('aah_base_non_cumulable', period)\n\n    return aah_eligible * min_(montant_aah, max_(0, montant_max - aah_base_non_cumulable))\n",
+      "start_line_number": 303,
+      "stop_line_number": 316,
+      "variables": [
+        "aah_base_non_cumulable",
+        "aah_eligible",
+        "aah_plafond_ressources"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant de l'Allocation adulte handicapé (hors complément) pour un individu, mensualisée",
+  "name": "aah_base",
+  "reference": [
+    "Article L821-1 du Code de la sécurité sociale",
+    "https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=53AFF5AA4010B01F0539052A33180B39.tplgfr35s_1?idArticle=LEGIARTI000033813790&cidTexte=LEGITEXT000006073189&dateTexte=20180412"
+  ],
+  "referring_variables": [
+    "aah"
+  ],
+  "start_line_number": 292,
+  "stop_line_number": 316,
+  "value_type": "float"
+}

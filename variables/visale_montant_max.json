@@ -1,0 +1,861 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prestations/visale.py",
+  "formulas": {
+    "2016-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 29,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 31,
+              "end_col_offset": 37,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 39,
+              "end_col_offset": 49,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 7,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 7,
+              "lineno": 2,
+              "value": "\n    Attention, un montant non nul pour cette variable ne signifie pas nécessairement que l'entité est éligible à Visale : d'autres conditions peuvent ne pas être remplies. Pour déterminer l'éligibilité à la caution Visale au loyer actuellement renseigné pour le ménage, il faut utiliser la variable `visale_eligibilite`.\n    La documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\n    Cette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\n    Par conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 71,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 8,
+                "id": "residence_ile_de_france",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 62,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "residence_ile_de_france"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 64,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 70,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 30,
+              "end_col_offset": 71,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 8,
+                "id": "menage",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 63,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 10,
+                "id": "etudiant",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 44,
+                  "end_col_offset": 54,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "etudiant"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 56,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 62,
+                  "end_lineno": 10,
+                  "id": "period",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 15,
+              "end_col_offset": 63,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "personne_de_reference",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 15,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 21,
+                  "end_lineno": 10,
+                  "id": "menage",
+                  "lineno": 10
+                }
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 15,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 11,
+                "id": "minimum_etudiant",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 31,
+                  "end_lineno": 12,
+                  "id": "residence_ile_de_france",
+                  "lineno": 12
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "ile_de_france",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 82,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "etudiant",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 68,
+                    "end_lineno": 13,
+                    "lineno": 13,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "plafond_loyer",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 59,
+                      "end_lineno": 13,
+                      "lineno": 13,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "visale",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "prestations",
+                          "col_offset": 8,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 38,
+                          "end_lineno": 13,
+                          "lineno": 13,
+                          "value": {
+                            "args": [
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 25,
+                                "end_lineno": 13,
+                                "id": "period",
+                                "lineno": 13
+                              }
+                            ],
+                            "ast_class": "Call",
+                            "col_offset": 8,
+                            "end_col_offset": 26,
+                            "end_lineno": 13,
+                            "func": {
+                              "ast_class": "Name",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 18,
+                              "end_lineno": 13,
+                              "id": "parameters",
+                              "lineno": 13
+                            },
+                            "keywords": [],
+                            "lineno": 13
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "hors_ile_de_france",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 87,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "etudiant",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 68,
+                    "end_lineno": 14,
+                    "lineno": 14,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "plafond_loyer",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 59,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "visale",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 14,
+                        "lineno": 14,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "prestations",
+                          "col_offset": 8,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 38,
+                          "end_lineno": 14,
+                          "lineno": 14,
+                          "value": {
+                            "args": [
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 25,
+                                "end_lineno": 14,
+                                "id": "period",
+                                "lineno": 14
+                              }
+                            ],
+                            "ast_class": "Call",
+                            "col_offset": 8,
+                            "end_col_offset": 26,
+                            "end_lineno": 14,
+                            "func": {
+                              "ast_class": "Name",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 18,
+                              "end_lineno": 14,
+                              "id": "parameters",
+                              "lineno": 14
+                            },
+                            "keywords": [],
+                            "lineno": 14
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 23,
+              "end_col_offset": 9,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 23,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 11,
+                "id": "where",
+                "lineno": 11
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 21,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 17,
+                "id": "plafond_loyer",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 31,
+                  "end_lineno": 18,
+                  "id": "residence_ile_de_france",
+                  "lineno": 18
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "ile_de_france",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 85,
+                  "end_lineno": 19,
+                  "lineno": 19,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "cas_general",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 71,
+                    "end_lineno": 19,
+                    "lineno": 19,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "plafond_loyer",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 59,
+                      "end_lineno": 19,
+                      "lineno": 19,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "visale",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 19,
+                        "lineno": 19,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "prestations",
+                          "col_offset": 8,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 38,
+                          "end_lineno": 19,
+                          "lineno": 19,
+                          "value": {
+                            "args": [
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 25,
+                                "end_lineno": 19,
+                                "id": "period",
+                                "lineno": 19
+                              }
+                            ],
+                            "ast_class": "Call",
+                            "col_offset": 8,
+                            "end_col_offset": 26,
+                            "end_lineno": 19,
+                            "func": {
+                              "ast_class": "Name",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 18,
+                              "end_lineno": 19,
+                              "id": "parameters",
+                              "lineno": 19
+                            },
+                            "keywords": [],
+                            "lineno": 19
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "hors_ile_de_france",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 90,
+                  "end_lineno": 20,
+                  "lineno": 20,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "cas_general",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 71,
+                    "end_lineno": 20,
+                    "lineno": 20,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "plafond_loyer",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 59,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "visale",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 20,
+                        "lineno": 20,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "prestations",
+                          "col_offset": 8,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 38,
+                          "end_lineno": 20,
+                          "lineno": 20,
+                          "value": {
+                            "args": [
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 25,
+                                "end_lineno": 20,
+                                "id": "period",
+                                "lineno": 20
+                              }
+                            ],
+                            "ast_class": "Call",
+                            "col_offset": 8,
+                            "end_col_offset": 26,
+                            "end_lineno": 20,
+                            "func": {
+                              "ast_class": "Name",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 18,
+                              "end_lineno": 20,
+                              "id": "parameters",
+                              "lineno": 20
+                            },
+                            "keywords": [],
+                            "lineno": 20
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 9,
+              "end_lineno": 21,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 17,
+                "id": "where",
+                "lineno": 17
+              },
+              "keywords": [],
+              "lineno": 17
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 72,
+            "end_lineno": 23,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 23,
+                "id": "moitie_des_ressources",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 28,
+              "end_col_offset": 72,
+              "end_lineno": 23,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 35,
+                    "end_col_offset": 59,
+                    "end_lineno": 23,
+                    "lineno": 23,
+                    "value": "visale_base_ressources"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 61,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 67,
+                    "end_lineno": 23,
+                    "id": "period",
+                    "lineno": 23
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 28,
+                "end_col_offset": 68,
+                "end_lineno": 23,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 28,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 23,
+                  "id": "menage",
+                  "lineno": 23
+                },
+                "keywords": [],
+                "lineno": 23
+              },
+              "lineno": 23,
+              "op": {
+                "ast_class": "Div"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 71,
+                "end_col_offset": 72,
+                "end_lineno": 23,
+                "lineno": 23,
+                "value": 2
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 88,
+            "end_lineno": 25,
+            "lineno": 25,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 16,
+                  "end_col_offset": 43,
+                  "end_lineno": 25,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 24,
+                    "end_lineno": 25,
+                    "id": "etudiant",
+                    "lineno": 25
+                  },
+                  "lineno": 25,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 27,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 43,
+                    "end_lineno": 25,
+                    "id": "minimum_etudiant",
+                    "lineno": 25
+                  }
+                },
+                {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 50,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 71,
+                      "end_lineno": 25,
+                      "id": "moitie_des_ressources",
+                      "lineno": 25
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 73,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 86,
+                      "end_lineno": 25,
+                      "id": "plafond_loyer",
+                      "lineno": 25
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 45,
+                  "end_col_offset": 87,
+                  "end_lineno": 25,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 45,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 49,
+                    "end_lineno": 25,
+                    "id": "min_",
+                    "lineno": 25
+                  },
+                  "keywords": [],
+                  "lineno": 25
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 88,
+              "end_lineno": 25,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 25,
+                "id": "max_",
+                "lineno": 25
+              },
+              "keywords": [],
+              "lineno": 25
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 88,
+        "end_lineno": 25,
+        "lineno": 1,
+        "name": "formula_2016_01_01"
+      },
+      "documentation": "\nAttention, un montant non nul pour cette variable ne signifie pas nécessairement que l'entité est éligible à Visale : d'autres conditions peuvent ne pas être remplies. Pour déterminer l'éligibilité à la caution Visale au loyer actuellement renseigné pour le ménage, il faut utiliser la variable `visale_eligibilite`.\nLa documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\nCette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\nPar conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n",
+      "file_path": "/openfisca_france/model/prestations/visale.py",
+      "parameters": [
+        "prestations.visale.plafond_loyer.cas_general.hors_ile_de_france",
+        "prestations.visale.plafond_loyer.cas_general.ile_de_france",
+        "prestations.visale.plafond_loyer.etudiant.hors_ile_de_france",
+        "prestations.visale.plafond_loyer.etudiant.ile_de_france"
+      ],
+      "source_code": "def formula_2016_01_01(menage, period, parameters):\n    '''\n    Attention, un montant non nul pour cette variable ne signifie pas nécessairement que l'entité est éligible à Visale : d'autres conditions peuvent ne pas être remplies. Pour déterminer l'éligibilité à la caution Visale au loyer actuellement renseigné pour le ménage, il faut utiliser la variable `visale_eligibilite`.\n    La documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\n    Cette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\n    Par conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n    '''\n    residence_ile_de_france = menage('residence_ile_de_france', period)\n\n    etudiant = menage.personne_de_reference('etudiant', period)  # le cas où un ménage est constitué d'une personne étudiante et d'une personne non étudiante n'est pas spécifié dans la documentation Visale\n    minimum_etudiant = where(\n        residence_ile_de_france,\n        parameters(period).prestations.visale.plafond_loyer.etudiant.ile_de_france,\n        parameters(period).prestations.visale.plafond_loyer.etudiant.hors_ile_de_france,\n        )\n\n    plafond_loyer = where(\n        residence_ile_de_france,\n        parameters(period).prestations.visale.plafond_loyer.cas_general.ile_de_france,\n        parameters(period).prestations.visale.plafond_loyer.cas_general.hors_ile_de_france,\n        )\n\n    moitie_des_ressources = menage('visale_base_ressources', period) / 2\n\n    return max_(etudiant * minimum_etudiant, min_(moitie_des_ressources, plafond_loyer))\n",
+      "start_line_number": 48,
+      "stop_line_number": 73,
+      "variables": [
+        "residence_ile_de_france",
+        "visale_base_ressources"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant maximum du loyer éligible à une caution Visale",
+  "name": "visale_montant_max",
+  "reference": [
+    "https://www.visale.fr/vos-questions/faq-locataires/locataire-de-30-ans-ou-moins-suis-je-eligible/#13"
+  ],
+  "referring_variables": [
+    "visale_eligibilite"
+  ],
+  "start_line_number": 41,
+  "stop_line_number": 73,
+  "value_type": "float"
+}

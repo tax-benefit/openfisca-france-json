@@ -1,0 +1,939 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 6,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 6,
+              "lineno": 2,
+              "value": "\n    Voir le formulaire 2041-ISF-FCP\n    https://www.impots.gouv.fr/portail/formulaire/2041-isf-fcp/fiche-de-calcul-du-plafonnement-isf\n    Points à améliorer : impôts payés à l'étranger\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 67,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 7,
+                "id": "isf_ifi_avant_plaf",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 58,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "isf_ifi_avant_plaf"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 60,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 66,
+                  "end_lineno": 7,
+                  "id": "period",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 67,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 7,
+                "id": "foyer_fiscal",
+                "lineno": 7
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 8,
+                "id": "irpp_economique",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 52,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "irpp_economique"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 54,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 61,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 8,
+                "id": "foyer_fiscal",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 101,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 9,
+                "id": "prelevement_forfaitaire_liberatoire",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 55,
+                  "end_col_offset": 92,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "prelevement_forfaitaire_liberatoire"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 94,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 100,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 42,
+              "end_col_offset": 101,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 42,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 54,
+                "end_lineno": 9,
+                "id": "foyer_fiscal",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 97,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 10,
+                "id": "prelevement_forfaitaire_unique_ir",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 53,
+                  "end_col_offset": 88,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "prelevement_forfaitaire_unique_ir"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 90,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 96,
+                  "end_lineno": 10,
+                  "id": "period",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 40,
+              "end_col_offset": 97,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 40,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 52,
+                "end_lineno": 10,
+                "id": "foyer_fiscal",
+                "lineno": 10
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 51,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 11,
+                "id": "ir_pv_immo",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 30,
+                  "end_col_offset": 42,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "ir_pv_immo"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 44,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 50,
+                  "end_lineno": 11,
+                  "id": "period",
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 51,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 11,
+                "id": "foyer_fiscal",
+                "lineno": 11
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 49,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 12,
+                "id": "crds_i",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 34,
+                  "end_col_offset": 40,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "crds"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 12,
+                  "id": "period",
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 49,
+              "end_lineno": 12,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 12,
+                "lineno": 12,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 13,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 25,
+                  "end_lineno": 12,
+                  "id": "foyer_fiscal",
+                  "lineno": 12
+                }
+              },
+              "keywords": [],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 47,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 9,
+                "end_lineno": 13,
+                "id": "csg_i",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 38,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": "csg"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 40,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 46,
+                  "end_lineno": 13,
+                  "id": "period",
+                  "lineno": 13
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 12,
+              "end_col_offset": 47,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 12,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 13,
+                "lineno": 13,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 24,
+                  "end_lineno": 13,
+                  "id": "foyer_fiscal",
+                  "lineno": 13
+                }
+              },
+              "keywords": [],
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 14,
+                "id": "crds",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 28,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 14,
+                  "id": "crds_i",
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 65,
+              "end_lineno": 14,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 14,
+                "lineno": 14,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 23,
+                  "end_lineno": 14,
+                  "id": "foyer_fiscal",
+                  "lineno": 14
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 36,
+                  "end_col_offset": 64,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT",
+                    "col_offset": 43,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 64,
+                    "end_lineno": 14,
+                    "lineno": 14,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 43,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 54,
+                      "end_lineno": 14,
+                      "id": "FoyerFiscal",
+                      "lineno": 14
+                    }
+                  }
+                }
+              ],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 63,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 15,
+                "id": "csg",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 27,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 32,
+                  "end_lineno": 15,
+                  "id": "csg_i",
+                  "lineno": 15
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 63,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 15,
+                "lineno": 15,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 15,
+                  "id": "foyer_fiscal",
+                  "lineno": 15
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 34,
+                  "end_col_offset": 62,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT",
+                    "col_offset": 41,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 62,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 41,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 52,
+                      "end_lineno": 15,
+                      "id": "FoyerFiscal",
+                      "lineno": 15
+                    }
+                  }
+                }
+              ],
+              "lineno": 15
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 131,
+            "end_lineno": 16,
+            "lineno": 16,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 54,
+                "end_lineno": 16,
+                "id": "prelevements_sociaux_revenus_capital_hors_csg_crds",
+                "lineno": 16
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 70,
+                  "end_col_offset": 122,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "value": "prelevements_sociaux_revenus_capital_hors_csg_crds"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 124,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 130,
+                  "end_lineno": 16,
+                  "id": "period",
+                  "lineno": 16
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 57,
+              "end_col_offset": 131,
+              "end_lineno": 16,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 57,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 69,
+                "end_lineno": 16,
+                "id": "foyer_fiscal",
+                "lineno": 16
+              },
+              "keywords": [],
+              "lineno": 16
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 27,
+            "lineno": 18,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 60,
+              "end_lineno": 26,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 13,
+                "end_lineno": 25,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 14,
+                  "end_lineno": 24,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 20,
+                    "end_lineno": 23,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 43,
+                      "end_lineno": 22,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 8,
+                        "end_col_offset": 45,
+                        "end_lineno": 21,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 8,
+                          "end_col_offset": 25,
+                          "end_lineno": 20,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 8,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 26,
+                            "end_lineno": 19,
+                            "id": "isf_ifi_avant_plaf",
+                            "lineno": 19
+                          },
+                          "lineno": 19,
+                          "op": {
+                            "ast_class": "Sub"
+                          },
+                          "right": {
+                            "ast_class": "Name",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 25,
+                            "end_lineno": 20,
+                            "id": "irpp_economique",
+                            "lineno": 20
+                          }
+                        },
+                        "lineno": 19,
+                        "op": {
+                          "ast_class": "Sub"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 45,
+                          "end_lineno": 21,
+                          "id": "prelevement_forfaitaire_liberatoire",
+                          "lineno": 21
+                        }
+                      },
+                      "lineno": 19,
+                      "op": {
+                        "ast_class": "Sub"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 43,
+                        "end_lineno": 22,
+                        "id": "prelevement_forfaitaire_unique_ir",
+                        "lineno": 22
+                      }
+                    },
+                    "lineno": 19,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 20,
+                      "end_lineno": 23,
+                      "id": "ir_pv_immo",
+                      "lineno": 23
+                    }
+                  },
+                  "lineno": 19,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 14,
+                    "end_lineno": 24,
+                    "id": "crds",
+                    "lineno": 24
+                  }
+                },
+                "lineno": 19,
+                "op": {
+                  "ast_class": "Sub"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 13,
+                  "end_lineno": 25,
+                  "id": "csg",
+                  "lineno": 25
+                }
+              },
+              "lineno": 19,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 60,
+                "end_lineno": 26,
+                "id": "prelevements_sociaux_revenus_capital_hors_csg_crds",
+                "lineno": 26
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 27,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nVoir le formulaire 2041-ISF-FCP\nhttps://www.impots.gouv.fr/portail/formulaire/2041-isf-fcp/fiche-de-calcul-du-plafonnement-isf\nPoints à améliorer : impôts payés à l'étranger\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "source_code": "def formula(foyer_fiscal, period):\n    '''\n    Voir le formulaire 2041-ISF-FCP\n    https://www.impots.gouv.fr/portail/formulaire/2041-isf-fcp/fiche-de-calcul-du-plafonnement-isf\n    Points à améliorer : impôts payés à l'étranger\n    '''\n    isf_ifi_avant_plaf = foyer_fiscal('isf_ifi_avant_plaf', period)\n    irpp_economique = foyer_fiscal('irpp_economique', period)\n    prelevement_forfaitaire_liberatoire = foyer_fiscal('prelevement_forfaitaire_liberatoire', period)\n    prelevement_forfaitaire_unique_ir = foyer_fiscal('prelevement_forfaitaire_unique_ir', period)\n    ir_pv_immo = foyer_fiscal('ir_pv_immo', period)\n    crds_i = foyer_fiscal.members('crds', period)\n    csg_i = foyer_fiscal.members('csg', period)\n    crds = foyer_fiscal.sum(crds_i, role = FoyerFiscal.DECLARANT)\n    csg = foyer_fiscal.sum(csg_i, role = FoyerFiscal.DECLARANT)\n    prelevements_sociaux_revenus_capital_hors_csg_crds = foyer_fiscal('prelevements_sociaux_revenus_capital_hors_csg_crds', period)\n\n    return (\n        isf_ifi_avant_plaf\n        - irpp_economique\n        - prelevement_forfaitaire_liberatoire\n        - prelevement_forfaitaire_unique_ir\n        - ir_pv_immo\n        - crds\n        - csg\n        - prelevements_sociaux_revenus_capital_hors_csg_crds\n        )\n",
+      "start_line_number": 466,
+      "stop_line_number": 493,
+      "variables": [
+        "ir_pv_immo",
+        "irpp_economique",
+        "isf_ifi_avant_plaf",
+        "prelevement_forfaitaire_liberatoire",
+        "prelevement_forfaitaire_unique_ir",
+        "prelevements_sociaux_revenus_capital_hors_csg_crds"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Total des impôts dus au titre des revenus et produits (irpp, cehr, prélèvements forfaitaires, prélèvements sociaux) + ISF et IFI. Utilisé pour calculer le montant du plafonnement de l'ISF et de l'IFI.",
+  "name": "total_impots_plafonnement_isf_ifi",
+  "referring_variables": [
+    "isf_ifi_apres_plaf"
+  ],
+  "start_line_number": 460,
+  "stop_line_number": 493,
+  "value_type": "float"
+}

@@ -1,0 +1,392 @@
+{
+  "default_value": false,
+  "definition_period": "year",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 5,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 5,
+              "lineno": 2,
+              "value": "\n    Eligibilité individuelle à la ppe\n    Attention : condition de plafonnement introduite dans ppe brute\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 6,
+                "id": "ppe_rev",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 32,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "ppe_rev"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 41,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 6,
+                "id": "individu",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 49,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 7,
+                "id": "ppe_coef_tp",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 27,
+                  "end_col_offset": 40,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "ppe_coef_tp"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 7,
+                  "id": "period",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 49,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 7,
+                "id": "individu",
+                "lineno": 7
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 8,
+                "id": "ppe",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "ppe",
+              "col_offset": 10,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 59,
+              "end_lineno": 8,
+              "lineno": 8,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "credits_impot",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 55,
+                "end_lineno": 8,
+                "lineno": 8,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "impot_revenu",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 41,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 21,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 27,
+                        "end_lineno": 8,
+                        "id": "period",
+                        "lineno": 8
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 10,
+                    "end_col_offset": 28,
+                    "end_lineno": 8,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 20,
+                      "end_lineno": 8,
+                      "id": "parameters",
+                      "lineno": 8
+                    },
+                    "keywords": [],
+                    "lineno": 8
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 55,
+            "end_lineno": 10,
+            "lineno": 10,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 55,
+              "end_lineno": 10,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 12,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "seuil1",
+                    "col_offset": 23,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 33,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 23,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 26,
+                      "end_lineno": 10,
+                      "id": "ppe",
+                      "lineno": 10
+                    }
+                  }
+                ],
+                "end_col_offset": 33,
+                "end_lineno": 10,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 19,
+                  "end_lineno": 10,
+                  "id": "ppe_rev",
+                  "lineno": 10
+                },
+                "lineno": 10,
+                "ops": [
+                  {
+                    "ast_class": "GtE"
+                  }
+                ]
+              },
+              "lineno": 10,
+              "op": {
+                "ast_class": "BitAnd"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 38,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 53,
+                    "end_col_offset": 54,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": 0
+                  }
+                ],
+                "end_col_offset": 54,
+                "end_lineno": 10,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 38,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 49,
+                  "end_lineno": 10,
+                  "id": "ppe_coef_tp",
+                  "lineno": 10
+                },
+                "lineno": 10,
+                "ops": [
+                  {
+                    "ast_class": "NotEq"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 55,
+        "end_lineno": 10,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nEligibilité individuelle à la ppe\nAttention : condition de plafonnement introduite dans ppe brute\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "parameters": [
+        "impot_revenu.credits_impot.ppe.seuil1"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    '''\n    Eligibilité individuelle à la ppe\n    Attention : condition de plafonnement introduite dans ppe brute\n    '''\n    ppe_rev = individu('ppe_rev', period)\n    ppe_coef_tp = individu('ppe_coef_tp', period)\n    ppe = parameters(period).impot_revenu.credits_impot.ppe\n\n    return (ppe_rev >= ppe.seuil1) & (ppe_coef_tp != 0)\n",
+      "start_line_number": 3378,
+      "stop_line_number": 3388,
+      "variables": [
+        "ppe_coef_tp",
+        "ppe_rev"
+      ]
+    },
+    "2016-01-01": null
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Eligibilité individuelle à la ppe",
+  "name": "ppe_elig_individu",
+  "start_line_number": 3371,
+  "stop_line_number": 3388,
+  "value_type": "bool"
+}

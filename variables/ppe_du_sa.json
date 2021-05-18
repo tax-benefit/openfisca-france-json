@@ -1,0 +1,526 @@
+{
+  "cerfa_field": {
+    "0": "1AV",
+    "1": "1BV",
+    "2": "1CV",
+    "3": "1DV",
+    "4": "1QV"
+  },
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "int32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 2,
+                "id": "heures_remunerees_volume",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 40,
+                  "end_col_offset": 66,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "heures_remunerees_volume"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 68,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 74,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 31,
+              "end_col_offset": 75,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 60,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 3,
+                "id": "contrat_travail",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 31,
+                  "end_col_offset": 51,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "contrat_de_travail"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 53,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 59,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 60,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 3,
+                "id": "individu",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 10,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 4,
+                "id": "travail_temps_decompte_en_heures",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 72,
+              "end_lineno": 9,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 73,
+                "end_lineno": 8,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 72,
+                  "end_lineno": 7,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 76,
+                    "end_lineno": 6,
+                    "left": {
+                      "ast_class": "Compare",
+                      "col_offset": 9,
+                      "comparators": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "temps_partiel",
+                          "col_offset": 28,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 63,
+                          "end_lineno": 5,
+                          "lineno": 5,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 28,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 49,
+                            "end_lineno": 5,
+                            "id": "TypesContratDeTravail",
+                            "lineno": 5
+                          }
+                        }
+                      ],
+                      "end_col_offset": 63,
+                      "end_lineno": 5,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 24,
+                        "end_lineno": 5,
+                        "id": "contrat_travail",
+                        "lineno": 5
+                      },
+                      "lineno": 5,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    "lineno": 5,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 11,
+                      "comparators": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "forfait_heures_semaines",
+                          "col_offset": 30,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 75,
+                          "end_lineno": 6,
+                          "lineno": 6,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 30,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 51,
+                            "end_lineno": 6,
+                            "id": "TypesContratDeTravail",
+                            "lineno": 6
+                          }
+                        }
+                      ],
+                      "end_col_offset": 75,
+                      "end_lineno": 6,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 11,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 26,
+                        "end_lineno": 6,
+                        "id": "contrat_travail",
+                        "lineno": 6
+                      },
+                      "lineno": 6,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 5,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 11,
+                    "comparators": [
+                      {
+                        "ast_class": "Attribute",
+                        "attr": "forfait_heures_mois",
+                        "col_offset": 30,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 71,
+                        "end_lineno": 7,
+                        "lineno": 7,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 30,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 51,
+                          "end_lineno": 7,
+                          "id": "TypesContratDeTravail",
+                          "lineno": 7
+                        }
+                      }
+                    ],
+                    "end_col_offset": 71,
+                    "end_lineno": 7,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 11,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 26,
+                      "end_lineno": 7,
+                      "id": "contrat_travail",
+                      "lineno": 7
+                    },
+                    "lineno": 7,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 5,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "Compare",
+                  "col_offset": 11,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "forfait_heures_annee",
+                      "col_offset": 30,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 72,
+                      "end_lineno": 8,
+                      "lineno": 8,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 30,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 51,
+                        "end_lineno": 8,
+                        "id": "TypesContratDeTravail",
+                        "lineno": 8
+                      }
+                    }
+                  ],
+                  "end_col_offset": 72,
+                  "end_lineno": 8,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 26,
+                    "end_lineno": 8,
+                    "id": "contrat_travail",
+                    "lineno": 8
+                  },
+                  "lineno": 8,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                }
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 11,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "forfait_jours_annee",
+                    "col_offset": 30,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 71,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 30,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 51,
+                      "end_lineno": 9,
+                      "id": "TypesContratDeTravail",
+                      "lineno": 9
+                    }
+                  }
+                ],
+                "end_col_offset": 71,
+                "end_lineno": 9,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 26,
+                  "end_lineno": 9,
+                  "id": "contrat_travail",
+                  "lineno": 9
+                },
+                "lineno": 9,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 70,
+            "end_lineno": 12,
+            "lineno": 12,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 70,
+              "end_lineno": 12,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 12,
+                "id": "heures_remunerees_volume",
+                "lineno": 12
+              },
+              "lineno": 12,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 38,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 70,
+                "end_lineno": 12,
+                "id": "travail_temps_decompte_en_heures",
+                "lineno": 12
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 70,
+        "end_lineno": 12,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "source_code": "def formula(individu, period):\n    heures_remunerees_volume = individu('heures_remunerees_volume', period)\n    contrat_travail = individu('contrat_de_travail', period)\n    travail_temps_decompte_en_heures = (\n        (contrat_travail == TypesContratDeTravail.temps_partiel)\n        + (contrat_travail == TypesContratDeTravail.forfait_heures_semaines)\n        + (contrat_travail == TypesContratDeTravail.forfait_heures_mois)\n        + (contrat_travail == TypesContratDeTravail.forfait_heures_annee)\n        + (contrat_travail == TypesContratDeTravail.forfait_jours_annee)\n        )\n\n    return heures_remunerees_volume * travail_temps_decompte_en_heures\n",
+      "start_line_number": 92,
+      "stop_line_number": 104,
+      "variables": [
+        "contrat_de_travail",
+        "heures_remunerees_volume"
+      ]
+    }
+  },
+  "json_type": "integer",
+  "label": "Prime pour l'emploi des salariés: nombre d'heures payées",
+  "name": "ppe_du_sa",
+  "referring_variables": [
+    "ppe_coef_tp"
+  ],
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 78,
+  "stop_line_number": 104,
+  "value_type": "int"
+}

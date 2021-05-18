@@ -1,0 +1,156 @@
+{
+  "default_value": false,
+  "definition_period": "month",
+  "documentation": "\nSuite à la crise Covid-19, tous les étudiants, boursiers ou non, peuvent bénéficier\nde deux repas par jour au tarif de 1 euro.\nPour en bénéficier, il suffit d’activer son compte Izly.\nPour les étudiants déjà titulaires d’un compte Izly,\nla modification de tarif a été effectuée à partir du vendredi 22 janvier\net jusqu’au début de la semaine du 25 janvier.\n",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/alimentation.py",
+  "formulas": {
+    "2021-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 36,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 38,
+              "end_col_offset": 48,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 81,
+            "end_lineno": 2,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 11,
+              "comparators": [
+                {
+                  "ast_class": "Attribute",
+                  "attr": "enseignement_superieur",
+                  "col_offset": 44,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 81,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 44,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 58,
+                    "end_lineno": 2,
+                    "id": "TypesScolarite",
+                    "lineno": 2
+                  }
+                }
+              ],
+              "end_col_offset": 81,
+              "end_lineno": 2,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 20,
+                    "end_col_offset": 31,
+                    "end_lineno": 2,
+                    "lineno": 2,
+                    "value": "scolarite"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 33,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 2,
+                    "id": "period",
+                    "lineno": 2
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 11,
+                "end_col_offset": 40,
+                "end_lineno": 2,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 19,
+                  "end_lineno": 2,
+                  "id": "individu",
+                  "lineno": 2
+                },
+                "keywords": [],
+                "lineno": 2
+              },
+              "lineno": 2,
+              "ops": [
+                {
+                  "ast_class": "Eq"
+                }
+              ]
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 81,
+        "end_lineno": 2,
+        "lineno": 1,
+        "name": "formula_2021_01"
+      },
+      "file_path": "/openfisca_france/model/prestations/alimentation.py",
+      "source_code": "def formula_2021_01(individu, period, parameters):\n    return individu('scolarite', period) == TypesScolarite.enseignement_superieur\n",
+      "start_line_number": 20,
+      "stop_line_number": 22,
+      "variables": [
+        "scolarite"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Éligibilité au repas Crous à un euro",
+  "name": "crous_repas_un_euro_eligibilite",
+  "reference": [
+    "https://www.etudiant.gouv.fr/fr/le-repas-au-crous-passe-1-euro-pour-tous-les-etudiants-2314"
+  ],
+  "start_line_number": 5,
+  "stop_line_number": 22,
+  "value_type": "bool"
+}

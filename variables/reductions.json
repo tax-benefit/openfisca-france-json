@@ -1,0 +1,737 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 4,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 4,
+              "lineno": 2,
+              "value": "\n    Renvoie la somme des réductions d'impôt\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 35,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 5,
+                "id": "reductions",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "List",
+              "col_offset": 17,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "elts": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "accult"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "adhcga"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 36,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "assvie"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 46,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "cappme"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 48,
+                  "end_col_offset": 82,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "reduction_cotisations_syndicales"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "daepad"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "dfppce"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 36,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "doment"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 46,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "domlog"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 48,
+                  "end_col_offset": 56,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "donapd"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "ecpess"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "garext"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 36,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "intemp"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 46,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "invfor"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 48,
+                  "end_col_offset": 56,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "invrev"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "prcomp"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "rsceha"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 36,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "saldom"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 46,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "spfcpi"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "mecena"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "repsoc"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "intcon"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "invlst"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "value": "intagr"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": "creaen"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": "deffor"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 36,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": "sofica"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 20,
+                  "lineno": 20,
+                  "value": "mohist"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 22,
+                  "lineno": 22,
+                  "value": "domsoc"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 26,
+                  "end_lineno": 22,
+                  "lineno": 22,
+                  "value": "ecodev"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 36,
+                  "end_lineno": 22,
+                  "lineno": 22,
+                  "value": "locmeu"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 38,
+                  "end_col_offset": 46,
+                  "end_lineno": 22,
+                  "lineno": 22,
+                  "value": "resimm"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 48,
+                  "end_col_offset": 56,
+                  "end_lineno": 22,
+                  "lineno": 22,
+                  "value": "scelli"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 23,
+                  "lineno": 23,
+                  "value": "sofipe"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 25,
+                  "lineno": 25,
+                  "value": "patnat"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 27,
+                  "lineno": 27,
+                  "value": "duflot"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 18,
+                  "end_col_offset": 31,
+                  "end_lineno": 27,
+                  "lineno": 27,
+                  "value": "donpartipol"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 40,
+                  "end_lineno": 28,
+                  "lineno": 28,
+                  "value": "reduction_impot_exceptionnelle"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 16,
+                  "end_lineno": 30,
+                  "lineno": 30,
+                  "value": "rpinel"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 15,
+                  "end_lineno": 32,
+                  "lineno": 32,
+                  "value": "rehab"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 19,
+                  "end_lineno": 34,
+                  "lineno": 34,
+                  "value": "notredame"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 21,
+                  "end_col_offset": 34,
+                  "end_lineno": 34,
+                  "lineno": 34,
+                  "value": "denormandie"
+                }
+              ],
+              "end_col_offset": 9,
+              "end_lineno": 35,
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 46,
+            "end_lineno": 37,
+            "lineno": 37,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 37,
+                "id": "impot_net",
+                "lineno": 37
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 37,
+                  "end_lineno": 37,
+                  "lineno": 37,
+                  "value": "ip_net"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 39,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 45,
+                  "end_lineno": 37,
+                  "id": "period",
+                  "lineno": 37
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 46,
+              "end_lineno": 37,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 37,
+                "id": "foyer_fiscal",
+                "lineno": 37
+              },
+              "keywords": [],
+              "lineno": 37
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 84,
+            "end_lineno": 38,
+            "lineno": 38,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 38,
+                "id": "montants",
+                "lineno": 38
+              }
+            ],
+            "value": {
+              "ast_class": "ListComp",
+              "col_offset": 15,
+              "elt": {
+                "args": [
+                  {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 36,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 38,
+                        "id": "reduction",
+                        "lineno": 38
+                      },
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 47,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 53,
+                        "end_lineno": 38,
+                        "id": "period",
+                        "lineno": 38
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 23,
+                    "end_col_offset": 54,
+                    "end_lineno": 38,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 23,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 35,
+                      "end_lineno": 38,
+                      "id": "foyer_fiscal",
+                      "lineno": 38
+                    },
+                    "keywords": [],
+                    "lineno": 38
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 16,
+                "end_col_offset": 55,
+                "end_lineno": 38,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 38,
+                  "id": "around",
+                  "lineno": 38
+                },
+                "keywords": [],
+                "lineno": 38
+              },
+              "end_col_offset": 84,
+              "end_lineno": 38,
+              "generators": [
+                {
+                  "ast_class": "comprehension",
+                  "ifs": [],
+                  "is_async": 0,
+                  "iter": {
+                    "ast_class": "Name",
+                    "col_offset": 73,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 83,
+                    "end_lineno": 38,
+                    "id": "reductions",
+                    "lineno": 38
+                  },
+                  "target": {
+                    "ast_class": "Name",
+                    "col_offset": 60,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 69,
+                    "end_lineno": 38,
+                    "id": "reduction",
+                    "lineno": 38
+                  }
+                }
+              ],
+              "lineno": 38
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 36,
+            "end_lineno": 39,
+            "lineno": 39,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 39,
+                "id": "total_reductions",
+                "lineno": 39
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 27,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 35,
+                  "end_lineno": 39,
+                  "id": "montants",
+                  "lineno": 39
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 23,
+              "end_col_offset": 36,
+              "end_lineno": 39,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 23,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 39,
+                "id": "sum",
+                "lineno": 39
+              },
+              "keywords": [],
+              "lineno": 39
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 44,
+            "end_lineno": 40,
+            "lineno": 40,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 25,
+                  "end_lineno": 40,
+                  "id": "impot_net",
+                  "lineno": 40
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 27,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 43,
+                  "end_lineno": 40,
+                  "id": "total_reductions",
+                  "lineno": 40
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 44,
+              "end_lineno": 40,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 40,
+                "id": "min_",
+                "lineno": 40
+              },
+              "keywords": [],
+              "lineno": 40
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 44,
+        "end_lineno": 40,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nRenvoie la somme des réductions d'impôt\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Renvoie la somme des réductions d'impôt\n    '''\n    reductions = [\n        # Depuis 2002\n        'accult', 'adhcga', 'assvie', 'cappme', 'reduction_cotisations_syndicales',\n        'daepad', 'dfppce', 'doment', 'domlog', 'donapd',\n        'ecpess', 'garext', 'intemp', 'invfor', 'invrev',\n        'prcomp', 'rsceha', 'saldom', 'spfcpi',\n        # Introduites en 2003\n        'mecena', 'repsoc',\n        # Introduites en 2004\n        'intcon', 'invlst',\n        # Introduites en 2005\n        'intagr',\n        # Introduites en 2006\n        'creaen', 'deffor', 'sofica',\n        # Introduites en 2008\n        'mohist',\n        # Introduites en 2009\n        'domsoc', 'ecodev', 'locmeu', 'resimm', 'scelli',\n        'sofipe',\n        # Introduites en 2010\n        'patnat',\n        # Introduites en 2013\n        'duflot', 'donpartipol',\n        'reduction_impot_exceptionnelle',\n        # Introduites en 2014\n        'rpinel',\n        # Introduites en 2017\n        'rehab',\n        # Introduites en 2020\n        'notredame', 'denormandie',\n        ]\n\n    impot_net = foyer_fiscal('ip_net', period)\n    montants = [around(foyer_fiscal(reduction, period)) for reduction in reductions]\n    total_reductions = sum(montants)\n    return min_(impot_net, total_reductions)\n",
+      "start_line_number": 17,
+      "stop_line_number": 57,
+      "variables": [
+        "ip_net"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Réductions d'impôt sur le revenu",
+  "name": "reductions",
+  "referring_variables": [
+    "iaidrdi"
+  ],
+  "start_line_number": 11,
+  "stop_line_number": 57,
+  "value_type": "float"
+}

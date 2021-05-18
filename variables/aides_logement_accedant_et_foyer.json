@@ -1,0 +1,1249 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "formulas": {
+    "2007-07-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 35,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 37,
+              "end_col_offset": 47,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 95,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 2,
+                "id": "statut_occupation_logement",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 58,
+                  "end_col_offset": 86,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "statut_occupation_logement"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 88,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 94,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 33,
+              "end_col_offset": 95,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "menage",
+                "col_offset": 33,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 57,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "demandeur",
+                  "col_offset": 33,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 50,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 33,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 40,
+                    "end_lineno": 2,
+                    "id": "famille",
+                    "lineno": 2
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 91,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 3,
+                "id": "accedant",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 16,
+              "comparators": [
+                {
+                  "ast_class": "Attribute",
+                  "attr": "primo_accedant",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 90,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 46,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 75,
+                    "end_lineno": 3,
+                    "id": "TypesStatutOccupationLogement",
+                    "lineno": 3
+                  }
+                }
+              ],
+              "end_col_offset": 90,
+              "end_lineno": 3,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 3,
+                "id": "statut_occupation_logement",
+                "lineno": 3
+              },
+              "lineno": 3,
+              "ops": [
+                {
+                  "ast_class": "Eq"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 106,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 4,
+                "id": "locataire_logement_foyer",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 31,
+              "comparators": [
+                {
+                  "ast_class": "Attribute",
+                  "attr": "locataire_foyer",
+                  "col_offset": 61,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 106,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 61,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 90,
+                    "end_lineno": 4,
+                    "id": "TypesStatutOccupationLogement",
+                    "lineno": 4
+                  }
+                }
+              ],
+              "end_col_offset": 106,
+              "end_lineno": 4,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 57,
+                "end_lineno": 4,
+                "id": "statut_occupation_logement",
+                "lineno": 4
+              },
+              "lineno": 4,
+              "ops": [
+                {
+                  "ast_class": "Eq"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 71,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 5,
+                "id": "logement_crous",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 46,
+                  "end_col_offset": 62,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "logement_crous"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 64,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 70,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 71,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "menage",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "demandeur",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 38,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 21,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 28,
+                    "end_lineno": 5,
+                    "id": "famille",
+                    "lineno": 5
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 72,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 6,
+                "id": "locataire_crous_ou_foyer",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 31,
+              "end_col_offset": 72,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 6,
+                "id": "logement_crous",
+                "lineno": 6
+              },
+              "lineno": 6,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 48,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 72,
+                "end_lineno": 6,
+                "id": "locataire_logement_foyer",
+                "lineno": 6
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 7,
+                "id": "logement_conventionne",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 53,
+                  "end_col_offset": 76,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "logement_conventionne"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 7,
+                  "id": "period",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 85,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "menage",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 52,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "demandeur",
+                  "col_offset": 28,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 45,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 28,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 35,
+                    "end_lineno": 7,
+                    "id": "famille",
+                    "lineno": 7
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 89,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 8,
+                "id": "forfait_charges",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 22,
+              "end_col_offset": 89,
+              "end_lineno": 8,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 8,
+                "id": "accedant",
+                "lineno": 8
+              },
+              "lineno": 8,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 34,
+                "end_col_offset": 88,
+                "end_lineno": 8,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 8,
+                  "id": "locataire_crous_ou_foyer",
+                  "lineno": 8
+                },
+                "lineno": 8,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 66,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 87,
+                      "end_lineno": 8,
+                      "id": "logement_conventionne",
+                      "lineno": 8
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 61,
+                  "end_col_offset": 88,
+                  "end_lineno": 8,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 61,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 65,
+                    "end_lineno": 8,
+                    "id": "not_",
+                    "lineno": 8
+                  },
+                  "keywords": [],
+                  "lineno": 8
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 9,
+                "end_lineno": 10,
+                "id": "loyer",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 44,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "loyer"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 10,
+                  "id": "period",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 12,
+              "end_col_offset": 53,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "menage",
+                "col_offset": 12,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "demandeur",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 29,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 12,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 19,
+                    "end_lineno": 10,
+                    "id": "famille",
+                    "lineno": 10
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 77,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 11,
+                "id": "plafond_mensualite",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 68,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "aides_logement_plafond_mensualite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 70,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 11,
+                  "id": "period",
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 77,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 11,
+                "id": "famille",
+                "lineno": 11
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 122,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 12,
+                "id": "L",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 14,
+                  "end_col_offset": 68,
+                  "end_lineno": 12,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 14,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 38,
+                    "end_lineno": 12,
+                    "id": "locataire_crous_ou_foyer",
+                    "lineno": 12
+                  },
+                  "lineno": 12,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 46,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 67,
+                        "end_lineno": 12,
+                        "id": "logement_conventionne",
+                        "lineno": 12
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 41,
+                    "end_col_offset": 68,
+                    "end_lineno": 12,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 41,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 12,
+                      "id": "not_",
+                      "lineno": 12
+                    },
+                    "keywords": [],
+                    "lineno": 12
+                  }
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 70,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 88,
+                  "end_lineno": 12,
+                  "id": "plafond_mensualite",
+                  "lineno": 12
+                },
+                {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 95,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 113,
+                      "end_lineno": 12,
+                      "id": "plafond_mensualite",
+                      "lineno": 12
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 115,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 120,
+                      "end_lineno": 12,
+                      "id": "loyer",
+                      "lineno": 12
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 90,
+                  "end_col_offset": 121,
+                  "end_lineno": 12,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 90,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 94,
+                    "end_lineno": 12,
+                    "id": "min_",
+                    "lineno": 12
+                  },
+                  "keywords": [],
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 8,
+              "end_col_offset": 122,
+              "end_lineno": 12,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 12,
+                "id": "where",
+                "lineno": 12
+              },
+              "keywords": [],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 66,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 13,
+                "id": "C",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 66,
+              "end_lineno": 13,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 13,
+                "id": "forfait_charges",
+                "lineno": 13
+              },
+              "lineno": 13,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 34,
+                    "end_col_offset": 57,
+                    "end_lineno": 13,
+                    "lineno": 13,
+                    "value": "aide_logement_charges"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 59,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 65,
+                    "end_lineno": 13,
+                    "id": "period",
+                    "lineno": 13
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 26,
+                "end_col_offset": 66,
+                "end_lineno": 13,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 33,
+                  "end_lineno": 13,
+                  "id": "famille",
+                  "lineno": 13
+                },
+                "keywords": [],
+                "lineno": 13
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 14,
+                "id": "K",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 16,
+                  "end_col_offset": 34,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "aides_logement_k"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 36,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 42,
+                  "end_lineno": 14,
+                  "id": "period",
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 8,
+              "end_col_offset": 43,
+              "end_lineno": 14,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 14,
+                "id": "famille",
+                "lineno": 14
+              },
+              "keywords": [],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 56,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 15,
+                "id": "Lo",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 17,
+                  "end_col_offset": 47,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": "aides_logement_loyer_minimal"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 49,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 55,
+                  "end_lineno": 15,
+                  "id": "period",
+                  "lineno": 15
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 9,
+              "end_col_offset": 56,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 9,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 15,
+                "id": "famille",
+                "lineno": 15
+              },
+              "keywords": [],
+              "lineno": 15
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 46,
+            "end_lineno": 17,
+            "lineno": 17,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 46,
+              "end_lineno": 17,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 22,
+                "end_lineno": 17,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 12,
+                  "comparators": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 16,
+                      "end_col_offset": 17,
+                      "end_lineno": 17,
+                      "lineno": 17,
+                      "value": 0
+                    }
+                  ],
+                  "end_col_offset": 17,
+                  "end_lineno": 17,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 12,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 13,
+                    "end_lineno": 17,
+                    "id": "L",
+                    "lineno": 17
+                  },
+                  "lineno": 17,
+                  "ops": [
+                    {
+                      "ast_class": "Gt"
+                    }
+                  ]
+                },
+                "lineno": 17,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 17,
+                  "id": "K",
+                  "lineno": 17
+                }
+              },
+              "lineno": 17,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 30,
+                    "end_col_offset": 31,
+                    "end_lineno": 17,
+                    "lineno": 17,
+                    "value": 0
+                  },
+                  {
+                    "ast_class": "BinOp",
+                    "col_offset": 34,
+                    "end_col_offset": 44,
+                    "end_lineno": 17,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 34,
+                      "end_col_offset": 39,
+                      "end_lineno": 17,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 34,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 35,
+                        "end_lineno": 17,
+                        "id": "L",
+                        "lineno": 17
+                      },
+                      "lineno": 17,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 38,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 39,
+                        "end_lineno": 17,
+                        "id": "C",
+                        "lineno": 17
+                      }
+                    },
+                    "lineno": 17,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 42,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 17,
+                      "id": "Lo",
+                      "lineno": 17
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 25,
+                "end_col_offset": 46,
+                "end_lineno": 17,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 25,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 29,
+                  "end_lineno": 17,
+                  "id": "max_",
+                  "lineno": 17
+                },
+                "keywords": [],
+                "lineno": 17
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 46,
+        "end_lineno": 17,
+        "lineno": 1,
+        "name": "formula_2007_07"
+      },
+      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "source_code": "def formula_2007_07(famille, period, parameters):\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    accedant = (statut_occupation_logement == TypesStatutOccupationLogement.primo_accedant)\n    locataire_logement_foyer = statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    locataire_crous_ou_foyer = logement_crous + locataire_logement_foyer\n    logement_conventionne = famille.demandeur.menage('logement_conventionne', period)\n    forfait_charges = accedant + (locataire_crous_ou_foyer * not_(logement_conventionne))\n\n    loyer = famille.demandeur.menage('loyer', period)\n    plafond_mensualite = famille('aides_logement_plafond_mensualite', period)\n    L = where(locataire_crous_ou_foyer * not_(logement_conventionne), plafond_mensualite, min_(plafond_mensualite, loyer))\n    C = forfait_charges * famille('aide_logement_charges', period)\n    K = famille('aides_logement_k', period)\n    Lo = famille('aides_logement_loyer_minimal', period)\n\n    return (L > 0) * K * max_(0, (L + C - Lo))\n",
+      "start_line_number": 1578,
+      "stop_line_number": 1595,
+      "variables": [
+        "aide_logement_charges",
+        "aides_logement_k",
+        "aides_logement_loyer_minimal",
+        "aides_logement_plafond_mensualite"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Allocation logement pour les primo-accédants",
+  "name": "aides_logement_accedant_et_foyer",
+  "reference": [
+    "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000006737341&dateTexte=&categorieLien=cid",
+    "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000035671385&dateTexte=&categorieLien=id",
+    "https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=8A5E748B84270643BC39A1D691F4FC5C.tplgfr27s_2?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000006739837&dateTexte=20181031&categorieLien=cid#LEGIARTI000006739837"
+  ],
+  "referring_variables": [
+    "aide_logement_montant_brut_avant_degressivite"
+  ],
+  "start_line_number": 1568,
+  "stop_line_number": 1595,
+  "value_type": "float"
+}

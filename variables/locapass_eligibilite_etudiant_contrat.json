@@ -1,0 +1,303 @@
+{
+  "default_value": false,
+  "definition_period": "month",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/locapass.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 98,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 2,
+                "id": "nb_mois_travailles",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "ListComp",
+                  "col_offset": 29,
+                  "elt": {
+                    "ast_class": "Compare",
+                    "col_offset": 31,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 76,
+                        "end_col_offset": 77,
+                        "end_lineno": 2,
+                        "lineno": 2,
+                        "value": 0
+                      }
+                    ],
+                    "end_col_offset": 77,
+                    "end_lineno": 2,
+                    "left": {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 40,
+                          "end_col_offset": 53,
+                          "end_lineno": 2,
+                          "lineno": 2,
+                          "value": "salaire_net"
+                        },
+                        {
+                          "args": [
+                            {
+                              "ast_class": "UnaryOp",
+                              "col_offset": 69,
+                              "end_col_offset": 71,
+                              "end_lineno": 2,
+                              "lineno": 2,
+                              "op": {
+                                "ast_class": "USub"
+                              },
+                              "operand": {
+                                "ast_class": "Name",
+                                "col_offset": 70,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 71,
+                                "end_lineno": 2,
+                                "id": "i",
+                                "lineno": 2
+                              }
+                            }
+                          ],
+                          "ast_class": "Call",
+                          "col_offset": 55,
+                          "end_col_offset": 72,
+                          "end_lineno": 2,
+                          "func": {
+                            "ast_class": "Attribute",
+                            "attr": "offset",
+                            "col_offset": 55,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 68,
+                            "end_lineno": 2,
+                            "lineno": 2,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 55,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 61,
+                              "end_lineno": 2,
+                              "id": "period",
+                              "lineno": 2
+                            }
+                          },
+                          "keywords": [],
+                          "lineno": 2
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 31,
+                      "end_col_offset": 73,
+                      "end_lineno": 2,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 31,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 39,
+                        "end_lineno": 2,
+                        "id": "individu",
+                        "lineno": 2
+                      },
+                      "keywords": [],
+                      "lineno": 2
+                    },
+                    "lineno": 2,
+                    "ops": [
+                      {
+                        "ast_class": "Gt"
+                      }
+                    ]
+                  },
+                  "end_col_offset": 97,
+                  "end_lineno": 2,
+                  "generators": [
+                    {
+                      "ast_class": "comprehension",
+                      "ifs": [],
+                      "is_async": 0,
+                      "iter": {
+                        "args": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 94,
+                            "end_col_offset": 95,
+                            "end_lineno": 2,
+                            "lineno": 2,
+                            "value": 6
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 88,
+                        "end_col_offset": 96,
+                        "end_lineno": 2,
+                        "func": {
+                          "ast_class": "Name",
+                          "col_offset": 88,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 93,
+                          "end_lineno": 2,
+                          "id": "range",
+                          "lineno": 2
+                        },
+                        "keywords": [],
+                        "lineno": 2
+                      },
+                      "target": {
+                        "ast_class": "Name",
+                        "col_offset": 83,
+                        "ctx": {
+                          "ast_class": "Store"
+                        },
+                        "end_col_offset": 84,
+                        "end_lineno": 2,
+                        "id": "i",
+                        "lineno": 2
+                      }
+                    }
+                  ],
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 98,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 2,
+                "id": "sum",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 34,
+            "end_lineno": 3,
+            "lineno": 3,
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 11,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 34,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": 3
+                }
+              ],
+              "end_col_offset": 34,
+              "end_lineno": 3,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 3,
+                "id": "nb_mois_travailles",
+                "lineno": 3
+              },
+              "lineno": 3,
+              "ops": [
+                {
+                  "ast_class": "GtE"
+                }
+              ]
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 34,
+        "end_lineno": 3,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/locapass.py",
+      "source_code": "def formula(individu, period):\n    nb_mois_travailles = sum([(individu('salaire_net', period.offset(-i)) > 0) for i in range(6)])\n    return nb_mois_travailles >= 3\n",
+      "start_line_number": 86,
+      "stop_line_number": 89,
+      "variables": [
+        "salaire_net"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Satisfaction de la condition de loca-pass relative au contrat de travail pour les étudiants",
+  "name": "locapass_eligibilite_etudiant_contrat",
+  "referring_variables": [
+    "locapass_eligibilite_etudiant"
+  ],
+  "start_line_number": 74,
+  "stop_line_number": 89,
+  "value_type": "bool"
+}

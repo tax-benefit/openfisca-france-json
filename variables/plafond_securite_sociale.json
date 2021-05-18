@@ -1,0 +1,460 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 80,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 2,
+                "id": "plafond_temps_plein",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "plafond_securite_sociale",
+              "col_offset": 26,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 80,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "gen",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 55,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "cotsoc",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 51,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 37,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 43,
+                        "end_lineno": 2,
+                        "id": "period",
+                        "lineno": 2
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 26,
+                    "end_col_offset": 44,
+                    "end_lineno": 2,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 26,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 36,
+                      "end_lineno": 2,
+                      "id": "parameters",
+                      "lineno": 2
+                    },
+                    "keywords": [],
+                    "lineno": 2
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 52,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 3,
+                "id": "quotite",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 43,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "quotite_de_travail"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 45,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 51,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 52,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 3,
+                "id": "individu",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 5,
+                "id": "plafond",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 14,
+              "end_col_offset": 43,
+              "end_lineno": 5,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 5,
+                "id": "plafond_temps_plein",
+                "lineno": 5
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 5,
+                "id": "quotite",
+                "lineno": 5
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 13,
+                "id": "nombre_jours_calendaires",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 40,
+                  "end_col_offset": 66,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": "nombre_jours_calendaires"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 68,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 74,
+                  "end_lineno": 13,
+                  "id": "period",
+                  "lineno": 13
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 31,
+              "end_col_offset": 75,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 13,
+                "id": "individu",
+                "lineno": 13
+              },
+              "keywords": [],
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 14,
+                "id": "plafond",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 14,
+              "end_col_offset": 65,
+              "end_lineno": 14,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 14,
+                "id": "plafond",
+                "lineno": 14
+              },
+              "lineno": 14,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 25,
+                "end_col_offset": 64,
+                "end_lineno": 14,
+                "left": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 30,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 54,
+                      "end_lineno": 14,
+                      "id": "nombre_jours_calendaires",
+                      "lineno": 14
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 56,
+                      "end_col_offset": 58,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": 30
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 25,
+                  "end_col_offset": 59,
+                  "end_lineno": 14,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 25,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 29,
+                    "end_lineno": 14,
+                    "id": "min_",
+                    "lineno": 14
+                  },
+                  "keywords": [],
+                  "lineno": 14
+                },
+                "lineno": 14,
+                "op": {
+                  "ast_class": "Div"
+                },
+                "right": {
+                  "ast_class": "Constant",
+                  "col_offset": 62,
+                  "end_col_offset": 64,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": 30
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 18,
+            "end_lineno": 16,
+            "lineno": 16,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 18,
+              "end_lineno": 16,
+              "id": "plafond",
+              "lineno": 16
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 18,
+        "end_lineno": 16,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "source_code": "def formula(individu, period, parameters):\n    plafond_temps_plein = parameters(period).cotsoc.gen.plafond_securite_sociale\n    quotite = individu('quotite_de_travail', period)\n\n    plafond = plafond_temps_plein * quotite\n\n    # 2) Proratisation pour mois incomplet selon la méthode des 30èmes\n\n    # Pour les salariés entrés ou sortis en cours de mois,\n    # le plafond applicable est égal à autant de trentièmes du plafond mensuel\n    # que le salarié a été présent de jours calendaires. Source urssaf.fr \"L’assiette maximale\"\n    # calcul du nombre de jours calendaires de présence du salarié\n    nombre_jours_calendaires = individu('nombre_jours_calendaires', period)\n    plafond = plafond * (min_(nombre_jours_calendaires, 30) / 30)\n\n    return plafond\n",
+      "start_line_number": 729,
+      "stop_line_number": 745,
+      "variables": [
+        "nombre_jours_calendaires",
+        "quotite_de_travail"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Plafond de la securite sociale",
+  "name": "plafond_securite_sociale",
+  "referring_variables": [
+    "agff_employeur",
+    "allocations_temporaires_invalidite",
+    "arrco_employeur",
+    "arrco_salarie",
+    "contribution_exceptionnelle_solidarite",
+    "crds_salaire",
+    "csg_deductible_salaire",
+    "csg_imposable_salaire",
+    "exoneration_cotisations_employeur_jei",
+    "exoneration_cotisations_employeur_stagiaire",
+    "exoneration_cotisations_salarie_stagiaire",
+    "fonds_emploi_hospitalier",
+    "ircantec_employeur",
+    "ircantec_salarie",
+    "prevoyance_obligatoire_cadre"
+  ],
+  "start_line_number": 722,
+  "stop_line_number": 745,
+  "value_type": "float"
+}

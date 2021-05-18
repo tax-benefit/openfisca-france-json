@@ -1,0 +1,132 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 4,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 4,
+              "lineno": 2,
+              "value": "\n    Cotisations syndicales : réduction d'impôt (2002-2011) puis crédit d'impôt (2012- )\n    "
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 32,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "cotsyn"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 41,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 5,
+                "id": "foyer_fiscal",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 41,
+        "end_lineno": 5,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nCotisations syndicales : réduction d'impôt (2002-2011) puis crédit d'impôt (2012- )\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Cotisations syndicales : réduction d'impôt (2002-2011) puis crédit d'impôt (2012- )\n    '''\n    return foyer_fiscal('cotsyn', period)\n",
+      "start_line_number": 502,
+      "stop_line_number": 507,
+      "variables": [
+        "cotsyn"
+      ]
+    },
+    "2012-01-01": null
+  },
+  "json_type": "number",
+  "label": "Réduction d'impôt pour cotisations syndicales",
+  "name": "reduction_cotisations_syndicales",
+  "start_line_number": 495,
+  "stop_line_number": 507,
+  "value_type": "float"
+}

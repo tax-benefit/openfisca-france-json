@@ -1,0 +1,140 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "int32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 52,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "args": [],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 52,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "nb_persons",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 5,
+                  "id": "famille",
+                  "lineno": 5
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 30,
+                  "end_col_offset": 51,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "PARENT",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 51,
+                    "end_lineno": 5,
+                    "lineno": 5,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 37,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 5,
+                      "id": "Famille",
+                      "lineno": 5
+                    }
+                  }
+                }
+              ],
+              "lineno": 5
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 52,
+        "end_lineno": 5,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+      "source_code": "def formula(famille, period):\n    # Note : Cette variable est « instantanée » : quelle que soit la période demandée, elle retourne la valeur au premier\n    # jour, sans changer la période.\n\n    return famille.nb_persons(role = Famille.PARENT)\n",
+      "start_line_number": 223,
+      "stop_line_number": 228
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "integer",
+  "label": "Nombre d'adultes (parents) dans la famille",
+  "name": "nb_parents",
+  "referring_variables": [
+    "ada",
+    "aefa",
+    "agepi",
+    "cmu_c_plafond",
+    "cmu_nbp_foyer",
+    "en_couple",
+    "ppa_forfait_logement",
+    "ppa_montant_forfaitaire_familial_non_majore",
+    "rsa_eligibilite_tns",
+    "rsa_forfait_logement",
+    "rsa_socle"
+  ],
+  "start_line_number": 216,
+  "stop_line_number": 228,
+  "value_type": "int"
+}

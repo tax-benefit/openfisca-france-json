@@ -1,0 +1,479 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/autonomie.py",
+  "formulas": {
+    "2002-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 25,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 27,
+              "end_col_offset": 33,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 31,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 2,
+                "id": "period",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "first_month",
+              "col_offset": 13,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 31,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 2,
+                "id": "period",
+                "lineno": 2
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 78,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 3,
+                "id": "revenu_fiscal_de_reference",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 33,
+              "end_col_offset": 78,
+              "end_lineno": 3,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 55,
+                    "end_col_offset": 60,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "rfr"
+                  },
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "n_2",
+                    "col_offset": 62,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 72,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 62,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 68,
+                      "end_lineno": 3,
+                      "id": "period",
+                      "lineno": 3
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 33,
+                "end_col_offset": 73,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "foyer_fiscal",
+                  "col_offset": 33,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 54,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 33,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 41,
+                    "end_lineno": 3,
+                    "id": "individu",
+                    "lineno": 3
+                  }
+                },
+                "keywords": [],
+                "lineno": 3
+              },
+              "lineno": 3,
+              "op": {
+                "ast_class": "Div"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 76,
+                "end_col_offset": 78,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": 12
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 77,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 4,
+                "id": "aide_logement_montant",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 68,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "aide_logement_montant"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 70,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 77,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "famille",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 4,
+                "lineno": 4,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 28,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 36,
+                  "end_lineno": 4,
+                  "id": "individu",
+                  "lineno": 4
+                }
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 5,
+                "id": "valeur_locative_immo_non_loue",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 76,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "valeur_locative_immo_non_loue"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 85,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 95,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 38,
+                "end_lineno": 6,
+                "id": "valeur_locative_terrains_non_loues",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 50,
+                  "end_col_offset": 86,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "valeur_locative_terrains_non_loues"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 88,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 94,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 41,
+              "end_col_offset": 95,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 41,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 6,
+                "id": "individu",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 10,
+            "lineno": 8,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 9,
+              "end_lineno": 10,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 8,
+                "id": "revenu_fiscal_de_reference",
+                "lineno": 8
+              },
+              "lineno": 8,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 98,
+                "end_lineno": 9,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 74,
+                  "end_lineno": 9,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 37,
+                    "end_lineno": 9,
+                    "id": "valeur_locative_immo_non_loue",
+                    "lineno": 9
+                  },
+                  "lineno": 9,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 40,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 74,
+                    "end_lineno": 9,
+                    "id": "valeur_locative_terrains_non_loues",
+                    "lineno": 9
+                  }
+                },
+                "lineno": 9,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 77,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 98,
+                  "end_lineno": 9,
+                  "id": "aide_logement_montant",
+                  "lineno": 9
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 10,
+        "lineno": 1,
+        "name": "formula_2002"
+      },
+      "file_path": "/openfisca_france/model/prestations/autonomie.py",
+      "source_code": "def formula_2002(individu, period):\n    period = period.first_month\n    revenu_fiscal_de_reference = individu.foyer_fiscal('rfr', period.n_2) / 12\n    aide_logement_montant = individu.famille('aide_logement_montant', period)\n    valeur_locative_immo_non_loue = individu('valeur_locative_immo_non_loue', period)\n    valeur_locative_terrains_non_loues = individu('valeur_locative_terrains_non_loues', period)\n\n    return revenu_fiscal_de_reference - (\n        valeur_locative_immo_non_loue + valeur_locative_terrains_non_loues + aide_logement_montant\n        )\n",
+      "start_line_number": 10,
+      "stop_line_number": 20,
+      "variables": [
+        "valeur_locative_immo_non_loue",
+        "valeur_locative_terrains_non_loues"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Ressources considérées dans le calcul de l'APA",
+  "name": "base_ressources_apa",
+  "referring_variables": [
+    "apa_domicile_participation",
+    "apa_etablissement"
+  ],
+  "start_line_number": 4,
+  "stop_line_number": 20,
+  "value_type": "float"
+}

@@ -1,0 +1,441 @@
+{
+  "cerfa_field": {
+    "0": "1AX",
+    "1": "1BX",
+    "2": "1CX",
+    "3": "1DX",
+    "4": "1QX"
+  },
+  "default_value": false,
+  "definition_period": "year",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 29,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 2,
+                "id": "mois",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "first_month",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 29,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 2,
+                "id": "period",
+                "lineno": 2
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 3,
+                "id": "indicateur",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 17,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 57,
+                  "end_col_offset": 58,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": 0
+                }
+              ],
+              "end_col_offset": 58,
+              "end_lineno": 3,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 46,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "contrat_de_travail"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 48,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 52,
+                    "end_lineno": 3,
+                    "id": "mois",
+                    "lineno": 3
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 17,
+                "end_col_offset": 53,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 17,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 25,
+                  "end_lineno": 3,
+                  "id": "individu",
+                  "lineno": 3
+                },
+                "keywords": [],
+                "lineno": 3
+              },
+              "lineno": 3,
+              "ops": [
+                {
+                  "ast_class": "Eq"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "While",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 29,
+                "end_lineno": 7,
+                "lineno": 7,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 12,
+                    "end_lineno": 7,
+                    "id": "mois",
+                    "lineno": 7
+                  }
+                ],
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 27,
+                      "end_col_offset": 28,
+                      "end_lineno": 7,
+                      "lineno": 7,
+                      "value": 1
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 15,
+                  "end_col_offset": 29,
+                  "end_lineno": 7,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "offset",
+                    "col_offset": 15,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 26,
+                    "end_lineno": 7,
+                    "lineno": 7,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 15,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 19,
+                      "end_lineno": 7,
+                      "id": "mois",
+                      "lineno": 7
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 7
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 77,
+                "end_lineno": 8,
+                "lineno": 8,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 18,
+                    "end_lineno": 8,
+                    "id": "indicateur",
+                    "lineno": 8
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 21,
+                  "end_col_offset": 77,
+                  "end_lineno": 8,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 21,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 31,
+                    "end_lineno": 8,
+                    "id": "indicateur",
+                    "lineno": 8
+                  },
+                  "lineno": 8,
+                  "op": {
+                    "ast_class": "BitAnd"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 35,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 75,
+                        "end_col_offset": 76,
+                        "end_lineno": 8,
+                        "lineno": 8,
+                        "value": 0
+                      }
+                    ],
+                    "end_col_offset": 76,
+                    "end_lineno": 8,
+                    "left": {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 44,
+                          "end_col_offset": 64,
+                          "end_lineno": 8,
+                          "lineno": 8,
+                          "value": "contrat_de_travail"
+                        },
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 66,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 70,
+                          "end_lineno": 8,
+                          "id": "mois",
+                          "lineno": 8
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 35,
+                      "end_col_offset": 71,
+                      "end_lineno": 8,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 35,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 43,
+                        "end_lineno": 8,
+                        "id": "individu",
+                        "lineno": 8
+                      },
+                      "keywords": [],
+                      "lineno": 8
+                    },
+                    "lineno": 8,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "col_offset": 4,
+            "end_col_offset": 77,
+            "end_lineno": 8,
+            "lineno": 6,
+            "orelse": [],
+            "test": {
+              "ast_class": "Compare",
+              "col_offset": 10,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 31,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": 12
+                }
+              ],
+              "end_col_offset": 31,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "Attribute",
+                "attr": "month",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 6,
+                "lineno": 6,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "start",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 14,
+                    "end_lineno": 6,
+                    "id": "mois",
+                    "lineno": 6
+                  }
+                }
+              },
+              "lineno": 6,
+              "ops": [
+                {
+                  "ast_class": "Lt"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 9,
+            "lineno": 9,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 21,
+              "end_lineno": 9,
+              "id": "indicateur",
+              "lineno": 9
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 21,
+        "end_lineno": 9,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "source_code": "def formula(individu, period):\n    mois = period.first_month\n    indicateur = individu('contrat_de_travail', mois) == 0\n    # On parcours tous les mois de l'année pour s'assurer que l'individu était employé à temps plein\n    # durant toute l'année.\n    while mois.start.month < 12:\n        mois = mois.offset(1)\n        indicateur = indicateur & (individu('contrat_de_travail', mois) == 0)\n    return indicateur\n",
+      "start_line_number": 119,
+      "stop_line_number": 128,
+      "variables": [
+        "contrat_de_travail"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Prime pour l'emploi des salariés: indicateur de travail à temps plein sur l'année entière",
+  "name": "ppe_tp_sa",
+  "referring_variables": [
+    "ppe_coef_tp"
+  ],
+  "start_line_number": 106,
+  "stop_line_number": 128,
+  "value_type": "bool"
+}

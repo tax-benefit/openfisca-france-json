@@ -1,0 +1,240 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+  "formulas": {
+    "2013-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 35,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 37,
+              "end_col_offset": 43,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 7,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 7,
+              "lineno": 2,
+              "value": "\n    Acomptes d'impôt sur le revenu pris en compte dans le calcul de l'impôt final.\n    On déduit de l'impôt final ces acomptes. Si les acomptes dépassent l'impôt final,\n    l'excédent est restitué.\n    La variable irpp correspond à l'impôt après prise en compte de cette déduction\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 9,
+                "id": "acompte_ir_elus_locaux",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 42,
+                  "end_col_offset": 66,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "acompte_ir_elus_locaux"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 68,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 74,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 29,
+              "end_col_offset": 75,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 29,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 9,
+                "id": "foyer_fiscal",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 109,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 10,
+                "id": "prelevement_forfaitaire_non_liberatoire",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 59,
+                  "end_col_offset": 100,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "prelevement_forfaitaire_non_liberatoire"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 102,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 108,
+                  "end_lineno": 10,
+                  "id": "period",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 46,
+              "end_col_offset": 109,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 46,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 58,
+                "end_lineno": 10,
+                "id": "foyer_fiscal",
+                "lineno": 10
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 12,
+            "lineno": 12,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 75,
+              "end_lineno": 12,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 12,
+                "id": "acompte_ir_elus_locaux",
+                "lineno": 12
+              },
+              "lineno": 12,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 75,
+                "end_lineno": 12,
+                "id": "prelevement_forfaitaire_non_liberatoire",
+                "lineno": 12
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 75,
+        "end_lineno": 12,
+        "lineno": 1,
+        "name": "formula_2013_01_01"
+      },
+      "documentation": "\nAcomptes d'impôt sur le revenu pris en compte dans le calcul de l'impôt final.\nOn déduit de l'impôt final ces acomptes. Si les acomptes dépassent l'impôt final,\nl'excédent est restitué.\nLa variable irpp correspond à l'impôt après prise en compte de cette déduction\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+      "source_code": "def formula_2013_01_01(foyer_fiscal, period):\n    '''\n    Acomptes d'impôt sur le revenu pris en compte dans le calcul de l'impôt final.\n    On déduit de l'impôt final ces acomptes. Si les acomptes dépassent l'impôt final,\n    l'excédent est restitué.\n    La variable irpp correspond à l'impôt après prise en compte de cette déduction\n    '''\n\n    acompte_ir_elus_locaux = foyer_fiscal('acompte_ir_elus_locaux', period)\n    prelevement_forfaitaire_non_liberatoire = foyer_fiscal('prelevement_forfaitaire_non_liberatoire', period)\n\n    return acompte_ir_elus_locaux + prelevement_forfaitaire_non_liberatoire\n",
+      "start_line_number": 885,
+      "stop_line_number": 897,
+      "variables": [
+        "acompte_ir_elus_locaux",
+        "prelevement_forfaitaire_non_liberatoire"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Ensemble des acomptes de l'IR",
+  "name": "acomptes_ir",
+  "referring_variables": [
+    "irpp",
+    "irpp_economique"
+  ],
+  "start_line_number": 879,
+  "stop_line_number": 897,
+  "value_type": "float"
+}

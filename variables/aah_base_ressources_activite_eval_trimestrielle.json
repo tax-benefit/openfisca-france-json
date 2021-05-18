@@ -1,0 +1,1043 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 31,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 2,
+                "id": "period",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "first_month",
+              "col_offset": 13,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 31,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 2,
+                "id": "period",
+                "lineno": 2
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 70,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 3,
+                "id": "three_previous_months",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "UnaryOp",
+                  "col_offset": 67,
+                  "end_col_offset": 69,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "op": {
+                    "ast_class": "USub"
+                  },
+                  "operand": {
+                    "ast_class": "Constant",
+                    "col_offset": 68,
+                    "end_col_offset": 69,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": 3
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 70,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "offset",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 66,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 48,
+                      "end_col_offset": 55,
+                      "end_lineno": 3,
+                      "lineno": 3,
+                      "value": "month"
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 57,
+                      "end_col_offset": 58,
+                      "end_lineno": 3,
+                      "lineno": 3,
+                      "value": 3
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 28,
+                  "end_col_offset": 59,
+                  "end_lineno": 3,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "period",
+                    "col_offset": 28,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 47,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "start",
+                      "col_offset": 28,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 40,
+                      "end_lineno": 3,
+                      "lineno": 3,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 28,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 34,
+                        "end_lineno": 3,
+                        "id": "period",
+                        "lineno": 3
+                      }
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 3
+                }
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 32,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 4,
+                "id": "last_year",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "last_year",
+              "col_offset": 16,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 32,
+              "end_lineno": 4,
+              "lineno": 4,
+              "value": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 4,
+                "id": "period",
+                "lineno": 4
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 13,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 6,
+                "id": "ressources_a_inclure",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "List",
+              "col_offset": 27,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "elts": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 21,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "chomage_net"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 36,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "indemnites_chomage_partiel"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 44,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "indemnites_journalieres_imposables"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 26,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "indemnites_stage"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 37,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "revenus_stage_formation_pro"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 21,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "salaire_net"
+                }
+              ],
+              "end_col_offset": 9,
+              "end_lineno": 13,
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 17,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 15,
+                "id": "ressources",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "ListComp",
+                  "col_offset": 8,
+                  "elt": {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 18,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 27,
+                        "end_lineno": 16,
+                        "id": "ressource",
+                        "lineno": 16
+                      },
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 29,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 50,
+                        "end_lineno": 16,
+                        "id": "three_previous_months",
+                        "lineno": 16
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 9,
+                    "end_col_offset": 68,
+                    "end_lineno": 16,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 17,
+                      "end_lineno": 16,
+                      "id": "individu",
+                      "lineno": 16
+                    },
+                    "keywords": [
+                      {
+                        "arg": "options",
+                        "ast_class": "keyword",
+                        "col_offset": 52,
+                        "end_col_offset": 67,
+                        "end_lineno": 16,
+                        "lineno": 16,
+                        "value": {
+                          "ast_class": "List",
+                          "col_offset": 62,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 63,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 66,
+                              "end_lineno": 16,
+                              "id": "ADD",
+                              "lineno": 16
+                            }
+                          ],
+                          "end_col_offset": 67,
+                          "end_lineno": 16,
+                          "lineno": 16
+                        }
+                      }
+                    ],
+                    "lineno": 16
+                  },
+                  "end_col_offset": 107,
+                  "end_lineno": 16,
+                  "generators": [
+                    {
+                      "ast_class": "comprehension",
+                      "ifs": [],
+                      "is_async": 0,
+                      "iter": {
+                        "ast_class": "Name",
+                        "col_offset": 86,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 106,
+                        "end_lineno": 16,
+                        "id": "ressources_a_inclure",
+                        "lineno": 16
+                      },
+                      "target": {
+                        "ast_class": "Name",
+                        "col_offset": 73,
+                        "ctx": {
+                          "ast_class": "Store"
+                        },
+                        "end_col_offset": 82,
+                        "end_lineno": 16,
+                        "id": "ressource",
+                        "lineno": 16
+                      }
+                    }
+                  ],
+                  "lineno": 16
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 9,
+              "end_lineno": 17,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 15,
+                "id": "sum",
+                "lineno": 15
+              },
+              "keywords": [],
+              "lineno": 15
+            }
+          },
+          {
+            "args": {
+              "args": [],
+              "ast_class": "arguments",
+              "defaults": [],
+              "kw_defaults": [],
+              "kwonlyargs": [],
+              "posonlyargs": []
+            },
+            "ast_class": "FunctionDef",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 118,
+                "end_lineno": 20,
+                "lineno": 20,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 33,
+                    "end_lineno": 20,
+                    "id": "revenus_auto_entrepreneur",
+                    "lineno": 20
+                  }
+                ],
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 45,
+                      "end_col_offset": 77,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": "tns_auto_entrepreneur_benefice"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 79,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 100,
+                      "end_lineno": 20,
+                      "id": "three_previous_months",
+                      "lineno": 20
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 36,
+                  "end_col_offset": 118,
+                  "end_lineno": 20,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 36,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 44,
+                    "end_lineno": 20,
+                    "id": "individu",
+                    "lineno": 20
+                  },
+                  "keywords": [
+                    {
+                      "arg": "options",
+                      "ast_class": "keyword",
+                      "col_offset": 102,
+                      "end_col_offset": 117,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "List",
+                        "col_offset": 112,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "elts": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 113,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 116,
+                            "end_lineno": 20,
+                            "id": "ADD",
+                            "lineno": 20
+                          }
+                        ],
+                        "end_col_offset": 117,
+                        "end_lineno": 20,
+                        "lineno": 20
+                      }
+                    }
+                  ],
+                  "lineno": 20
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 101,
+                "end_lineno": 23,
+                "lineno": 23,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 37,
+                    "end_lineno": 23,
+                    "id": "tns_micro_entreprise_benefice",
+                    "lineno": 23
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 40,
+                  "end_col_offset": 101,
+                  "end_lineno": 23,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 40,
+                    "end_col_offset": 96,
+                    "end_lineno": 23,
+                    "left": {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 49,
+                          "end_col_offset": 80,
+                          "end_lineno": 23,
+                          "lineno": 23,
+                          "value": "tns_micro_entreprise_benefice"
+                        },
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 82,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 91,
+                          "end_lineno": 23,
+                          "id": "last_year",
+                          "lineno": 23
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 40,
+                      "end_col_offset": 92,
+                      "end_lineno": 23,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 40,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 48,
+                        "end_lineno": 23,
+                        "id": "individu",
+                        "lineno": 23
+                      },
+                      "keywords": [],
+                      "lineno": 23
+                    },
+                    "lineno": 23,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 95,
+                      "end_col_offset": 96,
+                      "end_lineno": 23,
+                      "lineno": 23,
+                      "value": 3
+                    }
+                  },
+                  "lineno": 23,
+                  "op": {
+                    "ast_class": "Div"
+                  },
+                  "right": {
+                    "ast_class": "Constant",
+                    "col_offset": 99,
+                    "end_col_offset": 101,
+                    "end_lineno": 23,
+                    "lineno": 23,
+                    "value": 12
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 107,
+                "end_lineno": 24,
+                "lineno": 24,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 40,
+                    "end_lineno": 24,
+                    "id": "tns_benefice_exploitant_agricole",
+                    "lineno": 24
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 43,
+                  "end_col_offset": 107,
+                  "end_lineno": 24,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 43,
+                    "end_col_offset": 102,
+                    "end_lineno": 24,
+                    "left": {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 52,
+                          "end_col_offset": 86,
+                          "end_lineno": 24,
+                          "lineno": 24,
+                          "value": "tns_benefice_exploitant_agricole"
+                        },
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 88,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 97,
+                          "end_lineno": 24,
+                          "id": "last_year",
+                          "lineno": 24
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 43,
+                      "end_col_offset": 98,
+                      "end_lineno": 24,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 43,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 51,
+                        "end_lineno": 24,
+                        "id": "individu",
+                        "lineno": 24
+                      },
+                      "keywords": [],
+                      "lineno": 24
+                    },
+                    "lineno": 24,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 101,
+                      "end_col_offset": 102,
+                      "end_lineno": 24,
+                      "lineno": 24,
+                      "value": 3
+                    }
+                  },
+                  "lineno": 24,
+                  "op": {
+                    "ast_class": "Div"
+                  },
+                  "right": {
+                    "ast_class": "Constant",
+                    "col_offset": 105,
+                    "end_col_offset": 107,
+                    "end_lineno": 24,
+                    "lineno": 24,
+                    "value": 12
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 79,
+                "end_lineno": 25,
+                "lineno": 25,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 26,
+                    "end_lineno": 25,
+                    "id": "tns_autres_revenus",
+                    "lineno": 25
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 29,
+                  "end_col_offset": 79,
+                  "end_lineno": 25,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 29,
+                    "end_col_offset": 74,
+                    "end_lineno": 25,
+                    "left": {
+                      "args": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 38,
+                          "end_col_offset": 58,
+                          "end_lineno": 25,
+                          "lineno": 25,
+                          "value": "tns_autres_revenus"
+                        },
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 60,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 69,
+                          "end_lineno": 25,
+                          "id": "last_year",
+                          "lineno": 25
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 29,
+                      "end_col_offset": 70,
+                      "end_lineno": 25,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 29,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 37,
+                        "end_lineno": 25,
+                        "id": "individu",
+                        "lineno": 25
+                      },
+                      "keywords": [],
+                      "lineno": 25
+                    },
+                    "lineno": 25,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 73,
+                      "end_col_offset": 74,
+                      "end_lineno": 25,
+                      "lineno": 25,
+                      "value": 3
+                    }
+                  },
+                  "lineno": 25,
+                  "op": {
+                    "ast_class": "Div"
+                  },
+                  "right": {
+                    "ast_class": "Constant",
+                    "col_offset": 77,
+                    "end_col_offset": 79,
+                    "end_lineno": 25,
+                    "lineno": 25,
+                    "value": 12
+                  }
+                }
+              },
+              {
+                "ast_class": "Return",
+                "col_offset": 8,
+                "end_col_offset": 128,
+                "end_lineno": 27,
+                "lineno": 27,
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 15,
+                  "end_col_offset": 128,
+                  "end_lineno": 27,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 15,
+                    "end_col_offset": 107,
+                    "end_lineno": 27,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 15,
+                      "end_col_offset": 72,
+                      "end_lineno": 27,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 15,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 40,
+                        "end_lineno": 27,
+                        "id": "revenus_auto_entrepreneur",
+                        "lineno": 27
+                      },
+                      "lineno": 27,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 43,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 72,
+                        "end_lineno": 27,
+                        "id": "tns_micro_entreprise_benefice",
+                        "lineno": 27
+                      }
+                    },
+                    "lineno": 27,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 75,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 107,
+                      "end_lineno": 27,
+                      "id": "tns_benefice_exploitant_agricole",
+                      "lineno": 27
+                    }
+                  },
+                  "lineno": 27,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 110,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 128,
+                    "end_lineno": 27,
+                    "id": "tns_autres_revenus",
+                    "lineno": 27
+                  }
+                }
+              }
+            ],
+            "col_offset": 4,
+            "decorator_list": [],
+            "end_col_offset": 128,
+            "end_lineno": 27,
+            "lineno": 19,
+            "name": "revenus_tns"
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 29,
+            "lineno": 29,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 43,
+              "end_lineno": 29,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 12,
+                "end_col_offset": 38,
+                "end_lineno": 29,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 29,
+                  "id": "ressources",
+                  "lineno": 29
+                },
+                "lineno": 29,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "args": [],
+                  "ast_class": "Call",
+                  "col_offset": 25,
+                  "end_col_offset": 38,
+                  "end_lineno": 29,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 25,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 36,
+                    "end_lineno": 29,
+                    "id": "revenus_tns",
+                    "lineno": 29
+                  },
+                  "keywords": [],
+                  "lineno": 29
+                }
+              },
+              "lineno": 29,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 42,
+                "end_col_offset": 43,
+                "end_lineno": 29,
+                "lineno": 29,
+                "value": 4
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 43,
+        "end_lineno": 29,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+      "source_code": "def formula(individu, period):\n    period = period.first_month\n    three_previous_months = period.start.period('month', 3).offset(-3)\n    last_year = period.last_year\n\n    ressources_a_inclure = [\n        'chomage_net',\n        'indemnites_chomage_partiel',\n        'indemnites_journalieres_imposables',\n        'indemnites_stage',\n        'revenus_stage_formation_pro',\n        'salaire_net',\n        ]\n\n    ressources = sum(\n        [individu(ressource, three_previous_months, options = [ADD]) for ressource in ressources_a_inclure]\n        )\n\n    def revenus_tns():\n        revenus_auto_entrepreneur = individu('tns_auto_entrepreneur_benefice', three_previous_months, options = [ADD])\n\n        # Les revenus TNS hors AE sont estimés en se basant sur le revenu N-1\n        tns_micro_entreprise_benefice = individu('tns_micro_entreprise_benefice', last_year) * 3 / 12\n        tns_benefice_exploitant_agricole = individu('tns_benefice_exploitant_agricole', last_year) * 3 / 12\n        tns_autres_revenus = individu('tns_autres_revenus', last_year) * 3 / 12\n\n        return revenus_auto_entrepreneur + tns_micro_entreprise_benefice + tns_benefice_exploitant_agricole + tns_autres_revenus\n\n    return (ressources + revenus_tns()) * 4\n",
+      "start_line_number": 95,
+      "stop_line_number": 124,
+      "variables": [
+        "tns_auto_entrepreneur_benefice",
+        "tns_autres_revenus",
+        "tns_benefice_exploitant_agricole",
+        "tns_micro_entreprise_benefice"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Base de ressources des revenus d'activité de l'AAH pour un individu, évaluation trimestrielle",
+  "name": "aah_base_ressources_activite_eval_trimestrielle",
+  "start_line_number": 75,
+  "stop_line_number": 124,
+  "value_type": "float"
+}

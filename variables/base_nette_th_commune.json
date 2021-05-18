@@ -1,0 +1,473 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+  "formulas": {
+    "2017-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 29,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 31,
+              "end_col_offset": 37,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 39,
+              "end_col_offset": 49,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 7,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 7,
+              "lineno": 2,
+              "value": "\n    Notes :\n        (1) on ne prend pas en compte l'abattement en faveur des personnes handicapées\n        (2) on ne prend pas en compte les abattements temporaires pour certains contribuables\n            ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 89,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 8,
+                "id": "valeur_locative_cadastrale_brute",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 46,
+                  "end_col_offset": 80,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "valeur_locative_cadastrale_brute"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 82,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 88,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 39,
+              "end_col_offset": 89,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 39,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 8,
+                "id": "menage",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 97,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 40,
+                "end_lineno": 9,
+                "id": "abattement_charge_famille_th_commune",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 50,
+                  "end_col_offset": 88,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "abattement_charge_famille_th_commune"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 90,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 96,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 43,
+              "end_col_offset": 97,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 43,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 9,
+                "id": "menage",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 123,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 53,
+                "end_lineno": 10,
+                "id": "abattement_personnes_condition_modeste_th_commune",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 63,
+                  "end_col_offset": 114,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "abattement_personnes_condition_modeste_th_commune"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 116,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 122,
+                  "end_lineno": 10,
+                  "id": "period",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 56,
+              "end_col_offset": 123,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 56,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 62,
+                "end_lineno": 10,
+                "id": "menage",
+                "lineno": 10
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 79,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 11,
+                "id": "abt_general_base_th_commune",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 41,
+                  "end_col_offset": 70,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "abt_general_base_th_commune"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 72,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 78,
+                  "end_lineno": 11,
+                  "id": "period",
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 34,
+              "end_col_offset": 79,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 34,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 40,
+                "end_lineno": 11,
+                "id": "menage",
+                "lineno": 11
+              },
+              "keywords": [],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 17,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 12,
+                "id": "base_brute_moins_abattements",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 37,
+              "end_lineno": 16,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 59,
+                "end_lineno": 15,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 46,
+                  "end_lineno": 14,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 40,
+                    "end_lineno": 13,
+                    "id": "valeur_locative_cadastrale_brute",
+                    "lineno": 13
+                  },
+                  "lineno": 13,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 46,
+                    "end_lineno": 14,
+                    "id": "abattement_charge_famille_th_commune",
+                    "lineno": 14
+                  }
+                },
+                "lineno": 13,
+                "op": {
+                  "ast_class": "Sub"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 59,
+                  "end_lineno": 15,
+                  "id": "abattement_personnes_condition_modeste_th_commune",
+                  "lineno": 15
+                }
+              },
+              "lineno": 13,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 16,
+                "id": "abt_general_base_th_commune",
+                "lineno": 16
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 48,
+            "end_lineno": 18,
+            "lineno": 18,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 44,
+                  "end_lineno": 18,
+                  "id": "base_brute_moins_abattements",
+                  "lineno": 18
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 46,
+                  "end_col_offset": 47,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": 0
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 48,
+              "end_lineno": 18,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 18,
+                "id": "max_",
+                "lineno": 18
+              },
+              "keywords": [],
+              "lineno": 18
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 48,
+        "end_lineno": 18,
+        "lineno": 1,
+        "name": "formula_2017_01_01"
+      },
+      "documentation": "\nNotes :\n    (1) on ne prend pas en compte l'abattement en faveur des personnes handicapées\n    (2) on ne prend pas en compte les abattements temporaires pour certains contribuables\n        ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "source_code": "def formula_2017_01_01(menage, period, parameters):\n    '''\n    Notes :\n        (1) on ne prend pas en compte l'abattement en faveur des personnes handicapées\n        (2) on ne prend pas en compte les abattements temporaires pour certains contribuables\n            ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n    '''\n    valeur_locative_cadastrale_brute = menage('valeur_locative_cadastrale_brute', period)\n    abattement_charge_famille_th_commune = menage('abattement_charge_famille_th_commune', period)\n    abattement_personnes_condition_modeste_th_commune = menage('abattement_personnes_condition_modeste_th_commune', period)\n    abt_general_base_th_commune = menage('abt_general_base_th_commune', period)\n    base_brute_moins_abattements = (\n        valeur_locative_cadastrale_brute\n        - abattement_charge_famille_th_commune\n        - abattement_personnes_condition_modeste_th_commune\n        - abt_general_base_th_commune\n        )\n    return max_(base_brute_moins_abattements, 0)\n",
+      "start_line_number": 194,
+      "stop_line_number": 212,
+      "variables": [
+        "abattement_charge_famille_th_commune",
+        "abattement_personnes_condition_modeste_th_commune",
+        "abt_general_base_th_commune",
+        "valeur_locative_cadastrale_brute"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Base nette - TH de la commune",
+  "name": "base_nette_th_commune",
+  "referring_variables": [
+    "degrevement_plafonnement_taxe_habitation",
+    "prelevement_base_imposition_elevee_taxe_habitation",
+    "taxe_habitation_commune_epci_avant_degrevement"
+  ],
+  "start_line_number": 188,
+  "stop_line_number": 212,
+  "value_type": "float"
+}

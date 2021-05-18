@@ -1,0 +1,666 @@
+{
+  "default_value": "calculable",
+  "definition_period": "month",
+  "dtype": "int16",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 7,
+                "id": "eligible_rsa",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 19,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 52,
+                  "end_col_offset": 53,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": 0
+                }
+              ],
+              "end_col_offset": 53,
+              "end_lineno": 7,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 27,
+                    "end_col_offset": 40,
+                    "end_lineno": 7,
+                    "lineno": 7,
+                    "value": "rsa_montant"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 42,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 48,
+                    "end_lineno": 7,
+                    "id": "period",
+                    "lineno": 7
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 19,
+                "end_col_offset": 49,
+                "end_lineno": 7,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 19,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 26,
+                  "end_lineno": 7,
+                  "id": "famille",
+                  "lineno": 7
+                },
+                "keywords": [],
+                "lineno": 7
+              },
+              "lineno": 7,
+              "ops": [
+                {
+                  "ast_class": "Gt"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 93,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 9,
+                "id": "non_calculable_tns_parent1",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 51,
+                  "end_col_offset": 84,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "rsa_non_calculable_tns_individu"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 86,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 92,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 33,
+              "end_col_offset": 93,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "demandeur",
+                "col_offset": 33,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 9,
+                "lineno": 9,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 33,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 9,
+                  "id": "famille",
+                  "lineno": 9
+                }
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 92,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 10,
+                "id": "non_calculable_tns_parent2",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 50,
+                  "end_col_offset": 83,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "rsa_non_calculable_tns_individu"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 85,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 91,
+                  "end_lineno": 10,
+                  "id": "period",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 33,
+              "end_col_offset": 92,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "conjoint",
+                "col_offset": 33,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 33,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 10,
+                  "id": "famille",
+                  "lineno": 10
+                }
+              },
+              "keywords": [],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 15,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 12,
+                "id": "non_calculable",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 35,
+                      "end_lineno": 13,
+                      "id": "non_calculable_tns_parent1",
+                      "lineno": 13
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 37,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 63,
+                      "end_lineno": 13,
+                      "id": "non_calculable_tns_parent2",
+                      "lineno": 13
+                    }
+                  ],
+                  "end_col_offset": 64,
+                  "end_lineno": 13,
+                  "lineno": 13
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 9,
+                      "end_col_offset": 10,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": 1
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 12,
+                      "end_col_offset": 13,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": 2
+                    }
+                  ],
+                  "end_col_offset": 14,
+                  "end_lineno": 14,
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 9,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 12,
+                "id": "select",
+                "lineno": 12
+              },
+              "keywords": [],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 50,
+            "end_lineno": 17,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 17,
+                "id": "non_calculable",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 21,
+              "end_col_offset": 50,
+              "end_lineno": 17,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 17,
+                "id": "eligible_rsa",
+                "lineno": 17
+              },
+              "lineno": 17,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 17,
+                "id": "non_calculable",
+                "lineno": 17
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 22,
+            "lineno": 19,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 9,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 27,
+                          "end_col_offset": 28,
+                          "end_lineno": 20,
+                          "lineno": 20,
+                          "value": 0
+                        }
+                      ],
+                      "end_col_offset": 28,
+                      "end_lineno": 20,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 23,
+                        "end_lineno": 20,
+                        "id": "non_calculable",
+                        "lineno": 20
+                      },
+                      "lineno": 20,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 30,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 48,
+                          "end_col_offset": 49,
+                          "end_lineno": 20,
+                          "lineno": 20,
+                          "value": 1
+                        }
+                      ],
+                      "end_col_offset": 49,
+                      "end_lineno": 20,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 30,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 44,
+                        "end_lineno": 20,
+                        "id": "non_calculable",
+                        "lineno": 20
+                      },
+                      "lineno": 20,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 51,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 69,
+                          "end_col_offset": 70,
+                          "end_lineno": 20,
+                          "lineno": 20,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 70,
+                      "end_lineno": 20,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 51,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 65,
+                        "end_lineno": 20,
+                        "id": "non_calculable",
+                        "lineno": 20
+                      },
+                      "lineno": 20,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  ],
+                  "end_col_offset": 71,
+                  "end_lineno": 20,
+                  "lineno": 20
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "calculable",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 41,
+                      "end_lineno": 21,
+                      "lineno": 21,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 30,
+                        "end_lineno": 21,
+                        "id": "TypesRSANonCalculable",
+                        "lineno": 21
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "tns",
+                      "col_offset": 43,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 68,
+                      "end_lineno": 21,
+                      "lineno": 21,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 43,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 64,
+                        "end_lineno": 21,
+                        "id": "TypesRSANonCalculable",
+                        "lineno": 21
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "conjoint_tns",
+                      "col_offset": 70,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 104,
+                      "end_lineno": 21,
+                      "lineno": 21,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 70,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 91,
+                        "end_lineno": 21,
+                        "id": "TypesRSANonCalculable",
+                        "lineno": 21
+                      }
+                    }
+                  ],
+                  "end_col_offset": 105,
+                  "end_lineno": 21,
+                  "lineno": 21
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 9,
+              "end_lineno": 22,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 19,
+                "id": "select",
+                "lineno": 19
+              },
+              "keywords": [],
+              "lineno": 19
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 22,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "source_code": "def formula(famille, period):\n    # Si le montant du RSA est nul sans tenir compte des revenus\n    # TNS pouvant provoquer une non calculabilité (parce que\n    # les autres revenus sont trop importants), alors a fortiori\n    # la famille ne sera pas éligible au RSA en tenant compte de\n    # ces ressources. Il n'y a donc pas non calculabilité.\n    eligible_rsa = famille('rsa_montant', period) > 0\n\n    non_calculable_tns_parent1 = famille.demandeur('rsa_non_calculable_tns_individu', period)\n    non_calculable_tns_parent2 = famille.conjoint('rsa_non_calculable_tns_individu', period)\n\n    non_calculable = select(\n        [non_calculable_tns_parent1, non_calculable_tns_parent2],\n        [1, 2]\n        )\n\n    non_calculable = eligible_rsa * non_calculable\n\n    return select(\n        [non_calculable == 0, non_calculable == 1, non_calculable == 2],\n        [TypesRSANonCalculable.calculable, TypesRSANonCalculable.tns, TypesRSANonCalculable.conjoint_tns]\n        )\n",
+      "start_line_number": 879,
+      "stop_line_number": 901,
+      "variables": [
+        "rsa_montant"
+      ]
+    },
+    "2017-01-01": null
+  },
+  "is_period_size_independent": true,
+  "json_type": "string",
+  "label": "RSA non calculable",
+  "name": "rsa_non_calculable",
+  "possible_values": {
+    "calculable": "Calculable",
+    "conjoint_tns": "conjoint_tns",
+    "tns": "tns"
+  },
+  "referring_variables": [
+    "rsa"
+  ],
+  "start_line_number": 870,
+  "stop_line_number": 901,
+  "value_type": "Enum"
+}

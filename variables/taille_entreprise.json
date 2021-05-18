@@ -1,0 +1,502 @@
+{
+  "default_value": "non_pertinent",
+  "definition_period": "month",
+  "dtype": "int16",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 2,
+                "id": "effectif_entreprise",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 56,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "effectif_entreprise"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 58,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 64,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 26,
+              "end_col_offset": 65,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 19,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 4,
+                "id": "taille_entreprise",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 13,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 36,
+                          "end_col_offset": 37,
+                          "end_lineno": 6,
+                          "lineno": 6,
+                          "value": 0
+                        }
+                      ],
+                      "end_col_offset": 37,
+                      "end_lineno": 6,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 13,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 32,
+                        "end_lineno": 6,
+                        "id": "effectif_entreprise",
+                        "lineno": 6
+                      },
+                      "lineno": 6,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 13,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 36,
+                          "end_col_offset": 37,
+                          "end_lineno": 7,
+                          "lineno": 7,
+                          "value": 9
+                        }
+                      ],
+                      "end_col_offset": 37,
+                      "end_lineno": 7,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 13,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 32,
+                        "end_lineno": 7,
+                        "id": "effectif_entreprise",
+                        "lineno": 7
+                      },
+                      "lineno": 7,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 13,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 36,
+                          "end_col_offset": 38,
+                          "end_lineno": 8,
+                          "lineno": 8,
+                          "value": 19
+                        }
+                      ],
+                      "end_col_offset": 38,
+                      "end_lineno": 8,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 13,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 32,
+                        "end_lineno": 8,
+                        "id": "effectif_entreprise",
+                        "lineno": 8
+                      },
+                      "lineno": 8,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 13,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 36,
+                          "end_col_offset": 39,
+                          "end_lineno": 9,
+                          "lineno": 9,
+                          "value": 249
+                        }
+                      ],
+                      "end_col_offset": 39,
+                      "end_lineno": 9,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 13,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 32,
+                        "end_lineno": 9,
+                        "id": "effectif_entreprise",
+                        "lineno": 9
+                      },
+                      "lineno": 9,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 13,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 36,
+                          "end_col_offset": 39,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": 250
+                        }
+                      ],
+                      "end_col_offset": 39,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 13,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 32,
+                        "end_lineno": 10,
+                        "id": "effectif_entreprise",
+                        "lineno": 10
+                      },
+                      "lineno": 10,
+                      "ops": [
+                        {
+                          "ast_class": "GtE"
+                        }
+                      ]
+                    }
+                  ],
+                  "end_col_offset": 13,
+                  "end_lineno": 11,
+                  "lineno": 5
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "non_pertinent",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 47,
+                      "end_lineno": 13,
+                      "lineno": 13,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 33,
+                        "end_lineno": 13,
+                        "id": "TypesTailleEntreprise",
+                        "lineno": 13
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "moins_de_10",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 33,
+                        "end_lineno": 14,
+                        "id": "TypesTailleEntreprise",
+                        "lineno": 14
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "de_10_a_19",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 15,
+                      "lineno": 15,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 33,
+                        "end_lineno": 15,
+                        "id": "TypesTailleEntreprise",
+                        "lineno": 15
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "de_20_a_249",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 16,
+                      "lineno": 16,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 33,
+                        "end_lineno": 16,
+                        "id": "TypesTailleEntreprise",
+                        "lineno": 16
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "plus_de_250",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 17,
+                      "lineno": 17,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 33,
+                        "end_lineno": 17,
+                        "id": "TypesTailleEntreprise",
+                        "lineno": 17
+                      }
+                    }
+                  ],
+                  "end_col_offset": 13,
+                  "end_lineno": 18,
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 24,
+              "end_col_offset": 9,
+              "end_lineno": 19,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 24,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 4,
+                "id": "select",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 28,
+            "end_lineno": 20,
+            "lineno": 20,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 28,
+              "end_lineno": 20,
+              "id": "taille_entreprise",
+              "lineno": 20
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 28,
+        "end_lineno": 20,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    taille_entreprise = select(\n        [\n            (effectif_entreprise <= 0),\n            (effectif_entreprise <= 9),\n            (effectif_entreprise <= 19),\n            (effectif_entreprise <= 249),\n            (effectif_entreprise >= 250)\n            ],\n        [\n            TypesTailleEntreprise.non_pertinent,\n            TypesTailleEntreprise.moins_de_10,\n            TypesTailleEntreprise.de_10_a_19,\n            TypesTailleEntreprise.de_20_a_249,\n            TypesTailleEntreprise.plus_de_250\n            ]\n        )\n    return taille_entreprise\n",
+      "start_line_number": 817,
+      "stop_line_number": 837,
+      "variables": [
+        "effectif_entreprise"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "string",
+  "label": "Catégorie de taille d'entreprise",
+  "name": "taille_entreprise",
+  "possible_values": {
+    "de_10_a_19": "De 10 à 19 salariés",
+    "de_20_a_249": "De 20 à 249 salariés",
+    "moins_de_10": "Moins de 10 salariés",
+    "non_pertinent": "Non pertinent",
+    "plus_de_250": "Plus de 250 salariés"
+  },
+  "reference": [
+    "http://www.insee.fr/fr/themes/document.asp?ref_id=ip1321"
+  ],
+  "referring_variables": [
+    "fnal_tranche_a",
+    "fnal_tranche_a_plus_20",
+    "formation_professionnelle"
+  ],
+  "start_line_number": 808,
+  "stop_line_number": 837,
+  "value_type": "Enum"
+}

@@ -1,0 +1,3435 @@
+{
+  "calculate_output": "calculate_output_add",
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/prestations_familiales/paje.py",
+  "formulas": {
+    "2004-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 50,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 2,
+                "id": "couple_biactif",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 41,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "biactivite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 43,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 49,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 50,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 2,
+                "id": "famille",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 3,
+                "id": "parent_isole",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 32,
+                      "end_col_offset": 43,
+                      "end_lineno": 3,
+                      "lineno": 3,
+                      "value": "en_couple"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 45,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 51,
+                      "end_lineno": 3,
+                      "id": "period",
+                      "lineno": 3
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 24,
+                  "end_col_offset": 52,
+                  "end_lineno": 3,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 24,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 31,
+                    "end_lineno": 3,
+                    "id": "famille",
+                    "lineno": 3
+                  },
+                  "keywords": [],
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 19,
+              "end_col_offset": 53,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 19,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 3,
+                "id": "not_",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 48,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 4,
+                "id": "nombre_enfants",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 39,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "af_nbenf"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 41,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 47,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 48,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 4,
+                "id": "famille",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 64,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 5,
+                "id": "pfam",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "prestations_familiales",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 64,
+              "end_lineno": 5,
+              "lineno": 5,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 22,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 28,
+                      "end_lineno": 5,
+                      "id": "period",
+                      "lineno": 5
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 11,
+                  "end_col_offset": 29,
+                  "end_lineno": 5,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 21,
+                    "end_lineno": 5,
+                    "id": "parameters",
+                    "lineno": 5
+                  },
+                  "keywords": [],
+                  "lineno": 5
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 8,
+                "id": "date_gel_paje",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Tuple",
+                  "col_offset": 28,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 29,
+                      "end_col_offset": 33,
+                      "end_lineno": 8,
+                      "lineno": 8,
+                      "value": 2013
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 35,
+                      "end_col_offset": 36,
+                      "end_lineno": 8,
+                      "lineno": 8,
+                      "value": 4
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 38,
+                      "end_col_offset": 39,
+                      "end_lineno": 8,
+                      "lineno": 8,
+                      "value": 1
+                    }
+                  ],
+                  "end_col_offset": 40,
+                  "end_lineno": 8,
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 41,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 8,
+                "id": "Instant",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 43,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 9,
+                "id": "date_degel_paje",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Tuple",
+                  "col_offset": 30,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 31,
+                      "end_col_offset": 35,
+                      "end_lineno": 9,
+                      "lineno": 9,
+                      "value": 2018
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 37,
+                      "end_col_offset": 38,
+                      "end_lineno": 9,
+                      "lineno": 9,
+                      "value": 4
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 40,
+                      "end_col_offset": 41,
+                      "end_lineno": 9,
+                      "lineno": 9,
+                      "value": 1
+                    }
+                  ],
+                  "end_col_offset": 42,
+                  "end_lineno": 9,
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 43,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 9,
+                "id": "Instant",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 67,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 10,
+                "id": "periode_de_gel",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 21,
+              "comparators": [
+                {
+                  "ast_class": "Attribute",
+                  "attr": "start",
+                  "col_offset": 39,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 51,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 39,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 45,
+                    "end_lineno": 10,
+                    "id": "period",
+                    "lineno": 10
+                  }
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 54,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 67,
+                  "end_lineno": 10,
+                  "id": "date_gel_paje",
+                  "lineno": 10
+                }
+              ],
+              "end_col_offset": 67,
+              "end_lineno": 10,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 10,
+                "id": "date_degel_paje",
+                "lineno": 10
+              },
+              "lineno": 10,
+              "ops": [
+                {
+                  "ast_class": "Gt"
+                },
+                {
+                  "ast_class": "Gt"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 117,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 11,
+                "id": "indice",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "ast_class": "IfExp",
+              "body": {
+                "ast_class": "Attribute",
+                "attr": "bmaf",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 81,
+                "end_lineno": 11,
+                "lineno": 11,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "af",
+                  "col_offset": 13,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "prestations_familiales",
+                    "col_offset": 13,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 73,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "prestations",
+                      "col_offset": 13,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 50,
+                      "end_lineno": 11,
+                      "lineno": 11,
+                      "value": {
+                        "args": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 24,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 37,
+                            "end_lineno": 11,
+                            "id": "date_gel_paje",
+                            "lineno": 11
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 13,
+                        "end_col_offset": 38,
+                        "end_lineno": 11,
+                        "func": {
+                          "ast_class": "Name",
+                          "col_offset": 13,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 23,
+                          "end_lineno": 11,
+                          "id": "parameters",
+                          "lineno": 11
+                        },
+                        "keywords": [],
+                        "lineno": 11
+                      }
+                    }
+                  }
+                }
+              },
+              "col_offset": 13,
+              "end_col_offset": 117,
+              "end_lineno": 11,
+              "lineno": 11,
+              "orelse": {
+                "ast_class": "Attribute",
+                "attr": "bmaf",
+                "col_offset": 105,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 117,
+                "end_lineno": 11,
+                "lineno": 11,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "af",
+                  "col_offset": 105,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 112,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 105,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 109,
+                    "end_lineno": 11,
+                    "id": "pfam",
+                    "lineno": 11
+                  }
+                }
+              },
+              "test": {
+                "ast_class": "Name",
+                "col_offset": 85,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 99,
+                "end_lineno": 11,
+                "id": "periode_de_gel",
+                "lineno": 11
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 12,
+                "id": "montant_taux_plein",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 25,
+              "end_col_offset": 69,
+              "end_lineno": 12,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 12,
+                "id": "indice",
+                "lineno": 12
+              },
+              "lineno": 12,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Attribute",
+                "attr": "taux_allocation_base",
+                "col_offset": 34,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 69,
+                "end_lineno": 12,
+                "lineno": 12,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "base",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "paje",
+                    "col_offset": 34,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 43,
+                    "end_lineno": 12,
+                    "lineno": 12,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 34,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 38,
+                      "end_lineno": 12,
+                      "id": "pfam",
+                      "lineno": 12
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "args": {
+              "args": [],
+              "ast_class": "arguments",
+              "defaults": [],
+              "kw_defaults": [],
+              "kwonlyargs": [],
+              "posonlyargs": []
+            },
+            "ast_class": "FunctionDef",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 76,
+                "end_lineno": 15,
+                "lineno": 15,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 15,
+                    "id": "plafond_de_base",
+                    "lineno": 15
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "plafond_ressources_0_enf",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "avant_2014",
+                    "col_offset": 26,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 51,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "base",
+                      "col_offset": 26,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 40,
+                      "end_lineno": 15,
+                      "lineno": 15,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "paje",
+                        "col_offset": 26,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 35,
+                        "end_lineno": 15,
+                        "lineno": 15,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 26,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 30,
+                          "end_lineno": 15,
+                          "id": "pfam",
+                          "lineno": 15
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 115,
+                "end_lineno": 16,
+                "lineno": 16,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 38,
+                    "end_lineno": 16,
+                    "id": "maj_plafond_2_premiers_enfants",
+                    "lineno": 16
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 41,
+                  "end_col_offset": 115,
+                  "end_lineno": 16,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_majoration_2_premiers_enf",
+                    "col_offset": 41,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 97,
+                    "end_lineno": 16,
+                    "lineno": 16,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "avant_2014",
+                      "col_offset": 41,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 66,
+                      "end_lineno": 16,
+                      "lineno": 16,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "base",
+                        "col_offset": 41,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 55,
+                        "end_lineno": 16,
+                        "lineno": 16,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "paje",
+                          "col_offset": 41,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 50,
+                          "end_lineno": 16,
+                          "lineno": 16,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 41,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 45,
+                            "end_lineno": 16,
+                            "id": "pfam",
+                            "lineno": 16
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "lineno": 16,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 100,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 115,
+                    "end_lineno": 16,
+                    "id": "plafond_de_base",
+                    "lineno": 16
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 113,
+                "end_lineno": 17,
+                "lineno": 17,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 34,
+                    "end_lineno": 17,
+                    "id": "maj_plafond_par_enfant_sup",
+                    "lineno": 17
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 37,
+                  "end_col_offset": 113,
+                  "end_lineno": 17,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_majoration_3eme_enf_et_plus",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 95,
+                    "end_lineno": 17,
+                    "lineno": 17,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "avant_2014",
+                      "col_offset": 37,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 62,
+                      "end_lineno": 17,
+                      "lineno": 17,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "base",
+                        "col_offset": 37,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 51,
+                        "end_lineno": 17,
+                        "lineno": 17,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "paje",
+                          "col_offset": 37,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 46,
+                          "end_lineno": 17,
+                          "lineno": 17,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 37,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 41,
+                            "end_lineno": 17,
+                            "id": "pfam",
+                            "lineno": 17
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "lineno": 17,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 98,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 113,
+                    "end_lineno": 17,
+                    "id": "plafond_de_base",
+                    "lineno": 17
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 91,
+                "end_lineno": 18,
+                "lineno": 18,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 32,
+                    "end_lineno": 18,
+                    "id": "maj_plafond_seul_biactif",
+                    "lineno": 18
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "majoration_biact_parent_isoles",
+                  "col_offset": 35,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 91,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "avant_2014",
+                    "col_offset": 35,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 60,
+                    "end_lineno": 18,
+                    "lineno": 18,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "base",
+                      "col_offset": 35,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 49,
+                      "end_lineno": 18,
+                      "lineno": 18,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "paje",
+                        "col_offset": 35,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 44,
+                        "end_lineno": 18,
+                        "lineno": 18,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 35,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 39,
+                          "end_lineno": 18,
+                          "id": "pfam",
+                          "lineno": 18
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 13,
+                "end_lineno": 25,
+                "lineno": 20,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 15,
+                    "end_lineno": 20,
+                    "id": "plafond",
+                    "lineno": 20
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 12,
+                  "end_col_offset": 72,
+                  "end_lineno": 24,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 12,
+                    "end_col_offset": 70,
+                    "end_lineno": 23,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 12,
+                      "end_col_offset": 70,
+                      "end_lineno": 22,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 27,
+                        "end_lineno": 21,
+                        "id": "plafond_de_base",
+                        "lineno": 21
+                      },
+                      "lineno": 21,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 14,
+                        "end_col_offset": 70,
+                        "end_lineno": 22,
+                        "left": {
+                          "args": [
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 19,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 33,
+                              "end_lineno": 22,
+                              "id": "nombre_enfants",
+                              "lineno": 22
+                            },
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 35,
+                              "end_col_offset": 36,
+                              "end_lineno": 22,
+                              "lineno": 22,
+                              "value": 2
+                            }
+                          ],
+                          "ast_class": "Call",
+                          "col_offset": 14,
+                          "end_col_offset": 37,
+                          "end_lineno": 22,
+                          "func": {
+                            "ast_class": "Name",
+                            "col_offset": 14,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 18,
+                            "end_lineno": 22,
+                            "id": "min_",
+                            "lineno": 22
+                          },
+                          "keywords": [],
+                          "lineno": 22
+                        },
+                        "lineno": 22,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 40,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 70,
+                          "end_lineno": 22,
+                          "id": "maj_plafond_2_premiers_enfants",
+                          "lineno": 22
+                        }
+                      }
+                    },
+                    "lineno": 21,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 14,
+                      "end_col_offset": 70,
+                      "end_lineno": 23,
+                      "left": {
+                        "args": [
+                          {
+                            "ast_class": "BinOp",
+                            "col_offset": 19,
+                            "end_col_offset": 37,
+                            "end_lineno": 23,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 19,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 33,
+                              "end_lineno": 23,
+                              "id": "nombre_enfants",
+                              "lineno": 23
+                            },
+                            "lineno": 23,
+                            "op": {
+                              "ast_class": "Sub"
+                            },
+                            "right": {
+                              "ast_class": "Constant",
+                              "col_offset": 36,
+                              "end_col_offset": 37,
+                              "end_lineno": 23,
+                              "lineno": 23,
+                              "value": 2
+                            }
+                          },
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 39,
+                            "end_col_offset": 40,
+                            "end_lineno": 23,
+                            "lineno": 23,
+                            "value": 0
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 14,
+                        "end_col_offset": 41,
+                        "end_lineno": 23,
+                        "func": {
+                          "ast_class": "Name",
+                          "col_offset": 14,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 18,
+                          "end_lineno": 23,
+                          "id": "max_",
+                          "lineno": 23
+                        },
+                        "keywords": [],
+                        "lineno": 23
+                      },
+                      "lineno": 23,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 44,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 70,
+                        "end_lineno": 23,
+                        "id": "maj_plafond_par_enfant_sup",
+                        "lineno": 23
+                      }
+                    }
+                  },
+                  "lineno": 21,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 14,
+                    "end_col_offset": 72,
+                    "end_lineno": 24,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 15,
+                      "end_col_offset": 44,
+                      "end_lineno": 24,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 15,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 29,
+                        "end_lineno": 24,
+                        "id": "couple_biactif",
+                        "lineno": 24
+                      },
+                      "lineno": 24,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 32,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 44,
+                        "end_lineno": 24,
+                        "id": "parent_isole",
+                        "lineno": 24
+                      }
+                    },
+                    "lineno": 24,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 48,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 72,
+                      "end_lineno": 24,
+                      "id": "maj_plafond_seul_biactif",
+                      "lineno": 24
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Return",
+                "col_offset": 8,
+                "end_col_offset": 22,
+                "end_lineno": 26,
+                "lineno": 26,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 15,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 26,
+                  "id": "plafond",
+                  "lineno": 26
+                }
+              }
+            ],
+            "col_offset": 4,
+            "decorator_list": [],
+            "end_col_offset": 22,
+            "end_lineno": 26,
+            "lineno": 14,
+            "name": "plafond_avant_avril_2014"
+          },
+          {
+            "args": {
+              "args": [
+                {
+                  "arg": "params",
+                  "ast_class": "arg",
+                  "col_offset": 27,
+                  "end_col_offset": 33,
+                  "end_lineno": 28,
+                  "lineno": 28
+                }
+              ],
+              "ast_class": "arguments",
+              "defaults": [],
+              "kw_defaults": [],
+              "kwonlyargs": [],
+              "posonlyargs": []
+            },
+            "ast_class": "FunctionDef",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 48,
+                "end_lineno": 29,
+                "lineno": 29,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 29,
+                    "id": "plafond_de_base",
+                    "lineno": 29
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "plaf",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 29,
+                  "lineno": 29,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_plein",
+                    "col_offset": 26,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 43,
+                    "end_lineno": 29,
+                    "lineno": 29,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 26,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 32,
+                      "end_lineno": 29,
+                      "id": "params",
+                      "lineno": 29
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 61,
+                "end_lineno": 30,
+                "lineno": 30,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 32,
+                    "end_lineno": 30,
+                    "id": "maj_plafond_seul_biactif",
+                    "lineno": 30
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "plaf_maj",
+                  "col_offset": 35,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 61,
+                  "end_lineno": 30,
+                  "lineno": 30,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_plein",
+                    "col_offset": 35,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 52,
+                    "end_lineno": 30,
+                    "lineno": 30,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 35,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 41,
+                      "end_lineno": 30,
+                      "id": "params",
+                      "lineno": 30
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 73,
+                "end_lineno": 31,
+                "lineno": 31,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 31,
+                    "id": "maj_plafond_par_enfant",
+                    "lineno": 31
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 33,
+                  "end_col_offset": 73,
+                  "end_lineno": 31,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 33,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 48,
+                    "end_lineno": 31,
+                    "id": "plafond_de_base",
+                    "lineno": 31
+                  },
+                  "lineno": 31,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "plaf_tx_par_enf",
+                    "col_offset": 51,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 73,
+                    "end_lineno": 31,
+                    "lineno": 31,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 51,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 57,
+                      "end_lineno": 31,
+                      "id": "params",
+                      "lineno": 31
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Return",
+                "col_offset": 8,
+                "end_col_offset": 106,
+                "end_lineno": 33,
+                "lineno": 33,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 40,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 55,
+                      "end_lineno": 33,
+                      "id": "plafond_de_base",
+                      "lineno": 33
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 57,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 79,
+                      "end_lineno": 33,
+                      "id": "maj_plafond_par_enfant",
+                      "lineno": 33
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 81,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 105,
+                      "end_lineno": 33,
+                      "id": "maj_plafond_seul_biactif",
+                      "lineno": 33
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 15,
+                  "end_col_offset": 106,
+                  "end_lineno": 33,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 15,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 33,
+                    "id": "plafond_apres_ajustement",
+                    "lineno": 33
+                  },
+                  "keywords": [],
+                  "lineno": 33
+                }
+              }
+            ],
+            "col_offset": 4,
+            "decorator_list": [],
+            "end_col_offset": 106,
+            "end_lineno": 33,
+            "lineno": 28,
+            "name": "plafond_taux_plein"
+          },
+          {
+            "args": {
+              "args": [
+                {
+                  "arg": "params",
+                  "ast_class": "arg",
+                  "col_offset": 29,
+                  "end_col_offset": 35,
+                  "end_lineno": 35,
+                  "lineno": 35
+                }
+              ],
+              "ast_class": "arguments",
+              "defaults": [],
+              "kw_defaults": [],
+              "kwonlyargs": [],
+              "posonlyargs": []
+            },
+            "ast_class": "FunctionDef",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 50,
+                "end_lineno": 36,
+                "lineno": 36,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 36,
+                    "id": "plafond_de_base",
+                    "lineno": 36
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "plaf",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 50,
+                  "end_lineno": 36,
+                  "lineno": 36,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_partiel",
+                    "col_offset": 26,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 45,
+                    "end_lineno": 36,
+                    "lineno": 36,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 26,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 32,
+                      "end_lineno": 36,
+                      "id": "params",
+                      "lineno": 36
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 63,
+                "end_lineno": 37,
+                "lineno": 37,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 32,
+                    "end_lineno": 37,
+                    "id": "maj_plafond_seul_biactif",
+                    "lineno": 37
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "plaf_maj",
+                  "col_offset": 35,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 37,
+                  "lineno": 37,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_partiel",
+                    "col_offset": 35,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 54,
+                    "end_lineno": 37,
+                    "lineno": 37,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 35,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 41,
+                      "end_lineno": 37,
+                      "id": "params",
+                      "lineno": 37
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 73,
+                "end_lineno": 38,
+                "lineno": 38,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 38,
+                    "id": "maj_plafond_par_enfant",
+                    "lineno": 38
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 33,
+                  "end_col_offset": 73,
+                  "end_lineno": 38,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 33,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 48,
+                    "end_lineno": 38,
+                    "id": "plafond_de_base",
+                    "lineno": 38
+                  },
+                  "lineno": 38,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "plaf_tx_par_enf",
+                    "col_offset": 51,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 73,
+                    "end_lineno": 38,
+                    "lineno": 38,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 51,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 57,
+                      "end_lineno": 38,
+                      "id": "params",
+                      "lineno": 38
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Return",
+                "col_offset": 8,
+                "end_col_offset": 106,
+                "end_lineno": 40,
+                "lineno": 40,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 40,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 55,
+                      "end_lineno": 40,
+                      "id": "plafond_de_base",
+                      "lineno": 40
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 57,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 79,
+                      "end_lineno": 40,
+                      "id": "maj_plafond_par_enfant",
+                      "lineno": 40
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 81,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 105,
+                      "end_lineno": 40,
+                      "id": "maj_plafond_seul_biactif",
+                      "lineno": 40
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 15,
+                  "end_col_offset": 106,
+                  "end_lineno": 40,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 15,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 40,
+                    "id": "plafond_apres_ajustement",
+                    "lineno": 40
+                  },
+                  "keywords": [],
+                  "lineno": 40
+                }
+              }
+            ],
+            "col_offset": 4,
+            "decorator_list": [],
+            "end_col_offset": 106,
+            "end_lineno": 40,
+            "lineno": 35,
+            "name": "plafond_taux_partiel"
+          },
+          {
+            "args": {
+              "args": [
+                {
+                  "arg": "plafond_de_base",
+                  "ast_class": "arg",
+                  "col_offset": 33,
+                  "end_col_offset": 48,
+                  "end_lineno": 42,
+                  "lineno": 42
+                },
+                {
+                  "arg": "maj_plafond_par_enfant",
+                  "ast_class": "arg",
+                  "col_offset": 50,
+                  "end_col_offset": 72,
+                  "end_lineno": 42,
+                  "lineno": 42
+                },
+                {
+                  "arg": "maj_plafond_seul_biactif",
+                  "ast_class": "arg",
+                  "col_offset": 74,
+                  "end_col_offset": 98,
+                  "end_lineno": 42,
+                  "lineno": 42
+                }
+              ],
+              "ast_class": "arguments",
+              "defaults": [],
+              "kw_defaults": [],
+              "kwonlyargs": [],
+              "posonlyargs": []
+            },
+            "ast_class": "FunctionDef",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 13,
+                "end_lineno": 47,
+                "lineno": 43,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 15,
+                    "end_lineno": 43,
+                    "id": "plafond",
+                    "lineno": 43
+                  }
+                ],
+                "value": {
+                  "ast_class": "BinOp",
+                  "col_offset": 12,
+                  "end_col_offset": 72,
+                  "end_lineno": 46,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 12,
+                    "end_col_offset": 53,
+                    "end_lineno": 45,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 27,
+                      "end_lineno": 44,
+                      "id": "plafond_de_base",
+                      "lineno": 44
+                    },
+                    "lineno": 44,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 14,
+                      "end_col_offset": 53,
+                      "end_lineno": 45,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 14,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 28,
+                        "end_lineno": 45,
+                        "id": "nombre_enfants",
+                        "lineno": 45
+                      },
+                      "lineno": 45,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 31,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 53,
+                        "end_lineno": 45,
+                        "id": "maj_plafond_par_enfant",
+                        "lineno": 45
+                      }
+                    }
+                  },
+                  "lineno": 44,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 14,
+                    "end_col_offset": 72,
+                    "end_lineno": 46,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 15,
+                      "end_col_offset": 44,
+                      "end_lineno": 46,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 15,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 29,
+                        "end_lineno": 46,
+                        "id": "couple_biactif",
+                        "lineno": 46
+                      },
+                      "lineno": 46,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 32,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 44,
+                        "end_lineno": 46,
+                        "id": "parent_isole",
+                        "lineno": 46
+                      }
+                    },
+                    "lineno": 46,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 48,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 72,
+                      "end_lineno": 46,
+                      "id": "maj_plafond_seul_biactif",
+                      "lineno": 46
+                    }
+                  }
+                }
+              },
+              {
+                "ast_class": "Return",
+                "col_offset": 8,
+                "end_col_offset": 22,
+                "end_lineno": 48,
+                "lineno": 48,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 15,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 48,
+                  "id": "plafond",
+                  "lineno": 48
+                }
+              }
+            ],
+            "col_offset": 4,
+            "decorator_list": [],
+            "end_col_offset": 22,
+            "end_lineno": 48,
+            "lineno": 42,
+            "name": "plafond_apres_ajustement"
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 87,
+            "end_lineno": 50,
+            "lineno": 50,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 50,
+                "id": "a_un_enfant_eligible",
+                "lineno": 50
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 55,
+                      "end_col_offset": 77,
+                      "end_lineno": 50,
+                      "lineno": 50,
+                      "value": "enfant_eligible_paje"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 79,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 85,
+                      "end_lineno": 50,
+                      "id": "period",
+                      "lineno": 50
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 39,
+                  "end_col_offset": 86,
+                  "end_lineno": 50,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 39,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 54,
+                    "end_lineno": 50,
+                    "lineno": 50,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 39,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 46,
+                      "end_lineno": 50,
+                      "id": "famille",
+                      "lineno": 50
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 50
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 27,
+              "end_col_offset": 87,
+              "end_lineno": 50,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "any",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 38,
+                "end_lineno": 50,
+                "lineno": 50,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 27,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 50,
+                  "id": "famille",
+                  "lineno": 50
+                }
+              },
+              "keywords": [],
+              "lineno": 50
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 114,
+            "end_lineno": 51,
+            "lineno": 51,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 51,
+                "id": "date_plus_jeune",
+                "lineno": 51
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 53,
+                      "end_col_offset": 69,
+                      "end_lineno": 51,
+                      "lineno": 51,
+                      "value": "date_naissance"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 71,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 77,
+                      "end_lineno": 51,
+                      "id": "period",
+                      "lineno": 51
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 37,
+                  "end_col_offset": 78,
+                  "end_lineno": 51,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 52,
+                    "end_lineno": 51,
+                    "lineno": 51,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 37,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 51,
+                      "id": "famille",
+                      "lineno": 51
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 51
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 80,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 87,
+                  "end_lineno": 51,
+                  "id": "maximum",
+                  "lineno": 51
+                },
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 100,
+                      "end_col_offset": 112,
+                      "end_lineno": 51,
+                      "lineno": 51,
+                      "value": "1066-01-01"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 89,
+                  "end_col_offset": 113,
+                  "end_lineno": 51,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 89,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 99,
+                    "end_lineno": 51,
+                    "id": "datetime64",
+                    "lineno": 51
+                  },
+                  "keywords": [],
+                  "lineno": 51
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 114,
+              "end_lineno": 51,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "reduce",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 51,
+                "lineno": 51,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 22,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 29,
+                  "end_lineno": 51,
+                  "id": "famille",
+                  "lineno": 51
+                }
+              },
+              "keywords": [],
+              "lineno": 51
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 70,
+            "end_lineno": 52,
+            "lineno": 52,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 52,
+                "id": "sujet_a_reforme_2014",
+                "lineno": 52
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 27,
+              "comparators": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 57,
+                      "end_col_offset": 69,
+                      "end_lineno": 52,
+                      "lineno": 52,
+                      "value": "2014-04-01"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 46,
+                  "end_col_offset": 70,
+                  "end_lineno": 52,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 46,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 56,
+                    "end_lineno": 52,
+                    "id": "datetime64",
+                    "lineno": 52
+                  },
+                  "keywords": [],
+                  "lineno": 52
+                }
+              ],
+              "end_col_offset": 70,
+              "end_lineno": 52,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 52,
+                "id": "date_plus_jeune",
+                "lineno": 52
+              },
+              "lineno": 52,
+              "ops": [
+                {
+                  "ast_class": "GtE"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 70,
+            "end_lineno": 53,
+            "lineno": 53,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 53,
+                "id": "sujet_a_reforme_2018",
+                "lineno": 53
+              }
+            ],
+            "value": {
+              "ast_class": "Compare",
+              "col_offset": 27,
+              "comparators": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 57,
+                      "end_col_offset": 69,
+                      "end_lineno": 53,
+                      "lineno": 53,
+                      "value": "2018-04-01"
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 46,
+                  "end_col_offset": 70,
+                  "end_lineno": 53,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 46,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 56,
+                    "end_lineno": 53,
+                    "id": "datetime64",
+                    "lineno": 53
+                  },
+                  "keywords": [],
+                  "lineno": 53
+                }
+              ],
+              "end_col_offset": 70,
+              "end_lineno": 53,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 53,
+                "id": "date_plus_jeune",
+                "lineno": 53
+              },
+              "lineno": 53,
+              "ops": [
+                {
+                  "ast_class": "GtE"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 30,
+            "end_lineno": 54,
+            "lineno": 54,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 54,
+                "id": "ne_avant_avril_2014",
+                "lineno": 54
+              }
+            ],
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 26,
+              "end_col_offset": 30,
+              "end_lineno": 54,
+              "lineno": 54,
+              "value": true
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 59,
+            "lineno": 56,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 56,
+                "id": "plafond_taux_partiel",
+                "lineno": 56
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 29,
+                      "end_lineno": 57,
+                      "id": "sujet_a_reforme_2018",
+                      "lineno": 57
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 31,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 51,
+                      "end_lineno": 57,
+                      "id": "sujet_a_reforme_2014",
+                      "lineno": 57
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 53,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 72,
+                      "end_lineno": 57,
+                      "id": "ne_avant_avril_2014",
+                      "lineno": 57
+                    }
+                  ],
+                  "end_col_offset": 73,
+                  "end_lineno": 57,
+                  "lineno": 57
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "args": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "apres_2018",
+                          "col_offset": 30,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 55,
+                          "end_lineno": 58,
+                          "lineno": 58,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "base",
+                            "col_offset": 30,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 44,
+                            "end_lineno": 58,
+                            "lineno": 58,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "paje",
+                              "col_offset": 30,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 39,
+                              "end_lineno": 58,
+                              "lineno": 58,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 30,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 58,
+                                "id": "pfam",
+                                "lineno": 58
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 56,
+                      "end_lineno": 58,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 29,
+                        "end_lineno": 58,
+                        "id": "plafond_taux_partiel",
+                        "lineno": 58
+                      },
+                      "keywords": [],
+                      "lineno": 58
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "apres_2014",
+                          "col_offset": 79,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 104,
+                          "end_lineno": 58,
+                          "lineno": 58,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "base",
+                            "col_offset": 79,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 93,
+                            "end_lineno": 58,
+                            "lineno": 58,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "paje",
+                              "col_offset": 79,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 88,
+                              "end_lineno": 58,
+                              "lineno": 58,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 79,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 83,
+                                "end_lineno": 58,
+                                "id": "pfam",
+                                "lineno": 58
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 58,
+                      "end_col_offset": 105,
+                      "end_lineno": 58,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 58,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 78,
+                        "end_lineno": 58,
+                        "id": "plafond_taux_partiel",
+                        "lineno": 58
+                      },
+                      "keywords": [],
+                      "lineno": 58
+                    },
+                    {
+                      "args": [],
+                      "ast_class": "Call",
+                      "col_offset": 107,
+                      "end_col_offset": 133,
+                      "end_lineno": 58,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 107,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 131,
+                        "end_lineno": 58,
+                        "id": "plafond_avant_avril_2014",
+                        "lineno": 58
+                      },
+                      "keywords": [],
+                      "lineno": 58
+                    }
+                  ],
+                  "end_col_offset": 134,
+                  "end_lineno": 58,
+                  "lineno": 58
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 27,
+              "end_col_offset": 9,
+              "end_lineno": 59,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 56,
+                "id": "select",
+                "lineno": 56
+              },
+              "keywords": [],
+              "lineno": 56
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 64,
+            "lineno": 61,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 61,
+                "id": "plafond_taux_plein",
+                "lineno": 61
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 29,
+                      "end_lineno": 62,
+                      "id": "sujet_a_reforme_2018",
+                      "lineno": 62
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 31,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 51,
+                      "end_lineno": 62,
+                      "id": "sujet_a_reforme_2014",
+                      "lineno": 62
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 53,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 72,
+                      "end_lineno": 62,
+                      "id": "ne_avant_avril_2014",
+                      "lineno": 62
+                    }
+                  ],
+                  "end_col_offset": 73,
+                  "end_lineno": 62,
+                  "lineno": 62
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "args": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "apres_2018",
+                          "col_offset": 28,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 53,
+                          "end_lineno": 63,
+                          "lineno": 63,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "base",
+                            "col_offset": 28,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 42,
+                            "end_lineno": 63,
+                            "lineno": 63,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "paje",
+                              "col_offset": 28,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 37,
+                              "end_lineno": 63,
+                              "lineno": 63,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 28,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 32,
+                                "end_lineno": 63,
+                                "id": "pfam",
+                                "lineno": 63
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 54,
+                      "end_lineno": 63,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 27,
+                        "end_lineno": 63,
+                        "id": "plafond_taux_plein",
+                        "lineno": 63
+                      },
+                      "keywords": [],
+                      "lineno": 63
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "apres_2014",
+                          "col_offset": 75,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 100,
+                          "end_lineno": 63,
+                          "lineno": 63,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "base",
+                            "col_offset": 75,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 89,
+                            "end_lineno": 63,
+                            "lineno": 63,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "paje",
+                              "col_offset": 75,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 84,
+                              "end_lineno": 63,
+                              "lineno": 63,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 75,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 79,
+                                "end_lineno": 63,
+                                "id": "pfam",
+                                "lineno": 63
+                              }
+                            }
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 56,
+                      "end_col_offset": 101,
+                      "end_lineno": 63,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 56,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 74,
+                        "end_lineno": 63,
+                        "id": "plafond_taux_plein",
+                        "lineno": 63
+                      },
+                      "keywords": [],
+                      "lineno": 63
+                    },
+                    {
+                      "args": [],
+                      "ast_class": "Call",
+                      "col_offset": 103,
+                      "end_col_offset": 129,
+                      "end_lineno": 63,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 103,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 127,
+                        "end_lineno": 63,
+                        "id": "plafond_avant_avril_2014",
+                        "lineno": 63
+                      },
+                      "keywords": [],
+                      "lineno": 63
+                    }
+                  ],
+                  "end_col_offset": 130,
+                  "end_lineno": 63,
+                  "lineno": 63
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 9,
+              "end_lineno": 64,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 61,
+                "id": "select",
+                "lineno": 61
+              },
+              "keywords": [],
+              "lineno": 61
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 74,
+            "end_lineno": 66,
+            "lineno": 66,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 66,
+                "id": "ressources",
+                "lineno": 66
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 25,
+                  "end_col_offset": 65,
+                  "end_lineno": 66,
+                  "lineno": 66,
+                  "value": "prestations_familiales_base_ressources"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 67,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 73,
+                  "end_lineno": 66,
+                  "id": "period",
+                  "lineno": 66
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 74,
+              "end_lineno": 66,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 66,
+                "id": "famille",
+                "lineno": 66
+              },
+              "keywords": [],
+              "lineno": 66
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 49,
+            "end_lineno": 67,
+            "lineno": 67,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 67,
+                "id": "montant_taux_partiel",
+                "lineno": 67
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 27,
+              "end_col_offset": 49,
+              "end_lineno": 67,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 27,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 67,
+                "id": "montant_taux_plein",
+                "lineno": 67
+              },
+              "lineno": 67,
+              "op": {
+                "ast_class": "Div"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 48,
+                "end_col_offset": 49,
+                "end_lineno": 67,
+                "lineno": 67,
+                "value": 2
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 73,
+            "lineno": 69,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 69,
+                "id": "montant",
+                "lineno": 69
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 66,
+              "end_lineno": 72,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 63,
+                "end_lineno": 70,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 9,
+                  "comparators": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 23,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 41,
+                      "end_lineno": 70,
+                      "id": "plafond_taux_plein",
+                      "lineno": 70
+                    }
+                  ],
+                  "end_col_offset": 41,
+                  "end_lineno": 70,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 19,
+                    "end_lineno": 70,
+                    "id": "ressources",
+                    "lineno": 70
+                  },
+                  "lineno": 70,
+                  "ops": [
+                    {
+                      "ast_class": "LtE"
+                    }
+                  ]
+                },
+                "lineno": 70,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 45,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 70,
+                  "id": "montant_taux_plein",
+                  "lineno": 70
+                }
+              },
+              "lineno": 70,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 66,
+                "end_lineno": 72,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 43,
+                  "end_lineno": 72,
+                  "left": {
+                    "ast_class": "Compare",
+                    "col_offset": 11,
+                    "comparators": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 71,
+                        "id": "plafond_taux_partiel",
+                        "lineno": 71
+                      }
+                    ],
+                    "end_col_offset": 45,
+                    "end_lineno": 71,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 11,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 21,
+                      "end_lineno": 71,
+                      "id": "ressources",
+                      "lineno": 71
+                    },
+                    "lineno": 71,
+                    "ops": [
+                      {
+                        "ast_class": "LtE"
+                      }
+                    ]
+                  },
+                  "lineno": 71,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 11,
+                    "comparators": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 24,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 42,
+                        "end_lineno": 72,
+                        "id": "plafond_taux_plein",
+                        "lineno": 72
+                      }
+                    ],
+                    "end_col_offset": 42,
+                    "end_lineno": 72,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 11,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 21,
+                      "end_lineno": 72,
+                      "id": "ressources",
+                      "lineno": 72
+                    },
+                    "lineno": 72,
+                    "ops": [
+                      {
+                        "ast_class": "Gt"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 71,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 66,
+                  "end_lineno": 72,
+                  "id": "montant_taux_partiel",
+                  "lineno": 72
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 75,
+            "lineno": 75,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 41,
+              "end_lineno": 75,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 75,
+                "id": "a_un_enfant_eligible",
+                "lineno": 75
+              },
+              "lineno": 75,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 34,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 75,
+                "id": "montant",
+                "lineno": 75
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 41,
+        "end_lineno": 75,
+        "lineno": 1,
+        "name": "formula_2004"
+      },
+      "file_path": "/openfisca_france/model/prestations/prestations_familiales/paje.py",
+      "parameters": [
+        "prestations.prestations_familiales.af.bmaf",
+        "prestations.prestations_familiales.paje.base.apres_2014",
+        "prestations.prestations_familiales.paje.base.apres_2018",
+        "prestations.prestations_familiales.paje.base.avant_2014.taux_majoration_2_premiers_enf",
+        "prestations.prestations_familiales.paje.base.avant_2014.taux_majoration_3eme_enf_et_plus",
+        "prestations.prestations_familiales.paje.base.taux_allocation_base"
+      ],
+      "source_code": "def formula_2004(famille, period, parameters):\n    couple_biactif = famille('biactivite', period)\n    parent_isole = not_(famille('en_couple', period))\n    nombre_enfants = famille('af_nbenf', period)\n    pfam = parameters(period).prestations.prestations_familiales\n\n    # Le montant, précédemment indexé sur la BMAF, est gelé en 2013, et dégelé en 2018\n    date_gel_paje = Instant((2013, 4, 1))\n    date_degel_paje = Instant((2018, 4, 1))\n    periode_de_gel = date_degel_paje > period.start > date_gel_paje\n    indice = parameters(date_gel_paje).prestations.prestations_familiales.af.bmaf if periode_de_gel else pfam.af.bmaf\n    montant_taux_plein = indice * pfam.paje.base.taux_allocation_base\n\n    def plafond_avant_avril_2014():\n        plafond_de_base = pfam.paje.base.avant_2014.plafond_ressources_0_enf\n        maj_plafond_2_premiers_enfants = pfam.paje.base.avant_2014.taux_majoration_2_premiers_enf * plafond_de_base\n        maj_plafond_par_enfant_sup = pfam.paje.base.avant_2014.taux_majoration_3eme_enf_et_plus * plafond_de_base\n        maj_plafond_seul_biactif = pfam.paje.base.avant_2014.majoration_biact_parent_isoles\n\n        plafond = (\n            plafond_de_base\n            + min_(nombre_enfants, 2) * maj_plafond_2_premiers_enfants\n            + max_(nombre_enfants - 2, 0) * maj_plafond_par_enfant_sup\n            + (couple_biactif + parent_isole) * maj_plafond_seul_biactif\n            )\n        return plafond\n\n    def plafond_taux_plein(params):\n        plafond_de_base = params.taux_plein.plaf\n        maj_plafond_seul_biactif = params.taux_plein.plaf_maj\n        maj_plafond_par_enfant = plafond_de_base * params.plaf_tx_par_enf\n\n        return plafond_apres_ajustement(plafond_de_base, maj_plafond_par_enfant, maj_plafond_seul_biactif)\n\n    def plafond_taux_partiel(params):\n        plafond_de_base = params.taux_partiel.plaf\n        maj_plafond_seul_biactif = params.taux_partiel.plaf_maj\n        maj_plafond_par_enfant = plafond_de_base * params.plaf_tx_par_enf\n\n        return plafond_apres_ajustement(plafond_de_base, maj_plafond_par_enfant, maj_plafond_seul_biactif)\n\n    def plafond_apres_ajustement(plafond_de_base, maj_plafond_par_enfant, maj_plafond_seul_biactif):\n        plafond = (\n            plafond_de_base\n            + nombre_enfants * maj_plafond_par_enfant\n            + (couple_biactif + parent_isole) * maj_plafond_seul_biactif\n            )\n        return plafond\n\n    a_un_enfant_eligible = famille.any(famille.members('enfant_eligible_paje', period))\n    date_plus_jeune = famille.reduce(famille.members('date_naissance', period), maximum, datetime64('1066-01-01'))\n    sujet_a_reforme_2014 = date_plus_jeune >= datetime64('2014-04-01')\n    sujet_a_reforme_2018 = date_plus_jeune >= datetime64('2018-04-01')\n    ne_avant_avril_2014 = True\n\n    plafond_taux_partiel = select(\n        [sujet_a_reforme_2018, sujet_a_reforme_2014, ne_avant_avril_2014],\n        [plafond_taux_partiel(pfam.paje.base.apres_2018), plafond_taux_partiel(pfam.paje.base.apres_2014), plafond_avant_avril_2014()]\n        )\n\n    plafond_taux_plein = select(\n        [sujet_a_reforme_2018, sujet_a_reforme_2014, ne_avant_avril_2014],\n        [plafond_taux_plein(pfam.paje.base.apres_2018), plafond_taux_plein(pfam.paje.base.apres_2014), plafond_avant_avril_2014()]\n        )\n\n    ressources = famille('prestations_familiales_base_ressources', period)\n    montant_taux_partiel = montant_taux_plein / 2\n\n    montant = (\n        (ressources <= plafond_taux_plein) * montant_taux_plein\n        + (ressources <= plafond_taux_partiel)\n        * (ressources > plafond_taux_plein) * montant_taux_partiel\n        )\n\n    return a_un_enfant_eligible * montant\n",
+      "start_line_number": 98,
+      "stop_line_number": 173,
+      "variables": [
+        "af_nbenf",
+        "biactivite",
+        "en_couple",
+        "prestations_familiales_base_ressources"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Allocation de base de la PAJE",
+  "name": "paje_base",
+  "reference": [
+    "http://vosdroits.service-public.fr/particuliers/F2552.xhtml"
+  ],
+  "referring_variables": [
+    "cf",
+    "paje",
+    "paje_clca",
+    "paje_colca"
+  ],
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 89,
+  "stop_line_number": 173,
+  "value_type": "float"
+}

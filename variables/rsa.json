@@ -1,0 +1,268 @@
+{
+  "calculate_output": "calculate_output_add",
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "formulas": {
+    "2009-06-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 35,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 44,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 2,
+                "id": "montant",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 22,
+                  "end_col_offset": 35,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "rsa_montant"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 37,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 43,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 44,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 2,
+                "id": "famille",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 3,
+                "id": "non_calculable",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 49,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "rsa_non_calculable"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 51,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 57,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 58,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 3,
+                "id": "famille",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 73,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 73,
+              "end_lineno": 5,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 12,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "calculable",
+                    "col_offset": 30,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 62,
+                    "end_lineno": 5,
+                    "lineno": 5,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 30,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 51,
+                      "end_lineno": 5,
+                      "id": "TypesRSANonCalculable",
+                      "lineno": 5
+                    }
+                  }
+                ],
+                "end_col_offset": 62,
+                "end_lineno": 5,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 26,
+                  "end_lineno": 5,
+                  "id": "non_calculable",
+                  "lineno": 5
+                },
+                "lineno": 5,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              },
+              "lineno": 5,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 66,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 73,
+                "end_lineno": 5,
+                "id": "montant",
+                "lineno": 5
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 73,
+        "end_lineno": 5,
+        "lineno": 1,
+        "name": "formula_2009_06"
+      },
+      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "source_code": "def formula_2009_06(famille, period):\n    montant = famille('rsa_montant', period)\n    non_calculable = famille('rsa_non_calculable', period)\n\n    return (non_calculable == TypesRSANonCalculable.calculable) * montant\n",
+      "start_line_number": 565,
+      "stop_line_number": 570,
+      "variables": [
+        "rsa_montant",
+        "rsa_non_calculable"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Revenu de solidarité active",
+  "name": "rsa",
+  "referring_variables": [
+    "aefa",
+    "aide_logement_neutralisation_rsa",
+    "api",
+    "cmu_c",
+    "covid_aide_exceptionnelle_famille_montant",
+    "minima_sociaux",
+    "psa",
+    "rsa_activite"
+  ],
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 557,
+  "stop_line_number": 570,
+  "value_type": "float"
+}

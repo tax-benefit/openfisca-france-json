@@ -1,0 +1,3178 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "famille",
+  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 19,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 21,
+              "end_col_offset": 27,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 29,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 54,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 2,
+                "id": "al",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "aides_logement",
+              "col_offset": 9,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 54,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 9,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 20,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 26,
+                      "end_lineno": 2,
+                      "id": "period",
+                      "lineno": 2
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 9,
+                  "end_col_offset": 27,
+                  "end_lineno": 2,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 19,
+                    "end_lineno": 2,
+                    "id": "parameters",
+                    "lineno": 2
+                  },
+                  "keywords": [],
+                  "lineno": 2
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 93,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 3,
+                "id": "pfam_n_2",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "prestations_familiales",
+              "col_offset": 15,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 93,
+              "end_lineno": 3,
+              "lineno": 3,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 15,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 70,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "ast_class": "UnaryOp",
+                          "col_offset": 46,
+                          "end_col_offset": 48,
+                          "end_lineno": 3,
+                          "lineno": 3,
+                          "op": {
+                            "ast_class": "USub"
+                          },
+                          "operand": {
+                            "ast_class": "Constant",
+                            "col_offset": 47,
+                            "end_col_offset": 48,
+                            "end_lineno": 3,
+                            "lineno": 3,
+                            "value": 2
+                          }
+                        },
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 50,
+                          "end_col_offset": 56,
+                          "end_lineno": 3,
+                          "lineno": 3,
+                          "value": "year"
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 26,
+                      "end_col_offset": 57,
+                      "end_lineno": 3,
+                      "func": {
+                        "ast_class": "Attribute",
+                        "attr": "offset",
+                        "col_offset": 26,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 3,
+                        "lineno": 3,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "start",
+                          "col_offset": 26,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 38,
+                          "end_lineno": 3,
+                          "lineno": 3,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 26,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 32,
+                            "end_lineno": 3,
+                            "id": "period",
+                            "lineno": 3
+                          }
+                        }
+                      },
+                      "keywords": [],
+                      "lineno": 3
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 15,
+                  "end_col_offset": 58,
+                  "end_lineno": 3,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 15,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 25,
+                    "end_lineno": 3,
+                    "id": "parameters",
+                    "lineno": 3
+                  },
+                  "keywords": [],
+                  "lineno": 3
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 86,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 4,
+                "id": "minim_n_2",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "minima_sociaux",
+              "col_offset": 16,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 86,
+              "end_lineno": 4,
+              "lineno": 4,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 71,
+                "end_lineno": 4,
+                "lineno": 4,
+                "value": {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "ast_class": "UnaryOp",
+                          "col_offset": 47,
+                          "end_col_offset": 49,
+                          "end_lineno": 4,
+                          "lineno": 4,
+                          "op": {
+                            "ast_class": "USub"
+                          },
+                          "operand": {
+                            "ast_class": "Constant",
+                            "col_offset": 48,
+                            "end_col_offset": 49,
+                            "end_lineno": 4,
+                            "lineno": 4,
+                            "value": 2
+                          }
+                        },
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 51,
+                          "end_col_offset": 57,
+                          "end_lineno": 4,
+                          "lineno": 4,
+                          "value": "year"
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 27,
+                      "end_col_offset": 58,
+                      "end_lineno": 4,
+                      "func": {
+                        "ast_class": "Attribute",
+                        "attr": "offset",
+                        "col_offset": 27,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 46,
+                        "end_lineno": 4,
+                        "lineno": 4,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "start",
+                          "col_offset": 27,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 39,
+                          "end_lineno": 4,
+                          "lineno": 4,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 27,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 33,
+                            "end_lineno": 4,
+                            "id": "period",
+                            "lineno": 4
+                          }
+                        }
+                      },
+                      "keywords": [],
+                      "lineno": 4
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 16,
+                  "end_col_offset": 59,
+                  "end_lineno": 4,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 26,
+                    "end_lineno": 4,
+                    "id": "parameters",
+                    "lineno": 4
+                  },
+                  "keywords": [],
+                  "lineno": 4
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 5,
+                "id": "couple",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 21,
+                  "end_col_offset": 32,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "al_couple"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 41,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 5,
+                "id": "famille",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 6,
+                "id": "al_nb_pac",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 50,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "al_nb_personnes_a_charge"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 52,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 59,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 6,
+                "id": "famille",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 7,
+                "id": "residence_dom",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 60,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "residence_dom"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 7,
+                  "id": "period",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 69,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "menage",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "demandeur",
+                  "col_offset": 20,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 37,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 20,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 27,
+                    "end_lineno": 7,
+                    "id": "famille",
+                    "lineno": 7
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 9,
+                "id": "n_2",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "UnaryOp",
+                  "col_offset": 30,
+                  "end_col_offset": 32,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "op": {
+                    "ast_class": "USub"
+                  },
+                  "operand": {
+                    "ast_class": "Constant",
+                    "col_offset": 31,
+                    "end_col_offset": 32,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": 2
+                  }
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 34,
+                  "end_col_offset": 40,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "year"
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 41,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "offset",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 9,
+                "lineno": 9,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "start",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 22,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 16,
+                    "end_lineno": 9,
+                    "id": "period",
+                    "lineno": 9
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "If",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 62,
+                "end_lineno": 11,
+                "lineno": 11,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 11,
+                    "id": "montant_de_base",
+                    "lineno": 11
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "montant_de_base_du_rsa",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 62,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "rsa",
+                    "col_offset": 26,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 26,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 35,
+                      "end_lineno": 11,
+                      "id": "minim_n_2",
+                      "lineno": 11
+                    }
+                  }
+                }
+              }
+            ],
+            "col_offset": 4,
+            "end_col_offset": 62,
+            "end_lineno": 13,
+            "lineno": 10,
+            "orelse": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 62,
+                "end_lineno": 13,
+                "lineno": 13,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 13,
+                    "id": "montant_de_base",
+                    "lineno": 13
+                  }
+                ],
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "montant_de_base_du_rmi",
+                  "col_offset": 26,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 62,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "rmi",
+                    "col_offset": 26,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 13,
+                    "lineno": 13,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 26,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 35,
+                      "end_lineno": 13,
+                      "id": "minim_n_2",
+                      "lineno": 13
+                    }
+                  }
+                }
+              }
+            ],
+            "test": {
+              "ast_class": "Compare",
+              "col_offset": 7,
+              "comparators": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 24,
+                      "end_col_offset": 28,
+                      "end_lineno": 10,
+                      "lineno": 10,
+                      "value": 2009
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 30,
+                      "end_col_offset": 31,
+                      "end_lineno": 10,
+                      "lineno": 10,
+                      "value": 6
+                    },
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 33,
+                      "end_col_offset": 34,
+                      "end_lineno": 10,
+                      "lineno": 10,
+                      "value": 1
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 19,
+                  "end_col_offset": 35,
+                  "end_lineno": 10,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 19,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 23,
+                    "end_lineno": 10,
+                    "id": "date",
+                    "lineno": 10
+                  },
+                  "keywords": [],
+                  "lineno": 10
+                }
+              ],
+              "end_col_offset": 35,
+              "end_lineno": 10,
+              "left": {
+                "ast_class": "Attribute",
+                "attr": "date",
+                "col_offset": 7,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 7,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 10,
+                  "id": "n_2",
+                  "lineno": 10
+                }
+              },
+              "lineno": 10,
+              "ops": [
+                {
+                  "ast_class": "GtE"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 21,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 15,
+                "id": "R1",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 9,
+              "end_col_offset": 9,
+              "end_lineno": 21,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 9,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 15,
+                "id": "montant_de_base",
+                "lineno": 15
+              },
+              "lineno": 15,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 83,
+                "end_lineno": 20,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 71,
+                  "end_lineno": 19,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 71,
+                    "end_lineno": 18,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 59,
+                      "end_lineno": 17,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 8,
+                        "end_col_offset": 63,
+                        "end_lineno": 16,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 8,
+                          "end_col_offset": 44,
+                          "end_lineno": 16,
+                          "left": {
+                            "ast_class": "Attribute",
+                            "attr": "personne_isolee",
+                            "col_offset": 8,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 29,
+                            "end_lineno": 16,
+                            "lineno": 16,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "r1",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 13,
+                              "end_lineno": 16,
+                              "lineno": 16,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 8,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 10,
+                                "end_lineno": 16,
+                                "id": "al",
+                                "lineno": 16
+                              }
+                            }
+                          },
+                          "lineno": 16,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "args": [
+                              {
+                                "ast_class": "Name",
+                                "col_offset": 37,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 43,
+                                "end_lineno": 16,
+                                "id": "couple",
+                                "lineno": 16
+                              }
+                            ],
+                            "ast_class": "Call",
+                            "col_offset": 32,
+                            "end_col_offset": 44,
+                            "end_lineno": 16,
+                            "func": {
+                              "ast_class": "Name",
+                              "col_offset": 32,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 36,
+                              "end_lineno": 16,
+                              "id": "not_",
+                              "lineno": 16
+                            },
+                            "keywords": [],
+                            "lineno": 16
+                          }
+                        },
+                        "lineno": 16,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 48,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 61,
+                              "end_col_offset": 62,
+                              "end_lineno": 16,
+                              "lineno": 16,
+                              "value": 0
+                            }
+                          ],
+                          "end_col_offset": 62,
+                          "end_lineno": 16,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 48,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 57,
+                            "end_lineno": 16,
+                            "id": "al_nb_pac",
+                            "lineno": 16
+                          },
+                          "lineno": 16,
+                          "ops": [
+                            {
+                              "ast_class": "Eq"
+                            }
+                          ]
+                        }
+                      },
+                      "lineno": 16,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 10,
+                        "end_col_offset": 59,
+                        "end_lineno": 17,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 10,
+                          "end_col_offset": 40,
+                          "end_lineno": 17,
+                          "left": {
+                            "ast_class": "Attribute",
+                            "attr": "couple_sans_enf",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 31,
+                            "end_lineno": 17,
+                            "lineno": 17,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "r1",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 15,
+                              "end_lineno": 17,
+                              "lineno": 17,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 10,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 12,
+                                "end_lineno": 17,
+                                "id": "al",
+                                "lineno": 17
+                              }
+                            }
+                          },
+                          "lineno": 17,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Name",
+                            "col_offset": 34,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 40,
+                            "end_lineno": 17,
+                            "id": "couple",
+                            "lineno": 17
+                          }
+                        },
+                        "lineno": 17,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 44,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 57,
+                              "end_col_offset": 58,
+                              "end_lineno": 17,
+                              "lineno": 17,
+                              "value": 0
+                            }
+                          ],
+                          "end_col_offset": 58,
+                          "end_lineno": 17,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 44,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 53,
+                            "end_lineno": 17,
+                            "id": "al_nb_pac",
+                            "lineno": 17
+                          },
+                          "lineno": 17,
+                          "ops": [
+                            {
+                              "ast_class": "Eq"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "lineno": 16,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 71,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Attribute",
+                        "attr": "personne_isolee_ou_couple_avec_1_enf",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 52,
+                        "end_lineno": 18,
+                        "lineno": 18,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "r1",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 15,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 12,
+                            "end_lineno": 18,
+                            "id": "al",
+                            "lineno": 18
+                          }
+                        }
+                      },
+                      "lineno": 18,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Compare",
+                        "col_offset": 56,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 69,
+                            "end_col_offset": 70,
+                            "end_lineno": 18,
+                            "lineno": 18,
+                            "value": 1
+                          }
+                        ],
+                        "end_col_offset": 70,
+                        "end_lineno": 18,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 56,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 65,
+                          "end_lineno": 18,
+                          "id": "al_nb_pac",
+                          "lineno": 18
+                        },
+                        "lineno": 18,
+                        "ops": [
+                          {
+                            "ast_class": "Eq"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "lineno": 16,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 71,
+                    "end_lineno": 19,
+                    "left": {
+                      "ast_class": "Attribute",
+                      "attr": "personne_isolee_ou_couple_avec_2_enf",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 52,
+                      "end_lineno": 19,
+                      "lineno": 19,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "r1",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 19,
+                        "lineno": 19,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 12,
+                          "end_lineno": 19,
+                          "id": "al",
+                          "lineno": 19
+                        }
+                      }
+                    },
+                    "lineno": 19,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 56,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 69,
+                          "end_col_offset": 70,
+                          "end_lineno": 19,
+                          "lineno": 19,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 70,
+                      "end_lineno": 19,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 56,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 65,
+                        "end_lineno": 19,
+                        "id": "al_nb_pac",
+                        "lineno": 19
+                      },
+                      "lineno": 19,
+                      "ops": [
+                        {
+                          "ast_class": "GtE"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "lineno": 16,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 83,
+                  "end_lineno": 20,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 65,
+                    "end_lineno": 20,
+                    "left": {
+                      "ast_class": "Attribute",
+                      "attr": "majoration_enfant_a_charge_supp",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 47,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "r1",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 20,
+                        "lineno": 20,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 12,
+                          "end_lineno": 20,
+                          "id": "al",
+                          "lineno": 20
+                        }
+                      }
+                    },
+                    "lineno": 20,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 51,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 63,
+                          "end_col_offset": 64,
+                          "end_lineno": 20,
+                          "lineno": 20,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 64,
+                      "end_lineno": 20,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 51,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 60,
+                        "end_lineno": 20,
+                        "id": "al_nb_pac",
+                        "lineno": 20
+                      },
+                      "lineno": 20,
+                      "ops": [
+                        {
+                          "ast_class": "Gt"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 20,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 69,
+                    "end_col_offset": 82,
+                    "end_lineno": 20,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 69,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 78,
+                      "end_lineno": 20,
+                      "id": "al_nb_pac",
+                      "lineno": 20
+                    },
+                    "lineno": 20,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 81,
+                      "end_col_offset": 82,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 27,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 23,
+                "id": "R2",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 9,
+              "end_col_offset": 9,
+              "end_lineno": 27,
+              "left": {
+                "ast_class": "Attribute",
+                "attr": "bmaf",
+                "col_offset": 9,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 23,
+                "lineno": 23,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "af",
+                  "col_offset": 9,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 23,
+                  "lineno": 23,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 17,
+                    "end_lineno": 23,
+                    "id": "pfam_n_2",
+                    "lineno": 23
+                  }
+                }
+              },
+              "lineno": 23,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 84,
+                "end_lineno": 26,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 74,
+                  "end_lineno": 25,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 58,
+                    "end_lineno": 24,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 39,
+                      "end_lineno": 24,
+                      "left": {
+                        "ast_class": "Attribute",
+                        "attr": "taux3_dom",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 23,
+                        "end_lineno": 24,
+                        "lineno": 24,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "r2",
+                          "col_offset": 8,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 13,
+                          "end_lineno": 24,
+                          "lineno": 24,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 8,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 10,
+                            "end_lineno": 24,
+                            "id": "al",
+                            "lineno": 24
+                          }
+                        }
+                      },
+                      "lineno": 24,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 26,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 39,
+                        "end_lineno": 24,
+                        "id": "residence_dom",
+                        "lineno": 24
+                      }
+                    },
+                    "lineno": 24,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 43,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 56,
+                          "end_col_offset": 57,
+                          "end_lineno": 24,
+                          "lineno": 24,
+                          "value": 1
+                        }
+                      ],
+                      "end_col_offset": 57,
+                      "end_lineno": 24,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 43,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 52,
+                        "end_lineno": 24,
+                        "id": "al_nb_pac",
+                        "lineno": 24
+                      },
+                      "lineno": 24,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 24,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 74,
+                    "end_lineno": 25,
+                    "left": {
+                      "ast_class": "Attribute",
+                      "attr": "personnes_isolees_ou_couples_avec_2_enf",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 55,
+                      "end_lineno": 25,
+                      "lineno": 25,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "r2",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 25,
+                        "lineno": 25,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 12,
+                          "end_lineno": 25,
+                          "id": "al",
+                          "lineno": 25
+                        }
+                      }
+                    },
+                    "lineno": 25,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 59,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 72,
+                          "end_col_offset": 73,
+                          "end_lineno": 25,
+                          "lineno": 25,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 73,
+                      "end_lineno": 25,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 59,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 68,
+                        "end_lineno": 25,
+                        "id": "al_nb_pac",
+                        "lineno": 25
+                      },
+                      "lineno": 25,
+                      "ops": [
+                        {
+                          "ast_class": "GtE"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "lineno": 24,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 84,
+                  "end_lineno": 26,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 66,
+                    "end_lineno": 26,
+                    "left": {
+                      "ast_class": "Attribute",
+                      "attr": "majoration_par_enf_supp_a_charge",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 48,
+                      "end_lineno": 26,
+                      "lineno": 26,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "r2",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 26,
+                        "lineno": 26,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 12,
+                          "end_lineno": 26,
+                          "id": "al",
+                          "lineno": 26
+                        }
+                      }
+                    },
+                    "lineno": 26,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 52,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 64,
+                          "end_col_offset": 65,
+                          "end_lineno": 26,
+                          "lineno": 26,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 65,
+                      "end_lineno": 26,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 52,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 61,
+                        "end_lineno": 26,
+                        "id": "al_nb_pac",
+                        "lineno": 26
+                      },
+                      "lineno": 26,
+                      "ops": [
+                        {
+                          "ast_class": "Gt"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 26,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 70,
+                    "end_col_offset": 83,
+                    "end_lineno": 26,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 70,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 79,
+                      "end_lineno": 26,
+                      "id": "al_nb_pac",
+                      "lineno": 26
+                    },
+                    "lineno": 26,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 82,
+                      "end_col_offset": 83,
+                      "end_lineno": 26,
+                      "lineno": 26,
+                      "value": 2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 29,
+            "lineno": 29,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 29,
+                "id": "R0",
+                "lineno": 29
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 16,
+                  "end_col_offset": 57,
+                  "end_lineno": 29,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 16,
+                    "end_col_offset": 30,
+                    "end_lineno": 29,
+                    "left": {
+                      "ast_class": "Constant",
+                      "col_offset": 16,
+                      "end_col_offset": 18,
+                      "end_lineno": 29,
+                      "lineno": 29,
+                      "value": 12
+                    },
+                    "lineno": 29,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 22,
+                      "end_col_offset": 29,
+                      "end_lineno": 29,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 22,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 24,
+                        "end_lineno": 29,
+                        "id": "R1",
+                        "lineno": 29
+                      },
+                      "lineno": 29,
+                      "op": {
+                        "ast_class": "Sub"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 27,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 29,
+                        "end_lineno": 29,
+                        "id": "R2",
+                        "lineno": 29
+                      }
+                    }
+                  },
+                  "lineno": 29,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 34,
+                    "end_col_offset": 56,
+                    "end_lineno": 29,
+                    "left": {
+                      "ast_class": "Constant",
+                      "col_offset": 34,
+                      "end_col_offset": 35,
+                      "end_lineno": 29,
+                      "lineno": 29,
+                      "value": 1
+                    },
+                    "lineno": 29,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "ast_class": "Attribute",
+                      "attr": "abat_sal",
+                      "col_offset": 38,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 56,
+                      "end_lineno": 29,
+                      "lineno": 29,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "autres",
+                        "col_offset": 38,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 47,
+                        "end_lineno": 29,
+                        "lineno": 29,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 38,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 40,
+                          "end_lineno": 29,
+                          "id": "al",
+                          "lineno": 29
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 9,
+              "end_col_offset": 58,
+              "end_lineno": 29,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 9,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 29,
+                "id": "round_",
+                "lineno": 29
+              },
+              "keywords": [],
+              "lineno": 29
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 13,
+            "end_lineno": 31,
+            "lineno": 31,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 13,
+              "end_lineno": 31,
+              "id": "R0",
+              "lineno": 31
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 13,
+        "end_lineno": 31,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "parameters": [
+        "prestations.aides_logement.autres.abat_sal",
+        "prestations.aides_logement.r1.couple_sans_enf",
+        "prestations.aides_logement.r1.majoration_enfant_a_charge_supp",
+        "prestations.aides_logement.r1.personne_isolee",
+        "prestations.aides_logement.r1.personne_isolee_ou_couple_avec_1_enf",
+        "prestations.aides_logement.r1.personne_isolee_ou_couple_avec_2_enf",
+        "prestations.aides_logement.r2.majoration_par_enf_supp_a_charge",
+        "prestations.aides_logement.r2.personnes_isolees_ou_couples_avec_2_enf",
+        "prestations.aides_logement.r2.taux3_dom",
+        "prestations.prestations_familiales.af.bmaf"
+      ],
+      "source_code": "def formula(famille, period, parameters):\n    al = parameters(period).prestations.aides_logement\n    pfam_n_2 = parameters(period.start.offset(-2, 'year')).prestations.prestations_familiales\n    minim_n_2 = parameters(period.start.offset(-2, 'year')).prestations.minima_sociaux\n    couple = famille('al_couple', period)\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n\n    n_2 = period.start.offset(-2, 'year')\n    if n_2.date >= date(2009, 6, 1):\n        montant_de_base = minim_n_2.rsa.montant_de_base_du_rsa\n    else:\n        montant_de_base = minim_n_2.rmi.montant_de_base_du_rmi\n\n    R1 = montant_de_base * (\n        al.r1.personne_isolee * not_(couple) * (al_nb_pac == 0)\n        + al.r1.couple_sans_enf * couple * (al_nb_pac == 0)\n        + al.r1.personne_isolee_ou_couple_avec_1_enf * (al_nb_pac == 1)\n        + al.r1.personne_isolee_ou_couple_avec_2_enf * (al_nb_pac >= 2)\n        + al.r1.majoration_enfant_a_charge_supp * (al_nb_pac > 2) * (al_nb_pac - 2)\n        )\n\n    R2 = pfam_n_2.af.bmaf * (\n        al.r2.taux3_dom * residence_dom * (al_nb_pac == 1)\n        + al.r2.personnes_isolees_ou_couples_avec_2_enf * (al_nb_pac >= 2)\n        + al.r2.majoration_par_enf_supp_a_charge * (al_nb_pac > 2) * (al_nb_pac - 2)\n        )\n\n    R0 = round_(12 * (R1 - R2) * (1 - al.autres.abat_sal))\n\n    return R0\n",
+      "start_line_number": 1314,
+      "stop_line_number": 1345,
+      "variables": [
+        "al_couple",
+        "al_nb_personnes_a_charge"
+      ]
+    },
+    "2015-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "famille",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 30,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 32,
+              "end_col_offset": 38,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 40,
+              "end_col_offset": 50,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 54,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 2,
+                "id": "al",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "aides_logement",
+              "col_offset": 9,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 54,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prestations",
+                "col_offset": 9,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 20,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 26,
+                      "end_lineno": 2,
+                      "id": "period",
+                      "lineno": 2
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 9,
+                  "end_col_offset": 27,
+                  "end_lineno": 2,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 19,
+                    "end_lineno": 2,
+                    "id": "parameters",
+                    "lineno": 2
+                  },
+                  "keywords": [],
+                  "lineno": 2
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 41,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 3,
+                "id": "couple",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 21,
+                  "end_col_offset": 32,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "al_couple"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 41,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 3,
+                "id": "famille",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 4,
+                "id": "al_nb_pac",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 24,
+                  "end_col_offset": 50,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "al_nb_personnes_a_charge"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 52,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 59,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 4,
+                "id": "famille",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 16,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 6,
+                "end_lineno": 6,
+                "id": "R0",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 65,
+              "end_lineno": 15,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 43,
+                "end_lineno": 14,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 43,
+                  "end_lineno": 13,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 43,
+                    "end_lineno": 12,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 43,
+                      "end_lineno": 11,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 8,
+                        "end_col_offset": 43,
+                        "end_lineno": 10,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 8,
+                          "end_col_offset": 43,
+                          "end_lineno": 9,
+                          "left": {
+                            "ast_class": "BinOp",
+                            "col_offset": 8,
+                            "end_col_offset": 55,
+                            "end_lineno": 8,
+                            "left": {
+                              "ast_class": "BinOp",
+                              "col_offset": 8,
+                              "end_col_offset": 57,
+                              "end_lineno": 7,
+                              "left": {
+                                "ast_class": "BinOp",
+                                "col_offset": 8,
+                                "end_col_offset": 38,
+                                "end_lineno": 7,
+                                "left": {
+                                  "ast_class": "Attribute",
+                                  "attr": "taux_seul",
+                                  "col_offset": 8,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 23,
+                                  "end_lineno": 7,
+                                  "lineno": 7,
+                                  "value": {
+                                    "ast_class": "Attribute",
+                                    "attr": "R0",
+                                    "col_offset": 8,
+                                    "ctx": {
+                                      "ast_class": "Load"
+                                    },
+                                    "end_col_offset": 13,
+                                    "end_lineno": 7,
+                                    "lineno": 7,
+                                    "value": {
+                                      "ast_class": "Name",
+                                      "col_offset": 8,
+                                      "ctx": {
+                                        "ast_class": "Load"
+                                      },
+                                      "end_col_offset": 10,
+                                      "end_lineno": 7,
+                                      "id": "al",
+                                      "lineno": 7
+                                    }
+                                  }
+                                },
+                                "lineno": 7,
+                                "op": {
+                                  "ast_class": "Mult"
+                                },
+                                "right": {
+                                  "args": [
+                                    {
+                                      "ast_class": "Name",
+                                      "col_offset": 31,
+                                      "ctx": {
+                                        "ast_class": "Load"
+                                      },
+                                      "end_col_offset": 37,
+                                      "end_lineno": 7,
+                                      "id": "couple",
+                                      "lineno": 7
+                                    }
+                                  ],
+                                  "ast_class": "Call",
+                                  "col_offset": 26,
+                                  "end_col_offset": 38,
+                                  "end_lineno": 7,
+                                  "func": {
+                                    "ast_class": "Name",
+                                    "col_offset": 26,
+                                    "ctx": {
+                                      "ast_class": "Load"
+                                    },
+                                    "end_col_offset": 30,
+                                    "end_lineno": 7,
+                                    "id": "not_",
+                                    "lineno": 7
+                                  },
+                                  "keywords": [],
+                                  "lineno": 7
+                                }
+                              },
+                              "lineno": 7,
+                              "op": {
+                                "ast_class": "Mult"
+                              },
+                              "right": {
+                                "ast_class": "Compare",
+                                "col_offset": 42,
+                                "comparators": [
+                                  {
+                                    "ast_class": "Constant",
+                                    "col_offset": 55,
+                                    "end_col_offset": 56,
+                                    "end_lineno": 7,
+                                    "lineno": 7,
+                                    "value": 0
+                                  }
+                                ],
+                                "end_col_offset": 56,
+                                "end_lineno": 7,
+                                "left": {
+                                  "ast_class": "Name",
+                                  "col_offset": 42,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 51,
+                                  "end_lineno": 7,
+                                  "id": "al_nb_pac",
+                                  "lineno": 7
+                                },
+                                "lineno": 7,
+                                "ops": [
+                                  {
+                                    "ast_class": "Eq"
+                                  }
+                                ]
+                              }
+                            },
+                            "lineno": 7,
+                            "op": {
+                              "ast_class": "Add"
+                            },
+                            "right": {
+                              "ast_class": "BinOp",
+                              "col_offset": 10,
+                              "end_col_offset": 55,
+                              "end_lineno": 8,
+                              "left": {
+                                "ast_class": "BinOp",
+                                "col_offset": 10,
+                                "end_col_offset": 36,
+                                "end_lineno": 8,
+                                "left": {
+                                  "ast_class": "Attribute",
+                                  "attr": "taux_couple",
+                                  "col_offset": 10,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 27,
+                                  "end_lineno": 8,
+                                  "lineno": 8,
+                                  "value": {
+                                    "ast_class": "Attribute",
+                                    "attr": "R0",
+                                    "col_offset": 10,
+                                    "ctx": {
+                                      "ast_class": "Load"
+                                    },
+                                    "end_col_offset": 15,
+                                    "end_lineno": 8,
+                                    "lineno": 8,
+                                    "value": {
+                                      "ast_class": "Name",
+                                      "col_offset": 10,
+                                      "ctx": {
+                                        "ast_class": "Load"
+                                      },
+                                      "end_col_offset": 12,
+                                      "end_lineno": 8,
+                                      "id": "al",
+                                      "lineno": 8
+                                    }
+                                  }
+                                },
+                                "lineno": 8,
+                                "op": {
+                                  "ast_class": "Mult"
+                                },
+                                "right": {
+                                  "ast_class": "Name",
+                                  "col_offset": 30,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 36,
+                                  "end_lineno": 8,
+                                  "id": "couple",
+                                  "lineno": 8
+                                }
+                              },
+                              "lineno": 8,
+                              "op": {
+                                "ast_class": "Mult"
+                              },
+                              "right": {
+                                "ast_class": "Compare",
+                                "col_offset": 40,
+                                "comparators": [
+                                  {
+                                    "ast_class": "Constant",
+                                    "col_offset": 53,
+                                    "end_col_offset": 54,
+                                    "end_lineno": 8,
+                                    "lineno": 8,
+                                    "value": 0
+                                  }
+                                ],
+                                "end_col_offset": 54,
+                                "end_lineno": 8,
+                                "left": {
+                                  "ast_class": "Name",
+                                  "col_offset": 40,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 49,
+                                  "end_lineno": 8,
+                                  "id": "al_nb_pac",
+                                  "lineno": 8
+                                },
+                                "lineno": 8,
+                                "ops": [
+                                  {
+                                    "ast_class": "Eq"
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          "lineno": 7,
+                          "op": {
+                            "ast_class": "Add"
+                          },
+                          "right": {
+                            "ast_class": "BinOp",
+                            "col_offset": 10,
+                            "end_col_offset": 43,
+                            "end_lineno": 9,
+                            "left": {
+                              "ast_class": "Attribute",
+                              "attr": "taux1pac",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 24,
+                              "end_lineno": 9,
+                              "lineno": 9,
+                              "value": {
+                                "ast_class": "Attribute",
+                                "attr": "R0",
+                                "col_offset": 10,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 15,
+                                "end_lineno": 9,
+                                "lineno": 9,
+                                "value": {
+                                  "ast_class": "Name",
+                                  "col_offset": 10,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 12,
+                                  "end_lineno": 9,
+                                  "id": "al",
+                                  "lineno": 9
+                                }
+                              }
+                            },
+                            "lineno": 9,
+                            "op": {
+                              "ast_class": "Mult"
+                            },
+                            "right": {
+                              "ast_class": "Compare",
+                              "col_offset": 28,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 41,
+                                  "end_col_offset": 42,
+                                  "end_lineno": 9,
+                                  "lineno": 9,
+                                  "value": 1
+                                }
+                              ],
+                              "end_col_offset": 42,
+                              "end_lineno": 9,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 28,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 37,
+                                "end_lineno": 9,
+                                "id": "al_nb_pac",
+                                "lineno": 9
+                              },
+                              "lineno": 9,
+                              "ops": [
+                                {
+                                  "ast_class": "Eq"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "lineno": 7,
+                        "op": {
+                          "ast_class": "Add"
+                        },
+                        "right": {
+                          "ast_class": "BinOp",
+                          "col_offset": 10,
+                          "end_col_offset": 43,
+                          "end_lineno": 10,
+                          "left": {
+                            "ast_class": "Attribute",
+                            "attr": "taux2pac",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 24,
+                            "end_lineno": 10,
+                            "lineno": 10,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "R0",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 15,
+                              "end_lineno": 10,
+                              "lineno": 10,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 10,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 12,
+                                "end_lineno": 10,
+                                "id": "al",
+                                "lineno": 10
+                              }
+                            }
+                          },
+                          "lineno": 10,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Compare",
+                            "col_offset": 28,
+                            "comparators": [
+                              {
+                                "ast_class": "Constant",
+                                "col_offset": 41,
+                                "end_col_offset": 42,
+                                "end_lineno": 10,
+                                "lineno": 10,
+                                "value": 2
+                              }
+                            ],
+                            "end_col_offset": 42,
+                            "end_lineno": 10,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 28,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 37,
+                              "end_lineno": 10,
+                              "id": "al_nb_pac",
+                              "lineno": 10
+                            },
+                            "lineno": 10,
+                            "ops": [
+                              {
+                                "ast_class": "Eq"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "lineno": 7,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 10,
+                        "end_col_offset": 43,
+                        "end_lineno": 11,
+                        "left": {
+                          "ast_class": "Attribute",
+                          "attr": "taux3pac",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 24,
+                          "end_lineno": 11,
+                          "lineno": 11,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "R0",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 15,
+                            "end_lineno": 11,
+                            "lineno": 11,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 10,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 12,
+                              "end_lineno": 11,
+                              "id": "al",
+                              "lineno": 11
+                            }
+                          }
+                        },
+                        "lineno": 11,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 28,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 41,
+                              "end_col_offset": 42,
+                              "end_lineno": 11,
+                              "lineno": 11,
+                              "value": 3
+                            }
+                          ],
+                          "end_col_offset": 42,
+                          "end_lineno": 11,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 28,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 37,
+                            "end_lineno": 11,
+                            "id": "al_nb_pac",
+                            "lineno": 11
+                          },
+                          "lineno": 11,
+                          "ops": [
+                            {
+                              "ast_class": "Eq"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "lineno": 7,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 43,
+                      "end_lineno": 12,
+                      "left": {
+                        "ast_class": "Attribute",
+                        "attr": "taux4pac",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 24,
+                        "end_lineno": 12,
+                        "lineno": 12,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "R0",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 15,
+                          "end_lineno": 12,
+                          "lineno": 12,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 10,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 12,
+                            "end_lineno": 12,
+                            "id": "al",
+                            "lineno": 12
+                          }
+                        }
+                      },
+                      "lineno": 12,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Compare",
+                        "col_offset": 28,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 41,
+                            "end_col_offset": 42,
+                            "end_lineno": 12,
+                            "lineno": 12,
+                            "value": 4
+                          }
+                        ],
+                        "end_col_offset": 42,
+                        "end_lineno": 12,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 28,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 37,
+                          "end_lineno": 12,
+                          "id": "al_nb_pac",
+                          "lineno": 12
+                        },
+                        "lineno": 12,
+                        "ops": [
+                          {
+                            "ast_class": "Eq"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "lineno": 7,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 43,
+                    "end_lineno": 13,
+                    "left": {
+                      "ast_class": "Attribute",
+                      "attr": "taux5pac",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 24,
+                      "end_lineno": 13,
+                      "lineno": 13,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "R0",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 12,
+                          "end_lineno": 13,
+                          "id": "al",
+                          "lineno": 13
+                        }
+                      }
+                    },
+                    "lineno": 13,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 28,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 41,
+                          "end_col_offset": 42,
+                          "end_lineno": 13,
+                          "lineno": 13,
+                          "value": 5
+                        }
+                      ],
+                      "end_col_offset": 42,
+                      "end_lineno": 13,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 28,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 37,
+                        "end_lineno": 13,
+                        "id": "al_nb_pac",
+                        "lineno": 13
+                      },
+                      "lineno": 13,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "lineno": 7,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 43,
+                  "end_lineno": 14,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "taux6pac",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 24,
+                    "end_lineno": 14,
+                    "lineno": 14,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "R0",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 15,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 12,
+                        "end_lineno": 14,
+                        "id": "al",
+                        "lineno": 14
+                      }
+                    }
+                  },
+                  "lineno": 14,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 28,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 41,
+                        "end_col_offset": 42,
+                        "end_lineno": 14,
+                        "lineno": 14,
+                        "value": 6
+                      }
+                    ],
+                    "end_col_offset": 42,
+                    "end_lineno": 14,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 28,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 37,
+                      "end_lineno": 14,
+                      "id": "al_nb_pac",
+                      "lineno": 14
+                    },
+                    "lineno": 14,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  }
+                }
+              },
+              "lineno": 7,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 65,
+                "end_lineno": 15,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 47,
+                  "end_lineno": 15,
+                  "left": {
+                    "ast_class": "Attribute",
+                    "attr": "taux_pac_supp",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 29,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "R0",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 15,
+                      "end_lineno": 15,
+                      "lineno": 15,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 12,
+                        "end_lineno": 15,
+                        "id": "al",
+                        "lineno": 15
+                      }
+                    }
+                  },
+                  "lineno": 15,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 33,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 45,
+                        "end_col_offset": 46,
+                        "end_lineno": 15,
+                        "lineno": 15,
+                        "value": 6
+                      }
+                    ],
+                    "end_col_offset": 46,
+                    "end_lineno": 15,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 33,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 42,
+                      "end_lineno": 15,
+                      "id": "al_nb_pac",
+                      "lineno": 15
+                    },
+                    "lineno": 15,
+                    "ops": [
+                      {
+                        "ast_class": "Gt"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 15,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 51,
+                  "end_col_offset": 64,
+                  "end_lineno": 15,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 51,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 60,
+                    "end_lineno": 15,
+                    "id": "al_nb_pac",
+                    "lineno": 15
+                  },
+                  "lineno": 15,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Constant",
+                    "col_offset": 63,
+                    "end_col_offset": 64,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": 6
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 13,
+            "end_lineno": 18,
+            "lineno": 18,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 13,
+              "end_lineno": 18,
+              "id": "R0",
+              "lineno": 18
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 13,
+        "end_lineno": 18,
+        "lineno": 1,
+        "name": "formula_2015_01_01"
+      },
+      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "parameters": [
+        "prestations.aides_logement.R0.taux1pac",
+        "prestations.aides_logement.R0.taux2pac",
+        "prestations.aides_logement.R0.taux3pac",
+        "prestations.aides_logement.R0.taux4pac",
+        "prestations.aides_logement.R0.taux5pac",
+        "prestations.aides_logement.R0.taux6pac",
+        "prestations.aides_logement.R0.taux_couple",
+        "prestations.aides_logement.R0.taux_pac_supp",
+        "prestations.aides_logement.R0.taux_seul"
+      ],
+      "source_code": "def formula_2015_01_01(famille, period, parameters):\n    al = parameters(period).prestations.aides_logement\n    couple = famille('al_couple', period)\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n\n    R0 = (\n        al.R0.taux_seul * not_(couple) * (al_nb_pac == 0)\n        + al.R0.taux_couple * couple * (al_nb_pac == 0)\n        + al.R0.taux1pac * (al_nb_pac == 1)\n        + al.R0.taux2pac * (al_nb_pac == 2)\n        + al.R0.taux3pac * (al_nb_pac == 3)\n        + al.R0.taux4pac * (al_nb_pac == 4)\n        + al.R0.taux5pac * (al_nb_pac == 5)\n        + al.R0.taux6pac * (al_nb_pac == 6)\n        + al.R0.taux_pac_supp * (al_nb_pac > 6) * (al_nb_pac - 6)\n        )\n\n    return R0\n",
+      "start_line_number": 1347,
+      "stop_line_number": 1365,
+      "variables": [
+        "al_couple",
+        "al_nb_personnes_a_charge"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Revenu de référence, basé sur la situation familiale, pris en compte dans le calcul des AL.",
+  "name": "aide_logement_R0",
+  "referring_variables": [
+    "aide_logement_participation_personnelle"
+  ],
+  "start_line_number": 1308,
+  "stop_line_number": 1365,
+  "value_type": "float"
+}

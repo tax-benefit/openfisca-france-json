@@ -1,0 +1,738 @@
+{
+  "default_value": 0.0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation_import_baremes_locaux.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 18,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 26,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 2,
+                "id": "code_INSEE_commune",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 32,
+                  "end_col_offset": 40,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "depcom"
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "first_month",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 42,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 48,
+                    "end_lineno": 2,
+                    "id": "period",
+                    "lineno": 2
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 25,
+              "end_col_offset": 61,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 25,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 2,
+                "id": "menage",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 56,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 9,
+                "end_lineno": 3,
+                "id": "annee",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "year",
+              "col_offset": 12,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 56,
+              "end_lineno": 3,
+              "lineno": 3,
+              "value": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 32,
+                    "end_col_offset": 42,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "first-of"
+                  },
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 44,
+                    "end_col_offset": 50,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "year"
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 12,
+                "end_col_offset": 51,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "offset",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 31,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "start",
+                    "col_offset": 12,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 24,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 18,
+                      "end_lineno": 3,
+                      "id": "period",
+                      "lineno": 3
+                    }
+                  }
+                },
+                "keywords": [],
+                "lineno": 3
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 144,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 4,
+                "id": "valeur_locative_moyenne_by_epci",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [],
+              "ast_class": "Call",
+              "col_offset": 38,
+              "end_col_offset": 144,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 38,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 79,
+                "end_lineno": 4,
+                "id": "preload_parametres_locaux_taxe_habitation",
+                "lineno": 4
+              },
+              "keywords": [
+                {
+                  "arg": "year",
+                  "ast_class": "keyword",
+                  "col_offset": 80,
+                  "end_col_offset": 92,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 87,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 92,
+                    "end_lineno": 4,
+                    "id": "annee",
+                    "lineno": 4
+                  }
+                },
+                {
+                  "arg": "variable_to_load",
+                  "ast_class": "keyword",
+                  "col_offset": 94,
+                  "end_col_offset": 143,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 113,
+                    "end_col_offset": 143,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "value": "valeur_locative_moyenne_epci"
+                  }
+                }
+              ],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 5,
+                "id": "default_value",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 20,
+              "end_col_offset": 21,
+              "end_lineno": 5,
+              "lineno": 5,
+              "value": 0
+            }
+          },
+          {
+            "ast_class": "If",
+            "body": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 108,
+                "end_lineno": 7,
+                "lineno": 7,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 15,
+                    "end_lineno": 7,
+                    "id": "montant",
+                    "lineno": 7
+                  }
+                ],
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "GeneratorExp",
+                      "col_offset": 27,
+                      "elt": {
+                        "ast_class": "Name",
+                        "col_offset": 28,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 41,
+                        "end_lineno": 7,
+                        "id": "default_value",
+                        "lineno": 7
+                      },
+                      "end_col_offset": 92,
+                      "end_lineno": 7,
+                      "generators": [
+                        {
+                          "ast_class": "comprehension",
+                          "ifs": [],
+                          "is_async": 0,
+                          "iter": {
+                            "ast_class": "Name",
+                            "col_offset": 73,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 91,
+                            "end_lineno": 7,
+                            "id": "code_INSEE_commune",
+                            "lineno": 7
+                          },
+                          "target": {
+                            "ast_class": "Name",
+                            "col_offset": 46,
+                            "ctx": {
+                              "ast_class": "Store"
+                            },
+                            "end_col_offset": 69,
+                            "end_lineno": 7,
+                            "id": "code_INSEE_commune_cell",
+                            "lineno": 7
+                          }
+                        }
+                      ],
+                      "lineno": 7
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 18,
+                  "end_col_offset": 108,
+                  "end_lineno": 7,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 18,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 26,
+                    "end_lineno": 7,
+                    "id": "fromiter",
+                    "lineno": 7
+                  },
+                  "keywords": [
+                    {
+                      "arg": "dtype",
+                      "ast_class": "keyword",
+                      "col_offset": 94,
+                      "end_col_offset": 107,
+                      "end_lineno": 7,
+                      "lineno": 7,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 102,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 107,
+                        "end_lineno": 7,
+                        "id": "float",
+                        "lineno": 7
+                      }
+                    }
+                  ],
+                  "lineno": 7
+                }
+              }
+            ],
+            "col_offset": 4,
+            "end_col_offset": 13,
+            "end_lineno": 15,
+            "lineno": 6,
+            "orelse": [
+              {
+                "ast_class": "Assign",
+                "col_offset": 8,
+                "end_col_offset": 13,
+                "end_lineno": 15,
+                "lineno": 9,
+                "targets": [
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Store"
+                    },
+                    "end_col_offset": 15,
+                    "end_lineno": 9,
+                    "id": "montant",
+                    "lineno": 9
+                  }
+                ],
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "GeneratorExp",
+                      "col_offset": 12,
+                      "elt": {
+                        "args": [
+                          {
+                            "ast_class": "IfExp",
+                            "body": {
+                              "ast_class": "Name",
+                              "col_offset": 52,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 75,
+                              "end_lineno": 11,
+                              "id": "code_INSEE_commune_cell",
+                              "lineno": 11
+                            },
+                            "col_offset": 52,
+                            "end_col_offset": 164,
+                            "end_lineno": 11,
+                            "lineno": 11,
+                            "orelse": {
+                              "args": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 156,
+                                  "end_col_offset": 163,
+                                  "end_lineno": 11,
+                                  "lineno": 11,
+                                  "value": "utf-8"
+                                }
+                              ],
+                              "ast_class": "Call",
+                              "col_offset": 125,
+                              "end_col_offset": 164,
+                              "end_lineno": 11,
+                              "func": {
+                                "ast_class": "Attribute",
+                                "attr": "decode",
+                                "col_offset": 125,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 155,
+                                "end_lineno": 11,
+                                "lineno": 11,
+                                "value": {
+                                  "ast_class": "Name",
+                                  "col_offset": 125,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 148,
+                                  "end_lineno": 11,
+                                  "id": "code_INSEE_commune_cell",
+                                  "lineno": 11
+                                }
+                              },
+                              "keywords": [],
+                              "lineno": 11
+                            },
+                            "test": {
+                              "args": [
+                                {
+                                  "ast_class": "Name",
+                                  "col_offset": 90,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 113,
+                                  "end_lineno": 11,
+                                  "id": "code_INSEE_commune_cell",
+                                  "lineno": 11
+                                },
+                                {
+                                  "ast_class": "Name",
+                                  "col_offset": 115,
+                                  "ctx": {
+                                    "ast_class": "Load"
+                                  },
+                                  "end_col_offset": 118,
+                                  "end_lineno": 11,
+                                  "id": "str",
+                                  "lineno": 11
+                                }
+                              ],
+                              "ast_class": "Call",
+                              "col_offset": 79,
+                              "end_col_offset": 119,
+                              "end_lineno": 11,
+                              "func": {
+                                "ast_class": "Name",
+                                "col_offset": 79,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 89,
+                                "end_lineno": 11,
+                                "id": "isinstance",
+                                "lineno": 11
+                              },
+                              "keywords": [],
+                              "lineno": 11
+                            }
+                          },
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 166,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 179,
+                            "end_lineno": 11,
+                            "id": "default_value",
+                            "lineno": 11
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 16,
+                        "end_col_offset": 180,
+                        "end_lineno": 11,
+                        "func": {
+                          "ast_class": "Attribute",
+                          "attr": "get",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 51,
+                          "end_lineno": 11,
+                          "lineno": 11,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 16,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 47,
+                            "end_lineno": 11,
+                            "id": "valeur_locative_moyenne_by_epci",
+                            "lineno": 11
+                          }
+                        },
+                        "keywords": [],
+                        "lineno": 11
+                      },
+                      "end_col_offset": 17,
+                      "end_lineno": 13,
+                      "generators": [
+                        {
+                          "ast_class": "comprehension",
+                          "ifs": [],
+                          "is_async": 0,
+                          "iter": {
+                            "ast_class": "Name",
+                            "col_offset": 47,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 65,
+                            "end_lineno": 12,
+                            "id": "code_INSEE_commune",
+                            "lineno": 12
+                          },
+                          "target": {
+                            "ast_class": "Name",
+                            "col_offset": 20,
+                            "ctx": {
+                              "ast_class": "Store"
+                            },
+                            "end_col_offset": 43,
+                            "end_lineno": 12,
+                            "id": "code_INSEE_commune_cell",
+                            "lineno": 12
+                          }
+                        }
+                      ],
+                      "lineno": 10
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 18,
+                  "end_col_offset": 13,
+                  "end_lineno": 15,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 18,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 26,
+                    "end_lineno": 9,
+                    "id": "fromiter",
+                    "lineno": 9
+                  },
+                  "keywords": [
+                    {
+                      "arg": "dtype",
+                      "ast_class": "keyword",
+                      "col_offset": 12,
+                      "end_col_offset": 25,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 20,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 25,
+                        "end_lineno": 14,
+                        "id": "float",
+                        "lineno": 14
+                      }
+                    }
+                  ],
+                  "lineno": 9
+                }
+              }
+            ],
+            "test": {
+              "ast_class": "Compare",
+              "col_offset": 7,
+              "comparators": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 42,
+                  "end_col_offset": 46,
+                  "end_lineno": 6,
+                  "lineno": 6
+                }
+              ],
+              "end_col_offset": 46,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 7,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 38,
+                "end_lineno": 6,
+                "id": "valeur_locative_moyenne_by_epci",
+                "lineno": 6
+              },
+              "lineno": 6,
+              "ops": [
+                {
+                  "ast_class": "Is"
+                }
+              ]
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 18,
+            "end_lineno": 16,
+            "lineno": 16,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 18,
+              "end_lineno": 16,
+              "id": "montant",
+              "lineno": 16
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 18,
+        "end_lineno": 16,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation_import_baremes_locaux.py",
+      "source_code": "def formula(menage, period):\n    code_INSEE_commune = menage('depcom', period.first_month)\n    annee = period.start.offset('first-of', 'year').year\n    valeur_locative_moyenne_by_epci = preload_parametres_locaux_taxe_habitation(year = annee, variable_to_load = 'valeur_locative_moyenne_epci')\n    default_value = 0\n    if valeur_locative_moyenne_by_epci is None:\n        montant = fromiter((default_value for code_INSEE_commune_cell in code_INSEE_commune), dtype = float)\n    else:\n        montant = fromiter(\n            (\n                valeur_locative_moyenne_by_epci.get(code_INSEE_commune_cell if isinstance(code_INSEE_commune_cell, str) else code_INSEE_commune_cell.decode('utf-8'), default_value)\n                for code_INSEE_commune_cell in code_INSEE_commune\n                ),\n            dtype = float,\n            )\n    return montant\n",
+      "start_line_number": 111,
+      "stop_line_number": 127,
+      "variables": [
+        "depcom"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Valeur locative moyenne utilisée pour le calcul des abattements de la taxe d'habitation de l'EPCI (Établissement Public de Coopération Intercommunale)",
+  "name": "valeur_locative_moyenne_th_epci",
+  "referring_variables": [
+    "abattement_personnes_condition_modeste_th_epci"
+  ],
+  "start_line_number": 104,
+  "stop_line_number": 127,
+  "value_type": "float"
+}

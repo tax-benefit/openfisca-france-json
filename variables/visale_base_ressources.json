@@ -1,0 +1,1170 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prestations/visale.py",
+  "formulas": {
+    "2016-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 29,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 31,
+              "end_col_offset": 37,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 39,
+              "end_col_offset": 49,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 6,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 6,
+              "lineno": 2,
+              "value": "\n    La documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\n    Cette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\n    Par conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 97,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 7,
+                "id": "revenus_individus",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 50,
+                      "end_col_offset": 87,
+                      "end_lineno": 7,
+                      "lineno": 7,
+                      "value": "visale_base_ressources_individuelle"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 89,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 95,
+                      "end_lineno": 7,
+                      "id": "period",
+                      "lineno": 7
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 35,
+                  "end_col_offset": 96,
+                  "end_lineno": 7,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 35,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 49,
+                    "end_lineno": 7,
+                    "lineno": 7,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 35,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 41,
+                      "end_lineno": 7,
+                      "id": "menage",
+                      "lineno": 7
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 24,
+              "end_col_offset": 97,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 24,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 24,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 30,
+                  "end_lineno": 7,
+                  "id": "menage",
+                  "lineno": 7
+                }
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 11,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 9,
+                "id": "ressources_foyer_fiscal",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "List",
+              "col_offset": 30,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "elts": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 37,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": "rente_viagere_titre_onereux"
+                }
+              ],
+              "end_col_offset": 9,
+              "end_lineno": 11,
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 21,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 13,
+                "id": "ressources_famille",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "ast_class": "List",
+              "col_offset": 25,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "elts": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 14,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "aeeh"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 12,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": "af"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "value": "asf"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 14,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "value": "aspa"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 12,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": "cf"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 19,
+                  "lineno": 19,
+                  "value": "ppa"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 20,
+                  "lineno": 20,
+                  "value": "rsa"
+                }
+              ],
+              "end_col_offset": 9,
+              "end_lineno": 21,
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 27,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 23,
+                "id": "ressources_famille_abattues",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "ast_class": "List",
+              "col_offset": 34,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "elts": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 24,
+                  "lineno": 24,
+                  "value": "alf"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 25,
+                  "lineno": 25,
+                  "value": "als"
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 26,
+                  "lineno": 26,
+                  "value": "apl"
+                }
+              ],
+              "end_col_offset": 9,
+              "end_lineno": 27,
+              "lineno": 23
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 32,
+            "lineno": 29,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 29,
+                "id": "revenus_foyers_fiscaux",
+                "lineno": 29
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "GeneratorExp",
+                  "col_offset": 32,
+                  "elt": {
+                    "args": [
+                      {
+                        "args": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 47,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 56,
+                            "end_lineno": 30,
+                            "id": "ressource",
+                            "lineno": 30
+                          },
+                          {
+                            "ast_class": "Attribute",
+                            "attr": "last_month",
+                            "col_offset": 58,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 75,
+                            "end_lineno": 30,
+                            "lineno": 30,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 58,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 64,
+                              "end_lineno": 30,
+                              "id": "period",
+                              "lineno": 30
+                            }
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 19,
+                        "end_col_offset": 76,
+                        "end_lineno": 30,
+                        "func": {
+                          "ast_class": "Attribute",
+                          "attr": "foyer_fiscal",
+                          "col_offset": 19,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 46,
+                          "end_lineno": 30,
+                          "lineno": 30,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "members",
+                            "col_offset": 19,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 33,
+                            "end_lineno": 30,
+                            "lineno": 30,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 19,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 25,
+                              "end_lineno": 30,
+                              "id": "menage",
+                              "lineno": 30
+                            }
+                          }
+                        },
+                        "keywords": [],
+                        "lineno": 30
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 8,
+                    "end_col_offset": 117,
+                    "end_lineno": 30,
+                    "func": {
+                      "ast_class": "Attribute",
+                      "attr": "sum",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 18,
+                      "end_lineno": 30,
+                      "lineno": 30,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 14,
+                        "end_lineno": 30,
+                        "id": "menage",
+                        "lineno": 30
+                      }
+                    },
+                    "keywords": [
+                      {
+                        "arg": "role",
+                        "ast_class": "keyword",
+                        "col_offset": 78,
+                        "end_col_offset": 116,
+                        "end_lineno": 30,
+                        "lineno": 30,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "DECLARANT_PRINCIPAL",
+                          "col_offset": 85,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 116,
+                          "end_lineno": 30,
+                          "lineno": 30,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 85,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 96,
+                            "end_lineno": 30,
+                            "id": "FoyerFiscal",
+                            "lineno": 30
+                          }
+                        }
+                      }
+                    ],
+                    "lineno": 30
+                  },
+                  "end_col_offset": 9,
+                  "end_lineno": 32,
+                  "generators": [
+                    {
+                      "ast_class": "comprehension",
+                      "ifs": [],
+                      "is_async": 0,
+                      "iter": {
+                        "ast_class": "Name",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 48,
+                        "end_lineno": 31,
+                        "id": "ressources_foyer_fiscal",
+                        "lineno": 31
+                      },
+                      "target": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Store"
+                        },
+                        "end_col_offset": 21,
+                        "end_lineno": 31,
+                        "id": "ressource",
+                        "lineno": 31
+                      }
+                    }
+                  ],
+                  "lineno": 29
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 29,
+              "end_col_offset": 9,
+              "end_lineno": 32,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 29,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 29,
+                "id": "sum",
+                "lineno": 29
+              },
+              "keywords": [],
+              "lineno": 29
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 37,
+            "lineno": 34,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 34,
+                "id": "revenus_familles",
+                "lineno": 34
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "GeneratorExp",
+                  "col_offset": 26,
+                  "elt": {
+                    "args": [
+                      {
+                        "args": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 42,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 51,
+                            "end_lineno": 35,
+                            "id": "ressource",
+                            "lineno": 35
+                          },
+                          {
+                            "ast_class": "Attribute",
+                            "attr": "last_month",
+                            "col_offset": 53,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 70,
+                            "end_lineno": 35,
+                            "lineno": 35,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 53,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 59,
+                              "end_lineno": 35,
+                              "id": "period",
+                              "lineno": 35
+                            }
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 19,
+                        "end_col_offset": 71,
+                        "end_lineno": 35,
+                        "func": {
+                          "ast_class": "Attribute",
+                          "attr": "famille",
+                          "col_offset": 19,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 41,
+                          "end_lineno": 35,
+                          "lineno": 35,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "members",
+                            "col_offset": 19,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 33,
+                            "end_lineno": 35,
+                            "lineno": 35,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 19,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 25,
+                              "end_lineno": 35,
+                              "id": "menage",
+                              "lineno": 35
+                            }
+                          }
+                        },
+                        "keywords": [],
+                        "lineno": 35
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 8,
+                    "end_col_offset": 98,
+                    "end_lineno": 35,
+                    "func": {
+                      "ast_class": "Attribute",
+                      "attr": "sum",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 18,
+                      "end_lineno": 35,
+                      "lineno": 35,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 14,
+                        "end_lineno": 35,
+                        "id": "menage",
+                        "lineno": 35
+                      }
+                    },
+                    "keywords": [
+                      {
+                        "arg": "role",
+                        "ast_class": "keyword",
+                        "col_offset": 73,
+                        "end_col_offset": 97,
+                        "end_lineno": 35,
+                        "lineno": 35,
+                        "value": {
+                          "ast_class": "Attribute",
+                          "attr": "DEMANDEUR",
+                          "col_offset": 80,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 97,
+                          "end_lineno": 35,
+                          "lineno": 35,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 80,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 87,
+                            "end_lineno": 35,
+                            "id": "Famille",
+                            "lineno": 35
+                          }
+                        }
+                      }
+                    ],
+                    "lineno": 35
+                  },
+                  "end_col_offset": 9,
+                  "end_lineno": 37,
+                  "generators": [
+                    {
+                      "ast_class": "comprehension",
+                      "ifs": [],
+                      "is_async": 0,
+                      "iter": {
+                        "ast_class": "Name",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 43,
+                        "end_lineno": 36,
+                        "id": "ressources_famille",
+                        "lineno": 36
+                      },
+                      "target": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Store"
+                        },
+                        "end_col_offset": 21,
+                        "end_lineno": 36,
+                        "id": "ressource",
+                        "lineno": 36
+                      }
+                    }
+                  ],
+                  "lineno": 34
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 23,
+              "end_col_offset": 9,
+              "end_lineno": 37,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 23,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 34,
+                "id": "sum",
+                "lineno": 34
+              },
+              "keywords": [],
+              "lineno": 34
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 42,
+            "lineno": 39,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 39,
+                "id": "revenus_familles_abattus",
+                "lineno": 39
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 31,
+              "end_col_offset": 75,
+              "end_lineno": 42,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "GeneratorExp",
+                    "col_offset": 34,
+                    "elt": {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 42,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 51,
+                              "end_lineno": 40,
+                              "id": "ressource",
+                              "lineno": 40
+                            },
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 53,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 59,
+                              "end_lineno": 40,
+                              "id": "period",
+                              "lineno": 40
+                            }
+                          ],
+                          "ast_class": "Call",
+                          "col_offset": 19,
+                          "end_col_offset": 60,
+                          "end_lineno": 40,
+                          "func": {
+                            "ast_class": "Attribute",
+                            "attr": "famille",
+                            "col_offset": 19,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 41,
+                            "end_lineno": 40,
+                            "lineno": 40,
+                            "value": {
+                              "ast_class": "Attribute",
+                              "attr": "members",
+                              "col_offset": 19,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 33,
+                              "end_lineno": 40,
+                              "lineno": 40,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 25,
+                                "end_lineno": 40,
+                                "id": "menage",
+                                "lineno": 40
+                              }
+                            }
+                          },
+                          "keywords": [],
+                          "lineno": 40
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 8,
+                      "end_col_offset": 87,
+                      "end_lineno": 40,
+                      "func": {
+                        "ast_class": "Attribute",
+                        "attr": "sum",
+                        "col_offset": 8,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 18,
+                        "end_lineno": 40,
+                        "lineno": 40,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 8,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 14,
+                          "end_lineno": 40,
+                          "id": "menage",
+                          "lineno": 40
+                        }
+                      },
+                      "keywords": [
+                        {
+                          "arg": "role",
+                          "ast_class": "keyword",
+                          "col_offset": 62,
+                          "end_col_offset": 86,
+                          "end_lineno": 40,
+                          "lineno": 40,
+                          "value": {
+                            "ast_class": "Attribute",
+                            "attr": "DEMANDEUR",
+                            "col_offset": 69,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 86,
+                            "end_lineno": 40,
+                            "lineno": 40,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 69,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 76,
+                              "end_lineno": 40,
+                              "id": "Famille",
+                              "lineno": 40
+                            }
+                          }
+                        }
+                      ],
+                      "lineno": 40
+                    },
+                    "end_col_offset": 9,
+                    "end_lineno": 42,
+                    "generators": [
+                      {
+                        "ast_class": "comprehension",
+                        "ifs": [],
+                        "is_async": 0,
+                        "iter": {
+                          "ast_class": "Name",
+                          "col_offset": 25,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 52,
+                          "end_lineno": 41,
+                          "id": "ressources_famille_abattues",
+                          "lineno": 41
+                        },
+                        "target": {
+                          "ast_class": "Name",
+                          "col_offset": 12,
+                          "ctx": {
+                            "ast_class": "Store"
+                          },
+                          "end_col_offset": 21,
+                          "end_lineno": 41,
+                          "id": "ressource",
+                          "lineno": 41
+                        }
+                      }
+                    ],
+                    "lineno": 39
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 31,
+                "end_col_offset": 9,
+                "end_lineno": 42,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 39,
+                  "id": "sum",
+                  "lineno": 39
+                },
+                "keywords": [],
+                "lineno": 39
+              },
+              "lineno": 39,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Attribute",
+                "attr": "quote_part_aides_logement",
+                "col_offset": 12,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 75,
+                "end_lineno": 42,
+                "lineno": 42,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "visale",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 49,
+                  "end_lineno": 42,
+                  "lineno": 42,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "prestations",
+                    "col_offset": 12,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 42,
+                    "end_lineno": 42,
+                    "lineno": 42,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 23,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 29,
+                          "end_lineno": 42,
+                          "id": "period",
+                          "lineno": 42
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 12,
+                      "end_col_offset": 30,
+                      "end_lineno": 42,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 22,
+                        "end_lineno": 42,
+                        "id": "parameters",
+                        "lineno": 42
+                      },
+                      "keywords": [],
+                      "lineno": 42
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 99,
+            "end_lineno": 44,
+            "lineno": 44,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 99,
+              "end_lineno": 44,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 72,
+                "end_lineno": 44,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 11,
+                  "end_col_offset": 53,
+                  "end_lineno": 44,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 28,
+                    "end_lineno": 44,
+                    "id": "revenus_individus",
+                    "lineno": 44
+                  },
+                  "lineno": 44,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 31,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 53,
+                    "end_lineno": 44,
+                    "id": "revenus_foyers_fiscaux",
+                    "lineno": 44
+                  }
+                },
+                "lineno": 44,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 56,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 72,
+                  "end_lineno": 44,
+                  "id": "revenus_familles",
+                  "lineno": 44
+                }
+              },
+              "lineno": 44,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 75,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 99,
+                "end_lineno": 44,
+                "id": "revenus_familles_abattus",
+                "lineno": 44
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 99,
+        "end_lineno": 44,
+        "lineno": 1,
+        "name": "formula_2016_01_01"
+      },
+      "documentation": "\nLa documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\nCette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\nPar conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n",
+      "file_path": "/openfisca_france/model/prestations/visale.py",
+      "parameters": [
+        "prestations.visale.quote_part_aides_logement"
+      ],
+      "source_code": "def formula_2016_01_01(menage, period, parameters):\n    '''\n    La documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\n    Cette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\n    Par conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n    '''\n    revenus_individus = menage.sum(menage.members('visale_base_ressources_individuelle', period))\n\n    ressources_foyer_fiscal = [\n        'rente_viagere_titre_onereux',\n        ]\n\n    ressources_famille = [\n        'aeeh',\n        'af',\n        'asf',\n        'aspa',\n        'cf',\n        'ppa',\n        'rsa',\n        ]\n\n    ressources_famille_abattues = [  # ressources de la famille à prendre en compte à 67% sur la base du loyer du logement pour lequel Visale est demandé\n        'alf',\n        'als',\n        'apl',\n        ]\n\n    revenus_foyers_fiscaux = sum(\n        menage.sum(menage.members.foyer_fiscal(ressource, period.last_month), role = FoyerFiscal.DECLARANT_PRINCIPAL)\n        for ressource in ressources_foyer_fiscal\n        )\n\n    revenus_familles = sum(\n        menage.sum(menage.members.famille(ressource, period.last_month), role = Famille.DEMANDEUR)\n        for ressource in ressources_famille\n        )\n\n    revenus_familles_abattus = sum(\n        menage.sum(menage.members.famille(ressource, period), role = Famille.DEMANDEUR)\n        for ressource in ressources_famille_abattues\n        ) * parameters(period).prestations.visale.quote_part_aides_logement\n\n    return revenus_individus + revenus_foyers_fiscaux + revenus_familles + revenus_familles_abattus\n",
+      "start_line_number": 82,
+      "stop_line_number": 126
+    }
+  },
+  "json_type": "number",
+  "label": "Revenus pris en compte pour l'éligibilité à la caution Visale",
+  "name": "visale_base_ressources",
+  "reference": [
+    "https://www.visale.fr/wp-content/uploads/2020/04/Visale-Ressources-Locataire_2020.pdf#page_7"
+  ],
+  "referring_variables": [
+    "visale_montant_max"
+  ],
+  "start_line_number": 75,
+  "stop_line_number": 126,
+  "value_type": "float"
+}

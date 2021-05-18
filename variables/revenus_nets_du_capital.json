@@ -1,0 +1,684 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/mesures.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 17,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 17,
+              "lineno": 2,
+              "value": "\n    Attention : les formules des calculs des prélèvements sociaux sur revenus du capital avant 2013 n'ont pas été verifiées et sont susceptibles de contenir des erreurs\n    Note : On part de l'assiette CSG sur les revenus du capital (avec base élargie pour les plus-values), à partir de\n    laquelle on fait les deux modifications ci-dessous :\n        (1) On enlève les rentes viagères à titre onéreux, qui sont dans cette\n            assiette CSG, mais sont déjà dans la variable pensions_nettes pour\n            le calcul du revenu disponible. De plus, le concept de rente foncière\n            retenu dans cette assiette était le montant après abattement, n'ayant\n            pas de fondement économique\n            Par conséquent, vu qu'on retranche la CSG sur les revenus du capital,\n            qui contient dans sa base les rentes viagèes à titre onéreux, cette variable\n            peut être négative\n        (2) On change de concept de plus-values (cf. docstring de la variable plus_values_base_large pour mieux comprendre)\n    Cette variable est définie au niveau individuel : on projette les revenus du foyer fiscal\n    sur le déclarant principal\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 40,
+            "end_lineno": 19,
+            "lineno": 19,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 19,
+                "id": "foyer_fiscal",
+                "lineno": 19
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "foyer_fiscal",
+              "col_offset": 19,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 40,
+              "end_lineno": 19,
+              "lineno": 19,
+              "value": {
+                "ast_class": "Name",
+                "col_offset": 19,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 19,
+                "id": "individu",
+                "lineno": 19
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 87,
+            "end_lineno": 20,
+            "lineno": 20,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 20,
+                "id": "assiette_csg_revenus_capital",
+                "lineno": 20
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 48,
+                  "end_col_offset": 78,
+                  "end_lineno": 20,
+                  "lineno": 20,
+                  "value": "assiette_csg_revenus_capital"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 80,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 86,
+                  "end_lineno": 20,
+                  "id": "period",
+                  "lineno": 20
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 35,
+              "end_col_offset": 87,
+              "end_lineno": 20,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 35,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 47,
+                "end_lineno": 20,
+                "id": "foyer_fiscal",
+                "lineno": 20
+              },
+              "keywords": [],
+              "lineno": 20
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 79,
+            "end_lineno": 21,
+            "lineno": 21,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 21,
+                "id": "assiette_csg_plus_values",
+                "lineno": 21
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 44,
+                  "end_col_offset": 70,
+                  "end_lineno": 21,
+                  "lineno": 21,
+                  "value": "assiette_csg_plus_values"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 72,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 78,
+                  "end_lineno": 21,
+                  "id": "period",
+                  "lineno": 21
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 31,
+              "end_col_offset": 79,
+              "end_lineno": 21,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 21,
+                "id": "foyer_fiscal",
+                "lineno": 21
+              },
+              "keywords": [],
+              "lineno": 21
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 22,
+            "lineno": 22,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 22,
+                "id": "plus_values_base_large",
+                "lineno": 22
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 42,
+                  "end_col_offset": 66,
+                  "end_lineno": 22,
+                  "lineno": 22,
+                  "value": "plus_values_base_large"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 68,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 74,
+                  "end_lineno": 22,
+                  "id": "period",
+                  "lineno": 22
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 29,
+              "end_col_offset": 75,
+              "end_lineno": 22,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 29,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 22,
+                "id": "foyer_fiscal",
+                "lineno": 22
+              },
+              "keywords": [],
+              "lineno": 22
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 93,
+            "end_lineno": 23,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 23,
+                "id": "rente_viagere_titre_onereux_net",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 51,
+                  "end_col_offset": 84,
+                  "end_lineno": 23,
+                  "lineno": 23,
+                  "value": "rente_viagere_titre_onereux_net"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 86,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 92,
+                  "end_lineno": 23,
+                  "id": "period",
+                  "lineno": 23
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 38,
+              "end_col_offset": 93,
+              "end_lineno": 23,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 38,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 23,
+                "id": "foyer_fiscal",
+                "lineno": 23
+              },
+              "keywords": [],
+              "lineno": 23
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 30,
+            "lineno": 25,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 53,
+                "end_lineno": 25,
+                "id": "revenus_du_capital_cap_avant_prelevements_sociaux",
+                "lineno": 25
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 41,
+              "end_lineno": 29,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 32,
+                "end_lineno": 28,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 34,
+                  "end_lineno": 27,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 36,
+                    "end_lineno": 26,
+                    "id": "assiette_csg_revenus_capital",
+                    "lineno": 26
+                  },
+                  "lineno": 26,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 34,
+                    "end_lineno": 27,
+                    "id": "assiette_csg_plus_values",
+                    "lineno": 27
+                  }
+                },
+                "lineno": 26,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 32,
+                  "end_lineno": 28,
+                  "id": "plus_values_base_large",
+                  "lineno": 28
+                }
+              },
+              "lineno": 26,
+              "op": {
+                "ast_class": "Sub"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 29,
+                "id": "rente_viagere_titre_onereux_net",
+                "lineno": 29
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 103,
+            "end_lineno": 32,
+            "lineno": 32,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 40,
+                "end_lineno": 32,
+                "id": "prelevements_sociaux_revenus_capital",
+                "lineno": 32
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 56,
+                  "end_col_offset": 94,
+                  "end_lineno": 32,
+                  "lineno": 32,
+                  "value": "prelevements_sociaux_revenus_capital"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 96,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 102,
+                  "end_lineno": 32,
+                  "id": "period",
+                  "lineno": 32
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 43,
+              "end_col_offset": 103,
+              "end_lineno": 32,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 43,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 55,
+                "end_lineno": 32,
+                "id": "foyer_fiscal",
+                "lineno": 32
+              },
+              "keywords": [],
+              "lineno": 32
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 37,
+            "lineno": 34,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 34,
+                "id": "revenus_foyer_fiscal",
+                "lineno": 34
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 46,
+              "end_lineno": 36,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 57,
+                "end_lineno": 35,
+                "id": "revenus_du_capital_cap_avant_prelevements_sociaux",
+                "lineno": 35
+              },
+              "lineno": 35,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 46,
+                "end_lineno": 36,
+                "id": "prelevements_sociaux_revenus_capital",
+                "lineno": 36
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 109,
+            "end_lineno": 38,
+            "lineno": 38,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 38,
+                "id": "revenus_foyer_fiscal_projetes",
+                "lineno": 38
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 36,
+              "end_col_offset": 109,
+              "end_lineno": 38,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 56,
+                "end_lineno": 38,
+                "id": "revenus_foyer_fiscal",
+                "lineno": 38
+              },
+              "lineno": 38,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 77,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 108,
+                    "end_lineno": 38,
+                    "lineno": 38,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 77,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 88,
+                      "end_lineno": 38,
+                      "id": "FoyerFiscal",
+                      "lineno": 38
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 59,
+                "end_col_offset": 109,
+                "end_lineno": 38,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "has_role",
+                  "col_offset": 59,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 38,
+                  "lineno": 38,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 59,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 67,
+                    "end_lineno": 38,
+                    "id": "individu",
+                    "lineno": 38
+                  }
+                },
+                "keywords": [],
+                "lineno": 38
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 40,
+            "end_lineno": 40,
+            "lineno": 40,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 40,
+              "end_lineno": 40,
+              "id": "revenus_foyer_fiscal_projetes",
+              "lineno": 40
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 40,
+        "end_lineno": 40,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nAttention : les formules des calculs des prélèvements sociaux sur revenus du capital avant 2013 n'ont pas été verifiées et sont susceptibles de contenir des erreurs\nNote : On part de l'assiette CSG sur les revenus du capital (avec base élargie pour les plus-values), à partir de\nlaquelle on fait les deux modifications ci-dessous :\n    (1) On enlève les rentes viagères à titre onéreux, qui sont dans cette\n        assiette CSG, mais sont déjà dans la variable pensions_nettes pour\n        le calcul du revenu disponible. De plus, le concept de rente foncière\n        retenu dans cette assiette était le montant après abattement, n'ayant\n        pas de fondement économique\n        Par conséquent, vu qu'on retranche la CSG sur les revenus du capital,\n        qui contient dans sa base les rentes viagèes à titre onéreux, cette variable\n        peut être négative\n    (2) On change de concept de plus-values (cf. docstring de la variable plus_values_base_large pour mieux comprendre)\nCette variable est définie au niveau individuel : on projette les revenus du foyer fiscal\nsur le déclarant principal\n",
+      "file_path": "/openfisca_france/model/mesures.py",
+      "source_code": "def formula(individu, period):\n    '''\n    Attention : les formules des calculs des prélèvements sociaux sur revenus du capital avant 2013 n'ont pas été verifiées et sont susceptibles de contenir des erreurs\n    Note : On part de l'assiette CSG sur les revenus du capital (avec base élargie pour les plus-values), à partir de\n    laquelle on fait les deux modifications ci-dessous :\n        (1) On enlève les rentes viagères à titre onéreux, qui sont dans cette\n            assiette CSG, mais sont déjà dans la variable pensions_nettes pour\n            le calcul du revenu disponible. De plus, le concept de rente foncière\n            retenu dans cette assiette était le montant après abattement, n'ayant\n            pas de fondement économique\n            Par conséquent, vu qu'on retranche la CSG sur les revenus du capital,\n            qui contient dans sa base les rentes viagèes à titre onéreux, cette variable\n            peut être négative\n        (2) On change de concept de plus-values (cf. docstring de la variable plus_values_base_large pour mieux comprendre)\n    Cette variable est définie au niveau individuel : on projette les revenus du foyer fiscal\n    sur le déclarant principal\n    '''\n\n    foyer_fiscal = individu.foyer_fiscal\n    assiette_csg_revenus_capital = foyer_fiscal('assiette_csg_revenus_capital', period)\n    assiette_csg_plus_values = foyer_fiscal('assiette_csg_plus_values', period)\n    plus_values_base_large = foyer_fiscal('plus_values_base_large', period)\n    rente_viagere_titre_onereux_net = foyer_fiscal('rente_viagere_titre_onereux_net', period)\n\n    revenus_du_capital_cap_avant_prelevements_sociaux = (\n        assiette_csg_revenus_capital\n        - assiette_csg_plus_values\n        + plus_values_base_large\n        - rente_viagere_titre_onereux_net\n        )\n\n    prelevements_sociaux_revenus_capital = foyer_fiscal('prelevements_sociaux_revenus_capital', period)\n\n    revenus_foyer_fiscal = (\n        revenus_du_capital_cap_avant_prelevements_sociaux\n        + prelevements_sociaux_revenus_capital\n        )\n    revenus_foyer_fiscal_projetes = revenus_foyer_fiscal * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return revenus_foyer_fiscal_projetes\n",
+      "start_line_number": 259,
+      "stop_line_number": 299,
+      "variables": [
+        "assiette_csg_plus_values",
+        "assiette_csg_revenus_capital",
+        "plus_values_base_large",
+        "prelevements_sociaux_revenus_capital",
+        "rente_viagere_titre_onereux_net"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Revenus du capital nets de prélèvements sociaux",
+  "name": "revenus_nets_du_capital",
+  "reference": [
+    "http://fr.wikipedia.org/wiki/Revenu#Revenu_du_Capital"
+  ],
+  "start_line_number": 252,
+  "stop_line_number": 299,
+  "value_type": "float"
+}

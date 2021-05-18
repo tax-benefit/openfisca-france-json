@@ -1,0 +1,790 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 2,
+                "id": "salarie_regime_alsace_moselle",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 76,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "salarie_regime_alsace_moselle"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 85,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 11,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 4,
+                "id": "cotisation_regime_general",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 5,
+                  "id": "individu",
+                  "lineno": 5
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 14,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 7,
+                  "id": "parameters",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 32,
+              "end_col_offset": 9,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 32,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 4,
+                "id": "apply_bareme",
+                "lineno": 4
+              },
+              "keywords": [
+                {
+                  "arg": "cotisation_type",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 35,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 35,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": "salarie"
+                  }
+                },
+                {
+                  "arg": "bareme_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 31,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 22,
+                    "end_col_offset": 31,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": "maladie"
+                  }
+                },
+                {
+                  "arg": "variable_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 38,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 24,
+                    "end_col_offset": 38,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": "mmid_salarie"
+                  }
+                }
+              ],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 20,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 13,
+                "id": "cotisation_regime_alsace_moselle",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 14,
+                  "id": "individu",
+                  "lineno": 14
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 14,
+                  "end_lineno": 15,
+                  "id": "period",
+                  "lineno": 15
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 16,
+                  "id": "parameters",
+                  "lineno": 16
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 39,
+              "end_col_offset": 9,
+              "end_lineno": 20,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 39,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 51,
+                "end_lineno": 13,
+                "id": "apply_bareme",
+                "lineno": 13
+              },
+              "keywords": [
+                {
+                  "arg": "cotisation_type",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 35,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 35,
+                    "end_lineno": 17,
+                    "lineno": 17,
+                    "value": "salarie"
+                  }
+                },
+                {
+                  "arg": "bareme_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 46,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 22,
+                    "end_col_offset": 46,
+                    "end_lineno": 18,
+                    "lineno": 18,
+                    "value": "maladie_alsace_moselle"
+                  }
+                },
+                {
+                  "arg": "variable_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 38,
+                  "end_lineno": 19,
+                  "lineno": 19,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 24,
+                    "end_col_offset": 38,
+                    "end_lineno": 19,
+                    "lineno": 19,
+                    "value": "mmid_salarie"
+                  }
+                }
+              ],
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 109,
+            "end_lineno": 22,
+            "lineno": 22,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 22,
+                "id": "cotisation",
+                "lineno": 22
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 17,
+              "end_col_offset": 109,
+              "end_lineno": 22,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 22,
+                "id": "cotisation_regime_general",
+                "lineno": 22
+              },
+              "lineno": 22,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 45,
+                "end_col_offset": 109,
+                "end_lineno": 22,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 45,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 74,
+                  "end_lineno": 22,
+                  "id": "salarie_regime_alsace_moselle",
+                  "lineno": 22
+                },
+                "lineno": 22,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 77,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 109,
+                  "end_lineno": 22,
+                  "id": "cotisation_regime_alsace_moselle",
+                  "lineno": 22
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 24,
+            "lineno": 24,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 21,
+              "end_lineno": 24,
+              "id": "cotisation",
+              "lineno": 24
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 21,
+        "end_lineno": 24,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "source_code": "def formula(individu, period, parameters):\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n\n    cotisation_regime_general = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie_alsace_moselle',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation = cotisation_regime_general + salarie_regime_alsace_moselle * cotisation_regime_alsace_moselle\n\n    return cotisation\n",
+      "start_line_number": 646,
+      "stop_line_number": 670,
+      "variables": [
+        "salarie_regime_alsace_moselle"
+      ]
+    },
+    "2018-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 25,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 27,
+              "end_col_offset": 33,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 35,
+              "end_col_offset": 45,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 4,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 4,
+              "lineno": 2,
+              "value": "\n    La cotisation maladie (hors Alsace-Moselle) disparaît à partir du 1er janvier 2018\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 5,
+                "id": "salarie_regime_alsace_moselle",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 76,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "salarie_regime_alsace_moselle"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 85,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 13,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 6,
+                "id": "cotisation_regime_alsace_moselle",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 7,
+                  "id": "individu",
+                  "lineno": 7
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 14,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 9,
+                  "id": "parameters",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 39,
+              "end_col_offset": 9,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 39,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 51,
+                "end_lineno": 6,
+                "id": "apply_bareme",
+                "lineno": 6
+              },
+              "keywords": [
+                {
+                  "arg": "cotisation_type",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 35,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 35,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": "salarie"
+                  }
+                },
+                {
+                  "arg": "bareme_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 46,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 22,
+                    "end_col_offset": 46,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": "maladie_alsace_moselle"
+                  }
+                },
+                {
+                  "arg": "variable_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 38,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 24,
+                    "end_col_offset": 38,
+                    "end_lineno": 12,
+                    "lineno": 12,
+                    "value": "mmid_salarie"
+                  }
+                }
+              ],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 81,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 15,
+                "id": "cotisation",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 17,
+              "end_col_offset": 81,
+              "end_lineno": 15,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 46,
+                "end_lineno": 15,
+                "id": "salarie_regime_alsace_moselle",
+                "lineno": 15
+              },
+              "lineno": 15,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 49,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 81,
+                "end_lineno": 15,
+                "id": "cotisation_regime_alsace_moselle",
+                "lineno": 15
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 17,
+            "lineno": 17,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 21,
+              "end_lineno": 17,
+              "id": "cotisation",
+              "lineno": 17
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 21,
+        "end_lineno": 17,
+        "lineno": 1,
+        "name": "formula_2018"
+      },
+      "documentation": "\nLa cotisation maladie (hors Alsace-Moselle) disparaît à partir du 1er janvier 2018\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "source_code": "def formula_2018(individu, period, parameters):\n    \"\"\"\n    La cotisation maladie (hors Alsace-Moselle) disparaît à partir du 1er janvier 2018\n    \"\"\"\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie_alsace_moselle',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation = salarie_regime_alsace_moselle * cotisation_regime_alsace_moselle\n\n    return cotisation\n",
+      "start_line_number": 628,
+      "stop_line_number": 645,
+      "variables": [
+        "salarie_regime_alsace_moselle"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Cotisation maladie (salarié)",
+  "name": "mmid_salarie",
+  "referring_variables": [
+    "cotisations_salariales_non_contributives"
+  ],
+  "start_line_number": 622,
+  "stop_line_number": 670,
+  "value_type": "float"
+}

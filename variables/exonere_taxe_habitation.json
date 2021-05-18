@@ -1,0 +1,1749 @@
+{
+  "default_value": false,
+  "definition_period": "year",
+  "dtype": "bool_",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+  "formulas": {
+    "2017-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 29,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 31,
+              "end_col_offset": 37,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 39,
+              "end_col_offset": 49,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 9,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 9,
+              "lineno": 2,
+              "value": "\n    Hypothèses :\n        (1) pour la condition de plus de 60 ans ou veuf, on regarde seulement la personne de référence du ménage\n        (2) pour la condition relative à l'ASPA l'ASI et l'AAH, on fait la somme de ces prestations à l'échelle du ménage\n        (3) pour la condition relative à l'ISF-IFI, on fait la somme de ces impôts à l'échelle du ménage\n        (4) on ne prend pas en compte les prolongements temporaires d'exonération pour certains contribuables\n            ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 32,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 10,
+                "id": "janvier",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "first_month",
+              "col_offset": 14,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 32,
+              "end_lineno": 10,
+              "lineno": 10,
+              "value": {
+                "ast_class": "Name",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 10,
+                "id": "period",
+                "lineno": 10
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 76,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 12,
+                "id": "age_personne_de_reference",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 61,
+                  "end_col_offset": 66,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": "age"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 68,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 75,
+                  "end_lineno": 12,
+                  "id": "janvier",
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 32,
+              "end_col_offset": 76,
+              "end_lineno": 12,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "personne_de_reference",
+                "col_offset": 32,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 60,
+                "end_lineno": 12,
+                "lineno": 12,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 32,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 38,
+                  "end_lineno": 12,
+                  "id": "menage",
+                  "lineno": 12
+                }
+              },
+              "keywords": [],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 50,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 13,
+                "id": "age_conjoint",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 40,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": "age"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 49,
+                  "end_lineno": 13,
+                  "id": "janvier",
+                  "lineno": 13
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 19,
+              "end_col_offset": 50,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "conjoint",
+                "col_offset": 19,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 13,
+                "lineno": 13,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 19,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 25,
+                  "end_lineno": 13,
+                  "id": "menage",
+                  "lineno": 13
+                }
+              },
+              "keywords": [],
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 76,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 14,
+                "id": "statut_marital",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 50,
+                  "end_col_offset": 66,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "statut_marital"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 68,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 75,
+                  "end_lineno": 14,
+                  "id": "janvier",
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 76,
+              "end_lineno": 14,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "personne_de_reference",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 49,
+                "end_lineno": 14,
+                "lineno": 14,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 27,
+                  "end_lineno": 14,
+                  "id": "menage",
+                  "lineno": 14
+                }
+              },
+              "keywords": [],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 16,
+            "lineno": 16,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 9,
+                "end_lineno": 16,
+                "id": "aah_i",
+                "lineno": 16
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 27,
+                  "end_col_offset": 32,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "value": "aah"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 16,
+                  "id": "period",
+                  "lineno": 16
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 12,
+              "end_col_offset": 58,
+              "end_lineno": 16,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 12,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 16,
+                "lineno": 16,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 16,
+                  "id": "menage",
+                  "lineno": 16
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "options",
+                  "ast_class": "keyword",
+                  "col_offset": 42,
+                  "end_col_offset": 57,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "value": {
+                    "ast_class": "List",
+                    "col_offset": 52,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "elts": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 53,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 56,
+                        "end_lineno": 16,
+                        "id": "ADD",
+                        "lineno": 16
+                      }
+                    ],
+                    "end_col_offset": 57,
+                    "end_lineno": 16,
+                    "lineno": 16
+                  }
+                }
+              ],
+              "lineno": 16
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 17,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 9,
+                "end_lineno": 17,
+                "id": "asi_i",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 27,
+                  "end_col_offset": 32,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "value": "asi"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 34,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 17,
+                  "id": "period",
+                  "lineno": 17
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 12,
+              "end_col_offset": 58,
+              "end_lineno": 17,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 12,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 17,
+                "lineno": 17,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 17,
+                  "id": "menage",
+                  "lineno": 17
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "options",
+                  "ast_class": "keyword",
+                  "col_offset": 42,
+                  "end_col_offset": 57,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "value": {
+                    "ast_class": "List",
+                    "col_offset": 52,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "elts": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 53,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 56,
+                        "end_lineno": 17,
+                        "id": "ADD",
+                        "lineno": 17
+                      }
+                    ],
+                    "end_col_offset": 57,
+                    "end_lineno": 17,
+                    "lineno": 17
+                  }
+                }
+              ],
+              "lineno": 17
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 68,
+            "end_lineno": 18,
+            "lineno": 18,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 18,
+                "id": "aspa_i",
+                "lineno": 18
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 36,
+                  "end_col_offset": 42,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": "aspa"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 44,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 50,
+                  "end_lineno": 18,
+                  "id": "period",
+                  "lineno": 18
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 68,
+              "end_lineno": 18,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "famille",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 18,
+                "lineno": 18,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 13,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 27,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 13,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 19,
+                    "end_lineno": 18,
+                    "id": "menage",
+                    "lineno": 18
+                  }
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "options",
+                  "ast_class": "keyword",
+                  "col_offset": 52,
+                  "end_col_offset": 67,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": {
+                    "ast_class": "List",
+                    "col_offset": 62,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "elts": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 63,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 66,
+                        "end_lineno": 18,
+                        "id": "ADD",
+                        "lineno": 18
+                      }
+                    ],
+                    "end_col_offset": 67,
+                    "end_lineno": 18,
+                    "lineno": 18
+                  }
+                }
+              ],
+              "lineno": 18
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 27,
+            "end_lineno": 19,
+            "lineno": 19,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 19,
+                "id": "aah",
+                "lineno": 19
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 26,
+                  "end_lineno": 19,
+                  "id": "aah_i",
+                  "lineno": 19
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 27,
+              "end_lineno": 19,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 19,
+                "lineno": 19,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 19,
+                  "id": "menage",
+                  "lineno": 19
+                }
+              },
+              "keywords": [],
+              "lineno": 19
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 27,
+            "end_lineno": 20,
+            "lineno": 20,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 20,
+                "id": "asi",
+                "lineno": 20
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 26,
+                  "end_lineno": 20,
+                  "id": "asi_i",
+                  "lineno": 20
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 27,
+              "end_lineno": 20,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 20,
+                "lineno": 20,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 20,
+                  "id": "menage",
+                  "lineno": 20
+                }
+              },
+              "keywords": [],
+              "lineno": 20
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 55,
+            "end_lineno": 21,
+            "lineno": 21,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 21,
+                "id": "aspa",
+                "lineno": 21
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 22,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 28,
+                  "end_lineno": 21,
+                  "id": "aspa_i",
+                  "lineno": 21
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 55,
+              "end_lineno": 21,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 21,
+                "lineno": 21,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 17,
+                  "end_lineno": 21,
+                  "id": "menage",
+                  "lineno": 21
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 30,
+                  "end_col_offset": 54,
+                  "end_lineno": 21,
+                  "lineno": 21,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DEMANDEUR",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 54,
+                    "end_lineno": 21,
+                    "lineno": 21,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 37,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 21,
+                      "id": "Famille",
+                      "lineno": 21
+                    }
+                  }
+                }
+              ],
+              "lineno": 21
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 72,
+            "end_lineno": 23,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 23,
+                "id": "isf_ifi_i",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 44,
+                  "end_col_offset": 53,
+                  "end_lineno": 23,
+                  "lineno": 23,
+                  "value": "isf_ifi"
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "last_year",
+                  "col_offset": 55,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 71,
+                  "end_lineno": 23,
+                  "lineno": 23,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 55,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 61,
+                    "end_lineno": 23,
+                    "id": "period",
+                    "lineno": 23
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 72,
+              "end_lineno": 23,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "foyer_fiscal",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 23,
+                "lineno": 23,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 30,
+                  "end_lineno": 23,
+                  "lineno": 23,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 22,
+                    "end_lineno": 23,
+                    "id": "menage",
+                    "lineno": 23
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 23
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 75,
+            "end_lineno": 24,
+            "lineno": 24,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 24,
+                "id": "isf_ifi",
+                "lineno": 24
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 25,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 34,
+                  "end_lineno": 24,
+                  "id": "isf_ifi_i",
+                  "lineno": 24
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 75,
+              "end_lineno": 24,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 24,
+                "end_lineno": 24,
+                "lineno": 24,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 14,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 24,
+                  "id": "menage",
+                  "lineno": 24
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 36,
+                  "end_col_offset": 74,
+                  "end_lineno": 24,
+                  "lineno": 24,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 43,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 74,
+                    "end_lineno": 24,
+                    "lineno": 24,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 43,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 54,
+                      "end_lineno": 24,
+                      "id": "FoyerFiscal",
+                      "lineno": 24
+                    }
+                  }
+                }
+              ],
+              "lineno": 24
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 104,
+            "end_lineno": 26,
+            "lineno": 26,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 26,
+                "id": "condition_rfr_exoneration_th_i",
+                "lineno": 26
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 65,
+                  "end_col_offset": 95,
+                  "end_lineno": 26,
+                  "lineno": 26,
+                  "value": "condition_rfr_exoneration_th"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 97,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 103,
+                  "end_lineno": 26,
+                  "id": "period",
+                  "lineno": 26
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 37,
+              "end_col_offset": 104,
+              "end_lineno": 26,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "foyer_fiscal",
+                "col_offset": 37,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 64,
+                "end_lineno": 26,
+                "lineno": 26,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 37,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 51,
+                  "end_lineno": 26,
+                  "lineno": 26,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 43,
+                    "end_lineno": 26,
+                    "id": "menage",
+                    "lineno": 26
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 26
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 77,
+            "end_lineno": 27,
+            "lineno": 27,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 27,
+                "id": "condition_rfr_exoneration_th",
+                "lineno": 27
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 27,
+                  "id": "condition_rfr_exoneration_th_i",
+                  "lineno": 27
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 35,
+              "end_col_offset": 77,
+              "end_lineno": 27,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "all",
+                "col_offset": 35,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 27,
+                "lineno": 27,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 35,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 41,
+                  "end_lineno": 27,
+                  "id": "menage",
+                  "lineno": 27
+                }
+              },
+              "keywords": [],
+              "lineno": 27
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 29,
+            "lineno": 29,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 5,
+                "end_lineno": 29,
+                "id": "P",
+                "lineno": 29
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "taxe_habitation",
+              "col_offset": 8,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 58,
+              "end_lineno": 29,
+              "lineno": 29,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "taxation_locale",
+                "col_offset": 8,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 29,
+                "lineno": 29,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 29,
+                      "id": "period",
+                      "lineno": 29
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 26,
+                  "end_lineno": 29,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 18,
+                    "end_lineno": 29,
+                    "id": "parameters",
+                    "lineno": 29
+                  },
+                  "keywords": [],
+                  "lineno": 29
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 60,
+            "end_lineno": 31,
+            "lineno": 31,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 31,
+                "id": "exon_non_soumis_a_condition_rfr",
+                "lineno": 31
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 38,
+              "end_col_offset": 60,
+              "end_lineno": 31,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 39,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 45,
+                    "end_col_offset": 46,
+                    "end_lineno": 31,
+                    "lineno": 31,
+                    "value": 0
+                  }
+                ],
+                "end_col_offset": 46,
+                "end_lineno": 31,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 39,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 42,
+                  "end_lineno": 31,
+                  "id": "asi",
+                  "lineno": 31
+                },
+                "lineno": 31,
+                "ops": [
+                  {
+                    "ast_class": "Gt"
+                  }
+                ]
+              },
+              "lineno": 31,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 51,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 58,
+                    "end_col_offset": 59,
+                    "end_lineno": 31,
+                    "lineno": 31,
+                    "value": 0
+                  }
+                ],
+                "end_col_offset": 59,
+                "end_lineno": 31,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 51,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 55,
+                  "end_lineno": 31,
+                  "id": "aspa",
+                  "lineno": 31
+                },
+                "lineno": 31,
+                "ops": [
+                  {
+                    "ast_class": "Gt"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 191,
+            "end_lineno": 32,
+            "lineno": 32,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 32,
+                "id": "exon_soumis_a_condition_rfr",
+                "lineno": 32
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 34,
+              "end_col_offset": 191,
+              "end_lineno": 32,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 34,
+                "end_col_offset": 179,
+                "end_lineno": 32,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 35,
+                  "end_col_offset": 161,
+                  "end_lineno": 32,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 35,
+                    "end_col_offset": 115,
+                    "end_lineno": 32,
+                    "left": {
+                      "ast_class": "Compare",
+                      "col_offset": 36,
+                      "comparators": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "exon_age_min",
+                          "col_offset": 65,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 79,
+                          "end_lineno": 32,
+                          "lineno": 32,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 65,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 66,
+                            "end_lineno": 32,
+                            "id": "P",
+                            "lineno": 32
+                          }
+                        }
+                      ],
+                      "end_col_offset": 79,
+                      "end_lineno": 32,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 36,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 61,
+                        "end_lineno": 32,
+                        "id": "age_personne_de_reference",
+                        "lineno": 32
+                      },
+                      "lineno": 32,
+                      "ops": [
+                        {
+                          "ast_class": "GtE"
+                        }
+                      ]
+                    },
+                    "lineno": 32,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 84,
+                      "comparators": [
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "exon_age_min",
+                          "col_offset": 100,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 114,
+                          "end_lineno": 32,
+                          "lineno": 32,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 100,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 101,
+                            "end_lineno": 32,
+                            "id": "P",
+                            "lineno": 32
+                          }
+                        }
+                      ],
+                      "end_col_offset": 114,
+                      "end_lineno": 32,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 84,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 96,
+                        "end_lineno": 32,
+                        "id": "age_conjoint",
+                        "lineno": 32
+                      },
+                      "lineno": 32,
+                      "ops": [
+                        {
+                          "ast_class": "GtE"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 32,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 119,
+                    "comparators": [
+                      {
+                        "ast_class": "Attribute",
+                        "attr": "veuf",
+                        "col_offset": 137,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 160,
+                        "end_lineno": 32,
+                        "lineno": 32,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 137,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 155,
+                          "end_lineno": 32,
+                          "id": "TypesStatutMarital",
+                          "lineno": 32
+                        }
+                      }
+                    ],
+                    "end_col_offset": 160,
+                    "end_lineno": 32,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 119,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 133,
+                      "end_lineno": 32,
+                      "id": "statut_marital",
+                      "lineno": 32
+                    },
+                    "lineno": 32,
+                    "ops": [
+                      {
+                        "ast_class": "Eq"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 32,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Compare",
+                  "col_offset": 166,
+                  "comparators": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 177,
+                      "end_col_offset": 178,
+                      "end_lineno": 32,
+                      "lineno": 32,
+                      "value": 0
+                    }
+                  ],
+                  "end_col_offset": 178,
+                  "end_lineno": 32,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 166,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 173,
+                    "end_lineno": 32,
+                    "id": "isf_ifi",
+                    "lineno": 32
+                  },
+                  "lineno": 32,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                }
+              },
+              "lineno": 32,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 183,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 189,
+                    "end_col_offset": 190,
+                    "end_lineno": 32,
+                    "lineno": 32,
+                    "value": 0
+                  }
+                ],
+                "end_col_offset": 190,
+                "end_lineno": 32,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 183,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 186,
+                  "end_lineno": 32,
+                  "id": "aah",
+                  "lineno": 32
+                },
+                "lineno": 32,
+                "ops": [
+                  {
+                    "ast_class": "Gt"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 103,
+            "end_lineno": 33,
+            "lineno": 33,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 33,
+                "id": "exon",
+                "lineno": 33
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 103,
+              "end_lineno": 33,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 33,
+                "id": "exon_non_soumis_a_condition_rfr",
+                "lineno": 33
+              },
+              "lineno": 33,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 45,
+                "end_col_offset": 103,
+                "end_lineno": 33,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 45,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 72,
+                  "end_lineno": 33,
+                  "id": "exon_soumis_a_condition_rfr",
+                  "lineno": 33
+                },
+                "lineno": 33,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 75,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 103,
+                  "end_lineno": 33,
+                  "id": "condition_rfr_exoneration_th",
+                  "lineno": 33
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 15,
+            "end_lineno": 34,
+            "lineno": 34,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 15,
+              "end_lineno": 34,
+              "id": "exon",
+              "lineno": 34
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 15,
+        "end_lineno": 34,
+        "lineno": 1,
+        "name": "formula_2017_01_01"
+      },
+      "documentation": "\nHypothèses :\n    (1) pour la condition de plus de 60 ans ou veuf, on regarde seulement la personne de référence du ménage\n    (2) pour la condition relative à l'ASPA l'ASI et l'AAH, on fait la somme de ces prestations à l'échelle du ménage\n    (3) pour la condition relative à l'ISF-IFI, on fait la somme de ces impôts à l'échelle du ménage\n    (4) on ne prend pas en compte les prolongements temporaires d'exonération pour certains contribuables\n        ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n",
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "parameters": [
+        "taxation_locale.taxe_habitation.exon_age_min"
+      ],
+      "source_code": "def formula_2017_01_01(menage, period, parameters):\n    '''\n    Hypothèses :\n        (1) pour la condition de plus de 60 ans ou veuf, on regarde seulement la personne de référence du ménage\n        (2) pour la condition relative à l'ASPA l'ASI et l'AAH, on fait la somme de ces prestations à l'échelle du ménage\n        (3) pour la condition relative à l'ISF-IFI, on fait la somme de ces impôts à l'échelle du ménage\n        (4) on ne prend pas en compte les prolongements temporaires d'exonération pour certains contribuables\n            ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n    '''\n    janvier = period.first_month\n\n    age_personne_de_reference = menage.personne_de_reference('age', janvier)\n    age_conjoint = menage.conjoint('age', janvier)\n    statut_marital = menage.personne_de_reference('statut_marital', janvier)\n\n    aah_i = menage.members('aah', period, options = [ADD])\n    asi_i = menage.members('asi', period, options = [ADD])\n    aspa_i = menage.members.famille('aspa', period, options = [ADD])\n    aah = menage.sum(aah_i)\n    asi = menage.sum(asi_i)\n    aspa = menage.sum(aspa_i, role = Famille.DEMANDEUR)\n\n    isf_ifi_i = menage.members.foyer_fiscal('isf_ifi', period.last_year)\n    isf_ifi = menage.sum(isf_ifi_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    condition_rfr_exoneration_th_i = menage.members.foyer_fiscal('condition_rfr_exoneration_th', period)\n    condition_rfr_exoneration_th = menage.all(condition_rfr_exoneration_th_i)\n\n    P = parameters(period).taxation_locale.taxe_habitation\n\n    exon_non_soumis_a_condition_rfr = (asi > 0) + (aspa > 0)\n    exon_soumis_a_condition_rfr = ((age_personne_de_reference >= P.exon_age_min) + (age_conjoint >= P.exon_age_min) + (statut_marital == TypesStatutMarital.veuf)) * (isf_ifi == 0) + (aah > 0)\n    exon = exon_non_soumis_a_condition_rfr + exon_soumis_a_condition_rfr * condition_rfr_exoneration_th\n    return exon\n",
+      "start_line_number": 44,
+      "stop_line_number": 78
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Exonération de la taxe d'habitation",
+  "name": "exonere_taxe_habitation",
+  "reference": [
+    "http://vosdroits.service-public.fr/particuliers/F42.xhtml"
+  ],
+  "referring_variables": [
+    "abattement_personnes_condition_modeste_th_commune",
+    "abattement_personnes_condition_modeste_th_epci",
+    "prelevement_base_imposition_elevee_taxe_habitation",
+    "taxe_habitation_commune_epci_avant_degrevement"
+  ],
+  "start_line_number": 36,
+  "stop_line_number": 78,
+  "value_type": "bool"
+}

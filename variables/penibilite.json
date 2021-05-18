@@ -1,0 +1,846 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "formulas": {
+    "2015-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 31,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 33,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 41,
+              "end_col_offset": 51,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 2,
+                "id": "exposition_penibilite",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 60,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "exposition_penibilite"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 69,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 3,
+                "id": "TypesExpositionPenibilite",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "possible_values",
+              "col_offset": 32,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 69,
+              "end_lineno": 3,
+              "lineno": 3,
+              "value": {
+                "ast_class": "Name",
+                "col_offset": 32,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 53,
+                "end_lineno": 3,
+                "id": "exposition_penibilite",
+                "lineno": 3
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 126,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 4,
+                "id": "multiplicateur",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "penibilite_multiplicateur_exposition_multiple",
+              "col_offset": 21,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 126,
+              "end_lineno": 4,
+              "lineno": 4,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "prive_cadre",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 80,
+                "end_lineno": 4,
+                "lineno": 4,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "cotisations_employeur",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "cotsoc",
+                    "col_offset": 21,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 46,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 32,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 38,
+                          "end_lineno": 4,
+                          "id": "period",
+                          "lineno": 4
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 21,
+                      "end_col_offset": 39,
+                      "end_lineno": 4,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 21,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 31,
+                        "end_lineno": 4,
+                        "id": "parameters",
+                        "lineno": 4
+                      },
+                      "keywords": [],
+                      "lineno": 4
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 13,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 6,
+                "id": "cotisation_base",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 7,
+                  "id": "individu",
+                  "lineno": 7
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 14,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 9,
+                  "id": "parameters",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 9,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 6,
+                "id": "apply_bareme",
+                "lineno": 6
+              },
+              "keywords": [
+                {
+                  "arg": "cotisation_type",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 37,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 37,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": "employeur"
+                  }
+                },
+                {
+                  "arg": "bareme_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 39,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 22,
+                    "end_col_offset": 39,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": "penibilite_base"
+                  }
+                },
+                {
+                  "arg": "variable_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 36,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 24,
+                    "end_col_offset": 36,
+                    "end_lineno": 12,
+                    "lineno": 12,
+                    "value": "penibilite"
+                  }
+                }
+              ],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 21,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 14,
+                "id": "cotisation_additionnelle",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 15,
+                  "id": "individu",
+                  "lineno": 15
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 14,
+                  "end_lineno": 16,
+                  "id": "period",
+                  "lineno": 16
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 17,
+                  "id": "parameters",
+                  "lineno": 17
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 31,
+              "end_col_offset": 9,
+              "end_lineno": 21,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 14,
+                "id": "apply_bareme",
+                "lineno": 14
+              },
+              "keywords": [
+                {
+                  "arg": "cotisation_type",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 37,
+                  "end_lineno": 18,
+                  "lineno": 18,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 37,
+                    "end_lineno": 18,
+                    "lineno": 18,
+                    "value": "employeur"
+                  }
+                },
+                {
+                  "arg": "bareme_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 48,
+                  "end_lineno": 19,
+                  "lineno": 19,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 22,
+                    "end_col_offset": 48,
+                    "end_lineno": 19,
+                    "lineno": 19,
+                    "value": "penibilite_additionnelle"
+                  }
+                },
+                {
+                  "arg": "variable_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 36,
+                  "end_lineno": 20,
+                  "lineno": 20,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 24,
+                    "end_col_offset": 36,
+                    "end_lineno": 20,
+                    "lineno": 20,
+                    "value": "penibilite"
+                  }
+                }
+              ],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 30,
+            "lineno": 23,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 23,
+                "id": "cotisation",
+                "lineno": 23
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 29,
+                  "end_lineno": 24,
+                  "id": "exposition_penibilite",
+                  "lineno": 24
+                },
+                {
+                  "ast_class": "Dict",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 29,
+                  "keys": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "nulle",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 43,
+                      "end_lineno": 26,
+                      "lineno": 26,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 37,
+                        "end_lineno": 26,
+                        "id": "TypesExpositionPenibilite",
+                        "lineno": 26
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "simple",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 27,
+                      "lineno": 27,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 37,
+                        "end_lineno": 27,
+                        "id": "TypesExpositionPenibilite",
+                        "lineno": 27
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "multiple",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 46,
+                      "end_lineno": 28,
+                      "lineno": 28,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 37,
+                        "end_lineno": 28,
+                        "id": "TypesExpositionPenibilite",
+                        "lineno": 28
+                      }
+                    }
+                  ],
+                  "lineno": 25,
+                  "values": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 45,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 60,
+                      "end_lineno": 26,
+                      "id": "cotisation_base",
+                      "lineno": 26
+                    },
+                    {
+                      "ast_class": "BinOp",
+                      "col_offset": 46,
+                      "end_col_offset": 88,
+                      "end_lineno": 27,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 46,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 61,
+                        "end_lineno": 27,
+                        "id": "cotisation_base",
+                        "lineno": 27
+                      },
+                      "lineno": 27,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 64,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 88,
+                        "end_lineno": 27,
+                        "id": "cotisation_additionnelle",
+                        "lineno": 27
+                      }
+                    },
+                    {
+                      "ast_class": "BinOp",
+                      "col_offset": 48,
+                      "end_col_offset": 107,
+                      "end_lineno": 28,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 48,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 63,
+                        "end_lineno": 28,
+                        "id": "cotisation_base",
+                        "lineno": 28
+                      },
+                      "lineno": 28,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 66,
+                        "end_col_offset": 107,
+                        "end_lineno": 28,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 66,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 90,
+                          "end_lineno": 28,
+                          "id": "cotisation_additionnelle",
+                          "lineno": 28
+                        },
+                        "lineno": 28,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 93,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 107,
+                          "end_lineno": 28,
+                          "id": "multiplicateur",
+                          "lineno": 28
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 9,
+              "end_lineno": 30,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 23,
+                "id": "switch",
+                "lineno": 23
+              },
+              "keywords": [],
+              "lineno": 23
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 32,
+            "lineno": 32,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 21,
+              "end_lineno": 32,
+              "id": "cotisation",
+              "lineno": 32
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 21,
+        "end_lineno": 32,
+        "lineno": 1,
+        "name": "formula_2015_01_01"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "source_code": "def formula_2015_01_01(individu, period, parameters):\n    exposition_penibilite = individu('exposition_penibilite', period)\n    TypesExpositionPenibilite = exposition_penibilite.possible_values\n    multiplicateur = parameters(period).cotsoc.cotisations_employeur.prive_cadre.penibilite_multiplicateur_exposition_multiple\n\n    cotisation_base = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"penibilite_base\",\n        variable_name = 'penibilite',\n        )\n    cotisation_additionnelle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"penibilite_additionnelle\",\n        variable_name = 'penibilite',\n        )\n\n    cotisation = switch(\n        exposition_penibilite,\n        {\n            TypesExpositionPenibilite.nulle: cotisation_base,\n            TypesExpositionPenibilite.simple: cotisation_base + cotisation_additionnelle,\n            TypesExpositionPenibilite.multiple: cotisation_base + cotisation_additionnelle * multiplicateur,\n            }\n        )\n\n    return cotisation\n",
+      "start_line_number": 153,
+      "stop_line_number": 185,
+      "variables": [
+        "exposition_penibilite"
+      ]
+    },
+    "2018-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 25,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 27,
+              "end_col_offset": 33,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 35,
+              "end_col_offset": 45,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 33,
+            "end_lineno": 2,
+            "lineno": 2,
+            "value": {
+              "args": [],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 33,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "empty_array",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 11,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 19,
+                  "end_lineno": 2,
+                  "id": "individu",
+                  "lineno": 2
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 33,
+        "end_lineno": 2,
+        "lineno": 1,
+        "name": "formula_2018"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "source_code": "def formula_2018(individu, period, parameters):\n    return individu.empty_array()\n",
+      "start_line_number": 186,
+      "stop_line_number": 188
+    }
+  },
+  "json_type": "number",
+  "label": "Les dépenses liées à l'utilisation du compte pénibilité par le salarié sont prises en charge par un fonds financé par l'employeur",
+  "name": "penibilite",
+  "referring_variables": [
+    "cotisations_employeur_non_contributives"
+  ],
+  "start_line_number": 147,
+  "stop_line_number": 188,
+  "value_type": "float"
+}

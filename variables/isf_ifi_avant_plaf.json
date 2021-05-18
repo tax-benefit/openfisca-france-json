@@ -1,0 +1,1201 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 77,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 2,
+                "id": "isf_ifi_avant_reduction",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 43,
+                  "end_col_offset": 68,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "isf_ifi_avant_reduction"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 70,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 30,
+              "end_col_offset": 77,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 2,
+                "id": "foyer_fiscal",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 57,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 3,
+                "id": "isf_reduc_pac",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 48,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "isf_reduc_pac"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 50,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 56,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 57,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 3,
+                "id": "foyer_fiscal",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 16,
+                  "end_col_offset": 17,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": 0
+                },
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 19,
+                  "end_col_offset": 58,
+                  "end_lineno": 5,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 19,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 42,
+                    "end_lineno": 5,
+                    "id": "isf_ifi_avant_reduction",
+                    "lineno": 5
+                  },
+                  "lineno": 5,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 45,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 58,
+                    "end_lineno": 5,
+                    "id": "isf_reduc_pac",
+                    "lineno": 5
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 59,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 5,
+                "id": "max_",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 59,
+        "end_lineno": 5,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    isf_ifi_avant_reduction = foyer_fiscal('isf_ifi_avant_reduction', period)\n    isf_reduc_pac = foyer_fiscal('isf_reduc_pac', period)\n\n    return max_(0, isf_ifi_avant_reduction - isf_reduc_pac)\n",
+      "start_line_number": 435,
+      "stop_line_number": 440,
+      "variables": [
+        "isf_ifi_avant_reduction",
+        "isf_reduc_pac"
+      ]
+    },
+    "2008-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 29,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 31,
+              "end_col_offset": 37,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 39,
+              "end_col_offset": 49,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 77,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 2,
+                "id": "isf_ifi_avant_reduction",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 43,
+                  "end_col_offset": 68,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "isf_ifi_avant_reduction"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 70,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 30,
+              "end_col_offset": 77,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 2,
+                "id": "foyer_fiscal",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 3,
+                "id": "isf_inv_pme",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 31,
+                  "end_col_offset": 44,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "isf_inv_pme"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 53,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 3,
+                "id": "foyer_fiscal",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 4,
+                "id": "isf_org_int_gen",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 52,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "isf_org_int_gen"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 54,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 61,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 4,
+                "id": "foyer_fiscal",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 57,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 5,
+                "id": "isf_reduc_pac",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 48,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "isf_reduc_pac"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 50,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 56,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 57,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 5,
+                "id": "foyer_fiscal",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 93,
+            "end_lineno": 7,
+            "lineno": 7,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 16,
+                  "end_col_offset": 17,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": 0
+                },
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 19,
+                  "end_col_offset": 92,
+                  "end_lineno": 7,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 19,
+                    "end_col_offset": 76,
+                    "end_lineno": 7,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 42,
+                      "end_lineno": 7,
+                      "id": "isf_ifi_avant_reduction",
+                      "lineno": 7
+                    },
+                    "lineno": 7,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 46,
+                      "end_col_offset": 75,
+                      "end_lineno": 7,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 46,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 57,
+                        "end_lineno": 7,
+                        "id": "isf_inv_pme",
+                        "lineno": 7
+                      },
+                      "lineno": 7,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 60,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 75,
+                        "end_lineno": 7,
+                        "id": "isf_org_int_gen",
+                        "lineno": 7
+                      }
+                    }
+                  },
+                  "lineno": 7,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 79,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 92,
+                    "end_lineno": 7,
+                    "id": "isf_reduc_pac",
+                    "lineno": 7
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 93,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 7,
+                "id": "max_",
+                "lineno": 7
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 93,
+        "end_lineno": 7,
+        "lineno": 1,
+        "name": "formula_2008"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "source_code": "def formula_2008(foyer_fiscal, period, parameters):\n    isf_ifi_avant_reduction = foyer_fiscal('isf_ifi_avant_reduction', period)\n    isf_inv_pme = foyer_fiscal('isf_inv_pme', period)\n    isf_org_int_gen = foyer_fiscal('isf_org_int_gen', period)\n    isf_reduc_pac = foyer_fiscal('isf_reduc_pac', period)\n\n    return max_(0, isf_ifi_avant_reduction - (isf_inv_pme + isf_org_int_gen) - isf_reduc_pac)\n",
+      "start_line_number": 441,
+      "stop_line_number": 448,
+      "variables": [
+        "isf_ifi_avant_reduction",
+        "isf_inv_pme",
+        "isf_org_int_gen",
+        "isf_reduc_pac"
+      ]
+    },
+    "2009-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 29,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 31,
+              "end_col_offset": 37,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 39,
+              "end_col_offset": 49,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 77,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 2,
+                "id": "isf_ifi_avant_reduction",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 43,
+                  "end_col_offset": 68,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "isf_ifi_avant_reduction"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 70,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 76,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 30,
+              "end_col_offset": 77,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 42,
+                "end_lineno": 2,
+                "id": "foyer_fiscal",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 53,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 3,
+                "id": "isf_inv_pme",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 31,
+                  "end_col_offset": 44,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "isf_inv_pme"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 46,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 18,
+              "end_col_offset": 53,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 18,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 3,
+                "id": "foyer_fiscal",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 4,
+                "id": "isf_org_int_gen",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 52,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "isf_org_int_gen"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 54,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 60,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 22,
+              "end_col_offset": 61,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 22,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 4,
+                "id": "foyer_fiscal",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 57,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 5,
+                "id": "isf_reduc_pac",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 48,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "isf_reduc_pac"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 50,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 56,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 20,
+              "end_col_offset": 57,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 5,
+                "id": "foyer_fiscal",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 80,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 6,
+                "id": "borne_max",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "max",
+              "col_offset": 16,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 80,
+              "end_lineno": 6,
+              "lineno": 6,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "reduc_invest_don",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 76,
+                "end_lineno": 6,
+                "lineno": 6,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "isf_ifi",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 59,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "taxation_capital",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 51,
+                    "end_lineno": 6,
+                    "lineno": 6,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 27,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 33,
+                          "end_lineno": 6,
+                          "id": "period",
+                          "lineno": 6
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 16,
+                      "end_col_offset": 34,
+                      "end_lineno": 6,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 16,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 26,
+                        "end_lineno": 6,
+                        "id": "parameters",
+                        "lineno": 6
+                      },
+                      "keywords": [],
+                      "lineno": 6
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 108,
+            "end_lineno": 8,
+            "lineno": 8,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 16,
+                  "end_col_offset": 17,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": 0
+                },
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 19,
+                  "end_col_offset": 107,
+                  "end_lineno": 8,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 19,
+                    "end_col_offset": 91,
+                    "end_lineno": 8,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 19,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 42,
+                      "end_lineno": 8,
+                      "id": "isf_ifi_avant_reduction",
+                      "lineno": 8
+                    },
+                    "lineno": 8,
+                    "op": {
+                      "ast_class": "Sub"
+                    },
+                    "right": {
+                      "args": [
+                        {
+                          "ast_class": "BinOp",
+                          "col_offset": 50,
+                          "end_col_offset": 79,
+                          "end_lineno": 8,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 50,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 61,
+                            "end_lineno": 8,
+                            "id": "isf_inv_pme",
+                            "lineno": 8
+                          },
+                          "lineno": 8,
+                          "op": {
+                            "ast_class": "Add"
+                          },
+                          "right": {
+                            "ast_class": "Name",
+                            "col_offset": 64,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 79,
+                            "end_lineno": 8,
+                            "id": "isf_org_int_gen",
+                            "lineno": 8
+                          }
+                        },
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 81,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 90,
+                          "end_lineno": 8,
+                          "id": "borne_max",
+                          "lineno": 8
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 45,
+                      "end_col_offset": 91,
+                      "end_lineno": 8,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 45,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 49,
+                        "end_lineno": 8,
+                        "id": "min_",
+                        "lineno": 8
+                      },
+                      "keywords": [],
+                      "lineno": 8
+                    }
+                  },
+                  "lineno": 8,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 94,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 107,
+                    "end_lineno": 8,
+                    "id": "isf_reduc_pac",
+                    "lineno": 8
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 108,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 8,
+                "id": "max_",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 108,
+        "end_lineno": 8,
+        "lineno": 1,
+        "name": "formula_2009"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "source_code": "def formula_2009(foyer_fiscal, period, parameters):\n    isf_ifi_avant_reduction = foyer_fiscal('isf_ifi_avant_reduction', period)\n    isf_inv_pme = foyer_fiscal('isf_inv_pme', period)\n    isf_org_int_gen = foyer_fiscal('isf_org_int_gen', period)\n    isf_reduc_pac = foyer_fiscal('isf_reduc_pac', period)\n    borne_max = parameters(period).taxation_capital.isf_ifi.reduc_invest_don.max\n\n    return max_(0, isf_ifi_avant_reduction - min_(isf_inv_pme + isf_org_int_gen, borne_max) - isf_reduc_pac)\n",
+      "start_line_number": 449,
+      "stop_line_number": 457,
+      "variables": [
+        "isf_ifi_avant_reduction",
+        "isf_inv_pme",
+        "isf_org_int_gen",
+        "isf_reduc_pac"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "ISF-IFI avant plafonnement",
+  "name": "isf_ifi_avant_plaf",
+  "referring_variables": [
+    "isf_ifi_apres_plaf",
+    "total_impots_plafonnement_isf_ifi"
+  ],
+  "start_line_number": 429,
+  "stop_line_number": 457,
+  "value_type": "float"
+}

@@ -1,0 +1,2896 @@
+{
+  "default_value": "a_verifier",
+  "definition_period": "year",
+  "dtype": "int16",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prestations/anah/eligibilite_anah.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 18,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 26,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 66,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 2,
+                "id": "in_idf",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 20,
+                  "end_col_offset": 45,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "residence_ile_de_france"
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "first_month",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 65,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 47,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 53,
+                    "end_lineno": 2,
+                    "id": "period",
+                    "lineno": 2
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 66,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 2,
+                "id": "menage",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 147,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 4,
+                "id": "rfr_declarants_principaux_du_menage",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 42,
+              "end_col_offset": 147,
+              "end_lineno": 4,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 66,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 97,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 66,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 77,
+                      "end_lineno": 4,
+                      "id": "FoyerFiscal",
+                      "lineno": 4
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 42,
+                "end_col_offset": 98,
+                "end_lineno": 4,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "has_role",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 65,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 42,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 56,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 42,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 48,
+                      "end_lineno": 4,
+                      "id": "menage",
+                      "lineno": 4
+                    }
+                  }
+                },
+                "keywords": [],
+                "lineno": 4
+              },
+              "lineno": 4,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 129,
+                    "end_col_offset": 134,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "value": "rfr"
+                  },
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "n_2",
+                    "col_offset": 136,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 146,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 136,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 142,
+                      "end_lineno": 4,
+                      "id": "period",
+                      "lineno": 4
+                    }
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 101,
+                "end_col_offset": 147,
+                "end_lineno": 4,
+                "func": {
+                  "ast_class": "Attribute",
+                  "attr": "foyer_fiscal",
+                  "col_offset": 101,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 128,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "members",
+                    "col_offset": 101,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 115,
+                    "end_lineno": 4,
+                    "lineno": 4,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 101,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 107,
+                      "end_lineno": 4,
+                      "id": "menage",
+                      "lineno": 4
+                    }
+                  }
+                },
+                "keywords": [],
+                "lineno": 4
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 57,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 5,
+                "id": "rfr",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 56,
+                  "end_lineno": 5,
+                  "id": "rfr_declarants_principaux_du_menage",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 57,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 5,
+                  "id": "menage",
+                  "lineno": 5
+                }
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 36,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 7,
+                "id": "nb_members",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 36,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "nb_persons",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 17,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 23,
+                  "end_lineno": 7,
+                  "id": "menage",
+                  "lineno": 7
+                }
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 114,
+            "end_lineno": 15,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 9,
+                "id": "bareme_idf",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 9,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 23,
+                          "end_col_offset": 24,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": 1
+                        }
+                      ],
+                      "end_col_offset": 24,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 19,
+                        "end_lineno": 10,
+                        "id": "nb_members",
+                        "lineno": 10
+                      },
+                      "lineno": 10,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 26,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 40,
+                          "end_col_offset": 41,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 41,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 26,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 36,
+                        "end_lineno": 10,
+                        "id": "nb_members",
+                        "lineno": 10
+                      },
+                      "lineno": 10,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 43,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 57,
+                          "end_col_offset": 58,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": 3
+                        }
+                      ],
+                      "end_col_offset": 58,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 43,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 53,
+                        "end_lineno": 10,
+                        "id": "nb_members",
+                        "lineno": 10
+                      },
+                      "lineno": 10,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 60,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 74,
+                          "end_col_offset": 75,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": 4
+                        }
+                      ],
+                      "end_col_offset": 75,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 60,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 70,
+                        "end_lineno": 10,
+                        "id": "nb_members",
+                        "lineno": 10
+                      },
+                      "lineno": 10,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 77,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 91,
+                          "end_col_offset": 92,
+                          "end_lineno": 10,
+                          "lineno": 10,
+                          "value": 5
+                        }
+                      ],
+                      "end_col_offset": 92,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 77,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 87,
+                        "end_lineno": 10,
+                        "id": "nb_members",
+                        "lineno": 10
+                      },
+                      "lineno": 10,
+                      "ops": [
+                        {
+                          "ast_class": "GtE"
+                        }
+                      ]
+                    }
+                  ],
+                  "end_col_offset": 93,
+                  "end_lineno": 10,
+                  "lineno": 10
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 11,
+                                  "lineno": 11,
+                                  "value": 19875
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 11,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 11,
+                                "id": "rfr",
+                                "lineno": 11
+                              },
+                              "lineno": 11,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 11,
+                                  "lineno": 11,
+                                  "value": 24194
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 11,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 11,
+                                "id": "rfr",
+                                "lineno": 11
+                              },
+                              "lineno": 11,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 11,
+                          "lineno": 11
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 11,
+                              "lineno": 11,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 11,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 11
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 11,
+                              "lineno": 11,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 11,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 11
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 11,
+                          "lineno": 11
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 11,
+                          "lineno": 11,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 11,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 11
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 11,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 11,
+                        "id": "select",
+                        "lineno": 11
+                      },
+                      "keywords": [],
+                      "lineno": 11
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 12,
+                                  "lineno": 12,
+                                  "value": 29171
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 12,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 12,
+                                "id": "rfr",
+                                "lineno": 12
+                              },
+                              "lineno": 12,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 12,
+                                  "lineno": 12,
+                                  "value": 35510
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 12,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 12,
+                                "id": "rfr",
+                                "lineno": 12
+                              },
+                              "lineno": 12,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 12,
+                          "lineno": 12
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 12,
+                              "lineno": 12,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 12,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 12
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 12,
+                              "lineno": 12,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 12,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 12
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 12,
+                          "lineno": 12
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 12,
+                          "lineno": 12,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 12,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 12
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 12,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 12,
+                        "id": "select",
+                        "lineno": 12
+                      },
+                      "keywords": [],
+                      "lineno": 12
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 13,
+                                  "lineno": 13,
+                                  "value": 35032
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 13,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 13,
+                                "id": "rfr",
+                                "lineno": 13
+                              },
+                              "lineno": 13,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 13,
+                                  "lineno": 13,
+                                  "value": 42648
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 13,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 13,
+                                "id": "rfr",
+                                "lineno": 13
+                              },
+                              "lineno": 13,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 13,
+                          "lineno": 13
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 13,
+                              "lineno": 13,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 13,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 13
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 13,
+                              "lineno": 13,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 13,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 13
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 13,
+                          "lineno": 13
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 13,
+                          "lineno": 13,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 13,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 13
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 13,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 13,
+                        "id": "select",
+                        "lineno": 13
+                      },
+                      "keywords": [],
+                      "lineno": 13
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 14,
+                                  "lineno": 14,
+                                  "value": 40905
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 14,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 14,
+                                "id": "rfr",
+                                "lineno": 14
+                              },
+                              "lineno": 14,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 14,
+                                  "lineno": 14,
+                                  "value": 49799
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 14,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 14,
+                                "id": "rfr",
+                                "lineno": 14
+                              },
+                              "lineno": 14,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 14,
+                          "lineno": 14
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 14,
+                              "lineno": 14,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 14,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 14
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 14,
+                              "lineno": 14,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 14,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 14
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 14,
+                          "lineno": 14
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 14,
+                          "lineno": 14,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 14,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 14
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 14,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 14,
+                        "id": "select",
+                        "lineno": 14
+                      },
+                      "keywords": [],
+                      "lineno": 14
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "BinOp",
+                                  "col_offset": 24,
+                                  "end_col_offset": 57,
+                                  "end_lineno": 15,
+                                  "left": {
+                                    "ast_class": "Constant",
+                                    "col_offset": 24,
+                                    "end_col_offset": 29,
+                                    "end_lineno": 15,
+                                    "lineno": 15,
+                                    "value": 46798
+                                  },
+                                  "lineno": 15,
+                                  "op": {
+                                    "ast_class": "Add"
+                                  },
+                                  "right": {
+                                    "ast_class": "BinOp",
+                                    "col_offset": 33,
+                                    "end_col_offset": 56,
+                                    "end_lineno": 15,
+                                    "left": {
+                                      "ast_class": "BinOp",
+                                      "col_offset": 34,
+                                      "end_col_offset": 48,
+                                      "end_lineno": 15,
+                                      "left": {
+                                        "ast_class": "Name",
+                                        "col_offset": 34,
+                                        "ctx": {
+                                          "ast_class": "Load"
+                                        },
+                                        "end_col_offset": 44,
+                                        "end_lineno": 15,
+                                        "id": "nb_members",
+                                        "lineno": 15
+                                      },
+                                      "lineno": 15,
+                                      "op": {
+                                        "ast_class": "Sub"
+                                      },
+                                      "right": {
+                                        "ast_class": "Constant",
+                                        "col_offset": 47,
+                                        "end_col_offset": 48,
+                                        "end_lineno": 15,
+                                        "lineno": 15,
+                                        "value": 5
+                                      }
+                                    },
+                                    "lineno": 15,
+                                    "op": {
+                                      "ast_class": "Mult"
+                                    },
+                                    "right": {
+                                      "ast_class": "Constant",
+                                      "col_offset": 52,
+                                      "end_col_offset": 56,
+                                      "end_lineno": 15,
+                                      "lineno": 15,
+                                      "value": 5882
+                                    }
+                                  }
+                                }
+                              ],
+                              "end_col_offset": 57,
+                              "end_lineno": 15,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 15,
+                                "id": "rfr",
+                                "lineno": 15
+                              },
+                              "lineno": 15,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 59,
+                              "comparators": [
+                                {
+                                  "ast_class": "BinOp",
+                                  "col_offset": 66,
+                                  "end_col_offset": 99,
+                                  "end_lineno": 15,
+                                  "left": {
+                                    "ast_class": "Constant",
+                                    "col_offset": 66,
+                                    "end_col_offset": 71,
+                                    "end_lineno": 15,
+                                    "lineno": 15,
+                                    "value": 56970
+                                  },
+                                  "lineno": 15,
+                                  "op": {
+                                    "ast_class": "Add"
+                                  },
+                                  "right": {
+                                    "ast_class": "BinOp",
+                                    "col_offset": 75,
+                                    "end_col_offset": 98,
+                                    "end_lineno": 15,
+                                    "left": {
+                                      "ast_class": "BinOp",
+                                      "col_offset": 76,
+                                      "end_col_offset": 90,
+                                      "end_lineno": 15,
+                                      "left": {
+                                        "ast_class": "Name",
+                                        "col_offset": 76,
+                                        "ctx": {
+                                          "ast_class": "Load"
+                                        },
+                                        "end_col_offset": 86,
+                                        "end_lineno": 15,
+                                        "id": "nb_members",
+                                        "lineno": 15
+                                      },
+                                      "lineno": 15,
+                                      "op": {
+                                        "ast_class": "Sub"
+                                      },
+                                      "right": {
+                                        "ast_class": "Constant",
+                                        "col_offset": 89,
+                                        "end_col_offset": 90,
+                                        "end_lineno": 15,
+                                        "lineno": 15,
+                                        "value": 5
+                                      }
+                                    },
+                                    "lineno": 15,
+                                    "op": {
+                                      "ast_class": "Mult"
+                                    },
+                                    "right": {
+                                      "ast_class": "Constant",
+                                      "col_offset": 94,
+                                      "end_col_offset": 98,
+                                      "end_lineno": 15,
+                                      "lineno": 15,
+                                      "value": 7162
+                                    }
+                                  }
+                                }
+                              ],
+                              "end_col_offset": 99,
+                              "end_lineno": 15,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 59,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 62,
+                                "end_lineno": 15,
+                                "id": "rfr",
+                                "lineno": 15
+                              },
+                              "lineno": 15,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 100,
+                          "end_lineno": 15,
+                          "lineno": 15
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 102,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 103,
+                              "end_col_offset": 104,
+                              "end_lineno": 15,
+                              "lineno": 15,
+                              "value": 2
+                            },
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 106,
+                              "end_col_offset": 107,
+                              "end_lineno": 15,
+                              "lineno": 15,
+                              "value": 1
+                            }
+                          ],
+                          "end_col_offset": 108,
+                          "end_lineno": 15,
+                          "lineno": 15
+                        },
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 110,
+                          "end_col_offset": 111,
+                          "end_lineno": 15,
+                          "lineno": 15,
+                          "value": 0
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 112,
+                      "end_lineno": 15,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 15,
+                        "id": "select",
+                        "lineno": 15
+                      },
+                      "keywords": [],
+                      "lineno": 15
+                    }
+                  ],
+                  "end_col_offset": 113,
+                  "end_lineno": 15,
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 114,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 9,
+                "id": "select",
+                "lineno": 9
+              },
+              "keywords": [],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 204,
+            "end_lineno": 23,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 17,
+                "id": "bareme_out",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 9,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 23,
+                          "end_col_offset": 24,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 1
+                        }
+                      ],
+                      "end_col_offset": 24,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 19,
+                        "end_lineno": 18,
+                        "id": "nb_members",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 26,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 40,
+                          "end_col_offset": 41,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 41,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 26,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 36,
+                        "end_lineno": 18,
+                        "id": "nb_members",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 43,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 57,
+                          "end_col_offset": 58,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 3
+                        }
+                      ],
+                      "end_col_offset": 58,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 43,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 53,
+                        "end_lineno": 18,
+                        "id": "nb_members",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 60,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 74,
+                          "end_col_offset": 75,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 4
+                        }
+                      ],
+                      "end_col_offset": 75,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 60,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 70,
+                        "end_lineno": 18,
+                        "id": "nb_members",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 77,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 91,
+                          "end_col_offset": 92,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 5
+                        }
+                      ],
+                      "end_col_offset": 92,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 77,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 87,
+                        "end_lineno": 18,
+                        "id": "nb_members",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "GtE"
+                        }
+                      ]
+                    }
+                  ],
+                  "end_col_offset": 93,
+                  "end_lineno": 18,
+                  "lineno": 18
+                },
+                {
+                  "ast_class": "List",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 19,
+                                  "lineno": 19,
+                                  "value": 14360
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 19,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 19,
+                                "id": "rfr",
+                                "lineno": 19
+                              },
+                              "lineno": 19,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 19,
+                                  "lineno": 19,
+                                  "value": 18409
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 19,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 19,
+                                "id": "rfr",
+                                "lineno": 19
+                              },
+                              "lineno": 19,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 19,
+                          "lineno": 19
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 19,
+                              "lineno": 19,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 19,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 19
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 19,
+                              "lineno": 19,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 19,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 19
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 19,
+                          "lineno": 19
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 19,
+                          "lineno": 19,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 19,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 19
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 19,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 19,
+                        "id": "select",
+                        "lineno": 19
+                      },
+                      "keywords": [],
+                      "lineno": 19
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 20,
+                                  "lineno": 20,
+                                  "value": 21001
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 20,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 20,
+                                "id": "rfr",
+                                "lineno": 20
+                              },
+                              "lineno": 20,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 20,
+                                  "lineno": 20,
+                                  "value": 26923
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 20,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 20,
+                                "id": "rfr",
+                                "lineno": 20
+                              },
+                              "lineno": 20,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 20,
+                          "lineno": 20
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 20,
+                              "lineno": 20,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 20,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 20
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 20,
+                              "lineno": 20,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 20,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 20
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 20,
+                          "lineno": 20
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 20,
+                          "lineno": 20,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 20,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 20
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 20,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 20,
+                        "id": "select",
+                        "lineno": 20
+                      },
+                      "keywords": [],
+                      "lineno": 20
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 21,
+                                  "lineno": 21,
+                                  "value": 25257
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 21,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 21,
+                                "id": "rfr",
+                                "lineno": 21
+                              },
+                              "lineno": 21,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 21,
+                                  "lineno": 21,
+                                  "value": 32377
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 21,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 21,
+                                "id": "rfr",
+                                "lineno": 21
+                              },
+                              "lineno": 21,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 21,
+                          "lineno": 21
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 21,
+                              "lineno": 21,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 21,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 21
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 21,
+                              "lineno": 21,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 21,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 21
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 21,
+                          "lineno": 21
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 21,
+                          "lineno": 21,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 21,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 21
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 21,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 21,
+                        "id": "select",
+                        "lineno": 21
+                      },
+                      "keywords": [],
+                      "lineno": 21
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 24,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 22,
+                                  "lineno": 22,
+                                  "value": 29506
+                                }
+                              ],
+                              "end_col_offset": 29,
+                              "end_lineno": 22,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 22,
+                                "id": "rfr",
+                                "lineno": 22
+                              },
+                              "lineno": 22,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 31,
+                              "comparators": [
+                                {
+                                  "ast_class": "Constant",
+                                  "col_offset": 38,
+                                  "end_col_offset": 43,
+                                  "end_lineno": 22,
+                                  "lineno": 22,
+                                  "value": 37826
+                                }
+                              ],
+                              "end_col_offset": 43,
+                              "end_lineno": 22,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 31,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 34,
+                                "end_lineno": 22,
+                                "id": "rfr",
+                                "lineno": 22
+                              },
+                              "lineno": 22,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 44,
+                          "end_lineno": 22,
+                          "lineno": 22
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 47,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 80,
+                              "end_lineno": 22,
+                              "lineno": 22,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 47,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 67,
+                                "end_lineno": 22,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 22
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 82,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 111,
+                              "end_lineno": 22,
+                              "lineno": 22,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 82,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 102,
+                                "end_lineno": 22,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 22
+                              }
+                            }
+                          ],
+                          "end_col_offset": 112,
+                          "end_lineno": 22,
+                          "lineno": 22
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 114,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 145,
+                          "end_lineno": 22,
+                          "lineno": 22,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 114,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 134,
+                            "end_lineno": 22,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 22
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 146,
+                      "end_lineno": 22,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 22,
+                        "id": "select",
+                        "lineno": 22
+                      },
+                      "keywords": [],
+                      "lineno": 22
+                    },
+                    {
+                      "args": [
+                        {
+                          "ast_class": "List",
+                          "col_offset": 16,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 17,
+                              "comparators": [
+                                {
+                                  "ast_class": "BinOp",
+                                  "col_offset": 24,
+                                  "end_col_offset": 57,
+                                  "end_lineno": 23,
+                                  "left": {
+                                    "ast_class": "Constant",
+                                    "col_offset": 24,
+                                    "end_col_offset": 29,
+                                    "end_lineno": 23,
+                                    "lineno": 23,
+                                    "value": 33774
+                                  },
+                                  "lineno": 23,
+                                  "op": {
+                                    "ast_class": "Add"
+                                  },
+                                  "right": {
+                                    "ast_class": "BinOp",
+                                    "col_offset": 33,
+                                    "end_col_offset": 56,
+                                    "end_lineno": 23,
+                                    "left": {
+                                      "ast_class": "BinOp",
+                                      "col_offset": 34,
+                                      "end_col_offset": 48,
+                                      "end_lineno": 23,
+                                      "left": {
+                                        "ast_class": "Name",
+                                        "col_offset": 34,
+                                        "ctx": {
+                                          "ast_class": "Load"
+                                        },
+                                        "end_col_offset": 44,
+                                        "end_lineno": 23,
+                                        "id": "nb_members",
+                                        "lineno": 23
+                                      },
+                                      "lineno": 23,
+                                      "op": {
+                                        "ast_class": "Sub"
+                                      },
+                                      "right": {
+                                        "ast_class": "Constant",
+                                        "col_offset": 47,
+                                        "end_col_offset": 48,
+                                        "end_lineno": 23,
+                                        "lineno": 23,
+                                        "value": 5
+                                      }
+                                    },
+                                    "lineno": 23,
+                                    "op": {
+                                      "ast_class": "Mult"
+                                    },
+                                    "right": {
+                                      "ast_class": "Constant",
+                                      "col_offset": 52,
+                                      "end_col_offset": 56,
+                                      "end_lineno": 23,
+                                      "lineno": 23,
+                                      "value": 4257
+                                    }
+                                  }
+                                }
+                              ],
+                              "end_col_offset": 57,
+                              "end_lineno": 23,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 17,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 20,
+                                "end_lineno": 23,
+                                "id": "rfr",
+                                "lineno": 23
+                              },
+                              "lineno": 23,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            },
+                            {
+                              "ast_class": "Compare",
+                              "col_offset": 59,
+                              "comparators": [
+                                {
+                                  "ast_class": "BinOp",
+                                  "col_offset": 66,
+                                  "end_col_offset": 99,
+                                  "end_lineno": 23,
+                                  "left": {
+                                    "ast_class": "Constant",
+                                    "col_offset": 66,
+                                    "end_col_offset": 71,
+                                    "end_lineno": 23,
+                                    "lineno": 23,
+                                    "value": 43297
+                                  },
+                                  "lineno": 23,
+                                  "op": {
+                                    "ast_class": "Add"
+                                  },
+                                  "right": {
+                                    "ast_class": "BinOp",
+                                    "col_offset": 75,
+                                    "end_col_offset": 98,
+                                    "end_lineno": 23,
+                                    "left": {
+                                      "ast_class": "BinOp",
+                                      "col_offset": 76,
+                                      "end_col_offset": 90,
+                                      "end_lineno": 23,
+                                      "left": {
+                                        "ast_class": "Name",
+                                        "col_offset": 76,
+                                        "ctx": {
+                                          "ast_class": "Load"
+                                        },
+                                        "end_col_offset": 86,
+                                        "end_lineno": 23,
+                                        "id": "nb_members",
+                                        "lineno": 23
+                                      },
+                                      "lineno": 23,
+                                      "op": {
+                                        "ast_class": "Sub"
+                                      },
+                                      "right": {
+                                        "ast_class": "Constant",
+                                        "col_offset": 89,
+                                        "end_col_offset": 90,
+                                        "end_lineno": 23,
+                                        "lineno": 23,
+                                        "value": 5
+                                      }
+                                    },
+                                    "lineno": 23,
+                                    "op": {
+                                      "ast_class": "Mult"
+                                    },
+                                    "right": {
+                                      "ast_class": "Constant",
+                                      "col_offset": 94,
+                                      "end_col_offset": 98,
+                                      "end_lineno": 23,
+                                      "lineno": 23,
+                                      "value": 5454
+                                    }
+                                  }
+                                }
+                              ],
+                              "end_col_offset": 99,
+                              "end_lineno": 23,
+                              "left": {
+                                "ast_class": "Name",
+                                "col_offset": 59,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 62,
+                                "end_lineno": 23,
+                                "id": "rfr",
+                                "lineno": 23
+                              },
+                              "lineno": 23,
+                              "ops": [
+                                {
+                                  "ast_class": "LtE"
+                                }
+                              ]
+                            }
+                          ],
+                          "end_col_offset": 100,
+                          "end_lineno": 23,
+                          "lineno": 23
+                        },
+                        {
+                          "ast_class": "List",
+                          "col_offset": 102,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "elts": [
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "tres_modeste",
+                              "col_offset": 103,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 136,
+                              "end_lineno": 23,
+                              "lineno": 23,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 103,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 123,
+                                "end_lineno": 23,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 23
+                              }
+                            },
+                            {
+                              "ast_class": "Attribute",
+                              "attr": "modestes",
+                              "col_offset": 138,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 167,
+                              "end_lineno": 23,
+                              "lineno": 23,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 138,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 158,
+                                "end_lineno": 23,
+                                "id": "TypesEligibiliteANAH",
+                                "lineno": 23
+                              }
+                            }
+                          ],
+                          "end_col_offset": 168,
+                          "end_lineno": 23,
+                          "lineno": 23
+                        },
+                        {
+                          "ast_class": "Attribute",
+                          "attr": "a_verifier",
+                          "col_offset": 170,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 201,
+                          "end_lineno": 23,
+                          "lineno": 23,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 170,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 190,
+                            "end_lineno": 23,
+                            "id": "TypesEligibiliteANAH",
+                            "lineno": 23
+                          }
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 9,
+                      "end_col_offset": 202,
+                      "end_lineno": 23,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 15,
+                        "end_lineno": 23,
+                        "id": "select",
+                        "lineno": 23
+                      },
+                      "keywords": [],
+                      "lineno": 23
+                    }
+                  ],
+                  "end_col_offset": 203,
+                  "end_lineno": 23,
+                  "lineno": 19
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 204,
+              "end_lineno": 23,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 17,
+                "id": "select",
+                "lineno": 17
+              },
+              "keywords": [],
+              "lineno": 17
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 48,
+            "end_lineno": 25,
+            "lineno": 25,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 17,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 23,
+                  "end_lineno": 25,
+                  "id": "in_idf",
+                  "lineno": 25
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 25,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 35,
+                  "end_lineno": 25,
+                  "id": "bareme_idf",
+                  "lineno": 25
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 37,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 47,
+                  "end_lineno": 25,
+                  "id": "bareme_out",
+                  "lineno": 25
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 48,
+              "end_lineno": 25,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 16,
+                "end_lineno": 25,
+                "id": "where",
+                "lineno": 25
+              },
+              "keywords": [],
+              "lineno": 25
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 48,
+        "end_lineno": 25,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/anah/eligibilite_anah.py",
+      "source_code": "def formula(menage, period):\n    in_idf = menage('residence_ile_de_france', period.first_month)\n\n    rfr_declarants_principaux_du_menage = menage.members.has_role(FoyerFiscal.DECLARANT_PRINCIPAL) * menage.members.foyer_fiscal('rfr', period.n_2)\n    rfr = menage.sum(rfr_declarants_principaux_du_menage)\n\n    nb_members = menage.nb_persons()\n\n    bareme_idf = select(\n        [nb_members == 1, nb_members == 2, nb_members == 3, nb_members == 4, nb_members >= 5],\n        [select([rfr <= 19875, rfr <= 24194], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 29171, rfr <= 35510], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 35032, rfr <= 42648], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 40905, rfr <= 49799], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 46798 + ((nb_members - 5) * 5882), rfr <= 56970 + ((nb_members - 5) * 7162)], [2, 1], 0)])\n\n    bareme_out = select(\n        [nb_members == 1, nb_members == 2, nb_members == 3, nb_members == 4, nb_members >= 5],\n        [select([rfr <= 14360, rfr <= 18409], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 21001, rfr <= 26923], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 25257, rfr <= 32377], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 29506, rfr <= 37826], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 33774 + ((nb_members - 5) * 4257), rfr <= 43297 + ((nb_members - 5) * 5454)], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier)])\n\n    return where(in_idf, bareme_idf, bareme_out)\n",
+      "start_line_number": 20,
+      "stop_line_number": 45,
+      "variables": [
+        "residence_ile_de_france"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "string",
+  "label": "Barème d'éligibilité aux aides ANAH",
+  "name": "eligibilite_anah",
+  "possible_values": {
+    "a_verifier": "A vérifier",
+    "modestes": "Modestes",
+    "tres_modeste": "Très modestes"
+  },
+  "start_line_number": 12,
+  "stop_line_number": 45,
+  "value_type": "Enum"
+}

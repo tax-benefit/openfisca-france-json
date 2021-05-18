@@ -1,0 +1,1319 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/mesures.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 18,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 26,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 5,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 5,
+              "lineno": 2,
+              "value": "\n    Revenus bruts des capitaux mobiliers et plus-values du ménage :\n    avant tout abattement et prélèvement social\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 165,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 56,
+                "end_lineno": 7,
+                "id": "revenus_capitaux_prelevement_forfaitaire_unique_ir_i",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 87,
+                  "end_col_offset": 139,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "revenus_capitaux_prelevement_forfaitaire_unique_ir"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 141,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 147,
+                  "end_lineno": 7,
+                  "id": "period",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 59,
+              "end_col_offset": 165,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "foyer_fiscal",
+                "col_offset": 59,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 86,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 59,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 73,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 59,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 65,
+                    "end_lineno": 7,
+                    "id": "menage",
+                    "lineno": 7
+                  }
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "options",
+                  "ast_class": "keyword",
+                  "col_offset": 149,
+                  "end_col_offset": 164,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": {
+                    "ast_class": "List",
+                    "col_offset": 159,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "elts": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 160,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 163,
+                        "end_lineno": 7,
+                        "id": "ADD",
+                        "lineno": 7
+                      }
+                    ],
+                    "end_col_offset": 164,
+                    "end_lineno": 7,
+                    "lineno": 7
+                  }
+                }
+              ],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 161,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 54,
+                "end_lineno": 8,
+                "id": "revenus_capitaux_prelevement_forfaitaire_unique_ir",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 68,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 120,
+                  "end_lineno": 8,
+                  "id": "revenus_capitaux_prelevement_forfaitaire_unique_ir_i",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 57,
+              "end_col_offset": 161,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 57,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 67,
+                "end_lineno": 8,
+                "lineno": 8,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 57,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 8,
+                  "id": "menage",
+                  "lineno": 8
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 122,
+                  "end_col_offset": 160,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 129,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 160,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 129,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 140,
+                      "end_lineno": 8,
+                      "id": "FoyerFiscal",
+                      "lineno": 8
+                    }
+                  }
+                }
+              ],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 135,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 9,
+                "id": "revenus_capitaux_prelevement_bareme_i",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 72,
+                  "end_col_offset": 109,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": "revenus_capitaux_prelevement_bareme"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 111,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 117,
+                  "end_lineno": 9,
+                  "id": "period",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 44,
+              "end_col_offset": 135,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "foyer_fiscal",
+                "col_offset": 44,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 71,
+                "end_lineno": 9,
+                "lineno": 9,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 44,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 44,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 50,
+                    "end_lineno": 9,
+                    "id": "menage",
+                    "lineno": 9
+                  }
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "options",
+                  "ast_class": "keyword",
+                  "col_offset": 119,
+                  "end_col_offset": 134,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": {
+                    "ast_class": "List",
+                    "col_offset": 129,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "elts": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 130,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 133,
+                        "end_lineno": 9,
+                        "id": "ADD",
+                        "lineno": 9
+                      }
+                    ],
+                    "end_col_offset": 134,
+                    "end_lineno": 9,
+                    "lineno": 9
+                  }
+                }
+              ],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 131,
+            "end_lineno": 10,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 10,
+                "id": "revenus_capitaux_prelevement_bareme",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 53,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 90,
+                  "end_lineno": 10,
+                  "id": "revenus_capitaux_prelevement_bareme_i",
+                  "lineno": 10
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 42,
+              "end_col_offset": 131,
+              "end_lineno": 10,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 42,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 52,
+                "end_lineno": 10,
+                "lineno": 10,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 10,
+                  "id": "menage",
+                  "lineno": 10
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 92,
+                  "end_col_offset": 130,
+                  "end_lineno": 10,
+                  "lineno": 10,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 99,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 130,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 99,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 110,
+                      "end_lineno": 10,
+                      "id": "FoyerFiscal",
+                      "lineno": 10
+                    }
+                  }
+                }
+              ],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 145,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 46,
+                "end_lineno": 11,
+                "id": "revenus_capitaux_prelevement_liberatoire_i",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 77,
+                  "end_col_offset": 119,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": "revenus_capitaux_prelevement_liberatoire"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 121,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 127,
+                  "end_lineno": 11,
+                  "id": "period",
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 49,
+              "end_col_offset": 145,
+              "end_lineno": 11,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "foyer_fiscal",
+                "col_offset": 49,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 76,
+                "end_lineno": 11,
+                "lineno": 11,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 49,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 49,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 55,
+                    "end_lineno": 11,
+                    "id": "menage",
+                    "lineno": 11
+                  }
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "options",
+                  "ast_class": "keyword",
+                  "col_offset": 129,
+                  "end_col_offset": 144,
+                  "end_lineno": 11,
+                  "lineno": 11,
+                  "value": {
+                    "ast_class": "List",
+                    "col_offset": 139,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "elts": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 140,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 143,
+                        "end_lineno": 11,
+                        "id": "ADD",
+                        "lineno": 11
+                      }
+                    ],
+                    "end_col_offset": 144,
+                    "end_lineno": 11,
+                    "lineno": 11
+                  }
+                }
+              ],
+              "lineno": 11
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 141,
+            "end_lineno": 12,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 12,
+                "id": "revenus_capitaux_prelevement_liberatoire",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 58,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 100,
+                  "end_lineno": 12,
+                  "id": "revenus_capitaux_prelevement_liberatoire_i",
+                  "lineno": 12
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 47,
+              "end_col_offset": 141,
+              "end_lineno": 12,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 47,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 57,
+                "end_lineno": 12,
+                "lineno": 12,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 53,
+                  "end_lineno": 12,
+                  "id": "menage",
+                  "lineno": 12
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 102,
+                  "end_col_offset": 140,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 109,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 140,
+                    "end_lineno": 12,
+                    "lineno": 12,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 109,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 120,
+                      "end_lineno": 12,
+                      "id": "FoyerFiscal",
+                      "lineno": 12
+                    }
+                  }
+                }
+              ],
+              "lineno": 12
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 93,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 14,
+                "id": "interets_pel_moins_12_ans_cel_i",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 53,
+                  "end_col_offset": 84,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": "interets_pel_moins_12_ans_cel"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 86,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 92,
+                  "end_lineno": 14,
+                  "id": "period",
+                  "lineno": 14
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 38,
+              "end_col_offset": 93,
+              "end_lineno": 14,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 38,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 52,
+                "end_lineno": 14,
+                "lineno": 14,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 38,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 44,
+                  "end_lineno": 14,
+                  "id": "menage",
+                  "lineno": 14
+                }
+              },
+              "keywords": [],
+              "lineno": 14
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 79,
+            "end_lineno": 15,
+            "lineno": 15,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 15,
+                "id": "interets_pel_moins_12_ans_cel",
+                "lineno": 15
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 78,
+                  "end_lineno": 15,
+                  "id": "interets_pel_moins_12_ans_cel_i",
+                  "lineno": 15
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 79,
+              "end_lineno": 15,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 46,
+                "end_lineno": 15,
+                "lineno": 15,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 36,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 42,
+                  "end_lineno": 15,
+                  "id": "menage",
+                  "lineno": 15
+                }
+              },
+              "keywords": [],
+              "lineno": 15
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 114,
+            "end_lineno": 16,
+            "lineno": 16,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 16,
+                "id": "assurance_vie_ps_exoneree_irpp_pl_i",
+                "lineno": 16
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 70,
+                  "end_col_offset": 105,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "value": "assurance_vie_ps_exoneree_irpp_pl"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 107,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 113,
+                  "end_lineno": 16,
+                  "id": "period",
+                  "lineno": 16
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 42,
+              "end_col_offset": 114,
+              "end_lineno": 16,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "foyer_fiscal",
+                "col_offset": 42,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 69,
+                "end_lineno": 16,
+                "lineno": 16,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 56,
+                  "end_lineno": 16,
+                  "lineno": 16,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 42,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 48,
+                    "end_lineno": 16,
+                    "id": "menage",
+                    "lineno": 16
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 16
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 127,
+            "end_lineno": 17,
+            "lineno": 17,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 17,
+                "id": "assurance_vie_ps_exoneree_irpp_pl",
+                "lineno": 17
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 51,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 86,
+                  "end_lineno": 17,
+                  "id": "assurance_vie_ps_exoneree_irpp_pl_i",
+                  "lineno": 17
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 40,
+              "end_col_offset": 127,
+              "end_lineno": 17,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 40,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 50,
+                "end_lineno": 17,
+                "lineno": 17,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 40,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 46,
+                  "end_lineno": 17,
+                  "id": "menage",
+                  "lineno": 17
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 88,
+                  "end_col_offset": 126,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 95,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 126,
+                    "end_lineno": 17,
+                    "lineno": 17,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 95,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 106,
+                      "end_lineno": 17,
+                      "id": "FoyerFiscal",
+                      "lineno": 17
+                    }
+                  }
+                }
+              ],
+              "lineno": 17
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 92,
+            "end_lineno": 19,
+            "lineno": 19,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 19,
+                "id": "plus_values_base_large_i",
+                "lineno": 19
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 59,
+                  "end_col_offset": 83,
+                  "end_lineno": 19,
+                  "lineno": 19,
+                  "value": "plus_values_base_large"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 85,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 91,
+                  "end_lineno": 19,
+                  "id": "period",
+                  "lineno": 19
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 31,
+              "end_col_offset": 92,
+              "end_lineno": 19,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "foyer_fiscal",
+                "col_offset": 31,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 58,
+                "end_lineno": 19,
+                "lineno": 19,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "members",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 45,
+                  "end_lineno": 19,
+                  "lineno": 19,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 31,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 37,
+                    "end_lineno": 19,
+                    "id": "menage",
+                    "lineno": 19
+                  }
+                }
+              },
+              "keywords": [],
+              "lineno": 19
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 105,
+            "end_lineno": 20,
+            "lineno": 20,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 26,
+                "end_lineno": 20,
+                "id": "plus_values_base_large",
+                "lineno": 20
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 40,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 64,
+                  "end_lineno": 20,
+                  "id": "plus_values_base_large_i",
+                  "lineno": 20
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 29,
+              "end_col_offset": 105,
+              "end_lineno": 20,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 29,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 39,
+                "end_lineno": 20,
+                "lineno": 20,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 29,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 35,
+                  "end_lineno": 20,
+                  "id": "menage",
+                  "lineno": 20
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 66,
+                  "end_col_offset": 104,
+                  "end_lineno": 20,
+                  "lineno": 20,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT_PRINCIPAL",
+                    "col_offset": 73,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 104,
+                    "end_lineno": 20,
+                    "lineno": 20,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 73,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 84,
+                      "end_lineno": 20,
+                      "id": "FoyerFiscal",
+                      "lineno": 20
+                    }
+                  }
+                }
+              ],
+              "lineno": 20
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 29,
+            "lineno": 22,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 32,
+              "end_lineno": 28,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 43,
+                "end_lineno": 27,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 39,
+                  "end_lineno": 26,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 50,
+                    "end_lineno": 25,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 45,
+                      "end_lineno": 24,
+                      "left": {
+                        "ast_class": "UnaryOp",
+                        "col_offset": 8,
+                        "end_col_offset": 60,
+                        "end_lineno": 23,
+                        "lineno": 23,
+                        "op": {
+                          "ast_class": "UAdd"
+                        },
+                        "operand": {
+                          "ast_class": "Name",
+                          "col_offset": 10,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 60,
+                          "end_lineno": 23,
+                          "id": "revenus_capitaux_prelevement_forfaitaire_unique_ir",
+                          "lineno": 23
+                        }
+                      },
+                      "lineno": 23,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 45,
+                        "end_lineno": 24,
+                        "id": "revenus_capitaux_prelevement_bareme",
+                        "lineno": 24
+                      }
+                    },
+                    "lineno": 23,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Name",
+                      "col_offset": 10,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 50,
+                      "end_lineno": 25,
+                      "id": "revenus_capitaux_prelevement_liberatoire",
+                      "lineno": 25
+                    }
+                  },
+                  "lineno": 23,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 39,
+                    "end_lineno": 26,
+                    "id": "interets_pel_moins_12_ans_cel",
+                    "lineno": 26
+                  }
+                },
+                "lineno": 23,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 10,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 43,
+                  "end_lineno": 27,
+                  "id": "assurance_vie_ps_exoneree_irpp_pl",
+                  "lineno": 27
+                }
+              },
+              "lineno": 23,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 28,
+                "id": "plus_values_base_large",
+                "lineno": 28
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 29,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nRevenus bruts des capitaux mobiliers et plus-values du ménage :\navant tout abattement et prélèvement social\n",
+      "file_path": "/openfisca_france/model/mesures.py",
+      "source_code": "def formula(menage, period):\n    '''\n    Revenus bruts des capitaux mobiliers et plus-values du ménage :\n    avant tout abattement et prélèvement social\n    '''\n\n    revenus_capitaux_prelevement_forfaitaire_unique_ir_i = menage.members.foyer_fiscal('revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options = [ADD])\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = menage.sum(revenus_capitaux_prelevement_forfaitaire_unique_ir_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    revenus_capitaux_prelevement_bareme_i = menage.members.foyer_fiscal('revenus_capitaux_prelevement_bareme', period, options = [ADD])\n    revenus_capitaux_prelevement_bareme = menage.sum(revenus_capitaux_prelevement_bareme_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    revenus_capitaux_prelevement_liberatoire_i = menage.members.foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period, options = [ADD])\n    revenus_capitaux_prelevement_liberatoire = menage.sum(revenus_capitaux_prelevement_liberatoire_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    interets_pel_moins_12_ans_cel_i = menage.members('interets_pel_moins_12_ans_cel', period)\n    interets_pel_moins_12_ans_cel = menage.sum(interets_pel_moins_12_ans_cel_i)\n    assurance_vie_ps_exoneree_irpp_pl_i = menage.members.foyer_fiscal('assurance_vie_ps_exoneree_irpp_pl', period)\n    assurance_vie_ps_exoneree_irpp_pl = menage.sum(assurance_vie_ps_exoneree_irpp_pl_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    plus_values_base_large_i = menage.members.foyer_fiscal('plus_values_base_large', period)\n    plus_values_base_large = menage.sum(plus_values_base_large_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (\n        + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + revenus_capitaux_prelevement_bareme\n        + revenus_capitaux_prelevement_liberatoire\n        + interets_pel_moins_12_ans_cel\n        + assurance_vie_ps_exoneree_irpp_pl\n        + plus_values_base_large\n        )\n",
+      "start_line_number": 418,
+      "stop_line_number": 447
+    }
+  },
+  "json_type": "number",
+  "label": "Revenus bruts des capitaux mobiliers et plus-values du ménage",
+  "name": "revenus_capitaux_mobiliers_plus_values_bruts_menage",
+  "referring_variables": [
+    "revenus_super_bruts_menage"
+  ],
+  "start_line_number": 412,
+  "stop_line_number": 447,
+  "value_type": "float"
+}

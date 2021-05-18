@@ -1,0 +1,2119 @@
+{
+  "calculate_output": "calculate_output_add",
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
+  "formulas": {
+    "2017-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 25,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 27,
+              "end_col_offset": 33,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 35,
+              "end_col_offset": 45,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 97,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 2,
+                "id": "plafond_securite_sociale_annuel",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 38,
+              "end_col_offset": 97,
+              "end_lineno": 2,
+              "left": {
+                "ast_class": "Attribute",
+                "attr": "plafond_securite_sociale",
+                "col_offset": 38,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 92,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "gen",
+                  "col_offset": 38,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 67,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "cotsoc",
+                    "col_offset": 38,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 63,
+                    "end_lineno": 2,
+                    "lineno": 2,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 49,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 55,
+                          "end_lineno": 2,
+                          "id": "period",
+                          "lineno": 2
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 38,
+                      "end_col_offset": 56,
+                      "end_lineno": 2,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 38,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 48,
+                        "end_lineno": 2,
+                        "id": "parameters",
+                        "lineno": 2
+                      },
+                      "keywords": [],
+                      "lineno": 2
+                    }
+                  }
+                }
+              },
+              "lineno": 2,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 95,
+                "end_col_offset": 97,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": 12
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 51,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 3,
+                "id": "bareme",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 51,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 3,
+                "id": "MarginalRateTaxScale",
+                "lineno": 3
+              },
+              "keywords": [
+                {
+                  "arg": "name",
+                  "ast_class": "keyword",
+                  "col_offset": 34,
+                  "end_col_offset": 50,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 41,
+                    "end_col_offset": 50,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "famille"
+                  }
+                }
+              ],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 28,
+            "end_lineno": 4,
+            "lineno": 4,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 24,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": 0
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 26,
+                  "end_col_offset": 27,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": 0
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 28,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "add_bracket",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 4,
+                "lineno": 4,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 4,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 4,
+                  "id": "bareme",
+                  "lineno": 4
+                }
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 32,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 25,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": 0.7
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 27,
+                  "end_col_offset": 31,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": 0.065
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 32,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "add_bracket",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 4,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 5,
+                  "id": "bareme",
+                  "lineno": 5
+                }
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 63,
+            "end_lineno": 6,
+            "lineno": 6,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 62,
+                  "end_lineno": 6,
+                  "id": "plafond_securite_sociale_annuel",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 63,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "multiply_thresholds",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 6,
+                "lineno": 6,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 4,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 6,
+                  "id": "bareme",
+                  "lineno": 6
+                }
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 7,
+                "id": "categorie_non_salarie",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 60,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "categorie_non_salarie"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 7,
+                  "id": "period",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 69,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 7,
+                "id": "individu",
+                "lineno": 7
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 45,
+            "end_lineno": 11,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 8,
+                "id": "assiette",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 15,
+              "end_col_offset": 45,
+              "end_lineno": 11,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 72,
+                "end_lineno": 10,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 9,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "artisan",
+                      "col_offset": 34,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 66,
+                      "end_lineno": 9,
+                      "lineno": 9,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 34,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 58,
+                        "end_lineno": 9,
+                        "id": "TypesCategorieNonSalarie",
+                        "lineno": 9
+                      }
+                    }
+                  ],
+                  "end_col_offset": 66,
+                  "end_lineno": 9,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 9,
+                    "id": "categorie_non_salarie",
+                    "lineno": 9
+                  },
+                  "lineno": 9,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                },
+                "lineno": 9,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "Compare",
+                  "col_offset": 11,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "commercant",
+                      "col_offset": 36,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 71,
+                      "end_lineno": 10,
+                      "lineno": 10,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 36,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 60,
+                        "end_lineno": 10,
+                        "id": "TypesCategorieNonSalarie",
+                        "lineno": 10
+                      }
+                    }
+                  ],
+                  "end_col_offset": 71,
+                  "end_lineno": 10,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 32,
+                    "end_lineno": 10,
+                    "id": "categorie_non_salarie",
+                    "lineno": 10
+                  },
+                  "lineno": 10,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                }
+              },
+              "lineno": 8,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 21,
+                    "end_col_offset": 36,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": "rpns_individu"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 38,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 44,
+                    "end_lineno": 11,
+                    "id": "period",
+                    "lineno": 11
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 12,
+                "end_col_offset": 45,
+                "end_lineno": 11,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 11,
+                  "id": "individu",
+                  "lineno": 11
+                },
+                "keywords": [],
+                "lineno": 11
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 17,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 12,
+                "id": "cotisation_sous_1_1_pss",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 30,
+              "end_col_offset": 9,
+              "end_lineno": 17,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 38,
+                "end_lineno": 12,
+                "id": "assiette",
+                "lineno": 12
+              },
+              "lineno": 12,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 13,
+                "end_lineno": 16,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 9,
+                  "comparators": [
+                    {
+                      "ast_class": "BinOp",
+                      "col_offset": 20,
+                      "end_col_offset": 56,
+                      "end_lineno": 13,
+                      "left": {
+                        "ast_class": "Constant",
+                        "col_offset": 20,
+                        "end_col_offset": 22,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": 0.7
+                      },
+                      "lineno": 13,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 56,
+                        "end_lineno": 13,
+                        "id": "plafond_securite_sociale_annuel",
+                        "lineno": 13
+                      }
+                    }
+                  ],
+                  "end_col_offset": 56,
+                  "end_lineno": 13,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 17,
+                    "end_lineno": 13,
+                    "id": "assiette",
+                    "lineno": 13
+                  },
+                  "lineno": 13,
+                  "ops": [
+                    {
+                      "ast_class": "Lt"
+                    }
+                  ]
+                },
+                "lineno": 13,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 12,
+                  "end_col_offset": 84,
+                  "end_lineno": 15,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 12,
+                    "end_col_offset": 77,
+                    "end_lineno": 15,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 12,
+                      "end_col_offset": 36,
+                      "end_lineno": 15,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 13,
+                        "end_col_offset": 24,
+                        "end_lineno": 15,
+                        "left": {
+                          "ast_class": "Constant",
+                          "col_offset": 13,
+                          "end_col_offset": 17,
+                          "end_lineno": 15,
+                          "lineno": 15,
+                          "value": 0.065
+                        },
+                        "lineno": 15,
+                        "op": {
+                          "ast_class": "Sub"
+                        },
+                        "right": {
+                          "ast_class": "Constant",
+                          "col_offset": 20,
+                          "end_col_offset": 24,
+                          "end_lineno": 15,
+                          "lineno": 15,
+                          "value": 0.035
+                        }
+                      },
+                      "lineno": 15,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 28,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 36,
+                        "end_lineno": 15,
+                        "id": "assiette",
+                        "lineno": 15
+                      }
+                    },
+                    "lineno": 15,
+                    "op": {
+                      "ast_class": "Div"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 40,
+                      "end_col_offset": 76,
+                      "end_lineno": 15,
+                      "left": {
+                        "ast_class": "Constant",
+                        "col_offset": 40,
+                        "end_col_offset": 42,
+                        "end_lineno": 15,
+                        "lineno": 15,
+                        "value": 0.7
+                      },
+                      "lineno": 15,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Name",
+                        "col_offset": 45,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 76,
+                        "end_lineno": 15,
+                        "id": "plafond_securite_sociale_annuel",
+                        "lineno": 15
+                      }
+                    }
+                  },
+                  "lineno": 15,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "Constant",
+                    "col_offset": 80,
+                    "end_col_offset": 84,
+                    "end_lineno": 15,
+                    "lineno": 15,
+                    "value": 0.035
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 61,
+            "end_lineno": 18,
+            "lineno": 18,
+            "value": {
+              "ast_class": "UnaryOp",
+              "col_offset": 11,
+              "end_col_offset": 61,
+              "end_lineno": 18,
+              "lineno": 18,
+              "op": {
+                "ast_class": "USub"
+              },
+              "operand": {
+                "ast_class": "BinOp",
+                "col_offset": 13,
+                "end_col_offset": 60,
+                "end_lineno": 18,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 13,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 36,
+                  "end_lineno": 18,
+                  "id": "cotisation_sous_1_1_pss",
+                  "lineno": 18
+                },
+                "lineno": 18,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 51,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 59,
+                      "end_lineno": 18,
+                      "id": "assiette",
+                      "lineno": 18
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 39,
+                  "end_col_offset": 60,
+                  "end_lineno": 18,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "calc",
+                    "col_offset": 39,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 50,
+                    "end_lineno": 18,
+                    "lineno": 18,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 39,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 45,
+                      "end_lineno": 18,
+                      "id": "bareme",
+                      "lineno": 18
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 18
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 61,
+        "end_lineno": 18,
+        "lineno": 1,
+        "name": "formula_2017"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale"
+      ],
+      "source_code": "def formula_2017(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale * 12\n    bareme = MarginalRateTaxScale(name = 'famille')\n    bareme.add_bracket(0, 0)\n    bareme.add_bracket(.7, .065)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        ) * individu('rpns_individu', period)\n    cotisation_sous_1_1_pss = assiette * (\n        (assiette < .7 * plafond_securite_sociale_annuel)\n        * (\n            (.065 - .035) * assiette / (.7 * plafond_securite_sociale_annuel) + .035  # TODO check taux non nul à assiette quasi nulle\n            )\n        )\n    return -(cotisation_sous_1_1_pss + bareme.calc(assiette))\n",
+      "start_line_number": 152,
+      "stop_line_number": 170,
+      "variables": [
+        "categorie_non_salarie",
+        "rpns_individu"
+      ]
+    },
+    "2018-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 17,
+              "end_col_offset": 25,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 27,
+              "end_col_offset": 33,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 35,
+              "end_col_offset": 45,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 97,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 35,
+                "end_lineno": 2,
+                "id": "plafond_securite_sociale_annuel",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 38,
+              "end_col_offset": 97,
+              "end_lineno": 2,
+              "left": {
+                "ast_class": "Attribute",
+                "attr": "plafond_securite_sociale",
+                "col_offset": 38,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 92,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "gen",
+                  "col_offset": 38,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 67,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "cotsoc",
+                    "col_offset": 38,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 63,
+                    "end_lineno": 2,
+                    "lineno": 2,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 49,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 55,
+                          "end_lineno": 2,
+                          "id": "period",
+                          "lineno": 2
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 38,
+                      "end_col_offset": 56,
+                      "end_lineno": 2,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 38,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 48,
+                        "end_lineno": 2,
+                        "id": "parameters",
+                        "lineno": 2
+                      },
+                      "keywords": [],
+                      "lineno": 2
+                    }
+                  }
+                }
+              },
+              "lineno": 2,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 95,
+                "end_col_offset": 97,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": 12
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 51,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 3,
+                "id": "bareme",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 51,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 3,
+                "id": "MarginalRateTaxScale",
+                "lineno": 3
+              },
+              "keywords": [
+                {
+                  "arg": "name",
+                  "ast_class": "keyword",
+                  "col_offset": 34,
+                  "end_col_offset": 50,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 41,
+                    "end_col_offset": 50,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "famille"
+                  }
+                }
+              ],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 28,
+            "end_lineno": 4,
+            "lineno": 4,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 24,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": 0
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 26,
+                  "end_col_offset": 27,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": 0
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 28,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "add_bracket",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 4,
+                "lineno": 4,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 4,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 4,
+                  "id": "bareme",
+                  "lineno": 4
+                }
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 33,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 26,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": 1.1
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 28,
+                  "end_col_offset": 32,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": 0.072
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 33,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "add_bracket",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 5,
+                "lineno": 5,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 4,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 5,
+                  "id": "bareme",
+                  "lineno": 5
+                }
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 31,
+            "end_lineno": 6,
+            "lineno": 6,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 23,
+                  "end_col_offset": 24,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": 5
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 26,
+                  "end_col_offset": 30,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": 0.065
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 31,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "add_bracket",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 22,
+                "end_lineno": 6,
+                "lineno": 6,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 4,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 6,
+                  "id": "bareme",
+                  "lineno": 6
+                }
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 63,
+            "end_lineno": 7,
+            "lineno": 7,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 62,
+                  "end_lineno": 7,
+                  "id": "plafond_securite_sociale_annuel",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 63,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "multiply_thresholds",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 4,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 10,
+                  "end_lineno": 7,
+                  "id": "bareme",
+                  "lineno": 7
+                }
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 69,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 25,
+                "end_lineno": 8,
+                "id": "categorie_non_salarie",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 60,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "categorie_non_salarie"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 28,
+              "end_col_offset": 69,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 28,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 8,
+                "id": "individu",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 45,
+            "end_lineno": 12,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 9,
+                "id": "assiette",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 15,
+              "end_col_offset": 45,
+              "end_lineno": 12,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 72,
+                "end_lineno": 11,
+                "left": {
+                  "ast_class": "Compare",
+                  "col_offset": 9,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "artisan",
+                      "col_offset": 34,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 66,
+                      "end_lineno": 10,
+                      "lineno": 10,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 34,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 58,
+                        "end_lineno": 10,
+                        "id": "TypesCategorieNonSalarie",
+                        "lineno": 10
+                      }
+                    }
+                  ],
+                  "end_col_offset": 66,
+                  "end_lineno": 10,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 9,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 10,
+                    "id": "categorie_non_salarie",
+                    "lineno": 10
+                  },
+                  "lineno": 10,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                },
+                "lineno": 10,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "Compare",
+                  "col_offset": 11,
+                  "comparators": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "commercant",
+                      "col_offset": 36,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 71,
+                      "end_lineno": 11,
+                      "lineno": 11,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 36,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 60,
+                        "end_lineno": 11,
+                        "id": "TypesCategorieNonSalarie",
+                        "lineno": 11
+                      }
+                    }
+                  ],
+                  "end_col_offset": 71,
+                  "end_lineno": 11,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 11,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 32,
+                    "end_lineno": 11,
+                    "id": "categorie_non_salarie",
+                    "lineno": 11
+                  },
+                  "lineno": 11,
+                  "ops": [
+                    {
+                      "ast_class": "Eq"
+                    }
+                  ]
+                }
+              },
+              "lineno": 9,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 21,
+                    "end_col_offset": 36,
+                    "end_lineno": 12,
+                    "lineno": 12,
+                    "value": "rpns_individu"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 38,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 44,
+                    "end_lineno": 12,
+                    "id": "period",
+                    "lineno": 12
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 12,
+                "end_col_offset": 45,
+                "end_lineno": 12,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 12,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 20,
+                  "end_lineno": 12,
+                  "id": "individu",
+                  "lineno": 12
+                },
+                "keywords": [],
+                "lineno": 12
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 22,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 13,
+                "id": "cotisation_sous_1_1_pss",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 30,
+              "end_col_offset": 9,
+              "end_lineno": 22,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 38,
+                "end_lineno": 13,
+                "id": "assiette",
+                "lineno": 13
+              },
+              "lineno": 13,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 13,
+                "end_lineno": 21,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 13,
+                  "end_lineno": 17,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 111,
+                    "end_lineno": 14,
+                    "left": {
+                      "ast_class": "Compare",
+                      "col_offset": 9,
+                      "comparators": [
+                        {
+                          "ast_class": "BinOp",
+                          "col_offset": 20,
+                          "end_col_offset": 56,
+                          "end_lineno": 14,
+                          "left": {
+                            "ast_class": "Constant",
+                            "col_offset": 20,
+                            "end_col_offset": 22,
+                            "end_lineno": 14,
+                            "lineno": 14,
+                            "value": 0.4
+                          },
+                          "lineno": 14,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Name",
+                            "col_offset": 25,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 56,
+                            "end_lineno": 14,
+                            "id": "plafond_securite_sociale_annuel",
+                            "lineno": 14
+                          }
+                        }
+                      ],
+                      "end_col_offset": 56,
+                      "end_lineno": 14,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 17,
+                        "end_lineno": 14,
+                        "id": "assiette",
+                        "lineno": 14
+                      },
+                      "lineno": 14,
+                      "ops": [
+                        {
+                          "ast_class": "Gt"
+                        }
+                      ]
+                    },
+                    "lineno": 14,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 61,
+                      "comparators": [
+                        {
+                          "ast_class": "BinOp",
+                          "col_offset": 73,
+                          "end_col_offset": 110,
+                          "end_lineno": 14,
+                          "left": {
+                            "ast_class": "Constant",
+                            "col_offset": 73,
+                            "end_col_offset": 76,
+                            "end_lineno": 14,
+                            "lineno": 14,
+                            "value": 1.1
+                          },
+                          "lineno": 14,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Name",
+                            "col_offset": 79,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 110,
+                            "end_lineno": 14,
+                            "id": "plafond_securite_sociale_annuel",
+                            "lineno": 14
+                          }
+                        }
+                      ],
+                      "end_col_offset": 110,
+                      "end_lineno": 14,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 61,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 69,
+                        "end_lineno": 14,
+                        "id": "assiette",
+                        "lineno": 14
+                      },
+                      "lineno": 14,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 14,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 12,
+                    "end_col_offset": 85,
+                    "end_lineno": 16,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 12,
+                      "end_col_offset": 78,
+                      "end_lineno": 16,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 12,
+                        "end_col_offset": 36,
+                        "end_lineno": 16,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 13,
+                          "end_col_offset": 24,
+                          "end_lineno": 16,
+                          "left": {
+                            "ast_class": "Constant",
+                            "col_offset": 13,
+                            "end_col_offset": 17,
+                            "end_lineno": 16,
+                            "lineno": 16,
+                            "value": 0.072
+                          },
+                          "lineno": 16,
+                          "op": {
+                            "ast_class": "Sub"
+                          },
+                          "right": {
+                            "ast_class": "Constant",
+                            "col_offset": 20,
+                            "end_col_offset": 24,
+                            "end_lineno": 16,
+                            "lineno": 16,
+                            "value": 0.022
+                          }
+                        },
+                        "lineno": 16,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 28,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 36,
+                          "end_lineno": 16,
+                          "id": "assiette",
+                          "lineno": 16
+                        }
+                      },
+                      "lineno": 16,
+                      "op": {
+                        "ast_class": "Div"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 40,
+                        "end_col_offset": 77,
+                        "end_lineno": 16,
+                        "left": {
+                          "ast_class": "Constant",
+                          "col_offset": 40,
+                          "end_col_offset": 43,
+                          "end_lineno": 16,
+                          "lineno": 16,
+                          "value": 1.1
+                        },
+                        "lineno": 16,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 77,
+                          "end_lineno": 16,
+                          "id": "plafond_securite_sociale_annuel",
+                          "lineno": 16
+                        }
+                      }
+                    },
+                    "lineno": 16,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 81,
+                      "end_col_offset": 85,
+                      "end_lineno": 16,
+                      "lineno": 16,
+                      "value": 0.022
+                    }
+                  }
+                },
+                "lineno": 14,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 13,
+                  "end_lineno": 21,
+                  "left": {
+                    "ast_class": "Compare",
+                    "col_offset": 11,
+                    "comparators": [
+                      {
+                        "ast_class": "BinOp",
+                        "col_offset": 23,
+                        "end_col_offset": 59,
+                        "end_lineno": 18,
+                        "left": {
+                          "ast_class": "Constant",
+                          "col_offset": 23,
+                          "end_col_offset": 25,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 0.4
+                        },
+                        "lineno": 18,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 28,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 59,
+                          "end_lineno": 18,
+                          "id": "plafond_securite_sociale_annuel",
+                          "lineno": 18
+                        }
+                      }
+                    ],
+                    "end_col_offset": 59,
+                    "end_lineno": 18,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 11,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 19,
+                      "end_lineno": 18,
+                      "id": "assiette",
+                      "lineno": 18
+                    },
+                    "lineno": 18,
+                    "ops": [
+                      {
+                        "ast_class": "LtE"
+                      }
+                    ]
+                  },
+                  "lineno": 18,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 12,
+                    "end_col_offset": 85,
+                    "end_lineno": 20,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 12,
+                      "end_col_offset": 78,
+                      "end_lineno": 20,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 12,
+                        "end_col_offset": 36,
+                        "end_lineno": 20,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 13,
+                          "end_col_offset": 24,
+                          "end_lineno": 20,
+                          "left": {
+                            "ast_class": "Constant",
+                            "col_offset": 13,
+                            "end_col_offset": 17,
+                            "end_lineno": 20,
+                            "lineno": 20,
+                            "value": 0.022
+                          },
+                          "lineno": 20,
+                          "op": {
+                            "ast_class": "Sub"
+                          },
+                          "right": {
+                            "ast_class": "Constant",
+                            "col_offset": 20,
+                            "end_col_offset": 24,
+                            "end_lineno": 20,
+                            "lineno": 20,
+                            "value": 0.085
+                          }
+                        },
+                        "lineno": 20,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 28,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 36,
+                          "end_lineno": 20,
+                          "id": "assiette",
+                          "lineno": 20
+                        }
+                      },
+                      "lineno": 20,
+                      "op": {
+                        "ast_class": "Div"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 40,
+                        "end_col_offset": 77,
+                        "end_lineno": 20,
+                        "left": {
+                          "ast_class": "Constant",
+                          "col_offset": 40,
+                          "end_col_offset": 43,
+                          "end_lineno": 20,
+                          "lineno": 20,
+                          "value": 0.4
+                        },
+                        "lineno": 20,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Name",
+                          "col_offset": 46,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 77,
+                          "end_lineno": 20,
+                          "id": "plafond_securite_sociale_annuel",
+                          "lineno": 20
+                        }
+                      }
+                    },
+                    "lineno": 20,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "Constant",
+                      "col_offset": 81,
+                      "end_col_offset": 85,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": 0.085
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 62,
+            "end_lineno": 23,
+            "lineno": 23,
+            "value": {
+              "ast_class": "UnaryOp",
+              "col_offset": 11,
+              "end_col_offset": 62,
+              "end_lineno": 23,
+              "lineno": 23,
+              "op": {
+                "ast_class": "USub"
+              },
+              "operand": {
+                "ast_class": "BinOp",
+                "col_offset": 14,
+                "end_col_offset": 61,
+                "end_lineno": 23,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 14,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 37,
+                  "end_lineno": 23,
+                  "id": "cotisation_sous_1_1_pss",
+                  "lineno": 23
+                },
+                "lineno": 23,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 52,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 60,
+                      "end_lineno": 23,
+                      "id": "assiette",
+                      "lineno": 23
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 40,
+                  "end_col_offset": 61,
+                  "end_lineno": 23,
+                  "func": {
+                    "ast_class": "Attribute",
+                    "attr": "calc",
+                    "col_offset": 40,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 51,
+                    "end_lineno": 23,
+                    "lineno": 23,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 40,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 46,
+                      "end_lineno": 23,
+                      "id": "bareme",
+                      "lineno": 23
+                    }
+                  },
+                  "keywords": [],
+                  "lineno": 23
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 62,
+        "end_lineno": 23,
+        "lineno": 1,
+        "name": "formula_2018"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale"
+      ],
+      "source_code": "def formula_2018(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale * 12\n    bareme = MarginalRateTaxScale(name = 'famille')\n    bareme.add_bracket(0, 0)\n    bareme.add_bracket(1.1, .072)\n    bareme.add_bracket(5, .065)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        ) * individu('rpns_individu', period)\n    cotisation_sous_1_1_pss = assiette * (\n        (assiette > .4 * plafond_securite_sociale_annuel) * (assiette <= 1.1 * plafond_securite_sociale_annuel)\n        * (\n            (.072 - .022) * assiette / (1.1 * plafond_securite_sociale_annuel) + .022\n            )\n        + (assiette <= .4 * plafond_securite_sociale_annuel)\n        * (\n            (.022 - .085) * assiette / (0.4 * plafond_securite_sociale_annuel) + .085\n            )\n        )\n    return - (cotisation_sous_1_1_pss + bareme.calc(assiette))\n",
+      "start_line_number": 128,
+      "stop_line_number": 151,
+      "variables": [
+        "categorie_non_salarie",
+        "rpns_individu"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Cotisation maladie et maternité des artisans et des commercants",
+  "name": "maladie_maternite_artisan_commercant",
+  "referring_variables": [
+    "assiette_csg_crds_non_salarie",
+    "cotisations_non_salarie"
+  ],
+  "start_line_number": 121,
+  "stop_line_number": 170,
+  "value_type": "float"
+}

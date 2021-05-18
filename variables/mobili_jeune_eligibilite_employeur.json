@@ -1,0 +1,350 @@
+{
+  "default_value": false,
+  "definition_period": "month",
+  "dtype": "bool_",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/mobili_jeune.py",
+  "formulas": {
+    "2012-07-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 36,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 6,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 2,
+                "id": "secteur_prive_non_agricole",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 33,
+              "end_col_offset": 9,
+              "end_lineno": 6,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 8,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "prive_non_cadre",
+                    "col_offset": 49,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 86,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 49,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 70,
+                      "end_lineno": 3,
+                      "id": "TypesCategorieSalarie",
+                      "lineno": 3
+                    }
+                  }
+                ],
+                "end_col_offset": 86,
+                "end_lineno": 3,
+                "left": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 17,
+                      "end_col_offset": 36,
+                      "end_lineno": 3,
+                      "lineno": 3,
+                      "value": "categorie_salarie"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 38,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 44,
+                      "end_lineno": 3,
+                      "id": "period",
+                      "lineno": 3
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 45,
+                  "end_lineno": 3,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 16,
+                    "end_lineno": 3,
+                    "id": "individu",
+                    "lineno": 3
+                  },
+                  "keywords": [],
+                  "lineno": 3
+                },
+                "lineno": 3,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              },
+              "lineno": 2,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 12,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "non_agricole",
+                    "col_offset": 62,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 95,
+                    "end_lineno": 5,
+                    "lineno": 5,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 62,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 82,
+                      "end_lineno": 5,
+                      "id": "TypesSecteurActivite",
+                      "lineno": 5
+                    }
+                  }
+                ],
+                "end_col_offset": 95,
+                "end_lineno": 5,
+                "left": {
+                  "args": [
+                    {
+                      "ast_class": "Constant",
+                      "col_offset": 21,
+                      "end_col_offset": 49,
+                      "end_lineno": 5,
+                      "lineno": 5,
+                      "value": "secteur_activite_employeur"
+                    },
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 51,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 57,
+                      "end_lineno": 5,
+                      "id": "period",
+                      "lineno": 5
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 12,
+                  "end_col_offset": 58,
+                  "end_lineno": 5,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 12,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 20,
+                    "end_lineno": 5,
+                    "id": "individu",
+                    "lineno": 5
+                  },
+                  "keywords": [],
+                  "lineno": 5
+                },
+                "lineno": 5,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 58,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 7,
+                "id": "contributeur_peec",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 33,
+                  "end_col_offset": 49,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": "peec_employeur"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 51,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 57,
+                  "end_lineno": 7,
+                  "id": "period",
+                  "lineno": 7
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 24,
+              "end_col_offset": 58,
+              "end_lineno": 7,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 24,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 7,
+                "id": "individu",
+                "lineno": 7
+              },
+              "keywords": [],
+              "lineno": 7
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 57,
+            "end_lineno": 9,
+            "lineno": 9,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 57,
+              "end_lineno": 9,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 37,
+                "end_lineno": 9,
+                "id": "secteur_prive_non_agricole",
+                "lineno": 9
+              },
+              "lineno": 9,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 40,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 57,
+                "end_lineno": 9,
+                "id": "contributeur_peec",
+                "lineno": 9
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 57,
+        "end_lineno": 9,
+        "lineno": 1,
+        "name": "formula_2012_07"
+      },
+      "file_path": "/openfisca_france/model/prestations/mobili_jeune.py",
+      "source_code": "def formula_2012_07(individu, period):\n    secteur_prive_non_agricole = (\n        individu(\"categorie_salarie\", period) == TypesCategorieSalarie.prive_non_cadre\n        ) * (\n            individu(\"secteur_activite_employeur\", period) == TypesSecteurActivite.non_agricole\n        )\n    contributeur_peec = individu(\"peec_employeur\", period)\n\n    return secteur_prive_non_agricole * contributeur_peec\n",
+      "start_line_number": 38,
+      "stop_line_number": 47,
+      "variables": [
+        "categorie_salarie",
+        "peec_employeur",
+        "secteur_activite_employeur"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Conditions à remplir par l'employeur d'un demandeur d'aide au logement mobili-jeune",
+  "name": "mobili_jeune_eligibilite_employeur",
+  "reference": [
+    "https://www.actionlogement.fr/l-aide-mobili-jeune"
+  ],
+  "referring_variables": [
+    "mobili_jeune_eligibilite"
+  ],
+  "start_line_number": 31,
+  "stop_line_number": 47,
+  "value_type": "bool"
+}

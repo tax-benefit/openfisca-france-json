@@ -1,0 +1,693 @@
+{
+  "default_value": "zone_2",
+  "definition_period": "month",
+  "dtype": "int16",
+  "entity": "menage",
+  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "menage",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 18,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 20,
+              "end_col_offset": 26,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 5,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 5,
+              "lineno": 2,
+              "value": "\n    Retrouve la zone APL (aide personnalisée au logement) de la commune\n    en fonction du depcom (code INSEE)\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 37,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 10,
+                "end_lineno": 6,
+                "id": "depcom",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 20,
+                  "end_col_offset": 28,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "depcom"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 30,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 36,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 13,
+              "end_col_offset": 37,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 13,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 6,
+                "id": "menage",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 22,
+            "end_lineno": 8,
+            "lineno": 8,
+            "value": {
+              "args": [],
+              "ast_class": "Call",
+              "col_offset": 4,
+              "end_col_offset": 22,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 8,
+                "id": "preload_zone_apl",
+                "lineno": 8
+              },
+              "keywords": [],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 9,
+                "id": "default_value",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 20,
+              "end_col_offset": 21,
+              "end_lineno": 9,
+              "lineno": 9,
+              "value": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 16,
+            "lineno": 10,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 8,
+                "end_lineno": 10,
+                "id": "zone",
+                "lineno": 10
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "GeneratorExp",
+                  "col_offset": 8,
+                  "elt": {
+                    "args": [
+                      {
+                        "ast_class": "IfExp",
+                        "body": {
+                          "ast_class": "Name",
+                          "col_offset": 35,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 46,
+                          "end_lineno": 12,
+                          "id": "depcom_cell",
+                          "lineno": 12
+                        },
+                        "col_offset": 35,
+                        "end_col_offset": 111,
+                        "end_lineno": 12,
+                        "lineno": 12,
+                        "orelse": {
+                          "args": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 103,
+                              "end_col_offset": 110,
+                              "end_lineno": 12,
+                              "lineno": 12,
+                              "value": "utf-8"
+                            }
+                          ],
+                          "ast_class": "Call",
+                          "col_offset": 84,
+                          "end_col_offset": 111,
+                          "end_lineno": 12,
+                          "func": {
+                            "ast_class": "Attribute",
+                            "attr": "decode",
+                            "col_offset": 84,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 102,
+                            "end_lineno": 12,
+                            "lineno": 12,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 84,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 95,
+                              "end_lineno": 12,
+                              "id": "depcom_cell",
+                              "lineno": 12
+                            }
+                          },
+                          "keywords": [],
+                          "lineno": 12
+                        },
+                        "test": {
+                          "args": [
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 61,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 72,
+                              "end_lineno": 12,
+                              "id": "depcom_cell",
+                              "lineno": 12
+                            },
+                            {
+                              "ast_class": "Name",
+                              "col_offset": 74,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 77,
+                              "end_lineno": 12,
+                              "id": "str",
+                              "lineno": 12
+                            }
+                          ],
+                          "ast_class": "Call",
+                          "col_offset": 50,
+                          "end_col_offset": 78,
+                          "end_lineno": 12,
+                          "func": {
+                            "ast_class": "Name",
+                            "col_offset": 50,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 60,
+                            "end_lineno": 12,
+                            "id": "isinstance",
+                            "lineno": 12
+                          },
+                          "keywords": [],
+                          "lineno": 12
+                        }
+                      },
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 113,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 126,
+                        "end_lineno": 12,
+                        "id": "default_value",
+                        "lineno": 12
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 12,
+                    "end_col_offset": 127,
+                    "end_lineno": 12,
+                    "func": {
+                      "ast_class": "Attribute",
+                      "attr": "get",
+                      "col_offset": 12,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 34,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 30,
+                        "end_lineno": 12,
+                        "id": "zone_apl_by_depcom",
+                        "lineno": 12
+                      }
+                    },
+                    "keywords": [],
+                    "lineno": 12
+                  },
+                  "end_col_offset": 13,
+                  "end_lineno": 14,
+                  "generators": [
+                    {
+                      "ast_class": "comprehension",
+                      "ifs": [],
+                      "is_async": 0,
+                      "iter": {
+                        "ast_class": "Name",
+                        "col_offset": 31,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 37,
+                        "end_lineno": 13,
+                        "id": "depcom",
+                        "lineno": 13
+                      },
+                      "target": {
+                        "ast_class": "Name",
+                        "col_offset": 16,
+                        "ctx": {
+                          "ast_class": "Store"
+                        },
+                        "end_col_offset": 27,
+                        "end_lineno": 13,
+                        "id": "depcom_cell",
+                        "lineno": 13
+                      }
+                    }
+                  ],
+                  "lineno": 11
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 9,
+              "end_lineno": 16,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 19,
+                "end_lineno": 10,
+                "id": "fromiter",
+                "lineno": 10
+              },
+              "keywords": [
+                {
+                  "arg": "dtype",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 21,
+                  "end_lineno": 15,
+                  "lineno": 15,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 16,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 21,
+                    "end_lineno": 15,
+                    "id": "int16",
+                    "lineno": 15
+                  }
+                }
+              ],
+              "lineno": 10
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 21,
+            "lineno": 17,
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Tuple",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 9,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 17,
+                          "end_col_offset": 18,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 1
+                        }
+                      ],
+                      "end_col_offset": 18,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 13,
+                        "end_lineno": 18,
+                        "id": "zone",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 20,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 28,
+                          "end_col_offset": 29,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 2
+                        }
+                      ],
+                      "end_col_offset": 29,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 20,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 24,
+                        "end_lineno": 18,
+                        "id": "zone",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    },
+                    {
+                      "ast_class": "Compare",
+                      "col_offset": 31,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 39,
+                          "end_col_offset": 40,
+                          "end_lineno": 18,
+                          "lineno": 18,
+                          "value": 3
+                        }
+                      ],
+                      "end_col_offset": 40,
+                      "end_lineno": 18,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 31,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 35,
+                        "end_lineno": 18,
+                        "id": "zone",
+                        "lineno": 18
+                      },
+                      "lineno": 18,
+                      "ops": [
+                        {
+                          "ast_class": "Eq"
+                        }
+                      ]
+                    }
+                  ],
+                  "end_col_offset": 41,
+                  "end_lineno": 18,
+                  "lineno": 18
+                },
+                {
+                  "ast_class": "Tuple",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "elts": [
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "index",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 34,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "zone_1",
+                        "col_offset": 9,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 28,
+                        "end_lineno": 20,
+                        "lineno": 20,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 9,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 21,
+                          "end_lineno": 20,
+                          "id": "TypesZoneApl",
+                          "lineno": 20
+                        }
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "index",
+                      "col_offset": 36,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 61,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "zone_2",
+                        "col_offset": 36,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 55,
+                        "end_lineno": 20,
+                        "lineno": 20,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 36,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 48,
+                          "end_lineno": 20,
+                          "id": "TypesZoneApl",
+                          "lineno": 20
+                        }
+                      }
+                    },
+                    {
+                      "ast_class": "Attribute",
+                      "attr": "index",
+                      "col_offset": 63,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 88,
+                      "end_lineno": 20,
+                      "lineno": 20,
+                      "value": {
+                        "ast_class": "Attribute",
+                        "attr": "zone_3",
+                        "col_offset": 63,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 82,
+                        "end_lineno": 20,
+                        "lineno": 20,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 63,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 75,
+                          "end_lineno": 20,
+                          "id": "TypesZoneApl",
+                          "lineno": 20
+                        }
+                      }
+                    }
+                  ],
+                  "end_col_offset": 89,
+                  "end_lineno": 20,
+                  "lineno": 20
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 11,
+              "end_col_offset": 9,
+              "end_lineno": 21,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 17,
+                "id": "select",
+                "lineno": 17
+              },
+              "keywords": [],
+              "lineno": 17
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 9,
+        "end_lineno": 21,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nRetrouve la zone APL (aide personnalisée au logement) de la commune\nen fonction du depcom (code INSEE)\n",
+      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "source_code": "def formula(menage, period):\n    '''\n    Retrouve la zone APL (aide personnalisée au logement) de la commune\n    en fonction du depcom (code INSEE)\n    '''\n    depcom = menage('depcom', period)\n\n    preload_zone_apl()\n    default_value = 2\n    zone = fromiter(\n        (\n            zone_apl_by_depcom.get(depcom_cell if isinstance(depcom_cell, str) else depcom_cell.decode('utf-8'), default_value)\n            for depcom_cell in depcom\n            ),\n        dtype = int16,\n        )\n    return select(\n        (zone == 1, zone == 2, zone == 3),\n        # The .index is not striclty necessary, but it improves perfomances by avoiding a later encoding\n        (TypesZoneApl.zone_1.index, TypesZoneApl.zone_2.index, TypesZoneApl.zone_3.index)\n        )\n",
+      "start_line_number": 1545,
+      "stop_line_number": 1566,
+      "variables": [
+        "depcom"
+      ]
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "string",
+  "label": "Zone APL",
+  "name": "zone_apl",
+  "possible_values": {
+    "non_renseigne": "Non renseigné",
+    "zone_1": "Zone 1",
+    "zone_2": "Zone 2",
+    "zone_3": "Zone 3"
+  },
+  "referring_variables": [
+    "aides_logement_primo_accedant_eligibilite"
+  ],
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 1536,
+  "stop_line_number": 1566,
+  "value_type": "Enum"
+}

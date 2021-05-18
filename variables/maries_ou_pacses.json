@@ -1,0 +1,309 @@
+{
+  "default_value": false,
+  "definition_period": "year",
+  "dtype": "bool_",
+  "entity": "foyer_fiscal",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 91,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 2,
+                "id": "statut_marital",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 54,
+                  "end_col_offset": 70,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "statut_marital"
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "first_month",
+                  "col_offset": 72,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 90,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 72,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 78,
+                    "end_lineno": 2,
+                    "id": "period",
+                    "lineno": 2
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 21,
+              "end_col_offset": 91,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "declarant_principal",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 53,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 21,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 33,
+                  "end_lineno": 2,
+                  "id": "foyer_fiscal",
+                  "lineno": 2
+                }
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 112,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 3,
+                "id": "marie_ou_pacse",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 21,
+              "end_col_offset": 112,
+              "end_lineno": 3,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 22,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "marie",
+                    "col_offset": 40,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 64,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 40,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 58,
+                      "end_lineno": 3,
+                      "id": "TypesStatutMarital",
+                      "lineno": 3
+                    }
+                  }
+                ],
+                "end_col_offset": 64,
+                "end_lineno": 3,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 22,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 36,
+                  "end_lineno": 3,
+                  "id": "statut_marital",
+                  "lineno": 3
+                },
+                "lineno": 3,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              },
+              "lineno": 3,
+              "op": {
+                "ast_class": "BitOr"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 69,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "pacse",
+                    "col_offset": 87,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 111,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 87,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 105,
+                      "end_lineno": 3,
+                      "id": "TypesStatutMarital",
+                      "lineno": 3
+                    }
+                  }
+                ],
+                "end_col_offset": 111,
+                "end_lineno": 3,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 69,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 83,
+                  "end_lineno": 3,
+                  "id": "statut_marital",
+                  "lineno": 3
+                },
+                "lineno": 3,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 25,
+            "end_lineno": 5,
+            "lineno": 5,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 25,
+              "end_lineno": 5,
+              "id": "marie_ou_pacse",
+              "lineno": 5
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 25,
+        "end_lineno": 5,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "source_code": "def formula(foyer_fiscal, period):\n    statut_marital = foyer_fiscal.declarant_principal('statut_marital', period.first_month)\n    marie_ou_pacse = (statut_marital == TypesStatutMarital.marie) | (statut_marital == TypesStatutMarital.pacse)\n\n    return marie_ou_pacse\n",
+      "start_line_number": 340,
+      "stop_line_number": 345
+    }
+  },
+  "is_period_size_independent": true,
+  "json_type": "boolean",
+  "label": "Déclarants mariés ou pacsés",
+  "name": "maries_ou_pacses",
+  "referring_variables": [
+    "aidper",
+    "cappme",
+    "cd_sofipe",
+    "dfppce",
+    "divide",
+    "donpartipol",
+    "intagr",
+    "inthab",
+    "invfor",
+    "invlst",
+    "invrev",
+    "ir_plaf_qf",
+    "nb_adult",
+    "nbptr",
+    "pertes_capital_societes_nouvelles",
+    "ppe_brute",
+    "ppe_elig",
+    "prelevement_forfaitaire_unique_ir_sur_assurance_vie",
+    "prlire",
+    "quaenv",
+    "repsoc",
+    "revenu_categoriel_capital",
+    "rfr_rvcm_abattements_a_reintegrer",
+    "sofipe",
+    "spfcpi"
+  ],
+  "start_line_number": 334,
+  "stop_line_number": 345,
+  "value_type": "bool"
+}
