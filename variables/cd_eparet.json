@@ -455,7 +455,12 @@
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/charges_deductibles.py",
       "source_code": "def formula_2004(foyer_fiscal, period, parameters):\n    f6ps_i = foyer_fiscal.members('f6ps', period)\n    f6rs_i = foyer_fiscal.members('f6rs', period)\n    f6ss_i = foyer_fiscal.members('f6ss', period)\n\n    # TODO: En théorie, les plafonds de déductions (ps, pt, pu) sont calculés sur\n    # le formulaire 2041 GX\n    return foyer_fiscal.sum(\n        where(\n            f6ps_i == 0,\n            f6rs_i + f6ss_i,\n            min_(f6rs_i + f6ss_i, f6ps_i)\n            )\n        )\n",
       "start_line_number": 659,
-      "stop_line_number": 673
+      "stop_line_number": 673,
+      "variables": [
+        "f6ps",
+        "f6rs",
+        "f6ss"
+      ]
     }
   },
   "json_type": "number",

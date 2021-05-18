@@ -741,7 +741,13 @@
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    cotisations_versees = foyer_fiscal.members('f7ac', period)\n    salaire_imposable = foyer_fiscal.members('salaire_imposable', period, options = [ADD])\n    chomage_imposable = foyer_fiscal.members('chomage_imposable', period, options = [ADD])\n    retraite_imposable = foyer_fiscal.members('retraite_imposable', period, options = [ADD])\n    P = parameters(period).impot_revenu.reductions_impots.cotsyn\n\n    plafond = (salaire_imposable + chomage_imposable + retraite_imposable) * P.seuil\n\n    return (P.taux * foyer_fiscal.sum(min_(cotisations_versees, plafond)))\n",
       "start_line_number": 515,
-      "stop_line_number": 525
+      "stop_line_number": 525,
+      "variables": [
+        "chomage_imposable",
+        "f7ac",
+        "retraite_imposable",
+        "salaire_imposable"
+      ]
     }
   },
   "json_type": "number",

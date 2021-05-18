@@ -653,7 +653,10 @@
       ],
       "source_code": "def formula_2017(menage, period, parameters):\n    uc = parameters(period).cheque_energie.unites_consommation\n    nb_personnes = menage.nb_persons()\n    gardes_alternees = menage.sum(menage.members('garde_alternee', period.first_month))\n\n    nb_personnes_ajuste = nb_personnes - 0.5 * gardes_alternees\n    return (\n        uc.premiere_personne\n        + uc.deuxieme_personne * (nb_personnes_ajuste > 1) * (min_(nb_personnes_ajuste, 2) - 1)\n        + uc.autres_personnes * (nb_personnes_ajuste > 2) * (nb_personnes_ajuste - 2)\n        )\n",
       "start_line_number": 11,
-      "stop_line_number": 22
+      "stop_line_number": 22,
+      "variables": [
+        "garde_alternee"
+      ]
     }
   },
   "json_type": "number",

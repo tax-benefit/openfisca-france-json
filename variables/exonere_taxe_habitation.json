@@ -1727,7 +1727,14 @@
       ],
       "source_code": "def formula_2017_01_01(menage, period, parameters):\n    '''\n    Hypothèses :\n        (1) pour la condition de plus de 60 ans ou veuf, on regarde seulement la personne de référence du ménage\n        (2) pour la condition relative à l'ASPA l'ASI et l'AAH, on fait la somme de ces prestations à l'échelle du ménage\n        (3) pour la condition relative à l'ISF-IFI, on fait la somme de ces impôts à l'échelle du ménage\n        (4) on ne prend pas en compte les prolongements temporaires d'exonération pour certains contribuables\n            ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n    '''\n    janvier = period.first_month\n\n    age_personne_de_reference = menage.personne_de_reference('age', janvier)\n    age_conjoint = menage.conjoint('age', janvier)\n    statut_marital = menage.personne_de_reference('statut_marital', janvier)\n\n    aah_i = menage.members('aah', period, options = [ADD])\n    asi_i = menage.members('asi', period, options = [ADD])\n    aspa_i = menage.members.famille('aspa', period, options = [ADD])\n    aah = menage.sum(aah_i)\n    asi = menage.sum(asi_i)\n    aspa = menage.sum(aspa_i, role = Famille.DEMANDEUR)\n\n    isf_ifi_i = menage.members.foyer_fiscal('isf_ifi', period.last_year)\n    isf_ifi = menage.sum(isf_ifi_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    condition_rfr_exoneration_th_i = menage.members.foyer_fiscal('condition_rfr_exoneration_th', period)\n    condition_rfr_exoneration_th = menage.all(condition_rfr_exoneration_th_i)\n\n    P = parameters(period).taxation_locale.taxe_habitation\n\n    exon_non_soumis_a_condition_rfr = (asi > 0) + (aspa > 0)\n    exon_soumis_a_condition_rfr = ((age_personne_de_reference >= P.exon_age_min) + (age_conjoint >= P.exon_age_min) + (statut_marital == TypesStatutMarital.veuf)) * (isf_ifi == 0) + (aah > 0)\n    exon = exon_non_soumis_a_condition_rfr + exon_soumis_a_condition_rfr * condition_rfr_exoneration_th\n    return exon\n",
       "start_line_number": 44,
-      "stop_line_number": 78
+      "stop_line_number": 78,
+      "variables": [
+        "aah",
+        "asi",
+        "aspa",
+        "condition_rfr_exoneration_th",
+        "isf_ifi"
+      ]
     }
   },
   "is_period_size_independent": true,

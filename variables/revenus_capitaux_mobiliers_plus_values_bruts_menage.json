@@ -1304,7 +1304,15 @@
       "file_path": "/openfisca_france/model/mesures.py",
       "source_code": "def formula(menage, period):\n    '''\n    Revenus bruts des capitaux mobiliers et plus-values du ménage :\n    avant tout abattement et prélèvement social\n    '''\n\n    revenus_capitaux_prelevement_forfaitaire_unique_ir_i = menage.members.foyer_fiscal('revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options = [ADD])\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = menage.sum(revenus_capitaux_prelevement_forfaitaire_unique_ir_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    revenus_capitaux_prelevement_bareme_i = menage.members.foyer_fiscal('revenus_capitaux_prelevement_bareme', period, options = [ADD])\n    revenus_capitaux_prelevement_bareme = menage.sum(revenus_capitaux_prelevement_bareme_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    revenus_capitaux_prelevement_liberatoire_i = menage.members.foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period, options = [ADD])\n    revenus_capitaux_prelevement_liberatoire = menage.sum(revenus_capitaux_prelevement_liberatoire_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    interets_pel_moins_12_ans_cel_i = menage.members('interets_pel_moins_12_ans_cel', period)\n    interets_pel_moins_12_ans_cel = menage.sum(interets_pel_moins_12_ans_cel_i)\n    assurance_vie_ps_exoneree_irpp_pl_i = menage.members.foyer_fiscal('assurance_vie_ps_exoneree_irpp_pl', period)\n    assurance_vie_ps_exoneree_irpp_pl = menage.sum(assurance_vie_ps_exoneree_irpp_pl_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    plus_values_base_large_i = menage.members.foyer_fiscal('plus_values_base_large', period)\n    plus_values_base_large = menage.sum(plus_values_base_large_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (\n        + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + revenus_capitaux_prelevement_bareme\n        + revenus_capitaux_prelevement_liberatoire\n        + interets_pel_moins_12_ans_cel\n        + assurance_vie_ps_exoneree_irpp_pl\n        + plus_values_base_large\n        )\n",
       "start_line_number": 418,
-      "stop_line_number": 447
+      "stop_line_number": 447,
+      "variables": [
+        "assurance_vie_ps_exoneree_irpp_pl",
+        "interets_pel_moins_12_ans_cel",
+        "plus_values_base_large",
+        "revenus_capitaux_prelevement_bareme",
+        "revenus_capitaux_prelevement_forfaitaire_unique_ir",
+        "revenus_capitaux_prelevement_liberatoire"
+      ]
     }
   },
   "json_type": "number",

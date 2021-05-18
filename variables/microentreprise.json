@@ -1047,7 +1047,12 @@
       ],
       "source_code": "def formula_2009_01_01(foyer_fiscal, period, parameters):\n    ebnc_impo_i = foyer_fiscal.members('ebnc_impo', period)\n    ebic_imps_i = foyer_fiscal.members('ebic_imps', period)\n    ebic_impv_i = foyer_fiscal.members('ebic_impv', period)\n    micro = parameters(period).impot_revenu.rpns.micro\n    ebnc_impo = foyer_fiscal.sum(ebnc_impo_i)\n    ebic_imps = foyer_fiscal.sum(ebic_imps_i)\n    ebic_impv = foyer_fiscal.sum(ebic_impv_i)\n    return (\n        max_(0, ebnc_impo - max_(micro.microentreprise.montant_minimum, micro.specialbnc.taux * ebnc_impo))\n        + max_(0, ebic_imps - max_(micro.microentreprise.montant_minimum, micro.microentreprise.taux_prestations_de_services * ebic_imps))\n        + max_(0, ebic_impv - max_(micro.microentreprise.montant_minimum, micro.microentreprise.taux_ventes_de_marchandises * ebic_impv))\n        )\n",
       "start_line_number": 1605,
-      "stop_line_number": 1618
+      "stop_line_number": 1618,
+      "variables": [
+        "ebic_imps",
+        "ebic_impv",
+        "ebnc_impo"
+      ]
     }
   },
   "json_type": "number",

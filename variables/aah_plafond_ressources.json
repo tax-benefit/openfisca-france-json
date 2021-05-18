@@ -522,7 +522,11 @@
       ],
       "source_code": "def formula(individu, period, parameters):\n    law = parameters(period).prestations\n\n    en_couple = individu.famille('en_couple', period)\n    af_nbenf = individu.famille('af_nbenf', period)\n    montant_max = law.minima_sociaux.aah.montant\n\n    return montant_max * (\n        + 1\n        + en_couple\n        * law.minima_sociaux.aah.majoration_plafond_couple\n        + law.minima_sociaux.aah.majoration_plafond_personne_a_charge\n        * af_nbenf\n        )\n",
       "start_line_number": 276,
-      "stop_line_number": 290
+      "stop_line_number": 290,
+      "variables": [
+        "af_nbenf",
+        "en_couple"
+      ]
     }
   },
   "json_type": "number",

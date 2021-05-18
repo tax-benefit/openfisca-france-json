@@ -1130,7 +1130,12 @@
       ],
       "source_code": "def formula_2017_01_01(menage, period, parameters):\n    P_plaf = parameters(period).taxation_locale.taxe_habitation.plafonnement\n    rfr_i = menage.members.foyer_fiscal('rfr', period.last_year)\n    rfr_menage = menage.sum(rfr_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    nbptr_i = menage.members.foyer_fiscal('nbptr', period.last_year)\n    nbptr_menage = menage.sum(nbptr_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    isf_ifi_i = menage.members.foyer_fiscal('isf_ifi', period.last_year)\n    isf_ifi_menage = menage.sum(isf_ifi_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    seuil_rfr = P_plaf.plaf_rfr.premiere_part + P_plaf.plaf_rfr.premiere_demi_part_supp * (min_(max_(nbptr_menage - 1, 0), 0.5)) / 0.5 + P_plaf.plaf_rfr.autres_demi_parts_supp * (max_(nbptr_menage - 1.5, 0)) / 0.5\n    return (rfr_menage <= seuil_rfr) * (isf_ifi_menage == 0)\n",
       "start_line_number": 268,
-      "stop_line_number": 278
+      "stop_line_number": 278,
+      "variables": [
+        "isf_ifi",
+        "nbptr",
+        "rfr"
+      ]
     },
     "2020-01-01": null
   },

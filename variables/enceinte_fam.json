@@ -531,7 +531,11 @@
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(famille, period):\n    enceinte_i = famille.members('enceinte', period)\n    parent_enceinte = famille.any(enceinte_i, role = Famille.PARENT)\n\n    age_en_mois_i = famille.members('age_en_mois', period)\n    age_en_mois_enfant = famille.min(age_en_mois_i, role = Famille.ENFANT)\n\n    enceinte_compat = and_(age_en_mois_enfant < 0, age_en_mois_enfant > -6)\n    return parent_enceinte + enceinte_compat\n",
       "start_line_number": 316,
-      "stop_line_number": 325
+      "stop_line_number": 325,
+      "variables": [
+        "age_en_mois",
+        "enceinte"
+      ]
     }
   },
   "is_period_size_independent": true,
