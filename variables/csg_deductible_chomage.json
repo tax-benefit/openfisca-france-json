@@ -445,7 +445,7 @@
                   "arg": "law_node",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 87,
+                  "end_col_offset": 95,
                   "end_lineno": 10,
                   "lineno": 10,
                   "value": {
@@ -455,7 +455,7 @@
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 87,
+                    "end_col_offset": 95,
                     "end_lineno": 10,
                     "lineno": 10,
                     "value": {
@@ -465,7 +465,7 @@
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 76,
+                      "end_col_offset": 84,
                       "end_lineno": 10,
                       "lineno": 10,
                       "value": {
@@ -475,17 +475,17 @@
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 68,
+                        "end_col_offset": 76,
                         "end_lineno": 10,
                         "lineno": 10,
                         "value": {
                           "ast_class": "Attribute",
-                          "attr": "contributions",
+                          "attr": "contribs_sociales",
                           "col_offset": 19,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 64,
+                          "end_col_offset": 72,
                           "end_lineno": 10,
                           "lineno": 10,
                           "value": {
@@ -495,19 +495,30 @@
                             "ctx": {
                               "ast_class": "Load"
                             },
-                            "end_col_offset": 50,
+                            "end_col_offset": 54,
                             "end_lineno": 10,
                             "lineno": 10,
                             "value": {
-                              "ast_class": "Name",
+                              "ast_class": "Attribute",
+                              "attr": "par",
                               "col_offset": 19,
                               "ctx": {
                                 "ast_class": "Load"
                               },
-                              "end_col_offset": 29,
+                              "end_col_offset": 33,
                               "end_lineno": 10,
-                              "id": "parameters",
-                              "lineno": 10
+                              "lineno": 10,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 29,
+                                "end_lineno": 10,
+                                "id": "parameters",
+                                "lineno": 10
+                              }
                             }
                           }
                         }
@@ -671,7 +682,7 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 73,
+                  "end_col_offset": 81,
                   "end_lineno": 16,
                   "lineno": 16,
                   "value": {
@@ -681,7 +692,7 @@
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 65,
+                    "end_col_offset": 73,
                     "end_lineno": 16,
                     "lineno": 16,
                     "value": {
@@ -691,17 +702,17 @@
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 57,
+                      "end_col_offset": 65,
                       "end_lineno": 16,
                       "lineno": 16,
                       "value": {
                         "ast_class": "Attribute",
-                        "attr": "contributions",
+                        "attr": "contribs_sociales",
                         "col_offset": 8,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 53,
+                        "end_col_offset": 61,
                         "end_lineno": 16,
                         "lineno": 16,
                         "value": {
@@ -711,19 +722,30 @@
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 39,
+                          "end_col_offset": 43,
                           "end_lineno": 16,
                           "lineno": 16,
                           "value": {
-                            "ast_class": "Name",
+                            "ast_class": "Attribute",
+                            "attr": "par",
                             "col_offset": 8,
                             "ctx": {
                               "ast_class": "Load"
                             },
-                            "end_col_offset": 18,
+                            "end_col_offset": 22,
                             "end_lineno": 16,
-                            "id": "parameters",
-                            "lineno": 16
+                            "lineno": 16,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 18,
+                              "end_lineno": 16,
+                              "id": "parameters",
+                              "lineno": 16
+                            }
                           }
                         }
                       }
@@ -1016,7 +1038,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-      "source_code": "def formula(individu, period, parameters):\n    chomage_brut = individu('chomage_brut', period)\n    csg_imposable_chomage = individu('csg_imposable_chomage', period)\n    taux_csg_remplacement = individu('taux_csg_remplacement', period)\n    parameters = parameters(period)\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = chomage_brut,\n        indicatrice_taux_plein = (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein),\n        indicatrice_taux_reduit = (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_reduit),\n        law_node = parameters.prelevements_sociaux.contributions.csg.chomage.deductible,\n        plafond_securite_sociale = parameters.cotsoc.gen.plafond_securite_sociale,\n        )\n    nbh_travail = 35 * 52 / 12  # = 151.67  # TODO: depuis 2001 mais avant ?\n\n    cho_seuil_exo = (\n        parameters.prelevements_sociaux.contributions.csg.chomage.min_exo\n        * nbh_travail\n        * parameters.cotsoc.gen.smic_h_b\n        )\n\n    csg_deductible_chomage = max_(\n        - montant_csg\n        - max_(cho_seuil_exo - (\n            chomage_brut\n            + csg_imposable_chomage\n            + montant_csg\n            ), 0),\n        0,\n        )\n\n    return - csg_deductible_chomage\n",
+      "source_code": "def formula(individu, period, parameters):\n    chomage_brut = individu('chomage_brut', period)\n    csg_imposable_chomage = individu('csg_imposable_chomage', period)\n    taux_csg_remplacement = individu('taux_csg_remplacement', period)\n    parameters = parameters(period)\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = chomage_brut,\n        indicatrice_taux_plein = (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein),\n        indicatrice_taux_reduit = (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_reduit),\n        law_node = parameters.par.prelevements_sociaux.contribs_sociales.csg.chomage.deductible,\n        plafond_securite_sociale = parameters.cotsoc.gen.plafond_securite_sociale,\n        )\n    nbh_travail = 35 * 52 / 12  # = 151.67  # TODO: depuis 2001 mais avant ?\n\n    cho_seuil_exo = (\n        parameters.par.prelevements_sociaux.contribs_sociales.csg.chomage.min_exo\n        * nbh_travail\n        * parameters.cotsoc.gen.smic_h_b\n        )\n\n    csg_deductible_chomage = max_(\n        - montant_csg\n        - max_(cho_seuil_exo - (\n            chomage_brut\n            + csg_imposable_chomage\n            + montant_csg\n            ), 0),\n        0,\n        )\n\n    return - csg_deductible_chomage\n",
       "start_line_number": 55,
       "stop_line_number": 86,
       "variables": [

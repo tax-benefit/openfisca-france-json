@@ -45,7 +45,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 73,
+            "end_col_offset": 81,
             "end_lineno": 2,
             "lineno": 2,
             "targets": [
@@ -68,7 +68,7 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 73,
+              "end_col_offset": 81,
               "end_lineno": 2,
               "lineno": 2,
               "value": {
@@ -78,17 +78,17 @@
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 65,
+                "end_col_offset": 73,
                 "end_lineno": 2,
                 "lineno": 2,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "contributions",
+                  "attr": "contribs_sociales",
                   "col_offset": 8,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 61,
+                  "end_col_offset": 69,
                   "end_lineno": 2,
                   "lineno": 2,
                   "value": {
@@ -98,40 +98,51 @@
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 47,
+                    "end_col_offset": 51,
                     "end_lineno": 2,
                     "lineno": 2,
                     "value": {
-                      "args": [
-                        {
+                      "ast_class": "Attribute",
+                      "attr": "par",
+                      "col_offset": 8,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 30,
+                      "end_lineno": 2,
+                      "lineno": 2,
+                      "value": {
+                        "args": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 19,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 25,
+                            "end_lineno": 2,
+                            "id": "period",
+                            "lineno": 2
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 8,
+                        "end_col_offset": 26,
+                        "end_lineno": 2,
+                        "func": {
                           "ast_class": "Name",
-                          "col_offset": 19,
+                          "col_offset": 8,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 25,
+                          "end_col_offset": 18,
                           "end_lineno": 2,
-                          "id": "period",
+                          "id": "parameters",
                           "lineno": 2
-                        }
-                      ],
-                      "ast_class": "Call",
-                      "col_offset": 8,
-                      "end_col_offset": 26,
-                      "end_lineno": 2,
-                      "func": {
-                        "ast_class": "Name",
-                        "col_offset": 8,
-                        "ctx": {
-                          "ast_class": "Load"
                         },
-                        "end_col_offset": 18,
-                        "end_lineno": 2,
-                        "id": "parameters",
+                        "keywords": [],
                         "lineno": 2
-                      },
-                      "keywords": [],
-                      "lineno": 2
+                      }
                     }
                   }
                 }
@@ -321,7 +332,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 66,
+            "end_col_offset": 76,
             "end_lineno": 6,
             "lineno": 6,
             "targets": [
@@ -340,7 +351,7 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 27,
-              "end_col_offset": 66,
+              "end_col_offset": 76,
               "end_lineno": 6,
               "left": {
                 "args": [
@@ -391,16 +402,16 @@
                   {
                     "ast_class": "BinOp",
                     "col_offset": 48,
-                    "end_col_offset": 62,
+                    "end_col_offset": 72,
                     "end_lineno": 6,
                     "left": {
                       "ast_class": "Attribute",
-                      "attr": "deduc",
+                      "attr": "taux_deductible",
                       "col_offset": 48,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 55,
+                      "end_col_offset": 65,
                       "end_lineno": 6,
                       "lineno": 6,
                       "value": {
@@ -421,11 +432,11 @@
                     },
                     "right": {
                       "ast_class": "Name",
-                      "col_offset": 58,
+                      "col_offset": 68,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 62,
+                      "end_col_offset": 72,
                       "end_lineno": 6,
                       "id": "f2bh",
                       "lineno": 6
@@ -433,8 +444,8 @@
                   },
                   {
                     "ast_class": "Constant",
-                    "col_offset": 64,
-                    "end_col_offset": 65,
+                    "col_offset": 74,
+                    "end_col_offset": 75,
                     "end_lineno": 6,
                     "lineno": 6,
                     "value": 0
@@ -442,7 +453,7 @@
                 ],
                 "ast_class": "Call",
                 "col_offset": 43,
-                "end_col_offset": 66,
+                "end_col_offset": 76,
                 "end_lineno": 6,
                 "func": {
                   "ast_class": "Name",
@@ -549,9 +560,9 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "parameters": [
-        "prelevements_sociaux.contributions.csg.capital.deduc"
+        "par.prelevements_sociaux.contribs_sociales.csg.capital.taux_deductible"
       ],
-      "source_code": "def formula(foyer_fiscal, period, parameters):\n    P = parameters(period).prelevements_sociaux.contributions.csg.capital\n    rbg = foyer_fiscal('rbg', period)\n    f6de = foyer_fiscal('f6de', period)\n    f2bh = foyer_fiscal('f2bh', period)\n    csg_deduc_patrimoine = max_(f6de, 0) + max_(P.deduc * f2bh, 0)\n\n    return min_(csg_deduc_patrimoine, max_(rbg, 0))\n",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    P = parameters(period).par.prelevements_sociaux.contribs_sociales.csg.capital\n    rbg = foyer_fiscal('rbg', period)\n    f6de = foyer_fiscal('f6de', period)\n    f2bh = foyer_fiscal('f2bh', period)\n    csg_deduc_patrimoine = max_(f6de, 0) + max_(P.taux_deductible * f2bh, 0)\n\n    return min_(csg_deduc_patrimoine, max_(rbg, 0))\n",
       "start_line_number": 1048,
       "stop_line_number": 1056,
       "variables": [

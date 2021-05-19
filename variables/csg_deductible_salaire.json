@@ -226,7 +226,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 67,
+            "end_col_offset": 75,
             "end_lineno": 6,
             "lineno": 6,
             "targets": [
@@ -249,17 +249,17 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 67,
+              "end_col_offset": 75,
               "end_lineno": 6,
               "lineno": 6,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "contributions",
+                "attr": "contribs_sociales",
                 "col_offset": 10,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 63,
+                "end_col_offset": 71,
                 "end_lineno": 6,
                 "lineno": 6,
                 "value": {
@@ -269,40 +269,51 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 49,
+                  "end_col_offset": 53,
                   "end_lineno": 6,
                   "lineno": 6,
                   "value": {
-                    "args": [
-                      {
+                    "ast_class": "Attribute",
+                    "attr": "par",
+                    "col_offset": 10,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 32,
+                    "end_lineno": 6,
+                    "lineno": 6,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 21,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 27,
+                          "end_lineno": 6,
+                          "id": "period",
+                          "lineno": 6
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 10,
+                      "end_col_offset": 28,
+                      "end_lineno": 6,
+                      "func": {
                         "ast_class": "Name",
-                        "col_offset": 21,
+                        "col_offset": 10,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 27,
+                        "end_col_offset": 20,
                         "end_lineno": 6,
-                        "id": "period",
+                        "id": "parameters",
                         "lineno": 6
-                      }
-                    ],
-                    "ast_class": "Call",
-                    "col_offset": 10,
-                    "end_col_offset": 28,
-                    "end_lineno": 6,
-                    "func": {
-                      "ast_class": "Name",
-                      "col_offset": 10,
-                      "ctx": {
-                        "ast_class": "Load"
                       },
-                      "end_col_offset": 20,
-                      "end_lineno": 6,
-                      "id": "parameters",
+                      "keywords": [],
                       "lineno": 6
-                    },
-                    "keywords": [],
-                    "lineno": 6
+                    }
                   }
                 }
               }
@@ -475,9 +486,9 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
       "parameters": [
-        "prelevements_sociaux.contributions.csg.activite.deductible"
+        "par.prelevements_sociaux.contribs_sociales.csg.activite.deductible"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    assiette_csg_abattue = individu('assiette_csg_abattue', period)\n    assiette_csg_non_abattue = individu('assiette_csg_non_abattue', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n\n    csg = parameters(period).prelevements_sociaux.contributions.csg\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = assiette_csg_abattue,\n        base_sans_abattement = assiette_csg_non_abattue,\n        law_node = csg.activite.deductible,\n        plafond_securite_sociale = plafond_securite_sociale,\n        )\n    return montant_csg\n",
+      "source_code": "def formula(individu, period, parameters):\n    assiette_csg_abattue = individu('assiette_csg_abattue', period)\n    assiette_csg_non_abattue = individu('assiette_csg_non_abattue', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n\n    csg = parameters(period).par.prelevements_sociaux.contribs_sociales.csg\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = assiette_csg_abattue,\n        base_sans_abattement = assiette_csg_non_abattue,\n        law_node = csg.activite.deductible,\n        plafond_securite_sociale = plafond_securite_sociale,\n        )\n    return montant_csg\n",
       "start_line_number": 73,
       "stop_line_number": 86,
       "variables": [

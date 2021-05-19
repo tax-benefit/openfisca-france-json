@@ -215,7 +215,7 @@
                   "arg": "law_node",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 86,
+                  "end_col_offset": 94,
                   "end_lineno": 7,
                   "lineno": 7,
                   "value": {
@@ -225,7 +225,7 @@
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 86,
+                    "end_col_offset": 94,
                     "end_lineno": 7,
                     "lineno": 7,
                     "value": {
@@ -235,7 +235,7 @@
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 76,
+                      "end_col_offset": 84,
                       "end_lineno": 7,
                       "lineno": 7,
                       "value": {
@@ -245,17 +245,17 @@
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 68,
+                        "end_col_offset": 76,
                         "end_lineno": 7,
                         "lineno": 7,
                         "value": {
                           "ast_class": "Attribute",
-                          "attr": "contributions",
+                          "attr": "contribs_sociales",
                           "col_offset": 19,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 64,
+                          "end_col_offset": 72,
                           "end_lineno": 7,
                           "lineno": 7,
                           "value": {
@@ -265,19 +265,30 @@
                             "ctx": {
                               "ast_class": "Load"
                             },
-                            "end_col_offset": 50,
+                            "end_col_offset": 54,
                             "end_lineno": 7,
                             "lineno": 7,
                             "value": {
-                              "ast_class": "Name",
+                              "ast_class": "Attribute",
+                              "attr": "par",
                               "col_offset": 19,
                               "ctx": {
                                 "ast_class": "Load"
                               },
-                              "end_col_offset": 29,
+                              "end_col_offset": 33,
                               "end_lineno": 7,
-                              "id": "parameters",
-                              "lineno": 7
+                              "lineno": 7,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 29,
+                                "end_lineno": 7,
+                                "id": "parameters",
+                                "lineno": 7
+                              }
                             }
                           }
                         }
@@ -441,7 +452,7 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 73,
+                  "end_col_offset": 81,
                   "end_lineno": 12,
                   "lineno": 12,
                   "value": {
@@ -451,7 +462,7 @@
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 65,
+                    "end_col_offset": 73,
                     "end_lineno": 12,
                     "lineno": 12,
                     "value": {
@@ -461,17 +472,17 @@
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 57,
+                      "end_col_offset": 65,
                       "end_lineno": 12,
                       "lineno": 12,
                       "value": {
                         "ast_class": "Attribute",
-                        "attr": "contributions",
+                        "attr": "contribs_sociales",
                         "col_offset": 8,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 53,
+                        "end_col_offset": 61,
                         "end_lineno": 12,
                         "lineno": 12,
                         "value": {
@@ -481,19 +492,30 @@
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 39,
+                          "end_col_offset": 43,
                           "end_lineno": 12,
                           "lineno": 12,
                           "value": {
-                            "ast_class": "Name",
+                            "ast_class": "Attribute",
+                            "attr": "par",
                             "col_offset": 8,
                             "ctx": {
                               "ast_class": "Load"
                             },
-                            "end_col_offset": 18,
+                            "end_col_offset": 22,
                             "end_lineno": 12,
-                            "id": "parameters",
-                            "lineno": 12
+                            "lineno": 12,
+                            "value": {
+                              "ast_class": "Name",
+                              "col_offset": 8,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 18,
+                              "end_lineno": 12,
+                              "id": "parameters",
+                              "lineno": 12
+                            }
                           }
                         }
                       }
@@ -765,7 +787,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-      "source_code": "def formula(individu, period, parameters):\n    chomage_brut = individu('chomage_brut', period)\n    parameters = parameters(period)\n\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = chomage_brut,\n        law_node = parameters.prelevements_sociaux.contributions.csg.chomage.imposable,\n        plafond_securite_sociale = parameters.cotsoc.gen.plafond_securite_sociale,\n        )\n    nbh_travail = 35 * 52 / 12  # = 151.67  # TODO: depuis 2001 mais avant ?\n    cho_seuil_exo = (\n        parameters.prelevements_sociaux.contributions.csg.chomage.min_exo\n        * nbh_travail\n        * parameters.cotsoc.gen.smic_h_b\n        )\n    csg_imposable_chomage = max_(- montant_csg - max_(cho_seuil_exo - (chomage_brut + montant_csg), 0), 0)\n    return - csg_imposable_chomage\n",
+      "source_code": "def formula(individu, period, parameters):\n    chomage_brut = individu('chomage_brut', period)\n    parameters = parameters(period)\n\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = chomage_brut,\n        law_node = parameters.par.prelevements_sociaux.contribs_sociales.csg.chomage.imposable,\n        plafond_securite_sociale = parameters.cotsoc.gen.plafond_securite_sociale,\n        )\n    nbh_travail = 35 * 52 / 12  # = 151.67  # TODO: depuis 2001 mais avant ?\n    cho_seuil_exo = (\n        parameters.par.prelevements_sociaux.contribs_sociales.csg.chomage.min_exo\n        * nbh_travail\n        * parameters.cotsoc.gen.smic_h_b\n        )\n    csg_imposable_chomage = max_(- montant_csg - max_(cho_seuil_exo - (chomage_brut + montant_csg), 0), 0)\n    return - csg_imposable_chomage\n",
       "start_line_number": 96,
       "stop_line_number": 113,
       "variables": [

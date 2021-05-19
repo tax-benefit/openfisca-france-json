@@ -657,7 +657,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 79,
+            "end_col_offset": 94,
             "end_lineno": 9,
             "lineno": 9,
             "targets": [
@@ -675,12 +675,12 @@
             ],
             "value": {
               "ast_class": "Attribute",
-              "attr": "taux",
+              "attr": "taux_global",
               "col_offset": 16,
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 79,
+              "end_col_offset": 94,
               "end_lineno": 9,
               "lineno": 9,
               "value": {
@@ -690,17 +690,17 @@
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 74,
+                "end_col_offset": 82,
                 "end_lineno": 9,
                 "lineno": 9,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "contributions",
+                  "attr": "contribs_sociales",
                   "col_offset": 16,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 69,
+                  "end_col_offset": 77,
                   "end_lineno": 9,
                   "lineno": 9,
                   "value": {
@@ -710,40 +710,51 @@
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 55,
+                    "end_col_offset": 59,
                     "end_lineno": 9,
                     "lineno": 9,
                     "value": {
-                      "args": [
-                        {
+                      "ast_class": "Attribute",
+                      "attr": "par",
+                      "col_offset": 16,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 38,
+                      "end_lineno": 9,
+                      "lineno": 9,
+                      "value": {
+                        "args": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 27,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 33,
+                            "end_lineno": 9,
+                            "id": "period",
+                            "lineno": 9
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 16,
+                        "end_col_offset": 34,
+                        "end_lineno": 9,
+                        "func": {
                           "ast_class": "Name",
-                          "col_offset": 27,
+                          "col_offset": 16,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 33,
+                          "end_col_offset": 26,
                           "end_lineno": 9,
-                          "id": "period",
+                          "id": "parameters",
                           "lineno": 9
-                        }
-                      ],
-                      "ast_class": "Call",
-                      "col_offset": 16,
-                      "end_col_offset": 34,
-                      "end_lineno": 9,
-                      "func": {
-                        "ast_class": "Name",
-                        "col_offset": 16,
-                        "ctx": {
-                          "ast_class": "Load"
                         },
-                        "end_col_offset": 26,
-                        "end_lineno": 9,
-                        "id": "parameters",
+                        "keywords": [],
                         "lineno": 9
-                      },
-                      "keywords": [],
-                      "lineno": 9
+                      }
                     }
                   }
                 }
@@ -934,7 +945,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-      "source_code": "def formula(famille, period, parameters):\n    af = famille('af', period, options = [ADD])\n    cf = famille('cf', period, options = [ADD])\n    asf = famille('asf', period, options = [ADD])\n    ars = famille('ars', period)\n    paje = famille('paje', period, options = [ADD])\n    ape = famille('ape', period, options = [ADD])\n    apje = famille('apje', period, options = [ADD])\n    taux_crds = parameters(period).prelevements_sociaux.contributions.crds.taux\n\n    return -(af + cf + asf + ars + paje + ape + apje) * taux_crds\n",
+      "source_code": "def formula(famille, period, parameters):\n    af = famille('af', period, options = [ADD])\n    cf = famille('cf', period, options = [ADD])\n    asf = famille('asf', period, options = [ADD])\n    ars = famille('ars', period)\n    paje = famille('paje', period, options = [ADD])\n    ape = famille('ape', period, options = [ADD])\n    apje = famille('apje', period, options = [ADD])\n    taux_crds = parameters(period).par.prelevements_sociaux.contribs_sociales.crds.taux_global\n\n    return -(af + cf + asf + ars + paje + ape + apje) * taux_crds\n",
       "start_line_number": 322,
       "stop_line_number": 333,
       "variables": [

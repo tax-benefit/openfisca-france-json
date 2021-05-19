@@ -280,7 +280,7 @@
                     "arg": "law_node",
                     "ast_class": "keyword",
                     "col_offset": 8,
-                    "end_col_offset": 71,
+                    "end_col_offset": 79,
                     "end_lineno": 8,
                     "lineno": 8,
                     "value": {
@@ -290,7 +290,7 @@
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 71,
+                      "end_col_offset": 79,
                       "end_lineno": 8,
                       "lineno": 8,
                       "value": {
@@ -300,17 +300,17 @@
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 62,
+                        "end_col_offset": 70,
                         "end_lineno": 8,
                         "lineno": 8,
                         "value": {
                           "ast_class": "Attribute",
-                          "attr": "contributions",
+                          "attr": "contribs_sociales",
                           "col_offset": 19,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 57,
+                          "end_col_offset": 65,
                           "end_lineno": 8,
                           "lineno": 8,
                           "value": {
@@ -320,19 +320,30 @@
                             "ctx": {
                               "ast_class": "Load"
                             },
-                            "end_col_offset": 43,
+                            "end_col_offset": 47,
                             "end_lineno": 8,
                             "lineno": 8,
                             "value": {
-                              "ast_class": "Name",
+                              "ast_class": "Attribute",
+                              "attr": "par",
                               "col_offset": 19,
                               "ctx": {
                                 "ast_class": "Load"
                               },
-                              "end_col_offset": 22,
+                              "end_col_offset": 26,
                               "end_lineno": 8,
-                              "id": "law",
-                              "lineno": 8
+                              "lineno": 8,
+                              "value": {
+                                "ast_class": "Name",
+                                "col_offset": 19,
+                                "ctx": {
+                                  "ast_class": "Load"
+                                },
+                                "end_col_offset": 22,
+                                "end_lineno": 8,
+                                "id": "law",
+                                "lineno": 8
+                              }
                             }
                           }
                         }
@@ -474,7 +485,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-      "source_code": "def formula(individu, period, parameters):\n    retraite_brute = individu('retraite_brute', period)\n    taux_csg_remplacement = individu('taux_csg_remplacement', period)\n    law = parameters(period)\n\n    montant_crds = montant_csg_crds(\n        base_sans_abattement = retraite_brute,\n        law_node = law.prelevements_sociaux.contributions.crds.retraite,\n        plafond_securite_sociale = law.cotsoc.gen.plafond_securite_sociale,\n        ) * (taux_csg_remplacement == TypesTauxCSGRemplacement.exonere)\n    return montant_crds\n",
+      "source_code": "def formula(individu, period, parameters):\n    retraite_brute = individu('retraite_brute', period)\n    taux_csg_remplacement = individu('taux_csg_remplacement', period)\n    law = parameters(period)\n\n    montant_crds = montant_csg_crds(\n        base_sans_abattement = retraite_brute,\n        law_node = law.par.prelevements_sociaux.contribs_sociales.crds.retraite,\n        plafond_securite_sociale = law.cotsoc.gen.plafond_securite_sociale,\n        ) * (taux_csg_remplacement == TypesTauxCSGRemplacement.exonere)\n    return montant_crds\n",
       "start_line_number": 244,
       "stop_line_number": 255,
       "variables": [
