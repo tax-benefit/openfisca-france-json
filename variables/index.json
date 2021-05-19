@@ -107,6 +107,7 @@
     "label": "Revenus industriels et commerciaux non professionnels imposables: régime normal ou simplifié avec CGA ou viseur (régime du bénéfice réel)",
     "name": "aacc_impn",
     "referring_variables": [
+      "defacc",
       "rac",
       "rpns_individu"
     ],
@@ -211,15 +212,21 @@
       "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000006754198"
     ],
     "referring_variables": [
+      "aide_logement_base_ressources",
+      "aide_logement_base_ressources_patrimoine",
       "aide_permis_demandeur_emploi_eligibilite_financiere",
       "asi_aspa_base_ressources_individu",
       "ass_eligibilite_cumul_individu",
       "ass_eligibilite_individu",
       "caah",
       "eligibilite_caah",
+      "exonere_taxe_habitation",
+      "minima_sociaux",
+      "paje_cmg",
       "ppa_ressources_hors_activite_individu",
       "ppa_revenu_activite_individu",
-      "professionnalisation"
+      "professionnalisation",
+      "rsa_base_ressources_minima_sociaux"
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 318,
@@ -240,6 +247,7 @@
         "stop_line_number": 316,
         "variables": [
           "aah_base_non_cumulable",
+          "aah_base_ressources",
           "aah_eligible",
           "aah_plafond_ressources"
         ]
@@ -302,6 +310,9 @@
     "json_type": "number",
     "label": "Base ressources de l'allocation adulte handicapé",
     "name": "aah_base_ressources",
+    "referring_variables": [
+      "aah_base"
+    ],
     "start_line_number": 33,
     "stop_line_number": 73,
     "value_type": "float"
@@ -473,7 +484,11 @@
           "prestations.minima_sociaux.aah.majoration_plafond_personne_a_charge"
         ],
         "start_line_number": 276,
-        "stop_line_number": 290
+        "stop_line_number": 290,
+        "variables": [
+          "af_nbenf",
+          "en_couple"
+        ]
       }
     },
     "json_type": "number",
@@ -627,6 +642,7 @@
         "stop_line_number": 157,
         "variables": [
           "abt_condition_modeste_th_commune",
+          "condition_rfr_exoneration_th",
           "exonere_taxe_habitation",
           "valeur_locative_cadastrale_brute",
           "valeur_locative_moyenne_th_commune"
@@ -660,6 +676,7 @@
         "stop_line_number": 186,
         "variables": [
           "abt_condition_modeste_th_epci",
+          "condition_rfr_exoneration_th",
           "exonere_taxe_habitation",
           "valeur_locative_cadastrale_brute",
           "valeur_locative_moyenne_th_epci"
@@ -737,7 +754,8 @@
         "stop_line_number": 400,
         "variables": [
           "f3sg",
-          "f3sl"
+          "f3sl",
+          "f3va_2016"
         ]
       },
       "2017-01-01": {
@@ -1131,7 +1149,8 @@
     "name": "abnc_proc",
     "referring_variables": [
       "rpns_exon",
-      "rpns_individu"
+      "rpns_individu",
+      "taux_effectif"
     ],
     "start_line_number": 1390,
     "stop_line_number": 1401,
@@ -1161,7 +1180,7 @@
     "value_type": "int"
   },
   "abt_condition_modeste_th_commune": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1187,7 +1206,7 @@
     "value_type": "float"
   },
   "abt_condition_modeste_th_epci": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1213,7 +1232,7 @@
     "value_type": "float"
   },
   "abt_general_base_th_commune": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1239,7 +1258,7 @@
     "value_type": "float"
   },
   "abt_general_base_th_epci": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1265,7 +1284,7 @@
     "value_type": "float"
   },
   "abt_pac_1_2_th_commune": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1291,7 +1310,7 @@
     "value_type": "float"
   },
   "abt_pac_1_2_th_epci": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1317,7 +1336,7 @@
     "value_type": "float"
   },
   "abt_pac_3pl_th_commune": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1343,7 +1362,7 @@
     "value_type": "float"
   },
   "abt_pac_3pl_th_epci": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -1558,7 +1577,10 @@
       "2009-08-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/acs.py",
         "start_line_number": 41,
-        "stop_line_number": 44
+        "stop_line_number": 44,
+        "variables": [
+          "acs_montant_i"
+        ]
       }
     },
     "json_type": "number",
@@ -1596,6 +1618,9 @@
     "json_type": "number",
     "label": "Montant de l'ACS attribué à une personne en cas d'éligibilité de la famille",
     "name": "acs_montant_i",
+    "referring_variables": [
+      "acs_montant"
+    ],
     "start_line_number": 11,
     "stop_line_number": 33,
     "value_type": "float"
@@ -1657,7 +1682,9 @@
       "etudiant",
       "garantie_jeunes_neet",
       "locapass_eligibilite_jeunes",
-      "locapass_eligibilite_salarie"
+      "locapass_eligibilite_salarie",
+      "psa",
+      "rmi"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 56,
@@ -1755,7 +1782,10 @@
         "start_line_number": 20,
         "stop_line_number": 79,
         "variables": [
-          "en_couple"
+          "aeeh_niveau_handicap",
+          "age",
+          "en_couple",
+          "handicap"
         ]
       }
     },
@@ -1783,6 +1813,9 @@
     "json_type": "integer",
     "label": "Catégorie de handicap prise en compte pour l'AEEH",
     "name": "aeeh_niveau_handicap",
+    "referring_variables": [
+      "aeeh"
+    ],
     "start_line_number": 4,
     "stop_line_number": 9,
     "value_type": "int"
@@ -1808,8 +1841,10 @@
         "start_line_number": 27,
         "stop_line_number": 59,
         "variables": [
+          "aer",
           "af_nbenf",
           "api",
+          "ass",
           "nb_parents",
           "rsa"
         ]
@@ -1837,6 +1872,10 @@
     "json_type": "integer",
     "label": "Allocation équivalent retraite (AER)",
     "name": "aer",
+    "referring_variables": [
+      "aefa",
+      "covid_aide_exceptionnelle_famille_montant"
+    ],
     "start_line_number": 13,
     "stop_line_number": 19,
     "value_type": "int"
@@ -1899,13 +1938,20 @@
           "prestations.prestations_familiales.af.age2"
         ],
         "start_line_number": 152,
-        "stop_line_number": 162
+        "stop_line_number": 162,
+        "variables": [
+          "age",
+          "prestations_familiales_enfant_a_charge"
+        ]
       }
     },
     "is_period_size_independent": true,
     "json_type": "integer",
     "label": "Allocations familiales - Âge de l'aîné des enfants éligibles",
     "name": "af_age_aine",
+    "referring_variables": [
+      "af_majoration_enfant"
+    ],
     "start_line_number": 144,
     "stop_line_number": 162,
     "value_type": "int"
@@ -1999,7 +2045,7 @@
     "value_type": "int"
   },
   "af_allocation_forfaitaire_taux_modulation": {
-    "default_value": 1.0,
+    "default_value": 1,
     "definition_period": "month",
     "dtype": "float32",
     "entity": "famille",
@@ -2057,6 +2103,7 @@
     "referring_variables": [
       "af",
       "af_complement_degressif",
+      "af_majoration_enfant",
       "ppa_base_ressources_prestations_familiales",
       "rsa_base_ressources_prestations_familiales"
     ],
@@ -2065,7 +2112,7 @@
     "value_type": "float"
   },
   "af_coeff_garde_alternee": {
-    "default_value": 1.0,
+    "default_value": 1,
     "definition_period": "month",
     "dtype": "float32",
     "entity": "famille",
@@ -2076,7 +2123,9 @@
         "start_line_number": 27,
         "stop_line_number": 39,
         "variables": [
-          "af_nbenf"
+          "af_nbenf",
+          "garde_alternee",
+          "prestations_familiales_enfant_a_charge"
         ]
       }
     },
@@ -2186,6 +2235,7 @@
         "start_line_number": 219,
         "stop_line_number": 227,
         "variables": [
+          "af_majoration_enfant",
           "af_taux_modulation"
         ]
       }
@@ -2226,6 +2276,9 @@
         "start_line_number": 170,
         "stop_line_number": 211,
         "variables": [
+          "af_age_aine",
+          "af_base",
+          "af_nbenf",
           "age",
           "garde_alternee",
           "prestations_familiales_enfant_a_charge"
@@ -2235,6 +2288,9 @@
     "json_type": "number",
     "label": "Allocations familiales - Majoration pour âge applicable à l'enfant",
     "name": "af_majoration_enfant",
+    "referring_variables": [
+      "af_majoration"
+    ],
     "start_line_number": 164,
     "stop_line_number": 211,
     "value_type": "float"
@@ -2249,13 +2305,17 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
         "start_line_number": 13,
-        "stop_line_number": 18
+        "stop_line_number": 18,
+        "variables": [
+          "prestations_familiales_enfant_a_charge"
+        ]
       }
     },
     "json_type": "integer",
     "label": "Nombre d'enfants dans la famille au sens des allocations familiales",
     "name": "af_nbenf",
     "referring_variables": [
+      "aah_plafond_ressources",
       "ada",
       "aefa",
       "af_allocation_forfaitaire",
@@ -2266,6 +2326,7 @@
       "af_complement_degressif",
       "af_eligibilite_base",
       "af_eligibilite_dom",
+      "af_majoration_enfant",
       "af_taux_modulation",
       "ars",
       "covid_aide_exceptionnelle_famille_montant",
@@ -2291,18 +2352,25 @@
         "documentation": "\nCette variable est une version légèrement modifiée de `af_nbenf`. Elle se base sur le salaire de base, tandis que `af_nbenf` se base sur le salaire net.\nOn ne peut pas utiliser la variable `af_nbenf` dans le calcul de `supplement_familial_traitement` (ci-dessous) car `af_nbenf` dépend du `salaire_net`, et `salaire_net` dépends de `supplement_familial_traitement`. Cela créerait une boucle infinie.\nD'où l'introduction de cette variable alternative.\n",
         "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
         "start_line_number": 789,
-        "stop_line_number": 815
+        "stop_line_number": 815,
+        "variables": [
+          "age",
+          "salaire_de_base"
+        ]
       }
     },
     "json_type": "integer",
     "label": "Nombre d'enfants dans la famille au sens des allocations familiales pour les fonctionnaires",
     "name": "af_nbenf_fonc",
+    "referring_variables": [
+      "supplement_familial_traitement"
+    ],
     "start_line_number": 783,
     "stop_line_number": 815,
     "value_type": "int"
   },
   "af_taux_modulation": {
-    "default_value": 1.0,
+    "default_value": 1,
     "definition_period": "month",
     "dtype": "float32",
     "entity": "famille",
@@ -2352,18 +2420,29 @@
     "referring_variables": [
       "aah_eligible",
       "acs_montant_i",
+      "aeeh",
+      "af_age_aine",
       "af_majoration_enfant",
+      "af_nbenf_fonc",
       "age_en_mois",
       "aide_financement_permis_apprenti_eligibilite",
+      "al_nb_personnes_a_charge",
       "apa_eligibilite",
       "apprenti",
       "asf_elig_enfant",
       "aspa_eligibilite",
+      "bourse_college_echelon",
       "bourse_criteres_sociaux_eligibilite_age",
+      "bourse_lycee_echelon",
+      "bourse_lycee_points_de_charge",
       "cf_dom_enfant_eligible",
       "cf_dom_enfant_trop_jeune",
       "cf_enfant_a_charge",
       "cf_enfant_eligible",
+      "cmu_acs_eligibilite",
+      "cmu_base_ressources",
+      "cmu_nb_pac",
+      "covid_aide_exceptionnelle_famille_montant",
       "css_participation_forfaitaire_montant_i",
       "enfant_eligible_paje",
       "enfant_majeur_celibataire_sans_enfant",
@@ -2373,8 +2452,11 @@
       "gratuite_musees_monuments",
       "jeunes_ind",
       "locapass_eligibilite_jeunes",
+      "logement_social_categorie_menage",
       "majeur",
       "mobili_jeune_eligibilite",
+      "pe_nbenf",
+      "ppa_eligibilite",
       "prestations_familiales_enfant_a_charge",
       "pret_formation_permis_eligibilite",
       "professionnalisation",
@@ -2382,7 +2464,9 @@
       "remuneration_professionnalisation",
       "rente_accident_travail_apres_rachat",
       "rente_accident_travail_rachat",
-      "rsa_enfant_a_charge"
+      "rsa_eligibilite",
+      "rsa_enfant_a_charge",
+      "unites_consommation"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 55,
@@ -2413,7 +2497,13 @@
     "name": "age_en_mois",
     "referring_variables": [
       "age",
-      "ass_eligibilite_individu"
+      "api",
+      "ass_eligibilite_individu",
+      "cmu_c_plafond",
+      "enceinte_fam",
+      "paje_clca",
+      "paje_colca",
+      "paje_naissance"
     ],
     "start_line_number": 95,
     "stop_line_number": 124,
@@ -2436,6 +2526,7 @@
         "start_line_number": 40,
         "stop_line_number": 52,
         "variables": [
+          "agepi_temps_travail_semaine",
           "nb_parents",
           "pe_nbenf"
         ]
@@ -2470,6 +2561,9 @@
     "json_type": "number",
     "label": "Temps de travail par semaine pour le calcul de l'aide à la garde des enfants de parents isolés de Pôle Emploi",
     "name": "agepi_temps_travail_semaine",
+    "referring_variables": [
+      "agepi"
+    ],
     "start_line_number": 19,
     "stop_line_number": 28,
     "value_type": "float"
@@ -2816,6 +2910,8 @@
         "variables": [
           "apprenti",
           "bourse_criteres_sociaux_eligibilite_nationalite",
+          "rsa",
+          "rsa_majore_eligibilite",
           "scolarite"
         ]
       }
@@ -2962,6 +3058,10 @@
     "reference": [
       "https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031694522&cidTexte=LEGITEXT000006073189"
     ],
+    "referring_variables": [
+      "aide_logement_base_ressources",
+      "aide_logement_base_ressources_defaut"
+    ],
     "start_line_number": 686,
     "stop_line_number": 713,
     "value_type": "float"
@@ -2998,6 +3098,10 @@
     "name": "aide_logement_abattement_depart_retraite",
     "reference": [
       "https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006750910&cidTexte=LEGITEXT000006073189&dateTexte=20151231"
+    ],
+    "referring_variables": [
+      "aide_logement_base_ressources",
+      "aide_logement_base_ressources_defaut"
     ],
     "start_line_number": 715,
     "stop_line_number": 743,
@@ -3076,9 +3180,11 @@
         "start_line_number": 1152,
         "stop_line_number": 1209,
         "variables": [
+          "aah",
           "aide_logement_base_ressources_defaut",
           "aide_logement_base_ressources_eval_forfaitaire",
-          "en_couple"
+          "en_couple",
+          "salaire_imposable"
         ]
       },
       "2021-01-01": {
@@ -3094,9 +3200,24 @@
         "start_line_number": 1007,
         "stop_line_number": 1151,
         "variables": [
+          "aide_logement_abattement_chomage_indemnise",
+          "aide_logement_abattement_depart_retraite",
           "aide_logement_base_ressources_patrimoine",
+          "al_base_ressources_individu",
           "al_biactivite",
-          "paje"
+          "gains_exceptionnels",
+          "indemnites_journalieres",
+          "indemnites_journalieres_atexa",
+          "paje",
+          "pch",
+          "pensions_alimentaires_versees_individu",
+          "rente_accident_travail",
+          "retraite_combattant",
+          "revenus_stage_formation_pro",
+          "tns_auto_entrepreneur_benefice",
+          "tns_autres_revenus",
+          "tns_benefice_exploitant_agricole",
+          "tns_micro_entreprise_benefice"
         ]
       }
     },
@@ -3136,9 +3257,12 @@
         "start_line_number": 790,
         "stop_line_number": 835,
         "variables": [
+          "aide_logement_abattement_chomage_indemnise",
+          "aide_logement_abattement_depart_retraite",
           "aide_logement_base_ressources_patrimoine",
           "aide_logement_neutralisation_rsa",
-          "biactivite"
+          "biactivite",
+          "prestations_familiales_base_ressources_individu"
         ]
       }
     },
@@ -3167,7 +3291,11 @@
           "impot_revenu.tspr.abatpro.taux"
         ],
         "start_line_number": 490,
-        "stop_line_number": 515
+        "stop_line_number": 515,
+        "variables": [
+          "salaire_imposable",
+          "travailleur_non_salarie"
+        ]
       }
     },
     "json_type": "number",
@@ -3198,7 +3326,16 @@
         "start_line_number": 419,
         "stop_line_number": 468,
         "variables": [
-          "aeeh"
+          "aah",
+          "aeeh",
+          "epargne_revenus_imposables",
+          "epargne_revenus_non_imposables",
+          "livret_a",
+          "valeur_immo_non_loue",
+          "valeur_locative_immo_non_loue",
+          "valeur_locative_terrains_non_loues",
+          "valeur_patrimoine_loue",
+          "valeur_terrains_non_loues"
         ]
       }
     },
@@ -3481,7 +3618,10 @@
     "referring_variables": [
       "alf",
       "als",
-      "apl"
+      "apl",
+      "base_ressources_apa",
+      "caah",
+      "mva"
     ],
     "start_line_number": 89,
     "stop_line_number": 101,
@@ -3512,7 +3652,8 @@
         "variables": [
           "aide_logement_loyer_plafond",
           "aide_logement_loyer_reel",
-          "aide_logement_montant_brut_avant_degressivite"
+          "aide_logement_montant_brut_avant_degressivite",
+          "handicap"
         ]
       }
     },
@@ -3642,6 +3783,7 @@
         "start_line_number": 773,
         "stop_line_number": 782,
         "variables": [
+          "revenu_assimile_salaire_apres_abattements",
           "rsa"
         ]
       }
@@ -3910,7 +4052,8 @@
         "variables": [
           "aah",
           "chomage_net",
-          "retraite_brute"
+          "retraite_brute",
+          "rsa"
         ]
       }
     },
@@ -4829,6 +4972,7 @@
         "stop_line_number": 995,
         "variables": [
           "al_traitements_salaires_pensions_rentes",
+          "assiette_csg_plus_values",
           "glo",
           "hsup",
           "moins_values_court_terme_non_salaries",
@@ -4843,6 +4987,9 @@
     "json_type": "number",
     "label": "Base ressource individuelle des aides logement",
     "name": "al_base_ressources_individu",
+    "referring_variables": [
+      "aide_logement_base_ressources"
+    ],
     "start_line_number": 976,
     "stop_line_number": 995,
     "value_type": "float"
@@ -4861,7 +5008,11 @@
           "prestations.prestations_familiales.af.bmaf"
         ],
         "start_line_number": 557,
-        "stop_line_number": 585
+        "stop_line_number": 585,
+        "variables": [
+          "revenu_assimile_salaire_apres_abattements",
+          "rpns_individu"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -4927,7 +5078,13 @@
           "prestations.minima_sociaux.aspa.plafond_ressources_seul"
         ],
         "start_line_number": 357,
-        "stop_line_number": 410
+        "stop_line_number": 410,
+        "variables": [
+          "age",
+          "inapte_travail",
+          "prestations_familiales_base_ressources_individu",
+          "taux_incapacite"
+        ]
       }
     },
     "json_type": "integer",
@@ -5046,6 +5203,7 @@
           "pensions_alimentaires_percues_decl",
           "pensions_invalidite",
           "retraite_imposable",
+          "rsa",
           "type_conges"
         ]
       }
@@ -5283,6 +5441,7 @@
     "label": "Locations meublées non professionnelles imposables avec CGA ou viseur (régime du bénéfice réel)",
     "name": "alnp_imps",
     "referring_variables": [
+      "defmeu",
       "rpns_individu"
     ],
     "start_line_number": 1353,
@@ -5406,7 +5565,8 @@
         "stop_line_number": 62,
         "variables": [
           "base_ressources_apa",
-          "dependance_plan_aide_domicile_accepte"
+          "dependance_plan_aide_domicile_accepte",
+          "en_couple"
         ]
       },
       "2016-03-01": {
@@ -5418,7 +5578,8 @@
         "stop_line_number": 125,
         "variables": [
           "base_ressources_apa",
-          "dependance_plan_aide_domicile_accepte"
+          "dependance_plan_aide_domicile_accepte",
+          "en_couple"
         ]
       }
     },
@@ -5506,6 +5667,7 @@
           "base_ressources_apa",
           "dependance_tarif_etablissement_gir_5_6",
           "dependance_tarif_etablissement_gir_dependant",
+          "en_couple",
           "gir"
         ]
       }
@@ -5707,6 +5869,7 @@
         "stop_line_number": 92,
         "variables": [
           "af_majoration",
+          "age_en_mois",
           "en_couple",
           "rsa",
           "rsa_base_ressources",
@@ -5830,7 +5993,8 @@
       "http://vosdroits.service-public.fr/particuliers/F12006.xhtml"
     ],
     "referring_variables": [
-      "aide_logement"
+      "aide_logement",
+      "mobili_jeune"
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 36,
@@ -5958,6 +6122,7 @@
     "label": "Revenus agricoles imposables, cas général moyenne triennale (Régime du bénéfice réel, revenus bénéficiant de l'abattement CGA ou viseur)",
     "name": "arag_impg",
     "referring_variables": [
+      "defrag",
       "rag",
       "rpns_individu"
     ],
@@ -6306,6 +6471,9 @@
     "json_type": "boolean",
     "label": "Enfant pouvant ouvrir droit à l'ASF",
     "name": "asf_elig_enfant",
+    "referring_variables": [
+      "asf_montant"
+    ],
     "start_line_number": 4,
     "stop_line_number": 24,
     "value_type": "bool"
@@ -6325,7 +6493,11 @@
           "prestations.prestations_familiales.asf.taux_1_parent"
         ],
         "start_line_number": 49,
-        "stop_line_number": 62
+        "stop_line_number": 62,
+        "variables": [
+          "asf_elig_enfant",
+          "pensions_alimentaires_percues"
+        ]
       }
     },
     "json_type": "number",
@@ -6358,7 +6530,13 @@
           "prestations.minima_sociaux.aspa.plafond_ressources_couple"
         ],
         "start_line_number": 200,
-        "stop_line_number": 253
+        "stop_line_number": 253,
+        "variables": [
+          "asi_aspa_base_ressources",
+          "asi_aspa_nb_alloc",
+          "en_couple",
+          "maries"
+        ]
       }
     },
     "json_type": "number",
@@ -6370,7 +6548,10 @@
     "referring_variables": [
       "aah_base_non_cumulable",
       "caah",
-      "eligibilite_caah"
+      "eligibilite_caah",
+      "exonere_taxe_habitation",
+      "minimum_vieillesse",
+      "rsa_base_ressources_minima_sociaux"
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 191,
@@ -6387,13 +6568,18 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
         "start_line_number": 109,
-        "stop_line_number": 113
+        "stop_line_number": 113,
+        "variables": [
+          "asi_aspa_base_ressources_individu",
+          "ass"
+        ]
       }
     },
     "json_type": "number",
     "label": "Base ressource du minimum vieillesse et assimilés (ASPA)",
     "name": "asi_aspa_base_ressources",
     "referring_variables": [
+      "asi",
       "aspa"
     ],
     "start_line_number": 103,
@@ -6414,9 +6600,12 @@
         "variables": [
           "aah",
           "asi_eligibilite",
+          "aspa_couple",
           "aspa_eligibilite",
+          "assiette_csg_plus_values",
           "pensions_alimentaires_versees_individu",
           "pensions_invalidite",
+          "rente_viagere_titre_onereux",
           "salaire_de_base",
           "tns_auto_entrepreneur_benefice",
           "tns_autres_revenus",
@@ -6428,6 +6617,9 @@
     "json_type": "number",
     "label": "Base ressources individuelle du minimum vieillesse/ASPA",
     "name": "asi_aspa_base_ressources_individu",
+    "referring_variables": [
+      "asi_aspa_base_ressources"
+    ],
     "start_line_number": 13,
     "stop_line_number": 101,
     "value_type": "float"
@@ -6472,13 +6664,18 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
         "start_line_number": 181,
-        "stop_line_number": 189
+        "stop_line_number": 189,
+        "variables": [
+          "asi_eligibilite",
+          "aspa_eligibilite"
+        ]
       }
     },
     "json_type": "integer",
     "label": "Nombre d'allocataires ASI/ASPA",
     "name": "asi_aspa_nb_alloc",
     "referring_variables": [
+      "asi",
       "aspa"
     ],
     "start_line_number": 175,
@@ -6511,6 +6708,7 @@
     "name": "asi_eligibilite",
     "referring_variables": [
       "asi_aspa_base_ressources_individu",
+      "asi_aspa_nb_alloc",
       "caah",
       "eligibilite_caah"
     ],
@@ -6570,6 +6768,7 @@
       "http://vosdroits.service-public.fr/particuliers/F16871.xhtml"
     ],
     "referring_variables": [
+      "exonere_taxe_habitation",
       "minimum_vieillesse",
       "ppa_ressources_hors_activite",
       "rsa_base_ressources_minima_sociaux"
@@ -6607,6 +6806,9 @@
     "json_type": "boolean",
     "label": "Couple au sens de l'ASPA",
     "name": "aspa_couple",
+    "referring_variables": [
+      "asi_aspa_base_ressources_individu"
+    ],
     "start_line_number": 255,
     "stop_line_number": 270,
     "value_type": "bool"
@@ -6641,6 +6843,7 @@
     "name": "aspa_eligibilite",
     "referring_variables": [
       "asi_aspa_base_ressources_individu",
+      "asi_aspa_nb_alloc",
       "asi_eligibilite"
     ],
     "start_line_number": 115,
@@ -6665,7 +6868,10 @@
         "start_line_number": 25,
         "stop_line_number": 48,
         "variables": [
-          "ass_eligibilite_individu"
+          "ass_base_ressources",
+          "ass_eligibilite_individu",
+          "en_couple",
+          "residence_mayotte"
         ]
       }
     },
@@ -6673,8 +6879,14 @@
     "label": "Montant de l'ASS pour un individu",
     "name": "ass",
     "referring_variables": [
+      "aefa",
       "aide_logement_condition_neutralisation_chomage",
-      "professionnalisation"
+      "asi_aspa_base_ressources",
+      "covid_aide_exceptionnelle_famille_montant",
+      "minima_sociaux",
+      "ppa_ressources_hors_activite",
+      "professionnalisation",
+      "rsa_base_ressources_minima_sociaux"
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 18,
@@ -6697,6 +6909,9 @@
     "json_type": "number",
     "label": "Base de ressources de l'ASS",
     "name": "ass_base_ressources",
+    "referring_variables": [
+      "ass"
+    ],
     "start_line_number": 50,
     "stop_line_number": 62,
     "value_type": "float"
@@ -7152,6 +7367,7 @@
         "variables": [
           "f3sg",
           "f3sl",
+          "f3va_2016",
           "f3vg",
           "f3vz",
           "f3we"
@@ -7182,13 +7398,17 @@
           "f3sk",
           "f3tj",
           "f3ua",
+          "f3vd",
+          "f3vf",
           "f3vg",
+          "f3vi",
           "f3vm",
           "f3vt",
           "f3vz",
           "f3we",
           "f3wi",
-          "f3wj"
+          "f3wj",
+          "rpns_pvce"
         ]
       },
       "2019-01-01": {
@@ -7203,13 +7423,17 @@
           "f3sk",
           "f3tj",
           "f3ua",
+          "f3vd",
+          "f3vf",
           "f3vg",
+          "f3vi",
           "f3vm",
           "f3vt",
           "f3vz",
           "f3we",
           "f3wi",
-          "f3wj"
+          "f3wj",
+          "rpns_pvce"
         ]
       }
     },
@@ -7217,9 +7441,14 @@
     "label": "Assiette des plus-values soumis à la CSG",
     "name": "assiette_csg_plus_values",
     "referring_variables": [
+      "al_base_ressources_individu",
+      "asi_aspa_base_ressources_individu",
       "assiette_csg_revenus_capital",
       "plus_values_base_large",
-      "revenus_nets_du_capital"
+      "ppa_ressources_hors_activite_individu",
+      "prestations_familiales_base_ressources_individu",
+      "revenus_nets_du_capital",
+      "rsa_base_ressources_patrimoine_individu"
     ],
     "start_line_number": 97,
     "stop_line_number": 248,
@@ -7241,6 +7470,7 @@
           "assiette_csg_plus_values",
           "assurance_vie_ps_exoneree_irpp_pl",
           "credits_impot_sur_valeurs_etrangeres",
+          "interets_pel_moins_12_ans_cel",
           "rente_viagere_titre_onereux_net",
           "revenu_categoriel_foncier",
           "revenus_capitaux_prelevement_bareme",
@@ -7307,7 +7537,10 @@
         "documentation": "\nAssiette régime microsocial pour les professions libérales\n",
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 1565,
-        "stop_line_number": 1575
+        "stop_line_number": 1575,
+        "variables": [
+          "ebnc_impo"
+        ]
       }
     },
     "json_type": "number",
@@ -7332,7 +7565,10 @@
         "documentation": "\nAssiette régime microsociale pour les prestations et services\n",
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 1547,
-        "stop_line_number": 1554
+        "stop_line_number": 1554,
+        "variables": [
+          "ebic_imps"
+        ]
       }
     },
     "json_type": "number",
@@ -7357,7 +7593,10 @@
         "documentation": "\nAssiette régime microsociale pour les ventes\n",
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 1532,
-        "stop_line_number": 1539
+        "stop_line_number": 1539,
+        "variables": [
+          "ebic_impv"
+        ]
       }
     },
     "json_type": "number",
@@ -7691,6 +7930,7 @@
     "name": "assurance_vie_ps_exoneree_irpp_pl",
     "referring_variables": [
       "assiette_csg_revenus_capital",
+      "revenus_capitaux_mobiliers_plus_values_bruts_menage",
       "revenus_et_produits_plafonnement_isf_ifi"
     ],
     "start_line_number": 88,
@@ -8331,6 +8571,8 @@
         "start_line_number": 10,
         "stop_line_number": 20,
         "variables": [
+          "aide_logement_montant",
+          "rfr",
           "valeur_locative_immo_non_loue",
           "valeur_locative_terrains_non_loues"
         ]
@@ -8385,7 +8627,11 @@
           "prestations.prestations_familiales.af.bmaf"
         ],
         "start_line_number": 88,
-        "stop_line_number": 116
+        "stop_line_number": 116,
+        "variables": [
+          "revenu_assimile_salaire_apres_abattements",
+          "rpns_individu"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -8446,11 +8692,19 @@
         "start_line_number": 752,
         "stop_line_number": 789,
         "variables": [
+          "crds_salaire",
+          "csg_deductible_chomage",
+          "csg_deductible_retraite",
+          "csg_deductible_salaire",
+          "csg_imposable_chomage",
+          "csg_imposable_retraite",
+          "csg_imposable_salaire",
           "irpp",
           "isf_ifi",
           "prelevement_forfaitaire_liberatoire",
           "prelevements_sociaux_revenus_capital",
-          "tax_fonc"
+          "tax_fonc",
+          "taxe_habitation"
         ]
       },
       "2011-01-01": null
@@ -8480,6 +8734,7 @@
         "variables": [
           "cd_eparet",
           "csg_patrimoine_deductible_ir",
+          "maj_cga",
           "pensions_alimentaires_deduites",
           "rbg",
           "rev_exo",
@@ -8547,7 +8802,8 @@
         "start_line_number": 87,
         "stop_line_number": 112,
         "variables": [
-          "bourse_college_echelon"
+          "bourse_college_echelon",
+          "scolarite"
         ]
       }
     },
@@ -8575,7 +8831,10 @@
           "bourses_education.bourse_college.avant_2016.plafond_taux_3"
         ],
         "start_line_number": 59,
-        "stop_line_number": 78
+        "stop_line_number": 78,
+        "variables": [
+          "age"
+        ]
       },
       "2016-07-01": {
         "documentation": "\nRéférences législatives :\nArrêté du 22 mars 2016 fixant les plafonds de ressources...\nhttps://www.legifrance.gouv.fr/eli/arrete/2016/3/22/MENE1606428A/jo\n",
@@ -8607,14 +8866,18 @@
           "bourses_education.bourse_college.apres_2016.echelon_3.plafond_8e"
         ],
         "start_line_number": 10,
-        "stop_line_number": 58
+        "stop_line_number": 58,
+        "variables": [
+          "age"
+        ]
       }
     },
     "json_type": "integer",
     "label": "Échelon de la bourse de collège attribuée",
     "name": "bourse_college_echelon",
     "referring_variables": [
-      "bourse_college"
+      "bourse_college",
+      "boursier"
     ],
     "start_line_number": 4,
     "stop_line_number": 78,
@@ -8696,7 +8959,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
         "start_line_number": 161,
-        "stop_line_number": 163
+        "stop_line_number": 163,
+        "variables": [
+          "rbg"
+        ]
       }
     },
     "json_type": "number",
@@ -8844,6 +9110,7 @@
         "stop_line_number": 103,
         "variables": [
           "age",
+          "bourse_criteres_sociaux_nombre_enfants_parent_etudiant",
           "handicap"
         ]
       }
@@ -8955,6 +9222,7 @@
         "stop_line_number": 208,
         "variables": [
           "bourse_criteres_sociaux_etudiant_autonome_ressource_mensuelle",
+          "bourse_criteres_sociaux_nombre_enfants_parent_etudiant",
           "enfant_a_charge",
           "statut_marital"
         ]
@@ -8985,7 +9253,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
         "start_line_number": 175,
-        "stop_line_number": 177
+        "stop_line_number": 177,
+        "variables": [
+          "rsa_base_ressources"
+        ]
       }
     },
     "json_type": "number",
@@ -9015,6 +9286,9 @@
       "Circulaire ESRS2013435C - Annexe 3 - Conditions de ressources et points de charge / 2 - Points de charge à prendre en considération pour l'attribution d'une bourse sur critères sociaux / 2.2 - Les charges de la famille",
       "https://www.education.gouv.fr/bo/20/Hebdo25/ESRS2013435C.htm"
     ],
+    "referring_variables": [
+      "bourse_criteres_sociaux_points_de_charge_charges_familiale"
+    ],
     "start_line_number": 253,
     "stop_line_number": 262,
     "value_type": "int"
@@ -9031,6 +9305,9 @@
     "reference": [
       "Circulaire ESRS2013435C - Annexe 3 - Conditions de ressources et points de charge / 2 - Points de charge à prendre en considération pour l'attribution d'une bourse sur critères sociaux / 2.2 - Les charges de la famille",
       "https://www.education.gouv.fr/bo/20/Hebdo25/ESRS2013435C.htm"
+    ],
+    "referring_variables": [
+      "bourse_criteres_sociaux_points_de_charge_charges_familiale"
     ],
     "start_line_number": 264,
     "stop_line_number": 273,
@@ -9055,6 +9332,10 @@
     "reference": [
       "Circulaire ESRS2013435C - Annexe 2 - Critères d'attribution / 1 - Conditions d'âge",
       "https://www.education.gouv.fr/bo/20/Hebdo25/ESRS2013435C.htm"
+    ],
+    "referring_variables": [
+      "bourse_criteres_sociaux_eligibilite_age",
+      "bourse_criteres_sociaux_etudiant_autonome"
     ],
     "start_line_number": 72,
     "stop_line_number": 84,
@@ -9106,7 +9387,11 @@
           "bourses_enseignement_superieur.criteres_sociaux.points_de_charge.charges_familiales.points_par_enfant_a_charge_etudiant_enseignement_superieur"
         ],
         "start_line_number": 285,
-        "stop_line_number": 296
+        "stop_line_number": 296,
+        "variables": [
+          "bourse_criteres_sociaux_nombre_enfants_a_charge",
+          "bourse_criteres_sociaux_nombre_enfants_a_charge_dans_enseignement_superieur"
+        ]
       }
     },
     "json_type": "integer",
@@ -9185,7 +9470,8 @@
         "start_line_number": 279,
         "stop_line_number": 289,
         "variables": [
-          "bourse_lycee_nombre_parts"
+          "bourse_lycee_nombre_parts",
+          "scolarite"
         ]
       },
       "2016-07-01": {
@@ -9202,13 +9488,17 @@
         "start_line_number": 253,
         "stop_line_number": 278,
         "variables": [
-          "bourse_lycee_echelon"
+          "bourse_lycee_echelon",
+          "scolarite"
         ]
       }
     },
     "json_type": "number",
     "label": "Montant annuel de la bourse de lycée",
     "name": "bourse_lycee",
+    "referring_variables": [
+      "boursier"
+    ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 246,
     "stop_line_number": 289,
@@ -9275,7 +9565,10 @@
           "bourses_education.bourse_lycee.apres_2016.echelon_6.plafond_8e"
         ],
         "start_line_number": 172,
-        "stop_line_number": 244
+        "stop_line_number": 244,
+        "variables": [
+          "age"
+        ]
       }
     },
     "json_type": "integer",
@@ -9327,6 +9620,7 @@
         "start_line_number": 121,
         "stop_line_number": 135,
         "variables": [
+          "age",
           "en_couple"
         ]
       },
@@ -9368,7 +9662,9 @@
         "start_line_number": 332,
         "stop_line_number": 337,
         "variables": [
-          "bourse_criteres_sociaux"
+          "bourse_college_echelon",
+          "bourse_criteres_sociaux",
+          "bourse_lycee"
         ]
       }
     },
@@ -9401,6 +9697,7 @@
         "stop_line_number": 435,
         "variables": [
           "aah",
+          "aide_logement_montant",
           "asi",
           "asi_eligibilite",
           "taux_incapacite"
@@ -9415,6 +9712,7 @@
         "stop_line_number": 412,
         "variables": [
           "aah",
+          "aide_logement_montant",
           "asi",
           "asi_eligibilite",
           "taux_incapacite"
@@ -9443,6 +9741,10 @@
     "json_type": "number",
     "label": "Complément d'allocation adulte handicapé (mensualisé)",
     "name": "caah",
+    "referring_variables": [
+      "minima_sociaux",
+      "rsa_base_ressources_minima_sociaux"
+    ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 366,
     "stop_line_number": 435,
@@ -9745,7 +10047,8 @@
       "http://www.service-public.fr/actualites/002691.html"
     ],
     "referring_variables": [
-      "retraite_nette"
+      "retraite_nette",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 257,
     "stop_line_number": 273,
@@ -10296,7 +10599,12 @@
       "2004-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/charges_deductibles.py",
         "start_line_number": 659,
-        "stop_line_number": 673
+        "stop_line_number": 673,
+        "variables": [
+          "f6ps",
+          "f6rs",
+          "f6ss"
+        ]
       }
     },
     "json_type": "number",
@@ -10459,6 +10767,7 @@
         "start_line_number": 171,
         "stop_line_number": 176,
         "variables": [
+          "cf_base_ressources_individu",
           "prestations_familiales_base_ressources_communes"
         ]
       }
@@ -10495,6 +10804,9 @@
     "json_type": "number",
     "label": "Complément familial - Ressources de l'individu prises en compte",
     "name": "cf_base_ressources_individu",
+    "referring_variables": [
+      "cf_base_ressources"
+    ],
     "start_line_number": 85,
     "stop_line_number": 97,
     "value_type": "float"
@@ -10525,6 +10837,9 @@
     "json_type": "boolean",
     "label": "Complément familial (DOM) - Enfant pris en compte pour l'éligibilité",
     "name": "cf_dom_enfant_eligible",
+    "referring_variables": [
+      "cf_eligibilite_dom"
+    ],
     "start_line_number": 49,
     "stop_line_number": 66,
     "value_type": "bool"
@@ -10553,6 +10868,9 @@
     "json_type": "boolean",
     "label": "Complément familial (DOM) - Enfant trop jeune pour ouvrir le droit",
     "name": "cf_dom_enfant_trop_jeune",
+    "referring_variables": [
+      "cf_eligibilite_dom"
+    ],
     "start_line_number": 68,
     "stop_line_number": 83,
     "value_type": "bool"
@@ -10567,7 +10885,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
         "start_line_number": 184,
-        "stop_line_number": 191
+        "stop_line_number": 191,
+        "variables": [
+          "cf_enfant_eligible"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -10593,7 +10914,11 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
         "start_line_number": 199,
-        "stop_line_number": 213
+        "stop_line_number": 213,
+        "variables": [
+          "cf_dom_enfant_eligible",
+          "cf_dom_enfant_trop_jeune"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -10637,7 +10962,8 @@
     "referring_variables": [
       "cf_base_ressources_individu",
       "cf_dom_enfant_eligible",
-      "cf_enfant_eligible"
+      "cf_enfant_eligible",
+      "cf_plafond"
     ],
     "start_line_number": 6,
     "stop_line_number": 23,
@@ -10670,6 +10996,9 @@
     "json_type": "boolean",
     "label": "Complément familial - Enfant pris en compte pour l'éligibilité",
     "name": "cf_enfant_eligible",
+    "referring_variables": [
+      "cf_eligibilite_base"
+    ],
     "start_line_number": 25,
     "stop_line_number": 47,
     "value_type": "bool"
@@ -10825,6 +11154,7 @@
           "biactivite",
           "cf_eligibilite_base",
           "cf_eligibilite_dom",
+          "cf_enfant_a_charge",
           "en_couple"
         ]
       }
@@ -10880,6 +11210,7 @@
     "label": "Charges locatives",
     "name": "charges_locatives",
     "referring_variables": [
+      "mobili_jeune",
       "visale_eligibilite"
     ],
     "set_input": "set_input_divide_by_period",
@@ -10998,7 +11329,10 @@
           "cheque_energie.unites_consommation.premiere_personne"
         ],
         "start_line_number": 11,
-        "stop_line_number": 22
+        "stop_line_number": 22,
+        "variables": [
+          "garde_alternee"
+        ]
       }
     },
     "json_type": "number",
@@ -11092,6 +11426,7 @@
       "aide_logement_condition_neutralisation_chomage",
       "al_revenu_assimile_salaire",
       "chomage_net",
+      "cotsyn",
       "revenu_assimile_salaire"
     ],
     "set_input": "set_input_divide_by_period",
@@ -11233,7 +11568,11 @@
         "start_line_number": 11,
         "stop_line_number": 33,
         "variables": [
-          "cmu_nb_pac"
+          "age",
+          "cmu_nb_pac",
+          "enfant_a_charge",
+          "habite_chez_parents",
+          "pensions_alimentaires_percues"
         ]
       }
     },
@@ -11265,6 +11604,8 @@
         "start_line_number": 92,
         "stop_line_number": 132,
         "variables": [
+          "age",
+          "cmu_base_ressources_individu",
           "cmu_forfait_logement_al",
           "cmu_forfait_logement_base"
         ]
@@ -11310,6 +11651,9 @@
       "https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000030055485&cidTexte=LEGITEXT000006073189&dateTexte=20180829",
       "Circulaire N°DSS/2A/2002/110 du 22 février 2002 relative à la notion de ressources à prendre en compte pour l'appréciation du droit à la protection complémentaire en matière de santé",
       "http://circulaire.legifrance.gouv.fr/pdf/2009/04/cir_6430.pdf"
+    ],
+    "referring_variables": [
+      "cmu_base_ressources"
     ],
     "start_line_number": 14,
     "stop_line_number": 84,
@@ -11370,7 +11714,9 @@
         "start_line_number": 81,
         "stop_line_number": 130,
         "variables": [
+          "age_en_mois",
           "cmu_eligible_majoration_dom",
+          "garde_alternee",
           "nb_parents"
         ]
       }
@@ -11484,7 +11830,10 @@
           "cs.cmu.age_limite_pac"
         ],
         "start_line_number": 68,
-        "stop_line_number": 72
+        "stop_line_number": 72,
+        "variables": [
+          "age"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -11565,6 +11914,7 @@
     "label": "Revenus imposables non commerciaux non professionnels avec CGA (régime de la déclaration contrôlée)",
     "name": "cncn_aimp",
     "referring_variables": [
+      "defncn",
       "rpns_individu"
     ],
     "start_line_number": 1440,
@@ -11587,6 +11937,7 @@
     "label": "Revenus non commerciaux non professionnels imposables sans AA (régime de la déclaration controlée)",
     "name": "cncn_bene",
     "referring_variables": [
+      "defncn",
       "rac",
       "rpns_individu"
     ],
@@ -11659,6 +12010,7 @@
     "label": "Inventeurs et auteurs de logiciels : produits taxables aux taux de droit commun revenus non commerciaux non professionnels avec CGA (régime de la déclaration contrôlée)",
     "name": "cncn_info",
     "referring_variables": [
+      "ip_net",
       "rpns_individu",
       "rpns_pvce"
     ],
@@ -11970,6 +12322,11 @@
     "name": "condition_rfr_exoneration_th",
     "reference": [
       "http://bofip.impots.gouv.fr/bofip/5934-PGP.html"
+    ],
+    "referring_variables": [
+      "abattement_personnes_condition_modeste_th_commune",
+      "abattement_personnes_condition_modeste_th_epci",
+      "exonere_taxe_habitation"
     ],
     "start_line_number": 15,
     "stop_line_number": 34,
@@ -12377,6 +12734,7 @@
     "name": "cotisations_employeur",
     "referring_variables": [
       "exoneration_cotisations_employeur_apprenti",
+      "revenus_travail_super_bruts_menage",
       "salaire_super_brut_hors_allegements"
     ],
     "set_input": "set_input_divide_by_period",
@@ -12555,6 +12913,7 @@
     "label": "Cotisations sociales salariales",
     "name": "cotisations_salariales",
     "referring_variables": [
+      "revenus_travail_super_bruts_menage",
       "salaire_imposable"
     ],
     "set_input": "set_input_divide_by_period",
@@ -12645,7 +13004,13 @@
           "impot_revenu.reductions_impots.cotsyn.taux"
         ],
         "start_line_number": 515,
-        "stop_line_number": 525
+        "stop_line_number": 525,
+        "variables": [
+          "chomage_imposable",
+          "f7ac",
+          "retraite_imposable",
+          "salaire_imposable"
+        ]
       }
     },
     "json_type": "number",
@@ -12674,6 +13039,7 @@
     "label": "Revenus forfaitaire provenant des coupes de bois",
     "name": "coupe_bois",
     "referring_variables": [
+      "defrag",
       "rpns_individu"
     ],
     "start_line_number": 93,
@@ -12814,8 +13180,13 @@
         "start_line_number": 51,
         "stop_line_number": 90,
         "variables": [
+          "aer",
           "af_nbenf",
+          "age",
           "aide_logement",
+          "ass",
+          "etudiant",
+          "prime_forfaitaire_mensuelle_reprise_activite",
           "rsa"
         ]
       },
@@ -12884,6 +13255,9 @@
     "json_type": "number",
     "label": "Montant de l'aide exceptionnelle pour les TPE pendant la crise sanitaire dûe au COVID-19",
     "name": "covid_aide_exceptionnelle_tpe_montant",
+    "referring_variables": [
+      "prestations_sociales"
+    ],
     "start_line_number": 25,
     "stop_line_number": 42,
     "value_type": "float"
@@ -12901,8 +13275,12 @@
         "stop_line_number": 60,
         "variables": [
           "crds_chomage",
+          "crds_logement",
+          "crds_mini",
           "crds_non_salarie",
+          "crds_pfam",
           "crds_retraite",
+          "crds_revenus_capital",
           "crds_salaire"
         ]
       }
@@ -12910,6 +13288,9 @@
     "json_type": "number",
     "label": "Contributions au remboursement de la dette sociale",
     "name": "crds",
+    "referring_variables": [
+      "total_impots_plafonnement_isf_ifi"
+    ],
     "start_line_number": 37,
     "stop_line_number": 60,
     "value_type": "float"
@@ -12943,7 +13324,8 @@
     "referring_variables": [
       "chomage_net",
       "crds",
-      "crds_hors_prestations"
+      "crds_hors_prestations",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 115,
     "stop_line_number": 150,
@@ -12964,6 +13346,7 @@
           "crds_chomage",
           "crds_non_salarie",
           "crds_retraite",
+          "crds_revenus_capital",
           "crds_salaire"
         ]
       }
@@ -12971,6 +13354,9 @@
     "json_type": "number",
     "label": "Contributions au remboursement de la dette sociale (hors celles portant sur les prestations sociales)",
     "name": "crds_hors_prestations",
+    "referring_variables": [
+      "prelevements_sociaux_menage"
+    ],
     "start_line_number": 62,
     "stop_line_number": 80,
     "value_type": "float"
@@ -12999,7 +13385,8 @@
       "http://vosdroits.service-public.fr/particuliers/F17585.xhtml"
     ],
     "referring_variables": [
-      "aide_logement_montant"
+      "aide_logement_montant",
+      "crds"
     ],
     "start_line_number": 1484,
     "stop_line_number": 1496,
@@ -13033,6 +13420,7 @@
     "label": "CRDS versée sur les minimas sociaux",
     "name": "crds_mini",
     "referring_variables": [
+      "crds",
       "minima_sociaux"
     ],
     "start_line_number": 292,
@@ -13096,6 +13484,7 @@
       "http://www.cleiss.fr/docs/regimes/regime_francea1.html"
     ],
     "referring_variables": [
+      "crds",
       "prestations_familiales"
     ],
     "start_line_number": 315,
@@ -13129,7 +13518,8 @@
     "referring_variables": [
       "crds",
       "crds_hors_prestations",
-      "retraite_nette"
+      "retraite_nette",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 236,
     "stop_line_number": 255,
@@ -13159,6 +13549,8 @@
     "label": "CRDS sur les revenus du capital",
     "name": "crds_revenus_capital",
     "referring_variables": [
+      "crds",
+      "crds_hors_prestations",
       "prelevements_sociaux_revenus_capital"
     ],
     "start_line_number": 331,
@@ -13188,8 +13580,10 @@
     "label": "CRDS sur les salaires",
     "name": "crds_salaire",
     "referring_variables": [
+      "bouclier_imp_gen",
       "crds",
       "crds_hors_prestations",
+      "revenus_travail_super_bruts_menage",
       "salaire_net"
     ],
     "start_line_number": 111,
@@ -13682,6 +14076,7 @@
           "f8uw",
           "f8uz",
           "f8vl",
+          "f8vm",
           "f8wa",
           "f8wb",
           "f8wc",
@@ -13712,6 +14107,7 @@
           "f8uw",
           "f8uz",
           "f8vl",
+          "f8vm",
           "f8wa",
           "f8wb",
           "f8wc",
@@ -13742,6 +14138,7 @@
           "f8uw",
           "f8uz",
           "f8vl",
+          "f8vm",
           "f8wa",
           "f8wc",
           "f8wd",
@@ -13769,6 +14166,7 @@
           "f8uw",
           "f8uz",
           "f8vl",
+          "f8vm",
           "f8wa",
           "f8wc",
           "f8wd",
@@ -13860,13 +14258,18 @@
           "csg_imposable_chomage",
           "csg_imposable_retraite",
           "csg_imposable_salaire",
-          "csg_non_salarie"
+          "csg_non_salarie",
+          "csg_revenus_capital"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution sociale généralisée",
     "name": "csg",
+    "referring_variables": [
+      "prelevements_sociaux_menage",
+      "total_impots_plafonnement_isf_ifi"
+    ],
     "start_line_number": 7,
     "stop_line_number": 35,
     "value_type": "float"
@@ -13897,9 +14300,11 @@
       "http://vosdroits.service-public.fr/particuliers/F2329.xhtml"
     ],
     "referring_variables": [
+      "bouclier_imp_gen",
       "chomage_imposable",
       "crds_chomage",
-      "csg"
+      "csg",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 47,
     "stop_line_number": 86,
@@ -13930,8 +14335,10 @@
       "https://www.lassuranceretraite.fr/cs/Satellite/PUBPrincipale/Retraites/Paiement-Votre-Retraite/Prelevements-Sociaux?packedargs=null"
     ],
     "referring_variables": [
+      "bouclier_imp_gen",
       "csg",
-      "retraite_imposable"
+      "retraite_imposable",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 193,
     "stop_line_number": 214,
@@ -13963,7 +14370,9 @@
     "label": "CSG déductible sur les salaires",
     "name": "csg_deductible_salaire",
     "referring_variables": [
+      "bouclier_imp_gen",
       "csg",
+      "revenus_travail_super_bruts_menage",
       "salaire_imposable"
     ],
     "start_line_number": 66,
@@ -13994,10 +14403,12 @@
       "http://vosdroits.service-public.fr/particuliers/F2329.xhtml"
     ],
     "referring_variables": [
+      "bouclier_imp_gen",
       "chomage_net",
       "crds_chomage",
       "csg",
-      "csg_deductible_chomage"
+      "csg_deductible_chomage",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 88,
     "stop_line_number": 113,
@@ -14027,8 +14438,10 @@
       "https://www.lassuranceretraite.fr/cs/Satellite/PUBPrincipale/Retraites/Paiement-Votre-Retraite/Prelevements-Sociaux?packedargs=null"
     ],
     "referring_variables": [
+      "bouclier_imp_gen",
       "csg",
-      "retraite_nette"
+      "retraite_nette",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 216,
     "stop_line_number": 234,
@@ -14057,7 +14470,9 @@
     "label": "CSG imposables sur les salaires",
     "name": "csg_imposable_salaire",
     "referring_variables": [
+      "bouclier_imp_gen",
       "csg",
+      "revenus_travail_super_bruts_menage",
       "salaire_net"
     ],
     "start_line_number": 88,
@@ -14151,6 +14566,7 @@
     "label": "CSG sur les revenus du capital",
     "name": "csg_revenus_capital",
     "referring_variables": [
+      "csg",
       "prelevements_sociaux_revenus_capital"
     ],
     "start_line_number": 313,
@@ -14196,7 +14612,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/css.py",
         "start_line_number": 53,
-        "stop_line_number": 56
+        "stop_line_number": 56,
+        "variables": [
+          "css_participation_forfaitaire_montant_i"
+        ]
       }
     },
     "json_type": "number",
@@ -14229,6 +14648,9 @@
     "json_type": "number",
     "label": "Montant de la participation forfaitaire d'une personne",
     "name": "css_participation_forfaitaire_montant_i",
+    "referring_variables": [
+      "css_participation_forfaitaire_montant"
+    ],
     "start_line_number": 12,
     "stop_line_number": 45,
     "value_type": "float"
@@ -14333,7 +14755,9 @@
     "name": "date_naissance",
     "referring_variables": [
       "age",
-      "age_en_mois"
+      "age_en_mois",
+      "paje_base",
+      "paje_naissance"
     ],
     "start_line_number": 4,
     "stop_line_number": 10,
@@ -14516,12 +14940,17 @@
         "start_line_number": 2425,
         "stop_line_number": 2452,
         "variables": [
+          "aacc_impn",
           "f5rn",
           "f5ro",
           "f5rp",
           "f5rq",
           "f5rr",
-          "f5rw"
+          "f5rw",
+          "macc_imps",
+          "macc_impv",
+          "macc_pvct",
+          "nacc_impn"
         ]
       }
     },
@@ -14657,6 +15086,7 @@
         "start_line_number": 2492,
         "stop_line_number": 2509,
         "variables": [
+          "alnp_imps",
           "f5ga",
           "f5gb",
           "f5gc",
@@ -14666,7 +15096,8 @@
           "f5gg",
           "f5gh",
           "f5gi",
-          "f5gj"
+          "f5gj",
+          "nacc_defs"
         ]
       }
     },
@@ -14695,12 +15126,16 @@
         "start_line_number": 2460,
         "stop_line_number": 2484,
         "variables": [
+          "cncn_aimp",
+          "cncn_bene",
           "f5ht",
           "f5it",
           "f5jt",
           "f5kt",
           "f5lt",
-          "f5mt"
+          "f5mt",
+          "mncn_impo",
+          "mncn_pvct"
         ]
       }
     },
@@ -14726,12 +15161,19 @@
         "start_line_number": 2392,
         "stop_line_number": 2417,
         "variables": [
+          "arag_impg",
+          "coupe_bois",
           "f5qf",
           "f5qg",
           "f5qn",
           "f5qo",
           "f5qp",
-          "f5qq"
+          "f5qq",
+          "frag_fore",
+          "frag_impo",
+          "frag_pvct",
+          "mrag_impo",
+          "nrag_impg"
         ]
       }
     },
@@ -14767,6 +15209,9 @@
         "start_line_number": 371,
         "stop_line_number": 403,
         "variables": [
+          "isf_ifi",
+          "nbptr",
+          "rfr",
           "taxe_habitation_commune_epci_apres_degrevement_plafonnement"
         ]
       },
@@ -14785,6 +15230,9 @@
         "start_line_number": 404,
         "stop_line_number": 429,
         "variables": [
+          "isf_ifi",
+          "nbptr",
+          "rfr",
           "taxe_habitation_commune_epci_avant_degrevement"
         ]
       }
@@ -17080,6 +17528,10 @@
     "json_type": "integer",
     "label": "Revenus industriels et commerciaux professionnels imposables: prestations de services et locations meublées (régime auto-entrepreneur)",
     "name": "ebic_imps",
+    "referring_variables": [
+      "assiette_service",
+      "microentreprise"
+    ],
     "start_line_number": 325,
     "stop_line_number": 335,
     "unit": "currency",
@@ -17099,6 +17551,10 @@
     "json_type": "integer",
     "label": "Revenus industriels et commerciaux professionnels imposables: vente de marchandises et assimilées (régime auto-entrepreneur)",
     "name": "ebic_impv",
+    "referring_variables": [
+      "assiette_vente",
+      "microentreprise"
+    ],
     "start_line_number": 312,
     "stop_line_number": 322,
     "unit": "currency",
@@ -17118,6 +17574,10 @@
     "json_type": "integer",
     "label": "Revenus non commerciaux (régime auto-entrepreneur ayant opté pour le versement libératoire)",
     "name": "ebnc_impo",
+    "referring_variables": [
+      "assiette_proflib",
+      "microentreprise"
+    ],
     "start_line_number": 338,
     "stop_line_number": 348,
     "unit": "currency",
@@ -17273,7 +17733,8 @@
         "start_line_number": 20,
         "stop_line_number": 45,
         "variables": [
-          "residence_ile_de_france"
+          "residence_ile_de_france",
+          "rfr"
         ]
       }
     },
@@ -17306,6 +17767,7 @@
           "asi",
           "asi_eligibilite",
           "salaire_net",
+          "statut_occupation_logement",
           "taux_incapacite"
         ]
       }
@@ -17358,19 +17820,25 @@
     "label": "Indicatrice de vie en couple",
     "name": "en_couple",
     "referring_variables": [
+      "aah_plafond_ressources",
       "aeeh",
       "aide_logement_base_ressources",
       "al_couple",
+      "apa_domicile_participation",
+      "apa_etablissement",
       "api",
       "apje_avant_cumul",
       "asf_elig",
+      "asi",
       "aspa",
       "aspa_couple",
+      "ass",
       "bourse_lycee_points_de_charge",
       "cf_plafond",
       "paje_base",
       "paje_cmg",
       "paje_naissance",
+      "rsa_activite_individu",
       "rsa_enfant_a_charge",
       "rsa_majore_eligibilite"
     ],
@@ -17388,6 +17856,9 @@
     "json_type": "boolean",
     "label": "Est enceinte",
     "name": "enceinte",
+    "referring_variables": [
+      "enceinte_fam"
+    ],
     "start_line_number": 66,
     "stop_line_number": 71,
     "value_type": "bool"
@@ -17402,7 +17873,11 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
         "start_line_number": 316,
-        "stop_line_number": 325
+        "stop_line_number": 325,
+        "variables": [
+          "age_en_mois",
+          "enceinte"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -17440,7 +17915,12 @@
     "name": "enfant_a_charge",
     "referring_variables": [
       "bourse_criteres_sociaux_etudiant_autonome",
-      "livret_epargne_populaire_eligibilite"
+      "cmu_acs_eligibilite",
+      "livret_epargne_populaire_eligibilite",
+      "nbF",
+      "nbG",
+      "nbH",
+      "nbI"
     ],
     "start_line_number": 215,
     "stop_line_number": 230,
@@ -17467,6 +17947,9 @@
     "json_type": "boolean",
     "label": "Enfant ouvrant droit à la PAJE de base",
     "name": "enfant_eligible_paje",
+    "referring_variables": [
+      "paje_base"
+    ],
     "start_line_number": 175,
     "stop_line_number": 189,
     "value_type": "bool"
@@ -17492,6 +17975,10 @@
     "json_type": "boolean",
     "label": "Enfant majeur célibataire sans enfant",
     "name": "enfant_majeur_celibataire_sans_enfant",
+    "referring_variables": [
+      "nbJ",
+      "nombre_enfants_majeurs_celibataires_sans_enfant"
+    ],
     "start_line_number": 295,
     "stop_line_number": 309,
     "value_type": "bool"
@@ -17673,6 +18160,9 @@
     "json_type": "number",
     "label": "Épargne générant des revenus imposables",
     "name": "epargne_revenus_imposables",
+    "referring_variables": [
+      "aide_logement_base_ressources_patrimoine"
+    ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 410,
     "stop_line_number": 417,
@@ -17689,6 +18179,7 @@
     "label": "Épargne générant des revenus non imposables hors Livret A",
     "name": "epargne_revenus_non_imposables",
     "referring_variables": [
+      "aide_logement_base_ressources_patrimoine",
       "rsa_base_ressources_patrimoine_individu"
     ],
     "set_input": "set_input_dispatch_by_period",
@@ -17717,8 +18208,11 @@
       "cf_base_ressources_individu",
       "cf_dom_enfant_trop_jeune",
       "cf_enfant_a_charge",
+      "prestations_familiales_base_ressources",
       "prestations_familiales_enfant_a_charge",
-      "rsa_enfant_a_charge"
+      "rsa_base_ressources",
+      "rsa_enfant_a_charge",
+      "rsa_revenu_activite"
     ],
     "start_line_number": 259,
     "stop_line_number": 267,
@@ -17811,7 +18305,11 @@
       "https://www.service-public.fr/particuliers/vosdroits/F986"
     ],
     "referring_variables": [
+      "covid_aide_exceptionnelle_famille_montant",
       "locapass_eligibilite_etudiant",
+      "paje_cmg",
+      "ppa_eligibilite_etudiants",
+      "rsa_eligibilite",
       "seances_sante_psy_etudiant"
     ],
     "start_line_number": 269,
@@ -18238,7 +18736,14 @@
           "taxation_locale.taxe_habitation.exon_age_min"
         ],
         "start_line_number": 44,
-        "stop_line_number": 78
+        "stop_line_number": 78,
+        "variables": [
+          "aah",
+          "asi",
+          "aspa",
+          "condition_rfr_exoneration_th",
+          "isf_ifi"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -19681,6 +20186,10 @@
     "json_type": "integer",
     "label": "Abattements nets (abattement pour durée de détention renforcé et abattement fixe spécial) appliqués sur des plus-values réalisées par les dirigeants de PME lors de leur départ à la retraite",
     "name": "f3va_2016",
+    "referring_variables": [
+      "abattements_plus_values",
+      "assiette_csg_plus_values"
+    ],
     "start_line_number": 295,
     "stop_line_number": 309,
     "unit": "currency",
@@ -19738,6 +20247,12 @@
     "json_type": "integer",
     "label": "Gains de levée d'options sur titres et gains d'acquisition d'actions taxables à 18 %",
     "name": "f3vd",
+    "referring_variables": [
+      "assiette_csg_plus_values",
+      "plus_values_base_large",
+      "rfr_plus_values_hors_rni",
+      "taxation_plus_values_hors_bareme"
+    ],
     "start_line_number": 411,
     "stop_line_number": 423,
     "unit": "currency",
@@ -19772,7 +20287,11 @@
     "label": "Gains de levée d'options sur titres et gains d'acquisition d'actions taxables à 41 %",
     "name": "f3vf",
     "referring_variables": [
-      "glo"
+      "assiette_csg_plus_values",
+      "glo",
+      "plus_values_base_large",
+      "rfr_plus_values_hors_rni",
+      "taxation_plus_values_hors_bareme"
     ],
     "start_line_number": 438,
     "stop_line_number": 449,
@@ -19834,7 +20353,11 @@
     "label": "Gains de levée d'options sur titres et gains d'acquisition d'actions taxables à 30 %",
     "name": "f3vi",
     "referring_variables": [
-      "glo"
+      "assiette_csg_plus_values",
+      "glo",
+      "plus_values_base_large",
+      "rfr_plus_values_hors_rni",
+      "taxation_plus_values_hors_bareme"
     ],
     "start_line_number": 425,
     "stop_line_number": 436,
@@ -20239,7 +20762,8 @@
     "label": "Revenus fonciers imposables",
     "name": "f4ba",
     "referring_variables": [
-      "revenu_categoriel_foncier"
+      "revenu_categoriel_foncier",
+      "revenus_fonciers_bruts_menage"
     ],
     "start_line_number": 42,
     "stop_line_number": 49,
@@ -20257,7 +20781,8 @@
     "label": "Déficit imputable sur les revenus fonciers",
     "name": "f4bb",
     "referring_variables": [
-      "revenu_categoriel_foncier"
+      "revenu_categoriel_foncier",
+      "revenus_fonciers_bruts_menage"
     ],
     "start_line_number": 51,
     "stop_line_number": 58,
@@ -20275,7 +20800,8 @@
     "label": "Déficit imputable sur le revenu global",
     "name": "f4bc",
     "referring_variables": [
-      "revenu_categoriel_foncier"
+      "revenu_categoriel_foncier",
+      "revenus_fonciers_bruts_menage"
     ],
     "start_line_number": 60,
     "stop_line_number": 67,
@@ -20311,7 +20837,8 @@
     "label": "Micro foncier: recettes brutes sans abattement",
     "name": "f4be",
     "referring_variables": [
-      "revenu_categoriel_foncier"
+      "revenu_categoriel_foncier",
+      "revenus_fonciers_bruts_menage"
     ],
     "start_line_number": 78,
     "stop_line_number": 85,
@@ -21517,6 +22044,9 @@
     "json_type": "integer",
     "label": "Plafond de déduction épargne retraite (plafond calculé sur les revenus perçus en n-1)",
     "name": "f6ps",
+    "referring_variables": [
+      "cd_eparet"
+    ],
     "start_line_number": 107,
     "stop_line_number": 118,
     "unit": "currency",
@@ -21536,6 +22066,9 @@
     "json_type": "integer",
     "label": "Cotisations d'épargne retraite versées au titre d'un PERP, PREFON, COREM et C.G.O.S",
     "name": "f6rs",
+    "referring_variables": [
+      "cd_eparet"
+    ],
     "start_line_number": 120,
     "stop_line_number": 131,
     "unit": "currency",
@@ -21555,6 +22088,9 @@
     "json_type": "integer",
     "label": "Rachat de cotisations PERP, PREFON, COREM et C.G.O.S",
     "name": "f6ss",
+    "referring_variables": [
+      "cd_eparet"
+    ],
     "start_line_number": 133,
     "stop_line_number": 144,
     "unit": "currency",
@@ -21610,6 +22146,9 @@
     "json_type": "integer",
     "label": "Cotisations syndicales des salariées et pensionnés",
     "name": "f7ac",
+    "referring_variables": [
+      "cotsyn"
+    ],
     "start_line_number": 108,
     "stop_line_number": 120,
     "unit": "currency",
@@ -33493,6 +34032,9 @@
     "json_type": "integer",
     "label": "Impôt payé à l'étranger sur revenus de capitaux mobiliers et plus-values ouvrant droit à un crédit d'impôt",
     "name": "f8vm",
+    "referring_variables": [
+      "creimp"
+    ],
     "start_line_number": 131,
     "stop_line_number": 143,
     "unit": "currency",
@@ -38973,6 +39515,7 @@
     "label": "Revenus des exploitants forestiers (régime du forfait)",
     "name": "frag_fore",
     "referring_variables": [
+      "defrag",
       "rpns_individu"
     ],
     "start_line_number": 1289,
@@ -38998,6 +39541,7 @@
     "label": "Revenus agricoles imposables (régime du forfait)",
     "name": "frag_impo",
     "referring_variables": [
+      "defrag",
       "maj_cga",
       "rag",
       "rpns_revenus_forfait_agricole"
@@ -39100,6 +39644,7 @@
     "label": "Plus-values agricoles  à court terme (régime du forfait)",
     "name": "frag_pvct",
     "referring_variables": [
+      "defrag",
       "rpns_pvct"
     ],
     "start_line_number": 951,
@@ -39143,6 +39688,9 @@
     "json_type": "number",
     "label": "Gains exceptionnels",
     "name": "gains_exceptionnels",
+    "referring_variables": [
+      "aide_logement_base_ressources"
+    ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 37,
     "stop_line_number": 43,
@@ -39358,7 +39906,14 @@
     "label": "Enfant en garde alternée",
     "name": "garde_alternee",
     "referring_variables": [
-      "af_majoration_enfant"
+      "af_coeff_garde_alternee",
+      "af_majoration_enfant",
+      "cheque_energie_unites_consommation",
+      "cmu_c_plafond",
+      "nbF",
+      "nbG",
+      "nbH",
+      "nbI"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 40,
@@ -39598,6 +40153,9 @@
     "json_type": "boolean",
     "label": "L'individu habite chez ses parents",
     "name": "habite_chez_parents",
+    "referring_variables": [
+      "cmu_acs_eligibilite"
+    ],
     "start_line_number": 59,
     "stop_line_number": 64,
     "value_type": "bool"
@@ -39613,6 +40171,8 @@
     "label": "Individu en situation de handicap",
     "name": "handicap",
     "referring_variables": [
+      "aeeh",
+      "aide_logement_montant_brut",
       "asi_eligibilite",
       "bourse_criteres_sociaux_eligibilite_age",
       "enfant_a_charge",
@@ -39701,6 +40261,7 @@
       "assiette_csg_abattue",
       "contribution_exceptionnelle_solidarite",
       "mhsup",
+      "paje_cmg",
       "ppe_rev",
       "prestations_familiales_base_ressources_individu",
       "salaire_imposable"
@@ -39800,6 +40361,11 @@
         "start_line_number": 613,
         "stop_line_number": 644,
         "variables": [
+          "ir_pv_immo",
+          "irpp_economique",
+          "isf_ifi",
+          "prelevement_forfaitaire_liberatoire",
+          "prelevement_forfaitaire_unique_ir",
           "taxe_habitation"
         ]
       }
@@ -39848,6 +40414,7 @@
     "label": "Reconnu inapte au travail",
     "name": "inapte_travail",
     "referring_variables": [
+      "al_nb_personnes_a_charge",
       "aspa_eligibilite"
     ],
     "start_line_number": 6,
@@ -39951,7 +40518,8 @@
         "variables": [
           "categorie_salarie",
           "salaire_de_base",
-          "traitement_indiciaire_brut"
+          "traitement_indiciaire_brut",
+          "zone_apl"
         ]
       }
     },
@@ -40035,6 +40603,7 @@
     "label": "Total des indemnités journalières",
     "name": "indemnites_journalieres",
     "referring_variables": [
+      "aide_logement_base_ressources",
       "indemnites_journalieres_imposables",
       "rsa_has_ressources_substitution",
       "rsa_indemnites_journalieres_hors_activite"
@@ -40085,6 +40654,9 @@
     "name": "indemnites_journalieres_atexa",
     "reference": [
       "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000649169"
+    ],
+    "referring_variables": [
+      "aide_logement_base_ressources"
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 90,
@@ -40243,7 +40815,11 @@
           "impot_revenu.tspr.abatpen.max"
         ],
         "start_line_number": 471,
-        "stop_line_number": 481
+        "stop_line_number": 481,
+        "variables": [
+          "revenu_assimile_pension",
+          "revenu_assimile_pension_apres_abattements"
+        ]
       }
     },
     "json_type": "number",
@@ -40354,7 +40930,8 @@
     "label": "Intérêts des comptes épargne logement (CEL) ouverts à partir du 1er janvier 2018",
     "name": "interets_compte_epargne_logement_ouvert_a_partir_de_2018",
     "referring_variables": [
-      "interets_pel_moins_12_ans_cel"
+      "interets_pel_moins_12_ans_cel",
+      "prelevement_forfaitaire_unique_ir_hors_assurance_vie_epargne_solidaire_etats_non_cooperatifs"
     ],
     "start_line_number": 48,
     "stop_line_number": 54,
@@ -40407,6 +40984,11 @@
     "json_type": "number",
     "label": "Intérêts des plans épargne logement (PEL) de moins de 12 ans et des comptes épargne logement (CEL)",
     "name": "interets_pel_moins_12_ans_cel",
+    "referring_variables": [
+      "assiette_csg_revenus_capital",
+      "revenus_capitaux_mobiliers_plus_values_bruts_menage",
+      "revenus_et_produits_plafonnement_isf_ifi"
+    ],
     "start_line_number": 56,
     "stop_line_number": 86,
     "value_type": "float"
@@ -40421,7 +41003,8 @@
     "label": "Intérêts des plans épargne logement (PEL) de moins de 12 ans ouverts à partir du 1er janvier 2018",
     "name": "interets_plan_epargne_logement_moins_de_12_ans_ouvert_a_partir_de_2018",
     "referring_variables": [
-      "interets_pel_moins_12_ans_cel"
+      "interets_pel_moins_12_ans_cel",
+      "prelevement_forfaitaire_unique_ir_hors_assurance_vie_epargne_solidaire_etats_non_cooperatifs"
     ],
     "start_line_number": 28,
     "stop_line_number": 38,
@@ -40728,6 +41311,10 @@
     "json_type": "boolean",
     "label": "Individu titulaire d'une carte d'invalidité",
     "name": "invalidite",
+    "referring_variables": [
+      "nbG",
+      "nbI"
+    ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 208,
     "stop_line_number": 214,
@@ -41360,6 +41947,7 @@
         "start_line_number": 1462,
         "stop_line_number": 1474,
         "variables": [
+          "cncn_info",
           "decote",
           "ir_plaf_qf",
           "reduction_ss_condition_revenus"
@@ -41538,6 +42126,7 @@
       "http://www.impots.gouv.fr/portal/dgi/public/popup?espId=1&typePage=cpr02&docOid=documentstandard_2157"
     ],
     "referring_variables": [
+      "impots_directs",
       "total_impots_plafonnement_isf_ifi"
     ],
     "start_line_number": 71,
@@ -41755,6 +42344,7 @@
     "label": "Notion économique de l'IRPP",
     "name": "irpp_economique",
     "referring_variables": [
+      "impots_directs",
       "total_impots_plafonnement_isf_ifi"
     ],
     "start_line_number": 581,
@@ -41848,7 +42438,11 @@
     "label": "Montant d'ISF-IFI",
     "name": "isf_ifi",
     "referring_variables": [
-      "bouclier_imp_gen"
+      "bouclier_imp_gen",
+      "degrevement_office_taxe_habitation",
+      "exonere_taxe_habitation",
+      "impots_directs",
+      "plafond_taxe_habitation_eligibilite"
     ],
     "start_line_number": 612,
     "stop_line_number": 622,
@@ -42273,7 +42867,10 @@
       "2005-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
         "start_line_number": 1276,
-        "stop_line_number": 1280
+        "stop_line_number": 1280,
+        "variables": [
+          "jeunes_ind"
+        ]
       },
       "2009-01-01": null
     },
@@ -42310,6 +42907,9 @@
         "variables": [
           "age",
           "elig_creimp_jeunes",
+          "maries_ou_pacses",
+          "nbptr",
+          "rfr",
           "salaire_imposable"
         ]
       },
@@ -42318,6 +42918,9 @@
     "json_type": "number",
     "label": "Crédit d'impôt en faveur des jeunes",
     "name": "jeunes_ind",
+    "referring_variables": [
+      "jeunes"
+    ],
     "start_line_number": 1282,
     "stop_line_number": 1329,
     "value_type": "float"
@@ -42366,6 +42969,8 @@
     "label": "Épargne sur Livret A",
     "name": "livret_a",
     "referring_variables": [
+      "aide_logement_base_ressources_patrimoine",
+      "revenus_et_produits_plafonnement_isf_ifi",
       "rsa_base_ressources_patrimoine_individu"
     ],
     "set_input": "set_input_dispatch_by_period",
@@ -42386,7 +42991,8 @@
         "stop_line_number": 42,
         "variables": [
           "enfant_a_charge",
-          "livret_epargne_populaire_plafond"
+          "livret_epargne_populaire_plafond",
+          "rfr"
         ]
       }
     },
@@ -42417,7 +43023,11 @@
           "epargne.livret_epargne_populaire.baremes"
         ],
         "start_line_number": 16,
-        "stop_line_number": 27
+        "stop_line_number": 27,
+        "variables": [
+          "nbptr",
+          "residence"
+        ]
       }
     },
     "json_type": "number",
@@ -42470,7 +43080,8 @@
         "start_line_number": 11,
         "stop_line_number": 15,
         "variables": [
-          "locapass_eligibilite_individu"
+          "locapass_eligibilite_individu",
+          "locapass_eligibilite_logement"
         ]
       }
     },
@@ -42619,6 +43230,9 @@
     "json_type": "boolean",
     "label": "Satisfaction des conditions d'éligibilité relatives au logement pour le dispositif Loca-Pass",
     "name": "locapass_eligibilite_logement",
+    "referring_variables": [
+      "locapass_eligibilite"
+    ],
     "start_line_number": 17,
     "stop_line_number": 31,
     "value_type": "bool"
@@ -43321,6 +43935,7 @@
         "start_line_number": 97,
         "stop_line_number": 130,
         "variables": [
+          "age",
           "al_nb_personnes_a_charge"
         ]
       }
@@ -43360,7 +43975,8 @@
         "start_line_number": 164,
         "stop_line_number": 170,
         "variables": [
-          "logement_social_plafond_ressources"
+          "logement_social_plafond_ressources",
+          "majeur"
         ]
       }
     },
@@ -43418,6 +44034,7 @@
     "name": "loyer",
     "referring_variables": [
       "aides_logement_primo_accedant_ressources",
+      "mobili_jeune",
       "visale_eligibilite"
     ],
     "set_input": "set_input_divide_by_period",
@@ -43463,6 +44080,7 @@
     "label": "Revenus industriels et commerciaux non professionnels imposables: prestations de services (régime micro entreprise)",
     "name": "macc_imps",
     "referring_variables": [
+      "defacc",
       "rac",
       "rpns_individu"
     ],
@@ -43486,6 +44104,7 @@
     "label": "Revenus industriels et commerciaux non professionnels imposables: vente de marchandises et assimilées (régime micro entreprise)",
     "name": "macc_impv",
     "referring_variables": [
+      "defacc",
       "rac",
       "rpns_individu"
     ],
@@ -43504,6 +44123,10 @@
     "json_type": "integer",
     "label": "Moins-values industrielles et commerciales non professionnelles nettes à court terme du foyer (régime micro entreprise)",
     "name": "macc_mvct",
+    "referring_variables": [
+      "moins_values_court_terme_nonpro",
+      "rpns_individu"
+    ],
     "start_line_number": 918,
     "stop_line_number": 925,
     "unit": "currency",
@@ -43568,6 +44191,7 @@
     "label": "Plus-values industrielles et commerciales non professionnelles imposables: plus-values nettes à court terme (régime micro entreprise)",
     "name": "macc_pvct",
     "referring_variables": [
+      "defacc",
       "rpns_pvct"
     ],
     "start_line_number": 977,
@@ -43608,6 +44232,9 @@
     "json_type": "number",
     "label": "Majoration pour non adhésion à un centre de gestion agréé (pour chaque individu du foyer)",
     "name": "maj_cga",
+    "referring_variables": [
+      "bouclier_rev"
+    ],
     "start_line_number": 647,
     "stop_line_number": 682,
     "value_type": "float"
@@ -43638,7 +44265,8 @@
     "name": "majeur",
     "referring_variables": [
       "enfant_a_charge",
-      "garantie_pret_etudiant_eligibilite"
+      "garantie_pret_etudiant_eligibilite",
+      "logement_social_eligible"
     ],
     "start_line_number": 12,
     "stop_line_number": 23,
@@ -43730,7 +44358,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
         "start_line_number": 236,
-        "stop_line_number": 243
+        "stop_line_number": 243,
+        "variables": [
+          "statut_marital"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -43738,6 +44369,7 @@
     "label": "maries",
     "name": "maries",
     "referring_variables": [
+      "asi",
       "aspa",
       "aspa_couple"
     ],
@@ -43775,6 +44407,7 @@
       "invlst",
       "invrev",
       "ir_plaf_qf",
+      "jeunes_ind",
       "nb_adult",
       "nbptr",
       "pertes_capital_societes_nouvelles",
@@ -43875,6 +44508,9 @@
     "json_type": "integer",
     "label": "Moins-values industrielles et commerciales nettes à court terme du foyer (régime micro entreprise)",
     "name": "mbic_mvct",
+    "referring_variables": [
+      "moins_values_court_terme_pro"
+    ],
     "start_line_number": 907,
     "stop_line_number": 915,
     "unit": "currency",
@@ -44144,7 +44780,12 @@
           "impot_revenu.rpns.micro.specialbnc.taux"
         ],
         "start_line_number": 1605,
-        "stop_line_number": 1618
+        "stop_line_number": 1618,
+        "variables": [
+          "ebic_imps",
+          "ebic_impv",
+          "ebnc_impo"
+        ]
       }
     },
     "json_type": "number",
@@ -44220,8 +44861,11 @@
         "start_line_number": 551,
         "stop_line_number": 568,
         "variables": [
+          "aah",
           "aefa",
           "api",
+          "ass",
+          "caah",
           "crds_mini",
           "minimum_vieillesse",
           "ppa",
@@ -44256,6 +44900,7 @@
         "start_line_number": 540,
         "stop_line_number": 542,
         "variables": [
+          "asi",
           "aspa"
         ]
       }
@@ -44394,6 +45039,7 @@
     "label": "Revenus non commerciaux non professionnels imposables (régime déclaratif spécial ou micro BNC)",
     "name": "mncn_impo",
     "referring_variables": [
+      "defncn",
       "rac",
       "rpns_individu"
     ],
@@ -44412,6 +45058,10 @@
     "json_type": "integer",
     "label": "Moins-values non commerciales non professionnelles nettes à court terme du foyer (régime déclaratif spécial ou micro BNC)",
     "name": "mncn_mvct",
+    "referring_variables": [
+      "moins_values_court_terme_nonpro",
+      "rpns_individu"
+    ],
     "start_line_number": 928,
     "stop_line_number": 935,
     "unit": "currency",
@@ -44476,6 +45126,7 @@
     "label": "Plus-values non commerciales non professionnelles imposables et plus-values nettes à court terme (régime déclaratif spécial ou micro BNC)",
     "name": "mncn_pvct",
     "referring_variables": [
+      "defncn",
       "rpns_pvct"
     ],
     "start_line_number": 1001,
@@ -44499,6 +45150,9 @@
         "start_line_number": 15,
         "stop_line_number": 29,
         "variables": [
+          "apl",
+          "charges_locatives",
+          "loyer",
           "mobili_jeune_eligibilite"
         ]
       }
@@ -44533,7 +45187,8 @@
           "alternant",
           "mobili_jeune_eligibilite_employeur",
           "salaire_de_base",
-          "smic_proratise"
+          "smic_proratise",
+          "statut_occupation_logement"
         ]
       }
     },
@@ -44680,7 +45335,11 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 2721,
-        "stop_line_number": 2726
+        "stop_line_number": 2726,
+        "variables": [
+          "macc_mvct",
+          "mncn_mvct"
+        ]
       }
     },
     "json_type": "number",
@@ -44706,6 +45365,7 @@
         "start_line_number": 2734,
         "stop_line_number": 2739,
         "variables": [
+          "mbic_mvct",
           "mbnc_mvct"
         ]
       },
@@ -44800,6 +45460,7 @@
     "label": "Revenus agricoles imposables (régime micro BA)",
     "name": "mrag_impo",
     "referring_variables": [
+      "defrag",
       "rag",
       "rpns_revenus_microBA_agricole"
     ],
@@ -44906,7 +45567,10 @@
       "2015-07-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
         "start_line_number": 462,
-        "stop_line_number": 468
+        "stop_line_number": 468,
+        "variables": [
+          "aide_logement_montant"
+        ]
       }
     },
     "json_type": "number",
@@ -44961,6 +45625,7 @@
     "label": "Locations meublées non professionnelles: Gîtes ruraux et chambres d'hôtes déjà soumis aux prélèvements sociaux avec CGA (régime du bénéfice réel)",
     "name": "nacc_defs",
     "referring_variables": [
+      "defmeu",
       "maj_cga",
       "rac",
       "rpns_individu"
@@ -45008,6 +45673,7 @@
     "label": "Revenus industriels et commerciaux non professionnels imposables: régime normal ou simplifié sans CGA (régime du bénéfice réel)",
     "name": "nacc_impn",
     "referring_variables": [
+      "defacc",
       "maj_cga",
       "rac",
       "rpns_individu"
@@ -45076,6 +45742,9 @@
     "json_type": "integer",
     "label": "Locations meublées non professionnelles: Revenus imposables sans CGA (régime du bénéfice réel)",
     "name": "nacc_pvce",
+    "referring_variables": [
+      "rbg"
+    ],
     "start_line_number": 1214,
     "stop_line_number": 1224,
     "unit": "currency",
@@ -45142,7 +45811,11 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 240,
-        "stop_line_number": 246
+        "stop_line_number": 246,
+        "variables": [
+          "enfant_a_charge",
+          "garde_alternee"
+        ]
       }
     },
     "json_type": "number",
@@ -45169,7 +45842,12 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 255,
-        "stop_line_number": 262
+        "stop_line_number": 262,
+        "variables": [
+          "enfant_a_charge",
+          "garde_alternee",
+          "invalidite"
+        ]
       }
     },
     "json_type": "number",
@@ -45195,7 +45873,11 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 271,
-        "stop_line_number": 277
+        "stop_line_number": 277,
+        "variables": [
+          "enfant_a_charge",
+          "garde_alternee"
+        ]
       }
     },
     "json_type": "number",
@@ -45224,7 +45906,12 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 286,
-        "stop_line_number": 293
+        "stop_line_number": 293,
+        "variables": [
+          "enfant_a_charge",
+          "garde_alternee",
+          "invalidite"
+        ]
       }
     },
     "json_type": "number",
@@ -45250,7 +45937,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 318,
-        "stop_line_number": 321
+        "stop_line_number": 321,
+        "variables": [
+          "enfant_majeur_celibataire_sans_enfant"
+        ]
       }
     },
     "json_type": "integer",
@@ -45559,6 +46249,9 @@
     "json_type": "integer",
     "label": "Locations meublées imposables sans CGA (régime du bénéfice réel)",
     "name": "nbic_impm",
+    "referring_variables": [
+      "rbg"
+    ],
     "start_line_number": 1327,
     "stop_line_number": 1338,
     "unit": "currency",
@@ -45749,7 +46442,8 @@
     "name": "nbnc_proc",
     "referring_variables": [
       "rpns_exon",
-      "rpns_individu"
+      "rpns_individu",
+      "taux_effectif"
     ],
     "start_line_number": 1403,
     "stop_line_number": 1414,
@@ -45773,6 +46467,9 @@
     "json_type": "integer",
     "label": "Déficits industriels et commerciaux: locations meublées sans CGA (régime du bénéfice réel)",
     "name": "nbnc_pvce",
+    "referring_variables": [
+      "revenu_categoriel_non_salarial"
+    ],
     "start_line_number": 1276,
     "stop_line_number": 1287,
     "unit": "currency",
@@ -45841,13 +46538,19 @@
     "referring_variables": [
       "condition_rfr_exoneration_th",
       "creimp_exc_2008",
+      "degrevement_office_taxe_habitation",
       "ir_brut",
       "ir_plaf_qf",
       "ir_taux_marginal",
       "ir_tranche",
+      "jeunes_ind",
+      "livret_epargne_populaire_plafond",
+      "plafond_taxe_habitation",
+      "plafond_taxe_habitation_eligibilite",
       "ppe_elig",
       "reduction_impot_exceptionnelle",
       "reduction_ss_condition_revenus",
+      "taux_csg_remplacement",
       "taux_effectif"
     ],
     "start_line_number": 3157,
@@ -45910,7 +46613,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
         "start_line_number": 329,
-        "stop_line_number": 332
+        "stop_line_number": 332,
+        "variables": [
+          "enfant_majeur_celibataire_sans_enfant"
+        ]
       }
     },
     "json_type": "integer",
@@ -45921,7 +46627,7 @@
     "value_type": "int"
   },
   "nombre_jours_calendaires": {
-    "default_value": 30.0,
+    "default_value": 30,
     "definition_period": "month",
     "dtype": "float32",
     "entity": "individu",
@@ -46088,6 +46794,7 @@
     "label": "Revenus agricoles imposables, cas général moyenne triennale (Régime du bénéfice réel, revenus ne bénéficiant pas de l'abattement CGA ou viseur)",
     "name": "nrag_impg",
     "referring_variables": [
+      "defrag",
       "maj_cga",
       "rag",
       "rpns_individu"
@@ -46210,7 +46917,9 @@
         "variables": [
           "af_nbenf",
           "biactivite",
+          "date_naissance",
           "en_couple",
+          "enfant_eligible_paje",
           "prestations_familiales_base_ressources"
         ]
       }
@@ -46258,6 +46967,7 @@
         "stop_line_number": 801,
         "variables": [
           "af_nbenf",
+          "age_en_mois",
           "inactif",
           "paje_base",
           "partiel1",
@@ -46380,14 +47090,18 @@
         "start_line_number": 463,
         "stop_line_number": 584,
         "variables": [
+          "aah",
           "af_nbenf",
           "ass_mat",
           "empl_dir",
           "en_couple",
+          "etudiant",
           "gar_dom",
+          "hsup",
           "paje_clca_taux_partiel",
           "paje_clca_taux_plein",
-          "prestations_familiales_base_ressources"
+          "prestations_familiales_base_ressources",
+          "salaire_imposable"
         ]
       },
       "2017-04-01": {
@@ -46416,9 +47130,11 @@
         "start_line_number": 353,
         "stop_line_number": 462,
         "variables": [
+          "aah",
           "af_nbenf",
           "ass_mat",
           "empl_dir",
+          "etudiant",
           "gar_dom",
           "inactif",
           "paje_prepare",
@@ -46463,6 +47179,7 @@
         "stop_line_number": 871,
         "variables": [
           "af_nbenf",
+          "age_en_mois",
           "opt_colca",
           "paje_base"
         ]
@@ -46506,6 +47223,7 @@
         "stop_line_number": 330,
         "variables": [
           "af_nbenf",
+          "age_en_mois",
           "biactivite",
           "en_couple",
           "prestations_familiales_base_ressources"
@@ -46527,6 +47245,7 @@
         "variables": [
           "af_nbenf",
           "biactivite",
+          "date_naissance",
           "en_couple",
           "prestations_familiales_base_ressources"
         ]
@@ -46546,6 +47265,7 @@
         "variables": [
           "af_nbenf",
           "biactivite",
+          "date_naissance",
           "en_couple",
           "prestations_familiales_base_ressources"
         ]
@@ -46767,6 +47487,9 @@
     "json_type": "number",
     "label": "Prestation de compensation du handicap",
     "name": "pch",
+    "referring_variables": [
+      "aide_logement_base_ressources"
+    ],
     "start_line_number": 470,
     "stop_line_number": 475,
     "value_type": "float"
@@ -46833,7 +47556,10 @@
           "prestations.agepi.age_enfant_maximum"
         ],
         "start_line_number": 14,
-        "stop_line_number": 17
+        "stop_line_number": 17,
+        "variables": [
+          "age"
+        ]
       }
     },
     "json_type": "number",
@@ -47012,6 +47738,8 @@
     "name": "pensions_alimentaires_percues",
     "referring_variables": [
       "al_traitements_salaires_pensions_rentes",
+      "asf_montant",
+      "cmu_acs_eligibilite",
       "pensions_nettes",
       "revenu_assimile_pension"
     ],
@@ -47085,6 +47813,7 @@
     "label": "Pensions alimentaires versées pour un individu",
     "name": "pensions_alimentaires_versees_individu",
     "referring_variables": [
+      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "cmu_base_ressources_individu"
@@ -47149,6 +47878,10 @@
     "name": "pensions_nettes",
     "reference": [
       "http://fr.wikipedia.org/wiki/Rente"
+    ],
+    "referring_variables": [
+      "revenu_disponible",
+      "revenus_remplacement_pensions_bruts_menage"
     ],
     "start_line_number": 122,
     "stop_line_number": 149,
@@ -47305,7 +48038,9 @@
         "start_line_number": 288,
         "stop_line_number": 297,
         "variables": [
-          "plafond_taxe_habitation_eligibilite"
+          "nbptr",
+          "plafond_taxe_habitation_eligibilite",
+          "rfr"
         ]
       },
       "2020-01-01": null
@@ -47338,7 +48073,12 @@
           "taxation_locale.taxe_habitation.plafonnement.plaf_rfr.premiere_part"
         ],
         "start_line_number": 268,
-        "stop_line_number": 278
+        "stop_line_number": 278,
+        "variables": [
+          "isf_ifi",
+          "nbptr",
+          "rfr"
+        ]
       },
       "2020-01-01": null
     },
@@ -47418,14 +48158,18 @@
           "f3sk",
           "f3tj",
           "f3ua",
+          "f3vd",
+          "f3vf",
           "f3vg",
+          "f3vi",
           "f3vm",
           "f3vt",
           "f3vz",
           "f3we",
           "f3wi",
           "f3wj",
-          "rfr_plus_values_hors_rni"
+          "rfr_plus_values_hors_rni",
+          "rpns_pvce"
         ]
       }
     },
@@ -47433,6 +48177,7 @@
     "label": "Montant des plus-values utilisé pour le montant total de revenus du capital",
     "name": "plus_values_base_large",
     "referring_variables": [
+      "revenus_capitaux_mobiliers_plus_values_bruts_menage",
       "revenus_et_produits_plafonnement_isf_ifi",
       "revenus_nets_du_capital"
     ],
@@ -47456,7 +48201,8 @@
           "f3tj",
           "f3ua",
           "f3va",
-          "f3vg"
+          "f3vg",
+          "rpns_pvce"
         ]
       },
       "2019-01-01": {
@@ -47472,7 +48218,8 @@
           "f3ua",
           "f3va",
           "f3vg",
-          "f3vt"
+          "f3vt",
+          "rpns_pvce"
         ]
       }
     },
@@ -47602,6 +48349,9 @@
     "json_type": "number",
     "label": "Bonification de la PPA pour un individu",
     "name": "ppa_bonification",
+    "referring_variables": [
+      "ppa_fictive"
+    ],
     "start_line_number": 327,
     "stop_line_number": 346,
     "value_type": "float"
@@ -47616,7 +48366,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
         "start_line_number": 12,
-        "stop_line_number": 19
+        "stop_line_number": 19,
+        "variables": [
+          "age"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -47642,6 +48395,9 @@
         "start_line_number": 49,
         "stop_line_number": 79,
         "variables": [
+          "etudiant",
+          "ppa_plancher_revenu_activite_etudiant",
+          "ppa_revenu_activite_individu",
           "rsa_majore_eligibilite"
         ]
       }
@@ -47676,6 +48432,7 @@
         "stop_line_number": 453,
         "variables": [
           "ppa_base_ressources",
+          "ppa_bonification",
           "ppa_eligibilite",
           "ppa_fictive_montant_forfaitaire",
           "ppa_fictive_ressource_activite",
@@ -47910,6 +48667,9 @@
     "json_type": "number",
     "label": "Plancher des revenus d'activité pour être éligible à la PPA en tant qu'étudiant",
     "name": "ppa_plancher_revenu_activite_etudiant",
+    "referring_variables": [
+      "ppa_eligibilite_etudiants"
+    ],
     "start_line_number": 21,
     "stop_line_number": 35,
     "value_type": "float"
@@ -47927,7 +48687,9 @@
         "stop_line_number": 218,
         "variables": [
           "aspa",
-          "ppa_base_ressources_prestations_familiales"
+          "ass",
+          "ppa_base_ressources_prestations_familiales",
+          "ppa_ressources_hors_activite_individu"
         ]
       }
     },
@@ -47954,7 +48716,9 @@
         "stop_line_number": 277,
         "variables": [
           "aah",
-          "ppa_revenu_activite_individu"
+          "assiette_csg_plus_values",
+          "ppa_revenu_activite_individu",
+          "rente_viagere_titre_onereux"
         ]
       }
     },
@@ -47964,6 +48728,9 @@
     "reference": [
       "https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=B1D8827D50F7B3CC603BB7D398E71AA8.tplgfr28s_3?idArticle=LEGIARTI000033813782&cidTexte=LEGITEXT000006073189&dateTexte=20181226",
       "https://www.legifrance.gouv.fr/affichCode.do;jsessionid=3D8AB2FEC931285820291B1F952160BA.tpdila22v_2?idSectionTA=LEGISCTA000031694323&cidTexte=LEGITEXT000006073189&dateTexte=20160215"
+    ],
+    "referring_variables": [
+      "ppa_ressources_hors_activite"
     ],
     "start_line_number": 220,
     "stop_line_number": 277,
@@ -47979,7 +48746,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
         "start_line_number": 133,
-        "stop_line_number": 139
+        "stop_line_number": 139,
+        "variables": [
+          "ppa_revenu_activite_individu"
+        ]
       }
     },
     "json_type": "number",
@@ -48021,7 +48791,9 @@
     ],
     "referring_variables": [
       "ppa_bonification",
-      "ppa_ressources_hors_activite_individu"
+      "ppa_eligibilite_etudiants",
+      "ppa_ressources_hors_activite_individu",
+      "ppa_revenu_activite"
     ],
     "start_line_number": 141,
     "stop_line_number": 178,
@@ -48088,7 +48860,8 @@
         "start_line_number": 3504,
         "stop_line_number": 3518,
         "variables": [
-          "ppe_brute"
+          "ppe_brute",
+          "rsa_activite_individu"
         ]
       },
       "2016-01-01": null
@@ -48100,7 +48873,8 @@
       "http://vosdroits.service-public.fr/particuliers/F2882.xhtml"
     ],
     "referring_variables": [
-      "restitutions"
+      "restitutions",
+      "revenu_disponible"
     ],
     "start_line_number": 3496,
     "stop_line_number": 3518,
@@ -48118,6 +48892,7 @@
         "start_line_number": 3363,
         "stop_line_number": 3369,
         "variables": [
+          "ppe_coef",
           "ppe_coef_tp",
           "ppe_rev"
         ]
@@ -48127,6 +48902,9 @@
     "json_type": "number",
     "label": "Montant de base de la PPE",
     "name": "ppe_base",
+    "referring_variables": [
+      "ppe_brute"
+    ],
     "start_line_number": 3356,
     "stop_line_number": 3369,
     "value_type": "float"
@@ -48163,8 +48941,11 @@
           "maries_ou_pacses",
           "nbH",
           "nb_pac",
+          "ppe_base",
           "ppe_coef",
+          "ppe_coef_tp",
           "ppe_elig",
+          "ppe_elig_individu",
           "veuf"
         ]
       },
@@ -48202,6 +48983,7 @@
     "label": "Coefficient de conversion - Prime pour l'emploi",
     "name": "ppe_coef",
     "referring_variables": [
+      "ppe_base",
       "ppe_brute",
       "ppe_elig"
     ],
@@ -48238,6 +49020,7 @@
     "name": "ppe_coef_tp",
     "referring_variables": [
       "ppe_base",
+      "ppe_brute",
       "ppe_elig_individu"
     ],
     "start_line_number": 3336,
@@ -48368,6 +49151,9 @@
     "json_type": "boolean",
     "label": "Eligibilité individuelle à la ppe",
     "name": "ppe_elig_individu",
+    "referring_variables": [
+      "ppe_brute"
+    ],
     "start_line_number": 3371,
     "stop_line_number": 3388,
     "value_type": "bool"
@@ -48658,6 +49444,7 @@
     ],
     "referring_variables": [
       "bouclier_imp_gen",
+      "impots_directs",
       "total_impots_plafonnement_isf_ifi"
     ],
     "start_line_number": 42,
@@ -48712,6 +49499,7 @@
     "label": "Partie du prélèvement forfaitaire unique associée à l'impôt sur le revenu",
     "name": "prelevement_forfaitaire_unique_ir",
     "referring_variables": [
+      "impots_directs",
       "total_impots_plafonnement_isf_ifi"
     ],
     "start_line_number": 226,
@@ -48734,6 +49522,8 @@
         "stop_line_number": 197,
         "variables": [
           "assurance_vie_pfu_ir",
+          "interets_compte_epargne_logement_ouvert_a_partir_de_2018",
+          "interets_plan_epargne_logement_moins_de_12_ans_ouvert_a_partir_de_2018",
           "plus_values_prelevement_forfaitaire_unique_ir",
           "produit_epargne_solidaire",
           "produit_etats_non_cooperatif",
@@ -48796,7 +49586,12 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/mesures.py",
         "start_line_number": 476,
-        "stop_line_number": 490
+        "stop_line_number": 490,
+        "variables": [
+          "crds_hors_prestations",
+          "csg",
+          "prelevements_sociaux_revenus_capital_hors_csg_crds"
+        ]
       }
     },
     "json_type": "number",
@@ -48897,6 +49692,7 @@
       "https://www.service-public.fr/particuliers/vosdroits/F2329"
     ],
     "referring_variables": [
+      "prelevements_sociaux_menage",
       "prelevements_sociaux_revenus_capital",
       "total_impots_plafonnement_isf_ifi"
     ],
@@ -48965,7 +49761,10 @@
         "start_line_number": 193,
         "stop_line_number": 203,
         "variables": [
-          "prestations_familiales_base_ressources_communes"
+          "est_enfant_dans_famille",
+          "prestations_familiales_base_ressources_communes",
+          "prestations_familiales_base_ressources_individu",
+          "prestations_familiales_enfant_a_charge"
         ]
       }
     },
@@ -49027,6 +49826,7 @@
         "start_line_number": 66,
         "stop_line_number": 80,
         "variables": [
+          "assiette_csg_plus_values",
           "glo",
           "hsup",
           "moins_values_court_terme_non_salaries",
@@ -49043,7 +49843,10 @@
     "label": "Base ressource individuelle des prestations familiales",
     "name": "prestations_familiales_base_ressources_individu",
     "referring_variables": [
-      "cf_base_ressources_individu"
+      "aide_logement_base_ressources_defaut",
+      "al_nb_personnes_a_charge",
+      "cf_base_ressources_individu",
+      "prestations_familiales_base_ressources"
     ],
     "start_line_number": 59,
     "stop_line_number": 80,
@@ -49078,7 +49881,11 @@
     "label": "Enfant considéré à charge au sens des prestations familiales",
     "name": "prestations_familiales_enfant_a_charge",
     "referring_variables": [
-      "af_majoration_enfant"
+      "af_age_aine",
+      "af_coeff_garde_alternee",
+      "af_majoration_enfant",
+      "af_nbenf",
+      "prestations_familiales_base_ressources"
     ],
     "start_line_number": 30,
     "stop_line_number": 57,
@@ -49099,6 +49906,7 @@
         "variables": [
           "aides_logement",
           "covid_aide_exceptionnelle_famille_montant",
+          "covid_aide_exceptionnelle_tpe_montant",
           "minima_sociaux",
           "prestations_familiales",
           "reduction_loyer_solidarite"
@@ -49110,6 +49918,9 @@
     "name": "prestations_sociales",
     "reference": [
       "http://fr.wikipedia.org/wiki/Prestation_sociale"
+    ],
+    "referring_variables": [
+      "revenu_disponible"
     ],
     "start_line_number": 492,
     "stop_line_number": 512,
@@ -49246,6 +50057,9 @@
     "json_type": "number",
     "label": "Prime forfaitaire mensuelle pour la reprise d'activité",
     "name": "prime_forfaitaire_mensuelle_reprise_activite",
+    "referring_variables": [
+      "covid_aide_exceptionnelle_famille_montant"
+    ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 53,
     "stop_line_number": 59,
@@ -49429,7 +50243,8 @@
         "variables": [
           "aah",
           "age",
-          "ass"
+          "ass",
+          "rsa"
         ]
       }
     },
@@ -49482,6 +50297,7 @@
         "start_line_number": 103,
         "stop_line_number": 128,
         "variables": [
+          "activite",
           "af_nbenf",
           "aide_logement",
           "api",
@@ -50389,6 +51205,7 @@
       "http://www.impots.gouv.fr/portal/dgi/public/professionnels.impot?espId=2&impot=BA&pageId=prof_ba&sfid=50"
     ],
     "referring_variables": [
+      "revenus_et_produits_plafonnement_isf_ifi",
       "rpns"
     ],
     "start_line_number": 2511,
@@ -50426,6 +51243,8 @@
         "variables": [
           "deficit_ante",
           "f6gh",
+          "nacc_pvce",
+          "nbic_impm",
           "revenu_categoriel"
         ]
       }
@@ -50438,6 +51257,7 @@
     ],
     "referring_variables": [
       "bouclier_rev",
+      "bourse_criteres_sociaux_base_ressources_etudiant_autonome",
       "csg_patrimoine_deductible_ir",
       "rbg_int",
       "rng"
@@ -50975,6 +51795,9 @@
     "reference": [
       "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000006743072&dateTexte=&categorieLien=cid"
     ],
+    "referring_variables": [
+      "aide_logement_base_ressources"
+    ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 4,
     "stop_line_number": 19,
@@ -51212,7 +52035,10 @@
       "http://fr.wikipedia.org/wiki/Rente_viagère"
     ],
     "referring_variables": [
-      "pensions_nettes"
+      "asi_aspa_base_ressources_individu",
+      "pensions_nettes",
+      "ppa_ressources_hors_activite_individu",
+      "rsa_base_ressources_individu"
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 498,
@@ -51256,7 +52082,8 @@
       "assiette_csg_revenus_capital",
       "rev_coll",
       "revenus_et_produits_plafonnement_isf_ifi",
-      "revenus_nets_du_capital"
+      "revenus_nets_du_capital",
+      "traitements_salaires_pensions_rentes"
     ],
     "start_line_number": 521,
     "stop_line_number": 546,
@@ -51330,6 +52157,9 @@
       "saint_martin": "Saint Martin",
       "saint_pierre_et_miquelon": "Saint Pierre et Miquelon"
     },
+    "referring_variables": [
+      "livret_epargne_populaire_plafond"
+    ],
     "start_line_number": 195,
     "stop_line_number": 227,
     "value_type": "Enum"
@@ -51643,6 +52473,7 @@
     "json_type": "boolean",
     "name": "residence_mayotte",
     "referring_variables": [
+      "ass",
       "residence",
       "residence_dom"
     ],
@@ -52031,6 +52862,9 @@
     "json_type": "number",
     "label": "Retraite du combattant",
     "name": "retraite_combattant",
+    "referring_variables": [
+      "aide_logement_base_ressources"
+    ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 21,
     "stop_line_number": 27,
@@ -52135,6 +52969,7 @@
     "referring_variables": [
       "aide_logement_abattement_depart_retraite",
       "al_traitements_salaires_pensions_rentes",
+      "cotsyn",
       "retraite_nette",
       "revenu_assimile_pension"
     ],
@@ -52253,6 +53088,9 @@
     "reference": [
       "http://www.apce.com/pid6137/regime-micro-social.html"
     ],
+    "referring_variables": [
+      "salaire_imposable"
+    ],
     "start_line_number": 263,
     "stop_line_number": 281,
     "value_type": "float"
@@ -52297,6 +53135,7 @@
     "name": "revenu_assimile_pension",
     "referring_variables": [
       "aah_base_ressources_eval_annuelle",
+      "indu_plaf_abat_pen",
       "revenu_assimile_pension_apres_abattements"
     ],
     "start_line_number": 430,
@@ -52328,6 +53167,8 @@
     "name": "revenu_assimile_pension_apres_abattements",
     "referring_variables": [
       "abattement_salaires_pensions",
+      "indu_plaf_abat_pen",
+      "revenus_et_produits_plafonnement_isf_ifi",
       "traitements_salaires_pensions_rentes"
     ],
     "start_line_number": 445,
@@ -52394,6 +53235,10 @@
       "abattement_salaires_pensions",
       "aide_logement_abattement_depart_retraite",
       "aide_logement_neutralisation_conge_parental",
+      "aide_logement_neutralisation_rsa",
+      "al_biactivite",
+      "biactivite",
+      "revenus_et_produits_plafonnement_isf_ifi",
       "traitements_salaires_pensions_rentes"
     ],
     "start_line_number": 408,
@@ -52627,7 +53472,8 @@
       "assiette_csg_revenus_capital",
       "rev_coll",
       "revenu_categoriel",
-      "revenus_et_produits_plafonnement_isf_ifi"
+      "revenus_et_produits_plafonnement_isf_ifi",
+      "revenus_locatifs"
     ],
     "start_line_number": 902,
     "stop_line_number": 941,
@@ -52648,7 +53494,9 @@
           "defacc",
           "defmeu",
           "defncn",
-          "defrag"
+          "defrag",
+          "nbnc_pvce",
+          "rpns_individu"
         ]
       }
     },
@@ -52740,7 +53588,8 @@
         "start_line_number": 615,
         "stop_line_number": 622,
         "variables": [
-          "indu_plaf_abat_pen"
+          "indu_plaf_abat_pen",
+          "traitements_salaires_pensions_rentes"
         ]
       }
     },
@@ -52769,7 +53618,12 @@
         "start_line_number": 53,
         "stop_line_number": 79,
         "variables": [
-          "impots_directs"
+          "impots_directs",
+          "pensions_nettes",
+          "ppe",
+          "prestations_sociales",
+          "revenus_nets_du_capital",
+          "revenus_nets_du_travail"
         ]
       }
     },
@@ -52796,7 +53650,12 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/revenus/capital/financier.py",
         "start_line_number": 536,
-        "stop_line_number": 544
+        "stop_line_number": 544,
+        "variables": [
+          "revenus_capitaux_prelevement_bareme",
+          "revenus_capitaux_prelevement_forfaitaire_unique_ir",
+          "revenus_capitaux_prelevement_liberatoire"
+        ]
       }
     },
     "json_type": "number",
@@ -52822,7 +53681,15 @@
         "documentation": "\nRevenus bruts des capitaux mobiliers et plus-values du ménage :\navant tout abattement et prélèvement social\n",
         "file_path": "/openfisca_france/model/mesures.py",
         "start_line_number": 418,
-        "stop_line_number": 447
+        "stop_line_number": 447,
+        "variables": [
+          "assurance_vie_ps_exoneree_irpp_pl",
+          "interets_pel_moins_12_ans_cel",
+          "plus_values_base_large",
+          "revenus_capitaux_prelevement_bareme",
+          "revenus_capitaux_prelevement_forfaitaire_unique_ir",
+          "revenus_capitaux_prelevement_liberatoire"
+        ]
       }
     },
     "json_type": "number",
@@ -52916,6 +53783,8 @@
     ],
     "referring_variables": [
       "assiette_csg_revenus_capital",
+      "revenus_capital",
+      "revenus_capitaux_mobiliers_plus_values_bruts_menage",
       "revenus_et_produits_plafonnement_isf_ifi"
     ],
     "set_input": "set_input_divide_by_period",
@@ -52954,6 +53823,8 @@
       "assiette_csg_revenus_capital",
       "prelevement_forfaitaire_unique_ir_hors_assurance_vie_epargne_solidaire_etats_non_cooperatifs",
       "rev_coll",
+      "revenus_capital",
+      "revenus_capitaux_mobiliers_plus_values_bruts_menage",
       "revenus_et_produits_plafonnement_isf_ifi",
       "rfr"
     ],
@@ -53020,6 +53891,8 @@
       "assiette_csg_revenus_capital",
       "bouclier_rev",
       "rev_coll",
+      "revenus_capital",
+      "revenus_capitaux_mobiliers_plus_values_bruts_menage",
       "revenus_et_produits_plafonnement_isf_ifi",
       "rfr"
     ],
@@ -53042,12 +53915,20 @@
         "stop_line_number": 554,
         "variables": [
           "assurance_vie_ps_exoneree_irpp_pl",
+          "interets_pel_moins_12_ans_cel",
+          "livret_a",
           "plus_values_base_large",
+          "rag",
           "rente_viagere_titre_onereux_net",
+          "revenu_assimile_pension_apres_abattements",
+          "revenu_assimile_salaire_apres_abattements",
           "revenu_categoriel_foncier",
           "revenus_capitaux_prelevement_bareme",
           "revenus_capitaux_prelevement_forfaitaire_unique_ir",
-          "revenus_capitaux_prelevement_liberatoire"
+          "revenus_capitaux_prelevement_liberatoire",
+          "ric",
+          "rpns_exon",
+          "rpns_pvct"
         ]
       }
     },
@@ -53072,7 +53953,13 @@
         "documentation": "\nIl s'agit des bénéfices (ou déficits) fonciers de l'année courante,\nsans abattement. Il s'agit d'une notion davantage économique.\nCette variable n'est relative qu'à l'activité foncière de l'année.\nC'est pourquoi on ne prend pas en compte la case 4BD, qui\ncorrespond à des déficits des années antérieures non encore imputés\nau titre de l'impôt sur le revenu\nFormule vérifiée pour les feuilles d'impôts à partir des revenus 2013,\nd'où le fait que la formule commence à cette date-là\n",
         "file_path": "/openfisca_france/model/mesures.py",
         "start_line_number": 307,
-        "stop_line_number": 329
+        "stop_line_number": 329,
+        "variables": [
+          "f4ba",
+          "f4bb",
+          "f4bc",
+          "f4be"
+        ]
       }
     },
     "json_type": "number",
@@ -53096,7 +53983,10 @@
         "documentation": "\nRevenus locatifs utilisés pour les bases ressources des minima sociaux\nSi cette variable n'est pas renseignée, on prend les revenus fonciers catégoriels de la section 4 de la déclaration 2042\nNéanmoins, selon la législation, le concept de revenus locatifs pour ces bases ressources peut être plus large, notamment\npour les indépendants (exemple : case 5ND du formulaire 2042-C-PRO). Ce point reste à améliorer.\n",
         "file_path": "/openfisca_france/model/revenus/capital/foncier.py",
         "start_line_number": 122,
-        "stop_line_number": 132
+        "stop_line_number": 132,
+        "variables": [
+          "revenu_categoriel_foncier"
+        ]
       }
     },
     "json_type": "number",
@@ -53138,6 +54028,9 @@
     "reference": [
       "http://fr.wikipedia.org/wiki/Revenu#Revenu_du_Capital"
     ],
+    "referring_variables": [
+      "revenu_disponible"
+    ],
     "start_line_number": 252,
     "stop_line_number": 299,
     "value_type": "float"
@@ -53169,6 +54062,9 @@
     "reference": [
       "http://fr.wikipedia.org/wiki/Revenu_du_travail"
     ],
+    "referring_variables": [
+      "revenu_disponible"
+    ],
     "start_line_number": 93,
     "stop_line_number": 120,
     "value_type": "float"
@@ -53184,7 +54080,17 @@
         "documentation": "\nRevenus de remplacement et pensions bruts du ménage : avant CSG et CRDS\n",
         "file_path": "/openfisca_france/model/mesures.py",
         "start_line_number": 378,
-        "stop_line_number": 410
+        "stop_line_number": 410,
+        "variables": [
+          "casa",
+          "crds_chomage",
+          "crds_retraite",
+          "csg_deductible_chomage",
+          "csg_deductible_retraite",
+          "csg_imposable_chomage",
+          "csg_imposable_retraite",
+          "pensions_nettes"
+        ]
       }
     },
     "json_type": "number",
@@ -53207,6 +54113,7 @@
     "label": "Revenus de stage de formation professionnelle",
     "name": "revenus_stage_formation_pro",
     "referring_variables": [
+      "aide_logement_base_ressources",
       "garantie_jeunes_neet"
     ],
     "set_input": "set_input_divide_by_period",
@@ -53251,7 +54158,16 @@
         "documentation": "\nRevenus du travail super bruts du ménage :\navant CSG-CRDS, cotisations salariales et patronales\nNote : pour les revenus non-salariés, on prend rpns_individu, auquel on n'ajoute ni les cotisations sociales,\n       ni la CSG-CRDS. En effet, les variables formant la variable cotisations_non_salarie utilisent\n       comme base rpns_indiviu, ce qui suggère que rpns_individu est avant tout prélèvement\n",
         "file_path": "/openfisca_france/model/mesures.py",
         "start_line_number": 337,
-        "stop_line_number": 370
+        "stop_line_number": 370,
+        "variables": [
+          "cotisations_employeur",
+          "cotisations_salariales",
+          "crds_salaire",
+          "csg_deductible_salaire",
+          "csg_imposable_salaire",
+          "rpns_individu",
+          "salaire_net"
+        ]
       }
     },
     "json_type": "number",
@@ -53307,7 +54223,9 @@
           "rfr_cd",
           "rfr_plus_values_hors_rni",
           "rfr_rvcm_abattements_a_reintegrer",
-          "rni"
+          "rni",
+          "rpns_exon",
+          "rpns_info"
         ]
       }
     },
@@ -53318,12 +54236,20 @@
       "http://bofip.impots.gouv.fr/bofip/5934-PGP.html?identifiant=BOI-IF-TH-10-50-30-20-20121127#5934-PGP_Calcul_du_revenu_fiscal_de__40"
     ],
     "referring_variables": [
+      "base_ressources_apa",
       "cehr",
       "condition_rfr_exoneration_th",
+      "degrevement_office_taxe_habitation",
+      "eligibilite_anah",
+      "jeunes_ind",
+      "livret_epargne_populaire_eligibilite",
+      "plafond_taxe_habitation",
+      "plafond_taxe_habitation_eligibilite",
       "ppe_elig",
       "quaenv",
       "reduction_impot_exceptionnelle",
-      "reduction_ss_condition_revenus"
+      "reduction_ss_condition_revenus",
+      "taux_csg_remplacement"
     ],
     "start_line_number": 2188,
     "stop_line_number": 2223,
@@ -53381,12 +54307,16 @@
         "stop_line_number": 1904,
         "variables": [
           "f3vc",
+          "f3vd",
+          "f3vf",
           "f3vg",
+          "f3vi",
           "f3vl",
           "f3vm",
           "f3vp",
           "f3vy",
-          "f3vz"
+          "f3vz",
+          "rpns_pvce"
         ]
       },
       "2012-01-01": {
@@ -53399,14 +54329,18 @@
           "f3sj",
           "f3sk",
           "f3vc",
+          "f3vd",
+          "f3vf",
           "f3vg",
+          "f3vi",
           "f3vl",
           "f3vm",
           "f3vp",
           "f3vt",
           "f3vy",
           "f3vz",
-          "f3we"
+          "f3we",
+          "rpns_pvce"
         ]
       },
       "2013-01-01": {
@@ -53418,6 +54352,9 @@
           "f3sj",
           "f3sk",
           "f3vc",
+          "f3vd",
+          "f3vf",
+          "f3vi",
           "f3vm",
           "f3vp",
           "f3vq",
@@ -53425,7 +54362,8 @@
           "f3vt",
           "f3vy",
           "f3vz",
-          "f3we"
+          "f3we",
+          "rpns_pvce"
         ]
       },
       "2016-01-01": {
@@ -53439,6 +54377,9 @@
           "f3sk",
           "f3tz",
           "f3vc",
+          "f3vd",
+          "f3vf",
+          "f3vi",
           "f3vm",
           "f3vp",
           "f3vq",
@@ -53448,7 +54389,8 @@
           "f3vz",
           "f3we",
           "f3wi",
-          "f3wj"
+          "f3wj",
+          "rpns_pvce"
         ]
       },
       "2018-01-01": {
@@ -53463,7 +54405,10 @@
           "f3tj",
           "f3ua",
           "f3vc",
+          "f3vd",
+          "f3vf",
           "f3vg",
+          "f3vi",
           "f3vm",
           "f3vq",
           "f3vr",
@@ -53471,7 +54416,8 @@
           "f3vz",
           "f3we",
           "f3wi",
-          "f3wj"
+          "f3wj",
+          "rpns_pvce"
         ]
       },
       "2019-01-01": {
@@ -53489,7 +54435,10 @@
           "f3tj",
           "f3ua",
           "f3vc",
+          "f3vd",
+          "f3vf",
           "f3vg",
+          "f3vi",
           "f3vm",
           "f3vq",
           "f3vr",
@@ -53497,7 +54446,8 @@
           "f3vz",
           "f3we",
           "f3wi",
-          "f3wj"
+          "f3wj",
+          "rpns_pvce"
         ]
       }
     },
@@ -53619,6 +54569,7 @@
       "http://www.impots.gouv.fr/portal/dgi/public/professionnels.impot?pageId=prof_bic&espId=2&impot=BIC&sfid=50"
     ],
     "referring_variables": [
+      "revenus_et_produits_plafonnement_isf_ifi",
       "rpns"
     ],
     "start_line_number": 2542,
@@ -53637,6 +54588,7 @@
         "start_line_number": 137,
         "stop_line_number": 152,
         "variables": [
+          "activite",
           "rsa_base_ressources",
           "rsa_forfait_logement",
           "rsa_socle"
@@ -53920,6 +54872,10 @@
     "json_type": "number",
     "label": "Plus values de cession exonérées -Revenu des professions non salariées",
     "name": "rpns_exon",
+    "referring_variables": [
+      "revenus_et_produits_plafonnement_isf_ifi",
+      "rfr"
+    ],
     "start_line_number": 2347,
     "stop_line_number": 2384,
     "value_type": "float"
@@ -53976,11 +54932,13 @@
           "frag_fore",
           "macc_imps",
           "macc_impv",
+          "macc_mvct",
           "mbic_imps",
           "mbic_impv",
           "mbnc_impo",
           "mncn_exon",
           "mncn_impo",
+          "mncn_mvct",
           "moins_values_court_terme_agr",
           "moins_values_court_terme_nonpro",
           "moins_values_court_terme_pro",
@@ -54012,7 +54970,9 @@
     "name": "rpns_individu",
     "referring_variables": [
       "aah_base_ressources_eval_annuelle",
+      "al_biactivite",
       "assiette_csg_crds_non_salarie",
+      "biactivite",
       "deces_artisan_commercant",
       "famille_independant",
       "formation_artisan_commercant",
@@ -54021,7 +54981,9 @@
       "maladie_maternite_profession_liberale",
       "retraite_complementaire_artisan_commercant",
       "retraite_complementaire_profession_liberale",
+      "revenu_categoriel_non_salarial",
       "revenus_nets_du_travail",
+      "revenus_travail_super_bruts_menage",
       "vieillesse_artisan_commercant",
       "vieillesse_profession_liberale"
     ],
@@ -54054,6 +55016,10 @@
     "json_type": "number",
     "label": "Plus values de cession de brevets, logiciels ou inventions - Revenu des professions non salariées",
     "name": "rpns_info",
+    "referring_variables": [
+      "rfr",
+      "taxation_plus_values_hors_bareme"
+    ],
     "start_line_number": 2320,
     "stop_line_number": 2345,
     "value_type": "float"
@@ -54092,7 +55058,12 @@
     "name": "rpns_pvce",
     "referring_variables": [
       "al_base_ressources_individu",
-      "prestations_familiales_base_ressources_individu"
+      "assiette_csg_plus_values",
+      "plus_values_base_large",
+      "plus_values_prelevement_forfaitaire_unique_ir",
+      "prestations_familiales_base_ressources_individu",
+      "rfr_plus_values_hors_rni",
+      "taxation_plus_values_hors_bareme"
     ],
     "start_line_number": 2279,
     "stop_line_number": 2318,
@@ -54126,6 +55097,7 @@
     "referring_variables": [
       "al_base_ressources_individu",
       "prestations_familiales_base_ressources_individu",
+      "revenus_et_produits_plafonnement_isf_ifi",
       "rpns_individu"
     ],
     "start_line_number": 2695,
@@ -54244,11 +55216,15 @@
     "name": "rsa",
     "referring_variables": [
       "aefa",
+      "aide_formation_gen_eligibilite",
       "aide_logement_neutralisation_rsa",
+      "aide_permis_demandeur_emploi_eligibilite_financiere",
+      "al_traitements_salaires_pensions_rentes",
       "api",
       "cmu_c",
       "covid_aide_exceptionnelle_famille_montant",
       "minima_sociaux",
+      "professionnalisation",
       "psa",
       "rsa_activite"
     ],
@@ -54281,7 +55257,8 @@
     "label": "Revenu de solidarité active - activité",
     "name": "rsa_activite",
     "referring_variables": [
-      "crds_mini"
+      "crds_mini",
+      "rsa_activite_individu"
     ],
     "start_line_number": 154,
     "stop_line_number": 168,
@@ -54300,6 +55277,8 @@
         "start_line_number": 177,
         "stop_line_number": 192,
         "variables": [
+          "en_couple",
+          "rsa_activite",
           "statut_marital"
         ]
       },
@@ -54308,6 +55287,9 @@
     "json_type": "number",
     "label": "Revenu de solidarité active - activité au niveau de l'individu",
     "name": "rsa_activite_individu",
+    "referring_variables": [
+      "ppe"
+    ],
     "start_line_number": 170,
     "stop_line_number": 192,
     "value_type": "float"
@@ -54324,6 +55306,7 @@
         "start_line_number": 42,
         "stop_line_number": 54,
         "variables": [
+          "rsa_base_ressources_individu",
           "rsa_base_ressources_minima_sociaux",
           "rsa_base_ressources_prestations_familiales"
         ]
@@ -54333,8 +55316,12 @@
         "start_line_number": 22,
         "stop_line_number": 41,
         "variables": [
+          "est_enfant_dans_famille",
+          "rsa_base_ressources_individu",
           "rsa_base_ressources_minima_sociaux",
-          "rsa_base_ressources_prestations_familiales"
+          "rsa_base_ressources_prestations_familiales",
+          "rsa_enfant_a_charge",
+          "rsa_revenu_activite_individu"
         ]
       }
     },
@@ -54343,6 +55330,7 @@
     "name": "rsa_base_ressources",
     "referring_variables": [
       "api",
+      "bourse_criteres_sociaux_etudiant_autonome_ressource_mensuelle",
       "cmu_c",
       "rmi",
       "rsa_activite",
@@ -54367,6 +55355,7 @@
         "start_line_number": 130,
         "stop_line_number": 182,
         "variables": [
+          "rente_viagere_titre_onereux",
           "rsa_has_ressources_substitution"
         ]
       },
@@ -54375,6 +55364,7 @@
         "start_line_number": 77,
         "stop_line_number": 129,
         "variables": [
+          "rente_viagere_titre_onereux",
           "rsa_has_ressources_substitution"
         ]
       }
@@ -54386,6 +55376,7 @@
       "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000036393176&dateTexte=&categorieLien=id"
     ],
     "referring_variables": [
+      "rsa_base_ressources",
       "rsa_enfant_a_charge"
     ],
     "start_line_number": 70,
@@ -54404,7 +55395,11 @@
         "start_line_number": 190,
         "stop_line_number": 199,
         "variables": [
-          "aspa"
+          "aah",
+          "asi",
+          "aspa",
+          "ass",
+          "caah"
         ]
       }
     },
@@ -54435,6 +55430,7 @@
         "start_line_number": 587,
         "stop_line_number": 607,
         "variables": [
+          "assiette_csg_plus_values",
           "epargne_revenus_non_imposables",
           "livret_a",
           "revenus_capital",
@@ -54543,6 +55539,9 @@
     "json_type": "boolean",
     "label": "Conditions de nationalité et de titre de séjour pour bénéficier du RSA",
     "name": "rsa_condition_nationalite",
+    "referring_variables": [
+      "rsa_eligibilite"
+    ],
     "start_line_number": 609,
     "stop_line_number": 636,
     "value_type": "bool"
@@ -54565,7 +55564,11 @@
         "start_line_number": 644,
         "stop_line_number": 677,
         "variables": [
+          "age",
+          "etudiant",
+          "rsa_condition_nationalite",
           "rsa_eligibilite_tns",
+          "rsa_jeune_condition_heures_travail_remplie",
           "rsa_nb_enfants"
         ]
       }
@@ -54594,7 +55597,11 @@
         "stop_line_number": 761,
         "variables": [
           "nb_parents",
-          "rsa_nb_enfants"
+          "rsa_nb_enfants",
+          "tns_autres_revenus_chiffre_affaires",
+          "tns_autres_revenus_type_activite",
+          "tns_avec_employe",
+          "tns_benefice_exploitant_agricole"
         ]
       },
       "2017-01-01": null
@@ -54643,6 +55650,11 @@
     "json_type": "boolean",
     "label": "Enfant pris en compte dans le calcul du RSA",
     "name": "rsa_enfant_a_charge",
+    "referring_variables": [
+      "rsa_base_ressources",
+      "rsa_nb_enfants",
+      "rsa_revenu_activite"
+    ],
     "start_line_number": 327,
     "stop_line_number": 394,
     "value_type": "bool"
@@ -54835,6 +55847,9 @@
     "reference": [
       "https://www.legifrance.gouv.fr/affichCode.do?idSectionTA=LEGISCTA000022743616&cidTexte=LEGITEXT000006074069"
     ],
+    "referring_variables": [
+      "rsa_eligibilite"
+    ],
     "start_line_number": 8,
     "stop_line_number": 14,
     "value_type": "bool"
@@ -54864,6 +55879,7 @@
     "label": "Eligibilité au RSA majoré pour parent isolé",
     "name": "rsa_majore_eligibilite",
     "referring_variables": [
+      "aide_formation_gen_eligibilite",
       "ppa_eligibilite_etudiants",
       "ppa_fictive_montant_forfaitaire",
       "ppa_montant_forfaitaire_familial_non_majore",
@@ -54920,7 +55936,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
         "start_line_number": 402,
-        "stop_line_number": 404
+        "stop_line_number": 404,
+        "variables": [
+          "rsa_enfant_a_charge"
+        ]
       }
     },
     "json_type": "integer",
@@ -55010,7 +56029,12 @@
       "2009-06-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
         "start_line_number": 419,
-        "stop_line_number": 425
+        "stop_line_number": 425,
+        "variables": [
+          "est_enfant_dans_famille",
+          "rsa_enfant_a_charge",
+          "rsa_revenu_activite_individu"
+        ]
       }
     },
     "json_type": "number",
@@ -55044,7 +56068,9 @@
     "label": "Revenus d'activité du Rsa - Individuel",
     "name": "rsa_revenu_activite_individu",
     "referring_variables": [
-      "rsa_enfant_a_charge"
+      "rsa_base_ressources",
+      "rsa_enfant_a_charge",
+      "rsa_revenu_activite"
     ],
     "start_line_number": 485,
     "stop_line_number": 528,
@@ -55226,6 +56252,7 @@
       "http://www.insee.fr/fr/methodes/default.asp?page=definitions/salaire-mensuel-base-smb.htm"
     ],
     "referring_variables": [
+      "af_nbenf_fonc",
       "aide_embauche_pme",
       "asi_aspa_base_ressources_individu",
       "assiette_cotisations_sociales_prive",
@@ -55273,6 +56300,7 @@
           "primes_fonction_publique",
           "primes_salaires",
           "remuneration_principale",
+          "rev_microsocial",
           "salaire_de_base",
           "supplement_familial_traitement"
         ]
@@ -55284,10 +56312,14 @@
     "referring_variables": [
       "aah_base_ressources_eval_annuelle",
       "aide_logement_assiette_abattement_chomage",
+      "aide_logement_base_ressources",
+      "aide_logement_base_ressources_eval_forfaitaire",
       "al_abattement_forfaitaire_assistants_et_journalistes",
       "al_revenu_assimile_salaire",
       "ass_eligibilite_cumul_individu",
+      "cotsyn",
       "jeunes_ind",
+      "paje_cmg",
       "ppe_rev",
       "revenu_assimile_salaire",
       "salaire_net"
@@ -55328,6 +56360,7 @@
       "rente_accident_travail_salaire_utile",
       "rente_accident_travail_salarie",
       "revenus_nets_du_travail",
+      "revenus_travail_super_bruts_menage",
       "rsa_indemnites_journalieres_activite",
       "salaire_net_a_payer"
     ],
@@ -56539,7 +57572,9 @@
     },
     "referring_variables": [
       "aide_formation_gen_eligibilite",
+      "bourse_college",
       "bourse_criteres_sociaux_eligibilite_etude",
+      "bourse_lycee",
       "crous_repas_un_euro_eligibilite",
       "garantie_jeunes_neet",
       "garantie_pret_etudiant_eligibilite",
@@ -56990,6 +58025,7 @@
     },
     "referring_variables": [
       "bourse_criteres_sociaux_etudiant_autonome",
+      "maries",
       "rsa_activite_individu"
     ],
     "set_input": "set_input_dispatch_by_period",
@@ -57021,7 +58057,9 @@
     "referring_variables": [
       "aides_logement_primo_accedant_eligibilite",
       "cheque_energie_eligibilite_logement",
-      "locapass_eligibilite_logement"
+      "eligibilite_caah",
+      "locapass_eligibilite_logement",
+      "mobili_jeune_eligibilite"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 66,
@@ -57064,6 +58102,7 @@
         "start_line_number": 826,
         "stop_line_number": 898,
         "variables": [
+          "af_nbenf_fonc",
           "categorie_salarie",
           "traitement_indiciaire_brut"
         ]
@@ -57163,7 +58202,7 @@
     "value_type": "float"
   },
   "taux_capacite_travail": {
-    "default_value": 1.0,
+    "default_value": 1,
     "definition_period": "month",
     "dtype": "float32",
     "entity": "individu",
@@ -57193,7 +58232,11 @@
           "prelevements_sociaux.contributions.csg.remplacement.pensions_de_retraite_et_d_invalidite.seuil_de_rfr_2"
         ],
         "start_line_number": 27,
-        "stop_line_number": 43
+        "stop_line_number": 43,
+        "variables": [
+          "nbptr",
+          "rfr"
+        ]
       }
     },
     "is_period_size_independent": true,
@@ -57234,7 +58277,9 @@
         "start_line_number": 3123,
         "stop_line_number": 3136,
         "variables": [
+          "abnc_proc",
           "microentreprise",
+          "nbnc_proc",
           "nbptr",
           "rni"
         ]
@@ -57269,6 +58314,7 @@
     ],
     "referring_variables": [
       "aah_eligible",
+      "al_nb_personnes_a_charge",
       "aspa_eligibilite",
       "caah",
       "eligibilite_caah"
@@ -57302,7 +58348,7 @@
     "value_type": "float"
   },
   "taux_th_commune": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -57329,7 +58375,7 @@
     "value_type": "float"
   },
   "taux_th_epci": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -57459,7 +58505,8 @@
           "f3vg",
           "f3vh",
           "f3vl",
-          "f3vm"
+          "f3vm",
+          "rpns_pvce"
         ]
       },
       "2008-01-01": {
@@ -57480,7 +58527,8 @@
           "f3vg",
           "f3vh",
           "f3vl",
-          "f3vm"
+          "f3vm",
+          "rpns_pvce"
         ]
       },
       "2012-01-01": {
@@ -57505,11 +58553,15 @@
           "f3sa_2012",
           "f3sj",
           "f3sk",
+          "f3vd",
+          "f3vf",
           "f3vg",
           "f3vh",
+          "f3vi",
           "f3vl",
           "f3vm",
-          "f3vt"
+          "f3vt",
+          "rpns_pvce"
         ]
       },
       "2013-01-01": {
@@ -57530,8 +58582,12 @@
         "variables": [
           "f3sj",
           "f3sk",
+          "f3vd",
+          "f3vf",
+          "f3vi",
           "f3vm",
-          "f3vt"
+          "f3vt",
+          "rpns_pvce"
         ]
       },
       "2016-01-01": {
@@ -57554,10 +58610,14 @@
         "variables": [
           "f3sj",
           "f3sk",
+          "f3vd",
+          "f3vf",
+          "f3vi",
           "f3vm",
           "f3vt",
           "f3wi",
-          "f3wj"
+          "f3wj",
+          "rpns_pvce"
         ]
       },
       "2018-01-01": {
@@ -57581,6 +58641,9 @@
           "f3pi",
           "f3sj",
           "f3sk",
+          "f3vd",
+          "f3vf",
+          "f3vi",
           "f3vm",
           "f3vt",
           "f3wi",
@@ -57607,8 +58670,12 @@
           "f3pi",
           "f3sj",
           "f3sk",
+          "f3vd",
+          "f3vf",
+          "f3vi",
           "f3wi",
-          "f3wj"
+          "f3wj",
+          "rpns_info"
         ]
       }
     },
@@ -57690,6 +58757,7 @@
       "https://www.service-public.fr/particuliers/vosdroits/F42"
     ],
     "referring_variables": [
+      "bouclier_imp_gen",
       "impots_directs"
     ],
     "start_line_number": 452,
@@ -57935,6 +59003,7 @@
     "name": "tns_auto_entrepreneur_benefice",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
+      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "tns_auto_entrepreneur_revenus_net"
@@ -58029,6 +59098,7 @@
     "name": "tns_autres_revenus",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
+      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "rsa_non_calculable_tns_individu",
@@ -58048,6 +59118,7 @@
     "label": "Chiffre d'affaire pour les TNS non agricoles autres que les AE et ME",
     "name": "tns_autres_revenus_chiffre_affaires",
     "referring_variables": [
+      "rsa_eligibilite_tns",
       "travailleur_non_salarie"
     ],
     "set_input": "set_input_divide_by_period",
@@ -58070,6 +59141,9 @@
       "bic": "bic",
       "bnc": "bnc"
     },
+    "referring_variables": [
+      "rsa_eligibilite_tns"
+    ],
     "start_line_number": 1911,
     "stop_line_number": 1918,
     "value_type": "Enum"
@@ -58084,6 +59158,9 @@
     "json_type": "boolean",
     "label": "Le TNS a au moins un employé. Ne s'applique pas pour les agricoles ni auto-entrepreneurs ni micro entreprise",
     "name": "tns_avec_employe",
+    "referring_variables": [
+      "rsa_eligibilite_tns"
+    ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 1920,
     "stop_line_number": 1926,
@@ -58100,11 +59177,13 @@
     "name": "tns_benefice_exploitant_agricole",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
+      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "rente_accident_travail",
       "rente_accident_travail_exploitant_agricole",
       "rente_accident_travail_salaire_utile",
+      "rsa_eligibilite_tns",
       "rsa_non_calculable_tns_individu",
       "travailleur_non_salarie"
     ],
@@ -58134,6 +59213,7 @@
     "name": "tns_micro_entreprise_benefice",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
+      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "tns_micro_entreprise_revenus_net"
@@ -58218,6 +59298,8 @@
         "start_line_number": 466,
         "stop_line_number": 493,
         "variables": [
+          "crds",
+          "csg",
           "ir_pv_immo",
           "irpp_economique",
           "isf_ifi_avant_plaf",
@@ -58275,6 +59357,7 @@
         "stop_line_number": 570,
         "variables": [
           "abattement_salaires_pensions",
+          "rente_viagere_titre_onereux_net",
           "revenu_assimile_pension_apres_abattements",
           "revenu_assimile_salaire_apres_abattements"
         ]
@@ -58284,7 +59367,8 @@
     "label": "Traitements salaires pensions et rentes individuelles",
     "name": "traitements_salaires_pensions_rentes",
     "referring_variables": [
-      "prestations_familiales_base_ressources_individu"
+      "prestations_familiales_base_ressources_individu",
+      "revenu_categoriel_tspr"
     ],
     "start_line_number": 548,
     "stop_line_number": 570,
@@ -58315,6 +59399,7 @@
     "label": "L'individu a une activité professionnelle non salariée",
     "name": "travailleur_non_salarie",
     "referring_variables": [
+      "aide_logement_base_ressources_eval_forfaitaire",
       "covid_aide_exceptionnelle_tpe_eligible"
     ],
     "start_line_number": 1941,
@@ -58382,7 +59467,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/mesures.py",
         "start_line_number": 11,
-        "stop_line_number": 15
+        "stop_line_number": 15,
+        "variables": [
+          "age"
+        ]
       }
     },
     "json_type": "number",
@@ -58407,6 +59495,9 @@
     "json_type": "number",
     "label": "Valeur des biens immobiliers possédés et non loués",
     "name": "valeur_immo_non_loue",
+    "referring_variables": [
+      "aide_logement_base_ressources_patrimoine"
+    ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 134,
     "stop_line_number": 140,
@@ -58444,6 +59535,7 @@
     "label": "Valeur locative, à l'année, des biens immobiliers possédés et non loués",
     "name": "valeur_locative_immo_non_loue",
     "referring_variables": [
+      "aide_logement_base_ressources_patrimoine",
       "base_ressources_apa",
       "rsa_base_ressources_patrimoine_individu"
     ],
@@ -58453,7 +59545,7 @@
     "value_type": "float"
   },
   "valeur_locative_moyenne_th_commune": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -58479,7 +59571,7 @@
     "value_type": "float"
   },
   "valeur_locative_moyenne_th_epci": {
-    "default_value": 0.0,
+    "default_value": 0,
     "definition_period": "year",
     "dtype": "float32",
     "entity": "menage",
@@ -58514,6 +59606,7 @@
     "label": "Valeur locative, à l'année, des terrains possédés et non loués",
     "name": "valeur_locative_terrains_non_loues",
     "referring_variables": [
+      "aide_logement_base_ressources_patrimoine",
       "base_ressources_apa",
       "rsa_base_ressources_patrimoine_individu"
     ],
@@ -58531,6 +59624,9 @@
     "json_type": "number",
     "label": "Valeur des biens immobiliers et des terrains loués",
     "name": "valeur_patrimoine_loue",
+    "referring_variables": [
+      "aide_logement_base_ressources_patrimoine"
+    ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 107,
     "stop_line_number": 113,
@@ -58545,6 +59641,9 @@
     "json_type": "number",
     "label": "Valeur des terrains possédés et non loués",
     "name": "valeur_terrains_non_loues",
+    "referring_variables": [
+      "aide_logement_base_ressources_patrimoine"
+    ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 150,
     "stop_line_number": 156,
@@ -58782,7 +59881,10 @@
           "prestations.visale.quote_part_aides_logement"
         ],
         "start_line_number": 82,
-        "stop_line_number": 126
+        "stop_line_number": 126,
+        "variables": [
+          "visale_base_ressources_individuelle"
+        ]
       }
     },
     "json_type": "number",
@@ -58816,6 +59918,9 @@
     "name": "visale_base_ressources_individuelle",
     "reference": [
       "https://www.visale.fr/wp-content/uploads/2020/04/Visale-Ressources-Locataire_2020.pdf#page_7"
+    ],
+    "referring_variables": [
+      "visale_base_ressources"
     ],
     "start_line_number": 128,
     "stop_line_number": 175,
@@ -58933,7 +60038,8 @@
       "zone_3": "Zone 3"
     },
     "referring_variables": [
-      "aides_logement_primo_accedant_eligibilite"
+      "aides_logement_primo_accedant_eligibilite",
+      "indemnite_residence"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 1536,
