@@ -1,0 +1,65 @@
+{
+  "aide_embauche_pme": { "label": "Aide PME" },
+  "aide_premier_salarie": { "label": "Aide premier salarié" },
+  "allegement_fillon": { "label": "Fillon" },
+  "cotisations_employeur": { "label": "Cotisations employeur" },
+  "cotisations_salariales": { "label": "Cotisations salariales" },
+  "cout_du_travail": { "label": "Coût du travail" },
+  "credit_impot_competitivite_emploi": { "label": "CICE" },
+  "crds_salaire": { "label": "CRDS" },
+  "csg_deductible_salaire": { "label": "CSG déductible" },
+  "csg_imposable_salaire": { "label": "CSG imposable" },
+  "impots_directs": { "label": "Impôts directs", "children": ["irpp"] },
+  "irpp": { "label": "Impôt sur le revenu" },
+  "minima_sociaux": { "label": "Minima sociaux", "children": ["rsa", "ppa"] },
+  "ppa": { "label": "PPA" },
+  "ppe": { "label": "PPE" },
+  "prestations_sociales": {
+    "label": "Prestations sociales",
+    "children": ["minima_sociaux"]
+  },
+  "revenu_disponible": {
+    "label": "Revenu disponible",
+    "children": [
+      "revenus_nets_du_travail",
+      "prestations_sociales",
+      "ppe",
+      "impots_directs"
+    ]
+  },
+  "revenus_nets_du_travail": {
+    "label": "Revenus nets",
+    "children": ["salaire_net"]
+  },
+  "rsa": { "label": "RSA" },
+  "salaire_de_base": {
+    "label": "Salaire brut"
+  },
+  "salaire_imposable": {
+    "label": "Salaire imposable",
+    "children": [
+      "salaire_de_base",
+      "cotisations_salariales",
+      "csg_deductible_salaire"
+    ]
+  },
+  "salaire_net": {
+    "label": "Salaire net",
+    "children": ["salaire_imposable", "csg_imposable_salaire", "crds_salaire"]
+  },
+  "salaire_super_brut": {
+    "label": "Salaire super brut",
+    "children": [
+      "cout_du_travail",
+      "credit_impot_competitivite_emploi",
+      "aide_premier_salarie",
+      "aide_embauche_pme",
+      "tehr"
+    ]
+  },
+  "salaire_super_brut_hors_allegements": {
+    "label": "Salaire super brut hors allègements",
+    "children": ["salaire_super_brut", "allegement_fillon"]
+  },
+  "tehr": { "label": "Taxe exceptionnelle" }
+}
