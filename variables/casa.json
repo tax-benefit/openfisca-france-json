@@ -174,7 +174,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 73,
+            "end_col_offset": 101,
             "end_lineno": 4,
             "lineno": 4,
             "targets": [
@@ -184,57 +184,57 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 17,
+                "end_col_offset": 15,
                 "end_lineno": 4,
-                "id": "contributions",
+                "id": "cotisations",
                 "lineno": 4
               }
             ],
             "value": {
               "ast_class": "Attribute",
-              "attr": "contributions",
-              "col_offset": 20,
+              "attr": "cotisations_securite_sociale_regime_general",
+              "col_offset": 18,
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 73,
+              "end_col_offset": 101,
               "end_lineno": 4,
               "lineno": 4,
               "value": {
                 "ast_class": "Attribute",
                 "attr": "prelevements_sociaux",
-                "col_offset": 20,
+                "col_offset": 18,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 59,
+                "end_col_offset": 57,
                 "end_lineno": 4,
                 "lineno": 4,
                 "value": {
                   "args": [
                     {
                       "ast_class": "Name",
-                      "col_offset": 31,
+                      "col_offset": 29,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 37,
+                      "end_col_offset": 35,
                       "end_lineno": 4,
                       "id": "period",
                       "lineno": 4
                     }
                   ],
                   "ast_class": "Call",
-                  "col_offset": 20,
-                  "end_col_offset": 38,
+                  "col_offset": 18,
+                  "end_col_offset": 36,
                   "end_lineno": 4,
                   "func": {
                     "ast_class": "Name",
-                    "col_offset": 20,
+                    "col_offset": 18,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 30,
+                    "end_col_offset": 28,
                     "end_lineno": 4,
                     "id": "parameters",
                     "lineno": 4
@@ -267,7 +267,7 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 8,
-              "end_col_offset": 49,
+              "end_col_offset": 88,
               "end_lineno": 7,
               "left": {
                 "ast_class": "Compare",
@@ -324,11 +324,11 @@
                 "args": [
                   {
                     "ast_class": "Name",
-                    "col_offset": 34,
+                    "col_offset": 73,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 48,
+                    "end_col_offset": 87,
                     "end_lineno": 7,
                     "id": "retraite_brute",
                     "lineno": 7
@@ -336,7 +336,7 @@
                 ],
                 "ast_class": "Call",
                 "col_offset": 10,
-                "end_col_offset": 49,
+                "end_col_offset": 88,
                 "end_lineno": 7,
                 "func": {
                   "ast_class": "Attribute",
@@ -345,29 +345,40 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 33,
+                  "end_col_offset": 72,
                   "end_lineno": 7,
                   "lineno": 7,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "casa",
+                    "attr": "pensions_retraite_preretraite_invalidite",
                     "col_offset": 10,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 28,
+                    "end_col_offset": 67,
                     "end_lineno": 7,
                     "lineno": 7,
                     "value": {
-                      "ast_class": "Name",
+                      "ast_class": "Attribute",
+                      "attr": "casa",
                       "col_offset": 10,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 23,
+                      "end_col_offset": 26,
                       "end_lineno": 7,
-                      "id": "contributions",
-                      "lineno": 7
+                      "lineno": 7,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 10,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 21,
+                        "end_lineno": 7,
+                        "id": "cotisations",
+                        "lineno": 7
+                      }
                     }
                   }
                 },
@@ -414,11 +425,11 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
       "parameters": [
-        "prelevements_sociaux.contributions.casa"
+        "prelevements_sociaux.cotisations_securite_sociale_regime_general.casa.pensions_retraite_preretraite_invalidite"
       ],
-      "source_code": "def formula_2013_04_01(individu, period, parameters):\n    retraite_brute = individu('retraite_brute', period = period)\n    taux_csg_remplacement = individu('taux_csg_remplacement', period)\n    contributions = parameters(period).prelevements_sociaux.contributions\n    casa = (\n        (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein)\n        * contributions.casa.calc(retraite_brute)\n        )\n    return - casa\n",
-      "start_line_number": 264,
-      "stop_line_number": 273,
+      "source_code": "def formula_2013_04_01(individu, period, parameters):\n    retraite_brute = individu('retraite_brute', period = period)\n    taux_csg_remplacement = individu('taux_csg_remplacement', period)\n    cotisations = parameters(period).prelevements_sociaux.cotisations_securite_sociale_regime_general\n    casa = (\n        (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein)\n        * cotisations.casa.pensions_retraite_preretraite_invalidite.calc(retraite_brute)\n        )\n    return - casa\n",
+      "start_line_number": 227,
+      "stop_line_number": 236,
       "variables": [
         "retraite_brute",
         "taux_csg_remplacement"
@@ -435,7 +446,7 @@
     "retraite_nette",
     "revenus_remplacement_pensions_bruts_menage"
   ],
-  "start_line_number": 257,
-  "stop_line_number": 273,
+  "start_line_number": 220,
+  "stop_line_number": 236,
   "value_type": "float"
 }

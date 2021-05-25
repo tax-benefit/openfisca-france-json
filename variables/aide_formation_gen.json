@@ -842,7 +842,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 33,
+            "end_col_offset": 45,
             "end_lineno": 25,
             "lineno": 14,
             "targets": [
@@ -1239,7 +1239,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 14,
-              "end_col_offset": 33,
+              "end_col_offset": 45,
               "end_lineno": 25,
               "func": {
                 "ast_class": "Name",
@@ -1252,7 +1252,34 @@
                 "id": "select",
                 "lineno": 14
               },
-              "keywords": [],
+              "keywords": [
+                {
+                  "arg": "default",
+                  "ast_class": "keyword",
+                  "col_offset": 34,
+                  "end_col_offset": 44,
+                  "end_lineno": 25,
+                  "lineno": 25,
+                  "value": {
+                    "ast_class": "UnaryOp",
+                    "col_offset": 42,
+                    "end_col_offset": 44,
+                    "end_lineno": 25,
+                    "lineno": 25,
+                    "op": {
+                      "ast_class": "USub"
+                    },
+                    "operand": {
+                      "ast_class": "Constant",
+                      "col_offset": 43,
+                      "end_col_offset": 44,
+                      "end_lineno": 25,
+                      "lineno": 25,
+                      "value": 1
+                    }
+                  }
+                }
+              ],
               "lineno": 14
             }
           },
@@ -1461,7 +1488,7 @@
         "bourses_enseignement_superieur.criteres_sociaux.plafond_ressources.echelon_6",
         "bourses_enseignement_superieur.criteres_sociaux.plafond_ressources.echelon_7"
       ],
-      "source_code": "def formula_2017_04_14(individu, period, parameters):\n    points_de_charge = individu('bourse_criteres_sociaux_points_de_charge', period)\n    baremes = parameters(period).bourses_enseignement_superieur.criteres_sociaux.plafond_ressources\n    plafond_echelon_0bis = baremes.echelon_0bis.calc(points_de_charge)\n    plafond_echelon_1 = baremes.echelon_1.calc(points_de_charge)\n    plafond_echelon_2 = baremes.echelon_2.calc(points_de_charge)\n    plafond_echelon_3 = baremes.echelon_3.calc(points_de_charge)\n    plafond_echelon_4 = baremes.echelon_4.calc(points_de_charge)\n    plafond_echelon_5 = baremes.echelon_5.calc(points_de_charge)\n    plafond_echelon_6 = baremes.echelon_6.calc(points_de_charge)\n    plafond_echelon_7 = baremes.echelon_7.calc(points_de_charge)\n\n    base_ressources = individu('bourse_criteres_sociaux_base_ressources', period)\n    echelon = select(\n        [\n            base_ressources <= plafond_echelon_7,\n            base_ressources <= plafond_echelon_6,\n            base_ressources <= plafond_echelon_5,\n            base_ressources <= plafond_echelon_4,\n            base_ressources <= plafond_echelon_3,\n            base_ressources <= plafond_echelon_2,\n            base_ressources <= plafond_echelon_1,\n            base_ressources <= plafond_echelon_0bis,\n            ],\n        [7, 6, 5, 4, 3, 2, 1, 0])\n\n    montants = parameters(period).bourses_enseignement_superieur.criteres_sociaux.montants\n\n    return montants.calc(echelon) * individu('aide_formation_gen_eligibilite', period)\n",
+      "source_code": "def formula_2017_04_14(individu, period, parameters):\n    points_de_charge = individu('bourse_criteres_sociaux_points_de_charge', period)\n    baremes = parameters(period).bourses_enseignement_superieur.criteres_sociaux.plafond_ressources\n    plafond_echelon_0bis = baremes.echelon_0bis.calc(points_de_charge)\n    plafond_echelon_1 = baremes.echelon_1.calc(points_de_charge)\n    plafond_echelon_2 = baremes.echelon_2.calc(points_de_charge)\n    plafond_echelon_3 = baremes.echelon_3.calc(points_de_charge)\n    plafond_echelon_4 = baremes.echelon_4.calc(points_de_charge)\n    plafond_echelon_5 = baremes.echelon_5.calc(points_de_charge)\n    plafond_echelon_6 = baremes.echelon_6.calc(points_de_charge)\n    plafond_echelon_7 = baremes.echelon_7.calc(points_de_charge)\n\n    base_ressources = individu('bourse_criteres_sociaux_base_ressources', period)\n    echelon = select(\n        [\n            base_ressources <= plafond_echelon_7,\n            base_ressources <= plafond_echelon_6,\n            base_ressources <= plafond_echelon_5,\n            base_ressources <= plafond_echelon_4,\n            base_ressources <= plafond_echelon_3,\n            base_ressources <= plafond_echelon_2,\n            base_ressources <= plafond_echelon_1,\n            base_ressources <= plafond_echelon_0bis,\n            ],\n        [7, 6, 5, 4, 3, 2, 1, 0], default=-1)\n\n    montants = parameters(period).bourses_enseignement_superieur.criteres_sociaux.montants\n\n    return montants.calc(echelon) * individu('aide_formation_gen_eligibilite', period)\n",
       "start_line_number": 37,
       "stop_line_number": 66,
       "variables": [

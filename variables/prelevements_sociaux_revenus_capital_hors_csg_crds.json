@@ -395,8 +395,8 @@
         "taxation_capital.prelevements_sociaux.prelevements_solidarite.revenus_du_patrimoine"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Attention : Pour les années avant 2013, cette formule n'est pas entièrement correcte car le taux de la CSG n'était pas unique (distinction revenus du patrimoine et revenus de placement)\n    '''\n    assiette_csg_revenus_capital = foyer_fiscal('assiette_csg_revenus_capital', period)\n    P = parameters(period).taxation_capital.prelevements_sociaux\n\n    total = (\n        P.prelevement_social.revenus_du_patrimoine\n        + P.caps.revenus_du_patrimoine\n        + P.prelevements_solidarite.revenus_du_patrimoine\n        )\n\n    return -assiette_csg_revenus_capital * total\n",
-      "start_line_number": 354,
-      "stop_line_number": 368,
+      "start_line_number": 357,
+      "stop_line_number": 371,
       "variables": [
         "assiette_csg_revenus_capital"
       ]
@@ -835,8 +835,8 @@
         "taxation_capital.prelevements_sociaux.prelevements_solidarite.revenus_du_patrimoine"
       ],
       "source_code": "def formula_2009_01_01(foyer_fiscal, period, parameters):\n    '''\n    Attention : Pour les années avant 2013, cette formule n'est pas entièrement correcte car le taux de la CSG n'était pas unique (distinction revenus du patrimoine et revenus de placement)\n    '''\n    assiette_csg_revenus_capital = foyer_fiscal('assiette_csg_revenus_capital', period)\n    P = parameters(period).taxation_capital.prelevements_sociaux\n\n    total = (\n        P.prelevement_social.revenus_du_patrimoine\n        + P.caps.revenus_du_patrimoine\n        + P.prelevements_solidarite.revenus_du_patrimoine\n        + P.caps.rsa\n        )\n\n    return -assiette_csg_revenus_capital * total\n",
-      "start_line_number": 369,
-      "stop_line_number": 384,
+      "start_line_number": 372,
+      "stop_line_number": 387,
       "variables": [
         "assiette_csg_revenus_capital"
       ]
@@ -1231,8 +1231,8 @@
         "taxation_capital.prelevements_sociaux.prelevements_solidarite.revenus_du_patrimoine"
       ],
       "source_code": "def formula_2013_01_01(foyer_fiscal, period, parameters):\n    '''\n    Attention : Pour les années avant 2013, cette formule n'est pas entièrement correcte car le taux de la CSG n'était pas unique (distinction revenus du patrimoine et revenus de placement)\n    '''\n    assiette_csg_revenus_capital = foyer_fiscal('assiette_csg_revenus_capital', period)\n    P = parameters(period).taxation_capital.prelevements_sociaux\n\n    total = (\n        P.prelevement_social.revenus_du_patrimoine\n        + P.caps.revenus_du_patrimoine\n        + P.prelevements_solidarite.revenus_du_patrimoine\n        )\n\n    return -assiette_csg_revenus_capital * total\n",
-      "start_line_number": 385,
-      "stop_line_number": 399,
+      "start_line_number": 388,
+      "stop_line_number": 402,
       "variables": [
         "assiette_csg_revenus_capital"
       ]
@@ -1249,7 +1249,7 @@
     "prelevements_sociaux_revenus_capital",
     "total_impots_plafonnement_isf_ifi"
   ],
-  "start_line_number": 347,
-  "stop_line_number": 399,
+  "start_line_number": 350,
+  "stop_line_number": 402,
   "value_type": "float"
 }

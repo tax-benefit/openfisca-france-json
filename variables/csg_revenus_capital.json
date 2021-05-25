@@ -172,13 +172,13 @@
           {
             "ast_class": "Return",
             "col_offset": 4,
-            "end_col_offset": 111,
+            "end_col_offset": 91,
             "end_lineno": 8,
             "lineno": 8,
             "value": {
               "ast_class": "BinOp",
               "col_offset": 11,
-              "end_col_offset": 111,
+              "end_col_offset": 91,
               "end_lineno": 8,
               "left": {
                 "ast_class": "UnaryOp",
@@ -207,76 +207,54 @@
               },
               "right": {
                 "ast_class": "Attribute",
-                "attr": "taux_global",
+                "attr": "glob",
                 "col_offset": 43,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 111,
+                "end_col_offset": 91,
                 "end_lineno": 8,
                 "lineno": 8,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "capital",
+                  "attr": "csg",
                   "col_offset": 43,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 99,
+                  "end_col_offset": 86,
                   "end_lineno": 8,
                   "lineno": 8,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "csg",
+                    "attr": "prelevements_sociaux",
                     "col_offset": 43,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 91,
+                    "end_col_offset": 82,
                     "end_lineno": 8,
                     "lineno": 8,
                     "value": {
                       "ast_class": "Attribute",
-                      "attr": "contribs_sociales",
+                      "attr": "taxation_capital",
                       "col_offset": 43,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 87,
+                      "end_col_offset": 61,
                       "end_lineno": 8,
                       "lineno": 8,
                       "value": {
-                        "ast_class": "Attribute",
-                        "attr": "prelevements_sociaux",
+                        "ast_class": "Name",
                         "col_offset": 43,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 69,
+                        "end_col_offset": 44,
                         "end_lineno": 8,
-                        "lineno": 8,
-                        "value": {
-                          "ast_class": "Attribute",
-                          "attr": "par",
-                          "col_offset": 43,
-                          "ctx": {
-                            "ast_class": "Load"
-                          },
-                          "end_col_offset": 48,
-                          "end_lineno": 8,
-                          "lineno": 8,
-                          "value": {
-                            "ast_class": "Name",
-                            "col_offset": 43,
-                            "ctx": {
-                              "ast_class": "Load"
-                            },
-                            "end_col_offset": 44,
-                            "end_lineno": 8,
-                            "id": "P",
-                            "lineno": 8
-                          }
-                        }
+                        "id": "P",
+                        "lineno": 8
                       }
                     }
                   }
@@ -287,14 +265,14 @@
         ],
         "col_offset": 0,
         "decorator_list": [],
-        "end_col_offset": 111,
+        "end_col_offset": 91,
         "end_lineno": 8,
         "lineno": 1,
         "name": "formula"
       },
       "documentation": "\nAttention : Pour les années avant 2013, cette formule n'est pas entièrement correcte car le taux de la CSG n'était pas unique (distinction revenus du patrimoine et revenus de placement)\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/capital.py",
-      "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Attention : Pour les années avant 2013, cette formule n'est pas entièrement correcte car le taux de la CSG n'était pas unique (distinction revenus du patrimoine et revenus de placement)\n    '''\n    assiette_csg_revenus_capital = foyer_fiscal('assiette_csg_revenus_capital', period)\n    P = parameters(period)\n\n    return -assiette_csg_revenus_capital * P.par.prelevements_sociaux.contribs_sociales.csg.capital.taux_global\n",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Attention : Pour les années avant 2013, cette formule n'est pas entièrement correcte car le taux de la CSG n'était pas unique (distinction revenus du patrimoine et revenus de placement)\n    '''\n    assiette_csg_revenus_capital = foyer_fiscal('assiette_csg_revenus_capital', period)\n    P = parameters(period)\n\n    return -assiette_csg_revenus_capital * P.taxation_capital.prelevements_sociaux.csg.glob\n",
       "start_line_number": 319,
       "stop_line_number": 327,
       "variables": [
