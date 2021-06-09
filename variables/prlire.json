@@ -551,6 +551,10 @@
         "name": "formula_2002"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+      "parameters": [
+        "impot_revenu.credits_impot.prlire.taux",
+        "impot_revenu.rvcm.abat_assvie"
+      ],
       "source_code": "def formula_2002(foyer_fiscal, period, parameters):\n    f2dh = foyer_fiscal('f2dh', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    P = parameters(period)\n\n    plaf_resid = max_(P.impot_revenu.rvcm.abat_assvie * (1 + maries_ou_pacses) - f2ch, 0)\n    return P.impot_revenu.credits_impot.prlire.taux * min_(f2dh, plaf_resid)\n",
       "start_line_number": 1397,
       "stop_line_number": 1405,

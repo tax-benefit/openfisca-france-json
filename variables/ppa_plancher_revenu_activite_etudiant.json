@@ -237,6 +237,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "parameters": [
+        "cotsoc.gen.smic_h_b",
+        "prestations.prestations_familiales.af.seuil_rev_taux"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    P = parameters(period)\n\n    return (\n        169\n        * P.cotsoc.gen.smic_h_b\n        * P.prestations.prestations_familiales.af.seuil_rev_taux\n        )\n",
       "start_line_number": 27,
       "stop_line_number": 35

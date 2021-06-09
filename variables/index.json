@@ -303,6 +303,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+        "parameters": [
+          "cotsoc.gen.nb_heure_travail_mensuel",
+          "cotsoc.gen.smic_h_b"
+        ],
         "start_line_number": 39,
         "stop_line_number": 73
       }
@@ -2351,6 +2355,12 @@
       "0001-01-01": {
         "documentation": "\nCette variable est une version légèrement modifiée de `af_nbenf`. Elle se base sur le salaire de base, tandis que `af_nbenf` se base sur le salaire net.\nOn ne peut pas utiliser la variable `af_nbenf` dans le calcul de `supplement_familial_traitement` (ci-dessous) car `af_nbenf` dépend du `salaire_net`, et `salaire_net` dépends de `supplement_familial_traitement`. Cela créerait une boucle infinie.\nD'où l'introduction de cette variable alternative.\n",
         "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+        "parameters": [
+          "cotsoc.gen.smic_h_b",
+          "prestations.prestations_familiales.af.age1",
+          "prestations.prestations_familiales.af.age2",
+          "prestations.prestations_familiales.af.seuil_rev_taux"
+        ],
         "start_line_number": 789,
         "stop_line_number": 815,
         "variables": [
@@ -2577,6 +2587,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur"
+        ],
         "start_line_number": 235,
         "stop_line_number": 259,
         "variables": [
@@ -5385,6 +5398,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur"
+        ],
         "start_line_number": 14,
         "stop_line_number": 36,
         "variables": [
@@ -6595,6 +6611,12 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
+        "parameters": [
+          "cotsoc.gen.nb_heure_travail_mensuel",
+          "cotsoc.gen.smic_h_b",
+          "prestations.minima_sociaux.aspa.abattement_forfaitaire_tx_couple",
+          "prestations.minima_sociaux.aspa.abattement_forfaitaire_tx_seul"
+        ],
         "start_line_number": 19,
         "stop_line_number": 101,
         "variables": [
@@ -8003,6 +8025,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
+        "parameters": [
+          "cotsoc.gen.smic_h_b",
+          "prestations.prestations_familiales.af.seuil_rev_taux"
+        ],
         "start_line_number": 18,
         "stop_line_number": 28,
         "variables": [
@@ -9218,6 +9244,11 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+        "parameters": [
+          "bourses_enseignement_superieur.criteres_sociaux.seuil_ressources_etudiant_autonome",
+          "cotsoc.gen.nb_heure_travail_mensuel",
+          "cotsoc.gen.smic_h_b"
+        ],
         "start_line_number": 189,
         "stop_line_number": 208,
         "variables": [
@@ -12534,6 +12565,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_salarie",
+          "prelevements_sociaux.cotisations_sociales.fds.plafond_base_solidarite"
+        ],
         "start_line_number": 77,
         "stop_line_number": 129,
         "variables": [
@@ -13305,6 +13340,11 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.crds.activite",
+          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
+        ],
         "start_line_number": 95,
         "stop_line_number": 114,
         "variables": [
@@ -13501,6 +13541,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.crds.retraite"
+        ],
         "start_line_number": 206,
         "stop_line_number": 218,
         "variables": [
@@ -13567,6 +13611,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+        "parameters": [
+          "prelevements_sociaux.contributions_sociales.crds.activite"
+        ],
         "start_line_number": 118,
         "stop_line_number": 133,
         "variables": [
@@ -14284,6 +14331,12 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "cotsoc.gen.smic_h_b",
+          "prelevements_sociaux.contributions_sociales.csg.chomage.deductible",
+          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
+        ],
         "start_line_number": 48,
         "stop_line_number": 63,
         "variables": [
@@ -14320,6 +14373,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.deductible"
+        ],
         "start_line_number": 165,
         "stop_line_number": 177,
         "variables": [
@@ -14389,6 +14446,12 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "cotsoc.gen.smic_h_b",
+          "prelevements_sociaux.contributions_sociales.csg.chomage.imposable",
+          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
+        ],
         "start_line_number": 73,
         "stop_line_number": 85,
         "variables": [
@@ -14424,6 +14487,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable"
+        ],
         "start_line_number": 187,
         "stop_line_number": 196,
         "variables": [
@@ -14457,6 +14524,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+        "parameters": [
+          "prelevements_sociaux.contributions_sociales.csg.activite.imposable"
+        ],
         "start_line_number": 95,
         "stop_line_number": 109,
         "variables": [
@@ -14555,6 +14625,9 @@
       "0001-01-01": {
         "documentation": "\nAttention : Pour les années avant 2013, cette formule n'est pas entièrement correcte car le taux de la CSG n'était pas unique (distinction revenus du patrimoine et revenus de placement)\n",
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/capital.py",
+        "parameters": [
+          "taxation_capital.prelevements_sociaux.csg.glob"
+        ],
         "start_line_number": 319,
         "stop_line_number": 327,
         "variables": [
@@ -39263,6 +39336,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur"
+        ],
         "start_line_number": 137,
         "stop_line_number": 150,
         "variables": [
@@ -40513,6 +40589,12 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+        "parameters": [
+          "fonc.indem_resid.min",
+          "fonc.indem_resid.taux.zone1",
+          "fonc.indem_resid.taux.zone2",
+          "fonc.indem_resid.taux.zone3"
+        ],
         "start_line_number": 712,
         "stop_line_number": 735,
         "variables": [
@@ -42235,6 +42317,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur"
+        ],
         "start_line_number": 180,
         "stop_line_number": 194,
         "variables": [
@@ -42263,6 +42348,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_salarie"
+        ],
         "start_line_number": 158,
         "stop_line_number": 172,
         "variables": [
@@ -48339,6 +48427,11 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+        "parameters": [
+          "prestations.minima_sociaux.ppa.bonification.seuil_bonification",
+          "prestations.minima_sociaux.ppa.bonification.seuil_max_bonification",
+          "prestations.minima_sociaux.ppa.bonification.taux_bonification_max"
+        ],
         "start_line_number": 333,
         "stop_line_number": 346,
         "variables": [
@@ -48660,6 +48753,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+        "parameters": [
+          "cotsoc.gen.smic_h_b",
+          "prestations.prestations_familiales.af.seuil_rev_taux"
+        ],
         "start_line_number": 27,
         "stop_line_number": 35
       }
@@ -48712,6 +48809,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+        "parameters": [
+          "prestations.minima_sociaux.ppa.seuil_aah_activite"
+        ],
         "start_line_number": 232,
         "stop_line_number": 277,
         "variables": [
@@ -48772,6 +48872,9 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+        "parameters": [
+          "prestations.minima_sociaux.ppa.seuil_aah_activite"
+        ],
         "start_line_number": 153,
         "stop_line_number": 178,
         "variables": [
@@ -50177,6 +50280,10 @@
     "formulas": {
       "2002-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+        "parameters": [
+          "impot_revenu.credits_impot.prlire.taux",
+          "impot_revenu.rvcm.abat_assvie"
+        ],
         "start_line_number": 1397,
         "stop_line_number": 1405,
         "variables": [
@@ -51119,6 +51226,9 @@
     "formulas": {
       "2005-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur.public_titulaire_etat"
+        ],
         "start_line_number": 287,
         "stop_line_number": 307,
         "variables": [
@@ -51149,6 +51259,9 @@
     "formulas": {
       "2005-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_salarie.public_titulaire_etat"
+        ],
         "start_line_number": 258,
         "stop_line_number": 278,
         "variables": [
@@ -53073,6 +53186,11 @@
     "formulas": {
       "2009-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+        "parameters": [
+          "cotsoc.sal.microsocial.rsi",
+          "cotsoc.sal.microsocial.servi",
+          "cotsoc.sal.microsocial.vente"
+        ],
         "start_line_number": 271,
         "stop_line_number": 281,
         "variables": [
@@ -55593,6 +55711,10 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+        "parameters": [
+          "cotsoc.gen.smic_h_b",
+          "tns.exploitant_agricole.plafond_rsa"
+        ],
         "start_line_number": 687,
         "stop_line_number": 761,
         "variables": [

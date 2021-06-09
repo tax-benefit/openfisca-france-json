@@ -927,6 +927,12 @@
       },
       "documentation": "\nCette variable est une version légèrement modifiée de `af_nbenf`. Elle se base sur le salaire de base, tandis que `af_nbenf` se base sur le salaire net.\nOn ne peut pas utiliser la variable `af_nbenf` dans le calcul de `supplement_familial_traitement` (ci-dessous) car `af_nbenf` dépend du `salaire_net`, et `salaire_net` dépends de `supplement_familial_traitement`. Cela créerait une boucle infinie.\nD'où l'introduction de cette variable alternative.\n",
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "parameters": [
+        "cotsoc.gen.smic_h_b",
+        "prestations.prestations_familiales.af.age1",
+        "prestations.prestations_familiales.af.age2",
+        "prestations.prestations_familiales.af.seuil_rev_taux"
+      ],
       "source_code": "def formula(famille, period, parameters):\n    \"\"\"\n        Cette variable est une version légèrement modifiée de `af_nbenf`. Elle se base sur le salaire de base, tandis que `af_nbenf` se base sur le salaire net.\n        On ne peut pas utiliser la variable `af_nbenf` dans le calcul de `supplement_familial_traitement` (ci-dessous) car `af_nbenf` dépend du `salaire_net`, et `salaire_net` dépends de `supplement_familial_traitement`. Cela créerait une boucle infinie.\n        D'où l'introduction de cette variable alternative.\n    \"\"\"\n\n    salaire_de_base_mensualise = famille.members('salaire_de_base', period.start.period('month', 6).offset(-6), options = [ADD])\n    law = parameters(period)\n    nbh_travaillees = 169\n    smic_mensuel_brut = law.cotsoc.gen.smic_h_b * nbh_travaillees\n\n    autonomie_financiere = (salaire_de_base_mensualise >= (\n        law.prestations.prestations_familiales.af.seuil_rev_taux\n        * smic_mensuel_brut\n        ))\n\n    age = famille.members('age', period)\n\n    condition_enfant = (\n        (age >= law.prestations.prestations_familiales.af.age1)\n        * (age <= law.prestations.prestations_familiales.af.age2)\n        * not_(autonomie_financiere)\n        )\n\n    return famille.sum(condition_enfant, role = Famille.ENFANT)\n",
       "start_line_number": 789,
       "stop_line_number": 815,

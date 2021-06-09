@@ -628,6 +628,11 @@
         "name": "formula_2009_01_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+      "parameters": [
+        "cotsoc.sal.microsocial.rsi",
+        "cotsoc.sal.microsocial.servi",
+        "cotsoc.sal.microsocial.vente"
+      ],
       "source_code": "def formula_2009_01_01(foyer_fiscal, period, parameters):\n    assiette_service = foyer_fiscal('assiette_service', period)\n    assiette_vente = foyer_fiscal('assiette_vente', period)\n    assiette_proflib = foyer_fiscal('assiette_proflib', period)\n    _P = parameters(period)\n\n    P = _P.cotsoc.sal.microsocial\n    total = assiette_service + assiette_vente + assiette_proflib\n    prelsoc_ms = assiette_service * P.servi + assiette_vente * P.vente + assiette_proflib * P.rsi\n    return total - prelsoc_ms\n",
       "start_line_number": 271,
       "stop_line_number": 281,

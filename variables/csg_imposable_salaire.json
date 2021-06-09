@@ -474,6 +474,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+      "parameters": [
+        "prelevements_sociaux.contributions_sociales.csg.activite.imposable"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    assiette_csg_abattue = individu('assiette_csg_abattue', period)\n    assiette_csg_non_abattue = individu('assiette_csg_non_abattue', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    parameters = parameters(period)\n\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = assiette_csg_abattue,\n        base_sans_abattement = assiette_csg_non_abattue,\n        law_node = parameters.prelevements_sociaux.contributions_sociales.csg.activite.imposable,\n        plafond_securite_sociale = plafond_securite_sociale,\n        )\n\n    return montant_csg\n",
       "start_line_number": 95,
       "stop_line_number": 109,

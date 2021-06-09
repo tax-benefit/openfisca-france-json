@@ -1016,6 +1016,12 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale",
+        "cotsoc.gen.smic_h_b",
+        "prelevements_sociaux.contributions_sociales.csg.chomage.deductible",
+        "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    chomage_brut = individu(\"chomage_brut\", period)\n    csg_imposable_chomage = individu(\"csg_imposable_chomage\", period)\n    taux_csg_remplacement = individu(\"taux_csg_remplacement\", period)\n    parameters = parameters(period)\n    montant_csg = montant_csg_crds(\n        base_avec_abattement = chomage_brut,\n        indicatrice_taux_plein = (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein),\n        indicatrice_taux_reduit = (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_reduit),\n        law_node = parameters.prelevements_sociaux.contributions_sociales.csg.chomage.deductible,\n        plafond_securite_sociale = parameters.cotsoc.gen.plafond_securite_sociale)\n    nbh_travail = 35 * 52 / 12  # = 151.67  # TODO: depuis 2001 mais avant ?\n    cho_seuil_exo = (parameters.prelevements_sociaux.contributions_sociales.csg.chomage.min_exo * nbh_travail * parameters.cotsoc.gen.smic_h_b)\n    csg_deductible_chomage = max_(-montant_csg - max_(cho_seuil_exo - (chomage_brut + csg_imposable_chomage + montant_csg), 0), 0)\n    return -csg_deductible_chomage\n",
       "start_line_number": 48,
       "stop_line_number": 63,

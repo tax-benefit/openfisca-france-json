@@ -368,6 +368,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale",
+        "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    retraite_brute = individu(\"retraite_brute\", period)\n    law = parameters(period)\n\n    montant_csg = montant_csg_crds(\n        base_sans_abattement=retraite_brute,\n        law_node=law.prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable,\n        plafond_securite_sociale=law.cotsoc.gen.plafond_securite_sociale)\n    return montant_csg\n",
       "start_line_number": 187,
       "stop_line_number": 196,
