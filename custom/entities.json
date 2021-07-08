@@ -1,0 +1,103 @@
+{
+  "famille": {
+    "key": "famille",
+    "key_plural": "familles",
+    "label": "Famille",
+    "roles": [
+      {
+        "adult": true,
+        "key": "parent",
+        "key_plural": "parents",
+        "label": "Parents",
+        "max": 2,
+        "subroles": [
+          {
+            "key": "demandeur",
+            "max": 1
+          },
+          {
+            "key": "conjoint",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "child": true,
+        "key": "enfant",
+        "key_plural": "enfants",
+        "label": "Enfants"
+      }
+    ]
+  },
+  "foyer_fiscal": {
+    "documentation": "Le foyer fiscal désigne l'ensemble des personnes inscrites sur une même déclaration de revenus.\nIl peut y avoir plusieurs foyers fiscaux dans un seul ménage : par exemple, un couple non marié où chacun remplit\nsa propre déclaration de revenus compte pour deux foyers fiscaux.\nVoir https://www.insee.fr/fr/metadonnees/definition/c1735.",
+    "key": "foyer_fiscal",
+    "key_plural": "foyers_fiscaux",
+    "label": "Déclaration d’impôts",
+    "roles": [
+      {
+        "adult": true,
+        "key": "declarant",
+        "key_plural": "declarants",
+        "label": "Déclarants",
+        "max": 2,
+        "subroles": [
+          {
+            "key": "declarant_principal",
+            "max": 1
+          },
+          {
+            "key": "conjoint",
+            "max": 1
+          }
+        ]
+      },
+      {
+        "adult": true,
+        "child": true,
+        "key": "personne_a_charge",
+        "key_plural": "personnes_a_charge",
+        "label": "Personnes à charge"
+      }
+    ]
+  },
+  "individu": {
+    "is_person": true,
+    "key": "individu",
+    "key_plural": "individus",
+    "label": "Individu"
+  },
+  "menage": {
+    "documentation": "Un ménage, au sens statistique du terme, désigne l'ensemble des occupants d'un même logement sans que ces personnes\nsoient nécessairement unies par des liens de parenté (en cas de cohabitation, par exemple).\nUn ménage peut être composé d'une seule personne.\nLe niveau de vie ainsi que la pauvreté sont calculés au niveau d'un ménage.\nVoir https://www.insee.fr/fr/metadonnees/definition/c1879.",
+    "key": "menage",
+    "key_plural": "menages",
+    "label": "Logement principal",
+    "roles": [
+      {
+        "adult": true,
+        "key": "personne_de_reference",
+        "label": "Personne de référence",
+        "max": 1
+      },
+      {
+        "adult": true,
+        "key": "conjoint",
+        "label": "Conjoint",
+        "max": 1
+      },
+      {
+        "child": true,
+        "key": "enfant",
+        "key_plural": "enfants",
+        "label": "Enfants"
+      },
+      {
+        "adult": true,
+        "child": true,
+        "key": "autre",
+        "key_plural": "autres",
+        "label": "Autres"
+      }
+    ]
+  }
+}
