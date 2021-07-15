@@ -1,10 +1,17 @@
 {
   "aide_embauche_pme": { "label": "Aide PME" },
   "aide_premier_salarie": { "label": "Aide premier salarié" },
+  "aides_logement": { "label": "Aides logement nettes" },
   "allegement_fillon": { "label": "Fillon" },
   "cotisations_employeur": { "label": "Cotisations employeur" },
   "cotisations_salariales": { "label": "Cotisations salariales" },
   "cout_du_travail": { "label": "Coût du travail" },
+  "covid_aide_exceptionnelle_famille_montant": {
+    "label": "Montant de l'aide exceptionnelle pour les familles pendant la crise sanitaire dûe au COVID-19"
+  },
+  "covid_aide_exceptionnelle_tpe_montant": {
+    "label": "Montant de l'aide exceptionnelle pour les TPE pendant la crise sanitaire dûe au COVID-19"
+  },
   "credit_impot_competitivite_emploi": { "label": "CICE" },
   "crds_salaire": { "label": "CRDS" },
   "csg_deductible_salaire": { "label": "CSG déductible" },
@@ -14,9 +21,20 @@
   "minima_sociaux": { "label": "Minima sociaux", "children": ["rsa", "ppa"] },
   "ppa": { "label": "PPA" },
   "ppe": { "label": "PPE" },
+  "prestations_familiales": { "label": "Prestations familiales" },
   "prestations_sociales": {
     "label": "Prestations sociales",
-    "children": ["minima_sociaux"]
+    "children": [
+      "prestations_familiales",
+      "minima_sociaux",
+      "aides_logement",
+      "reduction_loyer_solidarite",
+      "covid_aide_exceptionnelle_famille_montant",
+      "covid_aide_exceptionnelle_tpe_montant"
+    ]
+  },
+  "reduction_loyer_solidarite": {
+    "label": "Réduction du loyer de solidarité effectivement versée"
   },
   "revenu_disponible": {
     "label": "Revenu disponible",
@@ -33,7 +51,8 @@
   },
   "rsa": { "label": "RSA" },
   "salaire_de_base": {
-    "label": "Salaire brut"
+    "label": "Salaire brut",
+    "children": ["salaire_super_brut_hors_allegements", "cotisations_employeur"]
   },
   "salaire_imposable": {
     "label": "Salaire imposable",
