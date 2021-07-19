@@ -709,8 +709,8 @@
         "prestations.minima_sociaux.aah.taux_incapacite"
       ],
       "source_code": "def formula(individu, period, parameters):\n    law = parameters(period).prestations.minima_sociaux.aah\n    taux_incapacite = individu('taux_incapacite', period)\n    rsdae = individu('aah_restriction_substantielle_durable_acces_emploi', period)\n\n    age = individu('age', period)\n    autonomie_financiere = individu('autonomie_financiere', period)\n    eligible_aah = (\n        ((taux_incapacite >= law.taux_incapacite) + (taux_incapacite >= 0.5) * rsdae)\n        * (age <= law.age_legal_retraite)\n        * ((age >= law.age_minimal) + ((age >= 16) * (autonomie_financiere)))\n        )\n\n    return eligible_aah\n\n    # TODO: dated_function : avant 2008, il fallait ne pas avoir travaillé pendant les 12 mois précédant la demande.\n",
-      "start_line_number": 238,
-      "stop_line_number": 254,
+      "start_line_number": 241,
+      "stop_line_number": 257,
       "variables": [
         "aah_restriction_substantielle_durable_acces_emploi",
         "age",
@@ -726,7 +726,7 @@
   "referring_variables": [
     "aah_base"
   ],
-  "start_line_number": 203,
-  "stop_line_number": 254,
+  "start_line_number": 206,
+  "stop_line_number": 257,
   "value_type": "bool"
 }

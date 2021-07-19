@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/garantie_pret_etudiant.py",
+  "file_path": "/openfisca_france/model/prestations/jeunes/garantie_pret_etudiant.py",
   "formulas": {
     "2021-02-19": {
       "ast": {
@@ -453,7 +453,7 @@
         "lineno": 1,
         "name": "formula_2021_02_19"
       },
-      "file_path": "/openfisca_france/model/prestations/garantie_pret_etudiant.py",
+      "file_path": "/openfisca_france/model/prestations/jeunes/garantie_pret_etudiant.py",
       "source_code": "def formula_2021_02_19(individu, period, parameters):\n    nationalite_francaise = individu('nationalite', period) == b'FR'\n\n    ressortissant_eee = individu('ressortissant_eee', period)\n    residence_continue_annees = individu('residence_continue_annees', period)\n    duree_min_residence_continue_annees = parameters(period).prestations.garantie_pret_etudiant.duree_min_residence_continue_annees\n    eligibilite_eee = ressortissant_eee * residence_continue_annees >= duree_min_residence_continue_annees\n\n    return nationalite_francaise + eligibilite_eee\n",
       "start_line_number": 31,
       "stop_line_number": 40,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/garantie_jeunes.py",
+  "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -287,7 +287,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/garantie_jeunes.py",
+      "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
       "source_code": "def formula(individu, period, parameters):\n    params = parameters(period).prestations.minima_sociaux.rsa\n    montant_base = params.montant_de_base_du_rsa\n    taux_1_personne = params.forfait_logement.taux_1_personne\n\n    return montant_base * (1 - taux_1_personne)\n",
       "start_line_number": 36,
       "stop_line_number": 42

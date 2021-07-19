@@ -642,8 +642,8 @@
         "prestations.al_assistant_journaliste.abattement.montant.journaliste"
       ],
       "source_code": "def formula_2019_01(individu, period, parameters):\n    assistant_maternel = individu('assistant_maternel', period)\n    assistant_familial = individu('assistant_familial', period)\n    journaliste = individu('journaliste', period)\n    salaire_imposable = individu('salaire_imposable', period)\n    abat = parameters(period).prestations.al_assistant_journaliste.abattement.montant\n\n    montant_abattement = select([assistant_maternel, assistant_familial, journaliste],\n        [abat.assistant_maternel, abat.assistant_familial, abat.journaliste],\n        default=0)\n\n    return max_(0, salaire_imposable - montant_abattement)\n",
-      "start_line_number": 593,
-      "stop_line_number": 605,
+      "start_line_number": 596,
+      "stop_line_number": 608,
       "variables": [
         "assistant_familial",
         "assistant_maternel",
@@ -658,7 +658,7 @@
   "referring_variables": [
     "al_revenu_assimile_salaire"
   ],
-  "start_line_number": 587,
-  "stop_line_number": 605,
+  "start_line_number": 590,
+  "stop_line_number": 608,
   "value_type": "float"
 }

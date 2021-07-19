@@ -680,8 +680,8 @@
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    contrat_de_travail_debut = individu('contrat_de_travail_debut', period)\n    contrat_de_travail_fin = individu('contrat_de_travail_fin', period)\n\n    busday_count = partial(original_busday_count, weekmask = \"1\" * 7)\n    debut_mois = datetime64(period.start.offset('first-of', 'month'))\n    fin_mois = datetime64(period.start.offset('last-of', 'month'))\n    jours_travailles = max_(\n        busday_count(\n            max_(contrat_de_travail_debut, debut_mois),\n            min_(contrat_de_travail_fin, fin_mois) + timedelta64(1, 'D')\n            ),\n        0,\n        )\n\n    return jours_travailles\n",
-      "start_line_number": 664,
-      "stop_line_number": 680,
+      "start_line_number": 682,
+      "stop_line_number": 698,
       "variables": [
         "contrat_de_travail_debut",
         "contrat_de_travail_fin"
@@ -694,7 +694,7 @@
   "referring_variables": [
     "plafond_securite_sociale"
   ],
-  "start_line_number": 657,
-  "stop_line_number": 680,
+  "start_line_number": 675,
+  "stop_line_number": 698,
   "value_type": "float"
 }

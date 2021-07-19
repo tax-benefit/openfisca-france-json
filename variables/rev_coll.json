@@ -880,25 +880,15 @@
                                   "end_col_offset": 39,
                                   "end_lineno": 20,
                                   "left": {
-                                    "ast_class": "UnaryOp",
+                                    "ast_class": "Name",
                                     "col_offset": 8,
-                                    "end_col_offset": 35,
-                                    "end_lineno": 19,
-                                    "lineno": 19,
-                                    "op": {
-                                      "ast_class": "UAdd"
+                                    "ctx": {
+                                      "ast_class": "Load"
                                     },
-                                    "operand": {
-                                      "ast_class": "Name",
-                                      "col_offset": 10,
-                                      "ctx": {
-                                        "ast_class": "Load"
-                                      },
-                                      "end_col_offset": 35,
-                                      "end_lineno": 19,
-                                      "id": "revenu_categoriel_foncier",
-                                      "lineno": 19
-                                    }
+                                    "end_col_offset": 33,
+                                    "end_lineno": 19,
+                                    "id": "revenu_categoriel_foncier",
+                                    "lineno": 19
                                   },
                                   "lineno": 19,
                                   "op": {
@@ -1086,7 +1076,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
-      "source_code": "def formula(foyer_fiscal, period):\n    # Quand rev_coll est calculé sur une année glissante, rente_viagere_titre_onereux_net et pensions_alimentaires_versees sont calculés sur l'année légale correspondante.\n    rente_viagere_titre_onereux_net = foyer_fiscal('rente_viagere_titre_onereux_net', period)\n    pensions_alimentaires_versees = foyer_fiscal('pensions_alimentaires_versees', period)\n    rev_cat_rvcm = foyer_fiscal('revenu_categoriel_capital', period)  # Supprimée en 2018\n    revenus_capitaux_prelevement_liberatoire = foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period, options = [ADD])  # Supprimée en 2018\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = foyer_fiscal('revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options = [ADD])  # Existe à partir de 2018\n    abat_spe = foyer_fiscal('abattements_speciaux_prestations_familiales', period)\n    revenu_categoriel_foncier = foyer_fiscal('revenu_categoriel_foncier', period)\n    f7ga = foyer_fiscal('f7ga', period)\n    f7gb = foyer_fiscal('f7gb', period)\n    f7gc = foyer_fiscal('f7gc', period)\n    # est supprimée à partir de 2018\n    rev_cat_pv = foyer_fiscal('revenu_categoriel_plus_values', period)\n    plus_values_prelevement_forfaitaire_unique_ir = foyer_fiscal('plus_values_prelevement_forfaitaire_unique_ir', period)  # Apparait à partir de 2018\n\n    # TODO: ajouter les revenus de l'étranger etr*0.9\n    return (\n        + revenu_categoriel_foncier\n        + pensions_alimentaires_versees  # négatif\n        + rente_viagere_titre_onereux_net\n        + rev_cat_rvcm\n        + revenus_capitaux_prelevement_liberatoire\n        + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + rev_cat_pv\n        + plus_values_prelevement_forfaitaire_unique_ir\n        - abat_spe\n        - f7ga\n        - f7gb\n        - f7gc\n        )\n",
+      "source_code": "def formula(foyer_fiscal, period):\n    # Quand rev_coll est calculé sur une année glissante, rente_viagere_titre_onereux_net et pensions_alimentaires_versees sont calculés sur l'année légale correspondante.\n    rente_viagere_titre_onereux_net = foyer_fiscal('rente_viagere_titre_onereux_net', period)\n    pensions_alimentaires_versees = foyer_fiscal('pensions_alimentaires_versees', period)\n    rev_cat_rvcm = foyer_fiscal('revenu_categoriel_capital', period)  # Supprimée en 2018\n    revenus_capitaux_prelevement_liberatoire = foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period, options = [ADD])  # Supprimée en 2018\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = foyer_fiscal('revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options = [ADD])  # Existe à partir de 2018\n    abat_spe = foyer_fiscal('abattements_speciaux_prestations_familiales', period)\n    revenu_categoriel_foncier = foyer_fiscal('revenu_categoriel_foncier', period)\n    f7ga = foyer_fiscal('f7ga', period)\n    f7gb = foyer_fiscal('f7gb', period)\n    f7gc = foyer_fiscal('f7gc', period)\n    # est supprimée à partir de 2018\n    rev_cat_pv = foyer_fiscal('revenu_categoriel_plus_values', period)\n    plus_values_prelevement_forfaitaire_unique_ir = foyer_fiscal('plus_values_prelevement_forfaitaire_unique_ir', period)  # Apparait à partir de 2018\n\n    # TODO: ajouter les revenus de l'étranger etr*0.9\n    return (\n        revenu_categoriel_foncier\n        + pensions_alimentaires_versees  # négatif\n        + rente_viagere_titre_onereux_net\n        + rev_cat_rvcm\n        + revenus_capitaux_prelevement_liberatoire\n        + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + rev_cat_pv\n        + plus_values_prelevement_forfaitaire_unique_ir\n        - abat_spe\n        - f7ga\n        - f7gb\n        - f7gc\n        )\n",
       "start_line_number": 124,
       "stop_line_number": 155,
       "variables": [

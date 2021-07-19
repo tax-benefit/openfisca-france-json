@@ -410,8 +410,8 @@
       "documentation": "\nL'allocation de base de la paje n'est pas cumulable avec le complément familial\n",
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/paje.py",
       "source_code": "def formula(famille, period):\n    '''\n    L'allocation de base de la paje n'est pas cumulable avec le complément familial\n    '''\n    apje_avant_cumul = famille('apje_avant_cumul', period)\n    ape_avant_cumul = famille('ape_avant_cumul', period)\n    cf_montant = famille('cf_montant', period)\n\n    ape = (apje_avant_cumul < ape_avant_cumul) * (cf_montant < ape_avant_cumul) * ape_avant_cumul\n    return round(ape, 2)\n",
-      "start_line_number": 699,
-      "stop_line_number": 709,
+      "start_line_number": 701,
+      "stop_line_number": 711,
       "variables": [
         "ape_avant_cumul",
         "apje_avant_cumul",
@@ -429,7 +429,7 @@
   "referring_variables": [
     "crds_pfam"
   ],
-  "start_line_number": 691,
-  "stop_line_number": 709,
+  "start_line_number": 693,
+  "stop_line_number": 711,
   "value_type": "float"
 }

@@ -2554,8 +2554,8 @@
         "tns.exploitant_agricole.plafond_rsa"
       ],
       "source_code": "def formula(famille, period, parameters):\n    last_year = period.last_year\n\n    tns_benefice_agricole_i = famille.members('tns_benefice_exploitant_agricole', last_year)\n    tns_benefice_agricole = famille.sum(tns_benefice_agricole_i)\n\n    tns_employe_i = famille.members('tns_avec_employe', period)\n    tns_avec_employe = famille.any(tns_employe_i)\n\n    tns_autres_revenus_CA_i = famille.members('tns_autres_revenus_chiffre_affaires', last_year, options = [ADD])\n    tns_autres_revenus_type_activite_i = famille.members('tns_autres_revenus_type_activite', period)\n\n    has_conjoint = famille('nb_parents', period) > 1\n    rsa_nb_enfants = famille('rsa_nb_enfants', period)\n    P = parameters(period)\n    P_agr = P.tns.exploitant_agricole\n    P_micro = P.impot_revenu.rpns.micro\n    maj_2p = P_agr.maj_2p\n    maj_1e_2ad = P_agr.maj_1e_2ad\n    maj_e_sup = P_agr.maj_e_sup\n\n    def eligibilite_agricole(has_conjoint, rsa_nb_enfants, tns_benefice_agricole, P_agr):\n        plafond_benefice_agricole = P_agr.plafond_rsa * P.cotsoc.gen.smic_h_b\n\n        taux_avec_conjoint = (\n            1\n            + maj_2p\n            + maj_1e_2ad\n            * (rsa_nb_enfants > 0)\n            + maj_e_sup\n            * max_(rsa_nb_enfants - 1, 0)\n            )\n\n        taux_sans_conjoint = (\n            1\n            + maj_2p\n            * (rsa_nb_enfants > 0)\n            + maj_e_sup\n            * max_(rsa_nb_enfants - 1, 0)\n            )\n\n        taux_majoration = (\n            has_conjoint\n            * taux_avec_conjoint\n            + (1 - has_conjoint)\n            * taux_sans_conjoint\n            )\n\n        plafond_benefice_agricole_majore = taux_majoration * plafond_benefice_agricole\n\n        return tns_benefice_agricole < plafond_benefice_agricole_majore\n\n    def eligibilite_chiffre_affaire(ca, type_activite, P_micro):\n        plaf_vente = P_micro.specialbnc.marchandises.max\n        plaf_service = P_micro.specialbnc.services.max\n\n        TypesTnsTypeActivite = type_activite.possible_values\n        achat_revente = (type_activite == TypesTnsTypeActivite.achat_revente)\n\n        service = (\n            (type_activite == TypesTnsTypeActivite.bic)\n            + (type_activite == TypesTnsTypeActivite.bnc)\n            )\n\n        return (achat_revente * (ca <= plaf_vente)) + (service * (ca <= plaf_service))\n\n    eligibilite_agricole = eligibilite_agricole(has_conjoint, rsa_nb_enfants, tns_benefice_agricole, P_agr)\n\n    eligibilite_chiffre_affaire = famille.all(\n        eligibilite_chiffre_affaire(tns_autres_revenus_CA_i, tns_autres_revenus_type_activite_i, P_micro),\n        role = Famille.PARENT\n        )\n\n    return eligibilite_agricole * not_(tns_avec_employe) * eligibilite_chiffre_affaire\n",
-      "start_line_number": 687,
-      "stop_line_number": 761,
+      "start_line_number": 688,
+      "stop_line_number": 762,
       "variables": [
         "nb_parents",
         "rsa_nb_enfants",
@@ -2575,7 +2575,7 @@
     "rsa_eligibilite",
     "rsa_majore_eligibilite"
   ],
-  "start_line_number": 679,
-  "stop_line_number": 761,
+  "start_line_number": 680,
+  "stop_line_number": 762,
   "value_type": "bool"
 }

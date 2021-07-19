@@ -858,8 +858,8 @@
         "impot_revenu.tspr.abatpro.taux"
       ],
       "source_code": "def formula_2021_01_01(individu, period, parameters):\n    # version spécifique aux aides logement de revenu_assimile_salaire_apres_abattements\n    period_revenus = period\n    period_chomage = period.n_2\n    period_frais = period.last_year\n\n    revenu_assimile_salaire = individu('al_revenu_assimile_salaire', period_revenus)\n    chomeur_longue_duree = individu('chomeur_longue_duree', period_chomage)\n    frais_reels = individu('frais_reels', period_frais)\n\n    abatpro = parameters(period.last_year).impot_revenu.tspr.abatpro\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abattement_forfaitaire = round_(min_(max_(abatpro.taux * revenu_assimile_salaire, abattement_minimum), abatpro.max))\n\n    return where(frais_reels > 0, revenu_assimile_salaire - frais_reels,\n        max_(0, revenu_assimile_salaire - abattement_forfaitaire)\n        )\n",
-      "start_line_number": 923,
-      "stop_line_number": 940,
+      "start_line_number": 926,
+      "stop_line_number": 943,
       "variables": [
         "al_revenu_assimile_salaire",
         "chomeur_longue_duree",
@@ -874,7 +874,7 @@
     "aide_logement_abattement_depart_retraite",
     "al_traitements_salaires_pensions_rentes"
   ],
-  "start_line_number": 917,
-  "stop_line_number": 940,
+  "start_line_number": 920,
+  "stop_line_number": 943,
   "value_type": "float"
 }

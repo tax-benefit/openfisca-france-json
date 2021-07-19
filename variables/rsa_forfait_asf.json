@@ -559,8 +559,8 @@
         "prestations.prestations_familiales.asf.taux_1_parent"
       ],
       "source_code": "def formula_2014_04_01(famille, period, parameters):\n    # Si un ASF est versé, on ne prend pas en compte le montant réel mais un forfait.\n    prestations_familiales = parameters(period).prestations.prestations_familiales\n    minima_sociaux = parameters(period).prestations.minima_sociaux\n\n    asf_verse = famille('asf', period)\n    montant_verse_par_enfant = prestations_familiales.af.bmaf * prestations_familiales.asf.taux_1_parent\n    montant_retenu_rsa_par_enfant = prestations_familiales.af.bmaf * minima_sociaux.rmi.forfait_asf.taux1\n\n    asf_retenue = asf_verse * (montant_retenu_rsa_par_enfant / montant_verse_par_enfant)\n\n    return asf_retenue\n",
-      "start_line_number": 775,
-      "stop_line_number": 787,
+      "start_line_number": 776,
+      "stop_line_number": 788,
       "variables": [
         "asf"
       ]
@@ -575,7 +575,7 @@
     "Pour la prime d'activité, article R844-4 du code de la sécurité sociale",
     "https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=210D97A377874C24466BA7DE746FFF78.tplgfr27s_3?idArticle=LEGIARTI000031676000&cidTexte=LEGITEXT000006073189&dateTexte=20190204"
   ],
-  "start_line_number": 763,
-  "stop_line_number": 787,
+  "start_line_number": 764,
+  "stop_line_number": 788,
   "value_type": "float"
 }

@@ -632,8 +632,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(famille, period):\n    isole = not_(famille('en_couple', period))\n    isolement_recent = famille('rsa_isolement_recent', period)\n    enfant_moins_3_ans = nb_enf(famille, period, 0, 2) > 0\n    enceinte_fam = famille('enceinte_fam', period)\n    nbenf = famille('rsa_nb_enfants', period)\n    rsa_eligibilite_tns = famille('rsa_eligibilite_tns', period)\n\n    return (\n        isole\n        * (enceinte_fam | (nbenf > 0))\n        * (enfant_moins_3_ans | isolement_recent | enceinte_fam)\n        * rsa_eligibilite_tns\n        )\n",
-      "start_line_number": 854,
-      "stop_line_number": 868,
+      "start_line_number": 855,
+      "stop_line_number": 869,
       "variables": [
         "en_couple",
         "enceinte_fam",
@@ -654,7 +654,7 @@
     "ppa_montant_forfaitaire_familial_non_majore",
     "rsa_socle_majore"
   ],
-  "start_line_number": 848,
-  "stop_line_number": 868,
+  "start_line_number": 849,
+  "stop_line_number": 869,
   "value_type": "bool"
 }

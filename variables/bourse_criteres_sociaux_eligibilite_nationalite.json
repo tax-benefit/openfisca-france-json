@@ -107,8 +107,8 @@
       "documentation": "\nReference: https://www.education.gouv.fr/bo/2003/18/MENS0300894C.htm\n",
       "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
       "source_code": "def formula_2003_04_23(individu, period):\n    '''\n    Reference: https://www.education.gouv.fr/bo/2003/18/MENS0300894C.htm\n    '''\n    return individu('resident_ue', period)\n",
-      "start_line_number": 65,
-      "stop_line_number": 70,
+      "start_line_number": 66,
+      "stop_line_number": 71,
       "variables": [
         "resident_ue"
       ]
@@ -537,8 +537,8 @@
         "bourses_enseignement_superieur.criteres_sociaux.nationalites_hors_eee"
       ],
       "source_code": "def formula_2004_07_21(individu, period, parameters):\n    '''\n    Reference: https://www.education.gouv.fr/bo/2004/30/MENS0401499C.htm\n    '''\n    ressortissant_eee = individu('ressortissant_eee', period)\n\n    nationalite = individu('nationalite', period)\n    ressortissant_pays_eligible = sum([nationalite == str.encode(etat) for etat in parameters(period).bourses_enseignement_superieur.criteres_sociaux.nationalites_hors_eee])  # TOOPTIMIZE: string encoding into bytes array should be done at load time\n\n    return ressortissant_eee + ressortissant_pays_eligible\n",
-      "start_line_number": 54,
-      "stop_line_number": 64,
+      "start_line_number": 55,
+      "stop_line_number": 65,
       "variables": [
         "nationalite",
         "ressortissant_eee"
@@ -557,7 +557,7 @@
     "aide_formation_gen_eligibilite",
     "bourse_criteres_sociaux_eligibilite"
   ],
-  "start_line_number": 44,
-  "stop_line_number": 70,
+  "start_line_number": 45,
+  "stop_line_number": 71,
   "value_type": "bool"
 }

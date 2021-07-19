@@ -1750,8 +1750,8 @@
         "prestations.prestations_familiales.apje.taux_enfant_3_et_plus"
       ],
       "source_code": "def formula(famille, period, parameters):\n    '''\n    Allocation pour jeune enfant\n    '''\n    base_ressources = famille('prestations_familiales_base_ressources', period.first_month)\n    biactivite = famille('biactivite', period, options = [ADD])\n    isole = not_(famille('en_couple', period))\n    P = parameters(period).prestations.prestations_familiales\n    P_n_2 = parameters(period.start.offset(-2, 'year')).prestations.prestations_familiales\n\n    # TODO: APJE courte voir doc ERF 2006\n    nbenf = nb_enf(famille, period, 0, P.apje.age_max_dernier_enf - 1)\n    bmaf = P.af.bmaf\n    bmaf_n_2 = P_n_2.af.bmaf\n    base = round(P.apje.taux * bmaf, 2)\n    base2 = round(P.apje.taux * bmaf_n_2, 2)\n\n    plaf_tx = (nbenf > 0) + P.apje.taux_enfant_1_et_2 * min_(nbenf, 2) + P.apje.taux_enfant_3_et_plus * max_(nbenf - 2, 0)\n    majo = isole | biactivite\n    plaf = P.apje.plaf * plaf_tx + P.apje.plaf_maj * majo\n    plaf2 = plaf + 12 * base2\n\n    apje = (nbenf >= 1) * ((base_ressources <= plaf) * base + (base_ressources > plaf) * max_(plaf2 - base_ressources, 0) / 12.0)\n\n    # Pour bénéficier de cette allocation, il faut que tous les enfants du foyer soient nés, adoptés, ou recueillis\n    # en vue d’une adoption avant le 1er janvier 2004, et qu’au moins l’un d’entre eux ait moins de 3 ans.\n    # Cette allocation est versée du 5ème mois de grossesse jusqu'au mois précédant le 3ème anniversaire de\n    # l’enfant.\n\n    # Non cumul APE APJE CF\n    #  - L’allocation parentale d’éducation (APE), sauf pour les femmes enceintes.\n    #    L’APJE est alors versée du 5ème mois de grossesse jusqu’à la naissance de l’enfant.\n    #  - Le CF\n    return apje\n",
-      "start_line_number": 655,
-      "stop_line_number": 689,
+      "start_line_number": 657,
+      "stop_line_number": 691,
       "variables": [
         "biactivite",
         "en_couple",
@@ -1771,7 +1771,7 @@
     "apje",
     "cf"
   ],
-  "start_line_number": 647,
-  "stop_line_number": 689,
+  "start_line_number": 649,
+  "stop_line_number": 691,
   "value_type": "float"
 }

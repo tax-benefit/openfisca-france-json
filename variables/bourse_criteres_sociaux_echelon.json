@@ -1431,8 +1431,8 @@
         "bourses_enseignement_superieur.criteres_sociaux.plafond_ressources.echelon_7"
       ],
       "source_code": "def formula(individu, period, parameters):\n    points_de_charge = individu('bourse_criteres_sociaux_points_de_charge', period)\n    baremes = parameters(period).bourses_enseignement_superieur.criteres_sociaux.plafond_ressources\n    plafond_echelon_0bis = baremes.echelon_0bis.calc(points_de_charge)\n    plafond_echelon_1 = baremes.echelon_1.calc(points_de_charge)\n    plafond_echelon_2 = baremes.echelon_2.calc(points_de_charge)\n    plafond_echelon_3 = baremes.echelon_3.calc(points_de_charge)\n    plafond_echelon_4 = baremes.echelon_4.calc(points_de_charge)\n    plafond_echelon_5 = baremes.echelon_5.calc(points_de_charge)\n    plafond_echelon_6 = baremes.echelon_6.calc(points_de_charge)\n    plafond_echelon_7 = baremes.echelon_7.calc(points_de_charge)\n\n    base_ressources = individu('bourse_criteres_sociaux_base_ressources', period)\n    echelon = select(\n        [\n            base_ressources <= plafond_echelon_7,\n            base_ressources <= plafond_echelon_6,\n            base_ressources <= plafond_echelon_5,\n            base_ressources <= plafond_echelon_4,\n            base_ressources <= plafond_echelon_3,\n            base_ressources <= plafond_echelon_2,\n            base_ressources <= plafond_echelon_1,\n            base_ressources <= plafond_echelon_0bis,\n            ],\n        [7, 6, 5, 4, 3, 2, 1, 0], default=-1)\n\n    eligible = individu('bourse_criteres_sociaux_eligibilite', period)\n    return where(eligible, echelon, -1)\n",
-      "start_line_number": 310,
-      "stop_line_number": 338,
+      "start_line_number": 311,
+      "stop_line_number": 339,
       "variables": [
         "bourse_criteres_sociaux_base_ressources",
         "bourse_criteres_sociaux_eligibilite",
@@ -1452,7 +1452,7 @@
   "referring_variables": [
     "bourse_criteres_sociaux"
   ],
-  "start_line_number": 298,
-  "stop_line_number": 338,
+  "start_line_number": 299,
+  "stop_line_number": 339,
   "value_type": "int"
 }

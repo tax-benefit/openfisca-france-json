@@ -1,0 +1,241 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "documentation": "\nAide versée en 9 mensualités.\n\nNon modélisé :\nPour un baccalauréat obtenu avant 2015, quelques conditions d'attribution diffèrent\net le montant de l'aide est de 1800€/an.\n",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_merite.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 27,
+                "end_lineno": 2,
+                "id": "aide_merite_eligibilite",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 39,
+                  "end_col_offset": 64,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "aide_merite_eligibilite"
+                },
+                {
+                  "ast_class": "Attribute",
+                  "attr": "first_month",
+                  "col_offset": 66,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 66,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 72,
+                    "end_lineno": 2,
+                    "id": "period",
+                    "lineno": 2
+                  }
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 30,
+              "end_col_offset": 85,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 30,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 38,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 113,
+            "end_lineno": 3,
+            "lineno": 3,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 113,
+              "end_lineno": 3,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 3,
+                "id": "aide_merite_eligibilite",
+                "lineno": 3
+              },
+              "lineno": 3,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Attribute",
+                "attr": "montant_annuel",
+                "col_offset": 37,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 113,
+                "end_lineno": 3,
+                "lineno": 3,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "aide_merite",
+                  "col_offset": 37,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 98,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "bourses_enseignement_superieur",
+                    "col_offset": 37,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 86,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 48,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 54,
+                          "end_lineno": 3,
+                          "id": "period",
+                          "lineno": 3
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 37,
+                      "end_col_offset": 55,
+                      "end_lineno": 3,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 37,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 47,
+                        "end_lineno": 3,
+                        "id": "parameters",
+                        "lineno": 3
+                      },
+                      "keywords": [],
+                      "lineno": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 113,
+        "end_lineno": 3,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_merite.py",
+      "parameters": [
+        "bourses_enseignement_superieur.aide_merite.montant_annuel"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    aide_merite_eligibilite = individu(\"aide_merite_eligibilite\", period.first_month)\n    return aide_merite_eligibilite * parameters(period).bourses_enseignement_superieur.aide_merite.montant_annuel\n",
+      "start_line_number": 87,
+      "stop_line_number": 90,
+      "variables": [
+        "aide_merite_eligibilite"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant de l'aide au mérite pour l'année universitaire",
+  "name": "aide_merite_montant",
+  "reference": [
+    "https://www.etudiant.gouv.fr/fr/aide-au-merite-1291",
+    "https://www.service-public.fr/particuliers/vosdroits/F1010",
+    "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000030722211/"
+  ],
+  "start_line_number": 69,
+  "stop_line_number": 90,
+  "value_type": "float"
+}

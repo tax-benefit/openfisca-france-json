@@ -616,61 +616,51 @@
               "end_col_offset": 45,
               "end_lineno": 12,
               "left": {
-                "ast_class": "UnaryOp",
-                "col_offset": 8,
-                "end_col_offset": 81,
-                "end_lineno": 11,
-                "lineno": 11,
-                "op": {
-                  "ast_class": "UAdd"
-                },
-                "operand": {
-                  "ast_class": "Compare",
-                  "col_offset": 11,
-                  "comparators": [
-                    {
-                      "ast_class": "Attribute",
-                      "attr": "profession_liberale",
-                      "col_offset": 36,
-                      "ctx": {
-                        "ast_class": "Load"
-                      },
-                      "end_col_offset": 80,
-                      "end_lineno": 11,
-                      "lineno": 11,
-                      "value": {
-                        "ast_class": "Name",
-                        "col_offset": 36,
-                        "ctx": {
-                          "ast_class": "Load"
-                        },
-                        "end_col_offset": 60,
-                        "end_lineno": 11,
-                        "id": "TypesCategorieNonSalarie",
-                        "lineno": 11
-                      }
-                    }
-                  ],
-                  "end_col_offset": 80,
-                  "end_lineno": 11,
-                  "left": {
-                    "ast_class": "Name",
-                    "col_offset": 11,
+                "ast_class": "Compare",
+                "col_offset": 9,
+                "comparators": [
+                  {
+                    "ast_class": "Attribute",
+                    "attr": "profession_liberale",
+                    "col_offset": 34,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 32,
+                    "end_col_offset": 78,
                     "end_lineno": 11,
-                    "id": "categorie_non_salarie",
-                    "lineno": 11
-                  },
-                  "lineno": 11,
-                  "ops": [
-                    {
-                      "ast_class": "Eq"
+                    "lineno": 11,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 34,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 58,
+                      "end_lineno": 11,
+                      "id": "TypesCategorieNonSalarie",
+                      "lineno": 11
                     }
-                  ]
-                }
+                  }
+                ],
+                "end_col_offset": 78,
+                "end_lineno": 11,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 9,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 30,
+                  "end_lineno": 11,
+                  "id": "categorie_non_salarie",
+                  "lineno": 11
+                },
+                "lineno": 11,
+                "ops": [
+                  {
+                    "ast_class": "Eq"
+                  }
+                ]
               },
               "lineno": 10,
               "op": {
@@ -792,7 +782,7 @@
         "prelevements_sociaux.ret_pl.assurance_vieillesse.entre_1_et_5_pss",
         "prelevements_sociaux.ret_pl.assurance_vieillesse.sous_1_pss"
       ],
-      "source_code": "def formula_2015(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale * 12\n    bareme = MarginalRateTaxScale(name = 'vieillesse')\n    assurance_vieillesse = parameters(period).prelevements_sociaux.ret_pl.assurance_vieillesse\n    bareme.add_bracket(0, assurance_vieillesse.sous_1_pss)\n    bareme.add_bracket(1, assurance_vieillesse.entre_1_et_5_pss)\n    bareme.add_bracket(5, 0)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        + (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n        ) * individu('rpns_individu', period)\n    return -bareme.calc(assiette)\n",
+      "source_code": "def formula_2015(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale * 12\n    bareme = MarginalRateTaxScale(name = 'vieillesse')\n    assurance_vieillesse = parameters(period).prelevements_sociaux.ret_pl.assurance_vieillesse\n    bareme.add_bracket(0, assurance_vieillesse.sous_1_pss)\n    bareme.add_bracket(1, assurance_vieillesse.entre_1_et_5_pss)\n    bareme.add_bracket(5, 0)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n        ) * individu('rpns_individu', period)\n    return -bareme.calc(assiette)\n",
       "start_line_number": 334,
       "stop_line_number": 347,
       "variables": [

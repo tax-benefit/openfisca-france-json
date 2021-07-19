@@ -436,46 +436,36 @@
                 "end_col_offset": 35,
                 "end_lineno": 11,
                 "left": {
-                  "ast_class": "UnaryOp",
-                  "col_offset": 8,
-                  "end_col_offset": 31,
-                  "end_lineno": 10,
-                  "lineno": 10,
-                  "op": {
-                    "ast_class": "UAdd"
-                  },
-                  "operand": {
-                    "args": [
-                      {
-                        "ast_class": "Name",
-                        "col_offset": 15,
-                        "ctx": {
-                          "ast_class": "Load"
-                        },
-                        "end_col_offset": 30,
-                        "end_lineno": 10,
-                        "id": "eligibilite_dom",
-                        "lineno": 10
-                      }
-                    ],
-                    "ast_class": "Call",
-                    "col_offset": 10,
-                    "end_col_offset": 31,
-                    "end_lineno": 10,
-                    "func": {
+                  "args": [
+                    {
                       "ast_class": "Name",
-                      "col_offset": 10,
+                      "col_offset": 13,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 14,
+                      "end_col_offset": 28,
                       "end_lineno": 10,
-                      "id": "not_",
+                      "id": "eligibilite_dom",
                       "lineno": 10
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 8,
+                  "end_col_offset": 29,
+                  "end_lineno": 10,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 8,
+                    "ctx": {
+                      "ast_class": "Load"
                     },
-                    "keywords": [],
+                    "end_col_offset": 12,
+                    "end_lineno": 10,
+                    "id": "not_",
                     "lineno": 10
-                  }
+                  },
+                  "keywords": [],
+                  "lineno": 10
                 },
                 "lineno": 10,
                 "op": {
@@ -591,7 +581,7 @@
         "name": "formula_2015_07_01"
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
-      "source_code": "def formula_2015_07_01(famille, period, parameters):\n    eligibilite_dom = famille('af_eligibilite_dom', period)\n    af_base = famille('af_base', period)\n    af_majoration = famille('af_majoration', period)\n    af = af_base + af_majoration\n    af_nbenf = famille('af_nbenf', period)\n    depassement_mensuel = depassement_helper(famille, period, parameters, af_nbenf)\n\n    return (\n        + not_(eligibilite_dom)\n        * (depassement_mensuel > 0)\n        * max_(0, af - depassement_mensuel)\n        )\n",
+      "source_code": "def formula_2015_07_01(famille, period, parameters):\n    eligibilite_dom = famille('af_eligibilite_dom', period)\n    af_base = famille('af_base', period)\n    af_majoration = famille('af_majoration', period)\n    af = af_base + af_majoration\n    af_nbenf = famille('af_nbenf', period)\n    depassement_mensuel = depassement_helper(famille, period, parameters, af_nbenf)\n\n    return (\n        not_(eligibilite_dom)\n        * (depassement_mensuel > 0)\n        * max_(0, af - depassement_mensuel)\n        )\n",
       "start_line_number": 235,
       "stop_line_number": 248,
       "variables": [

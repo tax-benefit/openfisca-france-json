@@ -550,8 +550,8 @@
         "accident_travail.rente.taux.capital_representatif"
       ],
       "source_code": "def formula(individu, period, parameters):\n    rente_at = parameters(period).accident_travail.rente.taux\n    demande_rachat = individu('demande_rachat', period)\n    age = min_(max_(individu('age', period), 16), 100)\n    conversion_rente_capital = rente_at.capital_representatif[age]\n    rente_accident_travail_base = individu('rente_accident_travail_base', period)\n    rachat = (rente_accident_travail_base * conversion_rente_capital) / 4\n\n    return rachat * demande_rachat\n",
-      "start_line_number": 130,
-      "stop_line_number": 139,
+      "start_line_number": 131,
+      "stop_line_number": 140,
       "variables": [
         "age",
         "demande_rachat",
@@ -570,7 +570,7 @@
     "rente_accident_travail_exploitant_agricole",
     "rente_accident_travail_salarie"
   ],
-  "start_line_number": 123,
-  "stop_line_number": 139,
+  "start_line_number": 124,
+  "stop_line_number": 140,
   "value_type": "float"
 }

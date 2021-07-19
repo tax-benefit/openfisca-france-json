@@ -941,8 +941,8 @@
         "prestations.minima_sociaux.aah.taux_incapacite"
       ],
       "source_code": "def formula_2002_01_01(individu, period, parameters):\n    law = parameters(period).prestations\n\n    cpltx = law.minima_sociaux.caah.taux_montant_complement_ressources\n    aah_montant = law.minima_sociaux.aah.montant\n\n    aah = individu('aah', period)\n    asi_eligibilite = individu('asi_eligibilite', period)\n    asi = individu('asi', period)\n    benef_asi = (asi_eligibilite * (asi > 0))\n    # montant allocs logement de la famille\n    al = individu.famille('aide_logement_montant', period)\n    taux_incapacite = individu('taux_incapacite', period)\n\n    # TODO: & logement indépendant\n    elig_ancien_caah = (al > 0) * ((aah > 0) | (benef_asi > 0)) * (taux_incapacite >= law.minima_sociaux.aah.taux_incapacite)\n\n    ancien_caah = cpltx * aah_montant * elig_ancien_caah\n    # En fait le taux cpltx perdure jusqu'en 2008\n\n    return ancien_caah\n",
-      "start_line_number": 414,
-      "stop_line_number": 435,
+      "start_line_number": 417,
+      "stop_line_number": 438,
       "variables": [
         "aah",
         "aide_logement_montant",
@@ -2092,8 +2092,8 @@
         "prestations.minima_sociaux.aah.taux_incapacite"
       ],
       "source_code": "def formula_2005_07_01(individu, period, parameters):\n    law = parameters(period).prestations\n\n    garantie_ressources = law.minima_sociaux.caah.garantie_ressources\n    aah_montant = law.minima_sociaux.aah.montant\n\n    aah = individu('aah', period)\n    asi_eligibilite = individu('asi_eligibilite', period)\n    asi = individu('asi', period)\n    benef_asi = (asi_eligibilite * (asi > 0))\n\n    # montant allocs logement de la famille\n    al = individu.famille('aide_logement_montant', period)\n    taux_incapacite = individu('taux_incapacite', period)\n\n    elig_cpl = ((aah > 0) | (benef_asi > 0)) * (taux_incapacite >= law.minima_sociaux.aah.taux_incapacite)\n    # TODO: & logement indépendant & inactif 12 derniers mois\n    # & capa de travail < 5%\n    compl_ress = elig_cpl * max_(garantie_ressources - aah_montant, 0)\n\n    elig_mva = (al > 0) * ((aah > 0) | (benef_asi > 0))\n    # TODO: & logement indépendant & pas de revenus professionnels\n    # propres & capa de travail < 5% & taux d'incapacité >= 80%\n    # TODO: rentrer mva dans paramètres. mva (mensuelle) = 104,77 en 2015, était de 101,80 en 2006, et de 119,72 en 2007\n    mva = 0.0 * elig_mva\n\n    return max_(compl_ress, mva)\n",
-      "start_line_number": 385,
-      "stop_line_number": 412,
+      "start_line_number": 388,
+      "stop_line_number": 415,
       "variables": [
         "aah",
         "aide_logement_montant",
@@ -2400,8 +2400,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
       "source_code": "def formula_2015_07_01(individu, period, parameters):\n    eligibilite_caah = individu('eligibilite_caah', period)\n    complement_ressources_aah = individu('complement_ressources_aah', period)\n    mva = individu('mva', period)\n    return max_(complement_ressources_aah, mva) * eligibilite_caah\n",
-      "start_line_number": 379,
-      "stop_line_number": 384,
+      "start_line_number": 382,
+      "stop_line_number": 387,
       "variables": [
         "complement_ressources_aah",
         "eligibilite_caah",
@@ -2614,8 +2614,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
       "source_code": "def formula_2019_12_01(individu, period, parameters):\n    eligibilite_caah = individu('eligibilite_caah', period)\n    mva = individu('mva', period)\n    return mva * eligibilite_caah\n",
-      "start_line_number": 374,
-      "stop_line_number": 378,
+      "start_line_number": 377,
+      "stop_line_number": 381,
       "variables": [
         "eligibilite_caah",
         "mva"
@@ -2630,7 +2630,7 @@
     "rsa_base_ressources_minima_sociaux"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 366,
-  "stop_line_number": 435,
+  "start_line_number": 369,
+  "stop_line_number": 438,
   "value_type": "float"
 }

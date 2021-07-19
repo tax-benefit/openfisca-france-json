@@ -530,8 +530,8 @@
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    nouvelle_bonification_indiciaire = individu('nouvelle_bonification_indiciaire', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n\n    return (\n        public * (\n            traitement_indiciaire_brut + nouvelle_bonification_indiciaire\n            )\n        )\n",
-      "start_line_number": 912,
-      "stop_line_number": 929,
+      "start_line_number": 930,
+      "stop_line_number": 947,
       "variables": [
         "categorie_salarie",
         "nouvelle_bonification_indiciaire",
@@ -548,7 +548,7 @@
     "salaire_imposable",
     "salaire_super_brut_hors_allegements"
   ],
-  "start_line_number": 906,
-  "stop_line_number": 929,
+  "start_line_number": 924,
+  "stop_line_number": 947,
   "value_type": "float"
 }

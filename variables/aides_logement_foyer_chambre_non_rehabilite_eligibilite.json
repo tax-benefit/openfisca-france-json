@@ -510,8 +510,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period):\n    logement_conventionne = famille.demandeur.menage('logement_conventionne', period)\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    etat_logement_foyer = famille.demandeur.menage('etat_logement_foyer', period)\n    logement_chambre = famille.demandeur.menage('logement_chambre', period)\n\n    return (\n        logement_crous\n        * not_(logement_conventionne)\n        * (logement_chambre * (etat_logement_foyer == TypeEtatLogementFoyer.logement_non_rehabilite))\n        )\n",
-      "start_line_number": 326,
-      "stop_line_number": 337
+      "start_line_number": 329,
+      "stop_line_number": 340
     }
   },
   "is_period_size_independent": true,
@@ -520,7 +520,7 @@
   "referring_variables": [
     "aides_logement_foyer_plafond_mensualite"
   ],
-  "start_line_number": 321,
-  "stop_line_number": 337,
+  "start_line_number": 324,
+  "stop_line_number": 340,
   "value_type": "bool"
 }

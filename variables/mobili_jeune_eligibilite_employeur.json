@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/mobili_jeune.py",
+  "file_path": "/openfisca_france/model/prestations/jeunes/mobili_jeune.py",
   "formulas": {
     "2012-07-01": {
       "ast": {
@@ -323,7 +323,7 @@
         "lineno": 1,
         "name": "formula_2012_07"
       },
-      "file_path": "/openfisca_france/model/prestations/mobili_jeune.py",
+      "file_path": "/openfisca_france/model/prestations/jeunes/mobili_jeune.py",
       "source_code": "def formula_2012_07(individu, period):\n    secteur_prive_non_agricole = (\n        individu(\"categorie_salarie\", period) == TypesCategorieSalarie.prive_non_cadre\n        ) * (\n            individu(\"secteur_activite_employeur\", period) == TypesSecteurActivite.non_agricole\n        )\n    contributeur_peec = individu(\"peec_employeur\", period)\n\n    return secteur_prive_non_agricole * contributeur_peec\n",
       "start_line_number": 38,
       "stop_line_number": 47,

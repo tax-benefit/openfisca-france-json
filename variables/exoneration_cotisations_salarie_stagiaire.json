@@ -971,8 +971,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/stage.py",
       "source_code": "def formula(individu, period, parameters):\n    agirc_salarie = individu('agirc_salarie', period)\n    agirc_gmp_salarie = individu('agirc_gmp_salarie', period)\n    arrco_salarie = individu('arrco_salarie', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    stage_gratification_reintegration = individu('stage_gratification_reintegration', period)\n    stagiaire = individu('stagiaire', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    bareme_by_type_sal_name = parameters(period).cotsoc.cotisations_salarie\n    bareme_names = ['agff', 'assedic']\n\n    exoneration = plafond_securite_sociale * 0.0\n    for bareme_name in bareme_names:\n        exoneration += apply_bareme_for_relevant_type_sal(\n            bareme_by_type_sal_name = bareme_by_type_sal_name,\n            bareme_name = bareme_name,\n            categorie_salarie = categorie_salarie,\n            base = stage_gratification_reintegration,\n            plafond_securite_sociale = plafond_securite_sociale,\n            round_base_decimals = 2,\n            )\n    exoneration = exoneration + agirc_salarie + agirc_gmp_salarie + arrco_salarie\n\n    return - exoneration * stagiaire\n",
-      "start_line_number": 100,
-      "stop_line_number": 125,
+      "start_line_number": 102,
+      "stop_line_number": 127,
       "variables": [
         "agirc_gmp_salarie",
         "agirc_salarie",
@@ -993,7 +993,7 @@
   "referring_variables": [
     "cotisations_salariales"
   ],
-  "start_line_number": 93,
-  "stop_line_number": 125,
+  "start_line_number": 95,
+  "stop_line_number": 127,
   "value_type": "float"
 }

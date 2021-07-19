@@ -1230,8 +1230,8 @@
         "impot_revenu.tspr.abatpro.taux"
       ],
       "source_code": "def formula(famille, period, parameters):\n    def eval_forfaitaire_salaries():\n        salaire_imposable_i = famille.members('salaire_imposable', period.offset(-1))\n        salaire_imposable = famille.sum(salaire_imposable_i, role = Famille.PARENT)\n        # Application de l'abattement pour frais professionnels\n        params_abattement = parameters(period).impot_revenu.tspr.abatpro\n        somme_salaires_mois_precedent = 12 * salaire_imposable\n        montant_abattement = round_(\n            min_(\n                max_(params_abattement.taux * somme_salaires_mois_precedent, params_abattement.min),\n                params_abattement.max\n                )\n            )\n        return max_(0, somme_salaires_mois_precedent - montant_abattement)\n\n    def eval_forfaitaire_tns():\n        last_july_first = Instant(\n            (period.start.year if period.start.month >= 7 else period.start.year - 1,\n            7, 1))\n        smic_horaire_brut = parameters(last_july_first).cotsoc.gen.smic_h_b\n        travailleur_non_salarie_i = famille.members('travailleur_non_salarie', period)\n        any_tns = famille.any(travailleur_non_salarie_i)\n        return any_tns * 1500 * smic_horaire_brut\n\n    return max_(eval_forfaitaire_salaries(), eval_forfaitaire_tns())\n",
-      "start_line_number": 490,
-      "stop_line_number": 515,
+      "start_line_number": 493,
+      "stop_line_number": 518,
       "variables": [
         "salaire_imposable",
         "travailleur_non_salarie"
@@ -1244,7 +1244,7 @@
   "referring_variables": [
     "aide_logement_base_ressources"
   ],
-  "start_line_number": 484,
-  "stop_line_number": 515,
+  "start_line_number": 487,
+  "stop_line_number": 518,
   "value_type": "float"
 }

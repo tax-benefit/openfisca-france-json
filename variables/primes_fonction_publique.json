@@ -470,8 +470,8 @@
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    # period = period.first_month\n    categorie_salarie = individu('categorie_salarie', period)\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n\n    return TAUX_DE_PRIME * traitement_indiciaire_brut * public\n",
-      "start_line_number": 768,
-      "stop_line_number": 781,
+      "start_line_number": 786,
+      "stop_line_number": 799,
       "variables": [
         "categorie_salarie",
         "traitement_indiciaire_brut"
@@ -494,7 +494,7 @@
     "salaire_super_brut_hors_allegements"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 760,
-  "stop_line_number": 781,
+  "start_line_number": 778,
+  "stop_line_number": 799,
   "value_type": "float"
 }

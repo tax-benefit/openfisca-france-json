@@ -1757,8 +1757,8 @@
         "prestations.prestations_familiales.paje.prime_naissance.prime_tx"
       ],
       "source_code": "def formula_2004_01_01(famille, period, parameters):\n    '''\n    Prestation d'accueil du jeune enfant - Allocation de naissance\n    '''\n    af_nbenf = famille('af_nbenf', period)\n    base_ressources = famille('prestations_familiales_base_ressources', period)\n    isole = not_(famille('en_couple', period))\n    biactivite = famille('biactivite', period)\n    P = parameters(period).prestations.prestations_familiales\n\n    # Le montant de la PAJE est gelé depuis avril 2013.\n    date_gel_paje = Instant((2013, 4, 1))\n    bmaf = P.af.bmaf if period.start < date_gel_paje else parameters(date_gel_paje).prestations.prestations_familiales.af.bmaf\n    nais_prime = round(100 * P.paje.prime_naissance.prime_tx * bmaf) / 100\n\n    age_en_mois_i = famille.members('age_en_mois', period)\n    # Versée au 7e mois de grossesse dans l'année donc les enfants concernés sont les enfants qui ont -2 mois\n    nb_enfants_7e_mois_grossese = famille.sum(age_en_mois_i == -2, role = Famille.ENFANT)\n\n    nbenf = af_nbenf + nb_enfants_7e_mois_grossese  # On ajoute l'enfant à  naître;\n\n    # Est-ce que ces taux n'ont pas été mis à jour en avril 2014 ?\n    plaf_tx = (\n        (nbenf > 0)\n        + P.paje.base.avant_2014.taux_majoration_2_premiers_enf * min_(nbenf, 2)\n        + P.paje.base.avant_2014.taux_majoration_3eme_enf_et_plus * max_(nbenf - 2, 0)\n        )\n\n    majo = isole | biactivite\n\n    plaf = (\n        P.paje.base.avant_2014.plafond_ressources_0_enf\n        * plaf_tx\n        + (plaf_tx > 0)\n        * P.paje.base.avant_2014.majoration_biact_parent_isoles\n        * majo\n        )\n\n    elig = (base_ressources <= plaf)\n\n    return nais_prime * elig * nb_enfants_7e_mois_grossese\n",
-      "start_line_number": 289,
-      "stop_line_number": 330,
+      "start_line_number": 291,
+      "stop_line_number": 332,
       "variables": [
         "af_nbenf",
         "age_en_mois",
@@ -3668,8 +3668,8 @@
         "prestations.prestations_familiales.paje.prime_naissance.prime_tx"
       ],
       "source_code": "def formula_2015_01_01(famille, period, parameters):\n    '''\n    Prestation d'accueil du jeune enfant - Allocation de naissance\n    Références législatives :git\n    https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000006737121&dateTexte=&categorieLien=cid\n    '''\n    af_nbenf = famille('af_nbenf', period)\n    base_ressources = famille('prestations_familiales_base_ressources', period)\n    isole = not_(famille('en_couple', period))\n    biactivite = famille('biactivite', period)\n    P = parameters(period).prestations.prestations_familiales\n\n    # Le montant de la PAJE est gelé depuis avril 2013.\n    date_gel_paje = Instant((2013, 4, 1))\n    bmaf = P.af.bmaf if period.start < date_gel_paje else parameters(date_gel_paje).prestations.prestations_familiales.af.bmaf\n    prime_naissance = round(100 * P.paje.prime_naissance.prime_tx * bmaf) / 100\n\n    date_naissance_i = famille.members('date_naissance', period)\n\n    # Versée au 2 mois après la grossesse donc les enfants concernés sont les enfants qui ont 2 mois\n    diff_mois_naissance_periode = (date_naissance_i.astype('datetime64[M]') - datetime64(period.start, 'M'))\n    nb_enfants_eligible = famille.sum(diff_mois_naissance_periode.astype('int') == -2, role = Famille.ENFANT)\n\n    nbenf = af_nbenf + nb_enfants_eligible  # On ajoute l'enfant à  naître;\n\n    # Est-ce que ces taux n'ont pas été mis à jour en avril 2014 ?\n    taux_plafond = (\n        (nbenf > 0)\n        + P.paje.base.avant_2014.taux_majoration_2_premiers_enf * min_(nbenf, 2)\n        + P.paje.base.avant_2014.taux_majoration_3eme_enf_et_plus * max_(nbenf - 2, 0)\n        )\n\n    majoration_isole_biactif = isole | biactivite\n\n    plafond_de_ressources = (\n        P.paje.base.avant_2014.plafond_ressources_0_enf\n        * taux_plafond\n        + (taux_plafond > 0)\n        * P.paje.base.avant_2014.majoration_biact_parent_isoles\n        * majoration_isole_biactif\n        )\n\n    eligible_prime_naissance = (base_ressources <= plafond_de_ressources)\n\n    return prime_naissance * eligible_prime_naissance * nb_enfants_eligible\n",
-      "start_line_number": 243,
-      "stop_line_number": 288,
+      "start_line_number": 245,
+      "stop_line_number": 290,
       "variables": [
         "af_nbenf",
         "biactivite",
@@ -5371,8 +5371,8 @@
         "prestations.prestations_familiales.paje.prime_naissance.prime_tx"
       ],
       "source_code": "def formula_2018_04_01(famille, period, parameters):\n    '''\n    Prestation d'accueil du jeune enfant - Allocation de naissance\n    Références législatives :git\n    https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006073189&idArticle=LEGIARTI000006737121&dateTexte=&categorieLien=cid\n    '''\n    af_nbenf = famille('af_nbenf', period)\n    base_ressources = famille('prestations_familiales_base_ressources', period)\n    isole = not_(famille('en_couple', period))\n    biactivite = famille('biactivite', period)\n    P = parameters(period).prestations.prestations_familiales\n\n    bmaf = P.af.bmaf\n    prime_naissance = round(100 * P.paje.prime_naissance.prime_tx * bmaf) / 100\n\n    date_naissance_i = famille.members('date_naissance', period)\n\n    # Versée au 2 mois après la grossesse donc les enfants concernés sont les enfants qui ont 2 mois\n    diff_mois_naissance_periode = (date_naissance_i.astype('datetime64[M]') - datetime64(period.start, 'M'))\n    nb_enfants_eligible = famille.sum(diff_mois_naissance_periode.astype('int') == -2, role = Famille.ENFANT)\n\n    nbenf = af_nbenf + nb_enfants_eligible  # On ajoute l'enfant à  naître;\n\n    # Est-ce que ces taux n'ont pas été mis à jour en avril 2014 ?\n    taux_plafond = (\n        (nbenf > 0)\n        + P.paje.base.apres_2018.taux_majoration_2_premiers_enf * min_(nbenf, 2)\n        + P.paje.base.apres_2018.taux_majoration_3eme_enf_et_plus * max_(nbenf - 2, 0)\n        )\n\n    majoration_isole_biactif = isole | biactivite\n\n    plafond_de_ressources = (\n        P.paje.base.apres_2018.plafond_ressources_0_enf\n        * taux_plafond\n        + (taux_plafond > 0)\n        * P.paje.base.apres_2018.majoration_biact_parent_isoles\n        * majoration_isole_biactif\n        )\n\n    eligible_prime_naissance = (base_ressources <= plafond_de_ressources)\n\n    return prime_naissance * eligible_prime_naissance * nb_enfants_eligible\n",
-      "start_line_number": 199,
-      "stop_line_number": 242,
+      "start_line_number": 201,
+      "stop_line_number": 244,
       "variables": [
         "af_nbenf",
         "biactivite",
@@ -5391,7 +5391,7 @@
   "referring_variables": [
     "paje"
   ],
-  "start_line_number": 191,
-  "stop_line_number": 330,
+  "start_line_number": 193,
+  "stop_line_number": 332,
   "value_type": "float"
 }

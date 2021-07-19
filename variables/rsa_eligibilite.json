@@ -1294,8 +1294,8 @@
         "prestations.minima_sociaux.rsa.rsa_jeune"
       ],
       "source_code": "def formula(famille, period, parameters):\n    rsa_nb_enfants = famille('rsa_nb_enfants', period)\n    rsa_eligibilite_tns = famille('rsa_eligibilite_tns', period)\n    condition_nationalite_i = famille.members('rsa_condition_nationalite', period)\n    condition_nationalite = famille.any(condition_nationalite_i, role = Famille.PARENT)\n    rsa_jeune_condition_heures_travail_remplie_i = famille.members(\"rsa_jeune_condition_heures_travail_remplie\", period)\n    rsa = parameters(period).prestations.minima_sociaux.rsa\n\n    age_i = famille.members('age', period)\n\n    etudiant_i = famille.members('etudiant', period)\n\n    if period.start < periods.period('2009-06').start:\n        # Les jeunes de moins de 25 ans ne sont pas éligibles au RMI\n        rsa_jeune_condition_i = False\n    else:\n        # Les jeunes de moins de 25 ans sont éligibles sous condition d'activité suffisante\n        # à partir de 2010 rendue ici par rsa.rsa_jeune == 1\n        rsa_jeune_condition_i = (\n            (rsa.rsa_jeune == 1)\n            * (age_i > rsa.age_min_rsa_jeune)\n            * (age_i < rsa.age_max_rsa_jeune)\n            * rsa_jeune_condition_heures_travail_remplie_i\n            )\n\n    # rsa_nb_enfants est à valeur pour une famille, il faut le projeter sur les individus avant de faire une opération avec age_i\n    condition_age_i = famille.project(rsa_nb_enfants > 0) + (age_i > rsa.age_pac)\n\n    return (\n        famille.any((condition_age_i | rsa_jeune_condition_i) * not_(etudiant_i), role = Famille.PARENT)\n        * condition_nationalite\n        * rsa_eligibilite_tns\n        )\n",
-      "start_line_number": 644,
-      "stop_line_number": 677,
+      "start_line_number": 645,
+      "stop_line_number": 678,
       "variables": [
         "age",
         "etudiant",
@@ -1313,7 +1313,7 @@
   "referring_variables": [
     "rsa_socle"
   ],
-  "start_line_number": 638,
-  "stop_line_number": 677,
+  "start_line_number": 639,
+  "stop_line_number": 678,
   "value_type": "bool"
 }

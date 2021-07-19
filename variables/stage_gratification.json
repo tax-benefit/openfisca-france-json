@@ -515,8 +515,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/stage.py",
       "source_code": "def formula_2014_11(individu, period, parameters):\n    stage_duree_heures = individu('stage_duree_heures', period)\n    stage_gratification_taux = individu('stage_gratification_taux', period)\n    stagiaire = individu('stagiaire', period)\n    plafond_securite_sociale_horaire = parameters(period).cotsoc.gen.plafond_securite_sociale_horaire\n    stage_gratification_taux_min = parameters(period).cotsoc.stage.taux_gratification_min\n    return stagiaire * plafond_securite_sociale_horaire * stage_duree_heures * max_(\n        stage_gratification_taux, stage_gratification_taux_min)\n",
-      "start_line_number": 25,
-      "stop_line_number": 33,
+      "start_line_number": 27,
+      "stop_line_number": 35,
       "variables": [
         "stage_duree_heures",
         "stage_gratification_taux",
@@ -531,7 +531,7 @@
     "salaire_net_a_payer",
     "stage_gratification_reintegration"
   ],
-  "start_line_number": 19,
-  "stop_line_number": 33,
+  "start_line_number": 21,
+  "stop_line_number": 35,
   "value_type": "float"
 }

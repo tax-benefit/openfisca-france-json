@@ -2290,8 +2290,8 @@
         "prestations.prestations_familiales.af.bmaf"
       ],
       "source_code": "def formula_2003_01_01(famille, period, parameters):\n    '''\n    Allocation d'éducation de l'enfant handicapé (Allocation d'éducation spécialisée avant le 1er janvier 2006)\n    Ce montant peut être majoré par un complément accordé par la Cdaph qui prend en compte :\n    le coût du handicap de l'enfant,\n    la cessation ou la réduction d'activité professionnelle d'un ou l'autre des deux parents,\n    l'embauche d'une tierce personne rémunérée.\n    Une majoration est versée au parent isolé bénéficiaire d'un complément d'Aeeh lorsqu'il cesse ou réduit\n    son activité professionnelle ou lorsqu'il embauche une tierce personne rémunérée.\n    '''\n    janvier = period.this_year.first_month\n    isole = not_(famille('en_couple', janvier))\n    prestations_familiales = parameters(period).prestations.prestations_familiales\n\n    if period.start.year >= 2006:\n        base = prestations_familiales.aeeh.base\n        cpl = prestations_familiales.aeeh.complement_d_allocation\n        maj = prestations_familiales.aeeh.majoration_pour_parent_isole\n    else:\n        base = prestations_familiales.aes.base\n        cpl = prestations_familiales.aes.complement_d_allocation\n        cpl['6e_categorie_1'] = cpl['6e_categorie_2']\n        maj = dict()\n        for categorie in range(2, 7):\n            maj['{}e_categorie'.format(categorie)] = 0\n\n    age = famille.members('age', janvier)\n    handicap = famille.members('handicap', janvier)\n    niveau_handicap = famille.members('aeeh_niveau_handicap', period)\n    # Indicatrice d'isolement pour les indidivus\n    isole = famille.project(isole)\n\n    enfant_handicape = handicap * (age < prestations_familiales.aeeh.age)\n\n    montant_par_enfant = enfant_handicape * (\n        prestations_familiales.af.bmaf * (\n            base\n            + (niveau_handicap == 1) * cpl['1ere_categorie']\n            + (niveau_handicap == 2) * (cpl['1ere_categorie'] + maj['2e_categorie'] * isole)\n            + (niveau_handicap == 3) * (cpl['2e_categorie'] + maj['3e_categorie'] * isole)\n            + (niveau_handicap == 4) * (cpl['3e_categorie'] + maj['4e_categorie'] * isole)\n            + (niveau_handicap == 5) * (cpl['4e_categorie'] + maj['5e_categorie'] * isole)\n            + (niveau_handicap == 6) * (maj['6e_categorie'] * isole)\n            ) + (niveau_handicap == 6) * cpl['6e_categorie_1']\n        ) / 12\n\n    montant_total = famille.sum(montant_par_enfant, role = Famille.ENFANT)\n\n# L'attribution de l'AEEH de base et de ses compléments éventuels ne fait pas obstacle au\n# versement des prestations familiales.\n# L'allocation de présence parentale peut être cumulée avec l'AEEH de base, mais pas avec son\n# complément ni avec la majoration de parent isolé.\n# Tous les éléments de la prestattion de compensation du handicap (PCH) sont également ouverts\n# aux bénéficiaires de l'AEEH de base, sous certaines conditions, mais ce cumul est exclusif du\n# complément de l'AEEH. Les parents d'enfants handicapés doivent donc choisir entre le versement\n# du complément d'AEEH et la PCH.\n\n    # Ces allocations ne sont pas soumis à la CRDS\n    return montant_total\n",
-      "start_line_number": 20,
-      "stop_line_number": 79,
+      "start_line_number": 21,
+      "stop_line_number": 80,
       "variables": [
         "aeeh_niveau_handicap",
         "age",
@@ -2311,7 +2311,7 @@
     "prestations_familiales"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 11,
-  "stop_line_number": 79,
+  "start_line_number": 12,
+  "stop_line_number": 80,
   "value_type": "float"
 }

@@ -738,8 +738,8 @@
         "prestations.minima_sociaux.aspa.taux_incapacite_aspa_anticipe"
       ],
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    inapte_travail = individu('inapte_travail', period)\n    taux_incapacite = individu('taux_incapacite', period)\n    P = parameters(period).prestations.minima_sociaux\n    condition_invalidite = (taux_incapacite > P.aspa.taux_incapacite_aspa_anticipe) + inapte_travail\n    condition_age_base = (age >= P.aspa.age_min)\n    condition_age_anticipe = (age >= P.aah.age_legal_retraite) * condition_invalidite\n    condition_age = condition_age_base + condition_age_anticipe\n    condition_nationalite = individu('asi_aspa_condition_nationalite', period)\n\n    return condition_age * condition_nationalite\n",
-      "start_line_number": 121,
-      "stop_line_number": 133,
+      "start_line_number": 122,
+      "stop_line_number": 134,
       "variables": [
         "age",
         "asi_aspa_condition_nationalite",
@@ -757,7 +757,7 @@
     "asi_aspa_nb_alloc",
     "asi_eligibilite"
   ],
-  "start_line_number": 115,
-  "stop_line_number": 133,
+  "start_line_number": 116,
+  "stop_line_number": 134,
   "value_type": "bool"
 }

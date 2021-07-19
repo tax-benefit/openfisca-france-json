@@ -515,8 +515,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(individu, period, parameters):\n    retraite_n_2 = individu('retraite_imposable', period.n_2, options = [ADD])\n    activite = individu('activite', period)\n    retraite = activite == TypesActivite.retraite\n    condition_abattement = (retraite_n_2 == 0) * retraite\n    revenus_activite_pro = individu('revenu_assimile_salaire_apres_abattements', period.n_2)\n\n    abattement = condition_abattement * 0.3 * revenus_activite_pro\n\n    return abattement\n",
-      "start_line_number": 733,
-      "stop_line_number": 743,
+      "start_line_number": 736,
+      "stop_line_number": 746,
       "variables": [
         "activite",
         "retraite_imposable",
@@ -845,8 +845,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula_2021_01_01(individu, period, parameters):\n    activite = individu('activite', period)\n    condition_retraite = activite == TypesActivite.retraite\n\n    revenus_activite_pro = individu('al_revenu_assimile_salaire_apres_abattements', period)\n\n    abattement = condition_retraite * 0.3 * revenus_activite_pro\n\n    return abattement\n",
-      "start_line_number": 723,
-      "stop_line_number": 732,
+      "start_line_number": 726,
+      "stop_line_number": 735,
       "variables": [
         "activite",
         "al_revenu_assimile_salaire_apres_abattements"
@@ -863,7 +863,7 @@
     "aide_logement_base_ressources",
     "aide_logement_base_ressources_defaut"
   ],
-  "start_line_number": 715,
-  "stop_line_number": 743,
+  "start_line_number": 718,
+  "stop_line_number": 746,
   "value_type": "float"
 }

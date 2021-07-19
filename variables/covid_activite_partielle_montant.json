@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/covid19.py",
+  "file_path": "/openfisca_france/model/covid19/activite.py",
   "formulas": {
     "2020-03-01": {
       "ast": {
@@ -507,14 +507,14 @@
         "name": "formula_2020_03"
       },
       "documentation": "\nIl s'agit de l'indemnité et pas de l'allocation (somme que doit verser l'entreprise au salarié et pas la somme que l'Etat verse à l'entreprise.\n",
-      "file_path": "/openfisca_france/model/covid19.py",
+      "file_path": "/openfisca_france/model/covid19/activite.py",
       "parameters": [
         "covid19.indemnite_ap.plancher",
         "covid19.indemnite_ap.taux"
       ],
       "source_code": "def formula_2020_03(individu, period, parameters):\n    '''\n    Il s'agit de l'indemnité et pas de l'allocation (somme que doit verser l'entreprise au salarié et pas la somme que l'Etat verse à l'entreprise.\n    '''\n    eligibilite_activite_partielle = individu('covid_activite_partielle_eligible', period)\n    heures = individu('heures_remunerees_volume', period)\n    salaire_horaire = individu('salaire_de_base', period) / heures\n    indemnite_ap = parameters(period).covid19.indemnite_ap\n    indemnite_horaire = max(\n        indemnite_ap.taux * salaire_horaire,\n        indemnite_ap.plancher\n        )\n    return eligibilite_activite_partielle * indemnite_horaire * heures\n",
-      "start_line_number": 112,
-      "stop_line_number": 125,
+      "start_line_number": 64,
+      "stop_line_number": 77,
       "variables": [
         "covid_activite_partielle_eligible",
         "heures_remunerees_volume",
@@ -529,7 +529,7 @@
     "Ordonnance n° 2020-346 du 27 mars 2020 portant mesures d'urgence en matière d'activité partielle",
     "https://www.legifrance.gouv.fr/eli/ordonnance/2020/3/27/MTRX2008381R/jo/texte"
   ],
-  "start_line_number": 102,
-  "stop_line_number": 125,
+  "start_line_number": 54,
+  "stop_line_number": 77,
   "value_type": "float"
 }

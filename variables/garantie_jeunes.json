@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/garantie_jeunes.py",
+  "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -290,7 +290,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/garantie_jeunes.py",
+      "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
       "source_code": "def formula(individu, period, parameters):\n    montant = individu('garantie_jeunes_max', period)\n    neet = individu('garantie_jeunes_neet', period)\n    age_ok = individu('garantie_jeunes_eligibilite_age', period)\n\n    return neet * age_ok * montant\n",
       "start_line_number": 63,
       "stop_line_number": 69,
@@ -304,6 +304,9 @@
   "json_type": "number",
   "label": "Montant de la Garantie Jeune",
   "name": "garantie_jeunes",
+  "referring_variables": [
+    "aide_jeunes_diplomes_anciens_boursiers_eligibilite"
+  ],
   "start_line_number": 57,
   "stop_line_number": 69,
   "value_type": "float"

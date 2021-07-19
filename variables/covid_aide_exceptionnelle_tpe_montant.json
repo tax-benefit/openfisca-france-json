@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/covid19.py",
+  "file_path": "/openfisca_france/model/covid19/activite.py",
   "formulas": {
     "2020-03-01": {
       "ast": {
@@ -753,7 +753,7 @@
         "lineno": 1,
         "name": "formula_2020_03"
       },
-      "file_path": "/openfisca_france/model/covid19.py",
+      "file_path": "/openfisca_france/model/covid19/activite.py",
       "source_code": "def formula_2020_03(individu, period, parameters):\n    eligibilite_fse = individu('covid_aide_exceptionnelle_tpe_eligible', period)\n    plafond_fse = parameters(period).covid19.aide_exceptionnelle_tpe.plafond\n    chiffre_d_affaire = individu('tns_auto_entrepreneur_chiffre_affaires', period)\n    period_1 = period.offset(-1, 'year')\n    chiffre_d_affaire_annee_mois_un_an_avant = individu('tns_auto_entrepreneur_chiffre_affaires', period_1)\n    chiffre_d_affaire_annee_moyenne_annee_precedente = individu('tns_auto_entrepreneur_chiffre_affaires', period.last_year, options = [ADD]) / 12\n    chiffre_d_affaire_annee_n_1 = max_(chiffre_d_affaire_annee_mois_un_an_avant, chiffre_d_affaire_annee_moyenne_annee_precedente)\n    difference_chiffre_d_affaire = chiffre_d_affaire - chiffre_d_affaire_annee_n_1\n    return eligibilite_fse * (difference_chiffre_d_affaire < 0) * min_(plafond_fse, -difference_chiffre_d_affaire)\n",
       "start_line_number": 32,
       "stop_line_number": 42,

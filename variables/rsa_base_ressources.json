@@ -358,8 +358,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(famille, period):\n    rsa_base_ressources_prestations_familiales = famille('rsa_base_ressources_prestations_familiales', period)\n    rsa_base_ressources_minima_sociaux = famille('rsa_base_ressources_minima_sociaux', period)\n\n    rsa_base_ressources_i = famille.members('rsa_base_ressources_individu', period)\n    rsa_base_ressources_i_total = famille.sum(rsa_base_ressources_i)\n\n    return (\n        rsa_base_ressources_prestations_familiales\n        + rsa_base_ressources_minima_sociaux\n        + rsa_base_ressources_i_total\n        )\n",
-      "start_line_number": 42,
-      "stop_line_number": 54,
+      "start_line_number": 43,
+      "stop_line_number": 55,
       "variables": [
         "rsa_base_ressources_individu",
         "rsa_base_ressources_minima_sociaux",
@@ -985,8 +985,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2009_06_01(famille, period):\n    rsa_base_ressources_prestations_familiales = famille('rsa_base_ressources_prestations_familiales', period)\n    rsa_base_ressources_minima_sociaux = famille('rsa_base_ressources_minima_sociaux', period)\n\n    enfant_i = famille.members('est_enfant_dans_famille', period)\n    rsa_enfant_a_charge_i = famille.members('rsa_enfant_a_charge', period)\n\n    ressources_individuelles_i = (\n        famille.members('rsa_base_ressources_individu', period)\n        + famille.members('rsa_revenu_activite_individu', period)\n        )\n\n    ressources_individuelles = famille.sum((not_(enfant_i) + rsa_enfant_a_charge_i) * ressources_individuelles_i)\n\n    return (\n        rsa_base_ressources_prestations_familiales\n        + rsa_base_ressources_minima_sociaux\n        + ressources_individuelles\n        )\n",
-      "start_line_number": 22,
-      "stop_line_number": 41,
+      "start_line_number": 23,
+      "stop_line_number": 42,
       "variables": [
         "est_enfant_dans_famille",
         "rsa_base_ressources_individu",
@@ -1008,7 +1008,7 @@
     "rsa_activite",
     "rsa_montant"
   ],
-  "start_line_number": 16,
-  "stop_line_number": 54,
+  "start_line_number": 17,
+  "stop_line_number": 55,
   "value_type": "float"
 }

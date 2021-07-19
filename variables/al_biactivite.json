@@ -689,8 +689,8 @@
         "prestations.prestations_familiales.af.bmaf"
       ],
       "source_code": "def formula(famille, period, parameters):\n    '''\n    Hypothèses/points à éclaircir :\n       (1) A partir d'une certaine date sont apparemment pris en compte\n           dans les \"revenus professinnels\" les indemnités journalières.\n           Cf. circulaire interministérielle DSS/2B n°2011-447 du 01/12/2011\n           Regarder davantage ce point\n       (2) On n'a pas pris en compte les abbattements présents dans la\n           variable abattement_salaires_pensions, car il s'agit d'une\n           variable dépendant conjointement des salaires et des pensions\n           (or, les pensions ne doivent pas être pris en compte ici, et\n           cette variable ne peut pas être décomposée entre une part salaire et\n           une part pensions). Mais cette variable n'existe que jusqu'à 2005\n           inclus.\n    '''\n    annee_fiscale_n_1 = period.start.period('year').offset(-1)\n\n    pfam = parameters(annee_fiscale_n_1).prestations.prestations_familiales\n    base_annuelle_allocations_famililales = 12 * pfam.af.bmaf\n\n    condition_ressource = (\n        famille.members('rpns_individu', annee_fiscale_n_1)\n        + famille.members('revenu_assimile_salaire_apres_abattements', annee_fiscale_n_1)\n        >= base_annuelle_allocations_famililales\n        )\n    deux_parents = famille.nb_persons(role=Famille.PARENT) == 2\n\n    return deux_parents * famille.all(condition_ressource, role=Famille.PARENT)\n",
-      "start_line_number": 557,
-      "stop_line_number": 585,
+      "start_line_number": 560,
+      "stop_line_number": 588,
       "variables": [
         "revenu_assimile_salaire_apres_abattements",
         "rpns_individu"
@@ -704,7 +704,7 @@
   "referring_variables": [
     "aide_logement_base_ressources"
   ],
-  "start_line_number": 551,
-  "stop_line_number": 585,
+  "start_line_number": 554,
+  "stop_line_number": 588,
   "value_type": "bool"
 }

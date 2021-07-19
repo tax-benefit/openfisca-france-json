@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/covid19.py",
+  "file_path": "/openfisca_france/model/covid19/familles.py",
   "formulas": {
     "2020-05-01": {
       "ast": {
@@ -3210,15 +3210,15 @@
         "lineno": 1,
         "name": "formula_2020_05"
       },
-      "file_path": "/openfisca_france/model/covid19.py",
+      "file_path": "/openfisca_france/model/covid19/familles.py",
       "parameters": [
         "covid19.aide_exceptionnelle_famille.base",
         "covid19.aide_exceptionnelle_famille.base_jeune",
         "covid19.aide_exceptionnelle_famille.par_enfant"
       ],
       "source_code": "def formula_2020_05(famille, period, parameters):\n\n    montants = parameters(period).covid19.aide_exceptionnelle_famille\n    rsa = famille('rsa', period) > 0\n    ass = famille.sum(famille.members('ass', period)) > 0\n    al = famille('aide_logement', period) > 0\n    af_nbenf = famille('af_nbenf', period)\n    aer = famille.sum(famille.members('aer', period)) > 0\n    prim_forf = famille.sum(famille.members('prime_forfaitaire_mensuelle_reprise_activite', period)) > 0\n    age_i = famille.members('age', period)\n    etudiant_i = famille.members('etudiant', period)\n    moins_de_25_ans_non_etudiant = famille.any((age_i <= 24) * (etudiant_i == 0), role = Famille.PARENT)\n    base_jeune = moins_de_25_ans_non_etudiant * al\n    base = (rsa + ass + aer + prim_forf)\n    montant = (\n        base_jeune * (montants.base_jeune + montants.par_enfant * af_nbenf)\n        + base * not_(base_jeune) * (montants.base + montants.par_enfant * af_nbenf)\n        + not_(base) * not_(base_jeune) * al * af_nbenf * montants.par_enfant\n        )\n\n    period_1 = period.offset(-1, 'month')\n    rsa_n_1 = famille('rsa', period_1) > 0\n    ass_n_1 = famille.sum(famille.members('ass', period_1)) > 0\n    al_n_1 = famille('aide_logement', period_1) > 0\n    af_nbenf_n_1 = famille('af_nbenf', period_1) > 0\n    aer_n_1 = famille.sum(famille.members('aer', period_1)) > 0\n    prim_forf_n_1 = famille.sum(famille.members('prime_forfaitaire_mensuelle_reprise_activite', period_1)) > 0\n    age_i_n_1 = famille.members('age', period_1)\n    etudiant_i_n_1 = famille.members('etudiant', period_1)\n    moins_de_25_ans_non_etudiant_n_1 = famille.any((age_i_n_1 <= 24) * (etudiant_i_n_1 == 0), role = Famille.PARENT)\n    base_jeune_n_1 = moins_de_25_ans_non_etudiant_n_1 * al_n_1\n    base_n_1 = (rsa_n_1 + ass_n_1 + aer_n_1 + prim_forf_n_1)\n    montant_n_1 = (\n        base_jeune_n_1 * (montants.base_jeune + montants.par_enfant * af_nbenf_n_1)\n        + base_n_1 * not_(base_jeune_n_1) * (montants.base + montants.par_enfant * af_nbenf_n_1)\n        + not_(base_n_1) * not_(base_jeune_n_1) * al_n_1 * af_nbenf_n_1 * montants.par_enfant\n        )\n\n    return max_(montant, montant_n_1)\n",
-      "start_line_number": 51,
-      "stop_line_number": 90,
+      "start_line_number": 12,
+      "stop_line_number": 51,
       "variables": [
         "aer",
         "af_nbenf",
@@ -3235,10 +3235,13 @@
   "json_type": "number",
   "label": "Montant de l'aide exceptionnelle pour les familles pendant la crise sanitaire dûe au COVID-19",
   "name": "covid_aide_exceptionnelle_famille_montant",
+  "reference": [
+    "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042574431"
+  ],
   "referring_variables": [
     "prestations_sociales"
   ],
-  "start_line_number": 44,
-  "stop_line_number": 90,
+  "start_line_number": 4,
+  "stop_line_number": 51,
   "value_type": "float"
 }
