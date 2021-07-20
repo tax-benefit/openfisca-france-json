@@ -3082,6 +3082,7 @@
       "aides_logement",
       "cmu_forfait_logement_al",
       "covid_aide_exceptionnelle_famille_montant",
+      "mobili_jeune",
       "ppa_forfait_logement",
       "psa",
       "rsa_forfait_logement"
@@ -6255,8 +6256,7 @@
       "http://vosdroits.service-public.fr/particuliers/F12006.xhtml"
     ],
     "referring_variables": [
-      "aide_logement",
-      "mobili_jeune"
+      "aide_logement"
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 36,
@@ -40083,11 +40083,11 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
-        "start_line_number": 63,
-        "stop_line_number": 69,
+        "start_line_number": 100,
+        "stop_line_number": 105,
         "variables": [
           "garantie_jeunes_eligibilite_age",
-          "garantie_jeunes_max",
+          "garantie_jeunes_montant",
           "garantie_jeunes_neet"
         ]
       }
@@ -40095,11 +40095,15 @@
     "json_type": "number",
     "label": "Montant de la Garantie Jeune",
     "name": "garantie_jeunes",
+    "reference": [
+      "https://travail-emploi.gouv.fr/emploi/mesures-jeunes/garantiejeunes/",
+      "https://www.service-public.fr/particuliers/vosdroits/F32700"
+    ],
     "referring_variables": [
       "aide_jeunes_diplomes_anciens_boursiers_eligibilite"
     ],
-    "start_line_number": 57,
-    "stop_line_number": 69,
+    "start_line_number": 93,
+    "stop_line_number": 105,
     "value_type": "float"
   },
   "garantie_jeunes_eligibilite_age": {
@@ -40115,8 +40119,8 @@
           "prestations.garantie_jeunes.critere_age.age.maximum",
           "prestations.garantie_jeunes.critere_age.age.minimum"
         ],
-        "start_line_number": 50,
-        "stop_line_number": 55,
+        "start_line_number": 86,
+        "stop_line_number": 91,
         "variables": [
           "age"
         ]
@@ -40129,8 +40133,8 @@
     "referring_variables": [
       "garantie_jeunes"
     ],
-    "start_line_number": 44,
-    "stop_line_number": 55,
+    "start_line_number": 80,
+    "stop_line_number": 91,
     "value_type": "bool"
   },
   "garantie_jeunes_max": {
@@ -40142,8 +40146,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
-        "start_line_number": 36,
-        "stop_line_number": 42
+        "start_line_number": 34,
+        "stop_line_number": 39
       }
     },
     "json_type": "number",
@@ -40154,10 +40158,45 @@
       "https://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=DED54A598193DDE1DF59E0AE16BDE87D.tplgfr21s_3?idArticle=LEGIARTI000033709227&cidTexte=LEGITEXT000006072050"
     ],
     "referring_variables": [
+      "garantie_jeunes_montant"
+    ],
+    "start_line_number": 24,
+    "stop_line_number": 39,
+    "value_type": "float"
+  },
+  "garantie_jeunes_montant": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
+    "formulas": {
+      "0001-01-01": {
+        "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
+        "parameters": [
+          "cotsoc.gen.nb_heure_travail_mensuel",
+          "cotsoc.gen.smic_h_b",
+          "prestations.garantie_jeunes.degressivite.plafond_en_pourcentage_du_smic_brut"
+        ],
+        "start_line_number": 51,
+        "stop_line_number": 78,
+        "variables": [
+          "garantie_jeunes_max"
+        ]
+      }
+    },
+    "json_type": "number",
+    "label": "Montant maximal de l'allocation Garantie Jeune",
+    "name": "garantie_jeunes_montant",
+    "reference": [
+      "https://travail-emploi.gouv.fr/emploi/mesures-jeunes/garantiejeunes/",
+      "https://www.service-public.fr/particuliers/vosdroits/F32700"
+    ],
+    "referring_variables": [
       "garantie_jeunes"
     ],
-    "start_line_number": 26,
-    "stop_line_number": 42,
+    "start_line_number": 41,
+    "stop_line_number": 78,
     "value_type": "float"
   },
   "garantie_jeunes_neet": {
@@ -40169,14 +40208,13 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
-        "start_line_number": 12,
-        "stop_line_number": 24,
+        "start_line_number": 11,
+        "stop_line_number": 22,
         "variables": [
           "activite",
           "indemnites_stage",
           "revenus_stage_formation_pro",
-          "salaire_net",
-          "scolarite"
+          "salaire_net"
         ]
       }
     },
@@ -40190,8 +40228,8 @@
     "referring_variables": [
       "garantie_jeunes"
     ],
-    "start_line_number": 5,
-    "stop_line_number": 24,
+    "start_line_number": 4,
+    "stop_line_number": 22,
     "value_type": "bool"
   },
   "garantie_pret_etudiant_condition_nationalite": {
@@ -45560,7 +45598,7 @@
         "start_line_number": 15,
         "stop_line_number": 29,
         "variables": [
-          "apl",
+          "aide_logement",
           "charges_locatives",
           "loyer",
           "mobili_jeune_eligibilite"
@@ -58133,7 +58171,6 @@
       "bourse_criteres_sociaux_eligibilite_etude",
       "bourse_lycee",
       "crous_repas_un_euro_eligibilite",
-      "garantie_jeunes_neet",
       "garantie_pret_etudiant_eligibilite",
       "seances_sante_psy_etudiant"
     ],

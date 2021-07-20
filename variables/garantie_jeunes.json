@@ -45,7 +45,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 53,
+            "end_col_offset": 57,
             "end_lineno": 2,
             "lineno": 2,
             "targets": [
@@ -66,18 +66,18 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 23,
-                  "end_col_offset": 44,
+                  "end_col_offset": 48,
                   "end_lineno": 2,
                   "lineno": 2,
-                  "value": "garantie_jeunes_max"
+                  "value": "garantie_jeunes_montant"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 46,
+                  "col_offset": 50,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 52,
+                  "end_col_offset": 56,
                   "end_lineno": 2,
                   "id": "period",
                   "lineno": 2
@@ -85,7 +85,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 14,
-              "end_col_offset": 53,
+              "end_col_offset": 57,
               "end_lineno": 2,
               "func": {
                 "ast_class": "Name",
@@ -226,59 +226,59 @@
             "ast_class": "Return",
             "col_offset": 4,
             "end_col_offset": 34,
-            "end_lineno": 6,
-            "lineno": 6,
+            "end_lineno": 5,
+            "lineno": 5,
             "value": {
               "ast_class": "BinOp",
               "col_offset": 11,
               "end_col_offset": 34,
-              "end_lineno": 6,
+              "end_lineno": 5,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 11,
-                "end_col_offset": 24,
-                "end_lineno": 6,
+                "end_col_offset": 25,
+                "end_lineno": 5,
                 "left": {
                   "ast_class": "Name",
                   "col_offset": 11,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 15,
-                  "end_lineno": 6,
-                  "id": "neet",
-                  "lineno": 6
+                  "end_col_offset": 18,
+                  "end_lineno": 5,
+                  "id": "montant",
+                  "lineno": 5
                 },
-                "lineno": 6,
+                "lineno": 5,
                 "op": {
                   "ast_class": "Mult"
                 },
                 "right": {
                   "ast_class": "Name",
-                  "col_offset": 18,
+                  "col_offset": 21,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 24,
-                  "end_lineno": 6,
-                  "id": "age_ok",
-                  "lineno": 6
+                  "end_col_offset": 25,
+                  "end_lineno": 5,
+                  "id": "neet",
+                  "lineno": 5
                 }
               },
-              "lineno": 6,
+              "lineno": 5,
               "op": {
                 "ast_class": "Mult"
               },
               "right": {
                 "ast_class": "Name",
-                "col_offset": 27,
+                "col_offset": 28,
                 "ctx": {
                   "ast_class": "Load"
                 },
                 "end_col_offset": 34,
-                "end_lineno": 6,
-                "id": "montant",
-                "lineno": 6
+                "end_lineno": 5,
+                "id": "age_ok",
+                "lineno": 5
               }
             }
           }
@@ -286,17 +286,17 @@
         "col_offset": 0,
         "decorator_list": [],
         "end_col_offset": 34,
-        "end_lineno": 6,
+        "end_lineno": 5,
         "lineno": 1,
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
-      "source_code": "def formula(individu, period, parameters):\n    montant = individu('garantie_jeunes_max', period)\n    neet = individu('garantie_jeunes_neet', period)\n    age_ok = individu('garantie_jeunes_eligibilite_age', period)\n\n    return neet * age_ok * montant\n",
-      "start_line_number": 63,
-      "stop_line_number": 69,
+      "source_code": "def formula(individu, period, parameters):\n    montant = individu('garantie_jeunes_montant', period)\n    neet = individu('garantie_jeunes_neet', period)\n    age_ok = individu('garantie_jeunes_eligibilite_age', period)\n    return montant * neet * age_ok\n",
+      "start_line_number": 100,
+      "stop_line_number": 105,
       "variables": [
         "garantie_jeunes_eligibilite_age",
-        "garantie_jeunes_max",
+        "garantie_jeunes_montant",
         "garantie_jeunes_neet"
       ]
     }
@@ -304,10 +304,14 @@
   "json_type": "number",
   "label": "Montant de la Garantie Jeune",
   "name": "garantie_jeunes",
+  "reference": [
+    "https://travail-emploi.gouv.fr/emploi/mesures-jeunes/garantiejeunes/",
+    "https://www.service-public.fr/particuliers/vosdroits/F32700"
+  ],
   "referring_variables": [
     "aide_jeunes_diplomes_anciens_boursiers_eligibilite"
   ],
-  "start_line_number": 57,
-  "stop_line_number": 69,
+  "start_line_number": 93,
+  "stop_line_number": 105,
   "value_type": "float"
 }
