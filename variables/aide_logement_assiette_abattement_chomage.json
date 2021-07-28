@@ -45,7 +45,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 54,
+            "end_col_offset": 65,
             "end_lineno": 2,
             "lineno": 2,
             "targets": [
@@ -66,28 +66,28 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 35,
-                  "end_col_offset": 41,
+                  "end_col_offset": 52,
                   "end_lineno": 2,
                   "lineno": 2,
-                  "value": "rpns"
+                  "value": "rpns_imposables"
                 },
                 {
                   "ast_class": "Attribute",
                   "attr": "n_2",
-                  "col_offset": 43,
+                  "col_offset": 54,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 53,
+                  "end_col_offset": 64,
                   "end_lineno": 2,
                   "lineno": 2,
                   "value": {
                     "ast_class": "Name",
-                    "col_offset": 43,
+                    "col_offset": 54,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 49,
+                    "end_col_offset": 60,
                     "end_lineno": 2,
                     "id": "period",
                     "lineno": 2
@@ -96,7 +96,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 26,
-              "end_col_offset": 54,
+              "end_col_offset": 65,
               "end_lineno": 2,
               "func": {
                 "ast_class": "Name",
@@ -919,13 +919,13 @@
         "impot_revenu.tspr.abatpro.min2",
         "impot_revenu.tspr.abatpro.taux"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    revenus_non_salarie = individu('rpns', period.n_2)\n    revenu_salarie = individu('salaire_imposable', period.n_2, options = [ADD])\n    chomeur_longue_duree = individu('chomeur_longue_duree', period.n_2)\n    frais_reels = individu('frais_reels', period.n_2)\n    abatpro = parameters(period).impot_revenu.tspr.abatpro\n\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abattement_forfaitaire = round_(min_(max_(abatpro.taux * revenu_salarie, abattement_minimum), abatpro.max))\n    revenus_salarie_apres_abattement = where(\n        frais_reels > 0,\n        revenu_salarie - frais_reels,\n        max_(0, revenu_salarie - abattement_forfaitaire)\n        )\n\n    return revenus_non_salarie + revenus_salarie_apres_abattement\n",
+      "source_code": "def formula(individu, period, parameters):\n    revenus_non_salarie = individu('rpns_imposables', period.n_2)\n    revenu_salarie = individu('salaire_imposable', period.n_2, options = [ADD])\n    chomeur_longue_duree = individu('chomeur_longue_duree', period.n_2)\n    frais_reels = individu('frais_reels', period.n_2)\n    abatpro = parameters(period).impot_revenu.tspr.abatpro\n\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abattement_forfaitaire = round_(min_(max_(abatpro.taux * revenu_salarie, abattement_minimum), abatpro.max))\n    revenus_salarie_apres_abattement = where(\n        frais_reels > 0,\n        revenu_salarie - frais_reels,\n        max_(0, revenu_salarie - abattement_forfaitaire)\n        )\n\n    return revenus_non_salarie + revenus_salarie_apres_abattement\n",
       "start_line_number": 671,
       "stop_line_number": 687,
       "variables": [
         "chomeur_longue_duree",
         "frais_reels",
-        "rpns",
+        "rpns_imposables",
         "salaire_imposable"
       ]
     },
@@ -1126,7 +1126,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 54,
+            "end_col_offset": 65,
             "end_lineno": 5,
             "lineno": 5,
             "targets": [
@@ -1147,28 +1147,28 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 35,
-                  "end_col_offset": 41,
+                  "end_col_offset": 52,
                   "end_lineno": 5,
                   "lineno": 5,
-                  "value": "rpns"
+                  "value": "rpns_imposables"
                 },
                 {
                   "ast_class": "Attribute",
                   "attr": "n_2",
-                  "col_offset": 43,
+                  "col_offset": 54,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 53,
+                  "end_col_offset": 64,
                   "end_lineno": 5,
                   "lineno": 5,
                   "value": {
                     "ast_class": "Name",
-                    "col_offset": 43,
+                    "col_offset": 54,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 49,
+                    "end_col_offset": 60,
                     "end_lineno": 5,
                     "id": "period",
                     "lineno": 5
@@ -1177,7 +1177,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 26,
-              "end_col_offset": 54,
+              "end_col_offset": 65,
               "end_lineno": 5,
               "func": {
                 "ast_class": "Name",
@@ -2000,13 +2000,13 @@
         "impot_revenu.tspr.abatpro.min2",
         "impot_revenu.tspr.abatpro.taux"
       ],
-      "source_code": "def formula_2021_01_01(individu, period, parameters):\n    # Rolling year\n    annee_glissante = period.start.period('year').offset(-1).offset(-1, 'month')\n\n    revenus_non_salarie = individu('rpns', period.n_2)\n    revenu_salarie = individu('salaire_imposable', annee_glissante, options = [ADD])\n    chomeur_longue_duree = individu('chomeur_longue_duree', period.n_2)\n    frais_reels = individu('frais_reels', period.last_year)\n    abatpro = parameters(period.last_year).impot_revenu.tspr.abatpro\n\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abattement_forfaitaire = round_(min_(max_(abatpro.taux * revenu_salarie, abattement_minimum), abatpro.max))\n    revenus_salarie_apres_abattement = where(\n        frais_reels > 0,\n        revenu_salarie - frais_reels,\n        max_(0, revenu_salarie - abattement_forfaitaire)\n        )\n\n    return revenus_non_salarie + revenus_salarie_apres_abattement\n",
+      "source_code": "def formula_2021_01_01(individu, period, parameters):\n    # Rolling year\n    annee_glissante = period.start.period('year').offset(-1).offset(-1, 'month')\n\n    revenus_non_salarie = individu('rpns_imposables', period.n_2)\n    revenu_salarie = individu('salaire_imposable', annee_glissante, options = [ADD])\n    chomeur_longue_duree = individu('chomeur_longue_duree', period.n_2)\n    frais_reels = individu('frais_reels', period.last_year)\n    abatpro = parameters(period.last_year).impot_revenu.tspr.abatpro\n\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abattement_forfaitaire = round_(min_(max_(abatpro.taux * revenu_salarie, abattement_minimum), abatpro.max))\n    revenus_salarie_apres_abattement = where(\n        frais_reels > 0,\n        revenu_salarie - frais_reels,\n        max_(0, revenu_salarie - abattement_forfaitaire)\n        )\n\n    return revenus_non_salarie + revenus_salarie_apres_abattement\n",
       "start_line_number": 651,
       "stop_line_number": 670,
       "variables": [
         "chomeur_longue_duree",
         "frais_reels",
-        "rpns",
+        "rpns_imposables",
         "salaire_imposable"
       ]
     }

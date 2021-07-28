@@ -228,7 +228,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 72,
+            "end_col_offset": 115,
             "end_lineno": 13,
             "lineno": 13,
             "targets": [
@@ -251,81 +251,70 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 72,
+              "end_col_offset": 115,
               "end_lineno": 13,
               "lineno": 13,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "construction_node",
+                "attr": "construction",
                 "col_offset": 12,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 66,
+                "end_col_offset": 109,
                 "end_lineno": 13,
                 "lineno": 13,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "commun",
+                  "attr": "autres_taxes_participations_assises_salaires",
                   "col_offset": 12,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 48,
+                  "end_col_offset": 96,
                   "end_lineno": 13,
                   "lineno": 13,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "pat",
+                    "attr": "prelevements_sociaux",
                     "col_offset": 12,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 41,
+                    "end_col_offset": 51,
                     "end_lineno": 13,
                     "lineno": 13,
                     "value": {
-                      "ast_class": "Attribute",
-                      "attr": "cotsoc",
-                      "col_offset": 12,
-                      "ctx": {
-                        "ast_class": "Load"
-                      },
-                      "end_col_offset": 37,
-                      "end_lineno": 13,
-                      "lineno": 13,
-                      "value": {
-                        "args": [
-                          {
-                            "ast_class": "Name",
-                            "col_offset": 23,
-                            "ctx": {
-                              "ast_class": "Load"
-                            },
-                            "end_col_offset": 29,
-                            "end_lineno": 13,
-                            "id": "period",
-                            "lineno": 13
-                          }
-                        ],
-                        "ast_class": "Call",
-                        "col_offset": 12,
-                        "end_col_offset": 30,
-                        "end_lineno": 13,
-                        "func": {
+                      "args": [
+                        {
                           "ast_class": "Name",
-                          "col_offset": 12,
+                          "col_offset": 23,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 22,
+                          "end_col_offset": 29,
                           "end_lineno": 13,
-                          "id": "parameters",
+                          "id": "period",
                           "lineno": 13
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 12,
+                      "end_col_offset": 30,
+                      "end_lineno": 13,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 12,
+                        "ctx": {
+                          "ast_class": "Load"
                         },
-                        "keywords": [],
+                        "end_col_offset": 22,
+                        "end_lineno": 13,
+                        "id": "parameters",
                         "lineno": 13
-                      }
+                      },
+                      "keywords": [],
+                      "lineno": 13
                     }
                   }
                 }
@@ -436,7 +425,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
-      "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    bareme = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'construction',\n        variable_name = 'participation_effort_construction',\n        )\n\n    seuil = parameters(period).cotsoc.pat.commun.construction_node.seuil\n    cotisation = bareme * (effectif_entreprise >= seuil)\n\n    return cotisation\n",
+      "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    bareme = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'construction',\n        variable_name = 'participation_effort_construction',\n        )\n\n    seuil = parameters(period).prelevements_sociaux.autres_taxes_participations_assises_salaires.construction.seuil\n    cotisation = bareme * (effectif_entreprise >= seuil)\n\n    return cotisation\n",
       "start_line_number": 295,
       "stop_line_number": 311,
       "variables": [

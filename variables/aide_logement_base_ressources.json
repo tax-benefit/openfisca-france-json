@@ -3119,8 +3119,8 @@
         "prestations.aides_logement.ressources.dar_5"
       ],
       "source_code": "def formula(famille, period, parameters):\n    mois_precedent = period.offset(-1)\n    last_day_reference_year = period.n_2.stop\n    base_ressources_defaut = famille('aide_logement_base_ressources_defaut', period)\n    base_ressources_eval_forfaitaire = famille(\n        'aide_logement_base_ressources_eval_forfaitaire', period)\n    en_couple = famille('en_couple', period)\n\n    aah_i = famille.members('aah', mois_precedent)\n    aah = famille.sum(aah_i, role = Famille.PARENT)\n\n    age_demandeur = famille.demandeur('age', period)\n    age_conjoint = famille.conjoint('age', period)\n    smic_horaire_brut_n2 = parameters(last_day_reference_year).cotsoc.gen.smic_h_b\n\n    salaire_imposable_i = famille.members('salaire_imposable', period.offset(-1))\n    somme_salaires = famille.sum(salaire_imposable_i, role = Famille.PARENT)\n\n    plafond_eval_forfaitaire = 1015 * smic_horaire_brut_n2\n\n    plafond_salaire_jeune_isole = parameters(period).prestations.aides_logement.ressources.dar_8\n    plafond_salaire_jeune_couple = parameters(period).prestations.aides_logement.ressources.dar_9\n    plafond_salaire_jeune = where(en_couple, plafond_salaire_jeune_couple, plafond_salaire_jeune_isole)\n\n    neutral_jeune = or_(age_demandeur < 25, and_(en_couple, age_conjoint < 25))\n    neutral_jeune &= somme_salaires < plafond_salaire_jeune\n\n    eval_forfaitaire = base_ressources_defaut <= plafond_eval_forfaitaire\n    eval_forfaitaire &= base_ressources_eval_forfaitaire > 0\n    eval_forfaitaire &= aah == 0\n    eval_forfaitaire &= not_(neutral_jeune)\n    ressources = where(eval_forfaitaire, base_ressources_eval_forfaitaire, base_ressources_defaut)\n\n    # Planchers de ressources pour étudiants\n    # Seul le statut étudiant (et boursier) du demandeur importe, pas celui du conjoint\n    Pr = parameters(period).prestations.aides_logement.ressources\n    demandeur_etudiant = famille.demandeur('etudiant', period)\n    demandeur_boursier = famille.demandeur('boursier', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    logement_crous_ou_foyer = (statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer) + logement_crous\n    montant_plancher_ressources = not_(logement_crous_ou_foyer) * max_(0, demandeur_etudiant * Pr.dar_4 - demandeur_boursier * Pr.dar_5)\n    montant_plancher_ressources_logement_foyer = logement_crous_ou_foyer * max_(0, demandeur_etudiant * Pr.dar_11 - demandeur_boursier * Pr.dar_12)\n\n    ressources = max_(ressources, max_(montant_plancher_ressources, montant_plancher_ressources_logement_foyer))\n\n    # Arrondi au centime, pour éviter qu'une petite imprécision liée à la recombinaison d'une valeur annuelle éclatée ne fasse monter d'un cran l'arrondi au 100€ supérieur.\n\n    ressources = round_(ressources * 100) / 100\n\n    # Arrondi aux 100 euros supérieurs\n    ressources = ceil(ressources / 100) * 100\n\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    plancher = famille.demandeur.menage('aides_logement_primo_accedant_ressources', period)\n\n    return where(accedant, max_(ressources, plancher), ressources)\n",
-      "start_line_number": 1155,
-      "stop_line_number": 1212,
+      "start_line_number": 1153,
+      "stop_line_number": 1210,
       "variables": [
         "aah",
         "aide_logement_base_ressources_defaut",
@@ -5493,7 +5493,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 93,
+            "end_col_offset": 94,
             "end_lineno": 48,
             "lineno": 48,
             "targets": [
@@ -5514,28 +5514,28 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 46,
-                  "end_col_offset": 80,
+                  "end_col_offset": 81,
                   "end_lineno": 48,
                   "lineno": 48,
-                  "value": "tns_benefice_exploitant_agricole"
+                  "value": "rpns_benefice_exploitant_agricole"
                 },
                 {
                   "ast_class": "Attribute",
                   "attr": "n_2",
-                  "col_offset": 82,
+                  "col_offset": 83,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 92,
+                  "end_col_offset": 93,
                   "end_lineno": 48,
                   "lineno": 48,
                   "value": {
                     "ast_class": "Name",
-                    "col_offset": 82,
+                    "col_offset": 83,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 88,
+                    "end_col_offset": 89,
                     "end_lineno": 48,
                     "id": "period",
                     "lineno": 48
@@ -5544,7 +5544,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 30,
-              "end_col_offset": 93,
+              "end_col_offset": 94,
               "end_lineno": 48,
               "func": {
                 "ast_class": "Attribute",
@@ -5575,7 +5575,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 98,
+            "end_col_offset": 99,
             "end_lineno": 49,
             "lineno": 49,
             "targets": [
@@ -5596,28 +5596,28 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 54,
-                  "end_col_offset": 85,
+                  "end_col_offset": 86,
                   "end_lineno": 49,
                   "lineno": 49,
-                  "value": "tns_micro_entreprise_benefice"
+                  "value": "rpns_micro_entreprise_benefice"
                 },
                 {
                   "ast_class": "Attribute",
                   "attr": "n_2",
-                  "col_offset": 87,
+                  "col_offset": 88,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 97,
+                  "end_col_offset": 98,
                   "end_lineno": 49,
                   "lineno": 49,
                   "value": {
                     "ast_class": "Name",
-                    "col_offset": 87,
+                    "col_offset": 88,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 93,
+                    "end_col_offset": 94,
                     "end_lineno": 49,
                     "id": "period",
                     "lineno": 49
@@ -5626,7 +5626,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 38,
-              "end_col_offset": 98,
+              "end_col_offset": 99,
               "end_lineno": 49,
               "func": {
                 "ast_class": "Attribute",
@@ -5657,7 +5657,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 115,
+            "end_col_offset": 116,
             "end_lineno": 50,
             "lineno": 50,
             "targets": [
@@ -5678,28 +5678,28 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 55,
-                  "end_col_offset": 87,
+                  "end_col_offset": 88,
                   "end_lineno": 50,
                   "lineno": 50,
-                  "value": "tns_auto_entrepreneur_benefice"
+                  "value": "rpns_auto_entrepreneur_benefice"
                 },
                 {
                   "ast_class": "Attribute",
                   "attr": "n_2",
-                  "col_offset": 89,
+                  "col_offset": 90,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 99,
+                  "end_col_offset": 100,
                   "end_lineno": 50,
                   "lineno": 50,
                   "value": {
                     "ast_class": "Name",
-                    "col_offset": 89,
+                    "col_offset": 90,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 95,
+                    "end_col_offset": 96,
                     "end_lineno": 50,
                     "id": "period",
                     "lineno": 50
@@ -5708,7 +5708,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 39,
-              "end_col_offset": 115,
+              "end_col_offset": 116,
               "end_lineno": 50,
               "func": {
                 "ast_class": "Attribute",
@@ -5736,30 +5736,30 @@
                 {
                   "arg": "options",
                   "ast_class": "keyword",
-                  "col_offset": 101,
-                  "end_col_offset": 114,
+                  "col_offset": 102,
+                  "end_col_offset": 115,
                   "end_lineno": 50,
                   "lineno": 50,
                   "value": {
                     "ast_class": "List",
-                    "col_offset": 109,
+                    "col_offset": 110,
                     "ctx": {
                       "ast_class": "Load"
                     },
                     "elts": [
                       {
                         "ast_class": "Name",
-                        "col_offset": 110,
+                        "col_offset": 111,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 113,
+                        "end_col_offset": 114,
                         "end_lineno": 50,
                         "id": "ADD",
                         "lineno": 50
                       }
                     ],
-                    "end_col_offset": 114,
+                    "end_col_offset": 115,
                     "end_lineno": 50,
                     "lineno": 50
                   }
@@ -5771,7 +5771,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 80,
+            "end_col_offset": 82,
             "end_lineno": 51,
             "lineno": 51,
             "targets": [
@@ -5781,9 +5781,9 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 28,
+                "end_col_offset": 29,
                 "end_lineno": 51,
-                "id": "tns_autres_revenus_i_n_2",
+                "id": "rpns_autres_revenus_i_n_2",
                 "lineno": 51
               }
             ],
@@ -5791,29 +5791,29 @@
               "args": [
                 {
                   "ast_class": "Constant",
-                  "col_offset": 47,
-                  "end_col_offset": 67,
+                  "col_offset": 48,
+                  "end_col_offset": 69,
                   "end_lineno": 51,
                   "lineno": 51,
-                  "value": "tns_autres_revenus"
+                  "value": "rpns_autres_revenus"
                 },
                 {
                   "ast_class": "Attribute",
                   "attr": "n_2",
-                  "col_offset": 69,
+                  "col_offset": 71,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 79,
+                  "end_col_offset": 81,
                   "end_lineno": 51,
                   "lineno": 51,
                   "value": {
                     "ast_class": "Name",
-                    "col_offset": 69,
+                    "col_offset": 71,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 75,
+                    "end_col_offset": 77,
                     "end_lineno": 51,
                     "id": "period",
                     "lineno": 51
@@ -5821,26 +5821,26 @@
                 }
               ],
               "ast_class": "Call",
-              "col_offset": 31,
-              "end_col_offset": 80,
+              "col_offset": 32,
+              "end_col_offset": 82,
               "end_lineno": 51,
               "func": {
                 "ast_class": "Attribute",
                 "attr": "members",
-                "col_offset": 31,
+                "col_offset": 32,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 46,
+                "end_col_offset": 47,
                 "end_lineno": 51,
                 "lineno": 51,
                 "value": {
                   "ast_class": "Name",
-                  "col_offset": 31,
+                  "col_offset": 32,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 38,
+                  "end_col_offset": 39,
                   "end_lineno": 51,
                   "id": "famille",
                   "lineno": 51
@@ -5853,7 +5853,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 99,
+            "end_col_offset": 100,
             "end_lineno": 53,
             "lineno": 53,
             "targets": [
@@ -5874,18 +5874,18 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 47,
-                  "end_col_offset": 81,
+                  "end_col_offset": 82,
                   "end_lineno": 53,
                   "lineno": 53,
-                  "value": "tns_benefice_exploitant_agricole"
+                  "value": "rpns_benefice_exploitant_agricole"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 83,
+                  "col_offset": 84,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 98,
+                  "end_col_offset": 99,
                   "end_lineno": 53,
                   "id": "annee_glissante",
                   "lineno": 53
@@ -5893,7 +5893,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 31,
-              "end_col_offset": 99,
+              "end_col_offset": 100,
               "end_lineno": 53,
               "func": {
                 "ast_class": "Attribute",
@@ -5924,7 +5924,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 104,
+            "end_col_offset": 105,
             "end_lineno": 54,
             "lineno": 54,
             "targets": [
@@ -5945,18 +5945,18 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 55,
-                  "end_col_offset": 86,
+                  "end_col_offset": 87,
                   "end_lineno": 54,
                   "lineno": 54,
-                  "value": "tns_micro_entreprise_benefice"
+                  "value": "rpns_micro_entreprise_benefice"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 88,
+                  "col_offset": 89,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 103,
+                  "end_col_offset": 104,
                   "end_lineno": 54,
                   "id": "annee_glissante",
                   "lineno": 54
@@ -5964,7 +5964,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 39,
-              "end_col_offset": 104,
+              "end_col_offset": 105,
               "end_lineno": 54,
               "func": {
                 "ast_class": "Attribute",
@@ -6016,18 +6016,18 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 56,
-                  "end_col_offset": 88,
+                  "end_col_offset": 89,
                   "end_lineno": 55,
                   "lineno": 55,
-                  "value": "tns_auto_entrepreneur_benefice"
+                  "value": "rpns_auto_entrepreneur_benefice"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 90,
+                  "col_offset": 91,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 105,
+                  "end_col_offset": 106,
                   "end_lineno": 55,
                   "id": "annee_glissante",
                   "lineno": 55
@@ -6098,7 +6098,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 86,
+            "end_col_offset": 88,
             "end_lineno": 57,
             "lineno": 57,
             "targets": [
@@ -6108,9 +6108,9 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 29,
+                "end_col_offset": 30,
                 "end_lineno": 57,
-                "id": "tns_autres_revenus_i_m_12",
+                "id": "rpns_autres_revenus_i_m_12",
                 "lineno": 57
               }
             ],
@@ -6118,45 +6118,45 @@
               "args": [
                 {
                   "ast_class": "Constant",
-                  "col_offset": 48,
-                  "end_col_offset": 68,
+                  "col_offset": 49,
+                  "end_col_offset": 70,
                   "end_lineno": 57,
                   "lineno": 57,
-                  "value": "tns_autres_revenus"
+                  "value": "rpns_autres_revenus"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 70,
+                  "col_offset": 72,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 85,
+                  "end_col_offset": 87,
                   "end_lineno": 57,
                   "id": "annee_glissante",
                   "lineno": 57
                 }
               ],
               "ast_class": "Call",
-              "col_offset": 32,
-              "end_col_offset": 86,
+              "col_offset": 33,
+              "end_col_offset": 88,
               "end_lineno": 57,
               "func": {
                 "ast_class": "Attribute",
                 "attr": "members",
-                "col_offset": 32,
+                "col_offset": 33,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 47,
+                "end_col_offset": 48,
                 "end_lineno": 57,
                 "lineno": 57,
                 "value": {
                   "ast_class": "Name",
-                  "col_offset": 32,
+                  "col_offset": 33,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 39,
+                  "end_col_offset": 40,
                   "end_lineno": 57,
                   "id": "famille",
                   "lineno": 57
@@ -6457,7 +6457,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 59,
+            "end_col_offset": 60,
             "end_lineno": 64,
             "lineno": 63,
             "targets": [
@@ -6467,9 +6467,9 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 24,
+                "end_col_offset": 25,
                 "end_lineno": 63,
-                "id": "tns_autres_revenus_i",
+                "id": "rpns_autres_revenus_i",
                 "lineno": 63
               }
             ],
@@ -6477,28 +6477,28 @@
               "args": [
                 {
                   "ast_class": "Compare",
-                  "col_offset": 33,
+                  "col_offset": 34,
                   "comparators": [
                     {
                       "ast_class": "Constant",
-                      "col_offset": 60,
-                      "end_col_offset": 61,
+                      "col_offset": 62,
+                      "end_col_offset": 63,
                       "end_lineno": 63,
                       "lineno": 63,
                       "value": 0
                     }
                   ],
-                  "end_col_offset": 61,
+                  "end_col_offset": 63,
                   "end_lineno": 63,
                   "left": {
                     "ast_class": "Name",
-                    "col_offset": 33,
+                    "col_offset": 34,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 57,
+                    "end_col_offset": 59,
                     "end_lineno": 63,
-                    "id": "tns_autres_revenus_i_n_2",
+                    "id": "rpns_autres_revenus_i_n_2",
                     "lineno": 63
                   },
                   "lineno": 63,
@@ -6510,13 +6510,13 @@
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 63,
+                  "col_offset": 65,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 87,
+                  "end_col_offset": 90,
                   "end_lineno": 63,
-                  "id": "tns_autres_revenus_i_n_2",
+                  "id": "rpns_autres_revenus_i_n_2",
                   "lineno": 63
                 },
                 {
@@ -6525,23 +6525,23 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 58,
+                  "end_col_offset": 59,
                   "end_lineno": 64,
-                  "id": "tns_autres_revenus_i_m_12",
+                  "id": "rpns_autres_revenus_i_m_12",
                   "lineno": 64
                 }
               ],
               "ast_class": "Call",
-              "col_offset": 27,
-              "end_col_offset": 59,
+              "col_offset": 28,
+              "end_col_offset": 60,
               "end_lineno": 64,
               "func": {
                 "ast_class": "Name",
-                "col_offset": 27,
+                "col_offset": 28,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 32,
+                "end_col_offset": 33,
                 "end_lineno": 63,
                 "id": "where",
                 "lineno": 63
@@ -6572,7 +6572,7 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 8,
-              "end_col_offset": 30,
+              "end_col_offset": 31,
               "end_lineno": 72,
               "left": {
                 "ast_class": "BinOp",
@@ -6679,9 +6679,9 @@
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 30,
+                "end_col_offset": 31,
                 "end_lineno": 72,
-                "id": "tns_autres_revenus_i",
+                "id": "rpns_autres_revenus_i",
                 "lineno": 72
               }
             }
@@ -10068,9 +10068,9 @@
         "prestations.aides_logement.ressources.dar_5",
         "prestations.minima_sociaux.aspa.plafond_ressources_seul"
       ],
-      "source_code": "def formula_2021_01_01(famille, period, parameters):\n    biactivite = famille('al_biactivite', period)\n    params_al_ressources = parameters(period).prestations.aides_logement.ressources\n    age_etudiant_max = parameters(period).prestations.aides_logement.age_max_etudiant\n    # Rolling year\n    annee_glissante = period.start.period('year').offset(-1).offset(-1, 'month')\n\n    base_ressources_i = famille.members('al_base_ressources_individu', period)\n    base_ressources_parents = famille.sum(base_ressources_i, role=Famille.PARENT)\n\n    demandeur_declarant_principal = famille.demandeur.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    conjoint_declarant_principal = famille.conjoint.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    abat_spe = (\n        famille.demandeur.foyer_fiscal('abattements_speciaux_prestations_familiales', annee_glissante)\n        * demandeur_declarant_principal\n        + famille.conjoint.foyer_fiscal('abattements_speciaux_prestations_familiales', annee_glissante)\n        * conjoint_declarant_principal\n        )\n\n    base_ressources_parents = max_(0, base_ressources_parents - abat_spe)\n\n    # Ressources des douze derniers mois\n    indemnites_journalieres_i = famille.members('indemnites_journalieres', annee_glissante, options=[ADD])\n    revenus_stage_formation_pro_i = famille.members('revenus_stage_formation_pro', annee_glissante, options=[ADD])\n    pch_i = famille.members('pch', annee_glissante, options=[ADD])\n    retraite_combattant_i = famille.members('retraite_combattant', annee_glissante, options=[ADD])\n    rente_accident_travail_i = famille.members('rente_accident_travail', annee_glissante, options=[ADD])\n    ressources_annee_glissante_i = (\n        indemnites_journalieres_i\n        + revenus_stage_formation_pro_i\n        + pch_i\n        + retraite_combattant_i\n        + rente_accident_travail_i\n        )\n    ressources_annee_glissante = famille.sum(ressources_annee_glissante_i, role=Famille.PARENT)\n    paje = famille('paje', annee_glissante, options=[ADD])\n    ressources_annee_glissante += paje\n\n    # Ressources N-1\n    pensions_alimentaires_versees_i = famille.members('pensions_alimentaires_versees_individu', period.last_year, options=[ADD])\n    pensions_alimentaires_versees = famille.sum(pensions_alimentaires_versees_i, role=Famille.PARENT)\n    # Montant à soustraire\n    ressources_n_1 = -pensions_alimentaires_versees\n\n    # Ressources N-2\n    indemnites_journalieres_atexa_i = famille.members('indemnites_journalieres_atexa', period.n_2, options=[ADD])\n    gains_exceptionnels_i = famille.members('gains_exceptionnels', period.n_2, options=[ADD])\n    benefice_agricole_i_n_2 = famille.members('tns_benefice_exploitant_agricole', period.n_2)\n    benefice_micro_entreprise_i_n_2 = famille.members('tns_micro_entreprise_benefice', period.n_2)\n    benefice_auto_entrepreneur_i_n_2 = famille.members('tns_auto_entrepreneur_benefice', period.n_2, options=[ADD])\n    tns_autres_revenus_i_n_2 = famille.members('tns_autres_revenus', period.n_2)\n    # En l'absence de benefices TNS en N-2, on recupère les bénéfices de l'année glissante\n    benefice_agricole_i_m_12 = famille.members('tns_benefice_exploitant_agricole', annee_glissante)\n    benefice_micro_entreprise_i_m_12 = famille.members('tns_micro_entreprise_benefice', annee_glissante)\n    benefice_auto_entrepreneur_i_m_12 = famille.members('tns_auto_entrepreneur_benefice', annee_glissante,\n                                                        options=[ADD])\n    tns_autres_revenus_i_m_12 = famille.members('tns_autres_revenus', annee_glissante)\n    benefice_agricole_i = where(benefice_agricole_i_n_2 > 0, benefice_agricole_i_n_2, benefice_agricole_i_m_12)\n    benefice_micro_entreprise_i = where(benefice_micro_entreprise_i_n_2 > 0, benefice_micro_entreprise_i_n_2,\n                                        benefice_micro_entreprise_i_m_12)\n    benefice_auto_entrepreneur_i = where(benefice_auto_entrepreneur_i_n_2 > 0, benefice_auto_entrepreneur_i_n_2,\n                                         benefice_auto_entrepreneur_i_m_12)\n    tns_autres_revenus_i = where(tns_autres_revenus_i_n_2 > 0, tns_autres_revenus_i_n_2,\n                                 tns_autres_revenus_i_m_12)\n\n    ressources_n_2_i = (\n        indemnites_journalieres_atexa_i\n        + gains_exceptionnels_i\n        + benefice_agricole_i\n        + benefice_micro_entreprise_i\n        + benefice_auto_entrepreneur_i\n        + tns_autres_revenus_i\n        )\n    ressources_n_2 = famille.sum(ressources_n_2_i, role=Famille.PARENT)\n    f4ba = famille.demandeur.foyer_fiscal('f4ba', period.n_2)\n    plus_values_base_large = famille.demandeur.foyer_fiscal('plus_values_base_large', period.n_2)\n    deficit_exercice = famille.demandeur.foyer_fiscal('deficit_exercice', period.n_2)\n    ressources_n_2 += (\n        f4ba\n        + plus_values_base_large\n        - deficit_exercice\n        )\n\n    # Montants a soustraire\n    f4bb = famille.demandeur.foyer_fiscal('f4bb', period.n_2)\n\n    ressources_patrimoine = famille('aide_logement_base_ressources_patrimoine', period)\n    demandeur_declarant_principal = famille.demandeur.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    conjoint_declarant_principal = famille.conjoint.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    revenus_fiscaux = (\n        famille.demandeur.foyer_fiscal('aide_logement_base_revenus_fiscaux',\n                                       period.n_2) * demandeur_declarant_principal\n        + famille.conjoint.foyer_fiscal('aide_logement_base_revenus_fiscaux',\n                                        period.n_2) * conjoint_declarant_principal\n        )\n\n    abattement_chomage_indemnise_i = famille.members('aide_logement_abattement_chomage_indemnise', period)\n    abattement_chomage_indemnise = famille.sum(abattement_chomage_indemnise_i, role=Famille.PARENT)\n    abattement_depart_retraite_i = famille.members('aide_logement_abattement_depart_retraite', period)\n    abattement_depart_retraite = famille.sum(abattement_depart_retraite_i, role=Famille.PARENT)\n\n    abattement_ressources_enfant = parameters(\n        period.n_2.stop).prestations.minima_sociaux.aspa.plafond_ressources_seul * 1.25\n    base_ressources_enfants = famille.sum(max_(0, base_ressources_i + ressources_annee_glissante_i - abattement_ressources_enfant), role = Famille.ENFANT)\n\n    ressources = (\n        + base_ressources_parents\n        + ressources_annee_glissante\n        + ressources_n_1\n        + ressources_n_2\n        + base_ressources_enfants\n        + ressources_patrimoine\n        + revenus_fiscaux\n        - f4bb\n        - (abattement_chomage_indemnise + abattement_depart_retraite)\n        )\n    # Abattement forfaitaire pour double activité\n    abattement_double_activite = biactivite * params_al_ressources.dar_1\n\n    ressources = max_(ressources - abattement_double_activite, 0)\n\n    # Planchers de ressources pour étudiants\n    # Seul le statut étudiant (et boursier) du demandeur importe, pas celui du conjoint\n    demandeur_etudiant = famille.demandeur('etudiant', period) * (famille.demandeur('age', period) < age_etudiant_max)\n    demandeur_boursier = famille.demandeur('boursier', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    logement_crous_ou_foyer = (statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer) + logement_crous\n    montant_plancher_ressources = not_(logement_crous_ou_foyer) * max_(0, demandeur_etudiant * params_al_ressources.dar_4 - demandeur_boursier * params_al_ressources.dar_5)\n    montant_plancher_ressources_logement_foyer = logement_crous_ou_foyer * max_(0, demandeur_etudiant * params_al_ressources.dar_11 - demandeur_boursier * params_al_ressources.dar_12)\n\n    ressources = where(demandeur_etudiant, max_(montant_plancher_ressources, montant_plancher_ressources_logement_foyer), ressources)\n\n    # Arrondi au centime, pour éviter qu'une petite imprécision liée à la recombinaison d'une valeur annuelle éclatée ne fasse monter d'un cran l'arrondi au 100€ supérieur.\n\n    ressources = round_(ressources * 100) / 100\n\n    # Arrondi aux 100 euros supérieurs\n    ressources = ceil(ressources / 100) * 100\n\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    plancher = famille.demandeur.menage('aides_logement_primo_accedant_ressources', period)\n\n    return where(accedant, max_(ressources, plancher), ressources)\n",
-      "start_line_number": 1010,
-      "stop_line_number": 1154,
+      "source_code": "def formula_2021_01_01(famille, period, parameters):\n    biactivite = famille('al_biactivite', period)\n    params_al_ressources = parameters(period).prestations.aides_logement.ressources\n    age_etudiant_max = parameters(period).prestations.aides_logement.age_max_etudiant\n    # Rolling year\n    annee_glissante = period.start.period('year').offset(-1).offset(-1, 'month')\n\n    base_ressources_i = famille.members('al_base_ressources_individu', period)\n    base_ressources_parents = famille.sum(base_ressources_i, role=Famille.PARENT)\n\n    demandeur_declarant_principal = famille.demandeur.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    conjoint_declarant_principal = famille.conjoint.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    abat_spe = (\n        famille.demandeur.foyer_fiscal('abattements_speciaux_prestations_familiales', annee_glissante)\n        * demandeur_declarant_principal\n        + famille.conjoint.foyer_fiscal('abattements_speciaux_prestations_familiales', annee_glissante)\n        * conjoint_declarant_principal\n        )\n\n    base_ressources_parents = max_(0, base_ressources_parents - abat_spe)\n\n    # Ressources des douze derniers mois\n    indemnites_journalieres_i = famille.members('indemnites_journalieres', annee_glissante, options=[ADD])\n    revenus_stage_formation_pro_i = famille.members('revenus_stage_formation_pro', annee_glissante, options=[ADD])\n    pch_i = famille.members('pch', annee_glissante, options=[ADD])\n    retraite_combattant_i = famille.members('retraite_combattant', annee_glissante, options=[ADD])\n    rente_accident_travail_i = famille.members('rente_accident_travail', annee_glissante, options=[ADD])\n    ressources_annee_glissante_i = (\n        indemnites_journalieres_i\n        + revenus_stage_formation_pro_i\n        + pch_i\n        + retraite_combattant_i\n        + rente_accident_travail_i\n        )\n    ressources_annee_glissante = famille.sum(ressources_annee_glissante_i, role=Famille.PARENT)\n    paje = famille('paje', annee_glissante, options=[ADD])\n    ressources_annee_glissante += paje\n\n    # Ressources N-1\n    pensions_alimentaires_versees_i = famille.members('pensions_alimentaires_versees_individu', period.last_year, options=[ADD])\n    pensions_alimentaires_versees = famille.sum(pensions_alimentaires_versees_i, role=Famille.PARENT)\n    # Montant à soustraire\n    ressources_n_1 = -pensions_alimentaires_versees\n\n    # Ressources N-2\n    indemnites_journalieres_atexa_i = famille.members('indemnites_journalieres_atexa', period.n_2, options=[ADD])\n    gains_exceptionnels_i = famille.members('gains_exceptionnels', period.n_2, options=[ADD])\n    benefice_agricole_i_n_2 = famille.members('rpns_benefice_exploitant_agricole', period.n_2)\n    benefice_micro_entreprise_i_n_2 = famille.members('rpns_micro_entreprise_benefice', period.n_2)\n    benefice_auto_entrepreneur_i_n_2 = famille.members('rpns_auto_entrepreneur_benefice', period.n_2, options=[ADD])\n    rpns_autres_revenus_i_n_2 = famille.members('rpns_autres_revenus', period.n_2)\n    # En l'absence de benefices TNS en N-2, on recupère les bénéfices de l'année glissante\n    benefice_agricole_i_m_12 = famille.members('rpns_benefice_exploitant_agricole', annee_glissante)\n    benefice_micro_entreprise_i_m_12 = famille.members('rpns_micro_entreprise_benefice', annee_glissante)\n    benefice_auto_entrepreneur_i_m_12 = famille.members('rpns_auto_entrepreneur_benefice', annee_glissante,\n                                                        options=[ADD])\n    rpns_autres_revenus_i_m_12 = famille.members('rpns_autres_revenus', annee_glissante)\n    benefice_agricole_i = where(benefice_agricole_i_n_2 > 0, benefice_agricole_i_n_2, benefice_agricole_i_m_12)\n    benefice_micro_entreprise_i = where(benefice_micro_entreprise_i_n_2 > 0, benefice_micro_entreprise_i_n_2,\n                                        benefice_micro_entreprise_i_m_12)\n    benefice_auto_entrepreneur_i = where(benefice_auto_entrepreneur_i_n_2 > 0, benefice_auto_entrepreneur_i_n_2,\n                                         benefice_auto_entrepreneur_i_m_12)\n    rpns_autres_revenus_i = where(rpns_autres_revenus_i_n_2 > 0, rpns_autres_revenus_i_n_2,\n                                 rpns_autres_revenus_i_m_12)\n\n    ressources_n_2_i = (\n        indemnites_journalieres_atexa_i\n        + gains_exceptionnels_i\n        + benefice_agricole_i\n        + benefice_micro_entreprise_i\n        + benefice_auto_entrepreneur_i\n        + rpns_autres_revenus_i\n        )\n    ressources_n_2 = famille.sum(ressources_n_2_i, role=Famille.PARENT)\n    f4ba = famille.demandeur.foyer_fiscal('f4ba', period.n_2)\n    plus_values_base_large = famille.demandeur.foyer_fiscal('plus_values_base_large', period.n_2)\n    deficit_exercice = famille.demandeur.foyer_fiscal('deficit_exercice', period.n_2)\n    ressources_n_2 += (\n        f4ba\n        + plus_values_base_large\n        - deficit_exercice\n        )\n\n    # Montants a soustraire\n    f4bb = famille.demandeur.foyer_fiscal('f4bb', period.n_2)\n\n    ressources_patrimoine = famille('aide_logement_base_ressources_patrimoine', period)\n    demandeur_declarant_principal = famille.demandeur.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    conjoint_declarant_principal = famille.conjoint.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    revenus_fiscaux = (\n        famille.demandeur.foyer_fiscal('aide_logement_base_revenus_fiscaux',\n                                       period.n_2) * demandeur_declarant_principal\n        + famille.conjoint.foyer_fiscal('aide_logement_base_revenus_fiscaux',\n                                        period.n_2) * conjoint_declarant_principal\n        )\n\n    abattement_chomage_indemnise_i = famille.members('aide_logement_abattement_chomage_indemnise', period)\n    abattement_chomage_indemnise = famille.sum(abattement_chomage_indemnise_i, role=Famille.PARENT)\n    abattement_depart_retraite_i = famille.members('aide_logement_abattement_depart_retraite', period)\n    abattement_depart_retraite = famille.sum(abattement_depart_retraite_i, role=Famille.PARENT)\n\n    abattement_ressources_enfant = parameters(\n        period.n_2.stop).prestations.minima_sociaux.aspa.plafond_ressources_seul * 1.25\n    base_ressources_enfants = famille.sum(max_(0, base_ressources_i + ressources_annee_glissante_i - abattement_ressources_enfant), role = Famille.ENFANT)\n\n    ressources = (\n        + base_ressources_parents\n        + ressources_annee_glissante\n        + ressources_n_1\n        + ressources_n_2\n        + base_ressources_enfants\n        + ressources_patrimoine\n        + revenus_fiscaux\n        - f4bb\n        - (abattement_chomage_indemnise + abattement_depart_retraite)\n        )\n    # Abattement forfaitaire pour double activité\n    abattement_double_activite = biactivite * params_al_ressources.dar_1\n\n    ressources = max_(ressources - abattement_double_activite, 0)\n\n    # Planchers de ressources pour étudiants\n    # Seul le statut étudiant (et boursier) du demandeur importe, pas celui du conjoint\n    demandeur_etudiant = famille.demandeur('etudiant', period) * (famille.demandeur('age', period) < age_etudiant_max)\n    demandeur_boursier = famille.demandeur('boursier', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    logement_crous_ou_foyer = (statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer) + logement_crous\n    montant_plancher_ressources = not_(logement_crous_ou_foyer) * max_(0, demandeur_etudiant * params_al_ressources.dar_4 - demandeur_boursier * params_al_ressources.dar_5)\n    montant_plancher_ressources_logement_foyer = logement_crous_ou_foyer * max_(0, demandeur_etudiant * params_al_ressources.dar_11 - demandeur_boursier * params_al_ressources.dar_12)\n\n    ressources = where(demandeur_etudiant, max_(montant_plancher_ressources, montant_plancher_ressources_logement_foyer), ressources)\n\n    # Arrondi au centime, pour éviter qu'une petite imprécision liée à la recombinaison d'une valeur annuelle éclatée ne fasse monter d'un cran l'arrondi au 100€ supérieur.\n\n    ressources = round_(ressources * 100) / 100\n\n    # Arrondi aux 100 euros supérieurs\n    ressources = ceil(ressources / 100) * 100\n\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    plancher = famille.demandeur.menage('aides_logement_primo_accedant_ressources', period)\n\n    return where(accedant, max_(ressources, plancher), ressources)\n",
+      "start_line_number": 1008,
+      "stop_line_number": 1152,
       "variables": [
         "aide_logement_abattement_chomage_indemnise",
         "aide_logement_abattement_depart_retraite",
@@ -10086,10 +10086,10 @@
         "rente_accident_travail",
         "retraite_combattant",
         "revenus_stage_formation_pro",
-        "tns_auto_entrepreneur_benefice",
-        "tns_autres_revenus",
-        "tns_benefice_exploitant_agricole",
-        "tns_micro_entreprise_benefice"
+        "rpns_auto_entrepreneur_benefice",
+        "rpns_autres_revenus",
+        "rpns_benefice_exploitant_agricole",
+        "rpns_micro_entreprise_benefice"
       ]
     }
   },
@@ -10109,7 +10109,7 @@
     "aides_logement_primo_accedant_k",
     "reduction_loyer_solidarite"
   ],
-  "start_line_number": 1000,
-  "stop_line_number": 1212,
+  "start_line_number": 998,
+  "stop_line_number": 1210,
   "value_type": "float"
 }

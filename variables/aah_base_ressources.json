@@ -1450,7 +1450,7 @@
               {
                 "ast_class": "Assign",
                 "col_offset": 8,
-                "end_col_offset": 246,
+                "end_col_offset": 248,
                 "end_lineno": 25,
                 "lineno": 25,
                 "targets": [
@@ -1469,14 +1469,14 @@
                 "value": {
                   "ast_class": "BinOp",
                   "col_offset": 35,
-                  "end_col_offset": 246,
+                  "end_col_offset": 248,
                   "end_lineno": 25,
                   "left": {
                     "args": [
                       {
                         "ast_class": "BinOp",
                         "col_offset": 70,
-                        "end_col_offset": 186,
+                        "end_col_offset": 188,
                         "end_lineno": 25,
                         "left": {
                           "args": [
@@ -1581,28 +1581,28 @@
                             {
                               "ast_class": "Constant",
                               "col_offset": 158,
-                              "end_col_offset": 173,
+                              "end_col_offset": 175,
                               "end_lineno": 25,
                               "lineno": 25,
-                              "value": "rpns_individu"
+                              "value": "rpns_imposables"
                             },
                             {
                               "ast_class": "Attribute",
                               "attr": "n_2",
-                              "col_offset": 175,
+                              "col_offset": 177,
                               "ctx": {
                                 "ast_class": "Load"
                               },
-                              "end_col_offset": 185,
+                              "end_col_offset": 187,
                               "end_lineno": 25,
                               "lineno": 25,
                               "value": {
                                 "ast_class": "Name",
-                                "col_offset": 175,
+                                "col_offset": 177,
                                 "ctx": {
                                   "ast_class": "Load"
                                 },
-                                "end_col_offset": 181,
+                                "end_col_offset": 183,
                                 "end_lineno": 25,
                                 "id": "period",
                                 "lineno": 25
@@ -1611,7 +1611,7 @@
                           ],
                           "ast_class": "Call",
                           "col_offset": 140,
-                          "end_col_offset": 186,
+                          "end_col_offset": 188,
                           "end_lineno": 25,
                           "func": {
                             "ast_class": "Attribute",
@@ -1642,7 +1642,7 @@
                     ],
                     "ast_class": "Call",
                     "col_offset": 35,
-                    "end_col_offset": 187,
+                    "end_col_offset": 189,
                     "end_lineno": 25,
                     "func": {
                       "ast_class": "Name",
@@ -1666,8 +1666,8 @@
                     "args": [
                       {
                         "ast_class": "Constant",
-                        "col_offset": 208,
-                        "end_col_offset": 233,
+                        "col_offset": 210,
+                        "end_col_offset": 235,
                         "end_lineno": 25,
                         "lineno": 25,
                         "value": "revenu_assimile_pension"
@@ -1675,20 +1675,20 @@
                       {
                         "ast_class": "Attribute",
                         "attr": "n_2",
-                        "col_offset": 235,
+                        "col_offset": 237,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 245,
+                        "end_col_offset": 247,
                         "end_lineno": 25,
                         "lineno": 25,
                         "value": {
                           "ast_class": "Name",
-                          "col_offset": 235,
+                          "col_offset": 237,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 241,
+                          "end_col_offset": 243,
                           "end_lineno": 25,
                           "id": "period",
                           "lineno": 25
@@ -1696,26 +1696,26 @@
                       }
                     ],
                     "ast_class": "Call",
-                    "col_offset": 190,
-                    "end_col_offset": 246,
+                    "col_offset": 192,
+                    "end_col_offset": 248,
                     "end_lineno": 25,
                     "func": {
                       "ast_class": "Attribute",
                       "attr": "demandeur",
-                      "col_offset": 190,
+                      "col_offset": 192,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 207,
+                      "end_col_offset": 209,
                       "end_lineno": 25,
                       "lineno": 25,
                       "value": {
                         "ast_class": "Name",
-                        "col_offset": 190,
+                        "col_offset": 192,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 197,
+                        "end_col_offset": 199,
                         "end_lineno": 25,
                         "id": "famille",
                         "lineno": 25
@@ -1957,7 +1957,7 @@
         "cotsoc.gen.nb_heure_travail_mensuel",
         "cotsoc.gen.smic_h_b"
       ],
-      "source_code": "def formula(famille, period, parameters):\n    law = parameters(period)\n\n    demandeur_en_activite = famille.demandeur('salaire_imposable', period) > 0\n\n    def assiette_conjoint(revenus_conjoint):\n        return 0.9 * (1 - 0.2) * revenus_conjoint\n\n    def assiette_revenu_activite_demandeur(revenus_demandeur):\n        smic_brut_annuel = 12 * law.cotsoc.gen.smic_h_b * law.cotsoc.gen.nb_heure_travail_mensuel\n        tranche1 = min_(0.3 * smic_brut_annuel, revenus_demandeur)\n        tranche2 = revenus_demandeur - tranche1\n        return (1 - 0.8) * tranche1 + (1 - 0.4) * tranche2\n\n    def base_ressource_eval_trim():\n        three_previous_months = period.first_month.start.period('month', 3).offset(-3)\n        base_ressource_activite_demandeur = famille.demandeur('aah_base_ressources_activite_eval_trimestrielle', period) - famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_hors_activite_demandeur = famille.demandeur('aah_base_ressources_hors_activite_eval_trimestrielle', period) + famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(base_ressource_activite_demandeur) + base_ressource_hors_activite_demandeur\n\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_activite_eval_trimestrielle', period) + famille.conjoint('aah_base_ressources_hors_activite_eval_trimestrielle', period)\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    def base_ressource_eval_annuelle():\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(famille.demandeur('salaire_imposable', period.n_2, options = [ADD]) + famille.demandeur('rpns_individu', period.n_2)) + famille.demandeur('revenu_assimile_pension', period.n_2)\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_eval_annuelle', period)\n\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    return where(\n        demandeur_en_activite,\n        base_ressource_eval_trim(),\n        base_ressource_eval_annuelle()\n        )\n",
+      "source_code": "def formula(famille, period, parameters):\n    law = parameters(period)\n\n    demandeur_en_activite = famille.demandeur('salaire_imposable', period) > 0\n\n    def assiette_conjoint(revenus_conjoint):\n        return 0.9 * (1 - 0.2) * revenus_conjoint\n\n    def assiette_revenu_activite_demandeur(revenus_demandeur):\n        smic_brut_annuel = 12 * law.cotsoc.gen.smic_h_b * law.cotsoc.gen.nb_heure_travail_mensuel\n        tranche1 = min_(0.3 * smic_brut_annuel, revenus_demandeur)\n        tranche2 = revenus_demandeur - tranche1\n        return (1 - 0.8) * tranche1 + (1 - 0.4) * tranche2\n\n    def base_ressource_eval_trim():\n        three_previous_months = period.first_month.start.period('month', 3).offset(-3)\n        base_ressource_activite_demandeur = famille.demandeur('aah_base_ressources_activite_eval_trimestrielle', period) - famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_hors_activite_demandeur = famille.demandeur('aah_base_ressources_hors_activite_eval_trimestrielle', period) + famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(base_ressource_activite_demandeur) + base_ressource_hors_activite_demandeur\n\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_activite_eval_trimestrielle', period) + famille.conjoint('aah_base_ressources_hors_activite_eval_trimestrielle', period)\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    def base_ressource_eval_annuelle():\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(famille.demandeur('salaire_imposable', period.n_2, options = [ADD]) + famille.demandeur('rpns_imposables', period.n_2)) + famille.demandeur('revenu_assimile_pension', period.n_2)\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_eval_annuelle', period)\n\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    return where(\n        demandeur_en_activite,\n        base_ressource_eval_trim(),\n        base_ressource_eval_annuelle()\n        )\n",
       "start_line_number": 41,
       "stop_line_number": 75
     }

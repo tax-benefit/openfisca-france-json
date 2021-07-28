@@ -666,8 +666,8 @@
       "documentation": "\nRetrouve la zone APL (aide personnalisée au logement) de la commune\nen fonction du depcom (code INSEE)\n",
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(menage, period):\n    '''\n    Retrouve la zone APL (aide personnalisée au logement) de la commune\n    en fonction du depcom (code INSEE)\n    '''\n    depcom = menage('depcom', period)\n\n    preload_zone_apl()\n    default_value = 2\n    zone = fromiter(\n        (\n            zone_apl_by_depcom.get(depcom_cell if isinstance(depcom_cell, str) else depcom_cell.decode('utf-8'), default_value)\n            for depcom_cell in depcom\n            ),\n        dtype = int16,\n        )\n    return select(\n        (zone == 1, zone == 2, zone == 3),\n        # The .index is not striclty necessary, but it improves perfomances by avoiding a later encoding\n        (TypesZoneApl.zone_1.index, TypesZoneApl.zone_2.index, TypesZoneApl.zone_3.index)\n        )\n",
-      "start_line_number": 1548,
-      "stop_line_number": 1569,
+      "start_line_number": 1546,
+      "stop_line_number": 1567,
       "variables": [
         "depcom"
       ]
@@ -688,7 +688,7 @@
     "indemnite_residence"
   ],
   "set_input": "set_input_dispatch_by_period",
-  "start_line_number": 1539,
-  "stop_line_number": 1569,
+  "start_line_number": 1537,
+  "stop_line_number": 1567,
   "value_type": "Enum"
 }

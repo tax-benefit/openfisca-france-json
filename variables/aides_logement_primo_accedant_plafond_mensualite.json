@@ -1051,8 +1051,8 @@
         "prestations.al_plafonds_accession"
       ],
       "source_code": "def formula(famille, period, parameters):\n    zone_apl = famille.demandeur.menage('zone_apl', period)\n    plafonds = parameters(period).prestations.al_plafonds_accession[zone_apl]\n\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n    couple = famille('al_couple', period)\n\n    return (\n        plafonds.personne_isolee_sans_enfant * not_(couple) * (al_nb_pac == 0)\n        + plafonds.menage_seul * couple * (al_nb_pac == 0)\n        + plafonds.menage_ou_isole_avec_1_enfant * (al_nb_pac == 1)\n        + plafonds.menage_ou_isole_avec_2_enfants * (al_nb_pac == 2)\n        + plafonds.menage_ou_isole_avec_3_enfants * (al_nb_pac == 3)\n        + plafonds.menage_ou_isole_avec_4_enfants * (al_nb_pac == 4)\n        + plafonds.menage_ou_isole_avec_5_enfants * (al_nb_pac >= 5)\n        + plafonds.menage_ou_isole_par_enfant_en_plus * (al_nb_pac > 5) * (al_nb_pac - 5)\n        )\n",
-      "start_line_number": 1793,
-      "stop_line_number": 1810,
+      "start_line_number": 1791,
+      "stop_line_number": 1808,
       "variables": [
         "al_couple",
         "al_nb_personnes_a_charge"
@@ -1068,7 +1068,7 @@
   "referring_variables": [
     "aides_logement_plafond_mensualite"
   ],
-  "start_line_number": 1786,
-  "stop_line_number": 1810,
+  "start_line_number": 1784,
+  "stop_line_number": 1808,
   "value_type": "float"
 }

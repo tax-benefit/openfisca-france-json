@@ -321,7 +321,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 113,
+            "end_col_offset": 115,
             "end_lineno": 6,
             "lineno": 6,
             "targets": [
@@ -331,9 +331,9 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 36,
+                "end_col_offset": 37,
                 "end_lineno": 6,
-                "id": "tns_benefice_exploitant_agricole",
+                "id": "rpns_benefice_exploitant_agricole",
                 "lineno": 6
               }
             ],
@@ -341,35 +341,35 @@
               "args": [
                 {
                   "ast_class": "Constant",
-                  "col_offset": 48,
-                  "end_col_offset": 82,
+                  "col_offset": 49,
+                  "end_col_offset": 84,
                   "end_lineno": 6,
                   "lineno": 6,
-                  "value": "tns_benefice_exploitant_agricole"
+                  "value": "rpns_benefice_exploitant_agricole"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 84,
+                  "col_offset": 86,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 97,
+                  "end_col_offset": 99,
                   "end_lineno": 6,
                   "id": "previous_year",
                   "lineno": 6
                 }
               ],
               "ast_class": "Call",
-              "col_offset": 39,
-              "end_col_offset": 113,
+              "col_offset": 40,
+              "end_col_offset": 115,
               "end_lineno": 6,
               "func": {
                 "ast_class": "Name",
-                "col_offset": 39,
+                "col_offset": 40,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 47,
+                "end_col_offset": 48,
                 "end_lineno": 6,
                 "id": "individu",
                 "lineno": 6
@@ -378,30 +378,30 @@
                 {
                   "arg": "options",
                   "ast_class": "keyword",
-                  "col_offset": 99,
-                  "end_col_offset": 112,
+                  "col_offset": 101,
+                  "end_col_offset": 114,
                   "end_lineno": 6,
                   "lineno": 6,
                   "value": {
                     "ast_class": "List",
-                    "col_offset": 107,
+                    "col_offset": 109,
                     "ctx": {
                       "ast_class": "Load"
                     },
                     "elts": [
                       {
                         "ast_class": "Name",
-                        "col_offset": 108,
+                        "col_offset": 110,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 111,
+                        "end_col_offset": 113,
                         "end_lineno": 6,
                         "id": "ADD",
                         "lineno": 6
                       }
                     ],
-                    "end_col_offset": 112,
+                    "end_col_offset": 114,
                     "end_lineno": 6,
                     "lineno": 6
                   }
@@ -413,7 +413,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 65,
+            "end_col_offset": 66,
             "end_lineno": 7,
             "lineno": 7,
             "targets": [
@@ -448,15 +448,15 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 64,
+                  "end_col_offset": 65,
                   "end_lineno": 7,
-                  "id": "tns_benefice_exploitant_agricole",
+                  "id": "rpns_benefice_exploitant_agricole",
                   "lineno": 7
                 }
               ],
               "ast_class": "Call",
               "col_offset": 14,
-              "end_col_offset": 65,
+              "end_col_offset": 66,
               "end_lineno": 7,
               "func": {
                 "ast_class": "Name",
@@ -791,12 +791,12 @@
         "accident_travail.rente.salaire_net.bareme",
         "accident_travail.rente.salaire_net.salaire_minimum"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    previous_year = period.start.period('year').offset(-1)\n    rente_at = parameters(period).accident_travail.rente\n\n    salaire_net = individu('salaire_net', previous_year, options=[ADD])\n    tns_benefice_exploitant_agricole = individu('tns_benefice_exploitant_agricole', previous_year, options=[ADD])\n    salaire = max_(salaire_net, tns_benefice_exploitant_agricole)\n    salaire_net_base = max_(rente_at.salaire_net.salaire_minimum, salaire)\n    coef = salaire_net_base / rente_at.salaire_net.salaire_minimum\n    bareme = rente_at.salaire_net.bareme.calc(coef)\n    return rente_at.salaire_net.salaire_minimum * bareme\n",
+      "source_code": "def formula(individu, period, parameters):\n    previous_year = period.start.period('year').offset(-1)\n    rente_at = parameters(period).accident_travail.rente\n\n    salaire_net = individu('salaire_net', previous_year, options=[ADD])\n    rpns_benefice_exploitant_agricole = individu('rpns_benefice_exploitant_agricole', previous_year, options=[ADD])\n    salaire = max_(salaire_net, rpns_benefice_exploitant_agricole)\n    salaire_net_base = max_(rente_at.salaire_net.salaire_minimum, salaire)\n    coef = salaire_net_base / rente_at.salaire_net.salaire_minimum\n    bareme = rente_at.salaire_net.bareme.calc(coef)\n    return rente_at.salaire_net.salaire_minimum * bareme\n",
       "start_line_number": 173,
       "stop_line_number": 184,
       "variables": [
-        "salaire_net",
-        "tns_benefice_exploitant_agricole"
+        "rpns_benefice_exploitant_agricole",
+        "salaire_net"
       ]
     }
   },

@@ -484,27 +484,27 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 8,
-              "end_col_offset": 57,
+              "end_col_offset": 58,
               "end_lineno": 15,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 8,
-                "end_col_offset": 46,
+                "end_col_offset": 47,
                 "end_lineno": 14,
                 "left": {
                   "args": [
                     {
                       "ast_class": "Constant",
                       "col_offset": 23,
-                      "end_col_offset": 57,
+                      "end_col_offset": 58,
                       "end_lineno": 13,
                       "lineno": 13,
-                      "value": "tns_benefice_exploitant_agricole"
+                      "value": "rpns_benefice_exploitant_agricole"
                     }
                   ],
                   "ast_class": "Call",
                   "col_offset": 8,
-                  "end_col_offset": 58,
+                  "end_col_offset": 59,
                   "end_lineno": 13,
                   "func": {
                     "ast_class": "Name",
@@ -529,15 +529,15 @@
                     {
                       "ast_class": "Constant",
                       "col_offset": 25,
-                      "end_col_offset": 45,
+                      "end_col_offset": 46,
                       "end_lineno": 14,
                       "lineno": 14,
-                      "value": "tns_autres_revenus"
+                      "value": "rpns_autres_revenus"
                     }
                   ],
                   "ast_class": "Call",
                   "col_offset": 10,
-                  "end_col_offset": 46,
+                  "end_col_offset": 47,
                   "end_lineno": 14,
                   "func": {
                     "ast_class": "Name",
@@ -563,15 +563,15 @@
                   {
                     "ast_class": "Constant",
                     "col_offset": 25,
-                    "end_col_offset": 56,
+                    "end_col_offset": 57,
                     "end_lineno": 15,
                     "lineno": 15,
-                    "value": "tns_micro_entreprise_benefice"
+                    "value": "rpns_micro_entreprise_benefice"
                   }
                 ],
                 "ast_class": "Call",
                 "col_offset": 10,
-                "end_col_offset": 57,
+                "end_col_offset": 58,
                 "end_lineno": 15,
                 "func": {
                   "ast_class": "Name",
@@ -598,7 +598,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
-      "source_code": "def formula(individu, period):\n\n    def get_last_known(variable_name):\n        valeur_n = individu(variable_name, period)\n        valeur_n_1 = individu(variable_name, period.last_year)\n        valeur_n_2 = individu(variable_name, period.n_2)\n        return select(\n            [valeur_n > 0, valeur_n_1 > 0, valeur_n_2 > 0],\n            [valeur_n, valeur_n_1, valeur_n_2]\n            ) / 12.\n\n    return (\n        get_last_known('tns_benefice_exploitant_agricole')\n        + get_last_known('tns_autres_revenus')\n        + get_last_known('tns_micro_entreprise_benefice')\n        )\n",
+      "source_code": "def formula(individu, period):\n\n    def get_last_known(variable_name):\n        valeur_n = individu(variable_name, period)\n        valeur_n_1 = individu(variable_name, period.last_year)\n        valeur_n_2 = individu(variable_name, period.n_2)\n        return select(\n            [valeur_n > 0, valeur_n_1 > 0, valeur_n_2 > 0],\n            [valeur_n, valeur_n_1, valeur_n_2]\n            ) / 12.\n\n    return (\n        get_last_known('rpns_benefice_exploitant_agricole')\n        + get_last_known('rpns_autres_revenus')\n        + get_last_known('rpns_micro_entreprise_benefice')\n        )\n",
       "start_line_number": 186,
       "stop_line_number": 202
     }

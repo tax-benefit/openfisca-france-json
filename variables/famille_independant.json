@@ -426,7 +426,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 45,
+            "end_col_offset": 47,
             "end_lineno": 12,
             "lineno": 8,
             "targets": [
@@ -445,7 +445,7 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 15,
-              "end_col_offset": 45,
+              "end_col_offset": 47,
               "end_lineno": 12,
               "left": {
                 "ast_class": "BinOp",
@@ -617,18 +617,18 @@
                   {
                     "ast_class": "Constant",
                     "col_offset": 21,
-                    "end_col_offset": 36,
+                    "end_col_offset": 38,
                     "end_lineno": 12,
                     "lineno": 12,
-                    "value": "rpns_individu"
+                    "value": "rpns_imposables"
                   },
                   {
                     "ast_class": "Name",
-                    "col_offset": 38,
+                    "col_offset": 40,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 44,
+                    "end_col_offset": 46,
                     "end_lineno": 12,
                     "id": "period",
                     "lineno": 12
@@ -636,7 +636,7 @@
                 ],
                 "ast_class": "Call",
                 "col_offset": 12,
-                "end_col_offset": 45,
+                "end_col_offset": 47,
                 "end_lineno": 12,
                 "func": {
                   "ast_class": "Name",
@@ -1050,12 +1050,12 @@
       "parameters": [
         "cotsoc.gen.plafond_securite_sociale"
       ],
-      "source_code": "def formula_2015(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale * 12\n    bareme = MarginalRateTaxScale(name = 'famille')\n    bareme.add_bracket(0, 0)\n    bareme.add_bracket(1.4, .031)  # TODO parsing des paramèters pas à jour\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n        ) * individu('rpns_individu', period)\n    taux = (\n        0 + (.031) * min_(\n            max_(\n                assiette / plafond_securite_sociale_annuel - 1.1,\n                0\n                ),\n            (1.4 - 1.1)\n            )\n        / (1.4 - 1.1)\n        )\n    return - (\n        taux * assiette * (assiette < 1.4 * plafond_securite_sociale_annuel)\n        + bareme.calc(assiette)\n        )\n",
+      "source_code": "def formula_2015(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale * 12\n    bareme = MarginalRateTaxScale(name = 'famille')\n    bareme.add_bracket(0, 0)\n    bareme.add_bracket(1.4, .031)  # TODO parsing des paramèters pas à jour\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n        ) * individu('rpns_imposables', period)\n    taux = (\n        0 + (.031) * min_(\n            max_(\n                assiette / plafond_securite_sociale_annuel - 1.1,\n                0\n                ),\n            (1.4 - 1.1)\n            )\n        / (1.4 - 1.1)\n        )\n    return - (\n        taux * assiette * (assiette < 1.4 * plafond_securite_sociale_annuel)\n        + bareme.calc(assiette)\n        )\n",
       "start_line_number": 224,
       "stop_line_number": 250,
       "variables": [
         "categorie_non_salarie",
-        "rpns_individu"
+        "rpns_imposables"
       ]
     }
   },

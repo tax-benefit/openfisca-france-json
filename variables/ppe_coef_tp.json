@@ -757,8 +757,8 @@
         "impot_revenu.credits_impot.ppe.TP_nbj"
       ],
       "source_code": "def formula(individu, period, parameters):\n    ppe_du_sa = individu('ppe_du_sa', period, options = [ADD])\n    ppe_du_ns = individu('ppe_du_ns', period)\n    ppe_tp_sa = individu('ppe_tp_sa', period)\n    ppe_tp_ns = individu('ppe_tp_ns', period)\n    ppe = parameters(period).impot_revenu.credits_impot.ppe\n\n    frac_sa = ppe_du_sa / ppe.TP_nbh\n    frac_ns = ppe_du_ns / ppe.TP_nbj\n    tp = ppe_tp_sa | ppe_tp_ns | (frac_sa + frac_ns >= 1)\n    return tp + not_(tp) * (frac_sa + frac_ns)\n",
-      "start_line_number": 3343,
-      "stop_line_number": 3354,
+      "start_line_number": 3329,
+      "stop_line_number": 3340,
       "variables": [
         "ppe_du_ns",
         "ppe_du_sa",
@@ -776,7 +776,7 @@
     "ppe_brute",
     "ppe_elig_individu"
   ],
-  "start_line_number": 3336,
-  "stop_line_number": 3354,
+  "start_line_number": 3322,
+  "stop_line_number": 3340,
   "value_type": "float"
 }

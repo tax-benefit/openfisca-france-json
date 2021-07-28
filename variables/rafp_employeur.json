@@ -578,7 +578,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 57,
+            "end_col_offset": 97,
             "end_lineno": 15,
             "lineno": 15,
             "targets": [
@@ -601,47 +601,47 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 57,
+              "end_col_offset": 97,
               "end_lineno": 15,
               "lineno": 15,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "etat",
+                "attr": "salarie",
                 "col_offset": 15,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 38,
+                "end_col_offset": 78,
                 "end_lineno": 15,
                 "lineno": 15,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "fonc",
+                  "attr": "rafp",
                   "col_offset": 15,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 33,
+                  "end_col_offset": 70,
                   "end_lineno": 15,
                   "lineno": 15,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "sal",
+                    "attr": "cotisations_secteur_public",
                     "col_offset": 15,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 28,
+                    "end_col_offset": 65,
                     "end_lineno": 15,
                     "lineno": 15,
                     "value": {
                       "ast_class": "Attribute",
-                      "attr": "cotsoc",
+                      "attr": "prelevements_sociaux",
                       "col_offset": 15,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 24,
+                      "end_col_offset": 38,
                       "end_lineno": 15,
                       "lineno": 15,
                       "value": {
@@ -1045,9 +1045,9 @@
       "parameters": [
         "cotsoc.cotisations_employeur.public_titulaire_etat"
       ],
-      "source_code": "def formula_2005_01_01(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    supplement_familial_traitement = individu('supplement_familial_traitement', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    _P = parameters(period)\n\n    eligible = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n\n    plaf_ass = _P.cotsoc.sal.fonc.etat.rafp_plaf_assiette\n    base_imposable = primes_fonction_publique + supplement_familial_traitement + indemnite_residence\n    assiette = min_(base_imposable, plaf_ass * traitement_indiciaire_brut * eligible)\n    bareme_rafp = _P.cotsoc.cotisations_employeur.public_titulaire_etat['rafp']\n    rafp_employeur = eligible * bareme_rafp.calc(assiette)\n    return - rafp_employeur\n",
-      "start_line_number": 287,
-      "stop_line_number": 307,
+      "source_code": "def formula_2005_01_01(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    supplement_familial_traitement = individu('supplement_familial_traitement', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    _P = parameters(period)\n\n    eligible = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n\n    plaf_ass = _P.prelevements_sociaux.cotisations_secteur_public.rafp.salarie.rafp_plaf_assiette\n    base_imposable = primes_fonction_publique + supplement_familial_traitement + indemnite_residence\n    assiette = min_(base_imposable, plaf_ass * traitement_indiciaire_brut * eligible)\n    bareme_rafp = _P.cotsoc.cotisations_employeur.public_titulaire_etat['rafp']\n    rafp_employeur = eligible * bareme_rafp.calc(assiette)\n    return - rafp_employeur\n",
+      "start_line_number": 286,
+      "stop_line_number": 306,
       "variables": [
         "categorie_salarie",
         "indemnite_residence",
@@ -1063,7 +1063,7 @@
   "referring_variables": [
     "cotisations_employeur_contributives"
   ],
-  "start_line_number": 280,
-  "stop_line_number": 307,
+  "start_line_number": 279,
+  "stop_line_number": 306,
   "value_type": "float"
 }

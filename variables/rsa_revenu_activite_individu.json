@@ -169,10 +169,10 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 8,
-                  "end_col_offset": 40,
+                  "end_col_offset": 41,
                   "end_lineno": 17,
                   "lineno": 17,
-                  "value": "tns_auto_entrepreneur_benefice"
+                  "value": "rpns_auto_entrepreneur_benefice"
                 },
                 {
                   "ast_class": "Constant",
@@ -891,7 +891,7 @@
         "name": "formula_2009_06"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
-      "source_code": "def formula_2009_06(individu, period):\n    last_3_months = period.last_3_months\n\n    # Note Auto-entrepreneurs:\n    # D'après les caisses, le revenu pris en compte pour les AE pour le RSA ne prend en compte que\n    # l'abattement standard sur le CA, mais pas les cotisations pour charges sociales.\n\n    types_revenus_activite = [\n        'salaire_net',\n        'indemnites_chomage_partiel',\n        'remuneration_apprenti',\n        'indemnites_volontariat',\n        'revenus_stage_formation_pro',\n        'bourse_recherche',\n        'hsup',\n        'etr',\n        'tns_auto_entrepreneur_benefice',\n        'rsa_indemnites_journalieres_activite',\n        ]\n\n    possede_ressource_substitution = individu('rsa_has_ressources_substitution', period)\n\n    # Les revenus pros interrompus au mois M sont neutralisés s'il n'y a pas de revenus de substitution.\n    revenus_moyennes = sum(\n        individu(type_revenu, last_3_months, options = [ADD]) * not_(\n            (individu(type_revenu, period) == 0)\n            * (individu(type_revenu, period.last_month) > 0)\n            * not_(possede_ressource_substitution)\n            )\n        for type_revenu in types_revenus_activite\n        ) / 3\n\n    revenus_tns_annualises = 0\n    if period.start.date >= date(2017, 1, 1):\n        revenus_tns_annualises = individu('ppa_rsa_derniers_revenus_tns_annuels_connus', period.this_year)\n\n    return revenus_moyennes + revenus_tns_annualises\n",
+      "source_code": "def formula_2009_06(individu, period):\n    last_3_months = period.last_3_months\n\n    # Note Auto-entrepreneurs:\n    # D'après les caisses, le revenu pris en compte pour les AE pour le RSA ne prend en compte que\n    # l'abattement standard sur le CA, mais pas les cotisations pour charges sociales.\n\n    types_revenus_activite = [\n        'salaire_net',\n        'indemnites_chomage_partiel',\n        'remuneration_apprenti',\n        'indemnites_volontariat',\n        'revenus_stage_formation_pro',\n        'bourse_recherche',\n        'hsup',\n        'etr',\n        'rpns_auto_entrepreneur_benefice',\n        'rsa_indemnites_journalieres_activite',\n        ]\n\n    possede_ressource_substitution = individu('rsa_has_ressources_substitution', period)\n\n    # Les revenus pros interrompus au mois M sont neutralisés s'il n'y a pas de revenus de substitution.\n    revenus_moyennes = sum(\n        individu(type_revenu, last_3_months, options = [ADD]) * not_(\n            (individu(type_revenu, period) == 0)\n            * (individu(type_revenu, period.last_month) > 0)\n            * not_(possede_ressource_substitution)\n            )\n        for type_revenu in types_revenus_activite\n        ) / 3\n\n    revenus_tns_annualises = 0\n    if period.start.date >= date(2017, 1, 1):\n        revenus_tns_annualises = individu('ppa_rsa_derniers_revenus_tns_annuels_connus', period.this_year)\n\n    return revenus_moyennes + revenus_tns_annualises\n",
       "start_line_number": 492,
       "stop_line_number": 529,
       "variables": [

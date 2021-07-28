@@ -373,8 +373,8 @@
         "impot_revenu.credits_impot.ppe.seuil1"
       ],
       "source_code": "def formula(individu, period, parameters):\n    '''\n    Eligibilité individuelle à la ppe\n    Attention : condition de plafonnement introduite dans ppe brute\n    '''\n    ppe_rev = individu('ppe_rev', period)\n    ppe_coef_tp = individu('ppe_coef_tp', period)\n    ppe = parameters(period).impot_revenu.credits_impot.ppe\n\n    return (ppe_rev >= ppe.seuil1) & (ppe_coef_tp != 0)\n",
-      "start_line_number": 3378,
-      "stop_line_number": 3388,
+      "start_line_number": 3364,
+      "stop_line_number": 3374,
       "variables": [
         "ppe_coef_tp",
         "ppe_rev"
@@ -389,7 +389,7 @@
   "referring_variables": [
     "ppe_brute"
   ],
-  "start_line_number": 3371,
-  "stop_line_number": 3388,
+  "start_line_number": 3357,
+  "stop_line_number": 3374,
   "value_type": "bool"
 }

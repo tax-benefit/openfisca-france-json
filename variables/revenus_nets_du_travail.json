@@ -46,7 +46,7 @@
               "end_col_offset": 7,
               "end_lineno": 6,
               "lineno": 2,
-              "value": "\n    Note : pour les revenus non-salariés, on prend rpns_individu, auquel on enlève les cotisations sociales\n           et la CSG-CRDS. En effet, les variables formant la variable cotisations_non_salarie utilisent\n           comme base rpns_indiviu, ce qui suggère que rpns_individu est avant tout prélèvement\n    "
+              "value": "\n    Note : pour les revenus non-salariés, on prend rpns_imposables, auquel on enlève les cotisations sociales\n           et la CSG-CRDS. En effet, les variables formant la variable cotisations_non_salarie utilisent\n           comme base rpns_imposables, ce qui suggère que rpns_imposables est avant tout prélèvement\n    "
             }
           },
           {
@@ -144,7 +144,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 75,
+            "end_col_offset": 77,
             "end_lineno": 10,
             "lineno": 10,
             "targets": [
@@ -165,18 +165,18 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 34,
-                  "end_col_offset": 49,
+                  "end_col_offset": 51,
                   "end_lineno": 10,
                   "lineno": 10,
-                  "value": "rpns_individu"
+                  "value": "rpns_imposables"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 51,
+                  "col_offset": 53,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 57,
+                  "end_col_offset": 59,
                   "end_lineno": 10,
                   "id": "period",
                   "lineno": 10
@@ -184,7 +184,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 25,
-              "end_col_offset": 75,
+              "end_col_offset": 77,
               "end_lineno": 10,
               "func": {
                 "ast_class": "Name",
@@ -201,30 +201,30 @@
                 {
                   "arg": "options",
                   "ast_class": "keyword",
-                  "col_offset": 59,
-                  "end_col_offset": 74,
+                  "col_offset": 61,
+                  "end_col_offset": 76,
                   "end_lineno": 10,
                   "lineno": 10,
                   "value": {
                     "ast_class": "List",
-                    "col_offset": 69,
+                    "col_offset": 71,
                     "ctx": {
                       "ast_class": "Load"
                     },
                     "elts": [
                       {
                         "ast_class": "Name",
-                        "col_offset": 70,
+                        "col_offset": 72,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 73,
+                        "end_col_offset": 75,
                         "end_lineno": 10,
                         "id": "ADD",
                         "lineno": 10
                       }
                     ],
-                    "end_col_offset": 74,
+                    "end_col_offset": 76,
                     "end_lineno": 10,
                     "lineno": 10
                   }
@@ -554,16 +554,16 @@
         "lineno": 1,
         "name": "formula"
       },
-      "documentation": "\nNote : pour les revenus non-salariés, on prend rpns_individu, auquel on enlève les cotisations sociales\n       et la CSG-CRDS. En effet, les variables formant la variable cotisations_non_salarie utilisent\n       comme base rpns_indiviu, ce qui suggère que rpns_individu est avant tout prélèvement\n",
+      "documentation": "\nNote : pour les revenus non-salariés, on prend rpns_imposables, auquel on enlève les cotisations sociales\n       et la CSG-CRDS. En effet, les variables formant la variable cotisations_non_salarie utilisent\n       comme base rpns_imposables, ce qui suggère que rpns_imposables est avant tout prélèvement\n",
       "file_path": "/openfisca_france/model/mesures.py",
-      "source_code": "def formula(individu, period):\n    '''\n    Note : pour les revenus non-salariés, on prend rpns_individu, auquel on enlève les cotisations sociales\n           et la CSG-CRDS. En effet, les variables formant la variable cotisations_non_salarie utilisent\n           comme base rpns_indiviu, ce qui suggère que rpns_individu est avant tout prélèvement\n    '''\n    # Salariés\n    salaire_net = individu('salaire_net', period, options = [ADD])\n    # Non salariés\n    revenu_non_salarie = individu('rpns_individu', period, options = [ADD])\n    cotisations_non_salarie = individu('cotisations_non_salarie', period)\n    csg_non_salarie = individu('csg_non_salarie', period)\n    crds_non_salarie = individu('crds_non_salarie', period)\n    revenu_non_salarie_net = (\n        revenu_non_salarie\n        + cotisations_non_salarie\n        + csg_non_salarie\n        + crds_non_salarie\n        )\n    return salaire_net + revenu_non_salarie_net\n",
+      "source_code": "def formula(individu, period):\n    '''\n    Note : pour les revenus non-salariés, on prend rpns_imposables, auquel on enlève les cotisations sociales\n           et la CSG-CRDS. En effet, les variables formant la variable cotisations_non_salarie utilisent\n           comme base rpns_imposables, ce qui suggère que rpns_imposables est avant tout prélèvement\n    '''\n    # Salariés\n    salaire_net = individu('salaire_net', period, options = [ADD])\n    # Non salariés\n    revenu_non_salarie = individu('rpns_imposables', period, options = [ADD])\n    cotisations_non_salarie = individu('cotisations_non_salarie', period)\n    csg_non_salarie = individu('csg_non_salarie', period)\n    crds_non_salarie = individu('crds_non_salarie', period)\n    revenu_non_salarie_net = (\n        revenu_non_salarie\n        + cotisations_non_salarie\n        + csg_non_salarie\n        + crds_non_salarie\n        )\n    return salaire_net + revenu_non_salarie_net\n",
       "start_line_number": 100,
       "stop_line_number": 120,
       "variables": [
         "cotisations_non_salarie",
         "crds_non_salarie",
         "csg_non_salarie",
-        "rpns_individu",
+        "rpns_imposables",
         "salaire_net"
       ]
     }

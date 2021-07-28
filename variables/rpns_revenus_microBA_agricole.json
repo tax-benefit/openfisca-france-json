@@ -1157,8 +1157,8 @@
         "impot_revenu.rpns.micro.taux_mBA"
       ],
       "source_code": "def formula_2016_01_01(individu, period, parameters):\n    mrag_impo = individu('mrag_impo', period)\n    frag_impo_n2 = individu('frag_impo_n2', period)\n    frag_impo_n1 = individu('frag_impo_n1', period)\n    arag_impo_n2 = individu('arag_impo_n2', period)\n    arag_impo_n1 = individu('arag_impo_n1', period)\n    date_creation = individu('date_creation', period)\n    micro = parameters(period).impot_revenu.rpns.micro\n\n    frag_impo_n2_maj = frag_impo_n2 * (1 + micro.maj_frag)\n    frag_impo_n1_maj = frag_impo_n1 * (1 + micro.maj_frag)\n    benefices_estimes_3 = (mrag_impo + frag_impo_n2_maj + arag_impo_n2 + frag_impo_n1_maj + arag_impo_n1) / 3\n    benefices_estimes_2 = (mrag_impo + frag_impo_n1_maj + arag_impo_n1) / 2\n\n    montant_benef = (\n        (date_creation < 2015) * benefices_estimes_3\n        + (date_creation == 2015) * benefices_estimes_2\n        + (date_creation == 2016) * mrag_impo\n        )\n\n    return montant_benef * (1 - micro.taux_mBA)\n",
-      "start_line_number": 2810,
-      "stop_line_number": 2831,
+      "start_line_number": 2795,
+      "stop_line_number": 2816,
       "variables": [
         "arag_impo_n1",
         "arag_impo_n2",
@@ -2137,8 +2137,8 @@
         "impot_revenu.rpns.micro.taux_mBA"
       ],
       "source_code": "def formula_2017_01_01(individu, period, parameters):\n    mrag_impo = individu('mrag_impo', period)\n    frag_impo_n2 = individu('frag_impo_n2', period)\n    frag_impo_n1 = individu('frag_impo_n1', period)\n    arag_impo_n2 = individu('arag_impo_n2', period)\n    date_creation = individu('date_creation', period)\n    micro = parameters(period).impot_revenu.rpns.micro\n\n    frag_impo_n2_maj = frag_impo_n2 * (1 + micro.maj_frag)\n    benefices_estimes_3 = (mrag_impo + frag_impo_n2_maj + arag_impo_n2 + frag_impo_n1) / 3\n    benefices_estimes_2 = (mrag_impo + frag_impo_n1) / 2\n\n    montant_benef = (\n        (date_creation < 2016) * benefices_estimes_3\n        + (date_creation == 2016) * benefices_estimes_2\n        + (date_creation == 2017) * mrag_impo\n        )\n\n    return montant_benef * (1 - micro.taux_mBA)\n",
-      "start_line_number": 2832,
-      "stop_line_number": 2851,
+      "start_line_number": 2817,
+      "stop_line_number": 2836,
       "variables": [
         "arag_impo_n2",
         "date_creation",
@@ -2410,8 +2410,8 @@
         "impot_revenu.rpns.micro.taux_mBA"
       ],
       "source_code": "def formula_2018_01_01(individu, period, parameters):\n    mrag_impo = individu('mrag_impo', period)\n    micro = parameters(period).impot_revenu.rpns.micro\n\n    return mrag_impo * (1 - micro.taux_mBA)\n",
-      "start_line_number": 2852,
-      "stop_line_number": 2857,
+      "start_line_number": 2837,
+      "stop_line_number": 2842,
       "variables": [
         "mrag_impo"
       ]
@@ -2421,9 +2421,10 @@
   "label": "Revenus agricoles imposables en régime microBA - Revenus des professions non salariées",
   "name": "rpns_revenus_microBA_agricole",
   "referring_variables": [
-    "rpns_individu"
+    "rpns_benefice_exploitant_agricole",
+    "rpns_imposables"
   ],
-  "start_line_number": 2803,
-  "stop_line_number": 2857,
+  "start_line_number": 2788,
+  "stop_line_number": 2842,
   "value_type": "float"
 }

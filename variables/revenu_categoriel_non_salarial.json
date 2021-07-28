@@ -116,7 +116,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 58,
+            "end_col_offset": 60,
             "end_lineno": 3,
             "lineno": 3,
             "targets": [
@@ -137,18 +137,18 @@
                 {
                   "ast_class": "Constant",
                   "col_offset": 34,
-                  "end_col_offset": 49,
+                  "end_col_offset": 51,
                   "end_lineno": 3,
                   "lineno": 3,
-                  "value": "rpns_individu"
+                  "value": "rpns_imposables"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 51,
+                  "col_offset": 53,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 57,
+                  "end_col_offset": 59,
                   "end_lineno": 3,
                   "id": "period",
                   "lineno": 3
@@ -156,7 +156,7 @@
               ],
               "ast_class": "Call",
               "col_offset": 13,
-              "end_col_offset": 58,
+              "end_col_offset": 60,
               "end_lineno": 3,
               "func": {
                 "ast_class": "Attribute",
@@ -806,7 +806,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
-      "source_code": "def formula(foyer_fiscal, period, parameters):\n    nbnc_pvce_i = foyer_fiscal.members('nbnc_pvce', period)\n    rpns_i = foyer_fiscal.members('rpns_individu', period)\n    nbnc_pvce = foyer_fiscal.sum(nbnc_pvce_i)\n    rpns = foyer_fiscal.sum(rpns_i)\n    defrag = foyer_fiscal('defrag', period)\n    defacc = foyer_fiscal('defacc', period)\n    defncn = foyer_fiscal('defncn', period)\n    defmeu = foyer_fiscal('defmeu', period)\n    cga = parameters(period).impot_revenu.rpns.cga_taux2\n\n    return (\n        rpns\n        - (1 + cga) * nbnc_pvce\n        - defrag\n        - defncn\n        - defacc\n        - defmeu\n        )\n",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    nbnc_pvce_i = foyer_fiscal.members('nbnc_pvce', period)\n    rpns_i = foyer_fiscal.members('rpns_imposables', period)\n    nbnc_pvce = foyer_fiscal.sum(nbnc_pvce_i)\n    rpns = foyer_fiscal.sum(rpns_i)\n    defrag = foyer_fiscal('defrag', period)\n    defacc = foyer_fiscal('defacc', period)\n    defncn = foyer_fiscal('defncn', period)\n    defmeu = foyer_fiscal('defmeu', period)\n    cga = parameters(period).impot_revenu.rpns.cga_taux2\n\n    return (\n        rpns\n        - (1 + cga) * nbnc_pvce\n        - defrag\n        - defncn\n        - defacc\n        - defmeu\n        )\n",
       "start_line_number": 950,
       "stop_line_number": 969,
       "variables": [
@@ -815,7 +815,7 @@
         "defncn",
         "defrag",
         "nbnc_pvce",
-        "rpns_individu"
+        "rpns_imposables"
       ]
     }
   },

@@ -863,8 +863,8 @@
         "prestations.aides_logement.participation_min.taux"
       ],
       "source_code": "def formula(famille, period, parameters):\n    al = parameters(period).prestations.aides_logement\n\n    R = famille('aide_logement_base_ressources', period)\n    R0 = famille('aide_logement_R0', period)\n    Rp = max_(0, R - R0)\n\n    loyer_retenu = famille('aide_logement_loyer_retenu', period)\n    charges_retenues = famille('aide_logement_charges', period)\n    E = loyer_retenu + charges_retenues\n    P0 = max_(al.participation_min.taux * E, al.participation_min.montant_forfaitaire)  # Participation personnelle minimale\n\n    Tf = famille('aide_logement_taux_famille', period)\n    Tl = famille('aide_logement_taux_loyer', period)\n    Tp = Tf + Tl  # Taux de participation\n\n    return P0 + Tp * Rp\n",
-      "start_line_number": 1444,
-      "stop_line_number": 1461,
+      "start_line_number": 1442,
+      "stop_line_number": 1459,
       "variables": [
         "aide_logement_R0",
         "aide_logement_base_ressources",
@@ -881,7 +881,7 @@
   "referring_variables": [
     "aide_logement_montant_brut_avant_degressivite"
   ],
-  "start_line_number": 1438,
-  "stop_line_number": 1461,
+  "start_line_number": 1436,
+  "stop_line_number": 1459,
   "value_type": "float"
 }

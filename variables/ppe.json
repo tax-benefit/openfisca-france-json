@@ -424,8 +424,8 @@
       "documentation": "\nPPE effectivement versée\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    \"\"\"\n    PPE effectivement versée\n    \"\"\"\n    ppe_brute = foyer_fiscal('ppe_brute', period)\n\n    # TODO: les foyers qui paient l'ISF n'ont pas le droit à la PPE\n    rsa_act_i = foyer_fiscal.members('rsa_activite_individu', period, options = [ADD])\n    rsa_act = foyer_fiscal.sum(rsa_act_i, role = FoyerFiscal.DECLARANT)\n\n    #   On retranche le RSA activité de la PPE\n    #   Dans les agrégats officiels de la DGFP, c'est à la PPE brute qu'il faut comparer\n    ppe = max_(ppe_brute - rsa_act, 0)\n    return ppe\n",
-      "start_line_number": 3504,
-      "stop_line_number": 3518,
+      "start_line_number": 3490,
+      "stop_line_number": 3504,
       "variables": [
         "ppe_brute",
         "rsa_activite_individu"
@@ -443,7 +443,7 @@
     "restitutions",
     "revenu_disponible"
   ],
-  "start_line_number": 3496,
-  "stop_line_number": 3518,
+  "start_line_number": 3482,
+  "stop_line_number": 3504,
   "value_type": "float"
 }
