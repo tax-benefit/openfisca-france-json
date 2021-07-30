@@ -309,6 +309,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_salarie.prive_cadre.apec"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    categorie_salarie = individu('categorie_salarie', period)\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"salarie\",\n        bareme_name = \"apec\",\n        variable_name = 'apec_salarie',\n        )\n    return cotisation * (categorie_salarie == TypesCategorieSalarie.prive_cadre)  # TODO: check public notamment contractuel\n",
       "start_line_number": 407,
       "stop_line_number": 418,

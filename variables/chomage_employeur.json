@@ -192,6 +192,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.assedic",
+        "cotsoc.cotisations_employeur.prive_non_cadre.assedic"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"assedic\",\n        variable_name = \"chomage_employeur\",\n        )\n    return cotisation\n",
       "start_line_number": 538,
       "stop_line_number": 548

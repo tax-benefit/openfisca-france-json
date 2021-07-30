@@ -828,6 +828,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.arrco",
+        "cotsoc.cotisations_employeur.prive_non_cadre.arrco"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation_minimale = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"arrco\",\n        variable_name = 'arrco_employeur',\n        )\n    arrco_tranche_a_taux_employeur = individu('arrco_tranche_a_taux_employeur', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period, options = [ADD])\n    plafond_securite_sociale = individu('plafond_securite_sociale', period, options = [ADD])\n    categorie_salarie = individu('categorie_salarie', period)\n\n    # cas où l'entreprise applique un taux spécifique\n    cotisation_entreprise = - (\n        min_(max_(assiette_cotisations_sociales, 0), plafond_securite_sociale)\n        * arrco_tranche_a_taux_employeur\n        )\n\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.prive_non_cadre)\n        + (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        )\n    return (\n        cotisation_minimale * (arrco_tranche_a_taux_employeur == 0) + cotisation_entreprise\n        ) * public\n",
       "start_line_number": 484,
       "stop_line_number": 511,

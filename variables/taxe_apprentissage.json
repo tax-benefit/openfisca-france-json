@@ -541,6 +541,12 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.apprentissage",
+        "cotsoc.cotisations_employeur.prive_cadre.apprentissage_alsace_moselle",
+        "cotsoc.cotisations_employeur.prive_non_cadre.apprentissage",
+        "cotsoc.cotisations_employeur.prive_non_cadre.apprentissage_alsace_moselle"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'apprentissage_alsace_moselle',\n        variable_name = 'taxe_apprentissage',\n        )\n\n    cotisation_regime_general = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'apprentissage',\n        variable_name = 'taxe_apprentissage',\n        )\n\n    cotisation = np.where(\n        salarie_regime_alsace_moselle,\n        cotisation_regime_alsace_moselle,\n        cotisation_regime_general,\n        )\n\n    return cotisation * redevable_taxe_apprentissage\n",
       "start_line_number": 320,
       "stop_line_number": 349,

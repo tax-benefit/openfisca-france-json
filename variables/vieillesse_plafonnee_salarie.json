@@ -192,6 +192,11 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_salarie.prive_cadre.vieillesse",
+        "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse",
+        "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'vieillesse',\n        variable_name = 'vieillesse_plafonnee_salarie',\n        )\n    return cotisation\n",
       "start_line_number": 879,
       "stop_line_number": 889

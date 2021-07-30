@@ -841,6 +841,14 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.formprof_09",
+        "cotsoc.cotisations_employeur.prive_cadre.formprof_1019",
+        "cotsoc.cotisations_employeur.prive_cadre.formprof_20",
+        "cotsoc.cotisations_employeur.prive_non_cadre.formprof_09",
+        "cotsoc.cotisations_employeur.prive_non_cadre.formprof_1019",
+        "cotsoc.cotisations_employeur.prive_non_cadre.formprof_20"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    taille_entreprise = individu('taille_entreprise', period)\n    TypesTailleEntreprise = taille_entreprise.possible_values\n\n    cotisation_0_9 = (taille_entreprise == TypesTailleEntreprise.moins_de_10) * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_09',\n        variable_name = 'formation_professionnelle',\n        )\n\n    cotisation_10_19 = (taille_entreprise == TypesTailleEntreprise.de_10_a_19) * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_1019',\n        variable_name = 'formation_professionnelle',\n        )\n\n    entreprise_eligible = (\n        (taille_entreprise == TypesTailleEntreprise.de_20_a_249)\n        + (taille_entreprise == TypesTailleEntreprise.plus_de_250)\n        )\n    cotisation_20 = entreprise_eligible * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_20',\n        variable_name = 'formation_professionnelle',\n        )\n    return cotisation_0_9 + cotisation_10_19 + cotisation_20\n",
       "start_line_number": 252,
       "stop_line_number": 287,

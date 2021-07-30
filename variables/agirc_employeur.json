@@ -309,6 +309,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.agirc"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"agirc\",\n        variable_name = 'agirc_employeur'\n        )\n    categorie_salarie = individu('categorie_salarie', period)\n    return cotisation * (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n",
       "start_line_number": 370,
       "stop_line_number": 381,

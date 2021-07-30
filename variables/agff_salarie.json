@@ -192,6 +192,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_salarie.prive_cadre.agff",
+        "cotsoc.cotisations_salarie.prive_non_cadre.agff"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"salarie\",\n        bareme_name = \"agff\",\n        variable_name = \"agff_salarie\"\n        )\n    return cotisation\n",
       "start_line_number": 216,
       "stop_line_number": 226

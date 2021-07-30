@@ -425,6 +425,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.construction",
+        "cotsoc.cotisations_employeur.prive_non_cadre.construction"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    bareme = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'construction',\n        variable_name = 'participation_effort_construction',\n        )\n\n    seuil = parameters(period).prelevements_sociaux.autres_taxes_participations_assises_salaires.construction.seuil\n    cotisation = bareme * (effectif_entreprise >= seuil)\n\n    return cotisation\n",
       "start_line_number": 295,
       "stop_line_number": 311,

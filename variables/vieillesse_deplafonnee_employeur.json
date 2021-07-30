@@ -192,6 +192,11 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.vieillesse_deplafonnee",
+        "cotsoc.cotisations_employeur.prive_non_cadre.vieillesse_deplafonnee",
+        "cotsoc.cotisations_employeur.public_non_titulaire.vieillesse_deplafonnee"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'vieillesse_deplafonnee',\n        variable_name = 'vieillesse_deplafonnee_employeur',\n        )\n    return cotisation\n",
       "start_line_number": 897,
       "stop_line_number": 907

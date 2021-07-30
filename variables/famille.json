@@ -192,6 +192,14 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.famille",
+        "cotsoc.cotisations_employeur.prive_non_cadre.famille",
+        "cotsoc.cotisations_employeur.public_non_titulaire.famille",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.famille",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.famille",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.famille"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'famille',\n        variable_name = 'famille',\n        )\n    return cotisation\n",
       "start_line_number": 610,
       "stop_line_number": 620

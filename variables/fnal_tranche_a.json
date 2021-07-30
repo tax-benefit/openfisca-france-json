@@ -496,6 +496,14 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.fnal1",
+        "cotsoc.cotisations_employeur.prive_non_cadre.fnal1",
+        "cotsoc.cotisations_employeur.public_non_titulaire.fnal1",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal1",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal1",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal1"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    taille_entreprise = individu('taille_entreprise', period)\n    TypesTailleEntreprise = taille_entreprise.possible_values\n\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal1',\n        variable_name = \"fnal_tranche_a\",\n        )\n    entreprise_eligible = (\n        (taille_entreprise == TypesTailleEntreprise.non_pertinent)\n        + (taille_entreprise == TypesTailleEntreprise.moins_de_10)\n        + (taille_entreprise == TypesTailleEntreprise.de_10_a_19)\n        )\n    return cotisation * entreprise_eligible\n",
       "start_line_number": 175,
       "stop_line_number": 193,

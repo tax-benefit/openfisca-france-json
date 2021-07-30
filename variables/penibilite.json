@@ -738,6 +738,20 @@
         "name": "formula_2015_01_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_employeur.prive_cadre.penibilite_additionnelle",
+        "cotsoc.cotisations_employeur.prive_cadre.penibilite_base",
+        "cotsoc.cotisations_employeur.prive_non_cadre.penibilite_additionnelle",
+        "cotsoc.cotisations_employeur.prive_non_cadre.penibilite_base",
+        "cotsoc.cotisations_employeur.public_non_titulaire.penibilite_additionnelle",
+        "cotsoc.cotisations_employeur.public_non_titulaire.penibilite_base",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.penibilite_additionnelle",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.penibilite_base",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.penibilite_additionnelle",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.penibilite_base",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.penibilite_additionnelle",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.penibilite_base"
+      ],
       "source_code": "def formula_2015_01_01(individu, period, parameters):\n    exposition_penibilite = individu('exposition_penibilite', period)\n    TypesExpositionPenibilite = exposition_penibilite.possible_values\n    multiplicateur = parameters(period).cotsoc.cotisations_employeur.prive_cadre.penibilite_multiplicateur_exposition_multiple\n\n    cotisation_base = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"penibilite_base\",\n        variable_name = 'penibilite',\n        )\n    cotisation_additionnelle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"penibilite_additionnelle\",\n        variable_name = 'penibilite',\n        )\n\n    cotisation = switch(\n        exposition_penibilite,\n        {\n            TypesExpositionPenibilite.nulle: cotisation_base,\n            TypesExpositionPenibilite.simple: cotisation_base + cotisation_additionnelle,\n            TypesExpositionPenibilite.multiple: cotisation_base + cotisation_additionnelle * multiplicateur,\n            }\n        )\n\n    return cotisation\n",
       "start_line_number": 153,
       "stop_line_number": 185,

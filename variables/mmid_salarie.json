@@ -448,6 +448,14 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_salarie.prive_cadre.maladie",
+        "cotsoc.cotisations_salarie.prive_cadre.maladie_alsace_moselle",
+        "cotsoc.cotisations_salarie.prive_non_cadre.maladie",
+        "cotsoc.cotisations_salarie.prive_non_cadre.maladie_alsace_moselle",
+        "cotsoc.cotisations_salarie.public_non_titulaire.maladie",
+        "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n\n    cotisation_regime_general = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie_alsace_moselle',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation = cotisation_regime_general + salarie_regime_alsace_moselle * cotisation_regime_alsace_moselle\n\n    return cotisation\n",
       "start_line_number": 646,
       "stop_line_number": 670,
@@ -770,6 +778,11 @@
       },
       "documentation": "\nLa cotisation maladie (hors Alsace-Moselle) disparaît à partir du 1er janvier 2018\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_salarie.prive_cadre.maladie_alsace_moselle",
+        "cotsoc.cotisations_salarie.prive_non_cadre.maladie_alsace_moselle",
+        "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
+      ],
       "source_code": "def formula_2018(individu, period, parameters):\n    \"\"\"\n    La cotisation maladie (hors Alsace-Moselle) disparaît à partir du 1er janvier 2018\n    \"\"\"\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie_alsace_moselle',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation = salarie_regime_alsace_moselle * cotisation_regime_alsace_moselle\n\n    return cotisation\n",
       "start_line_number": 628,
       "stop_line_number": 645,
