@@ -133,6 +133,10 @@
     "involve": "organization",
     "label": "Allègement de charges employeur sur les bas et moyens salaires (dit allègement Fillon)"
   },
+  "allocation_retour_emploi": {
+    "involve": "person",
+    "label": "Allocation chômage d'aide au retour à l'emploi (ARE)"
+  },
   "allocations_temporaires_invalidite": {
     "involve": "organization",
     "label": "Allocations temporaires d'invalidité (ATI, fonction publique et collectivités locales)"
@@ -181,13 +185,53 @@
     "involve": "person",
     "label": "Complément d'allocation adulte handicapé (mensualisé)"
   },
+  "casa": {
+    "involve": "person",
+    "label": "Contribution additionnelle de solidarité et d'autonomie"
+  },
   "cf": {
     "involve": "person",
     "label": "Complément familial"
   },
+  "chomage_brut": {
+    "children": [
+      {
+        "name": "allocation_retour_emploi"
+      }
+    ],
+    "involve": "person",
+    "label": "Chômage brut (revenus de remplacement pour les demandeurs d'emploi)"
+  },
   "chomage_employeur": {
     "involve": "organization",
     "label": "Cotisation chômage tranche A (employeur)"
+  },
+  "chomage_imposable": {
+    "children": [
+      {
+        "name": "chomage_brut"
+      },
+      {
+        "name": "csg_deductible_chomage"
+      }
+    ],
+    "involve": "person",
+    "label": "Allocations chômage imposables"
+  },
+  "chomage_net": {
+    "children": [
+      {
+        "name": "chomage_imposable"
+      },
+      {
+        "name": "csg_imposable_chomage"
+      },
+      {
+        "name": "crds_chomage"
+      }
+    ],
+    "involve": "person",
+    "label": "Allocations chômage nettes"
   },
   "chomage_salarie": {
     "involve": "person",
@@ -467,6 +511,10 @@
     "involve": "person",
     "label": "Montant de l'aide exceptionnelle pour les TPE pendant la crise sanitaire dûe au COVID-19"
   },
+  "crds_chomage": {
+    "involve": "person",
+    "label": "CRDS sur les allocations chômage"
+  },
   "crds_mini": {
     "involve": "person",
     "label": "CRDS versée sur les minimas sociaux"
@@ -479,6 +527,10 @@
     "involve": "person",
     "label": "CRDS sur les prestations familiales)"
   },
+  "crds_retraite": {
+    "involve": "person",
+    "label": "CRDS sur les pensions de retraite"
+  },
   "crds_salaire": {
     "involve": "person",
     "label": "CRDS sur les salaires"
@@ -487,9 +539,25 @@
     "involve": "organization",
     "label": "Crédit d'impôt pour la compétitivité et l'emploi"
   },
+  "csg_deductible_chomage": {
+    "involve": "person",
+    "label": "CSG déductible sur les allocations chômage"
+  },
+  "csg_deductible_retraite": {
+    "involve": "person",
+    "label": "CSG déductible sur les pensions de retraite"
+  },
   "csg_deductible_salaire": {
     "involve": "person",
     "label": "CSG déductible sur les salaires"
+  },
+  "csg_imposable_chomage": {
+    "involve": "person",
+    "label": "CSG imposable sur les allocations chômage"
+  },
+  "csg_imposable_retraite": {
+    "involve": "person",
+    "label": "CSG imposable sur les pensions de retraite"
   },
   "csg_imposable_salaire": {
     "involve": "person",
@@ -793,7 +861,39 @@
     "involve": "person",
     "label": "Pension civile salarié"
   },
+  "pensions_alimentaires_percues": {
+    "involve": "person",
+    "label": "Pensions alimentaires perçues"
+  },
+  "pensions_alimentaires_versees": {
+    "involve": "person",
+    "label": "Pensions alimentaires versées"
+  },
+  "pensions_invalidite": {
+    "involve": "person",
+    "label": "Pensions d'invalidité"
+  },
   "pensions_nettes": {
+    "children": [
+      {
+        "name": "chomage_net"
+      },
+      {
+        "name": "retraite_nette"
+      },
+      {
+        "name": "pensions_alimentaires_percues"
+      },
+      {
+        "name": "pensions_invalidite"
+      },
+      {
+        "name": "pensions_alimentaires_versees"
+      },
+      {
+        "name": "rente_viagere_titre_onereux"
+      }
+    ],
     "involve": "person",
     "label": "Pensions et revenus de remplacement"
   },
@@ -931,6 +1031,44 @@
   "remuneration_principale": {
     "involve": "organization",
     "label": "Rémunération principale des agents titulaires de la fonction publique"
+  },
+  "rente_viagere_titre_onereux": {
+    "involve": "person",
+    "label": "Rentes viagères (rentes à titre onéreux)"
+  },
+  "retraite_brute": {
+    "involve": "person",
+    "label": "Retraite brute"
+  },
+  "retraite_imposable": {
+    "children": [
+      {
+        "name": "retraite_brute"
+      },
+      {
+        "name": "csg_deductible_retraite"
+      }
+    ],
+    "involve": "person",
+    "label": "Retraites au sens strict imposables (rentes à titre onéreux exclues)"
+  },
+  "retraite_nette": {
+    "children": [
+      {
+        "name": "retraite_imposable"
+      },
+      {
+        "name": "csg_imposable_retraite"
+      },
+      {
+        "name": "crds_retraite"
+      },
+      {
+        "name": "casa"
+      }
+    ],
+    "involve": "person",
+    "label": "Pensions de retraite nettes"
   },
   "rev_microsocial": {
     "involve": "person",

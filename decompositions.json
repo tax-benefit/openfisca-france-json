@@ -193,6 +193,32 @@
     ],
     "label": "Aides logement nettes"
   },
+  "al_base_ressources_individu": {
+    "children": [
+      {
+        "name": "al_traitements_salaires_pensions_rentes"
+      },
+      {
+        "name": "hsup"
+      },
+      {
+        "name": "glo"
+      },
+      {
+        "name": "assiette_csg_plus_values"
+      },
+      {
+        "name": "rpns_imposables"
+      },
+      {
+        "name": "rpns_pvce"
+      },
+      {
+        "name": "rpns_exon"
+      }
+    ],
+    "label": "Base ressource individuelle des aides logement"
+  },
   "al_couple": {
     "children": [
       {
@@ -203,6 +229,9 @@
       }
     ],
     "label": "Situation de couple pour le calcul des AL"
+  },
+  "al_traitements_salaires_pensions_rentes": {
+    "label": "Traitements salaires pensions et rentes individuelles dans le cadre des aides au logement"
   },
   "allegement_cotisation_allocations_familiales": {
     "label": "Allègement de la cotisation d'allocations familiales sur les bas et moyens salaires"
@@ -365,6 +394,9 @@
       }
     ],
     "label": "Assiette des plus-values soumis à la CSG"
+  },
+  "assiette_csg_revenus_capital": {
+    "label": "Assiette des revenus du capital soumis à la CSG"
   },
   "assiette_proflib": {
     "children": [
@@ -643,6 +675,9 @@
   "complementaire_sante_employeur": {
     "label": "Couverture complémentaire santé collective d'entreprise - part employeur"
   },
+  "complementaire_sante_salarie": {
+    "label": "Couverture complémentaire santé collective d'entreprise - part salarié"
+  },
   "conge_individuel_formation_cdd": {
     "label": "Contribution au financement des congé individuel de formation (CIF) des salariées en CDD"
   },
@@ -906,10 +941,59 @@
     "label": "Montant de l'aide exceptionnelle pour les TPE pendant la crise sanitaire dûe au COVID-19"
   },
   "crds": {
+    "children": [
+      {
+        "name": "crds_salaire"
+      },
+      {
+        "name": "crds_retraite"
+      },
+      {
+        "name": "crds_chomage"
+      },
+      {
+        "name": "crds_non_salarie"
+      },
+      {
+        "name": "crds_pfam"
+      },
+      {
+        "name": "crds_logement"
+      },
+      {
+        "name": "crds_mini"
+      },
+      {
+        "name": "crds_revenus_capital"
+      }
+    ],
     "label": "Contributions au remboursement de la dette sociale"
   },
   "crds_chomage": {
     "label": "CRDS sur les allocations chômage"
+  },
+  "crds_hors_prestations": {
+    "children": [
+      {
+        "name": "crds_salaire"
+      },
+      {
+        "name": "crds_retraite"
+      },
+      {
+        "name": "crds_chomage"
+      },
+      {
+        "name": "crds_non_salarie"
+      },
+      {
+        "name": "crds_revenus_capital"
+      }
+    ],
+    "label": "Contributions au remboursement de la dette sociale (hors celles portant sur les prestations sociales)"
+  },
+  "crds_logement": {
+    "label": "CRDS des allocations logement"
   },
   "crds_mini": {
     "label": "CRDS versée sur les minimas sociaux"
@@ -1019,6 +1103,32 @@
     "label": "Ensemble de crédits d'impôt"
   },
   "csg": {
+    "children": [
+      {
+        "name": "csg_imposable_salaire"
+      },
+      {
+        "name": "csg_deductible_salaire"
+      },
+      {
+        "name": "csg_imposable_chomage"
+      },
+      {
+        "name": "csg_deductible_chomage"
+      },
+      {
+        "name": "csg_imposable_retraite"
+      },
+      {
+        "name": "csg_deductible_retraite"
+      },
+      {
+        "name": "csg_non_salarie"
+      },
+      {
+        "name": "csg_revenus_capital"
+      }
+    ],
     "label": "Contribution sociale généralisée"
   },
   "csg_deductible_chomage": {
@@ -2958,6 +3068,9 @@
   "grosses_reparations": {
     "label": "Dépenses de grosses réparations des nus-propriétaires"
   },
+  "hsup": {
+    "label": "Heures supplémentaires : revenus exonérés connus"
+  },
   "iai": {
     "children": [
       {
@@ -3140,6 +3253,9 @@
   "macc_impv": {
     "label": "Revenus industriels et commerciaux non professionnels imposables: vente de marchandises et assimilées (régime micro entreprise)"
   },
+  "macc_mvct": {
+    "label": "Moins-values industrielles et commerciales non professionnelles nettes à court terme du foyer (régime micro entreprise)"
+  },
   "macc_mvlt": {
     "label": "Moins-values industrielles et commerciales non professionnelles à long terme (régime micro entreprise)"
   },
@@ -3251,6 +3367,9 @@
   "mncn_impo": {
     "label": "Revenus non commerciaux non professionnels imposables (régime déclaratif spécial ou micro BNC)"
   },
+  "mncn_mvct": {
+    "label": "Moins-values non commerciales non professionnelles nettes à court terme du foyer (régime déclaratif spécial ou micro BNC)"
+  },
   "mncn_mvlt": {
     "label": "Moins-values non commerciales non professionnelles à long terme (régime déclaratif spécial ou micro BNC)"
   },
@@ -3283,6 +3402,14 @@
     "label": "Moins values de court terme - Revenu des professions non salariées (toutes)"
   },
   "moins_values_court_terme_nonpro": {
+    "children": [
+      {
+        "name": "macc_mvct"
+      },
+      {
+        "name": "mncn_mvct"
+      }
+    ],
     "label": "Moins values de court terme - Revenu des professions non salariées non professionnelles"
   },
   "moins_values_court_terme_pro": {
@@ -3476,6 +3603,9 @@
   "pensions_alimentaires_deduites": {
     "label": "Pensions alimentaires"
   },
+  "pensions_alimentaires_percues": {
+    "label": "Pensions alimentaires perçues"
+  },
   "pensions_alimentaires_versees": {
     "label": "Pensions alimentaires versées"
   },
@@ -3483,6 +3613,26 @@
     "label": "Pensions d'invalidité"
   },
   "pensions_nettes": {
+    "children": [
+      {
+        "name": "chomage_net"
+      },
+      {
+        "name": "retraite_nette"
+      },
+      {
+        "name": "pensions_alimentaires_percues"
+      },
+      {
+        "name": "pensions_invalidite"
+      },
+      {
+        "name": "pensions_alimentaires_versees"
+      },
+      {
+        "name": "rente_viagere_titre_onereux"
+      }
+    ],
     "label": "Pensions et revenus de remplacement"
   },
   "plus_values_base_large": {
@@ -3671,6 +3821,32 @@
   "prestations_familiales_base_ressources_communes": {
     "label": "Ressources non individualisables prises en compte pour les prestations familiales"
   },
+  "prestations_familiales_base_ressources_individu": {
+    "children": [
+      {
+        "name": "traitements_salaires_pensions_rentes"
+      },
+      {
+        "name": "hsup"
+      },
+      {
+        "name": "glo"
+      },
+      {
+        "name": "assiette_csg_plus_values"
+      },
+      {
+        "name": "rpns_imposables"
+      },
+      {
+        "name": "rpns_pvce"
+      },
+      {
+        "name": "rpns_exon"
+      }
+    ],
+    "label": "Base ressource individuelle des prestations familiales"
+  },
   "prestations_familiales_enfant_a_charge": {
     "label": "Enfant considéré à charge au sens des prestations familiales"
   },
@@ -3702,6 +3878,9 @@
   },
   "primes_fonction_publique": {
     "label": "Calcul des primes pour les fonctionnaries"
+  },
+  "primes_salaires": {
+    "label": "Indemnités, primes et avantages en argent (brut)"
   },
   "produit_epargne_solidaire": {
     "label": "Produit d'épargne solidaire"
@@ -3775,6 +3954,9 @@
   },
   "remuneration_principale": {
     "label": "Rémunération principale des agents titulaires de la fonction publique"
+  },
+  "rente_viagere_titre_onereux": {
+    "label": "Rentes viagères (rentes à titre onéreux)"
   },
   "rente_viagere_titre_onereux_net": {
     "label": "Rentes viagères après abattements"
@@ -3889,6 +4071,9 @@
       }
     ],
     "label": "Revenus perçus par le foyer fiscal à prendre en compte dans la base ressource des prestations familiales"
+  },
+  "rev_microsocial": {
+    "label": "Revenu net des cotisations sociales pour le régime microsocial"
   },
   "revenu_assimile_pension": {
     "label": "Revenu imposé comme des pensions (retraites, pensions alimentaires, etc.)"
@@ -4010,6 +4195,25 @@
     "label": "Revenus fonciers du ménage après déficits mais avant abattements"
   },
   "revenus_nets_du_capital": {
+    "children": [
+      {
+        "name": "assiette_csg_revenus_capital"
+      },
+      {
+        "name": "assiette_csg_plus_values",
+        "negate": true
+      },
+      {
+        "name": "plus_values_base_large"
+      },
+      {
+        "name": "rente_viagere_titre_onereux_net",
+        "negate": true
+      },
+      {
+        "name": "prelevements_sociaux_revenus_capital"
+      }
+    ],
     "label": "Revenus du capital nets de prélèvements sociaux"
   },
   "revenus_nets_du_travail": {
@@ -4293,6 +4497,9 @@
     ],
     "label": "Dernier bénéfice agricole"
   },
+  "rpns_exon": {
+    "label": "Plus values de cession exonérées -Revenu des professions non salariées"
+  },
   "rpns_imposables": {
     "label": "Revenus imposables des professions non salariées individuels"
   },
@@ -4495,6 +4702,45 @@
     "label": "Salaire de base, en général appelé salaire brut, la 1ère ligne sur la fiche de paie"
   },
   "salaire_imposable": {
+    "children": [
+      {
+        "name": "salaire_de_base"
+      },
+      {
+        "name": "primes_salaires"
+      },
+      {
+        "name": "remuneration_principale"
+      },
+      {
+        "name": "primes_fonction_publique"
+      },
+      {
+        "name": "indemnite_residence"
+      },
+      {
+        "name": "supplement_familial_traitement"
+      },
+      {
+        "name": "csg_deductible_salaire"
+      },
+      {
+        "name": "cotisations_salariales"
+      },
+      {
+        "name": "hsup",
+        "negate": true
+      },
+      {
+        "name": "rev_microsocial"
+      },
+      {
+        "name": "indemnite_fin_contrat"
+      },
+      {
+        "name": "complementaire_sante_salarie"
+      }
+    ],
     "label": "Salaires imposables"
   },
   "salaire_net": {
