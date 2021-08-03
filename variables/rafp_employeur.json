@@ -1046,8 +1046,8 @@
         "cotsoc.cotisations_employeur.public_titulaire_etat"
       ],
       "source_code": "def formula_2005_01_01(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    supplement_familial_traitement = individu('supplement_familial_traitement', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    _P = parameters(period)\n\n    eligible = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n\n    plaf_ass = _P.prelevements_sociaux.cotisations_secteur_public.rafp.salarie.rafp_plaf_assiette\n    base_imposable = primes_fonction_publique + supplement_familial_traitement + indemnite_residence\n    assiette = min_(base_imposable, plaf_ass * traitement_indiciaire_brut * eligible)\n    bareme_rafp = _P.cotsoc.cotisations_employeur.public_titulaire_etat['rafp']\n    rafp_employeur = eligible * bareme_rafp.calc(assiette)\n    return - rafp_employeur\n",
-      "start_line_number": 286,
-      "stop_line_number": 306,
+      "start_line_number": 263,
+      "stop_line_number": 283,
       "variables": [
         "categorie_salarie",
         "indemnite_residence",
@@ -1072,8 +1072,8 @@
   "referring_variables": [
     "cotisations_employeur_contributives"
   ],
-  "start_line_number": 279,
-  "stop_line_number": 306,
+  "start_line_number": 256,
+  "stop_line_number": 283,
   "ux_name": "Cotis. retraite additionnelle fonctionnaires (RAFP)",
   "value_type": "float"
 }

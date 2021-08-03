@@ -45,7 +45,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 99,
+            "end_col_offset": 73,
             "end_lineno": 2,
             "lineno": 2,
             "targets": [
@@ -55,9 +55,9 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 40,
+                "end_col_offset": 27,
                 "end_lineno": 2,
-                "id": "assiette_cotisations_sociales_public",
+                "id": "remuneration_principale",
                 "lineno": 2
               }
             ],
@@ -65,35 +65,35 @@
               "args": [
                 {
                   "ast_class": "Constant",
-                  "col_offset": 52,
-                  "end_col_offset": 90,
+                  "col_offset": 39,
+                  "end_col_offset": 64,
                   "end_lineno": 2,
                   "lineno": 2,
-                  "value": "assiette_cotisations_sociales_public"
+                  "value": "remuneration_principale"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 92,
+                  "col_offset": 66,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 98,
+                  "end_col_offset": 72,
                   "end_lineno": 2,
                   "id": "period",
                   "lineno": 2
                 }
               ],
               "ast_class": "Call",
-              "col_offset": 43,
-              "end_col_offset": 99,
+              "col_offset": 30,
+              "end_col_offset": 73,
               "end_lineno": 2,
               "func": {
                 "ast_class": "Name",
-                "col_offset": 43,
+                "col_offset": 30,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 51,
+                "end_col_offset": 38,
                 "end_lineno": 2,
                 "id": "individu",
                 "lineno": 2
@@ -277,7 +277,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 47,
+            "end_col_offset": 34,
             "end_lineno": 7,
             "lineno": 7,
             "targets": [
@@ -299,9 +299,9 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 47,
+              "end_col_offset": 34,
               "end_lineno": 7,
-              "id": "assiette_cotisations_sociales_public",
+              "id": "remuneration_principale",
               "lineno": 7
             }
           },
@@ -668,13 +668,13 @@
         "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.atiacl",
         "cotsoc.cotisations_employeur.public_titulaire_territoriale.atiacl"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    assiette_cotisations_sociales_public = individu('assiette_cotisations_sociales_public', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    _P = parameters(period)\n\n    base = assiette_cotisations_sociales_public\n    cotisation_etat = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_employeur,\n        bareme_name = \"ati\",\n        base = base,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    cotisation_collectivites_locales = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_employeur,\n        bareme_name = \"atiacl\",\n        base = base,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    return cotisation_etat + cotisation_collectivites_locales\n",
+      "source_code": "def formula(individu, period, parameters):\n    remuneration_principale = individu('remuneration_principale', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    _P = parameters(period)\n\n    base = remuneration_principale\n    cotisation_etat = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_employeur,\n        bareme_name = \"ati\",\n        base = base,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    cotisation_collectivites_locales = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_employeur,\n        bareme_name = \"atiacl\",\n        base = base,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    return cotisation_etat + cotisation_collectivites_locales\n",
       "start_line_number": 14,
       "stop_line_number": 36,
       "variables": [
-        "assiette_cotisations_sociales_public",
         "categorie_salarie",
-        "plafond_securite_sociale"
+        "plafond_securite_sociale",
+        "remuneration_principale"
       ]
     }
   },

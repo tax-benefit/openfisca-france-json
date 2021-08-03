@@ -695,8 +695,8 @@
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    exoneration_cotisations_employeur_apprenti = individu(\n        'exoneration_cotisations_employeur_apprenti', period, options = [ADD])\n    exoneration_cotisations_employeur_geographiques = individu(\n        'exoneration_cotisations_employeur_geographiques', period)\n    exoneration_cotisations_employeur_jei = individu(\n        'exoneration_cotisations_employeur_jei', period, options = [ADD])\n    exoneration_cotisations_employeur_stagiaire = individu(\n        'exoneration_cotisations_employeur_stagiaire', period, options = [ADD])\n\n    allegement_fillon = individu('allegement_fillon', period, options = [ADD])\n    allegement_cot_alloc_fam = individu('allegement_cotisation_allocations_familiales', period, options = [ADD])\n\n    return (\n        allegement_fillon\n        + allegement_cot_alloc_fam\n        + exoneration_cotisations_employeur_geographiques\n        + exoneration_cotisations_employeur_jei\n        + exoneration_cotisations_employeur_apprenti\n        + exoneration_cotisations_employeur_stagiaire\n        )\n",
-      "start_line_number": 1048,
-      "stop_line_number": 1069,
+      "start_line_number": 1033,
+      "stop_line_number": 1054,
       "variables": [
         "allegement_cotisation_allocations_familiales",
         "allegement_fillon",
@@ -713,8 +713,8 @@
   "referring_variables": [
     "salaire_super_brut"
   ],
-  "start_line_number": 1042,
-  "stop_line_number": 1069,
+  "start_line_number": 1027,
+  "stop_line_number": 1054,
   "ux_name": "Exonérations et allègements employeur",
   "value_type": "float"
 }
