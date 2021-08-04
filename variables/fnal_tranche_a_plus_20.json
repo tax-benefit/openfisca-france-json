@@ -445,6 +445,7 @@
         "cotsoc.cotisations_employeur.public_non_titulaire.fnal2",
         "cotsoc.cotisations_employeur.public_titulaire_etat.fnal2",
         "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal2",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal2",
         "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal2"
       ],
       "source_code": "def formula(individu, period, parameters):\n    taille_entreprise = individu('taille_entreprise', period)\n    TypesTailleEntreprise = taille_entreprise.possible_values\n\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal2',\n        variable_name = 'fnal_tranche_a_plus_20',\n        )\n    entreprise_eligible = (\n        (taille_entreprise == TypesTailleEntreprise.de_20_a_249)\n        + (taille_entreprise == TypesTailleEntreprise.plus_de_250)\n        )\n    return cotisation * entreprise_eligible\n",

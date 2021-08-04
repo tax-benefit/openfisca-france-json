@@ -313,15 +313,17 @@
         "cotsoc.cotisations_employeur.prive_cadre.agirc"
       ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"agirc\",\n        variable_name = 'agirc_employeur'\n        )\n    categorie_salarie = individu('categorie_salarie', period)\n    return cotisation * (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n",
-      "start_line_number": 370,
-      "stop_line_number": 381,
+      "start_line_number": 376,
+      "stop_line_number": 387,
       "variables": [
         "categorie_salarie"
       ]
-    }
+    },
+    "2018-12-22": null
   },
   "json_type": "number",
   "label": "Cotisation employeur au régime de retaite complémentaire des salariés du secteur privé (AGIRC)",
+  "last_review": "2018-12-22",
   "name": "agirc_employeur",
   "obsolete": true,
   "reference": {
@@ -336,8 +338,8 @@
     "cotisations_employeur_contributives",
     "exoneration_cotisations_employeur_stagiaire"
   ],
-  "start_line_number": 364,
-  "stop_line_number": 381,
+  "start_line_number": 369,
+  "stop_line_number": 387,
   "ux_name": "Cotis. retraite complémentaire (AGIRC)",
   "value_type": "float"
 }

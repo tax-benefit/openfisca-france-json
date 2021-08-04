@@ -2826,17 +2826,19 @@
           "cotsoc.cotisations_employeur.prive_cadre.agffc",
           "cotsoc.cotisations_employeur.prive_non_cadre.agffnc"
         ],
-        "start_line_number": 235,
-        "stop_line_number": 259,
+        "start_line_number": 237,
+        "stop_line_number": 261,
         "variables": [
           "assiette_cotisations_sociales",
           "categorie_salarie",
           "plafond_securite_sociale"
         ]
-      }
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation employeur à l'association pour la gestion du fonds de financement (AGFF) pour les pensions des retraites anticipées",
+    "last_review": "2018-12-22",
     "name": "agff_employeur",
     "obsolete": true,
     "reference": {
@@ -2851,8 +2853,8 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 228,
-    "stop_line_number": 259,
+    "start_line_number": 229,
+    "stop_line_number": 261,
     "ux_name": "Cotis. retraites anticipées (AGFF)",
     "value_type": "float"
   },
@@ -2869,12 +2871,14 @@
           "cotsoc.cotisations_salarie.prive_cadre.agff",
           "cotsoc.cotisations_salarie.prive_non_cadre.agff"
         ],
-        "start_line_number": 216,
-        "stop_line_number": 226
-      }
+        "start_line_number": 217,
+        "stop_line_number": 227
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation salariale à l'association pour la gestion du fonds de financement (AGFF) pour les pensions des retraites anticipées",
+    "last_review": "2018-12-22",
     "name": "agff_salarie",
     "obsolete": true,
     "reference": {
@@ -2888,8 +2892,72 @@
       "cotisations_salariales_contributives"
     ],
     "start_line_number": 209,
-    "stop_line_number": 226,
+    "stop_line_number": 227,
     "ux_name": "Cotis. retraites anticipées (AGFF)",
+    "value_type": "float"
+  },
+  "agirc_arrco_employeur": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+    "formulas": {
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur.prive_cadre.agirc_arrco",
+          "cotsoc.cotisations_employeur.prive_non_cadre.agirc_arrco",
+          "cotsoc.cotisations_employeur.public_non_titulaire.agirc_arrco",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.agirc_arrco",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.agirc_arrco",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.agirc_arrco",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.agirc_arrco"
+        ],
+        "start_line_number": 413,
+        "stop_line_number": 423
+      }
+    },
+    "json_type": "number",
+    "label": "Cotisation AGIRC-ARRCO (après la fusion, employeur)",
+    "last_review": "2019-01-01",
+    "name": "agirc_arrco_employeur",
+    "referring_variables": [
+      "cotisations_employeur_contributives",
+      "exoneration_cotisations_employeur_stagiaire"
+    ],
+    "start_line_number": 407,
+    "stop_line_number": 423,
+    "value_type": "float"
+  },
+  "agirc_arrco_salarie": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+    "formulas": {
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+        "parameters": [
+          "cotsoc.cotisations_salarie.prive_cadre.agirc_arrco",
+          "cotsoc.cotisations_salarie.prive_non_cadre.agirc_arrco",
+          "cotsoc.cotisations_salarie.public_non_titulaire.agirc_arrco"
+        ],
+        "start_line_number": 395,
+        "stop_line_number": 405
+      }
+    },
+    "json_type": "number",
+    "label": "Cotisation AGIRC-ARRCO (après la fusion, salarié)",
+    "last_review": "2019-01-01",
+    "name": "agirc_arrco_salarie",
+    "referring_variables": [
+      "cotisations_salariales_contributives",
+      "exoneration_cotisations_salarie_stagiaire"
+    ],
+    "start_line_number": 389,
+    "stop_line_number": 405,
     "value_type": "float"
   },
   "agirc_employeur": {
@@ -2904,15 +2972,17 @@
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.agirc"
         ],
-        "start_line_number": 370,
-        "stop_line_number": 381,
+        "start_line_number": 376,
+        "stop_line_number": 387,
         "variables": [
           "categorie_salarie"
         ]
-      }
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation employeur au régime de retaite complémentaire des salariés du secteur privé (AGIRC)",
+    "last_review": "2018-12-22",
     "name": "agirc_employeur",
     "obsolete": true,
     "reference": {
@@ -2927,8 +2997,8 @@
       "cotisations_employeur_contributives",
       "exoneration_cotisations_employeur_stagiaire"
     ],
-    "start_line_number": 364,
-    "stop_line_number": 381,
+    "start_line_number": 369,
+    "stop_line_number": 387,
     "ux_name": "Cotis. retraite complémentaire (AGIRC)",
     "value_type": "float"
   },
@@ -2941,18 +3011,20 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 322,
-        "stop_line_number": 343,
+        "start_line_number": 326,
+        "stop_line_number": 347,
         "variables": [
           "agirc_employeur",
           "assiette_cotisations_sociales",
           "categorie_salarie",
           "quotite_de_travail"
         ]
-      }
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation employeur AGIRC pour la garantie minimale de points (GMP)",
+    "last_review": "2018-12-22",
     "name": "agirc_gmp_employeur",
     "obsolete": true,
     "reference": {
@@ -2966,8 +3038,8 @@
       "cotisations_employeur_contributives",
       "exoneration_cotisations_employeur_stagiaire"
     ],
-    "start_line_number": 315,
-    "stop_line_number": 343,
+    "start_line_number": 318,
+    "stop_line_number": 347,
     "ux_name": "Cotis. garantie minimal de points (GMP)",
     "value_type": "float"
   },
@@ -2980,18 +3052,20 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 292,
-        "stop_line_number": 313,
+        "start_line_number": 295,
+        "stop_line_number": 316,
         "variables": [
           "agirc_salarie",
           "assiette_cotisations_sociales",
           "categorie_salarie",
           "quotite_de_travail"
         ]
-      }
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation salariale AGIRC pour la garantie minimale de points (GMP)",
+    "last_review": "2018-12-22",
     "name": "agirc_gmp_salarie",
     "obsolete": true,
     "reference": {
@@ -3005,8 +3079,8 @@
       "cotisations_salariales_contributives",
       "exoneration_cotisations_salarie_stagiaire"
     ],
-    "start_line_number": 285,
-    "stop_line_number": 313,
+    "start_line_number": 287,
+    "stop_line_number": 316,
     "ux_name": "Cotis. garantie minimal de points (GMP)",
     "value_type": "float"
   },
@@ -3022,15 +3096,17 @@
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.agirc"
         ],
-        "start_line_number": 351,
-        "stop_line_number": 362,
+        "start_line_number": 356,
+        "stop_line_number": 367,
         "variables": [
           "categorie_salarie"
         ]
-      }
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation salariale au régime de retaite complémentaire des salariés du secteur privé (AGIRC)",
+    "last_review": "2018-12-22",
     "name": "agirc_salarie",
     "obsolete": true,
     "reference": {
@@ -3045,8 +3121,8 @@
       "cotisations_salariales_contributives",
       "exoneration_cotisations_salarie_stagiaire"
     ],
-    "start_line_number": 345,
-    "stop_line_number": 362,
+    "start_line_number": 349,
+    "stop_line_number": 367,
     "ux_name": "Cotis. retraite complémentaire (AGIRC)",
     "value_type": "float"
   },
@@ -3063,8 +3139,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.chomfg",
           "cotsoc.cotisations_employeur.prive_non_cadre.chomfg"
         ],
-        "start_line_number": 389,
-        "stop_line_number": 399
+        "start_line_number": 431,
+        "stop_line_number": 441
       }
     },
     "json_type": "number",
@@ -3087,8 +3163,8 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 383,
-    "stop_line_number": 399,
+    "start_line_number": 425,
+    "stop_line_number": 441,
     "ux_name": "Cotis. garantie des salaires (AGS)",
     "value_type": "float"
   },
@@ -6244,56 +6320,6 @@
     "stop_line_number": 57,
     "value_type": "float"
   },
-  "allocations_temporaires_invalidite": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
-    "formulas": {
-      "0001-01-01": {
-        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
-        "parameters": [
-          "cotsoc.cotisations_employeur.public_titulaire_etat.ati",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.atiacl",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.atiacl"
-        ],
-        "start_line_number": 14,
-        "stop_line_number": 36,
-        "variables": [
-          "categorie_salarie",
-          "plafond_securite_sociale",
-          "remuneration_principale"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Cotisation sociale employeur à l'allocation temporaire d'invalidité (ATI)",
-    "name": "allocations_temporaires_invalidite",
-    "reference": {
-      "2005-05-02": [
-        {
-          "href": "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000001715347",
-          "note": "La cotisation à l'ATI est mensuelle et versée par les collectivités territoriales et les établissements publics.",
-          "title": "Article 16 du Décret n° 2005-442 du 2 mai 2005."
-        }
-      ],
-      "2021-07-27": [
-        {
-          "href": "https://www.service-public.fr/particuliers/vosdroits/F34604",
-          "note": "En cas d'incapacité permanente partielle due à un accident du travail ou une maladie professionnelle, un fonctionnaire peut percevoir une allocation temporaire d'invalidité (ATI), sous conditions.",
-          "title": "Service-Public.fr"
-        }
-      ]
-    },
-    "referring_variables": [
-      "cotisations_employeur_non_contributives"
-    ],
-    "start_line_number": 7,
-    "stop_line_number": 36,
-    "ux_name": "Cotis. alloc. invalidité fonctionnaire (ATI)",
-    "value_type": "float"
-  },
   "alnp_defs": {
     "cerfa_field": {
       "0": "5NY",
@@ -6727,8 +6753,8 @@
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.apec"
         ],
-        "start_line_number": 426,
-        "stop_line_number": 436
+        "start_line_number": 468,
+        "stop_line_number": 478
       }
     },
     "json_type": "number",
@@ -6746,8 +6772,8 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 420,
-    "stop_line_number": 436,
+    "start_line_number": 462,
+    "stop_line_number": 478,
     "ux_name": "Cotis. APEC des cadres",
     "value_type": "float"
   },
@@ -6763,8 +6789,8 @@
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.apec"
         ],
-        "start_line_number": 407,
-        "stop_line_number": 418,
+        "start_line_number": 449,
+        "stop_line_number": 460,
         "variables": [
           "categorie_salarie"
         ]
@@ -6783,8 +6809,8 @@
     "referring_variables": [
       "cotisations_salariales_contributives"
     ],
-    "start_line_number": 401,
-    "stop_line_number": 418,
+    "start_line_number": 443,
+    "stop_line_number": 460,
     "ux_name": "Cotis. APEC des cadres",
     "value_type": "float"
   },
@@ -7227,18 +7253,20 @@
           "cotsoc.cotisations_employeur.prive_cadre.arrco",
           "cotsoc.cotisations_employeur.prive_non_cadre.arrco"
         ],
-        "start_line_number": 484,
-        "stop_line_number": 511,
+        "start_line_number": 528,
+        "stop_line_number": 555,
         "variables": [
           "arrco_tranche_a_taux_employeur",
           "assiette_cotisations_sociales",
           "categorie_salarie",
           "plafond_securite_sociale"
         ]
-      }
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation employeur au régime de retaite complémentaire des salariés du secteur privé, ARCCO",
+    "last_review": "2018-12-22",
     "name": "arrco_employeur",
     "obsolete": true,
     "reference": {
@@ -7252,8 +7280,8 @@
       "cotisations_employeur_contributives",
       "exoneration_cotisations_employeur_stagiaire"
     ],
-    "start_line_number": 477,
-    "stop_line_number": 511,
+    "start_line_number": 520,
+    "stop_line_number": 555,
     "ux_name": "Cotis. retraite complémentaire (ARRCO)",
     "value_type": "float"
   },
@@ -7270,18 +7298,20 @@
           "cotsoc.cotisations_salarie.prive_cadre.arrco",
           "cotsoc.cotisations_salarie.prive_non_cadre.arrco"
         ],
-        "start_line_number": 445,
-        "stop_line_number": 475,
+        "start_line_number": 488,
+        "stop_line_number": 518,
         "variables": [
           "arrco_tranche_a_taux_salarie",
           "assiette_cotisations_sociales",
           "categorie_salarie",
           "plafond_securite_sociale"
         ]
-      }
+      },
+      "2018-12-22": null
     },
     "json_type": "number",
     "label": "Cotisation salariale au régime de retaite complémentaire des salariés du secteur privé, ARCCO",
+    "last_review": "2018-12-22",
     "name": "arrco_salarie",
     "obsolete": true,
     "reference": {
@@ -7295,8 +7325,8 @@
       "cotisations_salariales_contributives",
       "exoneration_cotisations_salarie_stagiaire"
     ],
-    "start_line_number": 438,
-    "stop_line_number": 475,
+    "start_line_number": 480,
+    "stop_line_number": 518,
     "ux_name": "Cotis. retraite complémentaire (ARRCO)",
     "value_type": "float"
   },
@@ -7772,7 +7802,7 @@
     "entity": "famille",
     "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
     "formulas": {
-      "0001-01-01": {
+      "2006-01-01": {
         "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
         "parameters": [
           "prestations.minima_sociaux.asi.montant_couple",
@@ -7794,6 +7824,7 @@
     },
     "json_type": "number",
     "label": "Allocation de solidarité aux personnes âgées (Aspa)",
+    "last_review": "2006-01-01",
     "name": "aspa",
     "reference": {
       "2021-07-27": [
@@ -8237,6 +8268,8 @@
       "assiette_allegement",
       "conge_individuel_formation_cdd",
       "contribution_supplementaire_apprentissage",
+      "cotisation_equilibre_technique_employeur",
+      "cotisation_equilibre_technique_salarie",
       "ircantec_employeur",
       "ircantec_salarie",
       "prevoyance_obligatoire_cadre",
@@ -9030,6 +9063,39 @@
     "stop_line_number": 114,
     "value_type": "float"
   },
+  "ati_atiacl": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+    "formulas": {
+      "0001-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur.public_titulaire_etat.ati",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.atiacl",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.atiacl"
+        ],
+        "start_line_number": 14,
+        "stop_line_number": 37,
+        "variables": [
+          "categorie_salarie",
+          "plafond_securite_sociale",
+          "remuneration_principale"
+        ]
+      }
+    },
+    "json_type": "number",
+    "label": "Cotisation ATI et ATIACL (contributions pour le financement de l'allocation temporaires d'invalidité)",
+    "name": "ati_atiacl",
+    "referring_variables": [
+      "cotisations_employeur_non_contributives"
+    ],
+    "start_line_number": 7,
+    "stop_line_number": 37,
+    "value_type": "float"
+  },
   "autent": {
     "default_value": 0,
     "definition_period": "year",
@@ -9124,6 +9190,7 @@
     "referring_variables": [
       "assiette_cotisations_sociales_prive",
       "assiette_csg_abattue",
+      "rafp_employeur",
       "rafp_salarie"
     ],
     "start_line_number": 616,
@@ -11559,13 +11626,13 @@
       "agirc_gmp_employeur",
       "agirc_gmp_salarie",
       "agirc_salarie",
-      "allocations_temporaires_invalidite",
       "apec_salarie",
       "arrco_employeur",
       "arrco_salarie",
       "assiette_allegement",
       "assiette_cotisations_sociales",
       "assiette_cotisations_sociales_prive",
+      "ati_atiacl",
       "contribution_exceptionnelle_solidarite",
       "exoneration_cotisations_employeur_jei",
       "exoneration_cotisations_employeur_stagiaire",
@@ -11578,8 +11645,8 @@
       "ircantec_employeur",
       "ircantec_salarie",
       "mobili_jeune_eligibilite_employeur",
-      "pension_civile_employeur",
-      "pension_civile_salarie",
+      "pension_employeur",
+      "pension_salarie",
       "prevoyance_obligatoire_cadre",
       "primes_fonction_publique",
       "rafp_employeur",
@@ -12699,8 +12766,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.assedic",
           "cotsoc.cotisations_employeur.prive_non_cadre.assedic"
         ],
-        "start_line_number": 538,
-        "stop_line_number": 548
+        "start_line_number": 582,
+        "stop_line_number": 592
       }
     },
     "json_type": "number",
@@ -12718,8 +12785,8 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 532,
-    "stop_line_number": 548,
+    "start_line_number": 576,
+    "stop_line_number": 592,
     "ux_name": "Cotis. chômage",
     "value_type": "float"
   },
@@ -12829,8 +12896,8 @@
           "cotsoc.cotisations_salarie.prive_cadre.assedic",
           "cotsoc.cotisations_salarie.prive_non_cadre.assedic"
         ],
-        "start_line_number": 520,
-        "stop_line_number": 530
+        "start_line_number": 564,
+        "stop_line_number": 574
       },
       "2018-10-01": null
     },
@@ -12851,8 +12918,8 @@
     "referring_variables": [
       "cotisations_salariales_contributives"
     ],
-    "start_line_number": 513,
-    "stop_line_number": 530,
+    "start_line_number": 557,
+    "stop_line_number": 574,
     "ux_name": "Cotis. chômage",
     "value_type": "float"
   },
@@ -13605,8 +13672,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 775,
-        "stop_line_number": 782,
+        "start_line_number": 903,
+        "stop_line_number": 910,
         "variables": [
           "complementaire_sante_montant",
           "complementaire_sante_taux_employeur"
@@ -13622,8 +13689,8 @@
       "forfait_social",
       "taxe_salaires"
     ],
-    "start_line_number": 769,
-    "stop_line_number": 782,
+    "start_line_number": 897,
+    "stop_line_number": 910,
     "ux_name": "Mutuelle (part employeur obligatoire)",
     "value_type": "float"
   },
@@ -13654,8 +13721,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 790,
-        "stop_line_number": 797,
+        "start_line_number": 918,
+        "stop_line_number": 925,
         "variables": [
           "complementaire_sante_montant",
           "complementaire_sante_taux_employeur"
@@ -13668,8 +13735,8 @@
     "referring_variables": [
       "salaire_imposable"
     ],
-    "start_line_number": 784,
-    "stop_line_number": 797,
+    "start_line_number": 912,
+    "stop_line_number": 925,
     "ux_name": "Mutuelle (part salariée)",
     "value_type": "float"
   },
@@ -13954,6 +14021,70 @@
     "ux_name": "Contrib. dévelop. apprentissage",
     "value_type": "float"
   },
+  "contribution_equilibre_general_employeur": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+    "formulas": {
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur.prive_cadre.ceg",
+          "cotsoc.cotisations_employeur.prive_non_cadre.ceg",
+          "cotsoc.cotisations_employeur.public_non_titulaire.ceg",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.ceg",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.ceg",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.ceg",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.ceg"
+        ],
+        "start_line_number": 619,
+        "stop_line_number": 630
+      }
+    },
+    "json_type": "number",
+    "label": "Contribution d'équilibre général (employeur)",
+    "last_review": "2019-01-01",
+    "name": "contribution_equilibre_general_employeur",
+    "referring_variables": [
+      "cotisations_employeur_contributives",
+      "exoneration_cotisations_employeur_stagiaire"
+    ],
+    "start_line_number": 613,
+    "stop_line_number": 630,
+    "value_type": "float"
+  },
+  "contribution_equilibre_general_salarie": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+    "formulas": {
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+        "parameters": [
+          "cotsoc.cotisations_salarie.prive_cadre.ceg",
+          "cotsoc.cotisations_salarie.prive_non_cadre.ceg",
+          "cotsoc.cotisations_salarie.public_non_titulaire.ceg"
+        ],
+        "start_line_number": 600,
+        "stop_line_number": 611
+      }
+    },
+    "json_type": "number",
+    "label": "Contribution d'équilibre général (salarie)",
+    "last_review": "2019-01-01",
+    "name": "contribution_equilibre_general_salarie",
+    "referring_variables": [
+      "cotisations_salariales_contributives",
+      "exoneration_cotisations_salarie_stagiaire"
+    ],
+    "start_line_number": 594,
+    "stop_line_number": 611,
+    "value_type": "float"
+  },
   "contribution_exceptionnelle_solidarite": {
     "default_value": 0,
     "definition_period": "month",
@@ -13969,14 +14100,14 @@
           "cotsoc.cotisations_salarie.public_titulaire_hospitaliere.excep_solidarite",
           "cotsoc.cotisations_salarie.public_titulaire_territoriale.excep_solidarite"
         ],
-        "start_line_number": 51,
-        "stop_line_number": 103,
+        "start_line_number": 52,
+        "stop_line_number": 104,
         "variables": [
           "categorie_salarie",
           "cotisations_salariales_contributives",
           "hsup",
           "indemnite_residence",
-          "pension_civile_salarie",
+          "pension_salarie",
           "plafond_securite_sociale",
           "primes_fonction_publique",
           "rafp_salarie",
@@ -14002,8 +14133,8 @@
     "referring_variables": [
       "cotisations_salariales_non_contributives"
     ],
-    "start_line_number": 43,
-    "stop_line_number": 103,
+    "start_line_number": 44,
+    "stop_line_number": 104,
     "ux_name": "Contrib. solidarité",
     "value_type": "float"
   },
@@ -14022,10 +14153,11 @@
           "cotsoc.cotisations_employeur.public_non_titulaire.csa",
           "cotsoc.cotisations_employeur.public_titulaire_etat.csa",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.csa",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.csa",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.csa"
         ],
-        "start_line_number": 556,
-        "stop_line_number": 566
+        "start_line_number": 638,
+        "stop_line_number": 648
       }
     },
     "json_type": "number",
@@ -14044,8 +14176,8 @@
       "cotisations_employeur_non_contributives",
       "mmida_employeur"
     ],
-    "start_line_number": 550,
-    "stop_line_number": 566,
+    "start_line_number": 632,
+    "stop_line_number": 648,
     "ux_name": "Contrib. solidarité autonomie (CSA)",
     "value_type": "float"
   },
@@ -14112,6 +14244,78 @@
     "ux_name": "Contrib. supplém. apprentissage (CSA)",
     "value_type": "float"
   },
+  "cotisation_equilibre_technique_employeur": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+    "formulas": {
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+        "parameters": [
+          "cotsoc.cotisations_employeur.prive_cadre.cet2019",
+          "cotsoc.cotisations_employeur.prive_non_cadre.cet2019",
+          "cotsoc.cotisations_employeur.public_non_titulaire.cet2019",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.cet2019",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.cet2019",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.cet2019",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.cet2019"
+        ],
+        "start_line_number": 678,
+        "stop_line_number": 692,
+        "variables": [
+          "assiette_cotisations_sociales",
+          "plafond_securite_sociale"
+        ]
+      }
+    },
+    "json_type": "number",
+    "label": "Cotisation d'équilibre technique (employeur)",
+    "last_review": "2019-01-01",
+    "name": "cotisation_equilibre_technique_employeur",
+    "referring_variables": [
+      "cotisations_employeur_contributives",
+      "exoneration_cotisations_employeur_stagiaire"
+    ],
+    "start_line_number": 672,
+    "stop_line_number": 692,
+    "value_type": "float"
+  },
+  "cotisation_equilibre_technique_salarie": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+    "formulas": {
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+        "parameters": [
+          "cotsoc.cotisations_salarie.prive_cadre.cet2019",
+          "cotsoc.cotisations_salarie.prive_non_cadre.cet2019",
+          "cotsoc.cotisations_salarie.public_non_titulaire.cet2019"
+        ],
+        "start_line_number": 656,
+        "stop_line_number": 670,
+        "variables": [
+          "assiette_cotisations_sociales",
+          "plafond_securite_sociale"
+        ]
+      }
+    },
+    "json_type": "number",
+    "label": "Cotisation d'équilibre technique (salarie)",
+    "last_review": "2019-01-01",
+    "name": "cotisation_equilibre_technique_salarie",
+    "referring_variables": [
+      "cotisations_salariales_contributives",
+      "exoneration_cotisations_salarie_stagiaire"
+    ],
+    "start_line_number": 650,
+    "stop_line_number": 670,
+    "value_type": "float"
+  },
   "cotisation_exceptionnelle_temporaire_employeur": {
     "default_value": 0,
     "definition_period": "month",
@@ -14124,12 +14328,14 @@
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.cet"
         ],
-        "start_line_number": 592,
-        "stop_line_number": 602
-      }
+        "start_line_number": 720,
+        "stop_line_number": 730
+      },
+      "2019-01-01": null
     },
     "json_type": "number",
     "label": "Contribution d'équilibre technique",
+    "last_review": "2019-01-01",
     "name": "cotisation_exceptionnelle_temporaire_employeur",
     "obsolete": true,
     "reference": {
@@ -14147,10 +14353,11 @@
       ]
     },
     "referring_variables": [
-      "cotisations_employeur_contributives"
+      "cotisations_employeur_contributives",
+      "exoneration_cotisations_employeur_stagiaire"
     ],
-    "start_line_number": 586,
-    "stop_line_number": 602,
+    "start_line_number": 713,
+    "stop_line_number": 730,
     "ux_name": "Contrib. équilibre technique",
     "value_type": "float"
   },
@@ -14166,12 +14373,14 @@
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.cet"
         ],
-        "start_line_number": 574,
-        "stop_line_number": 584
-      }
+        "start_line_number": 701,
+        "stop_line_number": 711
+      },
+      "2019-01-01": null
     },
     "json_type": "number",
     "label": "Contribution d'équilibre technique",
+    "last_review": "2019-01-01",
     "name": "cotisation_exceptionnelle_temporaire_salarie",
     "obsolete": true,
     "reference": {
@@ -14182,10 +14391,11 @@
       ]
     },
     "referring_variables": [
-      "cotisations_salariales_contributives"
+      "cotisations_salariales_contributives",
+      "exoneration_cotisations_salarie_stagiaire"
     ],
-    "start_line_number": 568,
-    "stop_line_number": 584,
+    "start_line_number": 694,
+    "stop_line_number": 711,
     "ux_name": "Contrib. équilibre technique",
     "value_type": "float"
   },
@@ -14219,8 +14429,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
-        "start_line_number": 18,
-        "stop_line_number": 29,
+        "start_line_number": 16,
+        "stop_line_number": 27,
         "variables": [
           "cotisations_employeur_contributives",
           "cotisations_employeur_main_d_oeuvre",
@@ -14237,8 +14447,8 @@
       "salaire_super_brut_hors_allegements"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 10,
-    "stop_line_number": 29,
+    "start_line_number": 8,
+    "stop_line_number": 27,
     "ux_name": "Cotisations employeur",
     "value_type": "float"
   },
@@ -14251,20 +14461,23 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
-        "start_line_number": 38,
-        "stop_line_number": 75,
+        "start_line_number": 36,
+        "stop_line_number": 79,
         "variables": [
           "agff_employeur",
+          "agirc_arrco_employeur",
           "agirc_employeur",
           "agirc_gmp_employeur",
           "ags",
           "apec_employeur",
           "arrco_employeur",
           "chomage_employeur",
+          "contribution_equilibre_general_employeur",
+          "cotisation_equilibre_technique_employeur",
           "cotisation_exceptionnelle_temporaire_employeur",
           "fonds_emploi_hospitalier",
           "ircantec_employeur",
-          "pension_civile_employeur",
+          "pension_employeur",
           "rafp_employeur",
           "vieillesse_deplafonnee_employeur",
           "vieillesse_plafonnee_employeur"
@@ -14285,8 +14498,8 @@
       "cotisations_employeur"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 31,
-    "stop_line_number": 75,
+    "start_line_number": 29,
+    "stop_line_number": 79,
     "ux_name": "contributives",
     "value_type": "float"
   },
@@ -14336,11 +14549,11 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
-        "start_line_number": 84,
-        "stop_line_number": 106,
+        "start_line_number": 88,
+        "stop_line_number": 110,
         "variables": [
           "accident_du_travail",
-          "allocations_temporaires_invalidite",
+          "ati_atiacl",
           "contribution_solidarite_autonomie",
           "famille",
           "forfait_social",
@@ -14364,8 +14577,8 @@
       "cotisations_employeur"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 77,
-    "stop_line_number": 106,
+    "start_line_number": 81,
+    "stop_line_number": 110,
     "ux_name": "non-contributives",
     "value_type": "float"
   },
@@ -14425,8 +14638,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
-        "start_line_number": 178,
-        "stop_line_number": 191,
+        "start_line_number": 188,
+        "stop_line_number": 201,
         "variables": [
           "cotisations_salariales_contributives",
           "cotisations_salariales_non_contributives",
@@ -14443,8 +14656,8 @@
       "salaire_imposable"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 170,
-    "stop_line_number": 191,
+    "start_line_number": 180,
+    "stop_line_number": 201,
     "ux_name": "Cotisations salariales",
     "value_type": "float"
   },
@@ -14457,18 +14670,21 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
-        "start_line_number": 115,
-        "stop_line_number": 147,
+        "start_line_number": 119,
+        "stop_line_number": 157,
         "variables": [
           "agff_salarie",
+          "agirc_arrco_salarie",
           "agirc_gmp_salarie",
           "agirc_salarie",
           "apec_salarie",
           "arrco_salarie",
           "chomage_salarie",
+          "contribution_equilibre_general_salarie",
+          "cotisation_equilibre_technique_salarie",
           "cotisation_exceptionnelle_temporaire_salarie",
           "ircantec_salarie",
-          "pension_civile_salarie",
+          "pension_salarie",
           "rafp_salarie",
           "vieillesse_deplafonnee_salarie",
           "vieillesse_plafonnee_salarie"
@@ -14491,8 +14707,8 @@
       "exoneration_cotisations_salariales_apprenti"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 108,
-    "stop_line_number": 147,
+    "start_line_number": 112,
+    "stop_line_number": 157,
     "ux_name": "contributives",
     "value_type": "float"
   },
@@ -14505,8 +14721,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
-        "start_line_number": 156,
-        "stop_line_number": 168,
+        "start_line_number": 166,
+        "stop_line_number": 178,
         "variables": [
           "contribution_exceptionnelle_solidarite",
           "mmid_salarie"
@@ -14528,8 +14744,8 @@
       "exoneration_cotisations_salariales_apprenti"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 149,
-    "stop_line_number": 168,
+    "start_line_number": 159,
+    "stop_line_number": 178,
     "ux_name": "non-contributives",
     "value_type": "float"
   },
@@ -20410,12 +20626,16 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/stage.py",
         "start_line_number": 70,
-        "stop_line_number": 93,
+        "stop_line_number": 100,
         "variables": [
+          "agirc_arrco_employeur",
           "agirc_employeur",
           "agirc_gmp_employeur",
           "arrco_employeur",
           "categorie_salarie",
+          "contribution_equilibre_general_employeur",
+          "cotisation_equilibre_technique_employeur",
+          "cotisation_exceptionnelle_temporaire_employeur",
           "plafond_securite_sociale",
           "stage_gratification_reintegration",
           "stagiaire"
@@ -20438,7 +20658,7 @@
       "exonerations_et_allegements"
     ],
     "start_line_number": 63,
-    "stop_line_number": 93,
+    "stop_line_number": 100,
     "ux_name": "Exonér. stagiaire",
     "value_type": "float"
   },
@@ -20612,13 +20832,17 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/stage.py",
-        "start_line_number": 102,
-        "stop_line_number": 127,
+        "start_line_number": 109,
+        "stop_line_number": 140,
         "variables": [
+          "agirc_arrco_salarie",
           "agirc_gmp_salarie",
           "agirc_salarie",
           "arrco_salarie",
           "categorie_salarie",
+          "contribution_equilibre_general_salarie",
+          "cotisation_equilibre_technique_salarie",
+          "cotisation_exceptionnelle_temporaire_salarie",
           "plafond_securite_sociale",
           "stage_gratification_reintegration",
           "stagiaire"
@@ -20639,8 +20863,8 @@
     "referring_variables": [
       "cotisations_salariales"
     ],
-    "start_line_number": 95,
-    "stop_line_number": 127,
+    "start_line_number": 102,
+    "stop_line_number": 140,
     "ux_name": "Exonér. stagiaire",
     "value_type": "float"
   },
@@ -36535,10 +36759,11 @@
           "cotsoc.cotisations_employeur.public_non_titulaire.famille",
           "cotsoc.cotisations_employeur.public_titulaire_etat.famille",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.famille",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.famille",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.famille"
         ],
-        "start_line_number": 610,
-        "stop_line_number": 620
+        "start_line_number": 738,
+        "stop_line_number": 748
       }
     },
     "json_type": "number",
@@ -36558,8 +36783,8 @@
       "exoneration_cotisations_employeur_apprenti",
       "exoneration_cotisations_employeur_professionnalisation"
     ],
-    "start_line_number": 604,
-    "stop_line_number": 620,
+    "start_line_number": 732,
+    "stop_line_number": 748,
     "ux_name": "Cotis. alloc. famililiales",
     "value_type": "float"
   },
@@ -41440,6 +41665,7 @@
           "cotsoc.cotisations_employeur.public_non_titulaire.financement_organisations_syndicales",
           "cotsoc.cotisations_employeur.public_titulaire_etat.financement_organisations_syndicales",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.financement_organisations_syndicales",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.financement_organisations_syndicales",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.financement_organisations_syndicales"
         ],
         "start_line_number": 226,
@@ -41526,6 +41752,7 @@
           "cotsoc.cotisations_employeur.public_non_titulaire.fnal1",
           "cotsoc.cotisations_employeur.public_titulaire_etat.fnal1",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal1",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal1",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal1"
         ],
         "start_line_number": 175,
@@ -41571,6 +41798,7 @@
           "cotsoc.cotisations_employeur.public_non_titulaire.fnal2",
           "cotsoc.cotisations_employeur.public_titulaire_etat.fnal2",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal2",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal2",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal2"
         ],
         "start_line_number": 201,
@@ -41613,8 +41841,8 @@
         "parameters": [
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.feh"
         ],
-        "start_line_number": 111,
-        "stop_line_number": 124,
+        "start_line_number": 112,
+        "stop_line_number": 127,
         "variables": [
           "categorie_salarie",
           "plafond_securite_sociale",
@@ -41628,8 +41856,8 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 105,
-    "stop_line_number": 124,
+    "start_line_number": 106,
+    "stop_line_number": 127,
     "ux_name": "Cotis. emploi hospitalier",
     "value_type": "float"
   },
@@ -42451,6 +42679,7 @@
     "label": "Indemnité de garantie individuelle du pouvoir d'achat",
     "name": "gipa",
     "referring_variables": [
+      "rafp_employeur",
       "rafp_salarie"
     ],
     "start_line_number": 715,
@@ -44818,8 +45047,8 @@
         "parameters": [
           "cotsoc.cotisations_employeur.public_non_titulaire.ircantec"
         ],
-        "start_line_number": 152,
-        "stop_line_number": 166,
+        "start_line_number": 158,
+        "stop_line_number": 173,
         "variables": [
           "assiette_cotisations_sociales",
           "categorie_salarie",
@@ -44842,8 +45071,8 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 146,
-    "stop_line_number": 166,
+    "start_line_number": 152,
+    "stop_line_number": 173,
     "ux_name": "Cotis. retraite complémentaire non-titulaires (Ircantec)",
     "value_type": "float"
   },
@@ -44857,10 +45086,10 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
         "parameters": [
-          "prelevements_sociaux.cotisations_secteur_public.ircantec.salarie.ircantec"
+          "cotsoc.cotisations_salarie.public_non_titulaire.ircantec"
         ],
-        "start_line_number": 132,
-        "stop_line_number": 144,
+        "start_line_number": 135,
+        "stop_line_number": 150,
         "variables": [
           "assiette_cotisations_sociales",
           "categorie_salarie",
@@ -44883,8 +45112,8 @@
     "referring_variables": [
       "cotisations_salariales_contributives"
     ],
-    "start_line_number": 126,
-    "stop_line_number": 144,
+    "start_line_number": 129,
+    "stop_line_number": 150,
     "ux_name": "Cotis. retraite complémentaire non-titulaires (Ircantec)",
     "value_type": "float"
   },
@@ -47456,8 +47685,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 718,
-        "stop_line_number": 720,
+        "start_line_number": 846,
+        "stop_line_number": 848,
         "variables": [
           "hsup"
         ]
@@ -47466,8 +47695,8 @@
     "json_type": "number",
     "label": "Heures supplémentaires comptées négativement",
     "name": "mhsup",
-    "start_line_number": 711,
-    "stop_line_number": 720,
+    "start_line_number": 839,
+    "stop_line_number": 848,
     "value_type": "float"
   },
   "microentreprise": {
@@ -47661,10 +47890,11 @@
           "cotsoc.cotisations_employeur.public_non_titulaire.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_etat.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.maladie",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.maladie"
         ],
-        "start_line_number": 679,
-        "stop_line_number": 689
+        "start_line_number": 807,
+        "stop_line_number": 817
       }
     },
     "json_type": "number",
@@ -47684,8 +47914,8 @@
       "exoneration_cotisations_employeur_apprenti",
       "exoneration_cotisations_employeur_professionnalisation"
     ],
-    "start_line_number": 672,
-    "stop_line_number": 689,
+    "start_line_number": 800,
+    "stop_line_number": 817,
     "ux_name": "Cotis. maladie-maternité-invalidité-décès",
     "value_type": "float"
   },
@@ -47706,8 +47936,8 @@
           "cotsoc.cotisations_salarie.public_non_titulaire.maladie",
           "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
         ],
-        "start_line_number": 646,
-        "stop_line_number": 670,
+        "start_line_number": 774,
+        "stop_line_number": 798,
         "variables": [
           "salarie_regime_alsace_moselle"
         ]
@@ -47720,8 +47950,8 @@
           "cotsoc.cotisations_salarie.prive_non_cadre.maladie_alsace_moselle",
           "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
         ],
-        "start_line_number": 628,
-        "stop_line_number": 645,
+        "start_line_number": 756,
+        "stop_line_number": 773,
         "variables": [
           "salarie_regime_alsace_moselle"
         ]
@@ -47744,8 +47974,8 @@
     "referring_variables": [
       "cotisations_salariales_non_contributives"
     ],
-    "start_line_number": 622,
-    "stop_line_number": 670,
+    "start_line_number": 750,
+    "stop_line_number": 798,
     "ux_name": "Cotis. maladie-maternité-invalidité-décès",
     "value_type": "float"
   },
@@ -47764,10 +47994,11 @@
           "cotsoc.cotisations_employeur.public_non_titulaire.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_etat.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.maladie",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.maladie"
         ],
-        "start_line_number": 698,
-        "stop_line_number": 709,
+        "start_line_number": 826,
+        "stop_line_number": 837,
         "variables": [
           "contribution_solidarite_autonomie"
         ]
@@ -47776,8 +48007,8 @@
     "json_type": "number",
     "label": "Cotisation maladie (employeur)",
     "name": "mmida_employeur",
-    "start_line_number": 691,
-    "stop_line_number": 709,
+    "start_line_number": 819,
+    "stop_line_number": 837,
     "value_type": "float"
   },
   "mncn_exon": {
@@ -49554,7 +49785,7 @@
     "label": "Nouvelle bonification indicaire",
     "name": "nouvelle_bonification_indiciaire",
     "referring_variables": [
-      "pension_civile_salarie",
+      "pension_salarie",
       "remuneration_principale"
     ],
     "set_input": "set_input_divide_by_period",
@@ -50569,8 +50800,8 @@
     "referring_variables": [
       "mobili_jeune_eligibilite_employeur"
     ],
-    "start_line_number": 927,
-    "stop_line_number": 933,
+    "start_line_number": 1055,
+    "stop_line_number": 1061,
     "value_type": "bool"
   },
   "penibilite": {
@@ -50593,6 +50824,8 @@
           "cotsoc.cotisations_employeur.public_titulaire_etat.penibilite_base",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.penibilite_additionnelle",
           "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.penibilite_base",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.penibilite_additionnelle",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.penibilite_base",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.penibilite_additionnelle",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.penibilite_base"
         ],
@@ -50628,7 +50861,7 @@
     "ux_name": "Cotis. compte pénibilité",
     "value_type": "float"
   },
-  "pension_civile_employeur": {
+  "pension_employeur": {
     "default_value": 0,
     "definition_period": "month",
     "dtype": "float32",
@@ -50637,8 +50870,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
-        "start_line_number": 203,
-        "stop_line_number": 222,
+        "start_line_number": 213,
+        "stop_line_number": 232,
         "variables": [
           "categorie_salarie",
           "remuneration_principale"
@@ -50646,8 +50879,8 @@
       }
     },
     "json_type": "number",
-    "label": "Cotisation employeur pour la retaite de base du salarié de la fonction publique, pension civile",
-    "name": "pension_civile_employeur",
+    "label": "Cotisation au régime de base de retraite de la fonction publique - part employeur",
+    "name": "pension_employeur",
     "reference": {
       "0001-01-01": [
         {
@@ -50658,12 +50891,11 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 196,
-    "stop_line_number": 222,
-    "ux_name": "Cotis. retraite de base (pension civile)",
+    "start_line_number": 206,
+    "stop_line_number": 232,
     "value_type": "float"
   },
-  "pension_civile_salarie": {
+  "pension_salarie": {
     "default_value": 0,
     "definition_period": "month",
     "dtype": "float32",
@@ -50672,13 +50904,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
-        "parameters": [
-          "prelevements_sociaux.cotisations_secteur_public.cnracl.salarie.cnracl1",
-          "prelevements_sociaux.cotisations_secteur_public.cnracl.salarie.cnracl2",
-          "prelevements_sociaux.cotisations_secteur_public.retraite.pension.salarie.pension"
-        ],
-        "start_line_number": 174,
-        "stop_line_number": 194,
+        "start_line_number": 181,
+        "stop_line_number": 204,
         "variables": [
           "categorie_salarie",
           "nouvelle_bonification_indiciaire",
@@ -50687,23 +50914,14 @@
       }
     },
     "json_type": "number",
-    "label": "Cotisation salariale pour la retaite de base des agents titulaires de la fonction publique, dite \"pension civile\"",
-    "name": "pension_civile_salarie",
-    "reference": {
-      "2021-07-27": [
-        {
-          "href": "https://www.service-public.fr/particuliers/vosdroits/F21142",
-          "title": "Service-Public.fr"
-        }
-      ]
-    },
+    "label": "Cotisation au régime de base de retraite de la fonction publique - part salariale (retenue pour pension)",
+    "name": "pension_salarie",
     "referring_variables": [
       "contribution_exceptionnelle_solidarite",
       "cotisations_salariales_contributives"
     ],
-    "start_line_number": 168,
-    "stop_line_number": 194,
-    "ux_name": "Cotis. retraite de base (pension civile)",
+    "start_line_number": 175,
+    "stop_line_number": 204,
     "value_type": "float"
   },
   "pensions_alimentaires_deduites": {
@@ -51038,8 +51256,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 729,
-        "stop_line_number": 745,
+        "start_line_number": 857,
+        "stop_line_number": 873,
         "variables": [
           "nombre_jours_calendaires",
           "quotite_de_travail"
@@ -51051,10 +51269,12 @@
     "name": "plafond_securite_sociale",
     "referring_variables": [
       "agff_employeur",
-      "allocations_temporaires_invalidite",
       "arrco_employeur",
       "arrco_salarie",
+      "ati_atiacl",
       "contribution_exceptionnelle_solidarite",
+      "cotisation_equilibre_technique_employeur",
+      "cotisation_equilibre_technique_salarie",
       "crds_salaire",
       "csg_deductible_salaire",
       "csg_imposable_salaire",
@@ -51066,8 +51286,8 @@
       "ircantec_salarie",
       "prevoyance_obligatoire_cadre"
     ],
-    "start_line_number": 722,
-    "stop_line_number": 745,
+    "start_line_number": 850,
+    "stop_line_number": 873,
     "value_type": "float"
   },
   "plafond_taxe_habitation": {
@@ -53232,8 +53452,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 754,
-        "stop_line_number": 767,
+        "start_line_number": 882,
+        "stop_line_number": 895,
         "variables": [
           "assiette_cotisations_sociales",
           "categorie_salarie",
@@ -53251,8 +53471,8 @@
       "forfait_social",
       "taxe_salaires"
     ],
-    "start_line_number": 747,
-    "stop_line_number": 767,
+    "start_line_number": 875,
+    "stop_line_number": 895,
     "ux_name": "Prévoyance des cadres obligatoire",
     "value_type": "float"
   },
@@ -54350,8 +54570,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 268,
-        "stop_line_number": 283,
+        "start_line_number": 270,
+        "stop_line_number": 285,
         "variables": [
           "contrat_de_travail",
           "forfait_jours_remuneres_volume",
@@ -54367,8 +54587,8 @@
       "agirc_gmp_salarie",
       "plafond_securite_sociale"
     ],
-    "start_line_number": 261,
-    "stop_line_number": 283,
+    "start_line_number": 263,
+    "stop_line_number": 285,
     "value_type": "float"
   },
   "rac": {
@@ -54434,10 +54654,12 @@
         "parameters": [
           "cotsoc.cotisations_employeur.public_titulaire_etat"
         ],
-        "start_line_number": 263,
-        "stop_line_number": 283,
+        "start_line_number": 274,
+        "stop_line_number": 300,
         "variables": [
+          "avantage_en_nature",
           "categorie_salarie",
+          "gipa",
           "indemnite_residence",
           "primes_fonction_publique",
           "supplement_familial_traitement",
@@ -54461,8 +54683,8 @@
     "referring_variables": [
       "cotisations_employeur_contributives"
     ],
-    "start_line_number": 256,
-    "stop_line_number": 283,
+    "start_line_number": 268,
+    "stop_line_number": 300,
     "ux_name": "Cotis. retraite additionnelle fonctionnaires (RAFP)",
     "value_type": "float"
   },
@@ -54476,10 +54698,10 @@
       "2005-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
         "parameters": [
-          "prelevements_sociaux.cotisations_secteur_public.rafp.salarie.rafp"
+          "cotsoc.cotisations_salarie.public_titulaire_etat"
         ],
-        "start_line_number": 230,
-        "stop_line_number": 254,
+        "start_line_number": 240,
+        "stop_line_number": 266,
         "variables": [
           "avantage_en_nature",
           "categorie_salarie",
@@ -54508,8 +54730,8 @@
       "contribution_exceptionnelle_solidarite",
       "cotisations_salariales_contributives"
     ],
-    "start_line_number": 224,
-    "stop_line_number": 254,
+    "start_line_number": 234,
+    "stop_line_number": 266,
     "ux_name": "Cotis. retraite additionnelle fonctionnaire (RAFP)",
     "value_type": "float"
   },
@@ -55139,11 +55361,11 @@
       ]
     },
     "referring_variables": [
-      "allocations_temporaires_invalidite",
       "assiette_cotisations_sociales",
       "assiette_csg_abattue",
+      "ati_atiacl",
       "fonds_emploi_hospitalier",
-      "pension_civile_employeur",
+      "pension_employeur",
       "salaire_imposable",
       "salaire_super_brut_hors_allegements"
     ],
@@ -60390,7 +60612,7 @@
     "entity": "individu",
     "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
     "json_type": "number",
-    "label": "Salaire brut",
+    "label": "Salaire de base, en général appelé salaire brut, la 1ère ligne sur la fiche de paie",
     "name": "salaire_de_base",
     "reference": {
       "0001-01-01": [
@@ -60418,7 +60640,6 @@
     "set_input": "set_input_divide_by_period",
     "start_line_number": 517,
     "stop_line_number": 524,
-    "ux_name": "Salaire brut",
     "value_type": "float"
   },
   "salaire_imposable": {
@@ -60601,7 +60822,7 @@
       }
     },
     "json_type": "number",
-    "label": "Salaire super-brut (fiche de paie)",
+    "label": "Salaire super-brut (fiche de paie): rémunération + cotisations sociales employeur",
     "name": "salaire_super_brut_hors_allegements",
     "referring_variables": [
       "salaire_super_brut"
@@ -61805,8 +62026,8 @@
       "mobili_jeune_eligibilite_employeur"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 935,
-    "stop_line_number": 944,
+    "start_line_number": 1063,
+    "stop_line_number": 1072,
     "value_type": "Enum"
   },
   "smic_proratise": {
@@ -62324,8 +62545,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 817,
-        "stop_line_number": 837,
+        "start_line_number": 945,
+        "stop_line_number": 965,
         "variables": [
           "effectif_entreprise"
         ]
@@ -62354,8 +62575,8 @@
       "fnal_tranche_a_plus_20",
       "formation_professionnelle"
     ],
-    "start_line_number": 808,
-    "stop_line_number": 837,
+    "start_line_number": 936,
+    "stop_line_number": 965,
     "value_type": "Enum"
   },
   "taux_accident_travail": {
@@ -62373,8 +62594,8 @@
           "cotsoc.accident.moyen",
           "cotsoc.accident.treseleve"
         ],
-        "start_line_number": 846,
-        "stop_line_number": 853,
+        "start_line_number": 974,
+        "stop_line_number": 981,
         "variables": [
           "exposition_accident"
         ]
@@ -62393,8 +62614,8 @@
       "rente_accident_travail_salarie"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 839,
-    "stop_line_number": 853,
+    "start_line_number": 967,
+    "stop_line_number": 981,
     "value_type": "float"
   },
   "taux_capacite_travail": {
@@ -63330,7 +63551,7 @@
       "contribution_exceptionnelle_solidarite",
       "indemnite_residence",
       "indice_majore",
-      "pension_civile_salarie",
+      "pension_salarie",
       "primes_fonction_publique",
       "rafp_employeur",
       "rafp_salarie",
@@ -63769,8 +63990,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.vieillesse_deplafonnee",
           "cotsoc.cotisations_employeur.public_non_titulaire.vieillesse_deplafonnee"
         ],
-        "start_line_number": 897,
-        "stop_line_number": 907
+        "start_line_number": 1025,
+        "stop_line_number": 1035
       }
     },
     "json_type": "number",
@@ -63789,8 +64010,8 @@
       "cotisations_employeur_contributives",
       "exoneration_cotisations_employeur_apprenti"
     ],
-    "start_line_number": 891,
-    "stop_line_number": 907,
+    "start_line_number": 1019,
+    "stop_line_number": 1035,
     "ux_name": "Cotis. Vieillesse déplafonnée",
     "value_type": "float"
   },
@@ -63808,8 +64029,8 @@
           "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse_deplafonnee",
           "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse_deplafonnee"
         ],
-        "start_line_number": 861,
-        "stop_line_number": 871
+        "start_line_number": 989,
+        "stop_line_number": 999
       }
     },
     "json_type": "number",
@@ -63827,8 +64048,8 @@
     "referring_variables": [
       "cotisations_salariales_contributives"
     ],
-    "start_line_number": 855,
-    "stop_line_number": 871,
+    "start_line_number": 983,
+    "stop_line_number": 999,
     "ux_name": "Cotis. vieillesse déplafonnée",
     "value_type": "float"
   },
@@ -63846,8 +64067,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.vieillesse_plafonnee",
           "cotsoc.cotisations_employeur.public_non_titulaire.vieillesse_plafonnee"
         ],
-        "start_line_number": 915,
-        "stop_line_number": 925
+        "start_line_number": 1043,
+        "stop_line_number": 1053
       }
     },
     "json_type": "number",
@@ -63867,8 +64088,8 @@
       "exoneration_cotisations_employeur_apprenti",
       "exoneration_cotisations_employeur_professionnalisation"
     ],
-    "start_line_number": 909,
-    "stop_line_number": 925,
+    "start_line_number": 1037,
+    "stop_line_number": 1053,
     "ux_name": "Cotis. Vieillesse plafonnée",
     "value_type": "float"
   },
@@ -63886,8 +64107,8 @@
           "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse",
           "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse"
         ],
-        "start_line_number": 879,
-        "stop_line_number": 889
+        "start_line_number": 1007,
+        "stop_line_number": 1017
       }
     },
     "json_type": "number",
@@ -63905,8 +64126,8 @@
     "referring_variables": [
       "cotisations_salariales_contributives"
     ],
-    "start_line_number": 873,
-    "stop_line_number": 889,
+    "start_line_number": 1001,
+    "stop_line_number": 1017,
     "ux_name": "Cotis. vieillesse plafonnée",
     "value_type": "float"
   },

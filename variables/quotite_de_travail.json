@@ -553,8 +553,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula(individu, period, parameters):\n    contrat_de_travail = individu('contrat_de_travail', period)\n    TypesContratDeTravail = contrat_de_travail.possible_values\n    heures_temps_plein = 35 * 52 / 12  # ~151,67 (durée légale mensuelle)\n    forfait_jours_remuneres_volume = individu('forfait_jours_remuneres_volume', period)\n    heures_remunerees_volume = individu('heures_remunerees_volume', period)\n    return switch(\n        contrat_de_travail,\n        {\n            TypesContratDeTravail.temps_plein: 1,\n            TypesContratDeTravail.temps_partiel: (heures_remunerees_volume / heures_temps_plein),\n            TypesContratDeTravail.forfait_jours_annee: (forfait_jours_remuneres_volume / 218),\n            TypesContratDeTravail.sans_objet: 0\n            }\n        )\n",
-      "start_line_number": 268,
-      "stop_line_number": 283,
+      "start_line_number": 270,
+      "stop_line_number": 285,
       "variables": [
         "contrat_de_travail",
         "forfait_jours_remuneres_volume",
@@ -570,7 +570,7 @@
     "agirc_gmp_salarie",
     "plafond_securite_sociale"
   ],
-  "start_line_number": 261,
-  "stop_line_number": 283,
+  "start_line_number": 263,
+  "stop_line_number": 285,
   "value_type": "float"
 }

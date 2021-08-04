@@ -279,11 +279,12 @@
         "cotsoc.cotisations_employeur.public_non_titulaire.maladie",
         "cotsoc.cotisations_employeur.public_titulaire_etat.maladie",
         "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.maladie",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.maladie",
         "cotsoc.cotisations_employeur.public_titulaire_territoriale.maladie"
       ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'maladie',\n        variable_name = 'mmida_employeur',\n        )\n    contribution_solidarite_autonomie = individu('contribution_solidarite_autonomie', period)\n    return cotisation + contribution_solidarite_autonomie\n",
-      "start_line_number": 698,
-      "stop_line_number": 709,
+      "start_line_number": 826,
+      "stop_line_number": 837,
       "variables": [
         "contribution_solidarite_autonomie"
       ]
@@ -292,7 +293,7 @@
   "json_type": "number",
   "label": "Cotisation maladie (employeur)",
   "name": "mmida_employeur",
-  "start_line_number": 691,
-  "stop_line_number": 709,
+  "start_line_number": 819,
+  "stop_line_number": 837,
   "value_type": "float"
 }

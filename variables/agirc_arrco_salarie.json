@@ -1,0 +1,216 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "formulas": {
+    "2019-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 31,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 33,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 41,
+              "end_col_offset": 51,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 9,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 2,
+                "id": "cotisation",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 16,
+                  "end_lineno": 3,
+                  "id": "individu",
+                  "lineno": 3
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 14,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 8,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 18,
+                  "end_lineno": 5,
+                  "id": "parameters",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 17,
+              "end_col_offset": 9,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 17,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 29,
+                "end_lineno": 2,
+                "id": "apply_bareme",
+                "lineno": 2
+              },
+              "keywords": [
+                {
+                  "arg": "cotisation_type",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 35,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 26,
+                    "end_col_offset": 35,
+                    "end_lineno": 6,
+                    "lineno": 6,
+                    "value": "salarie"
+                  }
+                },
+                {
+                  "arg": "bareme_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 35,
+                  "end_lineno": 7,
+                  "lineno": 7,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 22,
+                    "end_col_offset": 35,
+                    "end_lineno": 7,
+                    "lineno": 7,
+                    "value": "agirc_arrco"
+                  }
+                },
+                {
+                  "arg": "variable_name",
+                  "ast_class": "keyword",
+                  "col_offset": 8,
+                  "end_col_offset": 45,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "ast_class": "Constant",
+                    "col_offset": 24,
+                    "end_col_offset": 45,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": "agirc_arrco_salarie"
+                  }
+                }
+              ],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 21,
+            "end_lineno": 10,
+            "lineno": 10,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 21,
+              "end_lineno": 10,
+              "id": "cotisation",
+              "lineno": 10
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 21,
+        "end_lineno": 10,
+        "lineno": 1,
+        "name": "formula_2019_01_01"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.cotisations_salarie.prive_cadre.agirc_arrco",
+        "cotsoc.cotisations_salarie.prive_non_cadre.agirc_arrco",
+        "cotsoc.cotisations_salarie.public_non_titulaire.agirc_arrco"
+      ],
+      "source_code": "def formula_2019_01_01(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"salarie\",\n        bareme_name = \"agirc_arrco\",\n        variable_name = 'agirc_arrco_salarie'\n        )\n    return cotisation\n",
+      "start_line_number": 395,
+      "stop_line_number": 405
+    }
+  },
+  "json_type": "number",
+  "label": "Cotisation AGIRC-ARRCO (après la fusion, salarié)",
+  "last_review": "2019-01-01",
+  "name": "agirc_arrco_salarie",
+  "referring_variables": [
+    "cotisations_salariales_contributives",
+    "exoneration_cotisations_salarie_stagiaire"
+  ],
+  "start_line_number": 389,
+  "stop_line_number": 405,
+  "value_type": "float"
+}

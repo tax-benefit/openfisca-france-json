@@ -229,7 +229,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 112,
+            "end_col_offset": 64,
             "end_lineno": 4,
             "lineno": 4,
             "targets": [
@@ -239,9 +239,9 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 38,
+                "end_col_offset": 14,
                 "end_lineno": 4,
-                "id": "allocations_temporaires_invalidite",
+                "id": "ati_atiacl",
                 "lineno": 4
               }
             ],
@@ -249,35 +249,35 @@
               "args": [
                 {
                   "ast_class": "Constant",
-                  "col_offset": 50,
-                  "end_col_offset": 86,
+                  "col_offset": 26,
+                  "end_col_offset": 38,
                   "end_lineno": 4,
                   "lineno": 4,
-                  "value": "allocations_temporaires_invalidite"
+                  "value": "ati_atiacl"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 88,
+                  "col_offset": 40,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 94,
+                  "end_col_offset": 46,
                   "end_lineno": 4,
                   "id": "period",
                   "lineno": 4
                 }
               ],
               "ast_class": "Call",
-              "col_offset": 41,
-              "end_col_offset": 112,
+              "col_offset": 17,
+              "end_col_offset": 64,
               "end_lineno": 4,
               "func": {
                 "ast_class": "Name",
-                "col_offset": 41,
+                "col_offset": 17,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 49,
+                "end_col_offset": 25,
                 "end_lineno": 4,
                 "id": "individu",
                 "lineno": 4
@@ -286,30 +286,30 @@
                 {
                   "arg": "options",
                   "ast_class": "keyword",
-                  "col_offset": 96,
-                  "end_col_offset": 111,
+                  "col_offset": 48,
+                  "end_col_offset": 63,
                   "end_lineno": 4,
                   "lineno": 4,
                   "value": {
                     "ast_class": "List",
-                    "col_offset": 106,
+                    "col_offset": 58,
                     "ctx": {
                       "ast_class": "Load"
                     },
                     "elts": [
                       {
                         "ast_class": "Name",
-                        "col_offset": 107,
+                        "col_offset": 59,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 110,
+                        "end_col_offset": 62,
                         "end_lineno": 4,
                         "id": "ADD",
                         "lineno": 4
                       }
                     ],
-                    "end_col_offset": 111,
+                    "end_col_offset": 63,
                     "end_lineno": 4,
                     "lineno": 4
                   }
@@ -774,9 +774,9 @@
                             "ctx": {
                               "ast_class": "Load"
                             },
-                            "end_col_offset": 42,
+                            "end_col_offset": 18,
                             "end_lineno": 12,
-                            "id": "allocations_temporaires_invalidite",
+                            "id": "ati_atiacl",
                             "lineno": 12
                           },
                           "lineno": 12,
@@ -919,12 +919,12 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
-      "source_code": "def formula(individu, period, parameters):\n    penibilite = individu('penibilite', period, options = [ADD])\n    accident_du_travail = individu('accident_du_travail', period, options = [ADD])\n    allocations_temporaires_invalidite = individu('allocations_temporaires_invalidite', period, options = [ADD])\n    contribution_solidarite_autonomie = individu('contribution_solidarite_autonomie', period)\n    famille = individu('famille', period)\n    mmid_employeur = individu('mmid_employeur', period, options = [ADD])\n    taxe_salaires = individu('taxe_salaires', period, options = [ADD])\n    forfait_social = individu('forfait_social', period, options = [ADD])\n\n    cotisations_employeur_non_contributives = (\n        allocations_temporaires_invalidite\n        + penibilite\n        + accident_du_travail\n        + contribution_solidarite_autonomie\n        + famille\n        + mmid_employeur\n        + taxe_salaires\n        + forfait_social\n        )\n\n    return cotisations_employeur_non_contributives\n",
-      "start_line_number": 84,
-      "stop_line_number": 106,
+      "source_code": "def formula(individu, period, parameters):\n    penibilite = individu('penibilite', period, options = [ADD])\n    accident_du_travail = individu('accident_du_travail', period, options = [ADD])\n    ati_atiacl = individu('ati_atiacl', period, options = [ADD])\n    contribution_solidarite_autonomie = individu('contribution_solidarite_autonomie', period)\n    famille = individu('famille', period)\n    mmid_employeur = individu('mmid_employeur', period, options = [ADD])\n    taxe_salaires = individu('taxe_salaires', period, options = [ADD])\n    forfait_social = individu('forfait_social', period, options = [ADD])\n\n    cotisations_employeur_non_contributives = (\n        ati_atiacl\n        + penibilite\n        + accident_du_travail\n        + contribution_solidarite_autonomie\n        + famille\n        + mmid_employeur\n        + taxe_salaires\n        + forfait_social\n        )\n\n    return cotisations_employeur_non_contributives\n",
+      "start_line_number": 88,
+      "stop_line_number": 110,
       "variables": [
         "accident_du_travail",
-        "allocations_temporaires_invalidite",
+        "ati_atiacl",
         "contribution_solidarite_autonomie",
         "famille",
         "forfait_social",
@@ -948,8 +948,8 @@
     "cotisations_employeur"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 77,
-  "stop_line_number": 106,
+  "start_line_number": 81,
+  "stop_line_number": 110,
   "ux_name": "non-contributives",
   "value_type": "float"
 }
