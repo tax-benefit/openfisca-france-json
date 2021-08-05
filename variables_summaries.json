@@ -11498,17 +11498,53 @@
         "parameters": [
           "prelevements_sociaux.cotisations_securite_sociale_regime_general.casa.pensions_retraite_preretraite_invalidite"
         ],
-        "start_line_number": 234,
-        "stop_line_number": 243,
+        "start_line_number": 518,
+        "stop_line_number": 530,
         "variables": [
+          "irpp",
+          "retraite_brute"
+        ]
+      },
+      "2015-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2",
+          "prelevements_sociaux.cotisations_securite_sociale_regime_general.casa.pensions_retraite_preretraite_invalidite"
+        ],
+        "start_line_number": 498,
+        "stop_line_number": 517,
+        "variables": [
+          "nbptr",
           "retraite_brute",
-          "taux_csg_remplacement"
+          "rfr"
+        ]
+      },
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr3",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr3",
+          "prelevements_sociaux.cotisations_securite_sociale_regime_general.casa.pensions_retraite_preretraite_invalidite"
+        ],
+        "start_line_number": 477,
+        "stop_line_number": 497,
+        "variables": [
+          "nbptr",
+          "retraite_brute",
+          "rfr"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution additionnelle de solidarité et d'autonomie (CASA)",
-    "last_review": "2013-04-01",
+    "last_review": "2019-01-01",
     "name": "casa",
     "reference": {
       "2021-07-27": [
@@ -11524,8 +11560,8 @@
       "revenus_remplacement_pensions_bruts_menage"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 226,
-    "stop_line_number": 243,
+    "start_line_number": 469,
+    "stop_line_number": 530,
     "ux_name": "Contrib. solidarité et autonomie (CASA)",
     "value_type": "float"
   },
@@ -12992,8 +13028,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-        "start_line_number": 134,
-        "stop_line_number": 139,
+        "start_line_number": 250,
+        "stop_line_number": 255,
         "variables": [
           "chomage_brut",
           "csg_deductible_chomage"
@@ -13020,8 +13056,8 @@
       "revenu_assimile_salaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 119,
-    "stop_line_number": 139,
+    "start_line_number": 234,
+    "stop_line_number": 255,
     "unit": "currency",
     "ux_name": "Montant imposable",
     "value_type": "float"
@@ -13035,8 +13071,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-        "start_line_number": 149,
-        "stop_line_number": 155,
+        "start_line_number": 265,
+        "stop_line_number": 271,
         "variables": [
           "chomage_imposable",
           "crds_chomage",
@@ -13064,8 +13100,8 @@
       "rsa_has_ressources_substitution"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 141,
-    "stop_line_number": 155,
+    "start_line_number": 257,
+    "stop_line_number": 271,
     "ux_name": "Alloc. chômage nettes",
     "value_type": "float"
   },
@@ -15330,8 +15366,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py",
-        "start_line_number": 43,
-        "stop_line_number": 60,
+        "start_line_number": 45,
+        "stop_line_number": 63,
         "variables": [
           "crds_chomage",
           "crds_logement",
@@ -15350,8 +15386,8 @@
     "referring_variables": [
       "total_impots_plafonnement_isf_ifi"
     ],
-    "start_line_number": 37,
-    "stop_line_number": 60,
+    "start_line_number": 39,
+    "stop_line_number": 63,
     "value_type": "float"
   },
   "crds_chomage": {
@@ -15362,25 +15398,31 @@
     "entity": "individu",
     "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
     "formulas": {
-      "0001-01-01": {
+      "2015-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
         "parameters": [
           "cotsoc.gen.plafond_securite_sociale",
           "prelevements_sociaux.contributions_sociales.crds.activite",
-          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
+          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2"
         ],
-        "start_line_number": 98,
-        "stop_line_number": 117,
+        "start_line_number": 191,
+        "stop_line_number": 232,
         "variables": [
           "chomage_brut",
           "csg_deductible_chomage",
           "csg_imposable_chomage",
-          "taux_csg_remplacement"
+          "nbptr",
+          "rfr"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution au remboursement de la dette sociale (CRDS) prélevée sur le chômage",
+    "last_review": "2015-01-01",
     "name": "crds_chomage",
     "reference": {
       "0001-01-01": [
@@ -15396,8 +15438,8 @@
       "revenus_remplacement_pensions_bruts_menage"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 89,
-    "stop_line_number": 117,
+    "start_line_number": 181,
+    "stop_line_number": 232,
     "ux_name": "CRDS chômage",
     "value_type": "float"
   },
@@ -15410,8 +15452,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py",
-        "start_line_number": 68,
-        "stop_line_number": 80,
+        "start_line_number": 71,
+        "stop_line_number": 83,
         "variables": [
           "crds_chomage",
           "crds_non_salarie",
@@ -15427,8 +15469,8 @@
     "referring_variables": [
       "prelevements_sociaux_menage"
     ],
-    "start_line_number": 62,
-    "stop_line_number": 80,
+    "start_line_number": 65,
+    "stop_line_number": 83,
     "value_type": "float"
   },
   "crds_logement": {
@@ -15543,8 +15585,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-        "start_line_number": 286,
-        "stop_line_number": 297,
+        "start_line_number": 579,
+        "stop_line_number": 590,
         "variables": [
           "af",
           "ape",
@@ -15570,8 +15612,8 @@
       "crds",
       "prestations_familiales"
     ],
-    "start_line_number": 279,
-    "stop_line_number": 297,
+    "start_line_number": 572,
+    "stop_line_number": 590,
     "ux_name": "CRDS prestations familiales",
     "value_type": "float"
   },
@@ -15585,20 +15627,54 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "start_line_number": 461,
+        "stop_line_number": 467,
+        "variables": [
+          "retraite_brute"
+        ]
+      },
+      "2015-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
         "parameters": [
           "cotsoc.gen.plafond_securite_sociale",
-          "prelevements_sociaux.contributions_sociales.crds.retraite"
+          "prelevements_sociaux.contributions_sociales.crds.retraite",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2"
         ],
-        "start_line_number": 212,
-        "stop_line_number": 224,
+        "start_line_number": 440,
+        "stop_line_number": 460,
         "variables": [
+          "nbptr",
           "retraite_brute",
-          "taux_csg_remplacement"
+          "rfr"
+        ]
+      },
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.crds.retraite",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr3",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr3"
+        ],
+        "start_line_number": 417,
+        "stop_line_number": 439,
+        "variables": [
+          "nbptr",
+          "retraite_brute",
+          "rfr"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution au remboursement de la dette sociale (CRDS) prélevée sur la retraite",
+    "last_review": "2019-01-01",
     "name": "crds_retraite",
     "reference": {
       "0001-01-01": [
@@ -15614,8 +15690,8 @@
       "revenus_remplacement_pensions_bruts_menage"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 203,
-    "stop_line_number": 224,
+    "start_line_number": 407,
+    "stop_line_number": 467,
     "ux_name": "CRDS retraite",
     "value_type": "float"
   },
@@ -16403,7 +16479,7 @@
       "total_impots_plafonnement_isf_ifi"
     ],
     "start_line_number": 7,
-    "stop_line_number": 35,
+    "stop_line_number": 37,
     "value_type": "float"
   },
   "csg_deductible_chomage": {
@@ -16414,25 +16490,31 @@
     "entity": "individu",
     "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
     "formulas": {
-      "0001-01-01": {
+      "2015-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
         "parameters": [
           "cotsoc.gen.plafond_securite_sociale",
           "cotsoc.gen.smic_h_b",
           "prelevements_sociaux.contributions_sociales.csg.chomage.deductible",
-          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
+          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2"
         ],
-        "start_line_number": 49,
-        "stop_line_number": 64,
+        "start_line_number": 86,
+        "stop_line_number": 132,
         "variables": [
           "chomage_brut",
           "csg_imposable_chomage",
-          "taux_csg_remplacement"
+          "nbptr",
+          "rfr"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution sociale généralisée (CSG) déductible prélevée sur le chômage",
+    "last_review": "2015-01-01",
     "name": "csg_deductible_chomage",
     "reference": {
       "2021-07-27": [
@@ -16451,8 +16533,8 @@
       "revenus_remplacement_pensions_bruts_menage"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 40,
-    "stop_line_number": 64,
+    "start_line_number": 76,
+    "stop_line_number": 132,
     "ux_name": "CSG chômage déductible",
     "value_type": "float"
   },
@@ -16467,19 +16549,56 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
         "parameters": [
-          "cotsoc.gen.plafond_securite_sociale",
-          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.deductible"
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.deductible.taux_plein"
         ],
-        "start_line_number": 169,
-        "stop_line_number": 181,
+        "start_line_number": 333,
+        "stop_line_number": 339,
         "variables": [
+          "retraite_brute"
+        ]
+      },
+      "2015-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.deductible",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2"
+        ],
+        "start_line_number": 310,
+        "stop_line_number": 332,
+        "variables": [
+          "nbptr",
           "retraite_brute",
-          "taux_csg_remplacement"
+          "rfr"
+        ]
+      },
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.deductible",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr3",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr3"
+        ],
+        "start_line_number": 285,
+        "stop_line_number": 309,
+        "variables": [
+          "nbptr",
+          "retraite_brute",
+          "rfr"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution sociale généralisée (CSG) déductible prélevée sur la retraite",
+    "last_review": "2019-01-01",
     "name": "csg_deductible_retraite",
     "reference": {
       "2021-07-27": [
@@ -16497,8 +16616,8 @@
       "revenus_remplacement_pensions_bruts_menage"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 160,
-    "stop_line_number": 181,
+    "start_line_number": 275,
+    "stop_line_number": 339,
     "ux_name": "CSG retraite déductible",
     "value_type": "float"
   },
@@ -16556,23 +16675,30 @@
     "entity": "individu",
     "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
     "formulas": {
-      "0001-01-01": {
+      "2015-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
         "parameters": [
           "cotsoc.gen.plafond_securite_sociale",
           "cotsoc.gen.smic_h_b",
           "prelevements_sociaux.contributions_sociales.csg.chomage.imposable",
-          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
+          "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2"
         ],
-        "start_line_number": 75,
-        "stop_line_number": 87,
+        "start_line_number": 144,
+        "stop_line_number": 179,
         "variables": [
-          "chomage_brut"
+          "chomage_brut",
+          "nbptr",
+          "rfr"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution sociale généralisée (CSG) imposable prélevée sur le chômage",
+    "last_review": "2015-01-01",
     "name": "csg_imposable_chomage",
     "reference": {
       "2021-07-27": [
@@ -16592,8 +16718,8 @@
       "revenus_remplacement_pensions_bruts_menage"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 66,
-    "stop_line_number": 87,
+    "start_line_number": 134,
+    "stop_line_number": 179,
     "ux_name": "CSG chômage imposable",
     "value_type": "float"
   },
@@ -16608,18 +16734,56 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
         "parameters": [
-          "cotsoc.gen.plafond_securite_sociale",
-          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable"
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable.taux_plein"
         ],
-        "start_line_number": 192,
-        "stop_line_number": 201,
+        "start_line_number": 399,
+        "stop_line_number": 405,
         "variables": [
           "retraite_brute"
+        ]
+      },
+      "2015-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2"
+        ],
+        "start_line_number": 376,
+        "stop_line_number": 398,
+        "variables": [
+          "nbptr",
+          "retraite_brute",
+          "rfr"
+        ]
+      },
+      "2019-01-01": {
+        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+        "parameters": [
+          "cotsoc.gen.plafond_securite_sociale",
+          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.demi_part_suppl_rfr3",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr1",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr2",
+          "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_rfr3"
+        ],
+        "start_line_number": 351,
+        "stop_line_number": 375,
+        "variables": [
+          "nbptr",
+          "retraite_brute",
+          "rfr"
         ]
       }
     },
     "json_type": "number",
     "label": "Contribution sociale généralisée (CSG) imposable prélevée sur la retraite",
+    "last_review": "2019-01-01",
     "name": "csg_imposable_retraite",
     "reference": {
       "2021-07-27": [
@@ -16637,8 +16801,8 @@
       "revenus_remplacement_pensions_bruts_menage"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 183,
-    "stop_line_number": 201,
+    "start_line_number": 341,
+    "stop_line_number": 405,
     "ux_name": "CSG retraite imposable",
     "value_type": "float"
   },
@@ -45534,6 +45698,7 @@
     },
     "referring_variables": [
       "bouclier_imp_gen",
+      "casa",
       "foyer_impose",
       "irpp_economique",
       "taux_moyen_imposition"
@@ -49982,8 +50147,15 @@
       ]
     },
     "referring_variables": [
+      "casa",
       "condition_rfr_exoneration_th",
+      "crds_chomage",
+      "crds_retraite",
       "creimp_exc_2008",
+      "csg_deductible_chomage",
+      "csg_deductible_retraite",
+      "csg_imposable_chomage",
+      "csg_imposable_retraite",
       "degrevement_office_taxe_habitation",
       "depart1825_eligibilite",
       "ir_brut",
@@ -49997,7 +50169,6 @@
       "ppe_elig",
       "reduction_impot_exceptionnelle",
       "reduction_ss_condition_revenus",
-      "taux_csg_remplacement",
       "taux_effectif"
     ],
     "start_line_number": 3144,
@@ -57131,8 +57302,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-        "start_line_number": 255,
-        "stop_line_number": 260,
+        "start_line_number": 548,
+        "stop_line_number": 553,
         "variables": [
           "csg_deductible_retraite",
           "retraite_brute"
@@ -57157,8 +57328,8 @@
       "revenu_assimile_pension"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 245,
-    "stop_line_number": 260,
+    "start_line_number": 532,
+    "stop_line_number": 553,
     "unit": "currency",
     "ux_name": "Montant imposable",
     "value_type": "float"
@@ -57172,8 +57343,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-        "start_line_number": 270,
-        "stop_line_number": 277,
+        "start_line_number": 563,
+        "stop_line_number": 570,
         "variables": [
           "casa",
           "crds_retraite",
@@ -57198,8 +57369,8 @@
       "rsa_has_ressources_substitution"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 262,
-    "stop_line_number": 277,
+    "start_line_number": 555,
+    "stop_line_number": 570,
     "ux_name": "Retraite nette",
     "value_type": "float"
   },
@@ -58491,8 +58662,15 @@
     },
     "referring_variables": [
       "base_ressources_apa",
+      "casa",
       "cehr",
       "condition_rfr_exoneration_th",
+      "crds_chomage",
+      "crds_retraite",
+      "csg_deductible_chomage",
+      "csg_deductible_retraite",
+      "csg_imposable_chomage",
+      "csg_imposable_retraite",
       "degrevement_office_taxe_habitation",
       "depart1825_eligibilite",
       "eligibilite_anah",
@@ -58503,8 +58681,7 @@
       "ppe_elig",
       "quaenv",
       "reduction_impot_exceptionnelle",
-      "reduction_ss_condition_revenus",
-      "taux_csg_remplacement"
+      "reduction_ss_condition_revenus"
     ],
     "start_line_number": 2189,
     "stop_line_number": 2224,
@@ -63161,51 +63338,6 @@
     "start_line_number": 4,
     "stop_line_number": 11,
     "value_type": "float"
-  },
-  "taux_csg_remplacement": {
-    "default_value": "taux_plein",
-    "definition_period": "month",
-    "dtype": "int16",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-    "formulas": {
-      "2015-01-01": {
-        "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
-        "parameters": [
-          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.seuils.rfr2_demi_part_suppl",
-          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.seuils.seuil_rfr1",
-          "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.seuils.seuil_rfr2"
-        ],
-        "start_line_number": 26,
-        "stop_line_number": 35,
-        "variables": [
-          "nbptr",
-          "rfr"
-        ]
-      }
-    },
-    "is_period_size_independent": true,
-    "json_type": "string",
-    "label": "Taux retenu sur la CSG des revenus de remplacment",
-    "last_review": "2015-01-01",
-    "name": "taux_csg_remplacement",
-    "possible_values": {
-      "exonere": "Exonéré",
-      "non_renseigne": "Non renseigné/non pertinent",
-      "taux_plein": "Taux plein",
-      "taux_reduit": "Taux réduit"
-    },
-    "referring_variables": [
-      "casa",
-      "crds_chomage",
-      "crds_retraite",
-      "csg_deductible_chomage",
-      "csg_deductible_retraite"
-    ],
-    "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 17,
-    "stop_line_number": 35,
-    "value_type": "Enum"
   },
   "taux_effectif": {
     "default_value": 0,
