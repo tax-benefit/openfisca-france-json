@@ -322,8 +322,8 @@
         "impot_revenu.decote.taux"
       ],
       "source_code": "def formula_2001_01_01(foyer_fiscal, period, parameters):\n    ir_plaf_qf = foyer_fiscal('ir_plaf_qf', period)\n    decote = parameters(period).impot_revenu.decote\n\n    return around(max_(0, decote.seuil - ir_plaf_qf) * decote.taux)\n",
-      "start_line_number": 1364,
-      "stop_line_number": 1369,
+      "start_line_number": 1365,
+      "stop_line_number": 1370,
       "variables": [
         "ir_plaf_qf"
       ]
@@ -1100,8 +1100,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula_2014_01_01(foyer_fiscal, period, parameters):\n    ir_plaf_qf = foyer_fiscal(\"ir_plaf_qf\", period)\n    nb_adult = foyer_fiscal(\"nb_adult\", period)\n    taux_decote = parameters(period).impot_revenu.decote.taux\n    decote_seuil_celib = parameters(period).impot_revenu.decote.seuil_celib\n    decote_seuil_couple = parameters(period).impot_revenu.decote.seuil_couple\n    decote_celib = max_(0, decote_seuil_celib - taux_decote * ir_plaf_qf)\n    decote_couple = max_(0, decote_seuil_couple - taux_decote * ir_plaf_qf)\n\n    return around((nb_adult == 1) * decote_celib + (nb_adult == 2) * decote_couple)\n",
-      "start_line_number": 1370,
-      "stop_line_number": 1380,
+      "start_line_number": 1371,
+      "stop_line_number": 1381,
       "variables": [
         "ir_plaf_qf",
         "nb_adult"
@@ -1117,7 +1117,7 @@
     "ip_net",
     "reduction_ss_condition_revenus"
   ],
-  "start_line_number": 1358,
-  "stop_line_number": 1380,
+  "start_line_number": 1359,
+  "stop_line_number": 1381,
   "value_type": "float"
 }

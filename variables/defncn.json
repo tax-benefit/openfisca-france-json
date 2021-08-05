@@ -1686,8 +1686,8 @@
         "impot_revenu.rpns.micro.specialbnc.services"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    f5ht = foyer_fiscal('f5ht', period)\n    f5it = foyer_fiscal('f5it', period)\n    f5jt = foyer_fiscal('f5jt', period)\n    f5kt = foyer_fiscal('f5kt', period)\n    f5lt = foyer_fiscal('f5lt', period)\n    f5mt = foyer_fiscal('f5mt', period)\n    mncn_impo_i = foyer_fiscal.members('mncn_impo', period)\n    mncn_pvct_i = foyer_fiscal.members('mncn_pvct', period)\n    cncn_aimp_i = foyer_fiscal.members('cncn_aimp', period)\n    cncn_bene_i = foyer_fiscal.members('cncn_bene', period)\n    cga = parameters(period).impot_revenu.rpns.cga_taux2\n    specialbnc = parameters(period).impot_revenu.rpns.micro.specialbnc\n\n    def abat_rpns(rev, P):\n        return max_(0, rev - min_(rev, max_(P.taux * min_(P.max, rev), P.min)))\n    cncn_bene = foyer_fiscal.sum(cncn_bene_i)\n    mncn_impo = foyer_fiscal.sum(mncn_impo_i)\n    mncn_pvct = foyer_fiscal.sum(mncn_pvct_i)\n    cncn_aimp = foyer_fiscal.sum(cncn_aimp_i)\n    return min_(\n        f5ht + f5it + f5jt + f5kt + f5lt + f5mt,\n        abat_rpns(mncn_impo, specialbnc.services) + mncn_pvct + cncn_aimp + (1 + cga) * cncn_bene\n        )  #  TODO check !\n",
-      "start_line_number": 2460,
-      "stop_line_number": 2484,
+      "start_line_number": 2461,
+      "stop_line_number": 2485,
       "variables": [
         "cncn_aimp",
         "cncn_bene",
@@ -1708,7 +1708,7 @@
   "referring_variables": [
     "revenu_categoriel_non_salarial"
   ],
-  "start_line_number": 2454,
-  "stop_line_number": 2484,
+  "start_line_number": 2455,
+  "stop_line_number": 2485,
   "value_type": "float"
 }

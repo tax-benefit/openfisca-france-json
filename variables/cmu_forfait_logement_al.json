@@ -496,8 +496,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/cmu.py",
       "source_code": "def formula(famille, period, parameters):\n    nb_personnes_foyer = famille('cmu_nbp_foyer', period)\n    aide_logement = famille('aide_logement', period)\n    P = parameters(period).cs.cmu.forfait_logement_al\n    law_rsa = parameters(period).prestations.minima_sociaux.rmi\n\n    return (aide_logement > 0) * min_(12 * aide_logement, forfait_logement(nb_personnes_foyer, P, law_rsa))\n",
-      "start_line_number": 38,
-      "stop_line_number": 45,
+      "start_line_number": 42,
+      "stop_line_number": 49,
       "variables": [
         "aide_logement",
         "cmu_nbp_foyer"
@@ -510,7 +510,8 @@
   "referring_variables": [
     "cmu_base_ressources"
   ],
-  "start_line_number": 32,
-  "stop_line_number": 45,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 35,
+  "stop_line_number": 49,
   "value_type": "float"
 }

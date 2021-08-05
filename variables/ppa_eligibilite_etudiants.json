@@ -1163,8 +1163,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    ppa_majoree_eligibilite = famille('rsa_majore_eligibilite', period)\n\n    etudiant_i = famille.members('etudiant', period)\n    plancher_etudiant = famille.members('ppa_plancher_revenu_activite_etudiant', period)\n\n    def condition_ressource(period2, plancher):\n        revenu_activite = famille.members('ppa_revenu_activite_individu', period2)\n        return plancher < revenu_activite\n\n    m_1 = period.offset(-1, 'month')\n    m_2 = period.offset(-2, 'month')\n    m_3 = period.offset(-3, 'month')\n\n    condition_etudiant_i = (\n        condition_ressource(m_1, plancher_etudiant)\n        * condition_ressource(m_2, plancher_etudiant)\n        * condition_ressource(m_3, plancher_etudiant)\n        )\n\n    condition_non_etudiant_i = (\n        not_(etudiant_i) * (\n            condition_ressource(m_1, 0)\n            + condition_ressource(m_2, 0)\n            + condition_ressource(m_3, 0)\n            )\n        )\n\n    condition_famille = famille.any(condition_non_etudiant_i + condition_etudiant_i, role = Famille.PARENT)\n    return ppa_majoree_eligibilite + condition_famille\n",
-      "start_line_number": 49,
-      "stop_line_number": 79,
+      "start_line_number": 52,
+      "stop_line_number": 82,
       "variables": [
         "etudiant",
         "ppa_plancher_revenu_activite_etudiant",
@@ -1196,7 +1196,8 @@
   "referring_variables": [
     "ppa"
   ],
-  "start_line_number": 37,
-  "stop_line_number": 79,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 39,
+  "stop_line_number": 82,
   "value_type": "bool"
 }

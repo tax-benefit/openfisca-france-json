@@ -638,8 +638,8 @@
         "cotsoc.cotisations_employeur.public_titulaire_territoriale.atiacl"
       ],
       "source_code": "def formula(individu, period, parameters):\n    remuneration_principale = individu('remuneration_principale', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    _P = parameters(period)\n\n    # ATI : pour les fonctionnaires d'Etat, hors militaires\n    cotisation_etat_hors_militaires = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_employeur,\n        bareme_name = \"ati\",\n        base = remuneration_principale,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    # ATIACL : pour les fonctionnaires territoriaux et hospitaliers\n    cotisation_collectivites_locales = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_employeur,\n        bareme_name = \"atiacl\",\n        base = remuneration_principale,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    return cotisation_etat_hors_militaires + cotisation_collectivites_locales\n",
-      "start_line_number": 14,
-      "stop_line_number": 37,
+      "start_line_number": 15,
+      "stop_line_number": 38,
       "variables": [
         "categorie_salarie",
         "plafond_securite_sociale",
@@ -653,7 +653,8 @@
   "referring_variables": [
     "cotisations_employeur_non_contributives"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 7,
-  "stop_line_number": 37,
+  "stop_line_number": 38,
   "value_type": "float"
 }

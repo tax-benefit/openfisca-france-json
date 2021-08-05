@@ -611,8 +611,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(individu, period, parameters):\n    activite = individu('activite', period)\n    date_debut_chomage = individu('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n    condition_abattement = (activite == TypesActivite.chomeur) * (date_debut_chomage < two_months_ago)\n    revenus_activite_pro = individu('aide_logement_assiette_abattement_chomage', period)\n    taux_abattement = parameters(period).prestations.aides_logement.ressources.abattement_chomage_indemnise\n\n    return condition_abattement * taux_abattement * revenus_activite_pro\n",
-      "start_line_number": 707,
-      "stop_line_number": 716,
+      "start_line_number": 725,
+      "stop_line_number": 734,
       "variables": [
         "activite",
         "aide_logement_assiette_abattement_chomage",
@@ -1327,8 +1327,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula_2021_01_01(individu, period, parameters):\n    activite = individu('activite', period)\n    date_debut_chomage = individu('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n    condition_neutralisation = individu('aide_logement_condition_neutralisation_chomage', period)\n    condition_abattement = (activite == TypesActivite.chomeur) * (date_debut_chomage < two_months_ago)\n    revenus_activite_pro = individu('aide_logement_assiette_abattement_chomage', period)\n    taux_abattement = parameters(period).prestations.aides_logement.ressources.abattement_chomage_indemnise\n    return condition_abattement * not_(condition_neutralisation) * taux_abattement * revenus_activite_pro\n",
-      "start_line_number": 697,
-      "stop_line_number": 706,
+      "start_line_number": 715,
+      "stop_line_number": 724,
       "variables": [
         "activite",
         "aide_logement_assiette_abattement_chomage",
@@ -1352,7 +1352,8 @@
     "aide_logement_base_ressources",
     "aide_logement_base_ressources_defaut"
   ],
-  "start_line_number": 689,
-  "stop_line_number": 716,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 706,
+  "stop_line_number": 734,
   "value_type": "float"
 }

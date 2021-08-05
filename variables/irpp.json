@@ -1017,8 +1017,8 @@
         "impot_revenu.recouvrement.seuil"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Montant après seuil de recouvrement (hors ppe)\n    NB : ce montant l'impôt correspond à une notion administrative :\n    dans certains cas, il existe des prélèvements à la source faisant\n    office d'acomptes d'impôt sur le revenu (cf. variable acomptes_ir). Ces acomptes sont comptabilisés\n    dans la feuille d'impôt comme des crédits d'impôt, mais correspondent économiquement à des montants d'impôt dus.\n    '''\n    iai = foyer_fiscal('iai', period)\n    credits_impot = foyer_fiscal('credits_impot', period)\n    acomptes_ir = foyer_fiscal('acomptes_ir', period)\n    cehr = foyer_fiscal('cehr', period)\n    P = parameters(period).impot_revenu.recouvrement\n\n    pre_result = iai - credits_impot - acomptes_ir + cehr\n\n    return (\n        (iai > P.seuil) * (\n            (pre_result < P.min)\n            * (pre_result > 0)\n            * iai\n            * 0\n            + ((pre_result <= 0) + (pre_result >= P.min))\n            * (- pre_result)\n            )\n        + (iai <= P.seuil) * (\n            (pre_result < 0)\n            * (-pre_result)\n            + (pre_result >= 0)\n            * 0\n            * iai\n            )\n        )\n",
-      "start_line_number": 2120,
-      "stop_line_number": 2153,
+      "start_line_number": 2121,
+      "stop_line_number": 2154,
       "variables": [
         "acomptes_ir",
         "cehr",
@@ -1039,12 +1039,13 @@
   },
   "referring_variables": [
     "bouclier_imp_gen",
+    "casa",
     "foyer_impose",
     "irpp_economique",
     "taux_moyen_imposition"
   ],
-  "start_line_number": 2113,
-  "stop_line_number": 2153,
+  "start_line_number": 2114,
+  "stop_line_number": 2154,
   "ux_name": "IR réduit des accomptes déjà versés",
   "value_type": "float"
 }

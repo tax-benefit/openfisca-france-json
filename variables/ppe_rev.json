@@ -649,8 +649,8 @@
         "impot_revenu.credits_impot.ppe.abatns"
       ],
       "source_code": "def formula(individu, period, parameters):\n    salaire_imposable = individu('salaire_imposable', period, options = [ADD])\n    hsup = individu('hsup', period, options = [ADD])\n    rpns = individu('rpns_imposables', period)\n    ppe = parameters(period).impot_revenu.credits_impot.ppe\n\n    # Revenu d'activité salarié\n    rev_sa = salaire_imposable + hsup  # TODO: + TV + TW + TX + AQ + LZ + VJ\n    # Revenu d'activité non salarié\n    rev_ns = min_(0, rpns) / ppe.abatns + max_(0, rpns) * ppe.abatns\n    # très bizarre la partie min(0, rpns) - après vérification c'est dans la loi\n    return rev_sa + rev_ns\n",
-      "start_line_number": 3308,
-      "stop_line_number": 3320,
+      "start_line_number": 3309,
+      "stop_line_number": 3321,
       "variables": [
         "hsup",
         "rpns_imposables",
@@ -667,7 +667,7 @@
     "ppe_base",
     "ppe_elig_individu"
   ],
-  "start_line_number": 3301,
-  "stop_line_number": 3320,
+  "start_line_number": 3302,
+  "stop_line_number": 3321,
   "value_type": "float"
 }

@@ -1651,8 +1651,8 @@
         "cs.cmu.plafond_base"
       ],
       "source_code": "def formula(famille, period, parameters):\n    \"\"\"\n    - Le plafond dépends du nombre de personnes dans le foyer.\n    - À un plafond de base pour une personne, on applique pour chaque personne supplémentaire un certain coefficient supplémentaire\n            - Un coefficient pour la 2eme personne,\n            - Un coefficient pour les 3e et 4e personne,\n            - Un coefficient pour toute personne supplémentaire\n    - Si un enfant est en garde alternée, on ne prend en compte que la moitié de son coefficient.\n    - Pour savoir quel coefficient est attribué à chaque enfant, il faut trier les enfants de chaque famille par age.\n    \"\"\"\n\n    cmu = parameters(period).cs.cmu\n    age_i = famille.members('age_en_mois', period)\n    is_couple = (famille('nb_parents', period) == 2)\n    is_enfant = famille.members.has_role(Famille.ENFANT)\n    cmu_eligible_majoration_dom = famille('cmu_eligible_majoration_dom', period)\n    coeff_garde_alt_i = where(famille.members('garde_alternee', period), 0.5, 1)\n\n    # 0 pour l'aîné, 1 pour le cadet, etc.\n    rang_dans_fratrie = famille.members.get_rank(famille, - age_i, condition = is_enfant)\n\n    # Famille monoparentale\n\n    coeff_enfant_i = select(\n        [rang_dans_fratrie == 0, rang_dans_fratrie <= 2, rang_dans_fratrie >= 3],\n        [cmu.coeff_p2, cmu.coeff_p3_p4, cmu.coeff_p5_plus]\n        ) * coeff_garde_alt_i\n\n    coeff_monoparental = 1 + famille.sum(coeff_enfant_i, role = Famille.ENFANT)\n\n    # Couple\n\n    coeff_enfant_i = select(\n        [rang_dans_fratrie <= 1, rang_dans_fratrie >= 2],\n        [cmu.coeff_p3_p4, cmu.coeff_p5_plus]\n        ) * coeff_garde_alt_i\n\n    coeff_couple = 1 + cmu.coeff_p2 + famille.sum(coeff_enfant_i, role = Famille.ENFANT)\n\n    coefficient_famille = where(is_couple, coeff_couple, coeff_monoparental)\n    coefficient_dom = 1 + cmu_eligible_majoration_dom * cmu.majoration_dom\n\n    plafonds = (\n        cmu.plafond_base\n        * coefficient_dom\n        * coefficient_famille\n        )\n\n    return round_(plafonds)\n",
-      "start_line_number": 81,
-      "stop_line_number": 130,
+      "start_line_number": 87,
+      "stop_line_number": 136,
       "variables": [
         "age_en_mois",
         "cmu_eligible_majoration_dom",
@@ -1675,7 +1675,8 @@
     "acs_plafond",
     "cmu_c"
   ],
-  "start_line_number": 74,
-  "stop_line_number": 130,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 79,
+  "stop_line_number": 136,
   "value_type": "float"
 }

@@ -1151,8 +1151,8 @@
         "prestations.visale.quote_part_aides_logement"
       ],
       "source_code": "def formula_2016_01_01(menage, period, parameters):\n    '''\n    La documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\n    Cette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\n    Par conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n    '''\n    revenus_individus = menage.sum(menage.members('visale_base_ressources_individuelle', period))\n\n    ressources_foyer_fiscal = [\n        'rente_viagere_titre_onereux',\n        ]\n\n    ressources_famille = [\n        'aeeh',\n        'af',\n        'asf',\n        'aspa',\n        'cf',\n        'ppa',\n        'rsa',\n        ]\n\n    ressources_famille_abattues = [  # ressources de la famille à prendre en compte à 67% sur la base du loyer du logement pour lequel Visale est demandé\n        'alf',\n        'als',\n        'apl',\n        ]\n\n    revenus_foyers_fiscaux = sum(\n        menage.sum(menage.members.foyer_fiscal(ressource, period.last_month), role = FoyerFiscal.DECLARANT_PRINCIPAL)\n        for ressource in ressources_foyer_fiscal\n        )\n\n    revenus_familles = sum(\n        menage.sum(menage.members.famille(ressource, period.last_month), role = Famille.DEMANDEUR)\n        for ressource in ressources_famille\n        )\n\n    revenus_familles_abattus = sum(\n        menage.sum(menage.members.famille(ressource, period), role = Famille.DEMANDEUR)\n        for ressource in ressources_famille_abattues\n        ) * parameters(period).prestations.visale.quote_part_aides_logement\n\n    return revenus_individus + revenus_foyers_fiscaux + revenus_familles + revenus_familles_abattus\n",
-      "start_line_number": 82,
-      "stop_line_number": 126,
+      "start_line_number": 84,
+      "stop_line_number": 128,
       "variables": [
         "visale_base_ressources_individuelle"
       ]
@@ -1172,7 +1172,8 @@
   "referring_variables": [
     "visale_montant_max"
   ],
-  "start_line_number": 75,
-  "stop_line_number": 126,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 76,
+  "stop_line_number": 128,
   "value_type": "float"
 }

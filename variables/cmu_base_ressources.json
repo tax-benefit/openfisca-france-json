@@ -1443,8 +1443,8 @@
         "cs.cmu.age_limite_pac"
       ],
       "source_code": "def formula(famille, period, parameters):\n    previous_year = period.start.period('year').offset(-1)\n\n    ressources_famille_a_inclure = [\n        'af',\n        'asf',\n        'aspa',\n        'cf',\n        'paje_clca',\n        'paje_prepare',\n        ]\n\n    ressources_famille = sum([\n        famille(ressource, previous_year, options = [ADD])\n        for ressource in ressources_famille_a_inclure\n        ])\n\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    cmu_forfait_logement_base = famille('cmu_forfait_logement_base', period)\n    cmu_forfait_logement_al = famille('cmu_forfait_logement_al', period)\n\n    P = parameters(period).cs.cmu\n\n    proprietaire = (statut_occupation_logement == TypesStatutOccupationLogement.proprietaire)\n    heberge_titre_gratuit = (statut_occupation_logement == TypesStatutOccupationLogement.loge_gratuitement)\n\n    forfait_logement = (\n        (proprietaire + heberge_titre_gratuit)\n        * cmu_forfait_logement_base\n        + cmu_forfait_logement_al\n        )\n\n    ressources_individuelles = famille.members('cmu_base_ressources_individu', period)\n    ressources_parents = famille.sum(ressources_individuelles, role = Famille.PARENT)\n\n    age = famille.members('age', period)\n    condition_enfant_a_charge = (age >= 0) * (age <= P.age_limite_pac)\n    ressources_enfants = famille.sum(ressources_individuelles * condition_enfant_a_charge, role = Famille.ENFANT)\n\n    return forfait_logement + ressources_famille + ressources_parents + ressources_enfants\n",
-      "start_line_number": 92,
-      "stop_line_number": 132,
+      "start_line_number": 95,
+      "stop_line_number": 135,
       "variables": [
         "age",
         "cmu_base_ressources_individu",
@@ -1461,7 +1461,8 @@
     "cmu_c",
     "css_participation_forfaitaire"
   ],
-  "start_line_number": 86,
-  "stop_line_number": 132,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 88,
+  "stop_line_number": 135,
   "value_type": "float"
 }

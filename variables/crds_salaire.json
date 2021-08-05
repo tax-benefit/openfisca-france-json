@@ -467,8 +467,8 @@
         "prelevements_sociaux.contributions_sociales.crds.activite"
       ],
       "source_code": "def formula(individu, period, parameters):\n    assiette_csg_abattue = individu('assiette_csg_abattue', period)\n    assiette_csg_non_abattue = individu('assiette_csg_non_abattue', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n\n    law = parameters(period)\n\n    montant_crds = montant_csg_crds(\n        law_node = law.prelevements_sociaux.contributions_sociales.crds.activite,\n        base_avec_abattement = assiette_csg_abattue,\n        base_sans_abattement = assiette_csg_non_abattue,\n        plafond_securite_sociale = plafond_securite_sociale,\n        )\n\n    return montant_crds\n",
-      "start_line_number": 120,
-      "stop_line_number": 135,
+      "start_line_number": 125,
+      "stop_line_number": 140,
       "variables": [
         "assiette_csg_abattue",
         "assiette_csg_non_abattue",
@@ -494,8 +494,9 @@
     "revenus_travail_super_bruts_menage",
     "salaire_net"
   ],
-  "start_line_number": 113,
-  "stop_line_number": 135,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 117,
+  "stop_line_number": 140,
   "ux_name": "CRDS salaires",
   "value_type": "float"
 }

@@ -513,8 +513,8 @@
         "covid19.indemnite_ap.taux"
       ],
       "source_code": "def formula_2020_03(individu, period, parameters):\n    '''\n    Il s'agit de l'indemnité et pas de l'allocation (somme que doit verser l'entreprise au salarié et pas la somme que l'Etat verse à l'entreprise.\n    '''\n    eligibilite_activite_partielle = individu('covid_activite_partielle_eligible', period)\n    heures = individu('heures_remunerees_volume', period)\n    salaire_horaire = individu('salaire_de_base', period) / heures\n    indemnite_ap = parameters(period).covid19.indemnite_ap\n    indemnite_horaire = max(\n        indemnite_ap.taux * salaire_horaire,\n        indemnite_ap.plancher\n        )\n    return eligibilite_activite_partielle * indemnite_horaire * heures\n",
-      "start_line_number": 64,
-      "stop_line_number": 77,
+      "start_line_number": 68,
+      "stop_line_number": 81,
       "variables": [
         "covid_activite_partielle_eligible",
         "heures_remunerees_volume",
@@ -536,7 +536,8 @@
       }
     ]
   },
-  "start_line_number": 54,
-  "stop_line_number": 77,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 57,
+  "stop_line_number": 81,
   "value_type": "float"
 }

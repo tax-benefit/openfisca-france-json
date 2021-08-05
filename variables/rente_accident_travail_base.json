@@ -514,8 +514,8 @@
         "accident_travail.rente.taux.taux_minimum"
       ],
       "source_code": "def formula(individu, period, parameters):\n    param_rente_at = parameters(period).accident_travail.rente.taux\n    taux_incapacite = individu('taux_accident_travail', period)\n    taux = param_rente_at.bareme.calc(taux_incapacite)\n    taux_rente_accident_travail = select([taux_incapacite < param_rente_at.taux_minimum], [0], default=taux)\n    rente_accident_travail_base = individu('rente_accident_travail_salaire_utile', period) * taux_rente_accident_travail\n\n    return rente_accident_travail_base\n",
-      "start_line_number": 89,
-      "stop_line_number": 97,
+      "start_line_number": 93,
+      "stop_line_number": 101,
       "variables": [
         "rente_accident_travail_salaire_utile",
         "taux_accident_travail"
@@ -538,7 +538,8 @@
     "rente_accident_travail_rachat",
     "rente_accident_travail_salarie"
   ],
-  "start_line_number": 82,
-  "stop_line_number": 97,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 85,
+  "stop_line_number": 101,
   "value_type": "float"
 }

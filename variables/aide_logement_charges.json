@@ -652,8 +652,8 @@
         "prestations.aides_logement.forfait_charges.majoration_par_enfant"
       ],
       "source_code": "def formula(famille, period, parameters):\n    P = parameters(period).prestations.aides_logement.forfait_charges\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n    couple = famille('al_couple', period)\n    coloc = famille.demandeur.menage('coloc', period)\n    montant_coloc = where(couple, 1, 0.5) * P.cas_general + al_nb_pac * P.majoration_par_enfant\n    montant_cas_general = P.cas_general + al_nb_pac * P.majoration_par_enfant\n\n    return where(coloc, montant_coloc, montant_cas_general)\n",
-      "start_line_number": 1298,
-      "stop_line_number": 1307,
+      "start_line_number": 1328,
+      "stop_line_number": 1337,
       "variables": [
         "al_couple",
         "al_nb_personnes_a_charge"
@@ -668,7 +668,8 @@
     "aide_logement_participation_personnelle",
     "aides_logement_accedant_et_foyer"
   ],
-  "start_line_number": 1292,
-  "stop_line_number": 1307,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 1321,
+  "stop_line_number": 1337,
   "value_type": "float"
 }

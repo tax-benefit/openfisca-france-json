@@ -604,8 +604,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/autonomie.py",
       "source_code": "def formula_2002(individu, period, parameters):\n    period = period.start.offset('first-of', 'month').period('month')\n    parameters = parameters(period).autonomie\n    apa_eligibilite = individu('apa_eligibilite', period)\n    seuil_non_versement = parameters.seuil_de_versement_de_l_apa.seuil_versement.seuil_de_versement_de_l_apa\n    dependance_plan_aide_domicile_accepte = individu('dependance_plan_aide_domicile_accepte', period)\n\n    apa_domicile_participation = individu('apa_domicile_participation', period)\n\n    apa = dependance_plan_aide_domicile_accepte - apa_domicile_participation\n    return apa * (apa >= seuil_non_versement) * apa_eligibilite\n",
-      "start_line_number": 170,
-      "stop_line_number": 181,
+      "start_line_number": 174,
+      "stop_line_number": 185,
       "variables": [
         "apa_domicile_participation",
         "apa_eligibilite",
@@ -620,7 +620,8 @@
   "referring_variables": [
     "apa_domicile_taux_participation"
   ],
-  "start_line_number": 164,
-  "stop_line_number": 181,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 167,
+  "stop_line_number": 185,
   "value_type": "float"
 }

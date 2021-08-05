@@ -388,8 +388,8 @@
         "impot_revenu.bareme"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Impôt sans quotient familial\n    '''\n    rni = foyer_fiscal('rni', period)\n    nb_adult = foyer_fiscal('nb_adult', period)\n    bareme = parameters(period).impot_revenu.bareme\n\n    A = bareme.calc(rni / nb_adult)\n    return nb_adult * A\n",
-      "start_line_number": 1137,
-      "stop_line_number": 1147,
+      "start_line_number": 1138,
+      "stop_line_number": 1148,
       "variables": [
         "nb_adult",
         "rni"
@@ -403,7 +403,7 @@
     "avantage_qf",
     "ir_plaf_qf"
   ],
-  "start_line_number": 1131,
-  "stop_line_number": 1147,
+  "start_line_number": 1132,
+  "stop_line_number": 1148,
   "value_type": "float"
 }

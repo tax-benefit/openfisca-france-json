@@ -652,8 +652,8 @@
         "covid19.aide_jeunes_diplomes_anciens_boursiers.taux_bourse"
       ],
       "source_code": "def formula_2021_02_05(individu, period, parameters):\n    aide_jeunes_diplomes_anciens_boursiers_eligibilite = individu(\"aide_jeunes_diplomes_anciens_boursiers_eligibilite\", period)\n\n    bourse_precedente = individu(\"aide_jeunes_diplomes_anciens_boursiers_base_ressources\", period)\n    parameters_aide = parameters(period).covid19.aide_jeunes_diplomes_anciens_boursiers\n\n    part_bourse = bourse_precedente * parameters_aide.taux_bourse\n\n    statut_occupation_logement = individu.menage(\"statut_occupation_logement\", period)\n    condition_logement = not_(\n        (statut_occupation_logement == TypesStatutOccupationLogement.loge_gratuitement)\n        + (statut_occupation_logement == TypesStatutOccupationLogement.non_renseigne)\n        )\n    part_logement = condition_logement * parameters_aide.majoration_logement\n\n    return aide_jeunes_diplomes_anciens_boursiers_eligibilite * (part_bourse + part_logement)\n",
-      "start_line_number": 89,
-      "stop_line_number": 105,
+      "start_line_number": 91,
+      "stop_line_number": 107,
       "variables": [
         "aide_jeunes_diplomes_anciens_boursiers_base_ressources",
         "aide_jeunes_diplomes_anciens_boursiers_eligibilite",
@@ -673,7 +673,8 @@
       }
     ]
   },
-  "start_line_number": 81,
-  "stop_line_number": 105,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 82,
+  "stop_line_number": 107,
   "value_type": "float"
 }

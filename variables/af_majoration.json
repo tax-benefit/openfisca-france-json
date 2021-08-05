@@ -339,8 +339,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
       "source_code": "def formula(famille, period):\n    af_majoration_enfant = famille.members('af_majoration_enfant', period)\n    af_majoration_enfants_famille = famille.sum(af_majoration_enfant, role = Famille.ENFANT)\n\n    af_taux_modulation = famille('af_taux_modulation', period)\n    af_majoration_enfants_module = af_majoration_enfants_famille * af_taux_modulation\n\n    return af_majoration_enfants_module\n",
-      "start_line_number": 219,
-      "stop_line_number": 227,
+      "start_line_number": 230,
+      "stop_line_number": 238,
       "variables": [
         "af_majoration_enfant",
         "af_taux_modulation"
@@ -370,8 +370,9 @@
     "af_complement_degressif",
     "api"
   ],
-  "start_line_number": 213,
-  "stop_line_number": 227,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 223,
+  "stop_line_number": 238,
   "ux_name": "Majoration enfant > 14 ans",
   "value_type": "float"
 }

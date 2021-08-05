@@ -398,15 +398,16 @@
       },
       "file_path": "/openfisca_france/model/prestations/autonomie.py",
       "source_code": "def formula_2002(individu, period, parameters):\n    period = period.first_month\n    autonomie = parameters(period).autonomie\n    majoration_tierce_personne = autonomie.mtp.mtp\n    plafond_gir1 = autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_1\n    part_urgence_domicile = autonomie.apa_domicile.apa_d_urgence.part_du_plafond_de_l_apa_a_domicile\n    return part_urgence_domicile * plafond_gir1 * majoration_tierce_personne\n",
-      "start_line_number": 323,
-      "stop_line_number": 330
+      "start_line_number": 335,
+      "stop_line_number": 342
     }
   },
   "json_type": "number",
   "label": "Allocation personalisée d'autonomie d'urgence à domicile",
   "last_review": "2002-01-01",
   "name": "apa_urgence_domicile",
-  "start_line_number": 317,
-  "stop_line_number": 330,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 328,
+  "stop_line_number": 342,
   "value_type": "float"
 }

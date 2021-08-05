@@ -954,8 +954,8 @@
         "prestations.reduction_loyer_solidarite.montant.par_zone"
       ],
       "source_code": "def formula(famille, period, parameters):\n    rls = parameters(period).prestations.reduction_loyer_solidarite\n    personnes_a_charge_al = famille('al_nb_personnes_a_charge', period)\n    couple = famille('al_couple', period)\n    zone_apl = famille.demandeur.menage('zone_apl', period)\n\n    montant = rls.montant.par_zone[zone_apl]\n\n    montant_personne_seule = montant.personnes_seules\n    montant_couple = montant.couples\n    montant_1pac = montant.famille_1pac\n    montant_famille = montant.famille_1pac + (personnes_a_charge_al > 1) * (personnes_a_charge_al - 1) * montant.majoration_par_pac_supp\n\n    return select(\n        [\n            not_(couple) * (personnes_a_charge_al == 0),\n            couple * (personnes_a_charge_al == 0),\n            personnes_a_charge_al == 1\n            ],\n        [\n            montant_personne_seule,\n            montant_couple,\n            montant_1pac\n            ],\n        default = montant_famille\n        )\n",
-      "start_line_number": 65,
-      "stop_line_number": 91,
+      "start_line_number": 66,
+      "stop_line_number": 92,
       "variables": [
         "al_couple",
         "al_nb_personnes_a_charge"
@@ -975,7 +975,8 @@
   "referring_variables": [
     "reduction_loyer_solidarite"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 58,
-  "stop_line_number": 91,
+  "stop_line_number": 92,
   "value_type": "float"
 }

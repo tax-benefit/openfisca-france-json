@@ -470,8 +470,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
       "source_code": "def formula(famille, period):\n    annee_fiscale_n_2 = period.n_2\n\n    demandeur_declarant_principal = famille.demandeur.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    conjoint_declarant_principal = famille.conjoint.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    rev_coll = (\n        famille.demandeur.foyer_fiscal('rev_coll', annee_fiscale_n_2)\n        * demandeur_declarant_principal\n        + famille.conjoint.foyer_fiscal('rev_coll', annee_fiscale_n_2)\n        * conjoint_declarant_principal\n        )\n\n    return rev_coll\n",
-      "start_line_number": 165,
-      "stop_line_number": 179
+      "start_line_number": 170,
+      "stop_line_number": 184
     }
   },
   "json_type": "number",
@@ -491,7 +491,8 @@
     "cf_base_ressources",
     "prestations_familiales_base_ressources"
   ],
-  "start_line_number": 155,
-  "stop_line_number": 179,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 159,
+  "stop_line_number": 184,
   "value_type": "float"
 }

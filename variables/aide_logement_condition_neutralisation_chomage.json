@@ -748,8 +748,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(individu, period, parameters):\n    activite = individu('activite', period)\n    date_debut_chomage = individu('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n\n    chomage_imposable = individu('chomage_imposable', period.n_2, options=[ADD])\n    ass = individu('ass', period.n_2, options=[ADD])\n\n    # chomage non indemnisé ou indemnisé mais donnant lieu au versement de l'ass\n    chomage_non_indemnise = (chomage_imposable == 0) + ((chomage_imposable > 0) * (ass > 0))\n\n    return (activite == TypesActivite.chomeur) * (date_debut_chomage < two_months_ago) * chomage_non_indemnise\n",
-      "start_line_number": 630,
-      "stop_line_number": 642,
+      "start_line_number": 646,
+      "stop_line_number": 658,
       "variables": [
         "activite",
         "ass",
@@ -1414,8 +1414,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula_2021_01_01(individu, period, parameters):\n    activite = individu('activite', period)\n    date_debut_chomage = individu('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n\n    chomage_imposable = individu('chomage_imposable', period)\n    ass = individu('ass', period)\n\n    # chomage non indemnisé ou indemnisé mais donnant lieu au versement de l'ass\n    chomage_non_indemnise = (chomage_imposable == 0) + ((chomage_imposable > 0) * (ass > 0))\n\n    return (activite == TypesActivite.chomeur) * (date_debut_chomage < two_months_ago) * chomage_non_indemnise\n",
-      "start_line_number": 617,
-      "stop_line_number": 629,
+      "start_line_number": 633,
+      "stop_line_number": 645,
       "variables": [
         "activite",
         "ass",
@@ -1440,7 +1440,8 @@
     "aide_logement_abattement_chomage_indemnise",
     "al_traitements_salaires_pensions_rentes"
   ],
-  "start_line_number": 610,
-  "stop_line_number": 642,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 625,
+  "stop_line_number": 658,
   "value_type": "bool"
 }

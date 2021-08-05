@@ -652,8 +652,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
       "source_code": "def formula(individu, period):\n    last_month = period.start.period('month').offset(-1)\n\n    non_eligible_aspa = not_(individu('aspa_eligibilite', period))\n    touche_pension_invalidite = individu('pensions_invalidite', period) > 0\n    handicap = individu('handicap', period)\n    touche_retraite = individu('retraite_nette', last_month) > 0\n    condition_nationalite = individu('asi_aspa_condition_nationalite', period)\n\n    eligible = (\n        non_eligible_aspa\n        * condition_nationalite\n        * (handicap * touche_retraite + touche_pension_invalidite)\n        )\n\n    return eligible\n",
-      "start_line_number": 142,
-      "stop_line_number": 158,
+      "start_line_number": 146,
+      "stop_line_number": 162,
       "variables": [
         "asi_aspa_condition_nationalite",
         "aspa_eligibilite",
@@ -673,7 +673,8 @@
     "caah",
     "eligibilite_caah"
   ],
-  "start_line_number": 136,
-  "stop_line_number": 158,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 139,
+  "stop_line_number": 162,
   "value_type": "bool"
 }

@@ -513,8 +513,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
       "source_code": "def formula(famille, period):\n    base_ressources_i = famille.members('prestations_familiales_base_ressources_individu', period)\n    enfant_i = famille.members('est_enfant_dans_famille', period)\n    enfant_a_charge_i = famille.members('prestations_familiales_enfant_a_charge', period)\n    ressources_i = (not_(enfant_i) + enfant_a_charge_i) * base_ressources_i\n    base_ressources_i_total = famille.sum(ressources_i)\n\n    ressources_communes = famille('prestations_familiales_base_ressources_communes', period)\n\n    return base_ressources_i_total + ressources_communes\n",
-      "start_line_number": 191,
-      "stop_line_number": 201,
+      "start_line_number": 197,
+      "stop_line_number": 207,
       "variables": [
         "est_enfant_dans_famille",
         "prestations_familiales_base_ressources_communes",
@@ -543,7 +543,8 @@
     "paje_cmg",
     "paje_naissance"
   ],
-  "start_line_number": 181,
-  "stop_line_number": 201,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 186,
+  "stop_line_number": 207,
   "value_type": "float"
 }

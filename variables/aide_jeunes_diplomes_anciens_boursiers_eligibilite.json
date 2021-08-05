@@ -1471,8 +1471,8 @@
       },
       "file_path": "/openfisca_france/model/covid19/jeunes.py",
       "source_code": "def formula_2021_02_05(individu, period, parameters):\n    age_limite = parameters(period).covid19.aide_jeunes_diplomes_anciens_boursiers.age_limite\n    condition_age = individu(\"age\", period) < age_limite\n\n    annee = period.this_year\n    niveau_diplome = individu(\"plus_haut_diplome_niveau\", annee)\n    date_diplome = individu(\"plus_haut_diplome_date_obtention\", annee)\n\n    condition_diplome = (\n        (niveau_diplome == TypesNiveauDiplome.niveau_5)\n        + (niveau_diplome == TypesNiveauDiplome.niveau_6)\n        + (niveau_diplome == TypesNiveauDiplome.niveau_7)\n        + (niveau_diplome == TypesNiveauDiplome.niveau_8)\n        ) * (datetime64('2020') <= date_diplome) * (date_diplome < datetime64('2022'))\n\n    # bourse au cours de la dernière année de préparation du diplôme\n    condition_bourse = individu(\"aide_jeunes_diplomes_anciens_boursiers_base_ressources\", period) > 0\n\n    # être inscrit sur la liste des demandeurs d’emploi\n    demandeur_emploi = individu(\"activite\", period) == TypesActivite.chomeur\n    # ne pas être en formation (de niveau 5 minimum) au moment de la demande.\n    pas_en_formation = individu(\"niveau_diplome_formation\", annee) == TypesNiveauDiplome.non_renseigne\n    condition_activite = demandeur_emploi * pas_en_formation\n\n    condition_non_cumul = not_(\n        individu(\"chomage_brut\", period)\n        + individu(\"ass\", period)\n        + individu(\"allocation_travailleur_independant\", period)\n        + individu.famille(\"rsa\", period)\n        + individu(\"garantie_jeunes\", period)\n        )\n\n    return condition_age * condition_diplome * condition_bourse * condition_activite * condition_non_cumul\n",
-      "start_line_number": 46,
-      "stop_line_number": 79,
+      "start_line_number": 47,
+      "stop_line_number": 80,
       "variables": [
         "activite",
         "age",
@@ -1504,7 +1504,8 @@
   "referring_variables": [
     "aide_jeunes_diplomes_anciens_boursiers_montant"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 33,
-  "stop_line_number": 79,
+  "stop_line_number": 80,
   "value_type": "bool"
 }

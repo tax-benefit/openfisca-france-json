@@ -1055,8 +1055,8 @@
         "prestations.prestations_familiales.paje.colca.sansab"
       ],
       "source_code": "def formula_2004_01_01(famille, period, parameters):\n    '''\n    Prestation d'accueil du jeune enfant - Complément optionnel de libre choix du mode de garde\n    '''\n    af_nbenf = famille('af_nbenf', period)\n    opt_colca = famille('opt_colca', period)\n    paje_base = famille('paje_base', period)\n\n    P = parameters(period).prestations.prestations_familiales\n\n    age_en_mois_i = famille.members('age_en_mois', period)\n    age_m_benjamin = famille.min(age_en_mois_i, role = Famille.ENFANT)\n\n    condition = (age_m_benjamin < 12 * P.paje.colca.age) * (age_m_benjamin >= 0)\n    nbenf = af_nbenf\n    paje = (paje_base > 0)\n\n    paje_colca = (\n        opt_colca\n        * condition\n        * (nbenf >= 3)\n        * P.af.bmaf\n        * (paje * P.paje.colca.avecab + not_(paje) * P.paje.colca.sansab)\n        )\n\n    return paje_colca\n",
-      "start_line_number": 847,
-      "stop_line_number": 873,
+      "start_line_number": 864,
+      "stop_line_number": 890,
       "variables": [
         "af_nbenf",
         "age_en_mois",
@@ -1081,7 +1081,7 @@
     "paje"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 837,
-  "stop_line_number": 873,
+  "start_line_number": 853,
+  "stop_line_number": 890,
   "value_type": "float"
 }

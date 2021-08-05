@@ -1471,8 +1471,8 @@
         "cotsoc.gen.smic_h_b"
       ],
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    apprentissage_contrat_debut = individu('apprentissage_contrat_debut', period)\n    smic = parameters(period).cotsoc.gen.smic_h_b * 52 * 35 / 12\n    anciennete_contrat = (\n        datetime64(period.start) + timedelta64(1, 'D') - apprentissage_contrat_debut\n        ).astype('timedelta64[Y]')\n    apprenti = individu('apprenti', period)\n    salaire_en_smic = [  # TODO: move to parameters\n        dict(\n            part_de_smic_by_anciennete = {\n                1: .25,\n                2: .41,\n                3: .53,\n                },\n            age_min = 15,\n            age_max = 18,\n            ),\n        dict(\n            part_de_smic_by_anciennete = {\n                1: .37,\n                2: .49,\n                3: .61,\n                },\n            age_min = 18,\n            age_max = 21,\n            ),\n        dict(\n            part_de_smic_by_anciennete = {\n                1: .53,\n                2: .65,\n                3: .78,\n                },\n            age_min = 21,\n            age_max = 99\n            )\n        ]\n\n    output = age * 0.0\n    for age_interval in salaire_en_smic:\n        age_condition = (age_interval[\"age_min\"] <= age) * (age < age_interval[\"age_max\"])\n        output[age_condition] = sum([\n            (anciennete_contrat[age_condition] == timedelta64(anciennete, 'Y')) * part_de_smic\n            for anciennete, part_de_smic in age_interval['part_de_smic_by_anciennete'].items()\n            ])\n    return output * smic * apprenti\n",
-      "start_line_number": 42,
-      "stop_line_number": 88,
+      "start_line_number": 43,
+      "stop_line_number": 89,
       "variables": [
         "age",
         "apprenti",
@@ -1500,8 +1500,8 @@
     "salaire_super_brut_hors_allegements"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 26,
-  "stop_line_number": 88,
+  "start_line_number": 27,
+  "stop_line_number": 89,
   "ux_name": "Salaire min. apprenti",
   "value_type": "float"
 }

@@ -854,8 +854,8 @@
         "prestations.minima_sociaux.ppa.taux_troisieme_personne"
       ],
       "source_code": "def formula(famille, period, parameters):\n    nb_parents = famille('nb_parents', period)\n    nb_enfants = famille('rsa_nb_enfants', period)\n    ppa_majoree_eligibilite = famille('rsa_majore_eligibilite', period)  # noqa F841\n    ppa = parameters(period).prestations.minima_sociaux.ppa\n\n    nb_personnes = nb_parents + nb_enfants\n\n    # Dans la formule \"ppa_forfait_logement\", le montant forfaitaire se calcule pour trois personnes dans le cas où le foyer se compose de trois personnes ou plus.\n    taux_non_majore = (\n        1\n        + (nb_personnes >= 2) * ppa.taux_deuxieme_personne\n        + (nb_personnes >= 3) * ppa.taux_troisieme_personne\n        + (nb_personnes >= 4) * where(nb_parents == 1, ppa.taux_personne_supp, ppa.taux_troisieme_personne)\n        # Si nb_parents == 1, pas de conjoint, la 4e personne est un enfant, donc le taux est de 40%.\n        + max_(nb_personnes - 4, 0) * ppa.taux_personne_supp\n        )\n\n    return ppa.montant_de_base * taux_non_majore\n",
-      "start_line_number": 87,
-      "stop_line_number": 106,
+      "start_line_number": 91,
+      "stop_line_number": 110,
       "variables": [
         "nb_parents",
         "rsa_majore_eligibilite",
@@ -869,7 +869,8 @@
   "referring_variables": [
     "ppa_fictive_montant_forfaitaire"
   ],
-  "start_line_number": 81,
-  "stop_line_number": 106,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 84,
+  "stop_line_number": 110,
   "value_type": "float"
 }

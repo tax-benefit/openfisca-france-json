@@ -955,8 +955,8 @@
         "impot_revenu.credits_impot.ppe.eligi3"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    PPE: eligibilité à la ppe, condition sur le revenu fiscal de référence\n    CF ligne 1: http://bofip.impots.gouv.fr/bofip/3913-PGP.html\n    '''\n    rfr = foyer_fiscal('rfr', period)\n    ppe_coef = foyer_fiscal('ppe_coef', period)\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    veuf = foyer_fiscal('veuf', period)\n    celibataire_ou_divorce = foyer_fiscal('celibataire_ou_divorce', period)\n    nbptr = foyer_fiscal('nbptr', period)\n    ppe = parameters(period).impot_revenu.credits_impot.ppe\n\n    seuil = (\n        (veuf | celibataire_ou_divorce) * (ppe.eligi1 + 2 * max_(nbptr - 1, 0) * ppe.eligi3)\n        + maries_ou_pacses * (ppe.eligi2 + 2 * max_(nbptr - 2, 0) * ppe.eligi3)\n        )\n\n    return (rfr * ppe_coef) <= seuil\n",
-      "start_line_number": 3280,
-      "stop_line_number": 3299,
+      "start_line_number": 3281,
+      "stop_line_number": 3300,
       "variables": [
         "celibataire_ou_divorce",
         "maries_ou_pacses",
@@ -976,7 +976,7 @@
   "referring_variables": [
     "ppe_brute"
   ],
-  "start_line_number": 3273,
-  "stop_line_number": 3299,
+  "start_line_number": 3274,
+  "stop_line_number": 3300,
   "value_type": "bool"
 }

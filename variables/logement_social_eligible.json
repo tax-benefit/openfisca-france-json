@@ -403,8 +403,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/logement_social.py",
       "source_code": "def formula_2017(famille, period, parameters):\n    parent_majeur = famille.any(famille.members('majeur', period), role = Famille.PARENT)\n    logement_social_plafond_ressources = famille('logement_social_plafond_ressources', period)\n    revenu_fiscal_de_reference = famille.demandeur.foyer_fiscal('rfr', period.n_2)\n\n    return parent_majeur * (revenu_fiscal_de_reference <= logement_social_plafond_ressources)\n",
-      "start_line_number": 164,
-      "stop_line_number": 170,
+      "start_line_number": 169,
+      "stop_line_number": 175,
       "variables": [
         "logement_social_plafond_ressources",
         "majeur"
@@ -416,7 +416,8 @@
   "label": "Logement social - Éligibilité",
   "last_review": "2017-01-01",
   "name": "logement_social_eligible",
-  "start_line_number": 158,
-  "stop_line_number": 170,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 162,
+  "stop_line_number": 175,
   "value_type": "bool"
 }

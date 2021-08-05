@@ -1071,8 +1071,8 @@
         "cotsoc.gen.smic_h_b"
       ],
       "source_code": "def formula(individu, period, parameters):\n    statut_marital = individu('statut_marital', period)\n    en_couple = (statut_marital == TypesStatutMarital.marie) + (statut_marital == TypesStatutMarital.pacse)\n\n    ressources = individu('bourse_criteres_sociaux_etudiant_autonome_ressource_mensuelle', period)\n    legislation = parameters(period)\n\n    smic_mensuel_brut = legislation.cotsoc.gen.smic_h_b * legislation.cotsoc.gen.nb_heure_travail_mensuel\n    smic_mensuel_net = smic_mensuel_brut * 8.11 / 10.25\n    seuil_ressources = legislation.bourses_enseignement_superieur.criteres_sociaux.seuil_ressources_etudiant_autonome * smic_mensuel_net\n    eligible_couple = en_couple * (seuil_ressources <= ressources)\n\n    is_parent = individu.has_role(Famille.PARENT)\n    propre_declaration_fiscale = not_(individu('enfant_a_charge', period.this_year))\n    avec_des_enfants = individu.famille('bourse_criteres_sociaux_nombre_enfants_parent_etudiant', period) > 0\n\n    eligible_etudiant_parent_isole = is_parent * propre_declaration_fiscale * avec_des_enfants\n\n    return eligible_couple + eligible_etudiant_parent_isole\n",
-      "start_line_number": 190,
-      "stop_line_number": 209,
+      "start_line_number": 200,
+      "stop_line_number": 219,
       "variables": [
         "bourse_criteres_sociaux_etudiant_autonome_ressource_mensuelle",
         "bourse_criteres_sociaux_nombre_enfants_parent_etudiant",
@@ -1098,7 +1098,8 @@
   "referring_variables": [
     "bourse_criteres_sociaux_base_ressources"
   ],
-  "start_line_number": 180,
-  "stop_line_number": 209,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 189,
+  "stop_line_number": 219,
   "value_type": "bool"
 }

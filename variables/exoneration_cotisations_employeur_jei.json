@@ -1379,8 +1379,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
       "source_code": "def formula(individu, period, parameters):\n    assiette_allegement = individu('assiette_allegement', period)\n    jei_date_demande = individu('jei_date_demande', period)\n    jeune_entreprise_innovante = individu('jeune_entreprise_innovante', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    smic_proratise = individu('smic_proratise', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    bareme_by_type_sal_name = parameters(period).cotsoc.cotisations_employeur\n    bareme_names = ['vieillesse_deplafonnee', 'vieillesse_plafonnee', 'maladie', 'famille']\n\n    exoneration = smic_proratise * 0.0\n    for bareme_name in bareme_names:\n        exoneration += apply_bareme_for_relevant_type_sal(\n            bareme_by_type_sal_name = bareme_by_type_sal_name,\n            bareme_name = bareme_name,\n            categorie_salarie = categorie_salarie,\n            base = min_(assiette_allegement, 4.5 * smic_proratise),\n            plafond_securite_sociale = plafond_securite_sociale,\n            round_base_decimals = 2,\n            )\n\n    exoneration_relative_year_passed = exoneration_relative_year(period, jei_date_demande)\n    rate_by_year_passed = {\n        0: 1,\n        1: 1,\n        2: 1,\n        3: 1,\n        4: 1,\n        5: 1,\n        6: 1,\n        7: 1,\n        }  # TODO: move to parameters file\n    for year_passed, rate in rate_by_year_passed.items():\n        condition_on_year_passed = exoneration_relative_year_passed == timedelta64(year_passed, 'Y')\n        if condition_on_year_passed.any():\n            exoneration[condition_on_year_passed] = rate * exoneration\n\n    return - exoneration * jeune_entreprise_innovante\n",
-      "start_line_number": 44,
-      "stop_line_number": 83,
+      "start_line_number": 46,
+      "stop_line_number": 85,
       "variables": [
         "assiette_allegement",
         "categorie_salarie",
@@ -1408,8 +1408,9 @@
     "allegement_fillon",
     "exonerations_et_allegements"
   ],
-  "start_line_number": 37,
-  "stop_line_number": 83,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 38,
+  "stop_line_number": 85,
   "ux_name": "Exonér. jeune entreprise innovante",
   "value_type": "float"
 }

@@ -193,16 +193,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 41,
+                  "end_col_offset": 64,
                   "end_lineno": 9,
                   "lineno": 9,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 41,
+                    "end_col_offset": 64,
                     "end_lineno": 9,
                     "lineno": 9,
-                    "value": "apprentissage_add"
+                    "value": "apprentissage_contribution_additionnelle"
                   }
                 },
                 {
@@ -274,12 +274,12 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "parameters": [
-        "cotsoc.cotisations_employeur.prive_cadre.apprentissage_add",
-        "cotsoc.cotisations_employeur.prive_non_cadre.apprentissage_add"
+        "cotsoc.cotisations_employeur.prive_cadre.apprentissage_contribution_additionnelle",
+        "cotsoc.cotisations_employeur.prive_non_cadre.apprentissage_contribution_additionnelle"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"apprentissage_add\",\n        variable_name = \"contribution_developpement_apprentissage\",\n        )\n    return cotisation * redevable_taxe_apprentissage\n",
-      "start_line_number": 60,
-      "stop_line_number": 72,
+      "source_code": "def formula(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"apprentissage_contribution_additionnelle\",\n        variable_name = \"contribution_developpement_apprentissage\",\n        )\n    return cotisation * redevable_taxe_apprentissage\n",
+      "start_line_number": 63,
+      "stop_line_number": 75,
       "variables": [
         "redevable_taxe_apprentissage"
       ]
@@ -301,8 +301,9 @@
   "referring_variables": [
     "cotisations_employeur_main_d_oeuvre"
   ],
-  "start_line_number": 54,
-  "stop_line_number": 72,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 56,
+  "stop_line_number": 75,
   "ux_name": "Contrib. dévelop. apprentissage",
   "value_type": "float"
 }

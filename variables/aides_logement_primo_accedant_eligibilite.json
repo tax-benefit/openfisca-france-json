@@ -1019,8 +1019,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(menage, period):\n    statut_occupation_logement = menage('statut_occupation_logement', period)\n    accedant = (statut_occupation_logement == TypesStatutOccupationLogement.primo_accedant)\n\n    zone_apl = menage('zone_apl', period)\n    aide_logement_etat_logement = menage('etat_logement', period)\n    aide_logement_date_pret_conventionne = menage('aide_logement_date_pret_conventionne', period)\n    est_logement_ancien = (\n        (aide_logement_etat_logement == TypeEtatLogement.acquisition_amelioration)\n        + (aide_logement_etat_logement == TypeEtatLogement.acquisition_sans_amelioration_logement_existant)\n        + (aide_logement_etat_logement == TypeEtatLogement.amelioration)\n        + (aide_logement_etat_logement == TypeEtatLogement.agrandissement_amenagement)\n        )\n\n    est_zone_3 = (zone_apl == TypesZoneApl.zone_3)\n    date_pret_conventionne_avant_2018_01 = (aide_logement_date_pret_conventionne < date(2018, 1, 1))\n    date_pret_conventionne_avant_2020_01 = (aide_logement_date_pret_conventionne < date(2020, 1, 1))\n\n    eligibilite = select(\n        [date_pret_conventionne_avant_2018_01, date_pret_conventionne_avant_2020_01],\n        [True, (est_logement_ancien * est_zone_3)], default = False\n        )\n\n    return accedant * eligibilite\n",
-      "start_line_number": 298,
-      "stop_line_number": 322,
+      "start_line_number": 304,
+      "stop_line_number": 328,
       "variables": [
         "aide_logement_date_pret_conventionne",
         "etat_logement",
@@ -1039,7 +1039,8 @@
       }
     ]
   },
-  "start_line_number": 291,
-  "stop_line_number": 322,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 296,
+  "stop_line_number": 328,
   "value_type": "bool"
 }

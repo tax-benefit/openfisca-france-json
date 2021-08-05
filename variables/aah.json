@@ -626,8 +626,8 @@
         "prestations.minima_sociaux.aah.taux_aah_hospitalise_ou_incarcere"
       ],
       "source_code": "def formula(individu, period, parameters):\n    aah_base = individu('aah_base', period)\n    aah_parameters = parameters(period).prestations.minima_sociaux.aah\n    m_2 = datetime64(period.offset(-60, 'day').start)\n\n    aah_date_debut_hospitalisation = individu(\"aah_date_debut_hospitalisation\", period)\n    aah_date_debut_incarceration = individu(\"aah_date_debut_incarceration\", period)\n    aah_reduction = (aah_date_debut_hospitalisation <= m_2) + (aah_date_debut_incarceration <= m_2)\n\n    return where(aah_reduction, aah_base * aah_parameters.taux_aah_hospitalise_ou_incarcere, aah_base)\n",
-      "start_line_number": 330,
-      "stop_line_number": 340,
+      "start_line_number": 339,
+      "stop_line_number": 349,
       "variables": [
         "aah_base",
         "aah_date_debut_hospitalisation",
@@ -665,8 +665,8 @@
     "rsa_base_ressources_minima_sociaux"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 321,
-  "stop_line_number": 340,
+  "start_line_number": 330,
+  "stop_line_number": 349,
   "ux_name": "Alloc. adultes handicapés (AAH)",
   "value_type": "float"
 }

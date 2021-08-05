@@ -99,8 +99,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period, parameters):\n    return famille('aide_logement_montant_brut', period)\n",
-      "start_line_number": 120,
-      "stop_line_number": 122,
+      "start_line_number": 122,
+      "stop_line_number": 124,
       "variables": [
         "aide_logement_montant_brut"
       ]
@@ -508,8 +508,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula_2018(famille, period, parameters):\n    rls = parameters(period).prestations.reduction_loyer_solidarite\n    aide_logement_montant_brut = famille('aide_logement_montant_brut', period)\n    reduction_loyer_solidarite = famille('reduction_loyer_solidarite', period)\n\n    taux_rls = rls.fraction_baisse_aide_logement\n    rls_apl = reduction_loyer_solidarite * taux_rls\n\n    return max_(0, (aide_logement_montant_brut - rls_apl))\n",
-      "start_line_number": 110,
-      "stop_line_number": 119,
+      "start_line_number": 112,
+      "stop_line_number": 121,
       "variables": [
         "aide_logement_montant_brut",
         "reduction_loyer_solidarite"
@@ -531,7 +531,8 @@
     "aide_logement_montant",
     "crds_logement"
   ],
-  "start_line_number": 103,
-  "stop_line_number": 122,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 104,
+  "stop_line_number": 124,
   "value_type": "float"
 }

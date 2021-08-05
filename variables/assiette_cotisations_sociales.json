@@ -409,8 +409,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula(individu, period, parameters):\n    assiette_cotisations_sociales_prive = individu('assiette_cotisations_sociales_prive', period)\n    remuneration_principale = individu('remuneration_principale', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    stage_gratification_reintegration = individu('stage_gratification_reintegration', period)\n    return (\n        (categorie_salarie != TypesCategorieSalarie.non_pertinent)\n        * (assiette_cotisations_sociales_prive + remuneration_principale)\n        + stage_gratification_reintegration\n        )\n",
-      "start_line_number": 23,
-      "stop_line_number": 33,
+      "start_line_number": 24,
+      "stop_line_number": 34,
       "variables": [
         "assiette_cotisations_sociales_prive",
         "categorie_salarie",
@@ -434,13 +434,15 @@
     "contribution_supplementaire_apprentissage",
     "cotisation_equilibre_technique_employeur",
     "cotisation_equilibre_technique_salarie",
+    "fnal_cotisation",
     "ircantec_employeur",
     "ircantec_salarie",
     "prevoyance_obligatoire_cadre",
     "taxe_salaires",
     "versement_transport"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 17,
-  "stop_line_number": 33,
+  "stop_line_number": 34,
   "value_type": "float"
 }

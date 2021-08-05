@@ -460,8 +460,8 @@
         "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.feh"
       ],
       "source_code": "def formula(individu, period, parameters):\n    remuneration_principale = individu('remuneration_principale', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    _P = parameters(period)\n\n    # Que pour fonctionnaires hospitaliers\n    cotisation = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_employeur,\n        bareme_name = \"feh\",\n        base = remuneration_principale,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    return cotisation\n",
-      "start_line_number": 112,
-      "stop_line_number": 127,
+      "start_line_number": 115,
+      "stop_line_number": 130,
       "variables": [
         "categorie_salarie",
         "plafond_securite_sociale",
@@ -475,8 +475,9 @@
   "referring_variables": [
     "cotisations_employeur_contributives"
   ],
-  "start_line_number": 106,
-  "stop_line_number": 127,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 108,
+  "stop_line_number": 130,
   "ux_name": "Cotis. emploi hospitalier",
   "value_type": "float"
 }

@@ -1725,8 +1725,8 @@
         "cotsoc.cotisations_salarie.public_titulaire_territoriale.excep_solidarite"
       ],
       "source_code": "def formula(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    hsup = individu('hsup', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    rafp_salarie = individu('rafp_salarie', period)\n    pension_salarie = individu('pension_salarie', period)\n    cotisations_salariales_contributives = individu('cotisations_salariales_contributives', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    salaire_de_base = individu('salaire_de_base', period)\n    supplement_familial_traitement = individu('supplement_familial_traitement', period)\n    # Assujettis\n    parameters = parameters(period)\n    seuil_assujetissement_fds = compute_seuil_fds(parameters)\n    concernes = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        )\n    remuneration_brute = (\n        traitement_indiciaire_brut\n        + salaire_de_base\n        + indemnite_residence\n        - hsup\n        )\n    assujettis = concernes * (remuneration_brute > seuil_assujetissement_fds)\n    # Pour le calcul de l'assiette, on déduit de la rémunaration brute\n    #  - toutes les cotisations de sécurité sociale obligatoires\n    #  - les prélèvements pour pension\n    #  - et, le cas échéant, les prélèvements au profit des régimes de retraite complémentaire obligatoires.\n    # Soit:\n    #  - pour les titutlaires, les pensions\n    #  - les non titulaires, les cotisations sociales contributives (car pas de cotisations non contributives pour les non titulaires de la fonction public)\n    deduction = assujettis * (\n        + rafp_salarie\n        + pension_salarie\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire) * cotisations_salariales_contributives\n        )\n    # Ces déductions sont négatives\n    cotisation = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = parameters.cotsoc.cotisations_salarie,\n        bareme_name = \"excep_solidarite\",\n        base = assujettis * min_(\n            remuneration_brute + supplement_familial_traitement + primes_fonction_publique + deduction,\n            parameters.prelevements_sociaux.cotisations_sociales.fds.plafond_base_solidarite,\n            ),\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n    return cotisation\n",
-      "start_line_number": 52,
-      "stop_line_number": 104,
+      "start_line_number": 54,
+      "stop_line_number": 106,
       "variables": [
         "categorie_salarie",
         "cotisations_salariales_contributives",
@@ -1758,8 +1758,9 @@
   "referring_variables": [
     "cotisations_salariales_non_contributives"
   ],
-  "start_line_number": 44,
-  "stop_line_number": 104,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 45,
+  "stop_line_number": 106,
   "ux_name": "Contrib. solidarité",
   "value_type": "float"
 }

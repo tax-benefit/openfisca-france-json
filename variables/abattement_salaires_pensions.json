@@ -404,8 +404,8 @@
         "impot_revenu.tspr.abatsalpen.taux"
       ],
       "source_code": "def formula(individu, period, parameters):\n    revenu_assimile_salaire_apres_abattements = individu('revenu_assimile_salaire_apres_abattements', period)\n    revenu_assimile_pension_apres_abattements = individu('revenu_assimile_pension_apres_abattements', period)\n    abatsalpen = parameters(period).impot_revenu.tspr.abatsalpen\n\n    return min_(abatsalpen.taux * max_(revenu_assimile_salaire_apres_abattements + revenu_assimile_pension_apres_abattements, 0), abatsalpen.max)\n",
-      "start_line_number": 490,
-      "stop_line_number": 496,
+      "start_line_number": 491,
+      "stop_line_number": 497,
       "variables": [
         "revenu_assimile_pension_apres_abattements",
         "revenu_assimile_salaire_apres_abattements"
@@ -420,7 +420,7 @@
   "referring_variables": [
     "traitements_salaires_pensions_rentes"
   ],
-  "start_line_number": 483,
-  "stop_line_number": 496,
+  "start_line_number": 484,
+  "stop_line_number": 497,
   "value_type": "float"
 }

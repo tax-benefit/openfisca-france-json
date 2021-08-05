@@ -381,8 +381,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2009_06_01(famille, period):\n    rsa_revenu_activite_i = famille.members('rsa_revenu_activite_individu', period)\n    rsa_enfant_a_charge_i = famille.members('rsa_enfant_a_charge', period)\n    enfant_i = famille.members('est_enfant_dans_famille', period)\n\n    return famille.sum(or_(not_(enfant_i), rsa_enfant_a_charge_i) * rsa_revenu_activite_i)\n",
-      "start_line_number": 420,
-      "stop_line_number": 426,
+      "start_line_number": 431,
+      "stop_line_number": 437,
       "variables": [
         "est_enfant_dans_famille",
         "rsa_enfant_a_charge",
@@ -397,7 +397,8 @@
   "referring_variables": [
     "rsa_montant"
   ],
-  "start_line_number": 414,
-  "stop_line_number": 426,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 424,
+  "stop_line_number": 437,
   "value_type": "float"
 }

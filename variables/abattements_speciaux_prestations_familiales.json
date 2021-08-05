@@ -1486,8 +1486,8 @@
         "impot_revenu.abattements_rni.personne_agee_ou_invalide.plafond_2"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    dateLimite = datetime64('1931-01-01')\n\n    age_declarant = foyer_fiscal.declarant_principal('age', period.first_month)\n    date_naissance_declarant = foyer_fiscal.declarant_principal('date_naissance', period.first_month)\n\n    # Titulaire d'une pension pour une invalidité d'au moins 40 % ou d'une carte\n    # d'invalidité d'au moins 80%\n    declarant_invalide = foyer_fiscal('caseP', period.this_year)\n\n    age_conjoint = foyer_fiscal.declarant_principal('age', period.first_month)\n    date_naissance_conjoint = foyer_fiscal.conjoint('date_naissance', period.first_month)\n\n    # Conjoint·e titulaire d'une pension ou d'une carte d'invalidité (vivant ou\n    # décédé l'année de perception des revenus)\n    conjoint_invalide = foyer_fiscal('caseF', period.this_year)\n\n    # Revenu net global\n    revenu_net_global = foyer_fiscal('rng', period)\n\n    # Nombre d'enfants marié·e·s/pacse·é·s et d'enfants non mari·é·s charg·é·s de\n    # famille\n    nombre_enfants = foyer_fiscal('nbN', period)\n\n    # Abattements pour revenu net imposable\n    abattements = parameters(period).impot_revenu.abattements_rni\n\n    # Abattement pour personnes agées de + de 65 ans ou invalide\n    abattement_age_ou_invalidite = abattements.personne_agee_ou_invalide\n\n    # Abattement pour rattachement d'enfants mari·é·s\n    abattement_enfant_marie = abattements.enfant_marie\n\n    # Vecteur de foyers eligibles aux abattements spéciaux\n    foyers_eligibles = (\n        (((date_naissance_declarant < dateLimite) | declarant_invalide) & (age_declarant > 0))\n        + (((date_naissance_conjoint < dateLimite) | conjoint_invalide) & (age_conjoint > 0))\n        )\n\n    # Vecteur de montants d'abattement pour personnes âges ou invalides\n    abattement_special_personne_agee_invalide = (\n        foyers_eligibles\n        * (\n            (\n                abattement_age_ou_invalidite.montant_1\n                * (revenu_net_global <= abattement_age_ou_invalidite.plafond_1)\n                )\n            + (\n                abattement_age_ou_invalidite.montant_2\n                * (\n                    (revenu_net_global > abattement_age_ou_invalidite.plafond_1)\n                    & (revenu_net_global <= abattement_age_ou_invalidite.plafond_2)\n                    )\n                )\n            )\n        )\n\n    # Vecteur de montants d'abattement pour enfants à charge\n    abattement_special_enfants_a_charge = (\n        nombre_enfants\n        * abattement_enfant_marie.montant\n        )\n\n    # Le montant total d'abattement ne peut pas être supérieur au revenu net global\n    return min_(revenu_net_global, abattement_special_personne_agee_invalide + abattement_special_enfants_a_charge)\n",
-      "start_line_number": 243,
-      "stop_line_number": 308,
+      "start_line_number": 249,
+      "stop_line_number": 314,
       "variables": [
         "caseF",
         "caseP",
@@ -1512,7 +1512,7 @@
   "referring_variables": [
     "rev_coll"
   ],
-  "start_line_number": 233,
-  "stop_line_number": 308,
+  "start_line_number": 239,
+  "stop_line_number": 314,
   "value_type": "float"
 }

@@ -743,8 +743,8 @@
         "prestations.minima_sociaux.ppa.seuil_aah_activite"
       ],
       "source_code": "def formula(individu, period, parameters):\n    P = parameters(period)\n    smic_horaire = P.cotsoc.gen.smic_h_b\n\n    ressources = [\n        'salaire_net',\n        'revenus_stage_formation_pro',\n        'remuneration_apprenti',\n        'bourse_recherche',\n        'indemnites_chomage_partiel',\n        'rpns_auto_entrepreneur_benefice',\n        'rsa_indemnites_journalieres_activite'\n        ]\n\n    revenus_mensualises = sum(individu(ressource, period) for ressource in ressources)\n\n    revenus_tns_annualises = individu('ppa_rsa_derniers_revenus_tns_annuels_connus', period.this_year)\n\n    revenus_activites = revenus_mensualises + revenus_tns_annualises\n\n    # L'aah est pris en compte comme revenu d'activité si revenu d'activité hors aah > 29 * smic horaire brut\n    seuil_aah_activite = P.prestations.minima_sociaux.ppa.seuil_aah_activite * smic_horaire\n    aah_activite = (revenus_activites >= seuil_aah_activite) * individu('aah', period)\n\n    return revenus_activites + aah_activite\n",
-      "start_line_number": 153,
-      "stop_line_number": 178,
+      "start_line_number": 160,
+      "stop_line_number": 185,
       "variables": [
         "aah",
         "ppa_rsa_derniers_revenus_tns_annuels_connus"
@@ -776,7 +776,8 @@
     "ppa_ressources_hors_activite_individu",
     "ppa_revenu_activite"
   ],
-  "start_line_number": 141,
-  "stop_line_number": 178,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 147,
+  "stop_line_number": 185,
   "value_type": "float"
 }

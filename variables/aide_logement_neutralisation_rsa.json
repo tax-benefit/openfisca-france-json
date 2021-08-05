@@ -329,8 +329,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period, parameters):\n    # Circular definition, as rsa depends on al.\n    # We don't allow it, so default value of rsa will be returned if a recursion is detected.\n    rsa_mois_dernier = famille('rsa', period.last_month)\n\n    revenus_a_neutraliser_i = famille.members('revenu_assimile_salaire_apres_abattements', period.n_2)\n    revenus_a_neutraliser = famille.sum(revenus_a_neutraliser_i)\n\n    return revenus_a_neutraliser * (rsa_mois_dernier > 0)\n",
-      "start_line_number": 776,
-      "stop_line_number": 785,
+      "start_line_number": 797,
+      "stop_line_number": 806,
       "variables": [
         "revenu_assimile_salaire_apres_abattements",
         "rsa"
@@ -353,7 +353,8 @@
   "referring_variables": [
     "aide_logement_base_ressources_defaut"
   ],
-  "start_line_number": 764,
-  "stop_line_number": 785,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 784,
+  "stop_line_number": 806,
   "value_type": "float"
 }

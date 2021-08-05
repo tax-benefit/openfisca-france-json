@@ -542,8 +542,8 @@
         "impot_revenu.tspr.abatpen.max"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    rev_pen_i = foyer_fiscal.members('revenu_assimile_pension', period)\n    pen_net_i = foyer_fiscal.members('revenu_assimile_pension_apres_abattements', period)\n    abatpen = parameters(period).impot_revenu.tspr.abatpen\n\n    revenu_assimile_pension_apres_abattements = foyer_fiscal.sum(pen_net_i)\n    revenu_assimile_pension = foyer_fiscal.sum(rev_pen_i)\n\n    abat = revenu_assimile_pension - revenu_assimile_pension_apres_abattements\n    return abat - min_(abat, abatpen.max)\n",
-      "start_line_number": 471,
-      "stop_line_number": 481,
+      "start_line_number": 472,
+      "stop_line_number": 482,
       "variables": [
         "revenu_assimile_pension",
         "revenu_assimile_pension_apres_abattements"
@@ -556,7 +556,7 @@
   "referring_variables": [
     "revenu_categoriel_tspr"
   ],
-  "start_line_number": 465,
-  "stop_line_number": 481,
+  "start_line_number": 466,
+  "stop_line_number": 482,
   "value_type": "float"
 }

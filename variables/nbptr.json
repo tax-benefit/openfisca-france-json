@@ -5007,8 +5007,8 @@
         "impot_revenu.quotient_familial.veuf"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Nombre de parts du foyer fiscal\n\n    note 1 enfants et résidence alternée (formulaire 2041 GV page 10)\n\n    quotient_familial.conj : nb part associées au conjoint d'un couple marié ou pacsé\n    quotient_familial.enf1 : nb part 2 premiers enfants\n    quotient_familial.enf2 : nb part enfants de rang 3 ou plus\n    quotient_familial.inv1 : nb part supp enfants invalides (I, G)\n    quotient_familial.inv2 : nb part supp adultes invalides (R)\n    quotient_familial.not31 : nb part supp note 3 : cases W ou G pour veuf, celib ou div\n    quotient_familial.not32 : nb part supp note 3 : personne seule ayant élevé des enfants\n    quotient_familial.not41 : nb part supp adultes invalides (vous et/ou conjoint) note 4\n    quotient_familial.not42 : nb part supp adultes anciens combattants (vous et/ou conjoint) note 4\n    quotient_familial.not6 : nb part supp note 6\n    quotient_familial.isol : demi-part parent isolé (T)\n    quotient_familial.edcd : enfant issu du mariage avec conjoint décédé;\n    '''\n    nb_pac = foyer_fiscal('nb_pac', period)\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    celibataire_ou_divorce = foyer_fiscal('celibataire_ou_divorce', period)\n    veuf = foyer_fiscal('veuf', period)\n    jeune_veuf = foyer_fiscal('jeune_veuf', period)\n    nbF = foyer_fiscal('nbF', period)\n    nbG = foyer_fiscal('nbG', period)\n    nbH = foyer_fiscal('nbH', period)\n    nbI = foyer_fiscal('nbI', period)\n    nbR = foyer_fiscal('nbR', period)\n    nbJ = foyer_fiscal('nbJ', period)\n    nbN = foyer_fiscal('nbN', period)  # noqa F841\n    caseP = foyer_fiscal('caseP', period)\n    caseW = foyer_fiscal('caseW', period)\n    caseG = foyer_fiscal('caseG', period)\n    caseE = foyer_fiscal('caseE', period)\n    caseK = foyer_fiscal('caseK', period)\n    caseN = foyer_fiscal('caseN', period)\n    caseF = foyer_fiscal('caseF', period)\n    caseS = foyer_fiscal('caseS', period)\n    caseL = foyer_fiscal('caseL', period)\n    caseT = foyer_fiscal('caseT', period.first_month)\n    quotient_familial = parameters(period).impot_revenu.quotient_familial\n\n    no_pac = nb_pac == 0  # Aucune personne à charge en garde exclusive\n    has_pac = not_(no_pac)\n    no_alt = nbH == 0  # Aucun enfant à charge en garde alternée\n    has_alt = not_(no_alt)\n\n    # # nombre de parts liées aux enfants à charge\n    # que des enfants en résidence alternée\n    enf1 = (no_pac & has_alt) * (quotient_familial.enf1 * min_(nbH, 2) * 0.5\n                                 + quotient_familial.enf2 * max_(nbH - 2, 0) * 0.5)\n    # pas que des enfants en résidence alternée\n    enf2 = (has_pac & has_alt) * ((nb_pac == 1) * (quotient_familial.enf1 * min_(nbH, 1) * 0.5\n        + quotient_familial.enf2 * max_(nbH - 1, 0) * 0.5) + (nb_pac > 1) * (quotient_familial.enf2 * nbH * 0.5))\n    # pas d'enfant en résidence alternée\n    enf3 = quotient_familial.enf1 * min_(nb_pac, 2) + quotient_familial.enf2 * max_((nb_pac - 2), 0)\n\n    enf = enf1 + enf2 + enf3\n    # # note 2 : nombre de parts liées aux invalides (enfant + adulte)\n    n2 = quotient_familial.inv1 * (nbG + nbI / 2) + quotient_familial.inv2 * nbR\n\n    # # note 3 : Pas de personne à charge\n    # - invalide\n\n    n31a = quotient_familial.not31a * (no_pac & no_alt & caseP)\n    # - ancien combatant\n    n31b = quotient_familial.not31b * (no_pac & no_alt & (caseW | caseG))\n    n31 = max_(n31a, n31b)\n    # - personne seule ayant élevé des enfants\n    n32 = quotient_familial.not32 * (no_pac & no_alt & ((caseE | caseK | caseL) & not_(caseN)))\n    n3 = max_(n31, n32)\n    # # note 4 Invalidité de la personne ou du conjoint pour les mariés ou\n    # # jeunes veuf(ve)s\n    n4 = max_(quotient_familial.not41 * (1 * caseP + 1 * caseF), quotient_familial.not42 * (caseW | caseS))\n\n    # # note 5\n    #  - enfant du conjoint décédé\n    n51 = quotient_familial.cdcd * (caseL & ((nbF + nbJ) > 0))\n    #  - enfant autre et parent isolé\n    n52 = quotient_familial.isol * caseT * (((no_pac & has_alt) * ((nbH == 1) * 0.5 + (nbH >= 2))) + 1 * has_pac)\n    n5 = max_(n51, n52)\n\n    # # note 6 invalide avec personne à charge\n    n6 = quotient_familial.not6 * (caseP & (has_pac | has_alt))\n\n    # # note 7 Parent isolé\n    n7 = quotient_familial.isol * caseT * ((no_pac & has_alt) * ((nbH == 1) * 0.5 + (nbH >= 2)) + 1 * has_pac)\n\n    # # Régime des mariés ou pacsés\n    nb_parts_famille = 1 + quotient_familial.conj + enf + n2 + n4\n\n    # # veufs  hors jeune_veuf\n    nb_parts_veuf = 1 + quotient_familial.veuf * (has_pac | has_alt) + enf + n2 + n3 + n5 + n6\n\n    # # celib div\n    nb_parts_celib = 1 + enf + n2 + n3 + n6 + n7\n\n    return (maries_ou_pacses | jeune_veuf) * nb_parts_famille + (veuf & not_(jeune_veuf)) * nb_parts_veuf + celibataire_ou_divorce * nb_parts_celib\n",
-      "start_line_number": 3150,
-      "stop_line_number": 3249,
+      "start_line_number": 3151,
+      "stop_line_number": 3250,
       "variables": [
         "caseE",
         "caseF",
@@ -5046,8 +5046,15 @@
     ]
   },
   "referring_variables": [
+    "casa",
     "condition_rfr_exoneration_th",
+    "crds_chomage",
+    "crds_retraite",
     "creimp_exc_2008",
+    "csg_deductible_chomage",
+    "csg_deductible_retraite",
+    "csg_imposable_chomage",
+    "csg_imposable_retraite",
     "degrevement_office_taxe_habitation",
     "depart1825_eligibilite",
     "ir_brut",
@@ -5061,10 +5068,9 @@
     "ppe_elig",
     "reduction_impot_exceptionnelle",
     "reduction_ss_condition_revenus",
-    "taux_csg_remplacement",
     "taux_effectif"
   ],
-  "start_line_number": 3143,
-  "stop_line_number": 3249,
+  "start_line_number": 3144,
+  "stop_line_number": 3250,
   "value_type": "float"
 }

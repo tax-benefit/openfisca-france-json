@@ -653,8 +653,8 @@
         "logement_social.plai.plafond_ressources.par_personne_supplementaire"
       ],
       "source_code": "def formula(famille, period, parameters):\n    logement_social = parameters(period).logement_social.plai\n\n    categorie_menage = famille('logement_social_categorie_menage', period)\n    zone_logement_social = famille.demandeur.menage('zone_logement_social', period)\n    personnes_a_charge = famille('al_nb_personnes_a_charge', period)\n\n    # On détermine le nombre de personnes à charge supplémentaires au-dessus de 4\n    personnes_a_charge_supplementaires = (personnes_a_charge > 4) * (personnes_a_charge - 4)\n\n    plafond_ressources_par_categorie = logement_social.plafond_ressources.par_categorie_de_menage[categorie_menage]\n    par_personne_supplementaire = logement_social.plafond_ressources.par_personne_supplementaire[zone_logement_social]\n\n    return plafond_ressources_par_categorie[zone_logement_social] + (personnes_a_charge_supplementaires * par_personne_supplementaire)\n",
-      "start_line_number": 142,
-      "stop_line_number": 156,
+      "start_line_number": 146,
+      "stop_line_number": 160,
       "variables": [
         "al_nb_personnes_a_charge",
         "logement_social_categorie_menage"
@@ -677,7 +677,8 @@
   "referring_variables": [
     "logement_social_eligible"
   ],
-  "start_line_number": 132,
-  "stop_line_number": 156,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 135,
+  "stop_line_number": 160,
   "value_type": "float"
 }

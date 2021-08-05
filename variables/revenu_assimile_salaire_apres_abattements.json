@@ -780,8 +780,8 @@
         "impot_revenu.tspr.abatpro.taux"
       ],
       "source_code": "def formula(individu, period, parameters):\n    revenu_assimile_salaire = individu('revenu_assimile_salaire', period)\n    chomeur_longue_duree = individu('chomeur_longue_duree', period)\n    frais_reels = individu('frais_reels', period)\n    abatpro = parameters(period).impot_revenu.tspr.abatpro\n\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abatfor = round_(min_(max_(abatpro.taux * revenu_assimile_salaire, abattement_minimum), abatpro.max))\n    return (\n        (frais_reels > abatfor)\n        * (revenu_assimile_salaire - frais_reels)\n        + (frais_reels <= abatfor)\n        * max_(0, revenu_assimile_salaire - abatfor)\n        )\n",
-      "start_line_number": 414,
-      "stop_line_number": 428,
+      "start_line_number": 415,
+      "stop_line_number": 429,
       "variables": [
         "chomeur_longue_duree",
         "frais_reels",
@@ -802,7 +802,7 @@
     "revenus_et_produits_plafonnement_isf_ifi",
     "traitements_salaires_pensions_rentes"
   ],
-  "start_line_number": 408,
-  "stop_line_number": 428,
+  "start_line_number": 409,
+  "stop_line_number": 429,
   "value_type": "float"
 }

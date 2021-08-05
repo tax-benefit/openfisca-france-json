@@ -1180,8 +1180,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    f5ga = foyer_fiscal('f5ga', period)\n    f5gb = foyer_fiscal('f5gb', period)\n    f5gc = foyer_fiscal('f5gc', period)\n    f5gd = foyer_fiscal('f5gd', period)\n    f5ge = foyer_fiscal('f5ge', period)\n    f5gf = foyer_fiscal('f5gf', period)\n    f5gg = foyer_fiscal('f5gg', period)\n    f5gh = foyer_fiscal('f5gh', period)\n    f5gi = foyer_fiscal('f5gi', period)\n    f5gj = foyer_fiscal('f5gj', period)\n    alnp_imps_i = foyer_fiscal.members('alnp_imps', period)\n    nacc_defs_i = foyer_fiscal.members('nacc_defs', period)\n\n    nacc_defs = foyer_fiscal.sum(nacc_defs_i)\n    alnp_imps = foyer_fiscal.sum(alnp_imps_i)\n    return min_(f5ga + f5gb + f5gc + f5gd + f5ge + f5gf + f5gg + f5gh + f5gi + f5gj, alnp_imps + nacc_defs)\n",
-      "start_line_number": 2492,
-      "stop_line_number": 2509,
+      "start_line_number": 2493,
+      "stop_line_number": 2510,
       "variables": [
         "alnp_imps",
         "f5ga",
@@ -1204,7 +1204,7 @@
   "referring_variables": [
     "revenu_categoriel_non_salarial"
   ],
-  "start_line_number": 2486,
-  "stop_line_number": 2509,
+  "start_line_number": 2487,
+  "stop_line_number": 2510,
   "value_type": "float"
 }

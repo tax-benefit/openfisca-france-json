@@ -365,8 +365,8 @@
         "impot_revenu.tspr.abatpen.taux"
       ],
       "source_code": "def formula(individu, period, parameters):\n    revenu_assimile_pension = individu('revenu_assimile_pension', period)\n    abatpen = parameters(period).impot_revenu.tspr.abatpen\n\n    #    TODO: problème car les pensions sont majorées au niveau du foyer\n#    d11 = ( AS + BS + CS + DS + ES +\n#            AO + BO + CO + DO + EO )\n#    penv2 = (d11-f11> abatpen.max)*(penv + (d11-f11-abatpen.max)) + (d11-f11<= abatpen.max)*penv\n#    Plus d'abatement de 20% en 2006\n    return max_(0, revenu_assimile_pension - round_(max_(abatpen.taux * revenu_assimile_pension, abatpen.min)))\n",
-      "start_line_number": 451,
-      "stop_line_number": 461,
+      "start_line_number": 452,
+      "stop_line_number": 462,
       "variables": [
         "revenu_assimile_pension"
       ]
@@ -381,7 +381,7 @@
     "revenus_et_produits_plafonnement_isf_ifi",
     "traitements_salaires_pensions_rentes"
   ],
-  "start_line_number": 445,
-  "stop_line_number": 461,
+  "start_line_number": 446,
+  "stop_line_number": 462,
   "value_type": "float"
 }

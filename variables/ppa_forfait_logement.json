@@ -1691,8 +1691,8 @@
         "prestations.minima_sociaux.rsa.forfait_logement.taux_3_personnes_ou_plus"
       ],
       "source_code": "def formula(famille, period, parameters):\n    np_pers = famille('nb_parents', period) + famille('rsa_nb_enfants', period)\n    aide_logement = famille('aide_logement', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    participation_frais = famille.demandeur.menage('participation_frais', period)\n    loyer = famille.demandeur.menage('loyer', period)\n\n    avantage_nature = or_(\n        ((statut_occupation_logement == TypesStatutOccupationLogement.primo_accedant) + (statut_occupation_logement == TypesStatutOccupationLogement.proprietaire)) * not_(loyer),\n        (statut_occupation_logement == TypesStatutOccupationLogement.loge_gratuitement) * not_(participation_frais)\n        )\n\n    avantage_al = aide_logement > 0\n\n    params = parameters(period).prestations.minima_sociaux.rsa\n    ppa = parameters(period).prestations.minima_sociaux.ppa\n\n    # Le montant forfaitaire se calcule de la même manière que celle de la formule 'ppa_montant_forfaitaire_familial_non_majore',\n    # sauf dans le cas où le foyer se compose de trois personnes ou plus, où le montant forfaitaire se calcule pour trois personnes seulement.\n    taux_non_majore = (\n        1\n        + (np_pers >= 2) * ppa.taux_deuxieme_personne\n        + (np_pers >= 3) * ppa.taux_troisieme_personne\n        )\n\n    montant_base = ppa.montant_de_base * taux_non_majore\n\n    montant_forfait = montant_base * (\n        (np_pers == 1) * params.forfait_logement.taux_1_personne\n        + (np_pers == 2) * params.forfait_logement.taux_2_personnes\n        + (np_pers >= 3) * params.forfait_logement.taux_3_personnes_ou_plus\n        )\n\n    montant_al = avantage_al * min_(aide_logement, montant_forfait)\n    montant_nature = avantage_nature * montant_forfait\n\n    return max_(montant_al, montant_nature)\n",
-      "start_line_number": 355,
-      "stop_line_number": 392,
+      "start_line_number": 368,
+      "stop_line_number": 405,
       "variables": [
         "aide_logement",
         "nb_parents",
@@ -1713,7 +1713,8 @@
   "referring_variables": [
     "ppa_fictive"
   ],
-  "start_line_number": 348,
-  "stop_line_number": 392,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 360,
+  "stop_line_number": 405,
   "value_type": "float"
 }

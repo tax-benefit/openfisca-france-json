@@ -503,8 +503,8 @@
         "prestations.prestations_familiales.af.age2"
       ],
       "source_code": "def formula(famille, period, parameters):\n    pfam = parameters(period).prestations.prestations_familiales\n\n    age = famille.members('age', period)\n    pfam_enfant_a_charge = famille.members('prestations_familiales_enfant_a_charge', period)\n\n    condition_eligibilite = pfam_enfant_a_charge * (age <= pfam.af.age2)\n    age_enfants_eligiles = age * condition_eligibilite\n\n    return famille.max(age_enfants_eligiles, role = Famille.ENFANT)\n",
-      "start_line_number": 152,
-      "stop_line_number": 162,
+      "start_line_number": 161,
+      "stop_line_number": 171,
       "variables": [
         "age",
         "prestations_familiales_enfant_a_charge"
@@ -518,7 +518,8 @@
   "referring_variables": [
     "af_majoration_enfant"
   ],
-  "start_line_number": 144,
-  "stop_line_number": 162,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 152,
+  "stop_line_number": 171,
   "value_type": "int"
 }

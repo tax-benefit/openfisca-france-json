@@ -500,8 +500,8 @@
       "documentation": "\nNote: le partage en moitié est un point de législation, pas un choix arbitraire\n",
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
       "source_code": "def formula_2009_06_01(individu, period):\n    '''\n    Note: le partage en moitié est un point de législation, pas un choix arbitraire\n    '''\n    janvier = period.first_month\n\n    rsa_activite = individu.famille('rsa_activite', period, options = [ADD])\n    marie = individu('statut_marital', janvier) == 1\n    en_couple = individu.famille('en_couple', janvier)\n\n    # On partage le rsa_activite entre les parents. Si la personne est mariée et qu'aucun conjoint n'a été déclaré,\n    # on divise par 2.\n    partage_rsa = or_(marie, en_couple)\n\n    return where(partage_rsa, rsa_activite / 2, rsa_activite)\n",
-      "start_line_number": 177,
-      "stop_line_number": 192,
+      "start_line_number": 181,
+      "stop_line_number": 196,
       "variables": [
         "en_couple",
         "rsa_activite",
@@ -517,7 +517,7 @@
   "referring_variables": [
     "ppe"
   ],
-  "start_line_number": 170,
-  "stop_line_number": 192,
+  "start_line_number": 174,
+  "stop_line_number": 196,
   "value_type": "float"
 }

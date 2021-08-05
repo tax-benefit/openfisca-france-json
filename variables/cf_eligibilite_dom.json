@@ -692,8 +692,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
       "source_code": "def formula(famille, period, parameters):\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n    residence_mayotte = famille.demandeur.menage('residence_mayotte', period)\n\n    cf_dom_enfant_eligible = famille.members('cf_dom_enfant_eligible', period)\n    cf_nbenf = famille.sum(cf_dom_enfant_eligible)\n\n    cf_dom_enfant_trop_jeune = famille.members('cf_dom_enfant_trop_jeune', period)\n    cf_nbenf_trop_jeune = famille.sum(cf_dom_enfant_trop_jeune)\n\n    condition_composition_famille = (cf_nbenf >= 1) * (cf_nbenf_trop_jeune == 0)\n    condition_residence = residence_dom * not_(residence_mayotte)\n\n    return condition_composition_famille * condition_residence\n",
-      "start_line_number": 199,
-      "stop_line_number": 213,
+      "start_line_number": 208,
+      "stop_line_number": 222,
       "variables": [
         "cf_dom_enfant_eligible",
         "cf_dom_enfant_trop_jeune"
@@ -709,7 +709,8 @@
     "cf_non_majore_avant_cumul",
     "cf_plafond"
   ],
-  "start_line_number": 193,
-  "stop_line_number": 213,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 201,
+  "stop_line_number": 222,
   "value_type": "bool"
 }

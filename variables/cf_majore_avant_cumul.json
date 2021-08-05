@@ -731,8 +731,8 @@
         "prestations.prestations_familiales.cf.taux_majore_dom"
       ],
       "source_code": "def formula_2014_04_01(famille, period, parameters):\n    eligibilite_base = famille('cf_eligibilite_base', period)\n    eligibilite_dom = famille('cf_eligibilite_dom', period)\n    ressources = famille('cf_base_ressources', period)\n    plafond_majore = famille('cf_majore_plafond', period)\n\n    pfam = parameters(period).prestations.prestations_familiales\n\n    eligibilite_sous_condition = or_(eligibilite_base, eligibilite_dom)\n\n    # Montant\n    montant = (\n        pfam.af.bmaf * (\n            pfam.cf.taux_cf_majore * eligibilite_base\n            + pfam.cf.taux_majore_dom * eligibilite_dom\n            )\n        )\n\n    eligibilite = eligibilite_sous_condition * (ressources <= plafond_majore)\n\n    return eligibilite * montant\n",
-      "start_line_number": 262,
-      "stop_line_number": 283,
+      "start_line_number": 273,
+      "stop_line_number": 294,
       "variables": [
         "cf_base_ressources",
         "cf_eligibilite_base",
@@ -748,7 +748,8 @@
   "referring_variables": [
     "cf_montant"
   ],
-  "start_line_number": 256,
-  "stop_line_number": 283,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 266,
+  "stop_line_number": 294,
   "value_type": "float"
 }

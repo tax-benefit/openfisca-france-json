@@ -486,8 +486,8 @@
         "impot_revenu.bareme"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    nbptr = foyer_fiscal('nbptr', period)\n    taux_effectif = foyer_fiscal('taux_effectif', period)\n    rni = foyer_fiscal('rni', period)\n    bareme = parameters(period).impot_revenu.bareme\n\n    return (taux_effectif == 0) * nbptr * bareme.calc(rni / nbptr) + taux_effectif * rni\n",
-      "start_line_number": 1093,
-      "stop_line_number": 1100,
+      "start_line_number": 1094,
+      "stop_line_number": 1101,
       "variables": [
         "nbptr",
         "rni",
@@ -501,7 +501,7 @@
   "referring_variables": [
     "ir_plaf_qf"
   ],
-  "start_line_number": 1087,
-  "stop_line_number": 1100,
+  "start_line_number": 1088,
+  "stop_line_number": 1101,
   "value_type": "float"
 }

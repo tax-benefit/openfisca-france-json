@@ -409,8 +409,8 @@
         "prestations.prestations_familiales.cf.age_min"
       ],
       "source_code": "def formula(individu, period, parameters):\n    est_enfant_dans_famille = individu('est_enfant_dans_famille', period)\n    age = individu('age', period)\n\n    pfam = parameters(period).prestations.prestations_familiales\n\n    condition_age = (age >= 0) * (age < pfam.cf.age_min)\n\n    return condition_age * est_enfant_dans_famille\n",
-      "start_line_number": 74,
-      "stop_line_number": 83,
+      "start_line_number": 77,
+      "stop_line_number": 86,
       "variables": [
         "age",
         "est_enfant_dans_famille"
@@ -424,7 +424,8 @@
   "referring_variables": [
     "cf_eligibilite_dom"
   ],
-  "start_line_number": 68,
-  "stop_line_number": 83,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 70,
+  "stop_line_number": 86,
   "value_type": "bool"
 }

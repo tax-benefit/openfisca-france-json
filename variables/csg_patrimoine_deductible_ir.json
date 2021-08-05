@@ -549,8 +549,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    csg_deductible = parameters(period).taxation_capital.prelevements_sociaux.csg.deductible.revenus_du_patrimoine\n    rbg = foyer_fiscal('rbg', period)\n    f6de = foyer_fiscal('f6de', period)\n    f2bh = foyer_fiscal('f2bh', period)\n    csg_deduc_patrimoine = max_(f6de, 0) + max_(csg_deductible * f2bh, 0)\n\n    return min_(csg_deduc_patrimoine, max_(rbg, 0))\n",
-      "start_line_number": 1048,
-      "stop_line_number": 1056,
+      "start_line_number": 1049,
+      "stop_line_number": 1057,
       "variables": [
         "f2bh",
         "f6de",
@@ -572,7 +572,7 @@
     "bouclier_rev",
     "rng"
   ],
-  "start_line_number": 1041,
-  "stop_line_number": 1056,
+  "start_line_number": 1042,
+  "stop_line_number": 1057,
   "value_type": "float"
 }

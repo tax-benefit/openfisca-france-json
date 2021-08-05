@@ -522,8 +522,8 @@
         "prestations.garantie_pret_etudiant.age_max"
       ],
       "source_code": "def formula_2020_06_08(individu, period, parameters):\n    majeur = individu('majeur', period)\n\n    age = individu('age', period)\n    condition_age = (age <= parameters(period).prestations.garantie_pret_etudiant.age_max)\n\n    etudiant_du_superieur = individu('scolarite', period) == TypesScolarite.enseignement_superieur\n    condition_nationalite = individu('garantie_pret_etudiant_condition_nationalite', period)\n\n    return majeur * etudiant_du_superieur * condition_age * condition_nationalite\n",
-      "start_line_number": 12,
-      "stop_line_number": 22,
+      "start_line_number": 13,
+      "stop_line_number": 23,
       "variables": [
         "age",
         "garantie_pret_etudiant_condition_nationalite",
@@ -544,7 +544,8 @@
       }
     ]
   },
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 5,
-  "stop_line_number": 22,
+  "stop_line_number": 23,
   "value_type": "bool"
 }

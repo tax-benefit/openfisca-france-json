@@ -421,8 +421,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    janvier = period.first_month\n\n    enfant_a_charge = foyer_fiscal.members('enfant_a_charge', period)\n    garde_alternee = foyer_fiscal.members('garde_alternee', janvier)\n    invalidite = foyer_fiscal.members('invalidite', janvier)\n    return foyer_fiscal.sum(enfant_a_charge * not_(garde_alternee) * invalidite)\n",
-      "start_line_number": 255,
-      "stop_line_number": 262,
+      "start_line_number": 256,
+      "stop_line_number": 263,
       "variables": [
         "enfant_a_charge",
         "garde_alternee",
@@ -438,7 +438,7 @@
     "ir_plaf_qf",
     "nbptr"
   ],
-  "start_line_number": 248,
-  "stop_line_number": 262,
+  "start_line_number": 249,
+  "stop_line_number": 263,
   "value_type": "float"
 }

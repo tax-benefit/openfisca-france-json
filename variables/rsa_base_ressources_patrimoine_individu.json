@@ -1155,8 +1155,8 @@
         "prestations.minima_sociaux.rsa.patrimoine.taux_interet_forfaitaire_epargne_non_imposable"
       ],
       "source_code": "def formula_2009_06_01(individu, period, parameters):\n    livret_a = individu('livret_a', period)\n    taux_livret_a = parameters(period).epargne.livret_a.taux\n    epargne_revenus_non_imposables = individu('epargne_revenus_non_imposables', period)\n    revenus_capital = individu('revenus_capital', period) * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    valeur_locative_immo_non_loue = individu('valeur_locative_immo_non_loue', period)\n    valeur_locative_terrains_non_loues = individu('valeur_locative_terrains_non_loues', period)\n    revenus_locatifs = individu('revenus_locatifs', period)\n    rsa = parameters(period).prestations.minima_sociaux.rsa\n    plus_values = individu.foyer_fiscal('assiette_csg_plus_values', period.this_year) * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (\n        + livret_a * taux_livret_a / 12\n        + epargne_revenus_non_imposables * rsa.patrimoine.taux_interet_forfaitaire_epargne_non_imposable / 12\n        + revenus_capital\n        + revenus_locatifs\n        + valeur_locative_immo_non_loue * rsa.patrimoine.abattement_valeur_locative_immo_non_loue\n        + valeur_locative_terrains_non_loues * rsa.patrimoine.abattement_valeur_locative_terrains_non_loues\n        + plus_values / 12\n        )\n",
-      "start_line_number": 588,
-      "stop_line_number": 608,
+      "start_line_number": 604,
+      "stop_line_number": 624,
       "variables": [
         "assiette_csg_plus_values",
         "epargne_revenus_non_imposables",
@@ -1179,7 +1179,8 @@
       }
     ]
   },
-  "start_line_number": 581,
-  "stop_line_number": 608,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 596,
+  "stop_line_number": 624,
   "value_type": "float"
 }

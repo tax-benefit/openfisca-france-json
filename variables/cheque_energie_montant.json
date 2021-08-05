@@ -697,8 +697,8 @@
         "cheque_energie.baremes.une_uc_a_deux_uc"
       ],
       "source_code": "def formula_2017(menage, period, parameters):\n    baremes = parameters(period).cheque_energie.baremes\n\n    uc_menage = menage('cheque_energie_unites_consommation', period)\n    rfr = menage.personne_de_reference.foyer_fiscal('rfr', period.n_2)\n\n    ressources_par_uc = rfr / uc_menage\n\n    return (\n        (uc_menage <= 1) * baremes.une_uc.calc(ressources_par_uc)\n        + ((uc_menage > 1) * (uc_menage < 2)) * baremes.une_uc_a_deux_uc.calc(ressources_par_uc)\n        + (uc_menage >= 2) * baremes.plus_de_deux_ucs.calc(ressources_par_uc)\n        )\n",
-      "start_line_number": 61,
-      "stop_line_number": 74,
+      "start_line_number": 62,
+      "stop_line_number": 75,
       "variables": [
         "cheque_energie_unites_consommation"
       ]
@@ -721,7 +721,7 @@
   "referring_variables": [
     "cheque_energie"
   ],
-  "start_line_number": 51,
-  "stop_line_number": 74,
+  "start_line_number": 52,
+  "stop_line_number": 75,
   "value_type": "float"
 }

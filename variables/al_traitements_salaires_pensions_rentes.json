@@ -1485,8 +1485,8 @@
         "impot_revenu.tspr.abatpen.taux"
       ],
       "source_code": "def formula_2021_01_01(individu, period, parameters):\n    # Rolling year\n    annee_glissante = period.start.period('year').offset(-1).offset(-1, 'month')\n\n    revenu_assimile_salaire_apres_abattements = individu('al_revenu_assimile_salaire_apres_abattements', period)\n\n    # Integration des neutralisations avant prise en compte du montant pour eviter des doubles calculs inutiles\n    condition_neutralisation_rsa = individu.famille('rsa', period.last_month) > 0\n    type_conges = individu('type_conges', period)\n    condition_neutralisation_conge_parental = (type_conges == TypesConges.conge_parental)\n    condition_neutralisation_chomage = individu('aide_logement_condition_neutralisation_chomage', period)\n    neutralisation_salaire = (condition_neutralisation_rsa + condition_neutralisation_conge_parental + condition_neutralisation_chomage)\n\n    # Revenus assimilés pensions apres abattement\n    pensions_alimentaires_percues = individu('pensions_alimentaires_percues', period.last_year, options = [ADD])\n    pensions_alimentaires_percues_decl = individu('pensions_alimentaires_percues_decl', period.last_year, options = [ADD])\n    retraite_imposable = individu('retraite_imposable', annee_glissante, options=[ADD])\n    pension_invalidite = individu('pensions_invalidite', period.n_2, options = [ADD])\n    revenu_assimile_pension = pensions_alimentaires_percues * pensions_alimentaires_percues_decl + retraite_imposable + pension_invalidite\n    abatpen = parameters(period).impot_revenu.tspr.abatpen\n    revenu_assimile_pension_apres_abattements = max_(0, revenu_assimile_pension - round_(max_(abatpen.taux * revenu_assimile_pension, abatpen.min)))\n\n    return (\n        + (revenu_assimile_salaire_apres_abattements * not_(neutralisation_salaire))\n        + revenu_assimile_pension_apres_abattements\n        )\n",
-      "start_line_number": 951,
-      "stop_line_number": 977,
+      "start_line_number": 975,
+      "stop_line_number": 1001,
       "variables": [
         "aide_logement_condition_neutralisation_chomage",
         "al_revenu_assimile_salaire_apres_abattements",
@@ -1506,7 +1506,8 @@
   "referring_variables": [
     "al_base_ressources_individu"
   ],
-  "start_line_number": 945,
-  "stop_line_number": 977,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 968,
+  "stop_line_number": 1001,
   "value_type": "float"
 }

@@ -254,8 +254,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2002_01_01(famille, period):\n    prestations = [\n        'af_base',\n        'cf',\n        'asf',\n        'apje',\n        'ape',\n        ]\n\n    result = sum(famille(prestation, period) for prestation in prestations)\n\n    return result\n",
-      "start_line_number": 209,
-      "stop_line_number": 221
+      "start_line_number": 214,
+      "stop_line_number": 226
     },
     "2004-01-01": {
       "ast": {
@@ -522,8 +522,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2004_01_01(famille, period):\n    prestations = [\n        'af_base',\n        'cf',\n        'asf',\n        'paje_base',\n        'paje_clca',\n        'paje_prepare',\n        'paje_colca',\n        ]\n\n    result = sum(famille(prestation, period) for prestation in prestations)\n\n    return result\n",
-      "start_line_number": 222,
-      "stop_line_number": 236
+      "start_line_number": 227,
+      "stop_line_number": 241
     },
     "2014-04-01": {
       "ast": {
@@ -1407,8 +1407,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2014_04_01(famille, period):\n    # TODO : Neutraliser les ressources de type prestations familiales quand elles sont interrompues\n    prestations_calculees = [\n        'rsa_forfait_asf',\n        'paje_base',\n        ]\n\n    prestations_autres = [\n        'paje_clca',\n        'paje_prepare',\n        'paje_colca',\n        ]\n\n    # On réinjecte le montant des prestations calculées\n    result = sum(famille(prestation, period)for prestation in prestations_calculees)\n\n    result += sum(famille(prestation, period.last_3_months, options = [ADD]) / 3 for prestation in prestations_autres)\n\n    cf_non_majore_avant_cumul = famille('cf_non_majore_avant_cumul', period)\n    cf = famille('cf', period)\n    # Seul le montant non majoré est pris en compte dans la base de ressources du RSA\n    cf_non_majore = (cf > 0) * cf_non_majore_avant_cumul\n\n    af_base = famille('af_base', period)\n    af = famille('af', period)\n\n    # Si des AF on été injectées et sont plus faibles que le cf\n    result = result + cf_non_majore + min_(af_base, af)\n\n    return result\n",
-      "start_line_number": 237,
-      "stop_line_number": 267,
+      "start_line_number": 242,
+      "stop_line_number": 272,
       "variables": [
         "af",
         "af_base",
@@ -2092,8 +2092,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2017_01_01(famille, period, parameters):\n    # Les prestations famillales sont prises en compte sur le mois_courant\n    prestations_calculees = [\n        'paje_base',\n        'paje_clca',\n        'paje_colca',\n        'paje_prepare',\n        'rsa_forfait_asf',\n        ]\n\n    result = sum(famille(prestation, period)for prestation in prestations_calculees)\n\n    cf_non_majore_avant_cumul = famille('cf_non_majore_avant_cumul', period)\n    cf = famille('cf', period)\n    cf_non_majore = (cf > 0) * cf_non_majore_avant_cumul\n\n    af_base = famille('af_base', period)\n    af = famille('af', period)\n\n    # Si des AF on été injectées et sont plus faibles que le cf\n    result = result + cf_non_majore + min_(af_base, af)\n\n    return result\n",
-      "start_line_number": 268,
-      "stop_line_number": 291,
+      "start_line_number": 273,
+      "stop_line_number": 296,
       "variables": [
         "af",
         "af_base",
@@ -2116,7 +2116,8 @@
   "referring_variables": [
     "rsa_base_ressources"
   ],
-  "start_line_number": 202,
-  "stop_line_number": 291,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 206,
+  "stop_line_number": 296,
   "value_type": "float"
 }

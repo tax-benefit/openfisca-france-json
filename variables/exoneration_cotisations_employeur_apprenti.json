@@ -896,8 +896,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/apprentissage.py",
       "source_code": "def formula(individu, period, parameters):\n    accident_du_travail = individu('accident_du_travail', period)\n    apprenti = individu('apprenti', period)\n    cotisations_employeur = individu('cotisations_employeur', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    famille = individu('famille', period)\n    mmid_employeur = individu('mmid_employeur', period)\n    vieillesse_deplafonnee_employeur = individu('vieillesse_deplafonnee_employeur', period)\n    vieillesse_plafonnee_employeur = individu('vieillesse_plafonnee_employeur', period)\n\n    cotisations_non_exonerees = accident_du_travail\n    exoneration_moins_11 = cotisations_non_exonerees - cotisations_employeur\n\n    cotisations_exonerees = (\n        famille\n        + mmid_employeur\n        + vieillesse_plafonnee_employeur\n        + vieillesse_deplafonnee_employeur\n        )\n\n    exoneration_plus_11 = -cotisations_exonerees\n\n    return (\n        exoneration_plus_11\n        * (effectif_entreprise >= 11)\n        + exoneration_moins_11\n        * (effectif_entreprise < 11)\n        ) * apprenti\n",
-      "start_line_number": 114,
-      "stop_line_number": 142,
+      "start_line_number": 116,
+      "stop_line_number": 144,
       "variables": [
         "accident_du_travail",
         "apprenti",
@@ -926,8 +926,9 @@
   "referring_variables": [
     "exonerations_et_allegements"
   ],
-  "start_line_number": 90,
-  "stop_line_number": 142,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 91,
+  "stop_line_number": 144,
   "ux_name": "Exonér. apprenti",
   "value_type": "float"
 }

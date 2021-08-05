@@ -799,8 +799,8 @@
         "cs.acs.acs_plus_60_ans"
       ],
       "source_code": "def formula_2009_08_01(individu, period, parameters):\n    P = parameters(period).cs.acs\n    age = individu('age', period)\n    montant_si_pac = select(\n        [(age <= 15) * (age >= 0), age <= 25],\n        [P.acs_moins_16_ans, P.acs_16_49_ans]\n        )\n    montant_si_parent = select(\n        [age <= 15, age <= 49, age <= 59, age >= 60],\n        [P.acs_moins_16_ans, P.acs_16_49_ans, P.acs_50_59_ans, P.acs_plus_60_ans],\n        )\n    return where(\n        individu.has_role(Famille.PARENT),\n        montant_si_parent,\n        montant_si_pac\n        )\n",
-      "start_line_number": 17,
-      "stop_line_number": 33,
+      "start_line_number": 18,
+      "stop_line_number": 34,
       "variables": [
         "age"
       ]
@@ -813,7 +813,8 @@
   "referring_variables": [
     "acs_montant"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 11,
-  "stop_line_number": 33,
+  "stop_line_number": 34,
   "value_type": "float"
 }

@@ -579,8 +579,8 @@
         "tns.auto_entrepreneur.bnc"
       ],
       "source_code": "def formula_2008_01_01(individu, period, parameters):\n    rpns_auto_entrepreneur_benefice = individu('rpns_auto_entrepreneur_benefice', period)\n    rpns_auto_entrepreneur_CA_achat_revente = individu('rpns_auto_entrepreneur_CA_achat_revente', period)\n    rpns_auto_entrepreneur_CA_bic = individu('rpns_auto_entrepreneur_CA_bic', period)\n    rpns_auto_entrepreneur_CA_bnc = individu('rpns_auto_entrepreneur_CA_bnc', period)\n    bareme_cs_ae = parameters(period).tns.auto_entrepreneur\n\n    rpns_auto_entrepreneur_charges_sociales = (\n        (bareme_cs_ae.achat_revente * rpns_auto_entrepreneur_CA_achat_revente)\n        + (bareme_cs_ae.bic * rpns_auto_entrepreneur_CA_bic)\n        + (bareme_cs_ae.bnc * rpns_auto_entrepreneur_CA_bnc))\n\n    return rpns_auto_entrepreneur_benefice - rpns_auto_entrepreneur_charges_sociales\n",
-      "start_line_number": 2161,
-      "stop_line_number": 2174,
+      "start_line_number": 2164,
+      "stop_line_number": 2177,
       "variables": [
         "rpns_auto_entrepreneur_CA_achat_revente",
         "rpns_auto_entrepreneur_CA_bic",
@@ -593,7 +593,8 @@
   "label": "Revenu d'un auto-entrepreneur",
   "last_review": "2008-01-01",
   "name": "rpns_auto_entrepreneur_revenus_net",
-  "start_line_number": 2155,
-  "stop_line_number": 2174,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 2157,
+  "stop_line_number": 2177,
   "value_type": "float"
 }

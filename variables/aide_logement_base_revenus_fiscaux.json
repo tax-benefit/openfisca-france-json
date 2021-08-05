@@ -1006,8 +1006,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(foyer_fiscal, period):\n    rente_viagere_titre_onereux_net = foyer_fiscal('rente_viagere_titre_onereux_net', period)\n    pensions_alimentaires_versees = foyer_fiscal('pensions_alimentaires_versees', period)\n    # Supprimée à partir de 2018\n    rev_cat_rvcm = foyer_fiscal('revenu_categoriel_capital', period)\n    # Supprimée à partir de 2018\n    revenus_capitaux_prelevement_liberatoire = foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period, options = [ADD])\n    # Apparait à partir de 2018\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = foyer_fiscal('revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options = [ADD])\n    revenu_categoriel_foncier = foyer_fiscal('revenu_categoriel_foncier', period)\n    f7ga = foyer_fiscal('f7ga', period)\n    f7gb = foyer_fiscal('f7gb', period)\n    f7gc = foyer_fiscal('f7gc', period)\n    # Supprimée à partir de 2018\n    rev_cat_pv = foyer_fiscal('revenu_categoriel_plus_values', period)\n    # Apparait à partir de 2018\n    plus_values_prelevement_forfaitaire_unique_ir = foyer_fiscal('plus_values_prelevement_forfaitaire_unique_ir', period)\n\n    return (\n        + revenu_categoriel_foncier\n        + pensions_alimentaires_versees\n        + rente_viagere_titre_onereux_net\n        + rev_cat_rvcm\n        + revenus_capitaux_prelevement_liberatoire\n        + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + rev_cat_pv\n        + plus_values_prelevement_forfaitaire_unique_ir\n        - f7ga\n        - f7gb\n        - f7gc\n        )\n",
-      "start_line_number": 887,
-      "stop_line_number": 918,
+      "start_line_number": 909,
+      "stop_line_number": 940,
       "variables": [
         "f7ga",
         "f7gb",
@@ -1942,8 +1942,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula_2021_01_01(foyer_fiscal, period):\n    rente_viagere_titre_onereux_net = foyer_fiscal('rente_viagere_titre_onereux_net', period)\n    # Deplacement de la pension alimentaire versée, utilisée sur une periode differentes du reste\n    # Supprimée à partir de 2018\n    rev_cat_rvcm = foyer_fiscal('revenu_categoriel_capital', period)\n    # Supprimée à partir de 2018\n    revenus_capitaux_prelevement_liberatoire = foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period,\n                                                            options=[ADD])\n    # Apparait à partir de 2018\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = foyer_fiscal(\n        'revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options=[ADD])\n    revenu_categoriel_foncier = foyer_fiscal('revenu_categoriel_foncier', period)\n    f7ga = foyer_fiscal('f7ga', period)\n    f7gb = foyer_fiscal('f7gb', period)\n    f7gc = foyer_fiscal('f7gc', period)\n    # Supprimée à partir de 2018\n    rev_cat_pv = foyer_fiscal('revenu_categoriel_plus_values', period)\n    # Apparait à partir de 2018\n    plus_values_prelevement_forfaitaire_unique_ir = foyer_fiscal('plus_values_prelevement_forfaitaire_unique_ir',\n                                                                 period)\n    return (\n        + rente_viagere_titre_onereux_net\n        + revenu_categoriel_foncier\n        + rev_cat_rvcm\n        + revenus_capitaux_prelevement_liberatoire\n        + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + rev_cat_pv\n        + plus_values_prelevement_forfaitaire_unique_ir\n        - f7ga\n        - f7gb\n        - f7gc\n        )\n",
-      "start_line_number": 854,
-      "stop_line_number": 886,
+      "start_line_number": 876,
+      "stop_line_number": 908,
       "variables": [
         "f7ga",
         "f7gb",
@@ -1984,7 +1984,7 @@
       }
     ]
   },
-  "start_line_number": 840,
-  "stop_line_number": 918,
+  "start_line_number": 862,
+  "stop_line_number": 940,
   "value_type": "float"
 }

@@ -386,8 +386,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/autonomie.py",
       "source_code": "def formula_2002(individu, period, parameters):\n    period = period.start.offset('first-of', 'month').period('month')\n    dependance_tarif_etablissement_gir_1_2 = individu('dependance_tarif_etablissement_gir_1_2', period)\n    part_urgence_institution = parameters(period).autonomie.apa_institution.apa_d_urgence.part_du_tarif_dependance_gir_1_2_de_l_etablissement_d_accueil\n    apa_urgence_institution = part_urgence_institution * dependance_tarif_etablissement_gir_1_2\n    return apa_urgence_institution\n",
-      "start_line_number": 338,
-      "stop_line_number": 344,
+      "start_line_number": 351,
+      "stop_line_number": 357,
       "variables": [
         "dependance_tarif_etablissement_gir_1_2"
       ]
@@ -397,7 +397,8 @@
   "label": "Allocation personalisée d'autonomie en institution",
   "last_review": "2002-01-01",
   "name": "apa_urgence_institution",
-  "start_line_number": 332,
-  "stop_line_number": 344,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 344,
+  "stop_line_number": 357,
   "value_type": "float"
 }

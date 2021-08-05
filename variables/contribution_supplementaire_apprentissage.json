@@ -5,7 +5,7 @@
   "entity": "individu",
   "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
   "formulas": {
-    "2010-01-01": {
+    "2009-01-01": {
       "ast": {
         "args": {
           "args": [
@@ -225,7 +225,67 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 45,
+            "end_col_offset": 59,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 5,
+                "id": "ratio_alternants",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 32,
+                  "end_col_offset": 50,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "ratio_alternants"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 52,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 23,
+              "end_col_offset": 59,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 23,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 87,
             "end_lineno": 6,
             "lineno": 6,
             "targets": [
@@ -243,52 +303,63 @@
             ],
             "value": {
               "ast_class": "Attribute",
-              "attr": "cotsoc",
+              "attr": "apprentissage_contribution_supplementaire",
               "col_offset": 20,
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 45,
+              "end_col_offset": 87,
               "end_lineno": 6,
               "lineno": 6,
               "value": {
-                "args": [
-                  {
+                "ast_class": "Attribute",
+                "attr": "cotsoc",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 6,
+                "lineno": 6,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 31,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 37,
+                      "end_lineno": 6,
+                      "id": "period",
+                      "lineno": 6
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 20,
+                  "end_col_offset": 38,
+                  "end_lineno": 6,
+                  "func": {
                     "ast_class": "Name",
-                    "col_offset": 31,
+                    "col_offset": 20,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 37,
+                    "end_col_offset": 30,
                     "end_lineno": 6,
-                    "id": "period",
+                    "id": "parameters",
                     "lineno": 6
-                  }
-                ],
-                "ast_class": "Call",
-                "col_offset": 20,
-                "end_col_offset": 38,
-                "end_lineno": 6,
-                "func": {
-                  "ast_class": "Name",
-                  "col_offset": 20,
-                  "ctx": {
-                    "ast_class": "Load"
                   },
-                  "end_col_offset": 30,
-                  "end_lineno": 6,
-                  "id": "parameters",
+                  "keywords": [],
                   "lineno": 6
-                },
-                "keywords": [],
-                "lineno": 6
+                }
               }
             }
           },
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 122,
+            "end_col_offset": 70,
             "end_lineno": 8,
             "lineno": 8,
             "targets": [
@@ -298,39 +369,39 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 21,
+                "end_col_offset": 12,
                 "end_lineno": 8,
-                "id": "taux_contribution",
+                "id": "taxe_due",
                 "lineno": 8
               }
             ],
             "value": {
               "ast_class": "BinOp",
-              "col_offset": 24,
-              "end_col_offset": 122,
+              "col_offset": 15,
+              "end_col_offset": 70,
               "end_lineno": 8,
               "left": {
                 "ast_class": "Compare",
-                "col_offset": 25,
+                "col_offset": 16,
                 "comparators": [
                   {
                     "ast_class": "Constant",
-                    "col_offset": 48,
-                    "end_col_offset": 51,
+                    "col_offset": 39,
+                    "end_col_offset": 42,
                     "end_lineno": 8,
                     "lineno": 8,
                     "value": 250
                   }
                 ],
-                "end_col_offset": 51,
+                "end_col_offset": 42,
                 "end_lineno": 8,
                 "left": {
                   "ast_class": "Name",
-                  "col_offset": 25,
+                  "col_offset": 16,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 44,
+                  "end_col_offset": 35,
                   "end_lineno": 8,
                   "id": "effectif_entreprise",
                   "lineno": 8
@@ -347,37 +418,410 @@
                 "ast_class": "Mult"
               },
               "right": {
-                "ast_class": "Attribute",
-                "attr": "plus_de_250",
-                "col_offset": 55,
-                "ctx": {
-                  "ast_class": "Load"
-                },
-                "end_col_offset": 122,
+                "ast_class": "Compare",
+                "col_offset": 47,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 66,
+                    "end_col_offset": 69,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": 0.03
+                  }
+                ],
+                "end_col_offset": 69,
                 "end_lineno": 8,
-                "lineno": 8,
-                "value": {
-                  "ast_class": "Attribute",
-                  "attr": "contribution_supplementaire_apprentissage",
-                  "col_offset": 55,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 47,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 110,
+                  "end_col_offset": 63,
                   "end_lineno": 8,
-                  "lineno": 8,
-                  "value": {
-                    "ast_class": "Name",
-                    "col_offset": 55,
+                  "id": "ratio_alternants",
+                  "lineno": 8
+                },
+                "lineno": 8,
+                "ops": [
+                  {
+                    "ast_class": "Lt"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 13,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 9,
+                "id": "taux_conditionnel",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 105,
+              "end_lineno": 12,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 105,
+                "end_lineno": 11,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 73,
+                  "end_lineno": 10,
+                  "left": {
+                    "ast_class": "Compare",
+                    "col_offset": 9,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 28,
+                        "end_col_offset": 31,
+                        "end_lineno": 10,
+                        "lineno": 10,
+                        "value": 0.01
+                      }
+                    ],
+                    "end_col_offset": 31,
+                    "end_lineno": 10,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 9,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 25,
+                      "end_lineno": 10,
+                      "id": "ratio_alternants",
+                      "lineno": 10
+                    },
+                    "lineno": 10,
+                    "ops": [
+                      {
+                        "ast_class": "Lt"
+                      }
+                    ]
+                  },
+                  "lineno": 10,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "plus_de_250_moins_de_1pc",
+                    "col_offset": 35,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 68,
-                    "end_lineno": 8,
-                    "id": "cotsoc_params",
-                    "lineno": 8
+                    "end_col_offset": 73,
+                    "end_lineno": 10,
+                    "lineno": 10,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 35,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 48,
+                      "end_lineno": 10,
+                      "id": "cotsoc_params",
+                      "lineno": 10
+                    }
+                  }
+                },
+                "lineno": 10,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 105,
+                  "end_lineno": 11,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 62,
+                    "end_lineno": 11,
+                    "left": {
+                      "ast_class": "Compare",
+                      "col_offset": 11,
+                      "comparators": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 18,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 34,
+                          "end_lineno": 11,
+                          "id": "ratio_alternants",
+                          "lineno": 11
+                        }
+                      ],
+                      "end_col_offset": 34,
+                      "end_lineno": 11,
+                      "left": {
+                        "ast_class": "Constant",
+                        "col_offset": 11,
+                        "end_col_offset": 14,
+                        "end_lineno": 11,
+                        "lineno": 11,
+                        "value": 0.01
+                      },
+                      "lineno": 11,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    },
+                    "lineno": 11,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 39,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 58,
+                          "end_col_offset": 61,
+                          "end_lineno": 11,
+                          "lineno": 11,
+                          "value": 0.02
+                        }
+                      ],
+                      "end_col_offset": 61,
+                      "end_lineno": 11,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 39,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 55,
+                        "end_lineno": 11,
+                        "id": "ratio_alternants",
+                        "lineno": 11
+                      },
+                      "lineno": 11,
+                      "ops": [
+                        {
+                          "ast_class": "Lt"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 11,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "plus_de_250_entre_1_et_2pc",
+                    "col_offset": 65,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 105,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 65,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 78,
+                      "end_lineno": 11,
+                      "id": "cotsoc_params",
+                      "lineno": 11
+                    }
                   }
                 }
+              },
+              "lineno": 10,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 105,
+                "end_lineno": 12,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 62,
+                  "end_lineno": 12,
+                  "left": {
+                    "ast_class": "Compare",
+                    "col_offset": 11,
+                    "comparators": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 18,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 34,
+                        "end_lineno": 12,
+                        "id": "ratio_alternants",
+                        "lineno": 12
+                      }
+                    ],
+                    "end_col_offset": 34,
+                    "end_lineno": 12,
+                    "left": {
+                      "ast_class": "Constant",
+                      "col_offset": 11,
+                      "end_col_offset": 14,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": 0.02
+                    },
+                    "lineno": 12,
+                    "ops": [
+                      {
+                        "ast_class": "LtE"
+                      }
+                    ]
+                  },
+                  "lineno": 12,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 39,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 58,
+                        "end_col_offset": 61,
+                        "end_lineno": 12,
+                        "lineno": 12,
+                        "value": 0.03
+                      }
+                    ],
+                    "end_col_offset": 61,
+                    "end_lineno": 12,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 39,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 55,
+                      "end_lineno": 12,
+                      "id": "ratio_alternants",
+                      "lineno": 12
+                    },
+                    "lineno": 12,
+                    "ops": [
+                      {
+                        "ast_class": "Lt"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 12,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Attribute",
+                  "attr": "plus_de_250_entre_2_et_3pc",
+                  "col_offset": 65,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 105,
+                  "end_lineno": 12,
+                  "lineno": 12,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 65,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 78,
+                    "end_lineno": 12,
+                    "id": "cotsoc_params",
+                    "lineno": 12
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 52,
+            "end_lineno": 14,
+            "lineno": 14,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 14,
+                "id": "taux_contribution",
+                "lineno": 14
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 24,
+              "end_col_offset": 52,
+              "end_lineno": 14,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 24,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 14,
+                "id": "taux_conditionnel",
+                "lineno": 14
+              },
+              "lineno": 14,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 44,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 52,
+                "end_lineno": 14,
+                "id": "taxe_due",
+                "lineno": 14
               }
             }
           },
@@ -385,24 +829,24 @@
             "ast_class": "Return",
             "col_offset": 4,
             "end_col_offset": 93,
-            "end_lineno": 9,
-            "lineno": 9,
+            "end_lineno": 15,
+            "lineno": 15,
             "value": {
               "ast_class": "BinOp",
               "col_offset": 11,
               "end_col_offset": 93,
-              "end_lineno": 9,
+              "end_lineno": 15,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 11,
                 "end_col_offset": 62,
-                "end_lineno": 9,
+                "end_lineno": 15,
                 "left": {
                   "ast_class": "UnaryOp",
                   "col_offset": 11,
                   "end_col_offset": 30,
-                  "end_lineno": 9,
-                  "lineno": 9,
+                  "end_lineno": 15,
+                  "lineno": 15,
                   "op": {
                     "ast_class": "USub"
                   },
@@ -413,12 +857,12 @@
                       "ast_class": "Load"
                     },
                     "end_col_offset": 30,
-                    "end_lineno": 9,
+                    "end_lineno": 15,
                     "id": "taux_contribution",
-                    "lineno": 9
+                    "lineno": 15
                   }
                 },
-                "lineno": 9,
+                "lineno": 15,
                 "op": {
                   "ast_class": "Mult"
                 },
@@ -429,12 +873,12 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 62,
-                  "end_lineno": 9,
+                  "end_lineno": 15,
                   "id": "assiette_cotisations_sociales",
-                  "lineno": 9
+                  "lineno": 15
                 }
               },
-              "lineno": 9,
+              "lineno": 15,
               "op": {
                 "ast_class": "Mult"
               },
@@ -445,9 +889,9 @@
                   "ast_class": "Load"
                 },
                 "end_col_offset": 93,
-                "end_lineno": 9,
+                "end_lineno": 15,
                 "id": "redevable_taxe_apprentissage",
-                "lineno": 9
+                "lineno": 15
               }
             }
           }
@@ -455,24 +899,2602 @@
         "col_offset": 0,
         "decorator_list": [],
         "end_col_offset": 93,
-        "end_lineno": 9,
+        "end_lineno": 15,
         "lineno": 1,
-        "name": "formula_2010_01_01"
+        "name": "formula_2009_01_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "parameters": [
-        "cotsoc.contribution_supplementaire_apprentissage.plus_de_250"
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_1_et_2pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_2_et_3pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_moins_de_1pc"
       ],
-      "source_code": "def formula_2010_01_01(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    cotsoc_params = parameters(period).cotsoc\n\n    taux_contribution = (effectif_entreprise >= 250) * cotsoc_params.contribution_supplementaire_apprentissage.plus_de_250\n    return - taux_contribution * assiette_cotisations_sociales * redevable_taxe_apprentissage\n",
-      "start_line_number": 107,
-      "stop_line_number": 116,
+      "source_code": "def formula_2009_01_01(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    ratio_alternants = individu('ratio_alternants', period)\n    cotsoc_params = parameters(period).cotsoc.apprentissage_contribution_supplementaire\n\n    taxe_due = (effectif_entreprise >= 250) * (ratio_alternants < .03)\n    taux_conditionnel = (\n        (ratio_alternants < .01) * cotsoc_params.plus_de_250_moins_de_1pc\n        + (.01 <= ratio_alternants) * (ratio_alternants < .02) * cotsoc_params.plus_de_250_entre_1_et_2pc\n        + (.02 <= ratio_alternants) * (ratio_alternants < .03) * cotsoc_params.plus_de_250_entre_2_et_3pc\n        )\n    taux_contribution = taux_conditionnel * taxe_due\n    return - taux_contribution * assiette_cotisations_sociales * redevable_taxe_apprentissage\n",
+      "start_line_number": 146,
+      "stop_line_number": 161,
       "variables": [
         "assiette_cotisations_sociales",
         "effectif_entreprise",
+        "ratio_alternants",
         "redevable_taxe_apprentissage"
       ]
     },
-    "2013-01-01": {
+    "2011-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 31,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 33,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 41,
+              "end_col_offset": 51,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 83,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 2,
+                "id": "redevable_taxe_apprentissage",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 44,
+                  "end_col_offset": 74,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "redevable_taxe_apprentissage"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 76,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 82,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 35,
+              "end_col_offset": 83,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 35,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 3,
+                "id": "assiette_cotisations_sociales",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 76,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "assiette_cotisations_sociales"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 85,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 3,
+                "id": "individu",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 4,
+                "id": "effectif_entreprise",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 56,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "effectif_entreprise"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 58,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 64,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 26,
+              "end_col_offset": 65,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 4,
+                "id": "individu",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 5,
+                "id": "ratio_alternants",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 32,
+                  "end_col_offset": 50,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "ratio_alternants"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 52,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 23,
+              "end_col_offset": 59,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 23,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 87,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 6,
+                "id": "cotsoc_params",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "apprentissage_contribution_supplementaire",
+              "col_offset": 20,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 87,
+              "end_lineno": 6,
+              "lineno": 6,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "cotsoc",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 6,
+                "lineno": 6,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 31,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 37,
+                      "end_lineno": 6,
+                      "id": "period",
+                      "lineno": 6
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 20,
+                  "end_col_offset": 38,
+                  "end_lineno": 6,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 20,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 6,
+                    "id": "parameters",
+                    "lineno": 6
+                  },
+                  "keywords": [],
+                  "lineno": 6
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 70,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 8,
+                "id": "taxe_due",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 15,
+              "end_col_offset": 70,
+              "end_lineno": 8,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 16,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 39,
+                    "end_col_offset": 42,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": 250
+                  }
+                ],
+                "end_col_offset": 42,
+                "end_lineno": 8,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 35,
+                  "end_lineno": 8,
+                  "id": "effectif_entreprise",
+                  "lineno": 8
+                },
+                "lineno": 8,
+                "ops": [
+                  {
+                    "ast_class": "GtE"
+                  }
+                ]
+              },
+              "lineno": 8,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 47,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 66,
+                    "end_col_offset": 69,
+                    "end_lineno": 8,
+                    "lineno": 8,
+                    "value": 0.04
+                  }
+                ],
+                "end_col_offset": 69,
+                "end_lineno": 8,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 8,
+                  "id": "ratio_alternants",
+                  "lineno": 8
+                },
+                "lineno": 8,
+                "ops": [
+                  {
+                    "ast_class": "Lt"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 15,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 9,
+                "id": "taux_conditionnel",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 105,
+              "end_lineno": 14,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 105,
+                "end_lineno": 13,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 105,
+                  "end_lineno": 12,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 106,
+                    "end_lineno": 11,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 106,
+                      "end_lineno": 10,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 8,
+                        "end_col_offset": 64,
+                        "end_lineno": 10,
+                        "left": {
+                          "ast_class": "Compare",
+                          "col_offset": 9,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 32,
+                              "end_col_offset": 36,
+                              "end_lineno": 10,
+                              "lineno": 10,
+                              "value": 2000
+                            }
+                          ],
+                          "end_col_offset": 36,
+                          "end_lineno": 10,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 9,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 28,
+                            "end_lineno": 10,
+                            "id": "effectif_entreprise",
+                            "lineno": 10
+                          },
+                          "lineno": 10,
+                          "ops": [
+                            {
+                              "ast_class": "GtE"
+                            }
+                          ]
+                        },
+                        "lineno": 10,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 41,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 60,
+                              "end_col_offset": 63,
+                              "end_lineno": 10,
+                              "lineno": 10,
+                              "value": 0.01
+                            }
+                          ],
+                          "end_col_offset": 63,
+                          "end_lineno": 10,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 41,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 57,
+                            "end_lineno": 10,
+                            "id": "ratio_alternants",
+                            "lineno": 10
+                          },
+                          "lineno": 10,
+                          "ops": [
+                            {
+                              "ast_class": "Lt"
+                            }
+                          ]
+                        }
+                      },
+                      "lineno": 10,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Attribute",
+                        "attr": "plus_de_2000_moins_de_1pc",
+                        "col_offset": 67,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 106,
+                        "end_lineno": 10,
+                        "lineno": 10,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 67,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 80,
+                          "end_lineno": 10,
+                          "id": "cotsoc_params",
+                          "lineno": 10
+                        }
+                      }
+                    },
+                    "lineno": 10,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 106,
+                      "end_lineno": 11,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 10,
+                        "end_col_offset": 65,
+                        "end_lineno": 11,
+                        "left": {
+                          "ast_class": "Compare",
+                          "col_offset": 11,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 33,
+                              "end_col_offset": 37,
+                              "end_lineno": 11,
+                              "lineno": 11,
+                              "value": 2000
+                            }
+                          ],
+                          "end_col_offset": 37,
+                          "end_lineno": 11,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 11,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 30,
+                            "end_lineno": 11,
+                            "id": "effectif_entreprise",
+                            "lineno": 11
+                          },
+                          "lineno": 11,
+                          "ops": [
+                            {
+                              "ast_class": "Lt"
+                            }
+                          ]
+                        },
+                        "lineno": 11,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 42,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 61,
+                              "end_col_offset": 64,
+                              "end_lineno": 11,
+                              "lineno": 11,
+                              "value": 0.01
+                            }
+                          ],
+                          "end_col_offset": 64,
+                          "end_lineno": 11,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 42,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 58,
+                            "end_lineno": 11,
+                            "id": "ratio_alternants",
+                            "lineno": 11
+                          },
+                          "lineno": 11,
+                          "ops": [
+                            {
+                              "ast_class": "Lt"
+                            }
+                          ]
+                        }
+                      },
+                      "lineno": 11,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Attribute",
+                        "attr": "plus_de_250_moins_de_1pc",
+                        "col_offset": 68,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 106,
+                        "end_lineno": 11,
+                        "lineno": 11,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 68,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 81,
+                          "end_lineno": 11,
+                          "id": "cotsoc_params",
+                          "lineno": 11
+                        }
+                      }
+                    }
+                  },
+                  "lineno": 10,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 105,
+                    "end_lineno": 12,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 62,
+                      "end_lineno": 12,
+                      "left": {
+                        "ast_class": "Compare",
+                        "col_offset": 11,
+                        "comparators": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 18,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 34,
+                            "end_lineno": 12,
+                            "id": "ratio_alternants",
+                            "lineno": 12
+                          }
+                        ],
+                        "end_col_offset": 34,
+                        "end_lineno": 12,
+                        "left": {
+                          "ast_class": "Constant",
+                          "col_offset": 11,
+                          "end_col_offset": 14,
+                          "end_lineno": 12,
+                          "lineno": 12,
+                          "value": 0.01
+                        },
+                        "lineno": 12,
+                        "ops": [
+                          {
+                            "ast_class": "LtE"
+                          }
+                        ]
+                      },
+                      "lineno": 12,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Compare",
+                        "col_offset": 39,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 58,
+                            "end_col_offset": 61,
+                            "end_lineno": 12,
+                            "lineno": 12,
+                            "value": 0.02
+                          }
+                        ],
+                        "end_col_offset": 61,
+                        "end_lineno": 12,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 39,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 55,
+                          "end_lineno": 12,
+                          "id": "ratio_alternants",
+                          "lineno": 12
+                        },
+                        "lineno": 12,
+                        "ops": [
+                          {
+                            "ast_class": "Lt"
+                          }
+                        ]
+                      }
+                    },
+                    "lineno": 12,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Attribute",
+                      "attr": "plus_de_250_entre_1_et_2pc",
+                      "col_offset": 65,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 105,
+                      "end_lineno": 12,
+                      "lineno": 12,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 65,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 78,
+                        "end_lineno": 12,
+                        "id": "cotsoc_params",
+                        "lineno": 12
+                      }
+                    }
+                  }
+                },
+                "lineno": 10,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 105,
+                  "end_lineno": 13,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 62,
+                    "end_lineno": 13,
+                    "left": {
+                      "ast_class": "Compare",
+                      "col_offset": 11,
+                      "comparators": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 18,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 34,
+                          "end_lineno": 13,
+                          "id": "ratio_alternants",
+                          "lineno": 13
+                        }
+                      ],
+                      "end_col_offset": 34,
+                      "end_lineno": 13,
+                      "left": {
+                        "ast_class": "Constant",
+                        "col_offset": 11,
+                        "end_col_offset": 14,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": 0.02
+                      },
+                      "lineno": 13,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    },
+                    "lineno": 13,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 39,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 58,
+                          "end_col_offset": 61,
+                          "end_lineno": 13,
+                          "lineno": 13,
+                          "value": 0.03
+                        }
+                      ],
+                      "end_col_offset": 61,
+                      "end_lineno": 13,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 39,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 55,
+                        "end_lineno": 13,
+                        "id": "ratio_alternants",
+                        "lineno": 13
+                      },
+                      "lineno": 13,
+                      "ops": [
+                        {
+                          "ast_class": "Lt"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 13,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "plus_de_250_entre_2_et_3pc",
+                    "col_offset": 65,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 105,
+                    "end_lineno": 13,
+                    "lineno": 13,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 65,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 78,
+                      "end_lineno": 13,
+                      "id": "cotsoc_params",
+                      "lineno": 13
+                    }
+                  }
+                }
+              },
+              "lineno": 10,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 105,
+                "end_lineno": 14,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 62,
+                  "end_lineno": 14,
+                  "left": {
+                    "ast_class": "Compare",
+                    "col_offset": 11,
+                    "comparators": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 18,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 34,
+                        "end_lineno": 14,
+                        "id": "ratio_alternants",
+                        "lineno": 14
+                      }
+                    ],
+                    "end_col_offset": 34,
+                    "end_lineno": 14,
+                    "left": {
+                      "ast_class": "Constant",
+                      "col_offset": 11,
+                      "end_col_offset": 14,
+                      "end_lineno": 14,
+                      "lineno": 14,
+                      "value": 0.03
+                    },
+                    "lineno": 14,
+                    "ops": [
+                      {
+                        "ast_class": "LtE"
+                      }
+                    ]
+                  },
+                  "lineno": 14,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 39,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 58,
+                        "end_col_offset": 61,
+                        "end_lineno": 14,
+                        "lineno": 14,
+                        "value": 0.04
+                      }
+                    ],
+                    "end_col_offset": 61,
+                    "end_lineno": 14,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 39,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 55,
+                      "end_lineno": 14,
+                      "id": "ratio_alternants",
+                      "lineno": 14
+                    },
+                    "lineno": 14,
+                    "ops": [
+                      {
+                        "ast_class": "Lt"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 14,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Attribute",
+                  "attr": "plus_de_250_entre_3_et_4pc",
+                  "col_offset": 65,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 105,
+                  "end_lineno": 14,
+                  "lineno": 14,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 65,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 78,
+                    "end_lineno": 14,
+                    "id": "cotsoc_params",
+                    "lineno": 14
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 52,
+            "end_lineno": 16,
+            "lineno": 16,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 16,
+                "id": "taux_contribution",
+                "lineno": 16
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 24,
+              "end_col_offset": 52,
+              "end_lineno": 16,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 24,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 41,
+                "end_lineno": 16,
+                "id": "taux_conditionnel",
+                "lineno": 16
+              },
+              "lineno": 16,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 44,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 52,
+                "end_lineno": 16,
+                "id": "taxe_due",
+                "lineno": 16
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 93,
+            "end_lineno": 17,
+            "lineno": 17,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 93,
+              "end_lineno": 17,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 62,
+                "end_lineno": 17,
+                "left": {
+                  "ast_class": "UnaryOp",
+                  "col_offset": 11,
+                  "end_col_offset": 30,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "op": {
+                    "ast_class": "USub"
+                  },
+                  "operand": {
+                    "ast_class": "Name",
+                    "col_offset": 13,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 17,
+                    "id": "taux_contribution",
+                    "lineno": 17
+                  }
+                },
+                "lineno": 17,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 33,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 62,
+                  "end_lineno": 17,
+                  "id": "assiette_cotisations_sociales",
+                  "lineno": 17
+                }
+              },
+              "lineno": 17,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 65,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 93,
+                "end_lineno": 17,
+                "id": "redevable_taxe_apprentissage",
+                "lineno": 17
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 93,
+        "end_lineno": 17,
+        "lineno": 1,
+        "name": "formula_2011_01_01"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "parameters": [
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_2000_moins_de_1pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_1_et_2pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_2_et_3pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_3_et_4pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_moins_de_1pc"
+      ],
+      "source_code": "def formula_2011_01_01(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    ratio_alternants = individu('ratio_alternants', period)\n    cotsoc_params = parameters(period).cotsoc.apprentissage_contribution_supplementaire\n\n    taxe_due = (effectif_entreprise >= 250) * (ratio_alternants < .04)\n    taux_conditionnel = (\n        (effectif_entreprise >= 2000) * (ratio_alternants < .01) * cotsoc_params.plus_de_2000_moins_de_1pc\n        + (effectif_entreprise < 2000) * (ratio_alternants < .01) * cotsoc_params.plus_de_250_moins_de_1pc\n        + (.01 <= ratio_alternants) * (ratio_alternants < .02) * cotsoc_params.plus_de_250_entre_1_et_2pc\n        + (.02 <= ratio_alternants) * (ratio_alternants < .03) * cotsoc_params.plus_de_250_entre_2_et_3pc\n        + (.03 <= ratio_alternants) * (ratio_alternants < .04) * cotsoc_params.plus_de_250_entre_3_et_4pc\n        )\n    taux_contribution = taux_conditionnel * taxe_due\n    return - taux_contribution * assiette_cotisations_sociales * redevable_taxe_apprentissage\n",
+      "start_line_number": 128,
+      "stop_line_number": 145,
+      "variables": [
+        "assiette_cotisations_sociales",
+        "effectif_entreprise",
+        "ratio_alternants",
+        "redevable_taxe_apprentissage"
+      ]
+    },
+    "2012-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 23,
+              "end_col_offset": 31,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 33,
+              "end_col_offset": 39,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 41,
+              "end_col_offset": 51,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 83,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 2,
+                "id": "redevable_taxe_apprentissage",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 44,
+                  "end_col_offset": 74,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": "redevable_taxe_apprentissage"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 76,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 82,
+                  "end_lineno": 2,
+                  "id": "period",
+                  "lineno": 2
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 35,
+              "end_col_offset": 83,
+              "end_lineno": 2,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 35,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 43,
+                "end_lineno": 2,
+                "id": "individu",
+                "lineno": 2
+              },
+              "keywords": [],
+              "lineno": 2
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 3,
+                "id": "assiette_cotisations_sociales",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 76,
+                  "end_lineno": 3,
+                  "lineno": 3,
+                  "value": "assiette_cotisations_sociales"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 3,
+                  "id": "period",
+                  "lineno": 3
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 85,
+              "end_lineno": 3,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 3,
+                "id": "individu",
+                "lineno": 3
+              },
+              "keywords": [],
+              "lineno": 3
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 4,
+            "lineno": 4,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 23,
+                "end_lineno": 4,
+                "id": "effectif_entreprise",
+                "lineno": 4
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 35,
+                  "end_col_offset": 56,
+                  "end_lineno": 4,
+                  "lineno": 4,
+                  "value": "effectif_entreprise"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 58,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 64,
+                  "end_lineno": 4,
+                  "id": "period",
+                  "lineno": 4
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 26,
+              "end_col_offset": 65,
+              "end_lineno": 4,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 26,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 34,
+                "end_lineno": 4,
+                "id": "individu",
+                "lineno": 4
+              },
+              "keywords": [],
+              "lineno": 4
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 59,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 20,
+                "end_lineno": 5,
+                "id": "ratio_alternants",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 32,
+                  "end_col_offset": 50,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "ratio_alternants"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 52,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 58,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 23,
+              "end_col_offset": 59,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 23,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 31,
+                "end_lineno": 5,
+                "id": "individu",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 85,
+            "end_lineno": 6,
+            "lineno": 6,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 33,
+                "end_lineno": 6,
+                "id": "salarie_regime_alsace_moselle",
+                "lineno": 6
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 45,
+                  "end_col_offset": 76,
+                  "end_lineno": 6,
+                  "lineno": 6,
+                  "value": "salarie_regime_alsace_moselle"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 78,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 84,
+                  "end_lineno": 6,
+                  "id": "period",
+                  "lineno": 6
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 36,
+              "end_col_offset": 85,
+              "end_lineno": 6,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 36,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 44,
+                "end_lineno": 6,
+                "id": "individu",
+                "lineno": 6
+              },
+              "keywords": [],
+              "lineno": 6
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 87,
+            "end_lineno": 7,
+            "lineno": 7,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 17,
+                "end_lineno": 7,
+                "id": "cotsoc_params",
+                "lineno": 7
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "apprentissage_contribution_supplementaire",
+              "col_offset": 20,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 87,
+              "end_lineno": 7,
+              "lineno": 7,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "cotsoc",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 31,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 37,
+                      "end_lineno": 7,
+                      "id": "period",
+                      "lineno": 7
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 20,
+                  "end_col_offset": 38,
+                  "end_lineno": 7,
+                  "func": {
+                    "ast_class": "Name",
+                    "col_offset": 20,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 7,
+                    "id": "parameters",
+                    "lineno": 7
+                  },
+                  "keywords": [],
+                  "lineno": 7
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 132,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 9,
+                "id": "multiplier",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 17,
+              "end_col_offset": 132,
+              "end_lineno": 9,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 18,
+                "end_col_offset": 93,
+                "end_lineno": 9,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 18,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 47,
+                  "end_lineno": 9,
+                  "id": "salarie_regime_alsace_moselle",
+                  "lineno": 9
+                },
+                "lineno": 9,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Attribute",
+                  "attr": "multiplicateur_alsace_moselle",
+                  "col_offset": 50,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 93,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 50,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 63,
+                    "end_lineno": 9,
+                    "id": "cotsoc_params",
+                    "lineno": 9
+                  }
+                }
+              },
+              "lineno": 9,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 98,
+                "end_col_offset": 131,
+                "end_lineno": 9,
+                "left": {
+                  "ast_class": "Constant",
+                  "col_offset": 98,
+                  "end_col_offset": 99,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": 1
+                },
+                "lineno": 9,
+                "op": {
+                  "ast_class": "Sub"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 102,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 131,
+                  "end_lineno": 9,
+                  "id": "salarie_regime_alsace_moselle",
+                  "lineno": 9
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 70,
+            "end_lineno": 11,
+            "lineno": 11,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 12,
+                "end_lineno": 11,
+                "id": "taxe_due",
+                "lineno": 11
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 15,
+              "end_col_offset": 70,
+              "end_lineno": 11,
+              "left": {
+                "ast_class": "Compare",
+                "col_offset": 16,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 39,
+                    "end_col_offset": 42,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": 250
+                  }
+                ],
+                "end_col_offset": 42,
+                "end_lineno": 11,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 35,
+                  "end_lineno": 11,
+                  "id": "effectif_entreprise",
+                  "lineno": 11
+                },
+                "lineno": 11,
+                "ops": [
+                  {
+                    "ast_class": "GtE"
+                  }
+                ]
+              },
+              "lineno": 11,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Compare",
+                "col_offset": 47,
+                "comparators": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 66,
+                    "end_col_offset": 69,
+                    "end_lineno": 11,
+                    "lineno": 11,
+                    "value": 0.04
+                  }
+                ],
+                "end_col_offset": 69,
+                "end_lineno": 11,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 47,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 63,
+                  "end_lineno": 11,
+                  "id": "ratio_alternants",
+                  "lineno": 11
+                },
+                "lineno": 11,
+                "ops": [
+                  {
+                    "ast_class": "Lt"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 9,
+            "end_lineno": 18,
+            "lineno": 12,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 12,
+                "id": "taux_conditionnel",
+                "lineno": 12
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 8,
+              "end_col_offset": 105,
+              "end_lineno": 17,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 8,
+                "end_col_offset": 105,
+                "end_lineno": 16,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 8,
+                  "end_col_offset": 105,
+                  "end_lineno": 15,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 8,
+                    "end_col_offset": 106,
+                    "end_lineno": 14,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 8,
+                      "end_col_offset": 106,
+                      "end_lineno": 13,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 8,
+                        "end_col_offset": 64,
+                        "end_lineno": 13,
+                        "left": {
+                          "ast_class": "Compare",
+                          "col_offset": 9,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 32,
+                              "end_col_offset": 36,
+                              "end_lineno": 13,
+                              "lineno": 13,
+                              "value": 2000
+                            }
+                          ],
+                          "end_col_offset": 36,
+                          "end_lineno": 13,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 9,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 28,
+                            "end_lineno": 13,
+                            "id": "effectif_entreprise",
+                            "lineno": 13
+                          },
+                          "lineno": 13,
+                          "ops": [
+                            {
+                              "ast_class": "GtE"
+                            }
+                          ]
+                        },
+                        "lineno": 13,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 41,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 60,
+                              "end_col_offset": 63,
+                              "end_lineno": 13,
+                              "lineno": 13,
+                              "value": 0.01
+                            }
+                          ],
+                          "end_col_offset": 63,
+                          "end_lineno": 13,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 41,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 57,
+                            "end_lineno": 13,
+                            "id": "ratio_alternants",
+                            "lineno": 13
+                          },
+                          "lineno": 13,
+                          "ops": [
+                            {
+                              "ast_class": "Lt"
+                            }
+                          ]
+                        }
+                      },
+                      "lineno": 13,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Attribute",
+                        "attr": "plus_de_2000_moins_de_1pc",
+                        "col_offset": 67,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 106,
+                        "end_lineno": 13,
+                        "lineno": 13,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 67,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 80,
+                          "end_lineno": 13,
+                          "id": "cotsoc_params",
+                          "lineno": 13
+                        }
+                      }
+                    },
+                    "lineno": 13,
+                    "op": {
+                      "ast_class": "Add"
+                    },
+                    "right": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 106,
+                      "end_lineno": 14,
+                      "left": {
+                        "ast_class": "BinOp",
+                        "col_offset": 10,
+                        "end_col_offset": 65,
+                        "end_lineno": 14,
+                        "left": {
+                          "ast_class": "Compare",
+                          "col_offset": 11,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 33,
+                              "end_col_offset": 37,
+                              "end_lineno": 14,
+                              "lineno": 14,
+                              "value": 2000
+                            }
+                          ],
+                          "end_col_offset": 37,
+                          "end_lineno": 14,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 11,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 30,
+                            "end_lineno": 14,
+                            "id": "effectif_entreprise",
+                            "lineno": 14
+                          },
+                          "lineno": 14,
+                          "ops": [
+                            {
+                              "ast_class": "Lt"
+                            }
+                          ]
+                        },
+                        "lineno": 14,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Compare",
+                          "col_offset": 42,
+                          "comparators": [
+                            {
+                              "ast_class": "Constant",
+                              "col_offset": 61,
+                              "end_col_offset": 64,
+                              "end_lineno": 14,
+                              "lineno": 14,
+                              "value": 0.01
+                            }
+                          ],
+                          "end_col_offset": 64,
+                          "end_lineno": 14,
+                          "left": {
+                            "ast_class": "Name",
+                            "col_offset": 42,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 58,
+                            "end_lineno": 14,
+                            "id": "ratio_alternants",
+                            "lineno": 14
+                          },
+                          "lineno": 14,
+                          "ops": [
+                            {
+                              "ast_class": "Lt"
+                            }
+                          ]
+                        }
+                      },
+                      "lineno": 14,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Attribute",
+                        "attr": "plus_de_250_moins_de_1pc",
+                        "col_offset": 68,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 106,
+                        "end_lineno": 14,
+                        "lineno": 14,
+                        "value": {
+                          "ast_class": "Name",
+                          "col_offset": 68,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 81,
+                          "end_lineno": 14,
+                          "id": "cotsoc_params",
+                          "lineno": 14
+                        }
+                      }
+                    }
+                  },
+                  "lineno": 13,
+                  "op": {
+                    "ast_class": "Add"
+                  },
+                  "right": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 105,
+                    "end_lineno": 15,
+                    "left": {
+                      "ast_class": "BinOp",
+                      "col_offset": 10,
+                      "end_col_offset": 62,
+                      "end_lineno": 15,
+                      "left": {
+                        "ast_class": "Compare",
+                        "col_offset": 11,
+                        "comparators": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 18,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 34,
+                            "end_lineno": 15,
+                            "id": "ratio_alternants",
+                            "lineno": 15
+                          }
+                        ],
+                        "end_col_offset": 34,
+                        "end_lineno": 15,
+                        "left": {
+                          "ast_class": "Constant",
+                          "col_offset": 11,
+                          "end_col_offset": 14,
+                          "end_lineno": 15,
+                          "lineno": 15,
+                          "value": 0.01
+                        },
+                        "lineno": 15,
+                        "ops": [
+                          {
+                            "ast_class": "LtE"
+                          }
+                        ]
+                      },
+                      "lineno": 15,
+                      "op": {
+                        "ast_class": "Mult"
+                      },
+                      "right": {
+                        "ast_class": "Compare",
+                        "col_offset": 39,
+                        "comparators": [
+                          {
+                            "ast_class": "Constant",
+                            "col_offset": 58,
+                            "end_col_offset": 61,
+                            "end_lineno": 15,
+                            "lineno": 15,
+                            "value": 0.02
+                          }
+                        ],
+                        "end_col_offset": 61,
+                        "end_lineno": 15,
+                        "left": {
+                          "ast_class": "Name",
+                          "col_offset": 39,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 55,
+                          "end_lineno": 15,
+                          "id": "ratio_alternants",
+                          "lineno": 15
+                        },
+                        "lineno": 15,
+                        "ops": [
+                          {
+                            "ast_class": "Lt"
+                          }
+                        ]
+                      }
+                    },
+                    "lineno": 15,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Attribute",
+                      "attr": "plus_de_250_entre_1_et_2pc",
+                      "col_offset": 65,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 105,
+                      "end_lineno": 15,
+                      "lineno": 15,
+                      "value": {
+                        "ast_class": "Name",
+                        "col_offset": 65,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 78,
+                        "end_lineno": 15,
+                        "id": "cotsoc_params",
+                        "lineno": 15
+                      }
+                    }
+                  }
+                },
+                "lineno": 13,
+                "op": {
+                  "ast_class": "Add"
+                },
+                "right": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 105,
+                  "end_lineno": 16,
+                  "left": {
+                    "ast_class": "BinOp",
+                    "col_offset": 10,
+                    "end_col_offset": 62,
+                    "end_lineno": 16,
+                    "left": {
+                      "ast_class": "Compare",
+                      "col_offset": 11,
+                      "comparators": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 18,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 34,
+                          "end_lineno": 16,
+                          "id": "ratio_alternants",
+                          "lineno": 16
+                        }
+                      ],
+                      "end_col_offset": 34,
+                      "end_lineno": 16,
+                      "left": {
+                        "ast_class": "Constant",
+                        "col_offset": 11,
+                        "end_col_offset": 14,
+                        "end_lineno": 16,
+                        "lineno": 16,
+                        "value": 0.02
+                      },
+                      "lineno": 16,
+                      "ops": [
+                        {
+                          "ast_class": "LtE"
+                        }
+                      ]
+                    },
+                    "lineno": 16,
+                    "op": {
+                      "ast_class": "Mult"
+                    },
+                    "right": {
+                      "ast_class": "Compare",
+                      "col_offset": 39,
+                      "comparators": [
+                        {
+                          "ast_class": "Constant",
+                          "col_offset": 58,
+                          "end_col_offset": 61,
+                          "end_lineno": 16,
+                          "lineno": 16,
+                          "value": 0.03
+                        }
+                      ],
+                      "end_col_offset": 61,
+                      "end_lineno": 16,
+                      "left": {
+                        "ast_class": "Name",
+                        "col_offset": 39,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 55,
+                        "end_lineno": 16,
+                        "id": "ratio_alternants",
+                        "lineno": 16
+                      },
+                      "lineno": 16,
+                      "ops": [
+                        {
+                          "ast_class": "Lt"
+                        }
+                      ]
+                    }
+                  },
+                  "lineno": 16,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Attribute",
+                    "attr": "plus_de_250_entre_2_et_3pc",
+                    "col_offset": 65,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 105,
+                    "end_lineno": 16,
+                    "lineno": 16,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 65,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 78,
+                      "end_lineno": 16,
+                      "id": "cotsoc_params",
+                      "lineno": 16
+                    }
+                  }
+                }
+              },
+              "lineno": 13,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "ast_class": "BinOp",
+                "col_offset": 10,
+                "end_col_offset": 105,
+                "end_lineno": 17,
+                "left": {
+                  "ast_class": "BinOp",
+                  "col_offset": 10,
+                  "end_col_offset": 62,
+                  "end_lineno": 17,
+                  "left": {
+                    "ast_class": "Compare",
+                    "col_offset": 11,
+                    "comparators": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 18,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 34,
+                        "end_lineno": 17,
+                        "id": "ratio_alternants",
+                        "lineno": 17
+                      }
+                    ],
+                    "end_col_offset": 34,
+                    "end_lineno": 17,
+                    "left": {
+                      "ast_class": "Constant",
+                      "col_offset": 11,
+                      "end_col_offset": 14,
+                      "end_lineno": 17,
+                      "lineno": 17,
+                      "value": 0.03
+                    },
+                    "lineno": 17,
+                    "ops": [
+                      {
+                        "ast_class": "LtE"
+                      }
+                    ]
+                  },
+                  "lineno": 17,
+                  "op": {
+                    "ast_class": "Mult"
+                  },
+                  "right": {
+                    "ast_class": "Compare",
+                    "col_offset": 39,
+                    "comparators": [
+                      {
+                        "ast_class": "Constant",
+                        "col_offset": 58,
+                        "end_col_offset": 61,
+                        "end_lineno": 17,
+                        "lineno": 17,
+                        "value": 0.04
+                      }
+                    ],
+                    "end_col_offset": 61,
+                    "end_lineno": 17,
+                    "left": {
+                      "ast_class": "Name",
+                      "col_offset": 39,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 55,
+                      "end_lineno": 17,
+                      "id": "ratio_alternants",
+                      "lineno": 17
+                    },
+                    "lineno": 17,
+                    "ops": [
+                      {
+                        "ast_class": "Lt"
+                      }
+                    ]
+                  }
+                },
+                "lineno": 17,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Attribute",
+                  "attr": "plus_de_250_entre_3_et_4pc",
+                  "col_offset": 65,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 105,
+                  "end_lineno": 17,
+                  "lineno": 17,
+                  "value": {
+                    "ast_class": "Name",
+                    "col_offset": 65,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 78,
+                    "end_lineno": 17,
+                    "id": "cotsoc_params",
+                    "lineno": 17
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 65,
+            "end_lineno": 19,
+            "lineno": 19,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 21,
+                "end_lineno": 19,
+                "id": "taux_contribution",
+                "lineno": 19
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 24,
+              "end_col_offset": 65,
+              "end_lineno": 19,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 24,
+                "end_col_offset": 52,
+                "end_lineno": 19,
+                "left": {
+                  "ast_class": "Name",
+                  "col_offset": 24,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 41,
+                  "end_lineno": 19,
+                  "id": "taux_conditionnel",
+                  "lineno": 19
+                },
+                "lineno": 19,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 44,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 52,
+                  "end_lineno": 19,
+                  "id": "taxe_due",
+                  "lineno": 19
+                }
+              },
+              "lineno": 19,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 55,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 65,
+                "end_lineno": 19,
+                "id": "multiplier",
+                "lineno": 19
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 93,
+            "end_lineno": 20,
+            "lineno": 20,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 93,
+              "end_lineno": 20,
+              "left": {
+                "ast_class": "BinOp",
+                "col_offset": 11,
+                "end_col_offset": 62,
+                "end_lineno": 20,
+                "left": {
+                  "ast_class": "UnaryOp",
+                  "col_offset": 11,
+                  "end_col_offset": 30,
+                  "end_lineno": 20,
+                  "lineno": 20,
+                  "op": {
+                    "ast_class": "USub"
+                  },
+                  "operand": {
+                    "ast_class": "Name",
+                    "col_offset": 13,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 30,
+                    "end_lineno": 20,
+                    "id": "taux_contribution",
+                    "lineno": 20
+                  }
+                },
+                "lineno": 20,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Name",
+                  "col_offset": 33,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 62,
+                  "end_lineno": 20,
+                  "id": "assiette_cotisations_sociales",
+                  "lineno": 20
+                }
+              },
+              "lineno": 20,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 65,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 93,
+                "end_lineno": 20,
+                "id": "redevable_taxe_apprentissage",
+                "lineno": 20
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 93,
+        "end_lineno": 20,
+        "lineno": 1,
+        "name": "formula_2012_01_01"
+      },
+      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "parameters": [
+        "cotsoc.apprentissage_contribution_supplementaire.multiplicateur_alsace_moselle",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_2000_moins_de_1pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_1_et_2pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_2_et_3pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_3_et_4pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_moins_de_1pc"
+      ],
+      "source_code": "def formula_2012_01_01(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    ratio_alternants = individu('ratio_alternants', period)\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n    cotsoc_params = parameters(period).cotsoc.apprentissage_contribution_supplementaire\n\n    multiplier = (salarie_regime_alsace_moselle * cotsoc_params.multiplicateur_alsace_moselle) + (1 - salarie_regime_alsace_moselle)\n\n    taxe_due = (effectif_entreprise >= 250) * (ratio_alternants < .04)\n    taux_conditionnel = (\n        (effectif_entreprise >= 2000) * (ratio_alternants < .01) * cotsoc_params.plus_de_2000_moins_de_1pc\n        + (effectif_entreprise < 2000) * (ratio_alternants < .01) * cotsoc_params.plus_de_250_moins_de_1pc\n        + (.01 <= ratio_alternants) * (ratio_alternants < .02) * cotsoc_params.plus_de_250_entre_1_et_2pc\n        + (.02 <= ratio_alternants) * (ratio_alternants < .03) * cotsoc_params.plus_de_250_entre_2_et_3pc\n        + (.03 <= ratio_alternants) * (ratio_alternants < .04) * cotsoc_params.plus_de_250_entre_3_et_4pc\n        )\n    taux_contribution = taux_conditionnel * taxe_due * multiplier\n    return - taux_contribution * assiette_cotisations_sociales * redevable_taxe_apprentissage\n",
+      "start_line_number": 107,
+      "stop_line_number": 127,
+      "variables": [
+        "assiette_cotisations_sociales",
+        "effectif_entreprise",
+        "ratio_alternants",
+        "redevable_taxe_apprentissage",
+        "salarie_regime_alsace_moselle"
+      ]
+    },
+    "2015-01-01": {
       "ast": {
         "args": {
           "args": [
@@ -812,9 +3834,9 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 45,
-            "end_lineno": 8,
-            "lineno": 8,
+            "end_col_offset": 87,
+            "end_lineno": 7,
+            "lineno": 7,
             "targets": [
               {
                 "ast_class": "Name",
@@ -823,59 +3845,70 @@
                   "ast_class": "Store"
                 },
                 "end_col_offset": 17,
-                "end_lineno": 8,
+                "end_lineno": 7,
                 "id": "cotsoc_params",
-                "lineno": 8
+                "lineno": 7
               }
             ],
             "value": {
               "ast_class": "Attribute",
-              "attr": "cotsoc",
+              "attr": "apprentissage_contribution_supplementaire",
               "col_offset": 20,
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 45,
-              "end_lineno": 8,
-              "lineno": 8,
+              "end_col_offset": 87,
+              "end_lineno": 7,
+              "lineno": 7,
               "value": {
-                "args": [
-                  {
+                "ast_class": "Attribute",
+                "attr": "cotsoc",
+                "col_offset": 20,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 45,
+                "end_lineno": 7,
+                "lineno": 7,
+                "value": {
+                  "args": [
+                    {
+                      "ast_class": "Name",
+                      "col_offset": 31,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 37,
+                      "end_lineno": 7,
+                      "id": "period",
+                      "lineno": 7
+                    }
+                  ],
+                  "ast_class": "Call",
+                  "col_offset": 20,
+                  "end_col_offset": 38,
+                  "end_lineno": 7,
+                  "func": {
                     "ast_class": "Name",
-                    "col_offset": 31,
+                    "col_offset": 20,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 37,
-                    "end_lineno": 8,
-                    "id": "period",
-                    "lineno": 8
-                  }
-                ],
-                "ast_class": "Call",
-                "col_offset": 20,
-                "end_col_offset": 38,
-                "end_lineno": 8,
-                "func": {
-                  "ast_class": "Name",
-                  "col_offset": 20,
-                  "ctx": {
-                    "ast_class": "Load"
+                    "end_col_offset": 30,
+                    "end_lineno": 7,
+                    "id": "parameters",
+                    "lineno": 7
                   },
-                  "end_col_offset": 30,
-                  "end_lineno": 8,
-                  "id": "parameters",
-                  "lineno": 8
-                },
-                "keywords": [],
-                "lineno": 8
+                  "keywords": [],
+                  "lineno": 7
+                }
               }
             }
           },
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 72,
+            "end_col_offset": 132,
             "end_lineno": 9,
             "lineno": 9,
             "targets": [
@@ -887,62 +3920,20 @@
                 },
                 "end_col_offset": 14,
                 "end_lineno": 9,
-                "id": "csa_params",
-                "lineno": 9
-              }
-            ],
-            "value": {
-              "ast_class": "Attribute",
-              "attr": "contribution_supplementaire_apprentissage",
-              "col_offset": 17,
-              "ctx": {
-                "ast_class": "Load"
-              },
-              "end_col_offset": 72,
-              "end_lineno": 9,
-              "lineno": 9,
-              "value": {
-                "ast_class": "Name",
-                "col_offset": 17,
-                "ctx": {
-                  "ast_class": "Load"
-                },
-                "end_col_offset": 30,
-                "end_lineno": 9,
-                "id": "cotsoc_params",
-                "lineno": 9
-              }
-            }
-          },
-          {
-            "ast_class": "Assign",
-            "col_offset": 4,
-            "end_col_offset": 129,
-            "end_lineno": 13,
-            "lineno": 13,
-            "targets": [
-              {
-                "ast_class": "Name",
-                "col_offset": 4,
-                "ctx": {
-                  "ast_class": "Store"
-                },
-                "end_col_offset": 14,
-                "end_lineno": 13,
                 "id": "multiplier",
-                "lineno": 13
+                "lineno": 9
               }
             ],
             "value": {
               "ast_class": "BinOp",
               "col_offset": 17,
-              "end_col_offset": 129,
-              "end_lineno": 13,
+              "end_col_offset": 132,
+              "end_lineno": 9,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 18,
-                "end_col_offset": 90,
-                "end_lineno": 13,
+                "end_col_offset": 93,
+                "end_lineno": 9,
                 "left": {
                   "ast_class": "Name",
                   "col_offset": 18,
@@ -950,11 +3941,11 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 47,
-                  "end_lineno": 13,
+                  "end_lineno": 9,
                   "id": "salarie_regime_alsace_moselle",
-                  "lineno": 13
+                  "lineno": 9
                 },
-                "lineno": 13,
+                "lineno": 9,
                 "op": {
                   "ast_class": "Mult"
                 },
@@ -965,53 +3956,53 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 90,
-                  "end_lineno": 13,
-                  "lineno": 13,
+                  "end_col_offset": 93,
+                  "end_lineno": 9,
+                  "lineno": 9,
                   "value": {
                     "ast_class": "Name",
                     "col_offset": 50,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 60,
-                    "end_lineno": 13,
-                    "id": "csa_params",
-                    "lineno": 13
+                    "end_col_offset": 63,
+                    "end_lineno": 9,
+                    "id": "cotsoc_params",
+                    "lineno": 9
                   }
                 }
               },
-              "lineno": 13,
+              "lineno": 9,
               "op": {
                 "ast_class": "Add"
               },
               "right": {
                 "ast_class": "BinOp",
-                "col_offset": 95,
-                "end_col_offset": 128,
-                "end_lineno": 13,
+                "col_offset": 98,
+                "end_col_offset": 131,
+                "end_lineno": 9,
                 "left": {
                   "ast_class": "Constant",
-                  "col_offset": 95,
-                  "end_col_offset": 96,
-                  "end_lineno": 13,
-                  "lineno": 13,
+                  "col_offset": 98,
+                  "end_col_offset": 99,
+                  "end_lineno": 9,
+                  "lineno": 9,
                   "value": 1
                 },
-                "lineno": 13,
+                "lineno": 9,
                 "op": {
                   "ast_class": "Sub"
                 },
                 "right": {
                   "ast_class": "Name",
-                  "col_offset": 99,
+                  "col_offset": 102,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 128,
-                  "end_lineno": 13,
+                  "end_col_offset": 131,
+                  "end_lineno": 9,
                   "id": "salarie_regime_alsace_moselle",
-                  "lineno": 13
+                  "lineno": 9
                 }
               }
             }
@@ -1020,8 +4011,8 @@
             "ast_class": "Assign",
             "col_offset": 4,
             "end_col_offset": 70,
-            "end_lineno": 15,
-            "lineno": 15,
+            "end_lineno": 11,
+            "lineno": 11,
             "targets": [
               {
                 "ast_class": "Name",
@@ -1030,16 +4021,16 @@
                   "ast_class": "Store"
                 },
                 "end_col_offset": 12,
-                "end_lineno": 15,
+                "end_lineno": 11,
                 "id": "taxe_due",
-                "lineno": 15
+                "lineno": 11
               }
             ],
             "value": {
               "ast_class": "BinOp",
               "col_offset": 15,
               "end_col_offset": 70,
-              "end_lineno": 15,
+              "end_lineno": 11,
               "left": {
                 "ast_class": "Compare",
                 "col_offset": 16,
@@ -1048,13 +4039,13 @@
                     "ast_class": "Constant",
                     "col_offset": 39,
                     "end_col_offset": 42,
-                    "end_lineno": 15,
-                    "lineno": 15,
+                    "end_lineno": 11,
+                    "lineno": 11,
                     "value": 250
                   }
                 ],
                 "end_col_offset": 42,
-                "end_lineno": 15,
+                "end_lineno": 11,
                 "left": {
                   "ast_class": "Name",
                   "col_offset": 16,
@@ -1062,18 +4053,18 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 35,
-                  "end_lineno": 15,
+                  "end_lineno": 11,
                   "id": "effectif_entreprise",
-                  "lineno": 15
+                  "lineno": 11
                 },
-                "lineno": 15,
+                "lineno": 11,
                 "ops": [
                   {
                     "ast_class": "GtE"
                   }
                 ]
               },
-              "lineno": 15,
+              "lineno": 11,
               "op": {
                 "ast_class": "Mult"
               },
@@ -1085,13 +4076,13 @@
                     "ast_class": "Constant",
                     "col_offset": 66,
                     "end_col_offset": 69,
-                    "end_lineno": 15,
-                    "lineno": 15,
+                    "end_lineno": 11,
+                    "lineno": 11,
                     "value": 0.05
                   }
                 ],
                 "end_col_offset": 69,
-                "end_lineno": 15,
+                "end_lineno": 11,
                 "left": {
                   "ast_class": "Name",
                   "col_offset": 47,
@@ -1099,11 +4090,11 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 63,
-                  "end_lineno": 15,
+                  "end_lineno": 11,
                   "id": "ratio_alternants",
-                  "lineno": 15
+                  "lineno": 11
                 },
-                "lineno": 15,
+                "lineno": 11,
                 "ops": [
                   {
                     "ast_class": "Lt"
@@ -1116,8 +4107,8 @@
             "ast_class": "Assign",
             "col_offset": 4,
             "end_col_offset": 9,
-            "end_lineno": 23,
-            "lineno": 16,
+            "end_lineno": 19,
+            "lineno": 12,
             "targets": [
               {
                 "ast_class": "Name",
@@ -1126,90 +4117,192 @@
                   "ast_class": "Store"
                 },
                 "end_col_offset": 21,
-                "end_lineno": 16,
+                "end_lineno": 12,
                 "id": "taux_conditionnel",
-                "lineno": 16
+                "lineno": 12
               }
             ],
             "value": {
               "ast_class": "BinOp",
               "col_offset": 8,
-              "end_col_offset": 99,
-              "end_lineno": 22,
+              "end_col_offset": 105,
+              "end_lineno": 18,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 8,
-                "end_col_offset": 99,
-                "end_lineno": 21,
+                "end_col_offset": 105,
+                "end_lineno": 17,
                 "left": {
                   "ast_class": "BinOp",
                   "col_offset": 8,
-                  "end_col_offset": 99,
-                  "end_lineno": 20,
+                  "end_col_offset": 105,
+                  "end_lineno": 16,
                   "left": {
                     "ast_class": "BinOp",
                     "col_offset": 8,
-                    "end_col_offset": 99,
-                    "end_lineno": 19,
+                    "end_col_offset": 105,
+                    "end_lineno": 15,
                     "left": {
                       "ast_class": "BinOp",
                       "col_offset": 8,
-                      "end_col_offset": 110,
-                      "end_lineno": 18,
+                      "end_col_offset": 106,
+                      "end_lineno": 14,
                       "left": {
                         "ast_class": "BinOp",
                         "col_offset": 8,
-                        "end_col_offset": 110,
-                        "end_lineno": 17,
+                        "end_col_offset": 106,
+                        "end_lineno": 13,
                         "left": {
                           "ast_class": "BinOp",
                           "col_offset": 8,
-                          "end_col_offset": 65,
-                          "end_lineno": 17,
+                          "end_col_offset": 64,
+                          "end_lineno": 13,
                           "left": {
-                            "ast_class": "UnaryOp",
-                            "col_offset": 8,
-                            "end_col_offset": 38,
-                            "end_lineno": 17,
-                            "lineno": 17,
-                            "op": {
-                              "ast_class": "UAdd"
-                            },
-                            "operand": {
-                              "ast_class": "Compare",
-                              "col_offset": 11,
-                              "comparators": [
-                                {
-                                  "ast_class": "Constant",
-                                  "col_offset": 33,
-                                  "end_col_offset": 37,
-                                  "end_lineno": 17,
-                                  "lineno": 17,
-                                  "value": 2000
-                                }
-                              ],
-                              "end_col_offset": 37,
-                              "end_lineno": 17,
-                              "left": {
-                                "ast_class": "Name",
-                                "col_offset": 11,
-                                "ctx": {
-                                  "ast_class": "Load"
-                                },
-                                "end_col_offset": 30,
-                                "end_lineno": 17,
-                                "id": "effectif_entreprise",
-                                "lineno": 17
+                            "ast_class": "Compare",
+                            "col_offset": 9,
+                            "comparators": [
+                              {
+                                "ast_class": "Constant",
+                                "col_offset": 32,
+                                "end_col_offset": 36,
+                                "end_lineno": 13,
+                                "lineno": 13,
+                                "value": 2000
+                              }
+                            ],
+                            "end_col_offset": 36,
+                            "end_lineno": 13,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 9,
+                              "ctx": {
+                                "ast_class": "Load"
                               },
-                              "lineno": 17,
-                              "ops": [
-                                {
-                                  "ast_class": "Lt"
-                                }
-                              ]
-                            }
+                              "end_col_offset": 28,
+                              "end_lineno": 13,
+                              "id": "effectif_entreprise",
+                              "lineno": 13
+                            },
+                            "lineno": 13,
+                            "ops": [
+                              {
+                                "ast_class": "GtE"
+                              }
+                            ]
                           },
-                          "lineno": 17,
+                          "lineno": 13,
+                          "op": {
+                            "ast_class": "Mult"
+                          },
+                          "right": {
+                            "ast_class": "Compare",
+                            "col_offset": 41,
+                            "comparators": [
+                              {
+                                "ast_class": "Constant",
+                                "col_offset": 60,
+                                "end_col_offset": 63,
+                                "end_lineno": 13,
+                                "lineno": 13,
+                                "value": 0.01
+                              }
+                            ],
+                            "end_col_offset": 63,
+                            "end_lineno": 13,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 41,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 57,
+                              "end_lineno": 13,
+                              "id": "ratio_alternants",
+                              "lineno": 13
+                            },
+                            "lineno": 13,
+                            "ops": [
+                              {
+                                "ast_class": "Lt"
+                              }
+                            ]
+                          }
+                        },
+                        "lineno": 13,
+                        "op": {
+                          "ast_class": "Mult"
+                        },
+                        "right": {
+                          "ast_class": "Attribute",
+                          "attr": "plus_de_2000_moins_de_1pc",
+                          "col_offset": 67,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 106,
+                          "end_lineno": 13,
+                          "lineno": 13,
+                          "value": {
+                            "ast_class": "Name",
+                            "col_offset": 67,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 80,
+                            "end_lineno": 13,
+                            "id": "cotsoc_params",
+                            "lineno": 13
+                          }
+                        }
+                      },
+                      "lineno": 13,
+                      "op": {
+                        "ast_class": "Add"
+                      },
+                      "right": {
+                        "ast_class": "BinOp",
+                        "col_offset": 10,
+                        "end_col_offset": 106,
+                        "end_lineno": 14,
+                        "left": {
+                          "ast_class": "BinOp",
+                          "col_offset": 10,
+                          "end_col_offset": 65,
+                          "end_lineno": 14,
+                          "left": {
+                            "ast_class": "Compare",
+                            "col_offset": 11,
+                            "comparators": [
+                              {
+                                "ast_class": "Constant",
+                                "col_offset": 33,
+                                "end_col_offset": 37,
+                                "end_lineno": 14,
+                                "lineno": 14,
+                                "value": 2000
+                              }
+                            ],
+                            "end_col_offset": 37,
+                            "end_lineno": 14,
+                            "left": {
+                              "ast_class": "Name",
+                              "col_offset": 11,
+                              "ctx": {
+                                "ast_class": "Load"
+                              },
+                              "end_col_offset": 30,
+                              "end_lineno": 14,
+                              "id": "effectif_entreprise",
+                              "lineno": 14
+                            },
+                            "lineno": 14,
+                            "ops": [
+                              {
+                                "ast_class": "Lt"
+                              }
+                            ]
+                          },
+                          "lineno": 14,
                           "op": {
                             "ast_class": "Mult"
                           },
@@ -1221,13 +4314,13 @@
                                 "ast_class": "Constant",
                                 "col_offset": 61,
                                 "end_col_offset": 64,
-                                "end_lineno": 17,
-                                "lineno": 17,
+                                "end_lineno": 14,
+                                "lineno": 14,
                                 "value": 0.01
                               }
                             ],
                             "end_col_offset": 64,
-                            "end_lineno": 17,
+                            "end_lineno": 14,
                             "left": {
                               "ast_class": "Name",
                               "col_offset": 42,
@@ -1235,11 +4328,11 @@
                                 "ast_class": "Load"
                               },
                               "end_col_offset": 58,
-                              "end_lineno": 17,
+                              "end_lineno": 14,
                               "id": "ratio_alternants",
-                              "lineno": 17
+                              "lineno": 14
                             },
-                            "lineno": 17,
+                            "lineno": 14,
                             "ops": [
                               {
                                 "ast_class": "Lt"
@@ -1247,160 +4340,48 @@
                             ]
                           }
                         },
-                        "lineno": 17,
+                        "lineno": 14,
                         "op": {
                           "ast_class": "Mult"
                         },
                         "right": {
                           "ast_class": "Attribute",
-                          "attr": "moins_2000_moins_1pc_alternants",
+                          "attr": "plus_de_250_moins_de_1pc",
                           "col_offset": 68,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 110,
-                          "end_lineno": 17,
-                          "lineno": 17,
+                          "end_col_offset": 106,
+                          "end_lineno": 14,
+                          "lineno": 14,
                           "value": {
                             "ast_class": "Name",
                             "col_offset": 68,
                             "ctx": {
                               "ast_class": "Load"
                             },
-                            "end_col_offset": 78,
-                            "end_lineno": 17,
-                            "id": "csa_params",
-                            "lineno": 17
-                          }
-                        }
-                      },
-                      "lineno": 17,
-                      "op": {
-                        "ast_class": "Add"
-                      },
-                      "right": {
-                        "ast_class": "BinOp",
-                        "col_offset": 10,
-                        "end_col_offset": 110,
-                        "end_lineno": 18,
-                        "left": {
-                          "ast_class": "BinOp",
-                          "col_offset": 10,
-                          "end_col_offset": 66,
-                          "end_lineno": 18,
-                          "left": {
-                            "ast_class": "Compare",
-                            "col_offset": 11,
-                            "comparators": [
-                              {
-                                "ast_class": "Constant",
-                                "col_offset": 34,
-                                "end_col_offset": 38,
-                                "end_lineno": 18,
-                                "lineno": 18,
-                                "value": 2000
-                              }
-                            ],
-                            "end_col_offset": 38,
-                            "end_lineno": 18,
-                            "left": {
-                              "ast_class": "Name",
-                              "col_offset": 11,
-                              "ctx": {
-                                "ast_class": "Load"
-                              },
-                              "end_col_offset": 30,
-                              "end_lineno": 18,
-                              "id": "effectif_entreprise",
-                              "lineno": 18
-                            },
-                            "lineno": 18,
-                            "ops": [
-                              {
-                                "ast_class": "GtE"
-                              }
-                            ]
-                          },
-                          "lineno": 18,
-                          "op": {
-                            "ast_class": "Mult"
-                          },
-                          "right": {
-                            "ast_class": "Compare",
-                            "col_offset": 43,
-                            "comparators": [
-                              {
-                                "ast_class": "Constant",
-                                "col_offset": 62,
-                                "end_col_offset": 65,
-                                "end_lineno": 18,
-                                "lineno": 18,
-                                "value": 0.01
-                              }
-                            ],
-                            "end_col_offset": 65,
-                            "end_lineno": 18,
-                            "left": {
-                              "ast_class": "Name",
-                              "col_offset": 43,
-                              "ctx": {
-                                "ast_class": "Load"
-                              },
-                              "end_col_offset": 59,
-                              "end_lineno": 18,
-                              "id": "ratio_alternants",
-                              "lineno": 18
-                            },
-                            "lineno": 18,
-                            "ops": [
-                              {
-                                "ast_class": "Lt"
-                              }
-                            ]
-                          }
-                        },
-                        "lineno": 18,
-                        "op": {
-                          "ast_class": "Mult"
-                        },
-                        "right": {
-                          "ast_class": "Attribute",
-                          "attr": "plus_2000_moins_1pc_alternants",
-                          "col_offset": 69,
-                          "ctx": {
-                            "ast_class": "Load"
-                          },
-                          "end_col_offset": 110,
-                          "end_lineno": 18,
-                          "lineno": 18,
-                          "value": {
-                            "ast_class": "Name",
-                            "col_offset": 69,
-                            "ctx": {
-                              "ast_class": "Load"
-                            },
-                            "end_col_offset": 79,
-                            "end_lineno": 18,
-                            "id": "csa_params",
-                            "lineno": 18
+                            "end_col_offset": 81,
+                            "end_lineno": 14,
+                            "id": "cotsoc_params",
+                            "lineno": 14
                           }
                         }
                       }
                     },
-                    "lineno": 17,
+                    "lineno": 13,
                     "op": {
                       "ast_class": "Add"
                     },
                     "right": {
                       "ast_class": "BinOp",
                       "col_offset": 10,
-                      "end_col_offset": 99,
-                      "end_lineno": 19,
+                      "end_col_offset": 105,
+                      "end_lineno": 15,
                       "left": {
                         "ast_class": "BinOp",
                         "col_offset": 10,
                         "end_col_offset": 62,
-                        "end_lineno": 19,
+                        "end_lineno": 15,
                         "left": {
                           "ast_class": "Compare",
                           "col_offset": 11,
@@ -1412,29 +4393,29 @@
                                 "ast_class": "Load"
                               },
                               "end_col_offset": 34,
-                              "end_lineno": 19,
+                              "end_lineno": 15,
                               "id": "ratio_alternants",
-                              "lineno": 19
+                              "lineno": 15
                             }
                           ],
                           "end_col_offset": 34,
-                          "end_lineno": 19,
+                          "end_lineno": 15,
                           "left": {
                             "ast_class": "Constant",
                             "col_offset": 11,
                             "end_col_offset": 14,
-                            "end_lineno": 19,
-                            "lineno": 19,
+                            "end_lineno": 15,
+                            "lineno": 15,
                             "value": 0.01
                           },
-                          "lineno": 19,
+                          "lineno": 15,
                           "ops": [
                             {
                               "ast_class": "LtE"
                             }
                           ]
                         },
-                        "lineno": 19,
+                        "lineno": 15,
                         "op": {
                           "ast_class": "Mult"
                         },
@@ -1446,13 +4427,13 @@
                               "ast_class": "Constant",
                               "col_offset": 58,
                               "end_col_offset": 61,
-                              "end_lineno": 19,
-                              "lineno": 19,
+                              "end_lineno": 15,
+                              "lineno": 15,
                               "value": 0.02
                             }
                           ],
                           "end_col_offset": 61,
-                          "end_lineno": 19,
+                          "end_lineno": 15,
                           "left": {
                             "ast_class": "Name",
                             "col_offset": 39,
@@ -1460,11 +4441,11 @@
                               "ast_class": "Load"
                             },
                             "end_col_offset": 55,
-                            "end_lineno": 19,
+                            "end_lineno": 15,
                             "id": "ratio_alternants",
-                            "lineno": 19
+                            "lineno": 15
                           },
-                          "lineno": 19,
+                          "lineno": 15,
                           "ops": [
                             {
                               "ast_class": "Lt"
@@ -1472,48 +4453,48 @@
                           ]
                         }
                       },
-                      "lineno": 19,
+                      "lineno": 15,
                       "op": {
                         "ast_class": "Mult"
                       },
                       "right": {
                         "ast_class": "Attribute",
-                        "attr": "entre_1_2_pc_alternants",
+                        "attr": "plus_de_250_entre_1_et_2pc",
                         "col_offset": 65,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 99,
-                        "end_lineno": 19,
-                        "lineno": 19,
+                        "end_col_offset": 105,
+                        "end_lineno": 15,
+                        "lineno": 15,
                         "value": {
                           "ast_class": "Name",
                           "col_offset": 65,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 75,
-                          "end_lineno": 19,
-                          "id": "csa_params",
-                          "lineno": 19
+                          "end_col_offset": 78,
+                          "end_lineno": 15,
+                          "id": "cotsoc_params",
+                          "lineno": 15
                         }
                       }
                     }
                   },
-                  "lineno": 17,
+                  "lineno": 13,
                   "op": {
                     "ast_class": "Add"
                   },
                   "right": {
                     "ast_class": "BinOp",
                     "col_offset": 10,
-                    "end_col_offset": 99,
-                    "end_lineno": 20,
+                    "end_col_offset": 105,
+                    "end_lineno": 16,
                     "left": {
                       "ast_class": "BinOp",
                       "col_offset": 10,
                       "end_col_offset": 62,
-                      "end_lineno": 20,
+                      "end_lineno": 16,
                       "left": {
                         "ast_class": "Compare",
                         "col_offset": 11,
@@ -1525,29 +4506,29 @@
                               "ast_class": "Load"
                             },
                             "end_col_offset": 34,
-                            "end_lineno": 20,
+                            "end_lineno": 16,
                             "id": "ratio_alternants",
-                            "lineno": 20
+                            "lineno": 16
                           }
                         ],
                         "end_col_offset": 34,
-                        "end_lineno": 20,
+                        "end_lineno": 16,
                         "left": {
                           "ast_class": "Constant",
                           "col_offset": 11,
                           "end_col_offset": 14,
-                          "end_lineno": 20,
-                          "lineno": 20,
+                          "end_lineno": 16,
+                          "lineno": 16,
                           "value": 0.02
                         },
-                        "lineno": 20,
+                        "lineno": 16,
                         "ops": [
                           {
                             "ast_class": "LtE"
                           }
                         ]
                       },
-                      "lineno": 20,
+                      "lineno": 16,
                       "op": {
                         "ast_class": "Mult"
                       },
@@ -1559,13 +4540,13 @@
                             "ast_class": "Constant",
                             "col_offset": 58,
                             "end_col_offset": 61,
-                            "end_lineno": 20,
-                            "lineno": 20,
+                            "end_lineno": 16,
+                            "lineno": 16,
                             "value": 0.03
                           }
                         ],
                         "end_col_offset": 61,
-                        "end_lineno": 20,
+                        "end_lineno": 16,
                         "left": {
                           "ast_class": "Name",
                           "col_offset": 39,
@@ -1573,11 +4554,11 @@
                             "ast_class": "Load"
                           },
                           "end_col_offset": 55,
-                          "end_lineno": 20,
+                          "end_lineno": 16,
                           "id": "ratio_alternants",
-                          "lineno": 20
+                          "lineno": 16
                         },
-                        "lineno": 20,
+                        "lineno": 16,
                         "ops": [
                           {
                             "ast_class": "Lt"
@@ -1585,48 +4566,48 @@
                         ]
                       }
                     },
-                    "lineno": 20,
+                    "lineno": 16,
                     "op": {
                       "ast_class": "Mult"
                     },
                     "right": {
                       "ast_class": "Attribute",
-                      "attr": "entre_2_3_pc_alternants",
+                      "attr": "plus_de_250_entre_2_et_3pc",
                       "col_offset": 65,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 99,
-                      "end_lineno": 20,
-                      "lineno": 20,
+                      "end_col_offset": 105,
+                      "end_lineno": 16,
+                      "lineno": 16,
                       "value": {
                         "ast_class": "Name",
                         "col_offset": 65,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 75,
-                        "end_lineno": 20,
-                        "id": "csa_params",
-                        "lineno": 20
+                        "end_col_offset": 78,
+                        "end_lineno": 16,
+                        "id": "cotsoc_params",
+                        "lineno": 16
                       }
                     }
                   }
                 },
-                "lineno": 17,
+                "lineno": 13,
                 "op": {
                   "ast_class": "Add"
                 },
                 "right": {
                   "ast_class": "BinOp",
                   "col_offset": 10,
-                  "end_col_offset": 99,
-                  "end_lineno": 21,
+                  "end_col_offset": 105,
+                  "end_lineno": 17,
                   "left": {
                     "ast_class": "BinOp",
                     "col_offset": 10,
                     "end_col_offset": 62,
-                    "end_lineno": 21,
+                    "end_lineno": 17,
                     "left": {
                       "ast_class": "Compare",
                       "col_offset": 11,
@@ -1638,29 +4619,29 @@
                             "ast_class": "Load"
                           },
                           "end_col_offset": 34,
-                          "end_lineno": 21,
+                          "end_lineno": 17,
                           "id": "ratio_alternants",
-                          "lineno": 21
+                          "lineno": 17
                         }
                       ],
                       "end_col_offset": 34,
-                      "end_lineno": 21,
+                      "end_lineno": 17,
                       "left": {
                         "ast_class": "Constant",
                         "col_offset": 11,
                         "end_col_offset": 14,
-                        "end_lineno": 21,
-                        "lineno": 21,
+                        "end_lineno": 17,
+                        "lineno": 17,
                         "value": 0.03
                       },
-                      "lineno": 21,
+                      "lineno": 17,
                       "ops": [
                         {
                           "ast_class": "LtE"
                         }
                       ]
                     },
-                    "lineno": 21,
+                    "lineno": 17,
                     "op": {
                       "ast_class": "Mult"
                     },
@@ -1672,13 +4653,13 @@
                           "ast_class": "Constant",
                           "col_offset": 58,
                           "end_col_offset": 61,
-                          "end_lineno": 21,
-                          "lineno": 21,
+                          "end_lineno": 17,
+                          "lineno": 17,
                           "value": 0.04
                         }
                       ],
                       "end_col_offset": 61,
-                      "end_lineno": 21,
+                      "end_lineno": 17,
                       "left": {
                         "ast_class": "Name",
                         "col_offset": 39,
@@ -1686,11 +4667,11 @@
                           "ast_class": "Load"
                         },
                         "end_col_offset": 55,
-                        "end_lineno": 21,
+                        "end_lineno": 17,
                         "id": "ratio_alternants",
-                        "lineno": 21
+                        "lineno": 17
                       },
-                      "lineno": 21,
+                      "lineno": 17,
                       "ops": [
                         {
                           "ast_class": "Lt"
@@ -1698,48 +4679,48 @@
                       ]
                     }
                   },
-                  "lineno": 21,
+                  "lineno": 17,
                   "op": {
                     "ast_class": "Mult"
                   },
                   "right": {
                     "ast_class": "Attribute",
-                    "attr": "entre_3_4_pc_alternants",
+                    "attr": "plus_de_250_entre_3_et_4pc",
                     "col_offset": 65,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 99,
-                    "end_lineno": 21,
-                    "lineno": 21,
+                    "end_col_offset": 105,
+                    "end_lineno": 17,
+                    "lineno": 17,
                     "value": {
                       "ast_class": "Name",
                       "col_offset": 65,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 75,
-                      "end_lineno": 21,
-                      "id": "csa_params",
-                      "lineno": 21
+                      "end_col_offset": 78,
+                      "end_lineno": 17,
+                      "id": "cotsoc_params",
+                      "lineno": 17
                     }
                   }
                 }
               },
-              "lineno": 17,
+              "lineno": 13,
               "op": {
                 "ast_class": "Add"
               },
               "right": {
                 "ast_class": "BinOp",
                 "col_offset": 10,
-                "end_col_offset": 99,
-                "end_lineno": 22,
+                "end_col_offset": 105,
+                "end_lineno": 18,
                 "left": {
                   "ast_class": "BinOp",
                   "col_offset": 10,
                   "end_col_offset": 62,
-                  "end_lineno": 22,
+                  "end_lineno": 18,
                   "left": {
                     "ast_class": "Compare",
                     "col_offset": 11,
@@ -1751,29 +4732,29 @@
                           "ast_class": "Load"
                         },
                         "end_col_offset": 34,
-                        "end_lineno": 22,
+                        "end_lineno": 18,
                         "id": "ratio_alternants",
-                        "lineno": 22
+                        "lineno": 18
                       }
                     ],
                     "end_col_offset": 34,
-                    "end_lineno": 22,
+                    "end_lineno": 18,
                     "left": {
                       "ast_class": "Constant",
                       "col_offset": 11,
                       "end_col_offset": 14,
-                      "end_lineno": 22,
-                      "lineno": 22,
+                      "end_lineno": 18,
+                      "lineno": 18,
                       "value": 0.04
                     },
-                    "lineno": 22,
+                    "lineno": 18,
                     "ops": [
                       {
                         "ast_class": "LtE"
                       }
                     ]
                   },
-                  "lineno": 22,
+                  "lineno": 18,
                   "op": {
                     "ast_class": "Mult"
                   },
@@ -1785,13 +4766,13 @@
                         "ast_class": "Constant",
                         "col_offset": 58,
                         "end_col_offset": 61,
-                        "end_lineno": 22,
-                        "lineno": 22,
+                        "end_lineno": 18,
+                        "lineno": 18,
                         "value": 0.05
                       }
                     ],
                     "end_col_offset": 61,
-                    "end_lineno": 22,
+                    "end_lineno": 18,
                     "left": {
                       "ast_class": "Name",
                       "col_offset": 39,
@@ -1799,11 +4780,11 @@
                         "ast_class": "Load"
                       },
                       "end_col_offset": 55,
-                      "end_lineno": 22,
+                      "end_lineno": 18,
                       "id": "ratio_alternants",
-                      "lineno": 22
+                      "lineno": 18
                     },
-                    "lineno": 22,
+                    "lineno": 18,
                     "ops": [
                       {
                         "ast_class": "Lt"
@@ -1811,30 +4792,30 @@
                     ]
                   }
                 },
-                "lineno": 22,
+                "lineno": 18,
                 "op": {
                   "ast_class": "Mult"
                 },
                 "right": {
                   "ast_class": "Attribute",
-                  "attr": "entre_4_5_pc_alternants",
+                  "attr": "plus_de_250_entre_4_et_5pc",
                   "col_offset": 65,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 99,
-                  "end_lineno": 22,
-                  "lineno": 22,
+                  "end_col_offset": 105,
+                  "end_lineno": 18,
+                  "lineno": 18,
                   "value": {
                     "ast_class": "Name",
                     "col_offset": 65,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 75,
-                    "end_lineno": 22,
-                    "id": "csa_params",
-                    "lineno": 22
+                    "end_col_offset": 78,
+                    "end_lineno": 18,
+                    "id": "cotsoc_params",
+                    "lineno": 18
                   }
                 }
               }
@@ -1844,8 +4825,8 @@
             "ast_class": "Assign",
             "col_offset": 4,
             "end_col_offset": 65,
-            "end_lineno": 24,
-            "lineno": 24,
+            "end_lineno": 20,
+            "lineno": 20,
             "targets": [
               {
                 "ast_class": "Name",
@@ -1854,21 +4835,21 @@
                   "ast_class": "Store"
                 },
                 "end_col_offset": 21,
-                "end_lineno": 24,
+                "end_lineno": 20,
                 "id": "taux_contribution",
-                "lineno": 24
+                "lineno": 20
               }
             ],
             "value": {
               "ast_class": "BinOp",
               "col_offset": 24,
               "end_col_offset": 65,
-              "end_lineno": 24,
+              "end_lineno": 20,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 24,
                 "end_col_offset": 52,
-                "end_lineno": 24,
+                "end_lineno": 20,
                 "left": {
                   "ast_class": "Name",
                   "col_offset": 24,
@@ -1876,11 +4857,11 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 32,
-                  "end_lineno": 24,
+                  "end_lineno": 20,
                   "id": "taxe_due",
-                  "lineno": 24
+                  "lineno": 20
                 },
-                "lineno": 24,
+                "lineno": 20,
                 "op": {
                   "ast_class": "Mult"
                 },
@@ -1891,12 +4872,12 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 52,
-                  "end_lineno": 24,
+                  "end_lineno": 20,
                   "id": "taux_conditionnel",
-                  "lineno": 24
+                  "lineno": 20
                 }
               },
-              "lineno": 24,
+              "lineno": 20,
               "op": {
                 "ast_class": "Mult"
               },
@@ -1907,9 +4888,9 @@
                   "ast_class": "Load"
                 },
                 "end_col_offset": 65,
-                "end_lineno": 24,
+                "end_lineno": 20,
                 "id": "multiplier",
-                "lineno": 24
+                "lineno": 20
               }
             }
           },
@@ -1917,24 +4898,24 @@
             "ast_class": "Return",
             "col_offset": 4,
             "end_col_offset": 93,
-            "end_lineno": 25,
-            "lineno": 25,
+            "end_lineno": 21,
+            "lineno": 21,
             "value": {
               "ast_class": "BinOp",
               "col_offset": 11,
               "end_col_offset": 93,
-              "end_lineno": 25,
+              "end_lineno": 21,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 11,
                 "end_col_offset": 62,
-                "end_lineno": 25,
+                "end_lineno": 21,
                 "left": {
                   "ast_class": "UnaryOp",
                   "col_offset": 11,
                   "end_col_offset": 30,
-                  "end_lineno": 25,
-                  "lineno": 25,
+                  "end_lineno": 21,
+                  "lineno": 21,
                   "op": {
                     "ast_class": "USub"
                   },
@@ -1945,12 +4926,12 @@
                       "ast_class": "Load"
                     },
                     "end_col_offset": 30,
-                    "end_lineno": 25,
+                    "end_lineno": 21,
                     "id": "taux_contribution",
-                    "lineno": 25
+                    "lineno": 21
                   }
                 },
-                "lineno": 25,
+                "lineno": 21,
                 "op": {
                   "ast_class": "Mult"
                 },
@@ -1961,12 +4942,12 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 62,
-                  "end_lineno": 25,
+                  "end_lineno": 21,
                   "id": "assiette_cotisations_sociales",
-                  "lineno": 25
+                  "lineno": 21
                 }
               },
-              "lineno": 25,
+              "lineno": 21,
               "op": {
                 "ast_class": "Mult"
               },
@@ -1977,9 +4958,9 @@
                   "ast_class": "Load"
                 },
                 "end_col_offset": 93,
-                "end_lineno": 25,
+                "end_lineno": 21,
                 "id": "redevable_taxe_apprentissage",
-                "lineno": 25
+                "lineno": 21
               }
             }
           }
@@ -1987,22 +4968,22 @@
         "col_offset": 0,
         "decorator_list": [],
         "end_col_offset": 93,
-        "end_lineno": 25,
+        "end_lineno": 21,
         "lineno": 1,
-        "name": "formula_2013_01_01"
+        "name": "formula_2015_01_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "parameters": [
-        "cotsoc.contribution_supplementaire_apprentissage.entre_1_2_pc_alternants",
-        "cotsoc.contribution_supplementaire_apprentissage.entre_2_3_pc_alternants",
-        "cotsoc.contribution_supplementaire_apprentissage.entre_3_4_pc_alternants",
-        "cotsoc.contribution_supplementaire_apprentissage.entre_4_5_pc_alternants",
-        "cotsoc.contribution_supplementaire_apprentissage.moins_2000_moins_1pc_alternants",
-        "cotsoc.contribution_supplementaire_apprentissage.multiplicateur_alsace_moselle",
-        "cotsoc.contribution_supplementaire_apprentissage.plus_2000_moins_1pc_alternants"
+        "cotsoc.apprentissage_contribution_supplementaire.multiplicateur_alsace_moselle",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_2000_moins_de_1pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_1_et_2pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_2_et_3pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_3_et_4pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_entre_4_et_5pc",
+        "cotsoc.apprentissage_contribution_supplementaire.plus_de_250_moins_de_1pc"
       ],
-      "source_code": "def formula_2013_01_01(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    ratio_alternants = individu('ratio_alternants', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n\n    cotsoc_params = parameters(period).cotsoc\n    csa_params = cotsoc_params.contribution_supplementaire_apprentissage\n\n    # Exception Alsace-Moselle : CGI Article 1609 quinvicies IV\n    # https://www.legifrance.gouv.fr/affichCode.do;jsessionid=36F88516571C1CA136D91A7A84A2D65B.tpdila09v_1?idSectionTA=LEGISCTA000029038088&cidTexte=LEGITEXT000006069577&dateTexte=20161219\n    multiplier = (salarie_regime_alsace_moselle * csa_params.multiplicateur_alsace_moselle) + (1 - salarie_regime_alsace_moselle)\n\n    taxe_due = (effectif_entreprise >= 250) * (ratio_alternants < .05)\n    taux_conditionnel = (\n        + (effectif_entreprise < 2000) * (ratio_alternants < .01) * csa_params.moins_2000_moins_1pc_alternants\n        + (effectif_entreprise >= 2000) * (ratio_alternants < .01) * csa_params.plus_2000_moins_1pc_alternants\n        + (.01 <= ratio_alternants) * (ratio_alternants < .02) * csa_params.entre_1_2_pc_alternants\n        + (.02 <= ratio_alternants) * (ratio_alternants < .03) * csa_params.entre_2_3_pc_alternants\n        + (.03 <= ratio_alternants) * (ratio_alternants < .04) * csa_params.entre_3_4_pc_alternants\n        + (.04 <= ratio_alternants) * (ratio_alternants < .05) * csa_params.entre_4_5_pc_alternants\n        )\n    taux_contribution = taxe_due * taux_conditionnel * multiplier\n    return - taux_contribution * assiette_cotisations_sociales * redevable_taxe_apprentissage\n",
-      "start_line_number": 81,
+      "source_code": "def formula_2015_01_01(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    ratio_alternants = individu('ratio_alternants', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n    cotsoc_params = parameters(period).cotsoc.apprentissage_contribution_supplementaire\n\n    multiplier = (salarie_regime_alsace_moselle * cotsoc_params.multiplicateur_alsace_moselle) + (1 - salarie_regime_alsace_moselle)\n\n    taxe_due = (effectif_entreprise >= 250) * (ratio_alternants < .05)\n    taux_conditionnel = (\n        (effectif_entreprise >= 2000) * (ratio_alternants < .01) * cotsoc_params.plus_de_2000_moins_de_1pc\n        + (effectif_entreprise < 2000) * (ratio_alternants < .01) * cotsoc_params.plus_de_250_moins_de_1pc\n        + (.01 <= ratio_alternants) * (ratio_alternants < .02) * cotsoc_params.plus_de_250_entre_1_et_2pc\n        + (.02 <= ratio_alternants) * (ratio_alternants < .03) * cotsoc_params.plus_de_250_entre_2_et_3pc\n        + (.03 <= ratio_alternants) * (ratio_alternants < .04) * cotsoc_params.plus_de_250_entre_3_et_4pc\n        + (.04 <= ratio_alternants) * (ratio_alternants < .05) * cotsoc_params.plus_de_250_entre_4_et_5pc\n        )\n    taux_contribution = taxe_due * taux_conditionnel * multiplier\n    return - taux_contribution * assiette_cotisations_sociales * redevable_taxe_apprentissage\n",
+      "start_line_number": 85,
       "stop_line_number": 106,
       "variables": [
         "assiette_cotisations_sociales",
@@ -2015,7 +4996,7 @@
   },
   "json_type": "number",
   "label": "Contribution supplémentaire à l'apprentissage (CSA)",
-  "last_review": "2013-01-01",
+  "last_review": "2015-01-01",
   "name": "contribution_supplementaire_apprentissage",
   "reference": {
     "2021-07-27": [
@@ -2029,8 +5010,9 @@
   "referring_variables": [
     "cotisations_employeur_main_d_oeuvre"
   ],
-  "start_line_number": 74,
-  "stop_line_number": 116,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 77,
+  "stop_line_number": 161,
   "ux_name": "Contrib. supplém. apprentissage (CSA)",
   "value_type": "float"
 }

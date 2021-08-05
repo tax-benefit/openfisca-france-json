@@ -652,8 +652,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/visale.py",
       "source_code": "def formula_2016_01_01(individu, period, parameters):\n    ressources_individu_mensuelles = [\n        'salaire_net',\n        'primes_salaires',  # Sont prises en compte toutes les « primes récurrentes perçues dans le cadre d’une activité intégrée dans le calcul du salaire ou traitement ». Note : ce revenu est brut, il devrait être net.\n        'prime_forfaitaire_mensuelle_reprise_activite',\n        'revenus_stage_formation_pro',\n        'remuneration_apprenti',\n        'garantie_jeunes',\n        'bourse_enseignement_sup',\n        'bourse_recherche',\n        'rpns_auto_entrepreneur_benefice',\n        'chomage_net',\n        'indemnites_chomage_partiel',  # à inclure dans chomage_net ?\n        'ass',\n        'retraite_nette',\n        'pensions_alimentaires_percues',\n        'pensions_invalidite',\n        'pch',\n        'asi',\n        'apa_domicile',\n        'indemnites_journalieres',\n        'rente_accident_travail',\n        # Ressources non prises en compte à ce jour car non modélisées dans OpenFisca :\n        # mobili-jeune\n        # prime transitoire de solidarité (PTS)\n        # allocation journalière de présence parentale (AJPP)\n        ]\n\n    revenus_individu = sum(individu(ressource, period.last_month) for ressource in ressources_individu_mensuelles)  # les justificatifs des ressources sont demandés « sur le mois précédant la demande de visa »\n\n    ressources_individu_annuelles = [\n        'rpns_imposables',\n        'cotisations_non_salarie',\n        'csg_non_salarie',\n        'crds_non_salarie',\n        ]\n\n    revenus_non_salarie = sum(individu(ressource, period.last_year.first_month, options = [DIVIDE]) for ressource in ressources_individu_annuelles)\n\n    return revenus_individu + revenus_non_salarie\n",
-      "start_line_number": 135,
-      "stop_line_number": 175
+      "start_line_number": 138,
+      "stop_line_number": 178
     }
   },
   "json_type": "number",
@@ -670,7 +670,8 @@
   "referring_variables": [
     "visale_base_ressources"
   ],
-  "start_line_number": 128,
-  "stop_line_number": 175,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 130,
+  "stop_line_number": 178,
   "value_type": "float"
 }

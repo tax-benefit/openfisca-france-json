@@ -819,8 +819,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/education.py",
       "source_code": "def formula(famille, period, parameters):\n    points_de_charge = famille('bourse_lycee_points_de_charge', period)\n    rfr = famille.demandeur.foyer_fiscal('rfr', period.n_2)\n    plafonds_reference = parameters(period).bourses_education.bourse_lycee.avant_2016.plafonds_reference\n    increments_par_point_de_charge = parameters(period).bourses_education.bourse_lycee.avant_2016.increments_par_point_de_charge\n\n    choices = [10, 9, 8, 7, 6, 5, 4, 3]\n    nombre_parts = apply_thresholds(\n        rfr,\n        thresholds = [\n            round_(\n                plafonds_reference['{}_parts'.format(index)]\n                + ((points_de_charge - 9) * increments_par_point_de_charge['{}_parts'.format(index)])\n                )\n            for index in choices\n            ],\n        choices = choices,\n        )\n\n    return nombre_parts\n",
-      "start_line_number": 144,
-      "stop_line_number": 164,
+      "start_line_number": 146,
+      "stop_line_number": 166,
       "variables": [
         "bourse_lycee_points_de_charge"
       ]
@@ -834,7 +834,8 @@
   "referring_variables": [
     "bourse_lycee"
   ],
-  "start_line_number": 137,
-  "stop_line_number": 164,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 138,
+  "stop_line_number": 166,
   "value_type": "float"
 }

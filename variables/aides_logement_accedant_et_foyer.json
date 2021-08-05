@@ -1222,8 +1222,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula_2007_07(famille, period, parameters):\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    accedant = (statut_occupation_logement == TypesStatutOccupationLogement.primo_accedant)\n    locataire_logement_foyer = statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    locataire_crous_ou_foyer = logement_crous + locataire_logement_foyer\n    logement_conventionne = famille.demandeur.menage('logement_conventionne', period)\n    forfait_charges = accedant + (locataire_crous_ou_foyer * not_(logement_conventionne))\n\n    loyer = famille.demandeur.menage('loyer', period)\n    plafond_mensualite = famille('aides_logement_plafond_mensualite', period)\n    L = where(locataire_crous_ou_foyer * not_(logement_conventionne), plafond_mensualite, min_(plafond_mensualite, loyer))\n    C = forfait_charges * famille('aide_logement_charges', period)\n    K = famille('aides_logement_k', period)\n    Lo = famille('aides_logement_loyer_minimal', period)\n\n    return (L > 0) * K * max_(0, (L + C - Lo))\n",
-      "start_line_number": 1579,
-      "stop_line_number": 1596,
+      "start_line_number": 1616,
+      "stop_line_number": 1633,
       "variables": [
         "aide_logement_charges",
         "aides_logement_k",
@@ -1252,7 +1252,8 @@
   "referring_variables": [
     "aide_logement_montant_brut_avant_degressivite"
   ],
-  "start_line_number": 1569,
-  "stop_line_number": 1596,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 1605,
+  "stop_line_number": 1633,
   "value_type": "float"
 }

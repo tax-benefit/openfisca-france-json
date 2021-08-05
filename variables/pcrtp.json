@@ -384,8 +384,8 @@
         "accident_travail.rente.taux.pcrtp"
       ],
       "source_code": "def formula(individu, period, parameters):\n    rente_at = parameters(period).accident_travail.rente.taux\n    taux_incapacite = individu('taux_accident_travail', period)\n    pcrtp_nombre_actes_assistance = individu('pcrtp_nombre_actes_assistance', period)\n    montant_pcrtp = rente_at.pcrtp[pcrtp_nombre_actes_assistance]\n\n    return montant_pcrtp * (taux_incapacite >= 0.8)\n",
-      "start_line_number": 157,
-      "stop_line_number": 164,
+      "start_line_number": 165,
+      "stop_line_number": 172,
       "variables": [
         "pcrtp_nombre_actes_assistance",
         "taux_accident_travail"
@@ -402,7 +402,8 @@
       }
     ]
   },
-  "start_line_number": 150,
-  "stop_line_number": 164,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 157,
+  "stop_line_number": 172,
   "value_type": "float"
 }

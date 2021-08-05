@@ -695,8 +695,8 @@
         "prestations.prestations_familiales.enfants.age_intermediaire"
       ],
       "source_code": "def formula(individu, period, parameters):\n    cf_enfant_a_charge = individu('cf_enfant_a_charge', period)\n    age = individu('age', period)\n    rempli_obligation_scolaire = individu('rempli_obligation_scolaire', period)\n\n    pfam = parameters(period).prestations.prestations_familiales\n\n    condition_enfant = (\n        (age >= pfam.cf.age_min)\n        * (age < pfam.enfants.age_intermediaire)\n        * rempli_obligation_scolaire\n        )\n\n    condition_jeune = (age >= pfam.enfants.age_intermediaire) * (age < pfam.cf.age_max)\n\n    return or_(condition_enfant, condition_jeune) * cf_enfant_a_charge\n",
-      "start_line_number": 31,
-      "stop_line_number": 47,
+      "start_line_number": 32,
+      "stop_line_number": 48,
       "variables": [
         "age",
         "cf_enfant_a_charge",
@@ -711,7 +711,8 @@
   "referring_variables": [
     "cf_eligibilite_base"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 25,
-  "stop_line_number": 47,
+  "stop_line_number": 48,
   "value_type": "bool"
 }

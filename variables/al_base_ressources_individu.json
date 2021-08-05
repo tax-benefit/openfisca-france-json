@@ -781,8 +781,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula_2021_01_01(individu, period):\n    traitements_salaires_pensions_rentes = individu('al_traitements_salaires_pensions_rentes', period)\n    hsup = individu('hsup', period.n_2, options = [ADD])\n    glo = individu('glo', period.n_2)\n    plus_values = individu.foyer_fiscal('assiette_csg_plus_values', period.n_2) * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    rpns = individu('rpns_imposables', period.n_2)\n    rpns_pvce = individu('rpns_pvce', period.n_2)\n    rpns_exon = individu('rpns_exon', period.n_2)\n\n    return traitements_salaires_pensions_rentes + hsup + glo + plus_values + rpns + rpns_pvce + rpns_exon\n",
-      "start_line_number": 986,
-      "stop_line_number": 996,
+      "start_line_number": 1011,
+      "stop_line_number": 1021,
       "variables": [
         "al_traitements_salaires_pensions_rentes",
         "assiette_csg_plus_values",
@@ -802,7 +802,8 @@
   "referring_variables": [
     "aide_logement_base_ressources"
   ],
-  "start_line_number": 979,
-  "stop_line_number": 996,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 1003,
+  "stop_line_number": 1021,
   "value_type": "float"
 }

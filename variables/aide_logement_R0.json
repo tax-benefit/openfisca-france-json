@@ -1995,8 +1995,8 @@
         "prestations.prestations_familiales.af.bmaf"
       ],
       "source_code": "def formula(famille, period, parameters):\n    al = parameters(period).prestations.aides_logement\n    pfam_n_2 = parameters(period.start.offset(-2, 'year')).prestations.prestations_familiales\n    minim_n_2 = parameters(period.start.offset(-2, 'year')).prestations.minima_sociaux\n    couple = famille('al_couple', period)\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n\n    n_2 = period.start.offset(-2, 'year')\n    if n_2.date >= date(2009, 6, 1):\n        montant_de_base = minim_n_2.rsa.montant_de_base_du_rsa\n    else:\n        montant_de_base = minim_n_2.rmi.montant_de_base_du_rmi\n\n    R1 = montant_de_base * (\n        al.r1.personne_isolee * not_(couple) * (al_nb_pac == 0)\n        + al.r1.couple_sans_enf * couple * (al_nb_pac == 0)\n        + al.r1.personne_isolee_ou_couple_avec_1_enf * (al_nb_pac == 1)\n        + al.r1.personne_isolee_ou_couple_avec_2_enf * (al_nb_pac >= 2)\n        + al.r1.majoration_enfant_a_charge_supp * (al_nb_pac > 2) * (al_nb_pac - 2)\n        )\n\n    R2 = pfam_n_2.af.bmaf * (\n        al.r2.taux3_dom * residence_dom * (al_nb_pac == 1)\n        + al.r2.personnes_isolees_ou_couples_avec_2_enf * (al_nb_pac >= 2)\n        + al.r2.majoration_par_enf_supp_a_charge * (al_nb_pac > 2) * (al_nb_pac - 2)\n        )\n\n    R0 = round_(12 * (R1 - R2) * (1 - al.autres.abat_sal))\n\n    return R0\n",
-      "start_line_number": 1315,
-      "stop_line_number": 1346,
+      "start_line_number": 1346,
+      "stop_line_number": 1377,
       "variables": [
         "al_couple",
         "al_nb_personnes_a_charge"
@@ -3158,8 +3158,8 @@
         "prestations.aides_logement.R0.taux_seul"
       ],
       "source_code": "def formula_2015_01_01(famille, period, parameters):\n    al = parameters(period).prestations.aides_logement\n    couple = famille('al_couple', period)\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n\n    R0 = (\n        al.R0.taux_seul * not_(couple) * (al_nb_pac == 0)\n        + al.R0.taux_couple * couple * (al_nb_pac == 0)\n        + al.R0.taux1pac * (al_nb_pac == 1)\n        + al.R0.taux2pac * (al_nb_pac == 2)\n        + al.R0.taux3pac * (al_nb_pac == 3)\n        + al.R0.taux4pac * (al_nb_pac == 4)\n        + al.R0.taux5pac * (al_nb_pac == 5)\n        + al.R0.taux6pac * (al_nb_pac == 6)\n        + al.R0.taux_pac_supp * (al_nb_pac > 6) * (al_nb_pac - 6)\n        )\n\n    return R0\n",
-      "start_line_number": 1348,
-      "stop_line_number": 1366,
+      "start_line_number": 1379,
+      "stop_line_number": 1397,
       "variables": [
         "al_couple",
         "al_nb_personnes_a_charge"
@@ -3173,7 +3173,8 @@
   "referring_variables": [
     "aide_logement_participation_personnelle"
   ],
-  "start_line_number": 1309,
-  "stop_line_number": 1366,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 1339,
+  "stop_line_number": 1397,
   "value_type": "float"
 }

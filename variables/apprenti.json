@@ -549,8 +549,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/apprentissage.py",
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    age_condition = (16 <= age) * (age < 25)\n    apprentissage_contrat_debut = individu('apprentissage_contrat_debut', period)\n    duree_contrat = (\n        datetime64(period.start) + timedelta64(1, 'D') - apprentissage_contrat_debut\n        ).astype('timedelta64[Y]')\n    anciennete_contrat = (duree_contrat < timedelta64(3, 'Y'))\n\n    return age_condition * anciennete_contrat\n",
-      "start_line_number": 14,
-      "stop_line_number": 24,
+      "start_line_number": 15,
+      "stop_line_number": 25,
       "variables": [
         "age",
         "apprentissage_contrat_debut"
@@ -580,7 +580,8 @@
     "prime_apprentissage",
     "remuneration_apprenti"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 7,
-  "stop_line_number": 24,
+  "stop_line_number": 25,
   "value_type": "bool"
 }

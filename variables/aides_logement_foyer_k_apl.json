@@ -580,8 +580,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period, parameters):\n    param = parameters(period).prestations.al_param_accal\n    param1 = parameters(period).prestations.al_param_accapl.multiplicateur_de_n\n\n    r_apl1 = param1.dans_la_formule_de_kl_numerateur\n\n    coef_k = param.constante_du_coefficient_k_apl1\n    multi_n = param1.dans_la_formule_de_kl\n\n    R = famille('aide_logement_base_ressources', period)\n    N = famille('aides_logement_nb_part', period)\n\n    return coef_k - (((R - (r_apl1 * N))) / (multi_n * N))\n",
-      "start_line_number": 1663,
-      "stop_line_number": 1676,
+      "start_line_number": 1704,
+      "stop_line_number": 1717,
       "variables": [
         "aide_logement_base_ressources",
         "aides_logement_nb_part"
@@ -604,7 +604,8 @@
   "referring_variables": [
     "aides_logement_k"
   ],
-  "start_line_number": 1655,
-  "stop_line_number": 1676,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 1695,
+  "stop_line_number": 1717,
   "value_type": "float"
 }

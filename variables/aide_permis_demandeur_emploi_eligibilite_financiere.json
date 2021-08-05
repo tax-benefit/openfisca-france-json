@@ -598,8 +598,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aide_permis_demandeur_emploi.py",
       "source_code": "def formula(individu, period, parameters):\n    sans_rsa = individu.famille('rsa', period) <= 0\n    sans_aah = individu('aah', period) <= 0\n    sans_retraite = individu('retraite_brute', period) <= 0\n\n    allocation_journaliere_minimum = parameters(period).allocation_retour_emploi.montant_minimum\n    plafond_chomage = allocation_journaliere_minimum * 31\n    chomage_minimum = individu('chomage_net', period) <= plafond_chomage\n\n    return sans_rsa * sans_aah * sans_retraite * chomage_minimum\n",
-      "start_line_number": 16,
-      "stop_line_number": 26,
+      "start_line_number": 17,
+      "stop_line_number": 27,
       "variables": [
         "aah",
         "chomage_net",
@@ -631,7 +631,8 @@
   "referring_variables": [
     "aide_permis_demandeur_emploi"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 4,
-  "stop_line_number": 26,
+  "stop_line_number": 27,
   "value_type": "bool"
 }

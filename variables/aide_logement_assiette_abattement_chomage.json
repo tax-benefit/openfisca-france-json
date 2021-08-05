@@ -920,8 +920,8 @@
         "impot_revenu.tspr.abatpro.taux"
       ],
       "source_code": "def formula(individu, period, parameters):\n    revenus_non_salarie = individu('rpns_imposables', period.n_2)\n    revenu_salarie = individu('salaire_imposable', period.n_2, options = [ADD])\n    chomeur_longue_duree = individu('chomeur_longue_duree', period.n_2)\n    frais_reels = individu('frais_reels', period.n_2)\n    abatpro = parameters(period).impot_revenu.tspr.abatpro\n\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abattement_forfaitaire = round_(min_(max_(abatpro.taux * revenu_salarie, abattement_minimum), abatpro.max))\n    revenus_salarie_apres_abattement = where(\n        frais_reels > 0,\n        revenu_salarie - frais_reels,\n        max_(0, revenu_salarie - abattement_forfaitaire)\n        )\n\n    return revenus_non_salarie + revenus_salarie_apres_abattement\n",
-      "start_line_number": 671,
-      "stop_line_number": 687,
+      "start_line_number": 688,
+      "stop_line_number": 704,
       "variables": [
         "chomeur_longue_duree",
         "frais_reels",
@@ -2001,8 +2001,8 @@
         "impot_revenu.tspr.abatpro.taux"
       ],
       "source_code": "def formula_2021_01_01(individu, period, parameters):\n    # Rolling year\n    annee_glissante = period.start.period('year').offset(-1).offset(-1, 'month')\n\n    revenus_non_salarie = individu('rpns_imposables', period.n_2)\n    revenu_salarie = individu('salaire_imposable', annee_glissante, options = [ADD])\n    chomeur_longue_duree = individu('chomeur_longue_duree', period.n_2)\n    frais_reels = individu('frais_reels', period.last_year)\n    abatpro = parameters(period.last_year).impot_revenu.tspr.abatpro\n\n    abattement_minimum = where(chomeur_longue_duree, abatpro.min2, abatpro.min)\n    abattement_forfaitaire = round_(min_(max_(abatpro.taux * revenu_salarie, abattement_minimum), abatpro.max))\n    revenus_salarie_apres_abattement = where(\n        frais_reels > 0,\n        revenu_salarie - frais_reels,\n        max_(0, revenu_salarie - abattement_forfaitaire)\n        )\n\n    return revenus_non_salarie + revenus_salarie_apres_abattement\n",
-      "start_line_number": 651,
-      "stop_line_number": 670,
+      "start_line_number": 668,
+      "stop_line_number": 687,
       "variables": [
         "chomeur_longue_duree",
         "frais_reels",
@@ -2025,7 +2025,8 @@
   "referring_variables": [
     "aide_logement_abattement_chomage_indemnise"
   ],
-  "start_line_number": 644,
-  "stop_line_number": 687,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 660,
+  "stop_line_number": 704,
   "value_type": "float"
 }
