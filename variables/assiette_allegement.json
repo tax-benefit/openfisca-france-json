@@ -336,8 +336,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
       "source_code": "def formula(individu, period, parameters):\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period, options = [ADD])\n    categorie_salarie = individu('categorie_salarie', period)\n    # TODO vérifier changement d'assiette\n    return assiette_cotisations_sociales * (\n        (categorie_salarie == TypesCategorieSalarie.prive_non_cadre) | (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        )\n",
-      "start_line_number": 16,
-      "stop_line_number": 23,
+      "start_line_number": 17,
+      "stop_line_number": 24,
       "variables": [
         "assiette_cotisations_sociales",
         "categorie_salarie"
@@ -354,7 +354,8 @@
     "exoneration_cotisations_employeur_zrd",
     "exoneration_cotisations_employeur_zrr"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 10,
-  "stop_line_number": 23,
+  "stop_line_number": 24,
   "value_type": "float"
 }

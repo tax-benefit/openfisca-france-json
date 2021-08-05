@@ -1809,8 +1809,8 @@
       "documentation": "\nPlus values de cession\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period, parameters):\n    '''\n    Plus values de cession\n    '''\n    frag_exon = individu('frag_exon', period)\n    mrag_exon = individu('mrag_exon', period)\n    arag_exon = individu('arag_exon', period)\n    nrag_exon = individu('nrag_exon', period)\n    mbic_exon = individu('mbic_exon', period)\n    abic_exon = individu('abic_exon', period)\n    nbnc_proc = individu('nbnc_proc', period)\n    nbic_exon = individu('nbic_exon', period)\n    macc_exon = individu('macc_exon', period)\n    aacc_exon = individu('aacc_exon', period)\n    nacc_exon = individu('nacc_exon', period)\n    mbnc_exon = individu('mbnc_exon', period)\n    abnc_proc = individu('abnc_proc', period)\n    nrag_pvce = individu('nrag_pvce', period)\n    abnc_exon = individu('abnc_exon', period)\n    nbnc_exon = individu('nbnc_exon', period)\n    mncn_exon = individu('mncn_exon', period)\n    cncn_exon = individu('cncn_exon', period)\n    cncn_jcre = individu('cncn_jcre', period)\n    nbic_pvce = individu('nbic_pvce', period)\n    cga = parameters(period).impot_revenu.rpns.cga_taux2\n\n    return (\n        frag_exon + mrag_exon + arag_exon + nrag_exon + mbic_exon + abic_exon + nbnc_proc * (1 + cga)\n        + nbic_exon + macc_exon + aacc_exon + nacc_exon + mbnc_exon + abnc_proc\n        + abnc_exon + nbnc_exon + mncn_exon + cncn_exon + cncn_jcre + nbic_pvce + nrag_pvce\n        )\n",
-      "start_line_number": 2353,
-      "stop_line_number": 2384,
+      "start_line_number": 2354,
+      "stop_line_number": 2385,
       "variables": [
         "aacc_exon",
         "abic_exon",
@@ -1844,7 +1844,7 @@
     "revenus_et_produits_plafonnement_isf_ifi",
     "rfr"
   ],
-  "start_line_number": 2347,
-  "stop_line_number": 2384,
+  "start_line_number": 2348,
+  "stop_line_number": 2385,
   "value_type": "float"
 }

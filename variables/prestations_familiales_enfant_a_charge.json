@@ -797,8 +797,8 @@
         "prestations.prestations_familiales.enfants.age_minimal"
       ],
       "source_code": "def formula(individu, period, parameters):\n    est_enfant_dans_famille = individu('est_enfant_dans_famille', period)\n    autonomie_financiere = individu('autonomie_financiere', period)\n    age = individu('age', period)\n    rempli_obligation_scolaire = individu('rempli_obligation_scolaire', period)\n\n    pfam = parameters(period).prestations.prestations_familiales\n\n    condition_enfant = (\n        (age >= pfam.enfants.age_minimal)\n        * (age < pfam.enfants.age_intermediaire)\n        * rempli_obligation_scolaire\n        )\n\n    condition_jeune = (\n        (age >= pfam.enfants.age_intermediaire)\n        * (age < pfam.enfants.age_limite)\n        * not_(autonomie_financiere)\n        )\n\n    return or_(condition_enfant, condition_jeune) * est_enfant_dans_famille\n",
-      "start_line_number": 36,
-      "stop_line_number": 57,
+      "start_line_number": 38,
+      "stop_line_number": 59,
       "variables": [
         "age",
         "autonomie_financiere",
@@ -818,7 +818,8 @@
     "af_nbenf",
     "prestations_familiales_base_ressources"
   ],
-  "start_line_number": 30,
-  "stop_line_number": 57,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 31,
+  "stop_line_number": 59,
   "value_type": "bool"
 }

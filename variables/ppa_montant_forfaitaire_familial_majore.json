@@ -347,8 +347,8 @@
         "prestations.minima_sociaux.ppa.montant_de_base"
       ],
       "source_code": "def formula(famille, period, parameters):\n    nb_enfants = famille('rsa_nb_enfants', period)\n    ppa = parameters(period).prestations.minima_sociaux.ppa\n\n    taux_majore = (\n        ppa.majoration_isolement_femme_enceinte\n        + ppa.majoration_isolement_enf_charge\n        * nb_enfants\n        )\n\n    return ppa.montant_de_base * taux_majore\n",
-      "start_line_number": 114,
-      "stop_line_number": 125,
+      "start_line_number": 119,
+      "stop_line_number": 130,
       "variables": [
         "rsa_nb_enfants"
       ]
@@ -360,7 +360,8 @@
   "referring_variables": [
     "ppa_fictive_montant_forfaitaire"
   ],
-  "start_line_number": 108,
-  "stop_line_number": 125,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 112,
+  "stop_line_number": 130,
   "value_type": "float"
 }

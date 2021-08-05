@@ -3174,8 +3174,8 @@
         "prestations.minima_sociaux.aspa.plafond_ressources_couple"
       ],
       "source_code": "def formula_2007(individu, period, parameters):\n    maries = individu.famille('maries', period)\n    en_couple = individu.famille('en_couple', period)\n    asi_aspa_nb_alloc = individu.famille('asi_aspa_nb_alloc', period)\n    base_ressources = individu.famille('asi_aspa_base_ressources', period)\n    P = parameters(period).prestations.minima_sociaux\n\n    demandeur_eligible_asi = individu.famille.demandeur('asi_eligibilite', period)\n    demandeur_eligible_aspa = individu.famille.demandeur('aspa_eligibilite', period)\n    conjoint_eligible_asi = individu.famille.conjoint('asi_eligibilite', period)\n    conjoint_eligible_aspa = individu.famille.conjoint('aspa_eligibilite', period)\n\n    # Un seul éligible\n    elig1 = ((asi_aspa_nb_alloc == 1) & (demandeur_eligible_asi | conjoint_eligible_asi))\n    # Couple d'éligibles mariés\n    elig2 = demandeur_eligible_asi & conjoint_eligible_asi & maries\n    # Couple d'éligibles non mariés\n    elig3 = demandeur_eligible_asi & conjoint_eligible_asi & not_(maries)\n    # Un seul éligible et époux éligible ASPA\n    elig4 = ((demandeur_eligible_asi & conjoint_eligible_aspa) | (conjoint_eligible_asi & demandeur_eligible_aspa)) & maries\n    # Un seul éligible et conjoint non marié éligible ASPA\n    elig5 = ((demandeur_eligible_asi & conjoint_eligible_aspa) | (conjoint_eligible_asi & demandeur_eligible_aspa)) & not_(maries)\n\n    montant_max = (\n        elig1 * P.asi.montant_seul\n        + elig2 * P.asi.montant_couple\n        + elig3 * 2 * P.asi.montant_seul\n        + elig4 * (P.asi.montant_couple / 2 + P.aspa.montant_annuel_couple / 2)\n        + elig5 * (P.asi.montant_seul + P.aspa.montant_annuel_couple / 2)) / 12\n\n    ressources = base_ressources + montant_max\n\n    plafond_ressources = (\n        elig1 * (P.asi.plafond_ressource_seul * not_(en_couple) + P.asi.plafond_ressource_couple * en_couple)\n        + elig2 * P.asi.plafond_ressource_couple\n        + elig3 * P.asi.plafond_ressource_couple\n        + elig4 * P.aspa.plafond_ressources_couple\n        + elig5 * P.aspa.plafond_ressources_couple) / 12\n\n    depassement = max_(ressources - plafond_ressources, 0)\n\n    diff = (\n        (elig1 | elig2 | elig3) * (montant_max - depassement)\n        + elig4 * (P.asi.montant_couple / 12 / 2 - depassement / 2)\n        + elig5 * (P.asi.montant_seul / 12 - depassement / 2)\n        )\n\n    # Montant mensuel servi (sous réserve d'éligibilité)\n    montant_servi_asi = max_(diff, 0)\n    return montant_servi_asi * (\n        individu.has_role(Famille.DEMANDEUR) * demandeur_eligible_asi * (elig1 + elig2 / 2 + elig3 / 2)\n        + individu.has_role(Famille.CONJOINT) * conjoint_eligible_asi * (elig1 + elig2 / 2 + elig3 / 2)\n        )\n",
-      "start_line_number": 201,
-      "stop_line_number": 254,
+      "start_line_number": 207,
+      "stop_line_number": 260,
       "variables": [
         "asi_aspa_base_ressources",
         "asi_aspa_nb_alloc",
@@ -3206,8 +3206,8 @@
     "rsa_base_ressources_minima_sociaux"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 192,
-  "stop_line_number": 254,
+  "start_line_number": 198,
+  "stop_line_number": 260,
   "ux_name": "Alloc. supp. invalidité (Asi)",
   "value_type": "float"
 }

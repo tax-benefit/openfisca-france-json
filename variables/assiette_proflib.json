@@ -274,8 +274,8 @@
       "documentation": "\nAssiette régime microsocial pour les professions libérales\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula_2009_01_01(foyer_fiscal, period, parameters):\n    '''\n    Assiette régime microsocial pour les professions libérales\n    '''\n    ebnc_impo_i = foyer_fiscal.members('ebnc_impo', period)\n    P = parameters(period).impot_revenu.rpns.micro  # noqa F841\n\n    # TODO: distinction RSI/CIPAV (pour les cotisations sociales)\n    # http://vosdroits.service-public.fr/professionnels-entreprises/F23267.xhtml\n    return foyer_fiscal.sum(ebnc_impo_i)\n",
-      "start_line_number": 1565,
-      "stop_line_number": 1575,
+      "start_line_number": 1566,
+      "stop_line_number": 1576,
       "variables": [
         "ebnc_impo"
       ]
@@ -289,7 +289,7 @@
     "microsocial",
     "rev_microsocial"
   ],
-  "start_line_number": 1559,
-  "stop_line_number": 1577,
+  "start_line_number": 1560,
+  "stop_line_number": 1578,
   "value_type": "float"
 }

@@ -712,8 +712,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    prestations = [\n        'paje_base',\n        'paje_clca',\n        'paje_prepare',\n        'paje_colca',\n        'rsa_forfait_asf'\n        ]\n\n    result = sum(famille(prestation, period) for prestation in prestations)\n\n    cf_non_majore_avant_cumul = famille('cf_non_majore_avant_cumul', period)\n    cf = famille('cf', period)\n    cf_pris_en_compte = (cf > 0) * cf_non_majore_avant_cumul\n\n    af_base = famille('af_base', period)\n    af = famille('af', period)\n    af_prises_en_compte = min_(af_base, af)\n\n    result = result + cf_pris_en_compte + af_prises_en_compte\n\n    return result\n",
-      "start_line_number": 291,
-      "stop_line_number": 313,
+      "start_line_number": 301,
+      "stop_line_number": 323,
       "variables": [
         "af",
         "af_base",
@@ -744,7 +744,8 @@
   "referring_variables": [
     "ppa_ressources_hors_activite"
   ],
-  "start_line_number": 279,
-  "stop_line_number": 313,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 288,
+  "stop_line_number": 323,
   "value_type": "float"
 }

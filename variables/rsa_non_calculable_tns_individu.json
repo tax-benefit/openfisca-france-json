@@ -601,8 +601,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(individu, period):\n    this_year_and_last_year = period.start.offset('first-of', 'year').period('year', 2).offset(-1)\n    rpns_benefice_exploitant_agricole = individu('rpns_benefice_exploitant_agricole', this_year_and_last_year, options = [ADD])\n    rpns_micro_entreprise_chiffre_affaires = individu('rpns_micro_entreprise_chiffre_affaires', this_year_and_last_year, options = [ADD])\n    rpns_autres_revenus = individu('rpns_autres_revenus', this_year_and_last_year, options = [ADD])\n\n    return (\n        (rpns_benefice_exploitant_agricole > 0)\n        + (rpns_micro_entreprise_chiffre_affaires > 0)\n        + (rpns_autres_revenus > 0)\n        )\n",
-      "start_line_number": 912,
-      "stop_line_number": 923,
+      "start_line_number": 937,
+      "stop_line_number": 948,
       "variables": [
         "rpns_autres_revenus",
         "rpns_benefice_exploitant_agricole",
@@ -614,7 +614,8 @@
   "json_type": "boolean",
   "label": "RSA non calculable du fait de la situation de l'individu. Dans le cas des TNS, l'utilisateur est renvoyé vers son PCG",
   "name": "rsa_non_calculable_tns_individu",
-  "start_line_number": 904,
-  "stop_line_number": 923,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 928,
+  "stop_line_number": 948,
   "value_type": "bool"
 }

@@ -1213,8 +1213,8 @@
         "prestations.depart1825.plafond_ressources.par_demi_part_supplementaire"
       ],
       "source_code": "def formula(individu, period, parameters):\n    criteres_age = parameters(period).prestations.depart1825.age\n    age = individu('age', period)\n\n    eligibilite_age = (criteres_age.minimum <= age) * (age <= criteres_age.maximum)\n\n    etudiant_boursier = (individu('activite', period) == TypesActivite.etudiant) * individu('boursier', period)\n    alternant = individu('alternant', period)\n    garantie_jeunes = individu('garantie_jeunes', period) > 0\n\n    eligibilite_statut = etudiant_boursier + alternant + garantie_jeunes\n\n    nbptr = individu.foyer_fiscal('nbptr', period.n_2)\n    plafond_ressources = parameters(period).prestations.depart1825.plafond_ressources\n    plafond_ressources = plafond_ressources.base + 2 * max_(0, nbptr - 1) * plafond_ressources.par_demi_part_supplementaire\n\n    ressources = individu.foyer_fiscal('rfr', period.n_2)\n\n    eligibilite_financiere = ressources <= plafond_ressources\n\n    return eligibilite_age * (eligibilite_statut + eligibilite_financiere)\n",
-      "start_line_number": 21,
-      "stop_line_number": 42,
+      "start_line_number": 22,
+      "stop_line_number": 43,
       "variables": [
         "activite",
         "age",
@@ -1243,7 +1243,8 @@
   "referring_variables": [
     "depart1825_montant_maximum"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 4,
-  "stop_line_number": 42,
+  "stop_line_number": 43,
   "value_type": "bool"
 }

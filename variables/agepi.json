@@ -785,8 +785,8 @@
         "prestations.agepi.montants.plus_de_15h_par_semaine"
       ],
       "source_code": "def formula(famille, period, parameters):\n    isole = famille('nb_parents', period) == 1\n    nb_heures = famille.sum(famille.members('agepi_temps_travail_semaine', period), role = Famille.PARENT)\n    nbenf = famille('pe_nbenf', period)\n\n    montants = parameters(period).prestations.agepi.montants\n    montant_moins_de_15h = montants.moins_de_15h_par_semaine.calc(nbenf)\n    montant_plus_de_15h = montants.plus_de_15h_par_semaine.calc(nbenf)\n\n    montant = (nb_heures <= 15) * montant_moins_de_15h + (nb_heures > 15) * montant_plus_de_15h\n\n    return isole * (nb_heures > 0) * montant\n",
-      "start_line_number": 40,
-      "stop_line_number": 52,
+      "start_line_number": 43,
+      "stop_line_number": 55,
       "variables": [
         "agepi_temps_travail_semaine",
         "nb_parents",
@@ -804,7 +804,8 @@
       }
     ]
   },
-  "start_line_number": 30,
-  "stop_line_number": 52,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 32,
+  "stop_line_number": 55,
   "value_type": "float"
 }

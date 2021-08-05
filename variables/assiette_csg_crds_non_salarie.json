@@ -1107,8 +1107,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
       "source_code": "def formula(individu, period):\n    rpns_imposables = individu('rpns_imposables', period)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    artisan = (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n    commercant = (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n    profession_liberale = (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n    famille_independant = individu('famille_independant', period)\n    retraite_complementaire_artisan_commercant = individu('retraite_complementaire_artisan_commercant', period)\n    maladie_maternite_artisan_commercant = individu('maladie_maternite_artisan_commercant', period)\n    vieillesse_artisan_commercant = individu('vieillesse_artisan_commercant', period)\n    maladie_maternite_profession_liberale = individu('maladie_maternite_profession_liberale', period)\n    vieillesse_profession_liberale = individu('vieillesse_profession_liberale', period)\n    retraite_complementaire_profession_liberale = individu('retraite_complementaire_profession_liberale', period)   # noqa F841\n\n    assiette_cotisation = (\n        (artisan + commercant + profession_liberale) * rpns_imposables\n        - (  # cotisations are négative\n            (artisan + commercant) * (\n                famille_independant\n                + vieillesse_artisan_commercant\n                + maladie_maternite_artisan_commercant\n                + retraite_complementaire_artisan_commercant\n                )\n            + profession_liberale * (\n                famille_independant\n                + maladie_maternite_profession_liberale\n                + vieillesse_profession_liberale\n                )\n            )\n        )\n    return assiette_cotisation\n",
-      "start_line_number": 292,
-      "stop_line_number": 323,
+      "start_line_number": 299,
+      "stop_line_number": 330,
       "variables": [
         "categorie_non_salarie",
         "famille_independant",
@@ -1129,7 +1129,7 @@
     "crds_non_salarie",
     "csg_non_salarie"
   ],
-  "start_line_number": 285,
-  "stop_line_number": 323,
+  "start_line_number": 292,
+  "stop_line_number": 330,
   "value_type": "float"
 }

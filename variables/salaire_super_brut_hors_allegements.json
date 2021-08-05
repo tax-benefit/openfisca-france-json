@@ -890,8 +890,8 @@
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    salaire_de_base = individu('salaire_de_base', period)\n    remuneration_principale = individu('remuneration_principale', period)\n    remuneration_apprenti = individu('remuneration_apprenti', period)\n\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    supplement_familial_traitement = individu('supplement_familial_traitement', period)\n    cotisations_employeur = individu('cotisations_employeur', period)\n    depense_cantine_titre_restaurant_employeur = individu('depense_cantine_titre_restaurant_employeur', period)\n    reintegration_titre_restaurant_employeur = individu('reintegration_titre_restaurant_employeur', period)\n    indemnite_fin_contrat = individu('indemnite_fin_contrat', period)\n    salaire_super_brut_hors_allegements = (\n        salaire_de_base\n        + remuneration_apprenti\n        + indemnite_fin_contrat\n        + remuneration_principale\n        + primes_fonction_publique\n        + indemnite_residence\n        + supplement_familial_traitement\n        + depense_cantine_titre_restaurant_employeur\n        - reintegration_titre_restaurant_employeur\n        - cotisations_employeur\n        )\n\n    return salaire_super_brut_hors_allegements\n",
-      "start_line_number": 984,
-      "stop_line_number": 1010,
+      "start_line_number": 1000,
+      "stop_line_number": 1026,
       "variables": [
         "cotisations_employeur",
         "depense_cantine_titre_restaurant_employeur",
@@ -913,7 +913,7 @@
     "salaire_super_brut"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 977,
-  "stop_line_number": 1010,
+  "start_line_number": 993,
+  "stop_line_number": 1026,
   "value_type": "float"
 }

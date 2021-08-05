@@ -359,8 +359,8 @@
       },
       "file_path": "/openfisca_france/model/patrimoine/livret_epargne_populaire.py",
       "source_code": "def formula(individu, period, parameters):\n    eligibilite = individu('livret_epargne_populaire_eligibilite', period)\n\n    epargne = parameters(period).epargne\n    base_livret_a = epargne.livret_a.taux\n    majoration = epargne.livret_epargne_populaire.majoration_base_livret_a\n    return 100 * eligibilite * (base_livret_a + majoration)\n",
-      "start_line_number": 50,
-      "stop_line_number": 57,
+      "start_line_number": 53,
+      "stop_line_number": 60,
       "variables": [
         "livret_epargne_populaire_eligibilite"
       ]
@@ -369,7 +369,8 @@
   "json_type": "number",
   "label": "Eligibilité au livret d'épargne populaire",
   "name": "livret_epargne_populaire_taux",
-  "start_line_number": 44,
-  "stop_line_number": 57,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 46,
+  "stop_line_number": 60,
   "value_type": "float"
 }

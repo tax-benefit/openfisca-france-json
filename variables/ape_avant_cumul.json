@@ -830,8 +830,8 @@
         "prestations.prestations_familiales.ape.taux_inactivite"
       ],
       "source_code": "def formula(famille, period, parameters):\n    '''\n    Allocation parentale d'éducation\n\n    L’allocation parentale d’éducation s’adresse aux parents qui souhaitent arrêter ou\n    réduire leur activité pour s’occuper de leurs jeunes enfants, à condition que ceux-ci\n    soient nés avant le 01/01/2004. En effet, pour les enfants nés depuis cette date,\n    dans le cadre de la Prestation d’Accueil du Jeune Enfant, les parents peuvent bénéficier\n    du « complément de libre choix d’activité. »\n\n    Les personnes en couple peuvent toutes deux bénéficier de l’APE à taux plein, mais pas en même temps.\n    En revanche, elles peuvent cumuler deux taux partiels, à condition que leur total ne dépasse pas le montant\n    du taux plein.\n\n    TODO: cumul,  adoption, triplés,\n    Cumul d'allocations : Cette allocation n'est pas cumulable pour un même ménage avec\n    - une autre APE (sauf à taux partiel),\n    - ou l'allocation pour jeune enfant (APJE) versée à partir de la naissance,\n    - ou le complément familial,\n    - ou l'allocation d’adulte handicapé (AAH).\n    Enfin, il est à noter que cette allocation n’est pas cumulable avec :\n    - une pension d’invalidité ou une retraite ;\n    - des indemnités journalières de maladie, de maternité ou d’accident du travail ;\n    - des allocations chômage. Il est tout de même possible de demander aux ASSEDIC la suspension de ces dernières\n      pour percevoir l’APE.\n\n    L'allocation parentale d'éducation n'est pas soumise à condition de ressources, sauf l’APE à taux partiel pour\n    les professions non salariées.\n    '''\n    inactif = famille('inactif', period)\n    partiel1 = famille('partiel1', period)\n    partiel2 = famille('partiel2', period)\n    P = parameters(period).prestations.prestations_familiales\n\n    elig = (nb_enf(famille, period, 0, P.ape.age_max_enfant - 1) >= 1) & (nb_enf(famille, period, 0, P.af.age2) >= 2)        # Inactif\n    # Temps partiel 1\n    # Salarié:\n    # Temps de travail ne dépassant pas 50 % de la durée du travail fixée dans l'entreprise\n    # VRP ou non salarié travaillant à temps partiel:\n    # Temps de travail ne dépassant pas 76 heures par mois et un revenu professionnel mensuel inférieur ou égal à\n    # (smic_8.27*169*85 %)\n    # partiel1 = zeros((12,self.taille))\n\n    # Temps partiel 2\n    # Salarié:\n    # Salarié: Temps de travail compris entre 50 et 80 % de la durée du travail fixée dans l'entreprise.\n    # Temps de travail compris entre 77 et 122 heures par mois et un revenu professionnel mensuel ne dépassant pas\n    #  (smic_8.27*169*136 %)\n    ape = elig * (inactif * P.ape.taux_inactivite + partiel1 * P.ape.taux_activite_sup_50 + partiel2 * P.ape.taux_activite_sup_80)\n    # Cummul APE APJE CF\n    return ape  # annualisé\n",
-      "start_line_number": 596,
-      "stop_line_number": 647,
+      "start_line_number": 607,
+      "stop_line_number": 658,
       "variables": [
         "inactif",
         "partiel1",
@@ -856,7 +856,8 @@
     "apje",
     "cf"
   ],
-  "start_line_number": 588,
-  "stop_line_number": 647,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 598,
+  "stop_line_number": 658,
   "value_type": "float"
 }

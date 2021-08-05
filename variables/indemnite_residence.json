@@ -1679,8 +1679,8 @@
         "fonc.indem_resid.taux.zone3"
       ],
       "source_code": "def formula(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    salaire_de_base = individu('salaire_de_base', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    zone_apl = individu.menage('zone_apl', period)\n    TypesZoneApl = zone_apl.possible_values\n    _P = parameters(period)\n\n    P = _P.fonc.indem_resid\n    min_zone_1, min_zone_2, min_zone_3 = P.min * P.taux.zone1, P.min * P.taux.zone2, P.min * P.taux.zone3\n    taux = P.taux.zone1 * (zone_apl == TypesZoneApl.zone_1) + P.taux.zone2 * (zone_apl == TypesZoneApl.zone_2) + P.taux.zone3 * (zone_apl == TypesZoneApl.zone_3)\n    plancher = min_zone_1 * (zone_apl == TypesZoneApl.zone_1) + min_zone_2 * (zone_apl == TypesZoneApl.zone_2) + min_zone_3 * (zone_apl == TypesZoneApl.zone_3)\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        )\n    return max_(\n        plancher,\n        taux * (traitement_indiciaire_brut + salaire_de_base)\n        ) * public\n",
-      "start_line_number": 730,
-      "stop_line_number": 753,
+      "start_line_number": 743,
+      "stop_line_number": 766,
       "variables": [
         "categorie_salarie",
         "salaire_de_base",
@@ -1711,8 +1711,8 @@
     "salaire_super_brut_hors_allegements"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 723,
-  "stop_line_number": 753,
+  "start_line_number": 736,
+  "stop_line_number": 766,
   "ux_name": "Indemnité de résidence",
   "value_type": "float"
 }

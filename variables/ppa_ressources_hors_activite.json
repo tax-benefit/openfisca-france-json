@@ -427,8 +427,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    aspa = famille('aspa', period)\n    pf = famille('ppa_base_ressources_prestations_familiales', period)\n\n    ass_i = famille.members('ass', period)\n    ressources_hors_activite_i = famille.members('ppa_ressources_hors_activite_individu', period)\n\n    return aspa + pf + famille.sum(ass_i + ressources_hors_activite_i)\n",
-      "start_line_number": 210,
-      "stop_line_number": 218,
+      "start_line_number": 218,
+      "stop_line_number": 226,
       "variables": [
         "aspa",
         "ass",
@@ -443,7 +443,8 @@
   "referring_variables": [
     "ppa_base_ressources"
   ],
-  "start_line_number": 204,
-  "stop_line_number": 218,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 211,
+  "stop_line_number": 226,
   "value_type": "float"
 }

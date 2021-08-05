@@ -465,8 +465,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
       "source_code": "def formula(individu, period):\n    enseignement_superieur = individu('scolarite', period) == TypesScolarite.enseignement_superieur\n\n    temps_plein = not_(individu('alternant', period))\n\n    etablissement = individu('statuts_etablissement_scolaire', period)\n    etablissement_eligible = (etablissement == StatutsEtablissementScolaire.public) + (etablissement == StatutsEtablissementScolaire.prive_sous_contrat)\n\n    return enseignement_superieur * temps_plein * etablissement_eligible\n",
-      "start_line_number": 34,
-      "stop_line_number": 43,
+      "start_line_number": 35,
+      "stop_line_number": 44,
       "variables": [
         "alternant",
         "scolarite",
@@ -491,7 +491,8 @@
   "referring_variables": [
     "bourse_criteres_sociaux_eligibilite"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 24,
-  "stop_line_number": 43,
+  "stop_line_number": 44,
   "value_type": "bool"
 }

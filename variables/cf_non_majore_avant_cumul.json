@@ -1043,8 +1043,8 @@
         "prestations.prestations_familiales.cf.taux_cf_base"
       ],
       "source_code": "def formula(famille, period, parameters):\n    eligibilite_base = famille('cf_eligibilite_base', period)\n    eligibilite_dom = famille('cf_eligibilite_dom', period)\n    ressources = famille('cf_base_ressources', period)\n    plafond = famille('cf_plafond', period)\n\n    pfam = parameters(period).prestations.prestations_familiales\n\n    eligibilite_sous_condition = or_(eligibilite_base, eligibilite_dom)\n\n    # Montant\n    montant = (\n        pfam.af.bmaf * (\n            pfam.cf.taux_cf_base * eligibilite_base\n            + pfam.cf.taux_base_dom * eligibilite_dom\n            )\n        )\n\n    # Complément familial\n    eligibilite = eligibilite_sous_condition * (ressources <= plafond)\n\n    # Complément familial différentiel\n    plafond_diff = plafond + 12 * montant\n\n    eligibilite_diff = (\n        not_(eligibilite)\n        * eligibilite_sous_condition\n        * (ressources <= plafond_diff)\n        )\n\n    montant_diff = (plafond_diff - ressources) / 12\n\n    return max_(eligibilite * montant, eligibilite_diff * montant_diff)\n",
-      "start_line_number": 221,
-      "stop_line_number": 254,
+      "start_line_number": 231,
+      "stop_line_number": 264,
       "variables": [
         "cf_base_ressources",
         "cf_eligibilite_base",
@@ -1061,7 +1061,8 @@
     "ppa_base_ressources_prestations_familiales",
     "rsa_base_ressources_prestations_familiales"
   ],
-  "start_line_number": 215,
-  "stop_line_number": 254,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 224,
+  "stop_line_number": 264,
   "value_type": "float"
 }

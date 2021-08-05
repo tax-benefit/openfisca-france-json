@@ -553,8 +553,8 @@
         "prestations.prestations_familiales.asf.taux_1_parent"
       ],
       "source_code": "def formula(famille, period, parameters):\n    pfam = parameters(period).prestations.prestations_familiales\n\n    asf_par_enfant = (\n        famille.members('asf_elig_enfant', period)\n        * pfam.af.bmaf\n        * pfam.asf.taux_1_parent\n        )\n\n    montant = famille.sum(asf_par_enfant, role = Famille.ENFANT)\n    pensions_alimentaires_percues = famille.sum(famille.members('pensions_alimentaires_percues', period))\n\n    return max_(montant - pensions_alimentaires_percues, 0)\n",
-      "start_line_number": 49,
-      "stop_line_number": 62,
+      "start_line_number": 51,
+      "stop_line_number": 64,
       "variables": [
         "asf_elig_enfant",
         "pensions_alimentaires_percues"
@@ -568,7 +568,7 @@
     "asf"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 41,
-  "stop_line_number": 62,
+  "start_line_number": 43,
+  "stop_line_number": 64,
   "value_type": "float"
 }

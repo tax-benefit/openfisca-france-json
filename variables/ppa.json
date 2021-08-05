@@ -446,8 +446,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula_2016_01_01(famille, period, parameters):\n    seuil_non_versement = parameters(period).prestations.minima_sociaux.ppa.seuil_non_versement\n    # éligibilité étudiants\n\n    ppa_eligibilite_etudiants = famille('ppa_eligibilite_etudiants', period)\n    ppa = famille('ppa_fictive', period.last_3_months, options = [ADD]) / 3\n    ppa = ppa * ppa_eligibilite_etudiants * (ppa >= seuil_non_versement)\n\n    return ppa\n",
-      "start_line_number": 464,
-      "stop_line_number": 473,
+      "start_line_number": 481,
+      "stop_line_number": 490,
       "variables": [
         "ppa_eligibilite_etudiants",
         "ppa_fictive"
@@ -472,8 +472,9 @@
     "minima_sociaux",
     "ppa_versee"
   ],
-  "start_line_number": 455,
-  "stop_line_number": 473,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 471,
+  "stop_line_number": 490,
   "ux_name": "Prime d'activité",
   "value_type": "float"
 }

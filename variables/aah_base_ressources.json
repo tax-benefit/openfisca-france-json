@@ -1958,8 +1958,8 @@
         "cotsoc.gen.smic_h_b"
       ],
       "source_code": "def formula(famille, period, parameters):\n    law = parameters(period)\n\n    demandeur_en_activite = famille.demandeur('salaire_imposable', period) > 0\n\n    def assiette_conjoint(revenus_conjoint):\n        return 0.9 * (1 - 0.2) * revenus_conjoint\n\n    def assiette_revenu_activite_demandeur(revenus_demandeur):\n        smic_brut_annuel = 12 * law.cotsoc.gen.smic_h_b * law.cotsoc.gen.nb_heure_travail_mensuel\n        tranche1 = min_(0.3 * smic_brut_annuel, revenus_demandeur)\n        tranche2 = revenus_demandeur - tranche1\n        return (1 - 0.8) * tranche1 + (1 - 0.4) * tranche2\n\n    def base_ressource_eval_trim():\n        three_previous_months = period.first_month.start.period('month', 3).offset(-3)\n        base_ressource_activite_demandeur = famille.demandeur('aah_base_ressources_activite_eval_trimestrielle', period) - famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_hors_activite_demandeur = famille.demandeur('aah_base_ressources_hors_activite_eval_trimestrielle', period) + famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(base_ressource_activite_demandeur) + base_ressource_hors_activite_demandeur\n\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_activite_eval_trimestrielle', period) + famille.conjoint('aah_base_ressources_hors_activite_eval_trimestrielle', period)\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    def base_ressource_eval_annuelle():\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(famille.demandeur('salaire_imposable', period.n_2, options = [ADD]) + famille.demandeur('rpns_imposables', period.n_2)) + famille.demandeur('revenu_assimile_pension', period.n_2)\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_eval_annuelle', period)\n\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    return where(\n        demandeur_en_activite,\n        base_ressource_eval_trim(),\n        base_ressource_eval_annuelle()\n        )\n",
-      "start_line_number": 41,
-      "stop_line_number": 75
+      "start_line_number": 42,
+      "stop_line_number": 76
     }
   },
   "json_type": "number",
@@ -1968,7 +1968,8 @@
   "referring_variables": [
     "aah_base"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 35,
-  "stop_line_number": 75,
+  "stop_line_number": 76,
   "value_type": "float"
 }

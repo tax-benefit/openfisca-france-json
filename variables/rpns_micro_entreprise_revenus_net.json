@@ -319,8 +319,8 @@
       },
       "file_path": "/openfisca_france/model/revenus/activite/non_salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    rpns_micro_entreprise_benefice = individu('rpns_micro_entreprise_benefice', period)\n    taux_cotisations_sociales = parameters(period).tns.micro_entreprise.cotisations_sociales\n    rpns_micro_entreprise_charges_sociales = rpns_micro_entreprise_benefice * taux_cotisations_sociales\n    revenus = rpns_micro_entreprise_benefice - rpns_micro_entreprise_charges_sociales\n\n    return revenus\n",
-      "start_line_number": 2182,
-      "stop_line_number": 2189,
+      "start_line_number": 2186,
+      "stop_line_number": 2193,
       "variables": [
         "rpns_micro_entreprise_benefice"
       ]
@@ -329,7 +329,8 @@
   "json_type": "number",
   "label": "Revenu d'un TNS dans une micro-entreprise",
   "name": "rpns_micro_entreprise_revenus_net",
-  "start_line_number": 2176,
-  "stop_line_number": 2189,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 2179,
+  "stop_line_number": 2193,
   "value_type": "float"
 }

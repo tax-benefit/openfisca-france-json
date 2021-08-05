@@ -740,8 +740,8 @@
       "documentation": "Revenu brut global\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''Revenu brut global\n    '''\n    revenu_categoriel = foyer_fiscal('revenu_categoriel', period)\n    deficit_ante = foyer_fiscal('deficit_ante', period)\n    f6gh = foyer_fiscal('f6gh', period)\n    nbic_impm_i = foyer_fiscal.members('nbic_impm', period)\n    nacc_pvce_i = foyer_fiscal.members('nacc_pvce', period)\n    cga = parameters(period).impot_revenu.rpns.cga_taux2\n\n    # (Total 17)\n    # sans les revenus au quotient\n    nacc_pvce = foyer_fiscal.sum(nacc_pvce_i)\n    return max_(0,\n                revenu_categoriel + f6gh + (foyer_fiscal.sum(nbic_impm_i) + nacc_pvce) * (1 + cga) - deficit_ante)\n",
-      "start_line_number": 1024,
-      "stop_line_number": 1039,
+      "start_line_number": 1025,
+      "stop_line_number": 1040,
       "variables": [
         "deficit_ante",
         "f6gh",
@@ -768,7 +768,7 @@
     "rbg_int",
     "rng"
   ],
-  "start_line_number": 1017,
-  "stop_line_number": 1039,
+  "start_line_number": 1018,
+  "stop_line_number": 1040,
   "value_type": "float"
 }

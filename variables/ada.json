@@ -723,8 +723,8 @@
         "prestations.minima_sociaux.ada.supplement_non_hebergement"
       ],
       "source_code": "def formula_2015_11(famille, period, parameters):\n    nb_parents = famille('nb_parents', period)\n    af_nbenf = famille('af_nbenf', period)\n    place_hebergement = famille('place_hebergement', period)\n    asile_demandeur = famille('asile_demandeur', period)\n    ada = parameters(period).prestations.minima_sociaux.ada\n\n    nb_pers = af_nbenf + nb_parents\n    ada_par_jour = (\n        ada.montant_journalier_pour_une_personne\n        + (nb_pers - 1) * ada.majoration_pers_supp\n        + ada.supplement_non_hebergement\n        * not_(place_hebergement)\n        )\n\n    montant_ada = period.days * ada_par_jour * asile_demandeur\n    return montant_ada\n",
-      "start_line_number": 10,
-      "stop_line_number": 27,
+      "start_line_number": 11,
+      "stop_line_number": 28,
       "variables": [
         "af_nbenf",
         "asile_demandeur",
@@ -737,7 +737,8 @@
   "label": "Montant mensuel  de l'aide pour demandeur d'asile",
   "last_review": "2015-11-01",
   "name": "ada",
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 4,
-  "stop_line_number": 27,
+  "stop_line_number": 28,
   "value_type": "float"
 }

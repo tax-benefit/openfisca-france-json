@@ -1489,8 +1489,8 @@
         "bourses_enseignement_superieur.criteres_sociaux.plafond_ressources.echelon_7"
       ],
       "source_code": "def formula_2017_04_14(individu, period, parameters):\n    points_de_charge = individu('bourse_criteres_sociaux_points_de_charge', period)\n    baremes = parameters(period).bourses_enseignement_superieur.criteres_sociaux.plafond_ressources\n    plafond_echelon_0bis = baremes.echelon_0bis.calc(points_de_charge)\n    plafond_echelon_1 = baremes.echelon_1.calc(points_de_charge)\n    plafond_echelon_2 = baremes.echelon_2.calc(points_de_charge)\n    plafond_echelon_3 = baremes.echelon_3.calc(points_de_charge)\n    plafond_echelon_4 = baremes.echelon_4.calc(points_de_charge)\n    plafond_echelon_5 = baremes.echelon_5.calc(points_de_charge)\n    plafond_echelon_6 = baremes.echelon_6.calc(points_de_charge)\n    plafond_echelon_7 = baremes.echelon_7.calc(points_de_charge)\n\n    base_ressources = individu('bourse_criteres_sociaux_base_ressources', period)\n    echelon = select(\n        [\n            base_ressources <= plafond_echelon_7,\n            base_ressources <= plafond_echelon_6,\n            base_ressources <= plafond_echelon_5,\n            base_ressources <= plafond_echelon_4,\n            base_ressources <= plafond_echelon_3,\n            base_ressources <= plafond_echelon_2,\n            base_ressources <= plafond_echelon_1,\n            base_ressources <= plafond_echelon_0bis,\n            ],\n        [7, 6, 5, 4, 3, 2, 1, 0], default=-1)\n\n    montants = parameters(period).bourses_enseignement_superieur.criteres_sociaux.montants\n\n    return montants.calc(echelon) * individu('aide_formation_gen_eligibilite', period)\n",
-      "start_line_number": 37,
-      "stop_line_number": 66,
+      "start_line_number": 39,
+      "stop_line_number": 68,
       "variables": [
         "aide_formation_gen_eligibilite",
         "bourse_criteres_sociaux_base_ressources",
@@ -1509,7 +1509,8 @@
       }
     ]
   },
-  "start_line_number": 30,
-  "stop_line_number": 66,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 31,
+  "stop_line_number": 68,
   "value_type": "float"
 }

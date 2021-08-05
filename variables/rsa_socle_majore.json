@@ -480,8 +480,8 @@
         "prestations.minima_sociaux.rsa.majo_rsa.pac_enf_sup"
       ],
       "source_code": "def formula_2009_06_01(famille, period, parameters):\n    eligib = famille('rsa_majore_eligibilite', period)\n    nbenf = famille('rsa_nb_enfants', period)\n\n    rsa = parameters(period).prestations.minima_sociaux.rsa\n    taux = rsa.majo_rsa.pac0 + rsa.majo_rsa.pac_enf_sup * nbenf\n    socle = rsa.montant_de_base_du_rsa\n\n    return eligib * socle * taux\n",
-      "start_line_number": 980,
-      "stop_line_number": 989,
+      "start_line_number": 1007,
+      "stop_line_number": 1016,
       "variables": [
         "rsa_majore_eligibilite",
         "rsa_nb_enfants"
@@ -496,7 +496,8 @@
     "cmu_c",
     "rsa_montant"
   ],
-  "start_line_number": 974,
-  "stop_line_number": 989,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 1000,
+  "stop_line_number": 1016,
   "value_type": "float"
 }

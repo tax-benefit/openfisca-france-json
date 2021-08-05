@@ -1980,8 +1980,8 @@
         "impot_revenu.rpns.micro.specialbnc.services.taux"
       ],
       "source_code": "def formula(individu, period, parameters):\n    '''\n    Bénéfices industriels et commerciaux\n    '''\n    mbic_exon = individu('mbic_exon', period)\n    mbic_impv = individu('mbic_impv', period)\n    mbic_imps = individu('mbic_imps', period)\n    abic_exon = individu('abic_exon', period)\n    nbic_exon = individu('nbic_exon', period)\n    abic_impn = individu('abic_impn', period)\n    nbic_impn = individu('nbic_impn', period)\n    abic_imps = individu('abic_imps', period)\n    nbic_imps = individu('nbic_imps', period)\n    abic_defn = individu('abic_defn', period)\n    nbic_defn = individu('nbic_defn', period)\n    abic_defs = individu('abic_defs', period)\n    nbic_defs = individu('nbic_defs', period)\n    nbic_apch = individu('nbic_apch', period)\n    micro = parameters(period).impot_revenu.rpns.micro\n\n    zbic = (\n        mbic_exon + mbic_impv + mbic_imps\n        + abic_exon + nbic_exon\n        + abic_impn + nbic_impn\n        + abic_imps + nbic_imps\n        + abic_defn - nbic_defn\n        + abic_defs - nbic_defs\n        + nbic_apch\n        )\n\n    cond = (mbic_impv > 0) & (mbic_imps == 0)\n    taux = micro.specialbnc.marchandises.taux * cond + micro.specialbnc.services.taux * not_(cond)\n\n    cbic = min_(\n        mbic_impv + mbic_imps + mbic_exon,\n        max_(\n            micro.specialbnc.marchandises.min,\n            round_(\n                mbic_impv * micro.specialbnc.marchandises.taux + mbic_imps * micro.specialbnc.services.taux + mbic_exon * taux\n                )\n            )\n        )\n    return zbic - cbic\n",
-      "start_line_number": 2549,
-      "stop_line_number": 2592,
+      "start_line_number": 2550,
+      "stop_line_number": 2593,
       "variables": [
         "abic_defn",
         "abic_defs",
@@ -2013,7 +2013,7 @@
   "referring_variables": [
     "revenus_et_produits_plafonnement_isf_ifi"
   ],
-  "start_line_number": 2542,
-  "stop_line_number": 2592,
+  "start_line_number": 2543,
+  "stop_line_number": 2593,
   "value_type": "float"
 }

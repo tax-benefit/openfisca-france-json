@@ -506,8 +506,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/cheque_energie.py",
       "source_code": "def formula_2017(menage, period, parameters):\n    statut_occupation_logement = menage('statut_occupation_logement', period)\n    residence_saint_martin = menage('residence_saint_martin', period)\n\n    return (\n        not_(residence_saint_martin) * (\n            + (statut_occupation_logement == TypesStatutOccupationLogement.primo_accedant)\n            + (statut_occupation_logement == TypesStatutOccupationLogement.proprietaire)\n            + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_hlm)\n            + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_vide)\n            + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_meuble)\n            )\n        )\n",
-      "start_line_number": 36,
-      "stop_line_number": 49,
+      "start_line_number": 37,
+      "stop_line_number": 50,
       "variables": [
         "residence_saint_martin",
         "statut_occupation_logement"
@@ -538,7 +538,8 @@
   "referring_variables": [
     "cheque_energie"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 24,
-  "stop_line_number": 49,
+  "stop_line_number": 50,
   "value_type": "bool"
 }

@@ -1229,8 +1229,8 @@
         "prestations.prestations_familiales.cf.plafond_de_ressources_0_enfant"
       ],
       "source_code": "def formula(famille, period, parameters):\n    pfam = parameters(period).prestations.prestations_familiales\n\n    eligibilite_base = famille('cf_eligibilite_base', period)\n    eligibilite_dom = famille('cf_eligibilite_dom', period)\n    isole = not_(famille('en_couple', period))\n    biactivite = famille('biactivite', period)\n\n    # Calcul du nombre d'enfants à charge au sens du CF\n    cf_enfant_a_charge_i = famille.members('cf_enfant_a_charge', period)\n    cf_nbenf = famille.sum(cf_enfant_a_charge_i)\n\n    # Calcul du taux à appliquer au plafond de base pour la France métropolitaine\n    taux_plafond_metropole = (\n        1\n        + pfam.cf.majoration_plafond_2_premiers_enf\n        * min_(cf_nbenf, 2)\n        + pfam.cf.majoration_plafond_3eme_enf_et_plus\n        * max_(cf_nbenf - 2, 0)\n        )\n\n    # Majoration du plafond pour biactivité ou isolement (France métropolitaine)\n    majoration_plafond = (isole | biactivite)\n\n    # Calcul du plafond pour la France métropolitaine\n    plafond_metropole = (\n        pfam.cf.plafond_de_ressources_0_enfant\n        * taux_plafond_metropole\n        + pfam.cf.majoration_plafond_biact_isole\n        * majoration_plafond\n        )\n\n    # Calcul du taux à appliquer au plafond de base pour les DOM\n    taux_plafond_dom = 1 + cf_nbenf * pfam.ars.majoration_par_enf_supp\n\n    # Calcul du plafond pour les DOM\n    plafond_dom = pfam.ars.plafond_ressources * taux_plafond_dom\n\n    plafond = (\n        eligibilite_base\n        * plafond_metropole\n        + eligibilite_dom\n        * plafond_dom\n        )\n\n    return plafond\n",
-      "start_line_number": 105,
-      "stop_line_number": 151,
+      "start_line_number": 110,
+      "stop_line_number": 156,
       "variables": [
         "biactivite",
         "cf_eligibilite_base",
@@ -1247,7 +1247,8 @@
     "cf_majore_plafond",
     "cf_non_majore_avant_cumul"
   ],
-  "start_line_number": 99,
-  "stop_line_number": 151,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 103,
+  "stop_line_number": 156,
   "value_type": "float"
 }

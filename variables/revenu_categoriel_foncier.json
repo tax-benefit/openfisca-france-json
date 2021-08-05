@@ -1653,8 +1653,8 @@
         "impot_revenu.rpns.micro.microfoncier.taux"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    \"\"\"\n    Revenus fonciers\n    \"\"\"\n    f4ba = foyer_fiscal('f4ba', period)\n    f4bb = foyer_fiscal('f4bb', period)\n    f4bc = foyer_fiscal('f4bc', period)\n    f4bd = foyer_fiscal('f4bd', period)\n    f4be = foyer_fiscal('f4be', period)\n    microfoncier = parameters(period).impot_revenu.rpns.micro.microfoncier\n\n    # Messages d'erreurs\n    if ((f4ba != 0) & ((f4bb != 0) | (f4bc != 0))).any():\n        log.error((\"Problème de déclarations des revenus : incompatibilité de la déclaration des revenus fonciers (f4ba) et de déficits (f4bb, f4bc)\"))\n    if ((f4be != 0) & ((f4ba != 0) | (f4bb != 0) | (f4bc != 0))).any():\n        log.error((\"Problème de déclarations des revenus : incompatibilité de la déclaration des revenus fonciers (f4ba, f4bb, f4bc) et microfonciers (f4be)\"))\n    if (f4be > microfoncier.max).any():\n        log.error((\"Problème de déclarations des revenus : les revenus microfonciers (f4be) dépassent le maximum légal\"))\n\n    micro = min_(f4be, microfoncier.max) * (1 - microfoncier.taux)\n\n    # Conditions\n    deficit = (f4bc > 0) | (f4bb > 0)\n    micro = f4be > 0\n\n    # Calculs\n    si_deficit = -f4bc\n    si_micro = min_(f4be, microfoncier.max) * (1 - microfoncier.taux)\n    sinon = max_(0, f4ba - f4bd)\n\n    return select([deficit, micro],\n                  [si_deficit, si_micro], sinon)\n",
-      "start_line_number": 909,
-      "stop_line_number": 941,
+      "start_line_number": 910,
+      "stop_line_number": 942,
       "variables": [
         "f4ba",
         "f4bb",
@@ -1682,7 +1682,7 @@
     "revenus_et_produits_plafonnement_isf_ifi",
     "revenus_locatifs"
   ],
-  "start_line_number": 902,
-  "stop_line_number": 941,
+  "start_line_number": 903,
+  "stop_line_number": 942,
   "value_type": "float"
 }

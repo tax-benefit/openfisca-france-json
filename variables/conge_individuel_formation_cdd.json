@@ -439,8 +439,8 @@
         "cotsoc.conge_individuel_formation.cdd"
       ],
       "source_code": "def formula(individu, period, parameters):\n    contrat_de_travail_duree = individu('contrat_de_travail_duree', period)\n    TypesContratDeTravailDuree = contrat_de_travail_duree.possible_values\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n\n    law = parameters(period).cotsoc.conge_individuel_formation\n    cotisation = - law.cdd * (contrat_de_travail_duree == TypesContratDeTravailDuree.cdd) * assiette_cotisations_sociales\n    return cotisation\n",
-      "start_line_number": 30,
-      "stop_line_number": 38,
+      "start_line_number": 31,
+      "stop_line_number": 39,
       "variables": [
         "assiette_cotisations_sociales",
         "contrat_de_travail_duree"
@@ -463,8 +463,9 @@
   "referring_variables": [
     "cotisations_employeur_main_d_oeuvre"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 23,
-  "stop_line_number": 38,
+  "stop_line_number": 39,
   "ux_name": "Contrib. congés individuels de formation",
   "value_type": "float"
 }

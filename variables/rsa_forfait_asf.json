@@ -559,8 +559,8 @@
         "prestations.prestations_familiales.asf.taux_1_parent"
       ],
       "source_code": "def formula_2014_04_01(famille, period, parameters):\n    # Si un ASF est versé, on ne prend pas en compte le montant réel mais un forfait.\n    prestations_familiales = parameters(period).prestations.prestations_familiales\n    minima_sociaux = parameters(period).prestations.minima_sociaux\n\n    asf_verse = famille('asf', period)\n    montant_verse_par_enfant = prestations_familiales.af.bmaf * prestations_familiales.asf.taux_1_parent\n    montant_retenu_rsa_par_enfant = prestations_familiales.af.bmaf * minima_sociaux.rmi.forfait_asf.taux1\n\n    asf_retenue = asf_verse * (montant_retenu_rsa_par_enfant / montant_verse_par_enfant)\n\n    return asf_retenue\n",
-      "start_line_number": 776,
-      "stop_line_number": 788,
+      "start_line_number": 797,
+      "stop_line_number": 809,
       "variables": [
         "asf"
       ]
@@ -586,7 +586,8 @@
       }
     ]
   },
-  "start_line_number": 764,
-  "stop_line_number": 788,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 783,
+  "stop_line_number": 809,
   "value_type": "float"
 }

@@ -325,8 +325,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/jeunes/mobili_jeune.py",
       "source_code": "def formula_2012_07(individu, period):\n    secteur_prive_non_agricole = (\n        individu(\"categorie_salarie\", period) == TypesCategorieSalarie.prive_non_cadre\n        ) * (\n            individu(\"secteur_activite_employeur\", period) == TypesSecteurActivite.non_agricole\n        )\n    contributeur_peec = individu(\"peec_employeur\", period)\n\n    return secteur_prive_non_agricole * contributeur_peec\n",
-      "start_line_number": 38,
-      "stop_line_number": 47,
+      "start_line_number": 40,
+      "stop_line_number": 49,
       "variables": [
         "categorie_salarie",
         "peec_employeur",
@@ -349,7 +349,8 @@
   "referring_variables": [
     "mobili_jeune_eligibilite"
   ],
-  "start_line_number": 31,
-  "stop_line_number": 47,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 32,
+  "stop_line_number": 49,
   "value_type": "bool"
 }

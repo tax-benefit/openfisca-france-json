@@ -1429,8 +1429,8 @@
         "prestations.minima_sociaux.rmi.rmi"
       ],
       "source_code": "def formula(individu, period, parameters):\n    # Revenus professionels\n    types_revenus_pros = [\n        'chomage_net',\n        'retraite_nette',\n        ]\n\n    possede_ressource_substitution = individu('rsa_has_ressources_substitution', period)\n\n    # Les revenus pros interrompus au mois M sont neutralisés s'il n'y a pas de revenus de substitution.\n    revenus_pro = sum(\n        individu(type_revenu, period.last_3_months, options = [ADD]) * not_(\n            (individu(type_revenu, period) == 0)\n            * (individu(type_revenu, period.last_month) > 0)\n            * not_(possede_ressource_substitution)\n            )\n        for type_revenu in types_revenus_pros\n        )\n\n    types_revenus_non_pros = [\n        'allocation_securisation_professionnelle',\n        'dedommagement_victime_amiante',\n        'gains_exceptionnels',\n        'pensions_alimentaires_percues',\n        'pensions_invalidite',\n        'prestation_compensatoire',\n        'prime_forfaitaire_mensuelle_reprise_activite',\n        'rsa_base_ressources_patrimoine_individu',\n        'rsa_indemnites_journalieres_hors_activite',\n        ]\n\n    # Les revenus non-pro interrompus au mois M sont neutralisés dans la limite d'un montant forfaitaire,\n    # sans condition de revenu de substitution.\n    neutral_max_forfaitaire = 3 * parameters(period).prestations.minima_sociaux.rmi.rmi\n\n    revenus_non_pros = sum(\n        max_(\n            0,\n            individu(type_revenu, period.last_3_months, options = [ADD])\n            - neutral_max_forfaitaire * (\n                (individu(type_revenu, period) == 0)\n                * (individu(type_revenu, period.last_month) > 0)\n                )\n            )\n        for type_revenu in types_revenus_non_pros\n        )\n\n    # Revenus du foyer fiscal que l'on projette sur le premier invidividus\n    rente_viagere_titre_onereux = individu.foyer_fiscal('rente_viagere_titre_onereux', period.last_3_months, options = [ADD])\n    revenus_foyer_fiscal_projetes = rente_viagere_titre_onereux * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (revenus_pro + revenus_non_pros + revenus_foyer_fiscal_projetes) / 3\n",
-      "start_line_number": 131,
-      "stop_line_number": 183,
+      "start_line_number": 134,
+      "stop_line_number": 186,
       "variables": [
         "rente_viagere_titre_onereux",
         "rsa_has_ressources_substitution"
@@ -2888,8 +2888,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2009_06_01(individu, period, parameters):\n    # Revenus professionels\n    types_revenus_pros = [\n        'chomage_net',\n        'retraite_nette',\n        ]\n\n    possede_ressources_substitution = individu('rsa_has_ressources_substitution', period)\n\n    # Les revenus pros interrompus au mois M sont neutralisés s'il n'y a pas de revenus de substitution.\n    revenus_pro = sum(\n        individu(type_revenu, period.last_3_months, options = [ADD]) * not_(\n            (individu(type_revenu, period) == 0)\n            * (individu(type_revenu, period.last_month) > 0)\n            * not_(possede_ressources_substitution)\n            )\n        for type_revenu in types_revenus_pros\n        )\n\n    types_revenus_non_pros = [\n        'allocation_securisation_professionnelle',\n        'dedommagement_victime_amiante',\n        'gains_exceptionnels',\n        'pensions_alimentaires_percues',\n        'pensions_invalidite',\n        'prestation_compensatoire',\n        'prime_forfaitaire_mensuelle_reprise_activite',\n        'rsa_base_ressources_patrimoine_individu',\n        'rsa_indemnites_journalieres_hors_activite',\n        ]\n\n    # Les revenus non-pro interrompus au mois M sont neutralisés dans la limite d'un montant forfaitaire,\n    # sans condition de revenu de substitution.\n    montant_de_base_du_rsa = parameters(period).prestations.minima_sociaux.rsa.montant_de_base_du_rsa\n    montant_forfaitaire_neutralisation = 3 * montant_de_base_du_rsa\n    revenus_non_pros = sum(\n        max_(\n            0,\n            individu(type_revenu, period.last_3_months, options = [ADD])\n            - (\n                montant_forfaitaire_neutralisation\n                * (individu(type_revenu, period) == 0)\n                * (individu(type_revenu, period.last_month) > 0)\n                )\n            )\n        for type_revenu in types_revenus_non_pros\n        )\n\n    rentes_viageres = individu.foyer_fiscal('rente_viagere_titre_onereux', period.last_3_months, options = [ADD])\n    revenus_foyer_fiscal_projetes = rentes_viageres * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (revenus_pro + revenus_non_pros + revenus_foyer_fiscal_projetes) / 3\n",
-      "start_line_number": 78,
-      "stop_line_number": 130,
+      "start_line_number": 81,
+      "stop_line_number": 133,
       "variables": [
         "rente_viagere_titre_onereux",
         "rsa_has_ressources_substitution"
@@ -2911,7 +2911,8 @@
     "rsa_base_ressources",
     "rsa_enfant_a_charge"
   ],
-  "start_line_number": 71,
-  "stop_line_number": 183,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 73,
+  "stop_line_number": 186,
   "value_type": "float"
 }

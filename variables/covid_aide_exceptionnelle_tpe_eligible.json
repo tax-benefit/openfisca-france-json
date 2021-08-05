@@ -568,8 +568,8 @@
       },
       "file_path": "/openfisca_france/model/covid19/activite.py",
       "source_code": "def formula_2020_03(individu, period):\n    chiffre_d_affaire = individu('rpns_auto_entrepreneur_chiffre_affaires', period)\n    period_1 = period.offset(-1, 'year')\n    chiffre_d_affaire_annee_mois_un_an_avant = individu('rpns_auto_entrepreneur_chiffre_affaires', period_1)\n    chiffre_d_affaire_annee_moyenne_annee_precedente = individu('rpns_auto_entrepreneur_chiffre_affaires', period.last_year, options = [ADD]) / 12\n    chiffre_d_affaire_annee_n_1 = max_(chiffre_d_affaire_annee_mois_un_an_avant, chiffre_d_affaire_annee_moyenne_annee_precedente)\n    return individu('travailleur_non_salarie', period) * (((chiffre_d_affaire - chiffre_d_affaire_annee_n_1) / chiffre_d_affaire_annee_n_1) < -0.5)\n",
-      "start_line_number": 16,
-      "stop_line_number": 23,
+      "start_line_number": 17,
+      "stop_line_number": 24,
       "variables": [
         "rpns_auto_entrepreneur_chiffre_affaires",
         "travailleur_non_salarie"
@@ -594,7 +594,8 @@
   "referring_variables": [
     "covid_aide_exceptionnelle_tpe_montant"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 4,
-  "stop_line_number": 23,
+  "stop_line_number": 24,
   "value_type": "bool"
 }

@@ -646,8 +646,8 @@
         "bourses_enseignement_superieur.criteres_sociaux.points_de_charge.charges_familiales.points_par_enfant_a_charge_etudiant_enseignement_superieur"
       ],
       "source_code": "def formula(individu, period, parameters):\n    nb_enf = individu.famille('bourse_criteres_sociaux_nombre_enfants_a_charge', period)\n    nb_enf_ens_sup = individu.famille('bourse_criteres_sociaux_nombre_enfants_a_charge_dans_enseignement_superieur', period)\n\n    nb_enf_hors_ens_sup = nb_enf - nb_enf_ens_sup\n    nb_autre_enf_ens_sup = nb_enf_ens_sup - 1\n\n    pts = parameters(period).bourses_enseignement_superieur.criteres_sociaux.points_de_charge.charges_familiales\n    pts_enf = (nb_enf_hors_ens_sup > 0) * nb_enf_hors_ens_sup * pts.points_par_enfant_a_charge\n    pts_ens_sup = (nb_autre_enf_ens_sup > 0) * nb_autre_enf_ens_sup * pts.points_par_enfant_a_charge_etudiant_enseignement_superieur\n    return pts_enf + pts_ens_sup\n",
-      "start_line_number": 286,
-      "stop_line_number": 297,
+      "start_line_number": 302,
+      "stop_line_number": 313,
       "variables": [
         "bourse_criteres_sociaux_nombre_enfants_a_charge",
         "bourse_criteres_sociaux_nombre_enfants_a_charge_dans_enseignement_superieur"
@@ -670,7 +670,8 @@
   "referring_variables": [
     "bourse_criteres_sociaux_points_de_charge"
   ],
-  "start_line_number": 276,
-  "stop_line_number": 297,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 291,
+  "stop_line_number": 313,
   "value_type": "int"
 }

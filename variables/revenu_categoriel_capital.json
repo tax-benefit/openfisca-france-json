@@ -2125,8 +2125,8 @@
         "impot_revenu.rvcm.taux_abattement_capitaux_mobiliers"
       ],
       "source_code": "def formula_2002_01_01(foyer_fiscal, period, parameters):\n    \"\"\"\n    Revenus des valeurs et capitaux mobiliers\n    \"\"\"\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    deficit_rcm = foyer_fiscal('deficit_rcm', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    f2dc = foyer_fiscal('f2dc', period)\n    f2ts = foyer_fiscal('f2ts', period)\n    f2ca = foyer_fiscal('f2ca', period)\n    f2fu = foyer_fiscal('f2fu', period)\n    f2go = foyer_fiscal('f2go', period)\n    f2gr = foyer_fiscal('f2gr', period)\n    f2tr = foyer_fiscal('f2tr', period)\n    rvcm = parameters(period).impot_revenu.rvcm\n\n    f2dc_bis = f2dc\n    f2tr_bis = f2tr\n    # # Calcul du revenu catégoriel\n    # 1.2 Revenus des valeurs et capitaux mobiliers\n    b12 = min_(f2ch, rvcm.abat_assvie * (1 + maries_ou_pacses))\n    TOT1 = f2ch - b12  # c12\n    # Part des frais s'imputant sur les revenus déclarés case DC\n    den = ((f2dc_bis + f2ts) != 0) * (f2dc_bis + f2ts) + ((f2dc_bis + f2ts) == 0)\n    F1 = f2ca / den * f2dc_bis  # f12\n    # Revenus de capitaux mobiliers nets de frais, ouvrant droit à abattement\n    # partie négative (à déduire des autres revenus nets de frais d'abattements\n    g12a = -min_(f2dc_bis * (1 - rvcm.taux_abattement_capitaux_mobiliers) - F1, 0)\n    # partie positive\n    g12b = max_(f2dc_bis * (1 - rvcm.taux_abattement_capitaux_mobiliers) - F1, 0)\n    rev = g12b + f2gr + f2fu * (1 - rvcm.taux_abattement_capitaux_mobiliers)\n\n    # Abattements, limité au revenu\n    h12 = rvcm.abatmob * (1 + maries_ou_pacses)\n    TOT2 = max_(0, rev - h12)\n    # i121= -min_(0,rev - h12)\n\n    # Part des frais s'imputant sur les revenus déclarés ligne TS\n    F2 = f2ca - F1\n    TOT3 = (f2ts - F2) + f2go * rvcm.majoration_revenus_reputes_distribues + f2tr_bis - g12a\n\n    DEF = deficit_rcm\n    return max_(TOT1 + TOT2 + TOT3 - DEF, 0)\n",
-      "start_line_number": 649,
-      "stop_line_number": 692,
+      "start_line_number": 650,
+      "stop_line_number": 693,
       "variables": [
         "deficit_rcm",
         "f2ca",
@@ -4133,8 +4133,8 @@
         "impot_revenu.rvcm.taux_abattement_capitaux_mobiliers"
       ],
       "source_code": "def formula_2005_01_01(foyer_fiscal, period, parameters):\n    \"\"\"\n    Revenus des valeurs et capitaux mobiliers\n    \"\"\"\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    deficit_rcm = foyer_fiscal('deficit_rcm', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    f2da = foyer_fiscal('f2da', period)\n    f2dc = foyer_fiscal('f2dc', period)\n    f2ts = foyer_fiscal('f2ts', period)\n    f2ca = foyer_fiscal('f2ca', period)\n    f2fu = foyer_fiscal('f2fu', period)\n    f2go = foyer_fiscal('f2go', period)\n    f2gr = foyer_fiscal('f2gr', period)\n    f2tr = foyer_fiscal('f2tr', period)\n    parameter_rvcm = parameters(period).impot_revenu.rvcm\n\n    part_frais_imputes_sur_f2dc = f2ca / max_(1, f2dc + f2ts) * f2dc\n    part_frais_restant_a_imputer = -min_(f2dc * (1 - parameter_rvcm.taux_abattement_capitaux_mobiliers * (f2da == 0)) - part_frais_imputes_sur_f2dc, 0)\n\n    dividendes_apres_abattements = max_(f2dc * (1 - parameter_rvcm.taux_abattement_capitaux_mobiliers * (f2da == 0)) - part_frais_imputes_sur_f2dc, 0)\n    revenus_assurance_vie_apres_abattements = f2ch - min_(f2ch, parameter_rvcm.abat_assvie * (1 + maries_ou_pacses))\n    rvcm_apres_abattements_proportionnels = (\n        revenus_assurance_vie_apres_abattements\n        + dividendes_apres_abattements\n        + f2gr\n        + f2fu * (1 - parameter_rvcm.taux_abattement_capitaux_mobiliers * (f2da == 0))\n        )\n    rvcm_apres_abattements_proportionnels_et_fixes = max_(0, rvcm_apres_abattements_proportionnels - parameter_rvcm.abatmob * (1 + maries_ou_pacses))\n    autres_rvcm_sans_abattements = (\n        f2ts - (f2ca - part_frais_imputes_sur_f2dc)\n        + f2go * parameter_rvcm.majoration_revenus_reputes_distribues\n        + f2tr - part_frais_restant_a_imputer\n        )\n\n    return max_(rvcm_apres_abattements_proportionnels_et_fixes + autres_rvcm_sans_abattements - deficit_rcm, 0)\n",
-      "start_line_number": 693,
-      "stop_line_number": 729,
+      "start_line_number": 694,
+      "stop_line_number": 730,
       "variables": [
         "deficit_rcm",
         "f2ca",
@@ -5327,8 +5327,8 @@
         "impot_revenu.rvcm.taux_abattement_capitaux_mobiliers"
       ],
       "source_code": "def formula_2013_01_01(foyer_fiscal, period, parameters):\n    \"\"\"\n    Revenus des valeurs et capitaux mobiliers\n    \"\"\"\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    deficit_rcm = foyer_fiscal('deficit_rcm', period)\n    f2ca = foyer_fiscal('f2ca', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    f2dc = foyer_fiscal('f2dc', period)\n    f2fu = foyer_fiscal('f2fu', period)\n    f2go = foyer_fiscal('f2go', period)\n    f2tr = foyer_fiscal('f2tr', period)\n    f2ts = foyer_fiscal('f2ts', period)\n    P = parameters(period).impot_revenu.rvcm\n\n    # Revenus après abatemment\n    abattement_dividende = (f2fu + f2dc) * P.taux_abattement_capitaux_mobiliers\n    abattement_assurance_vie = P.abat_assvie * (1 + maries_ou_pacses)\n    rvcm_apres_abattement = (\n        f2fu + f2dc - abattement_dividende\n        + f2ch - min_(f2ch, abattement_assurance_vie)\n        + f2ts + f2tr + f2go * P.majoration_revenus_reputes_distribues\n        )\n\n    return max_(0, rvcm_apres_abattement - f2ca - deficit_rcm)\n",
-      "start_line_number": 730,
-      "stop_line_number": 755,
+      "start_line_number": 731,
+      "stop_line_number": 756,
       "variables": [
         "deficit_rcm",
         "f2ca",
@@ -6710,8 +6710,8 @@
         "impot_revenu.rvcm.taux_abattement_capitaux_mobiliers"
       ],
       "source_code": "def formula_2016_01_01(foyer_fiscal, period, parameters):\n    \"\"\"\n    Revenus des valeurs et capitaux mobiliers\n    \"\"\"\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    deficit_rcm = foyer_fiscal('deficit_rcm', period)\n    f2ca = foyer_fiscal('f2ca', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    f2dc = foyer_fiscal('f2dc', period)\n    f2fu = foyer_fiscal('f2fu', period)\n    f2go = foyer_fiscal('f2go', period)\n    f2tr = foyer_fiscal('f2tr', period)\n    f2ts = foyer_fiscal('f2ts', period)\n    f2tt_2016 = foyer_fiscal('f2tt_2016', period)\n    f2tu_2016 = foyer_fiscal('f2tu_2016', period)\n    P = parameters(period).impot_revenu.rvcm\n\n    # Revenus après abatemment\n    abattement_dividende = (f2fu + f2dc) * P.taux_abattement_capitaux_mobiliers\n    abattement_assurance_vie = P.abat_assvie * (1 + maries_ou_pacses)\n    rvcm_apres_abattement = (\n        f2fu + f2dc - abattement_dividende\n        + f2ch - min_(f2ch, abattement_assurance_vie)\n        + f2ts + f2tr + max_(0, f2tt_2016 - f2tu_2016) + f2go * P.majoration_revenus_reputes_distribues\n        )\n\n    return max_(0, rvcm_apres_abattement - f2ca - deficit_rcm)\n",
-      "start_line_number": 756,
-      "stop_line_number": 783,
+      "start_line_number": 757,
+      "stop_line_number": 784,
       "variables": [
         "deficit_rcm",
         "f2ca",
@@ -7985,8 +7985,8 @@
         "impot_revenu.rvcm.taux_abattement_capitaux_mobiliers"
       ],
       "source_code": "def formula_2017_01_01(foyer_fiscal, period, parameters):\n    \"\"\"\n    Revenus des valeurs et capitaux mobiliers\n    Seule différence avec la formule précédente :\n        On enlève la case 2TU. En 2016, 2TT contient les intérêts avant pertes\n        et 2TU les pertes déductibles des intérêts inscrits en 2TT (si le montant en 2TU est > à celui en 2TT,\n        la perte excédentaire est reportable sur les cinq années suivantes). En 2017, 2TT contient les intérêts\n        après déduction des pertes. 2TU, et aussi 2TV, contiennent des pertes excéndentaires à reporter.\n        Sources :\n          - Brochure pratique de l'IR 2018 sur revenus 2017 : https://www.impots.gouv.fr/portail/www2/fichiers/documentation/brochure/ir_2018/files/assets/common/downloads/Brochure%20IR%202018.pdf\n          - Brochure pratique de l'IR 2017 sur revenus 2016 : https://www.impots.gouv.fr/portail/www2/fichiers/documentation/brochure/ir_2017/files/assets/common/downloads/publication.pdf\n    \"\"\"\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    deficit_rcm = foyer_fiscal('deficit_rcm', period)\n    f2ca = foyer_fiscal('f2ca', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    f2dc = foyer_fiscal('f2dc', period)\n    f2fu = foyer_fiscal('f2fu', period)\n    f2go = foyer_fiscal('f2go', period)\n    f2tr = foyer_fiscal('f2tr', period)\n    f2ts = foyer_fiscal('f2ts', period)\n    f2tt = foyer_fiscal('f2tt', period)\n    P = parameters(period).impot_revenu.rvcm\n\n    # Revenus après abatemment\n    abattement_dividende = (f2fu + f2dc) * P.taux_abattement_capitaux_mobiliers\n    abattement_assurance_vie = P.abat_assvie * (1 + maries_ou_pacses)\n    rvcm_apres_abattement = (\n        f2fu + f2dc - abattement_dividende\n        + f2ch - min_(f2ch, abattement_assurance_vie)\n        + f2ts + f2tr + f2tt + f2go * P.majoration_revenus_reputes_distribues\n        )\n\n    return max_(0, rvcm_apres_abattement - f2ca - deficit_rcm)\n",
-      "start_line_number": 784,
-      "stop_line_number": 818,
+      "start_line_number": 785,
+      "stop_line_number": 819,
       "variables": [
         "deficit_rcm",
         "f2ca",
@@ -8634,8 +8634,8 @@
         "impot_revenu.rvcm.abat_assvie"
       ],
       "source_code": "def formula_2018_01_01(foyer_fiscal, period, parameters):\n    \"\"\"\n    Revenus des valeurs et capitaux mobiliers\n\n    NB : La mise en place du PFU supprime la taxation au barème de la plupart des revenus des valeurs et capitaux mobiliers.\n    Ces revenus sortent donc de la variable `revenu_categoriel_capital` et entrent dans la variable `revenus_capitaux_prelevement_forfaitaire_unique_ir`.\n    \"\"\"\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    deficit_rcm = foyer_fiscal('deficit_rcm', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    f2yy = foyer_fiscal('f2yy', period)\n    P = parameters(period).impot_revenu.rvcm\n\n    abattement_assurance_vie = P.abat_assvie * (1 + maries_ou_pacses)\n    rvcm_apres_abattement = (\n        f2yy\n        + f2ch - min_(f2ch, abattement_assurance_vie)\n        )\n\n    return max_(0, rvcm_apres_abattement - deficit_rcm)\n",
-      "start_line_number": 819,
-      "stop_line_number": 839,
+      "start_line_number": 820,
+      "stop_line_number": 840,
       "variables": [
         "deficit_rcm",
         "f2ch",
@@ -8661,7 +8661,7 @@
     "revenu_categoriel",
     "rvcm_plus_abat"
   ],
-  "start_line_number": 642,
-  "stop_line_number": 839,
+  "start_line_number": 643,
+  "stop_line_number": 840,
   "value_type": "float"
 }

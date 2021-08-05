@@ -426,8 +426,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/contrat_professionnalisation.py",
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    mmid_employeur = individu('mmid_employeur', period)\n    famille = individu('famille', period)\n    vieillesse_plafonnee_employeur = individu('vieillesse_plafonnee_employeur', period)\n    # FIXME: correspond bien à vieillesse de base ?\n    cotisations_exonerees = mmid_employeur + famille + vieillesse_plafonnee_employeur\n\n    return cotisations_exonerees * (age > 45)\n    # FIXME: On est bien d'accord qu'il y a les exos uniquement pour les\n    # plus de 45 ans?\n",
-      "start_line_number": 120,
-      "stop_line_number": 131,
+      "start_line_number": 124,
+      "stop_line_number": 135,
       "variables": [
         "age",
         "famille",
@@ -446,7 +446,8 @@
       }
     ]
   },
-  "start_line_number": 98,
-  "stop_line_number": 131,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 101,
+  "stop_line_number": 135,
   "value_type": "float"
 }

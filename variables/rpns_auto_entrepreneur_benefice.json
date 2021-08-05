@@ -596,8 +596,8 @@
         "impot_revenu.rpns.micro.specialbnc.taux"
       ],
       "source_code": "def formula_2008_01_01(individu, period, parameters):\n    rpns_auto_entrepreneur_CA_achat_revente = individu('rpns_auto_entrepreneur_CA_achat_revente', period)\n    rpns_auto_entrepreneur_CA_bic = individu('rpns_auto_entrepreneur_CA_bic', period)\n    rpns_auto_entrepreneur_CA_bnc = individu('rpns_auto_entrepreneur_CA_bnc', period)\n\n    bareme = parameters(period).impot_revenu.rpns.micro\n\n    benefice = ((rpns_auto_entrepreneur_CA_achat_revente * (1 - bareme.microentreprise.taux_ventes_de_marchandises))\n                + (rpns_auto_entrepreneur_CA_bnc * (1 - bareme.specialbnc.taux))\n                + (rpns_auto_entrepreneur_CA_bic * (1 - bareme.microentreprise.taux_prestations_de_services)))\n\n    return benefice\n",
-      "start_line_number": 2111,
-      "stop_line_number": 2123,
+      "start_line_number": 2113,
+      "stop_line_number": 2125,
       "variables": [
         "rpns_auto_entrepreneur_CA_achat_revente",
         "rpns_auto_entrepreneur_CA_bic",
@@ -617,7 +617,7 @@
     "rpns_auto_entrepreneur_revenus_net"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 2104,
-  "stop_line_number": 2123,
+  "start_line_number": 2106,
+  "stop_line_number": 2125,
   "value_type": "float"
 }

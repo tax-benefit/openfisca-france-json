@@ -436,8 +436,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
       "source_code": "def formula(individu, period, parameters):\n    ressortissant_eee = individu('ressortissant_eee', period)\n    ressortissant_suisse = individu('nationalite', period) == b'CH'\n    duree_possession_titre_sejour = individu('duree_possession_titre_sejour', period)\n    duree_min_titre_sejour = parameters(period).prestations.minima_sociaux.aspa.duree_min_titre_sejour\n\n    return or_(ressortissant_eee, ressortissant_suisse, duree_possession_titre_sejour >= duree_min_titre_sejour)\n",
-      "start_line_number": 167,
-      "stop_line_number": 174,
+      "start_line_number": 172,
+      "stop_line_number": 179,
       "variables": [
         "duree_possession_titre_sejour",
         "nationalite",
@@ -453,7 +453,8 @@
     "asi_eligibilite",
     "aspa_eligibilite"
   ],
-  "start_line_number": 160,
-  "stop_line_number": 174,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 164,
+  "stop_line_number": 179,
   "value_type": "bool"
 }

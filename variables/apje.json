@@ -394,8 +394,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/paje.py",
       "source_code": "def formula(famille, period):\n    # L'APJE n'est pas cumulable avec le complément familial et l'APE\n    apje_avant_cumul = famille('apje_avant_cumul', period)\n    ape_avant_cumul = famille('ape_avant_cumul', period)\n    cf_montant = famille('cf_montant', period)\n\n    apje = (cf_montant < apje_avant_cumul) * (ape_avant_cumul < apje_avant_cumul) * apje_avant_cumul\n    return round(apje, 2)\n",
-      "start_line_number": 721,
-      "stop_line_number": 729,
+      "start_line_number": 735,
+      "stop_line_number": 743,
       "variables": [
         "ape_avant_cumul",
         "apje_avant_cumul",
@@ -418,7 +418,8 @@
   "referring_variables": [
     "crds_pfam"
   ],
-  "start_line_number": 713,
-  "stop_line_number": 729,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 726,
+  "stop_line_number": 743,
   "value_type": "float"
 }

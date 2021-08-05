@@ -313,8 +313,8 @@
         "cotsoc.cotisations_salarie.prive_cadre.agirc"
       ],
       "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"salarie\",\n        bareme_name = \"agirc\",\n        variable_name = 'agirc_salarie'\n        )\n    categorie_salarie = individu('categorie_salarie', period)\n    return cotisation * (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n",
-      "start_line_number": 356,
-      "stop_line_number": 367,
+      "start_line_number": 367,
+      "stop_line_number": 378,
       "variables": [
         "categorie_salarie"
       ]
@@ -338,8 +338,9 @@
     "cotisations_salariales_contributives",
     "exoneration_cotisations_salarie_stagiaire"
   ],
-  "start_line_number": 349,
-  "stop_line_number": 367,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 359,
+  "stop_line_number": 378,
   "ux_name": "Cotis. retraite complémentaire (AGIRC)",
   "value_type": "float"
 }

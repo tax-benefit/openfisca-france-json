@@ -371,8 +371,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
       "source_code": "def formula(famille, period):\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n    residence_mayotte = famille.demandeur.menage('residence_mayotte', period)\n    af_nbenf = famille('af_nbenf', period)\n\n    return residence_dom * not_(residence_mayotte) * (af_nbenf >= 1)\n",
-      "start_line_number": 73,
-      "stop_line_number": 79,
+      "start_line_number": 78,
+      "stop_line_number": 84,
       "variables": [
         "af_nbenf"
       ]
@@ -386,7 +386,8 @@
     "af_base",
     "af_complement_degressif"
   ],
-  "start_line_number": 67,
-  "stop_line_number": 79,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 71,
+  "stop_line_number": 84,
   "value_type": "bool"
 }

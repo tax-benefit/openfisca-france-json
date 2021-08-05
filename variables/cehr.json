@@ -357,8 +357,8 @@
         "impot_revenu.cehr"
       ],
       "source_code": "def formula_2011_01_01(foyer_fiscal, period, parameters):\n    '''\n    Contribution exceptionnelle sur les hauts revenus\n    'foy'\n    '''\n    rfr = foyer_fiscal('rfr', period)\n    nb_adult = foyer_fiscal('nb_adult', period)\n    bareme = parameters(period).impot_revenu.cehr\n\n    return bareme.calc(rfr / nb_adult) * nb_adult\n    # TODO: Gérer le II.-1 du lissage interannuel ? (problème de non recours)\n",
-      "start_line_number": 2100,
-      "stop_line_number": 2111,
+      "start_line_number": 2101,
+      "stop_line_number": 2112,
       "variables": [
         "nb_adult",
         "rfr"
@@ -380,7 +380,7 @@
     "irpp",
     "nat_imp"
   ],
-  "start_line_number": 2093,
-  "stop_line_number": 2111,
+  "start_line_number": 2094,
+  "stop_line_number": 2112,
   "value_type": "float"
 }

@@ -330,8 +330,8 @@
       "documentation": "\nRenvoie True si le foyer est imposable, False sinon\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Renvoie True si le foyer est imposable, False sinon\n    '''\n    iai = foyer_fiscal('iai', period)\n    credits_impot = foyer_fiscal('credits_impot', period)\n    cehr = foyer_fiscal('cehr', period)\n\n    # def _nat_imp(rni, nbptr, non_imposable = law.impot_revenu.non_imposable):\n    # seuil = non_imposable.seuil + (nbptr - 1)*non_imposable.supp\n    return (iai - credits_impot + cehr) > 0\n",
-      "start_line_number": 1443,
-      "stop_line_number": 1454,
+      "start_line_number": 1444,
+      "stop_line_number": 1455,
       "variables": [
         "cehr",
         "credits_impot",
@@ -343,7 +343,7 @@
   "json_type": "boolean",
   "label": "nat_imp",
   "name": "nat_imp",
-  "start_line_number": 1437,
-  "stop_line_number": 1454,
+  "start_line_number": 1438,
+  "stop_line_number": 1455,
   "value_type": "bool"
 }

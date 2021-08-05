@@ -1158,8 +1158,8 @@
         "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
       ],
       "source_code": "def formula(individu, period, parameters):\n    chomage_brut = individu(\"chomage_brut\", period)\n    csg_deductible_chomage = individu(\"csg_deductible_chomage\", period)\n    csg_imposable_chomage = individu(\"csg_imposable_chomage\", period)\n    taux_csg_remplacement = individu(\"taux_csg_remplacement\", period)\n    law = parameters(period)\n    smic_h_b = law.cotsoc.gen.smic_h_b\n    # salaire_mensuel_reference = chomage_brut / .7\n    # heures_mensuelles = min_(salaire_mensuel_reference / smic_h_b, 35 * 52 / 12)  # TODO: depuis 2001 mais avant ?\n    heures_mensuelles = 35 * 52 / 12\n    cho_seuil_exo = (law.prelevements_sociaux.contributions_sociales.csg.chomage.min_exo * heures_mensuelles * smic_h_b)\n    eligible = (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_reduit) + (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein)\n    montant_crds = (montant_csg_crds(\n        base_avec_abattement=chomage_brut,\n        law_node=law.prelevements_sociaux.contributions_sociales.crds.activite,\n        plafond_securite_sociale=law.cotsoc.gen.plafond_securite_sociale)\n        * eligible)\n    crds_chomage = max_(-montant_crds - max_(cho_seuil_exo - (chomage_brut + csg_imposable_chomage + csg_deductible_chomage + montant_crds), 0), 0)\n    return -crds_chomage\n",
-      "start_line_number": 95,
-      "stop_line_number": 114,
+      "start_line_number": 98,
+      "stop_line_number": 117,
       "variables": [
         "chomage_brut",
         "csg_deductible_chomage",
@@ -1184,8 +1184,9 @@
     "crds_hors_prestations",
     "revenus_remplacement_pensions_bruts_menage"
   ],
-  "start_line_number": 87,
-  "stop_line_number": 114,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 89,
+  "stop_line_number": 117,
   "ux_name": "CRDS chômage",
   "value_type": "float"
 }

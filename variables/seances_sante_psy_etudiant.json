@@ -352,8 +352,8 @@
         "prestations.sante_psy.etudiant.seances_max"
       ],
       "source_code": "def formula_2021_03_10(individu, period, parameters):\n    '''\n    Le nombre maximum de séances est donné sans prendre en compte les passages obligatoires intermédiaires chez un médecin.\n    '''\n    etudiant = individu('etudiant', period)\n    enseignement_superieur = individu('scolarite', period) == TypesScolarite.enseignement_superieur\n\n    return etudiant * enseignement_superieur * parameters(period).prestations.sante_psy.etudiant.seances_max\n",
-      "start_line_number": 13,
-      "stop_line_number": 21,
+      "start_line_number": 14,
+      "stop_line_number": 22,
       "variables": [
         "etudiant",
         "scolarite"
@@ -371,7 +371,8 @@
       }
     ]
   },
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 6,
-  "stop_line_number": 21,
+  "stop_line_number": 22,
   "value_type": "int"
 }

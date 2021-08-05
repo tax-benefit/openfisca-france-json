@@ -792,8 +792,8 @@
         "accident_travail.rente.salaire_net.salaire_minimum"
       ],
       "source_code": "def formula(individu, period, parameters):\n    previous_year = period.start.period('year').offset(-1)\n    rente_at = parameters(period).accident_travail.rente\n\n    salaire_net = individu('salaire_net', previous_year, options=[ADD])\n    rpns_benefice_exploitant_agricole = individu('rpns_benefice_exploitant_agricole', previous_year, options=[ADD])\n    salaire = max_(salaire_net, rpns_benefice_exploitant_agricole)\n    salaire_net_base = max_(rente_at.salaire_net.salaire_minimum, salaire)\n    coef = salaire_net_base / rente_at.salaire_net.salaire_minimum\n    bareme = rente_at.salaire_net.bareme.calc(coef)\n    return rente_at.salaire_net.salaire_minimum * bareme\n",
-      "start_line_number": 173,
-      "stop_line_number": 184,
+      "start_line_number": 182,
+      "stop_line_number": 193,
       "variables": [
         "rpns_benefice_exploitant_agricole",
         "salaire_net"
@@ -813,7 +813,8 @@
   "referring_variables": [
     "rente_accident_travail_base"
   ],
-  "start_line_number": 166,
-  "stop_line_number": 184,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 174,
+  "stop_line_number": 193,
   "value_type": "float"
 }

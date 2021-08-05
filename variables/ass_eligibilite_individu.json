@@ -532,8 +532,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ass.py",
       "source_code": "def formula(individu, period, parameters):\n    age_max = parameters(period).prestations.minima_sociaux.ass.age_max\n    sous_age_limite = individu('age_en_mois', period) <= age_max\n\n    demandeur_emploi_non_indemnise = and_(individu('activite', period) == TypesActivite.chomeur, individu('chomage_net', period) == 0)\n\n    # Indique que l'individu a travaillé 5 ans au cours des 10 dernieres années.\n    ass_precondition_remplie = individu('ass_precondition_remplie', period)\n\n    return demandeur_emploi_non_indemnise * ass_precondition_remplie * sous_age_limite\n",
-      "start_line_number": 218,
-      "stop_line_number": 228,
+      "start_line_number": 223,
+      "stop_line_number": 233,
       "variables": [
         "activite",
         "age_en_mois",
@@ -1262,8 +1262,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ass.py",
       "source_code": "def formula_2017_01_01(individu, period, parameters):\n    age_max = parameters(period).prestations.minima_sociaux.ass.age_max\n    sous_age_limite = individu('age_en_mois', period) <= age_max\n\n    aah_eligible = individu('aah', period) > 0\n\n    eligible_cumul_ass = individu('ass_eligibilite_cumul_individu', period)\n\n    demandeur_emploi_non_indemnise_et_cumul_accepte = (\n        (individu('chomage_net', period) == 0)\n        * ((individu('activite', period) == TypesActivite.chomeur) + eligible_cumul_ass)\n        )\n\n    # Indique que l'individu a travaillé 5 ans au cours des 10 dernieres années.\n    ass_precondition_remplie = individu('ass_precondition_remplie', period)\n\n    return not_(aah_eligible) * demandeur_emploi_non_indemnise_et_cumul_accepte * ass_precondition_remplie * sous_age_limite\n",
-      "start_line_number": 229,
-      "stop_line_number": 246,
+      "start_line_number": 234,
+      "stop_line_number": 251,
       "variables": [
         "aah",
         "activite",
@@ -1292,7 +1292,8 @@
   "referring_variables": [
     "ass"
   ],
-  "start_line_number": 208,
-  "stop_line_number": 246,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 212,
+  "stop_line_number": 251,
   "value_type": "bool"
 }

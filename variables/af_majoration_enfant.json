@@ -1856,8 +1856,8 @@
         "prestations.prestations_familiales.af.maj_age_deux_enfants.taux2"
       ],
       "source_code": "def formula(individu, period, parameters):\n    pfam_enfant_a_charge = individu('prestations_familiales_enfant_a_charge', period)\n    age = individu('age', period)\n    garde_alternee = individu('garde_alternee', period)\n\n    af_nbenf = individu.famille('af_nbenf', period)\n    af_base = individu.famille('af_base', period)\n    age_aine = individu.famille('af_age_aine', period)\n\n    pfam = parameters(period).prestations.prestations_familiales\n\n    montant_enfant_seul = pfam.af.bmaf * (\n        (pfam.af.af_dom.age_1er_enf_tranche_1_dom <= age)\n        * (age < pfam.af.af_dom.age_1er_enf_tranche_2_dom)\n        * pfam.af.af_dom.taux_1er_enf_tranche_1_dom\n        + (pfam.af.af_dom.age_1er_enf_tranche_2_dom <= age)\n        * pfam.af.af_dom.taux_1er_enf_tranche_2_dom\n        )\n\n    montant_plusieurs_enfants = pfam.af.bmaf * (\n        (pfam.af.maj_age_deux_enfants.age1 <= age)\n        * (age < pfam.af.maj_age_deux_enfants.age2)\n        * pfam.af.maj_age_deux_enfants.taux1\n        + (pfam.af.maj_age_deux_enfants.age2 <= age)\n        * pfam.af.maj_age_deux_enfants.taux2\n        )\n\n    montant = (af_nbenf == 1) * montant_enfant_seul + (af_nbenf > 1) * montant_plusieurs_enfants\n\n    # Attention ! Ne fonctionne pas pour les enfants du même âge (typiquement les jumeaux...)\n    pas_aine = or_(af_nbenf != 2, (af_nbenf == 2) * not_(age == age_aine))\n\n    coeff_garde_alternee = where(garde_alternee, pfam.af.facteur_garde_alternee, 1)\n\n    return (\n        pfam_enfant_a_charge\n        * (af_base > 0)\n        * pas_aine\n        * montant\n        * coeff_garde_alternee\n        )\n",
-      "start_line_number": 170,
-      "stop_line_number": 211,
+      "start_line_number": 180,
+      "stop_line_number": 221,
       "variables": [
         "af_age_aine",
         "af_base",
@@ -1874,7 +1874,8 @@
   "referring_variables": [
     "af_majoration"
   ],
-  "start_line_number": 164,
-  "stop_line_number": 211,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 173,
+  "stop_line_number": 221,
   "value_type": "float"
 }

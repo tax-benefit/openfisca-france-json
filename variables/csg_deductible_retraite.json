@@ -543,8 +543,8 @@
         "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.deductible"
       ],
       "source_code": "def formula(individu, period, parameters):\n    retraite_brute = individu(\"retraite_brute\", period)\n    taux_csg_remplacement = individu(\"taux_csg_remplacement\", period)\n    law = parameters(period)\n\n    montant_csg = montant_csg_crds(\n        base_sans_abattement=retraite_brute,\n        indicatrice_taux_plein=(taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein),\n        indicatrice_taux_reduit=(taux_csg_remplacement == TypesTauxCSGRemplacement.taux_reduit),\n        law_node=law.prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.deductible,\n        plafond_securite_sociale=law.cotsoc.gen.plafond_securite_sociale)\n    return montant_csg\n",
-      "start_line_number": 165,
-      "stop_line_number": 177,
+      "start_line_number": 169,
+      "stop_line_number": 181,
       "variables": [
         "retraite_brute",
         "taux_csg_remplacement"
@@ -569,8 +569,9 @@
     "retraite_imposable",
     "revenus_remplacement_pensions_bruts_menage"
   ],
-  "start_line_number": 157,
-  "stop_line_number": 177,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 160,
+  "stop_line_number": 181,
   "ux_name": "CSG retraite déductible",
   "value_type": "float"
 }

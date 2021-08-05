@@ -582,8 +582,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
       "source_code": "def formula_2015_07_01(famille, period, parameters):\n    eligibilite_dom = famille('af_eligibilite_dom', period)\n    af_base = famille('af_base', period)\n    af_majoration = famille('af_majoration', period)\n    af = af_base + af_majoration\n    af_nbenf = famille('af_nbenf', period)\n    depassement_mensuel = depassement_helper(famille, period, parameters, af_nbenf)\n\n    return (\n        not_(eligibilite_dom)\n        * (depassement_mensuel > 0)\n        * max_(0, af - depassement_mensuel)\n        )\n",
-      "start_line_number": 235,
-      "stop_line_number": 248,
+      "start_line_number": 247,
+      "stop_line_number": 260,
       "variables": [
         "af_base",
         "af_eligibilite_dom",
@@ -606,8 +606,9 @@
   "referring_variables": [
     "af"
   ],
-  "start_line_number": 229,
-  "stop_line_number": 248,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 240,
+  "stop_line_number": 260,
   "ux_name": "Alloc. forfaitaire en cas de dépassement des plafonds",
   "value_type": "float"
 }

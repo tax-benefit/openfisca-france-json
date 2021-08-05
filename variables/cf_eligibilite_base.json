@@ -350,8 +350,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
       "source_code": "def formula(famille, period, parameters):\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n\n    cf_enfant_eligible = famille.members('cf_enfant_eligible', period)\n    cf_nbenf = famille.sum(cf_enfant_eligible)\n\n    return not_(residence_dom) * (cf_nbenf >= 3)\n",
-      "start_line_number": 184,
-      "stop_line_number": 191,
+      "start_line_number": 192,
+      "stop_line_number": 199,
       "variables": [
         "cf_enfant_eligible"
       ]
@@ -366,7 +366,8 @@
     "cf_non_majore_avant_cumul",
     "cf_plafond"
   ],
-  "start_line_number": 178,
-  "stop_line_number": 191,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 185,
+  "stop_line_number": 199,
   "value_type": "bool"
 }

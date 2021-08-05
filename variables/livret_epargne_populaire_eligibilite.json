@@ -350,8 +350,8 @@
       },
       "file_path": "/openfisca_france/model/patrimoine/livret_epargne_populaire.py",
       "source_code": "def formula(individu, period, parameters):\n    rfr = individu.foyer_fiscal('rfr', period.n_2)\n    plafond = individu('livret_epargne_populaire_plafond', period)\n    independent = not_(individu('enfant_a_charge', period.this_year))\n\n    return independent * (rfr <= plafond)\n",
-      "start_line_number": 36,
-      "stop_line_number": 42,
+      "start_line_number": 38,
+      "stop_line_number": 44,
       "variables": [
         "enfant_a_charge",
         "livret_epargne_populaire_plafond",
@@ -373,7 +373,8 @@
   "referring_variables": [
     "livret_epargne_populaire_taux"
   ],
-  "start_line_number": 29,
-  "stop_line_number": 42,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 30,
+  "stop_line_number": 44,
   "value_type": "bool"
 }

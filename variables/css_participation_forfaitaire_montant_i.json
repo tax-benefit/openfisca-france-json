@@ -742,8 +742,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/css.py",
       "source_code": "def formula(individu, period, parameters):\n    P = parameters(period).cs.css\n    age = individu('age', period)\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n    regime = where(\n        salarie_regime_alsace_moselle,\n        RegimeComplementaireSanteSolidaire.alsace_moselle,\n        RegimeComplementaireSanteSolidaire.france,\n        )\n    tranche = select(\n        [\n            age < 30,\n            age <= 49,\n            age <= 59,\n            age <= 69,\n            age > 69,\n            ],\n        [\n            TranchesComplementaireSanteSolidaire.cmu_moins_30_ans,\n            TranchesComplementaireSanteSolidaire.cmu_30_49_ans,\n            TranchesComplementaireSanteSolidaire.cmu_50_59_ans,\n            TranchesComplementaireSanteSolidaire.cmu_60_69_ans,\n            TranchesComplementaireSanteSolidaire.cmu_plus_69_ans,\n            ],\n        )\n\n    return P[regime][tranche]\n",
-      "start_line_number": 18,
-      "stop_line_number": 45,
+      "start_line_number": 19,
+      "stop_line_number": 46,
       "variables": [
         "age",
         "salarie_regime_alsace_moselle"
@@ -756,7 +756,8 @@
   "referring_variables": [
     "css_participation_forfaitaire_montant"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 12,
-  "stop_line_number": 45,
+  "stop_line_number": 46,
   "value_type": "float"
 }

@@ -1726,8 +1726,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ass.py",
       "source_code": "def formula(individu, period, parameters):\n    # Rolling year\n    previous_year = period.start.period('year').offset(-1)\n    # N-1\n    last_year = period.last_year\n\n    salaire_imposable = calculateWithAbatement(individu, parameters, period, 'salaire_imposable')\n    revenus_stage_formation_pro = calculateWithAbatement(individu, parameters, period, 'revenus_stage_formation_pro')\n    aah = calculateWithAbatement(individu, parameters, period, 'aah')\n    retraite_nette = calculateWithAbatement(individu, parameters, period, 'retraite_nette')\n    pensions_alimentaires_percues = calculateWithAbatement(individu, parameters, period, 'pensions_alimentaires_percues')\n    indemnites_stage = calculateWithAbatement(individu, parameters, period, 'indemnites_stage')\n\n    pensions_invalidite = individu('pensions_invalidite', previous_year, options=[ADD])\n    revenus_locatifs = individu('revenus_locatifs', previous_year, options=[ADD])\n    revenus_capital = individu('revenus_capital', period) * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    def revenus_tns():\n        revenus_auto_entrepreneur = individu('rpns_auto_entrepreneur_benefice', previous_year, options=[ADD])\n\n        # Les revenus TNS hors AE sont estimés en se basant sur le revenu N-1\n        rpns_micro_entreprise_benefice = individu('rpns_micro_entreprise_benefice', last_year)\n        rpns_benefice_exploitant_agricole = individu('rpns_benefice_exploitant_agricole', last_year)\n        rpns_autres_revenus = individu('rpns_autres_revenus', last_year)\n\n        return revenus_auto_entrepreneur + rpns_micro_entreprise_benefice + rpns_benefice_exploitant_agricole + rpns_autres_revenus\n\n    pensions_alimentaires_versees_individu = individu('pensions_alimentaires_versees_individu', previous_year, options=[ADD])\n\n    return (\n        salaire_imposable\n        + retraite_nette\n        + pensions_invalidite\n        + pensions_alimentaires_percues\n        - abs_(pensions_alimentaires_versees_individu)\n        + aah\n        + indemnites_stage\n        + revenus_stage_formation_pro\n        + revenus_tns()\n        + revenus_locatifs\n        + revenus_capital\n        )\n",
-      "start_line_number": 74,
-      "stop_line_number": 116,
+      "start_line_number": 76,
+      "stop_line_number": 118,
       "variables": [
         "pensions_alimentaires_versees_individu",
         "pensions_invalidite",
@@ -1753,7 +1753,8 @@
   "referring_variables": [
     "ass_base_ressources_conjoint"
   ],
-  "start_line_number": 64,
-  "stop_line_number": 116,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 65,
+  "stop_line_number": 118,
   "value_type": "float"
 }

@@ -1077,8 +1077,8 @@
         "impot_revenu.rpns.micro.specialbnc.taux"
       ],
       "source_code": "def formula(individu, period, parameters):\n    '''\n    Revenus non commerciaux individuels\n    '''\n    mbnc_exon = individu('mbnc_exon', period)\n    mbnc_impo = individu('mbnc_impo', period)\n    abnc_exon = individu('abnc_exon', period)\n    nbnc_exon = individu('nbnc_exon', period)\n    abnc_impo = individu('abnc_impo', period)\n    nbnc_impo = individu('nbnc_impo', period)\n    abnc_defi = individu('abnc_defi', period)\n    nbnc_defi = individu('nbnc_defi', period)\n    specialbnc = parameters(period).impot_revenu.rpns.micro.specialbnc\n\n    zbnc = (\n        mbnc_exon + mbnc_impo\n        + abnc_exon + nbnc_exon\n        + abnc_impo + nbnc_impo\n        - abnc_defi - nbnc_defi\n        )\n\n    cbnc = min_(\n        mbnc_exon + mbnc_impo,\n        max_(\n            specialbnc.services.min,\n            round_((mbnc_exon + mbnc_impo) * specialbnc.taux)\n            )\n        )\n\n    return zbnc - cbnc\n",
-      "start_line_number": 2648,
-      "stop_line_number": 2678,
+      "start_line_number": 2649,
+      "stop_line_number": 2679,
       "variables": [
         "abnc_defi",
         "abnc_exon",
@@ -1101,7 +1101,7 @@
       }
     ]
   },
-  "start_line_number": 2641,
-  "stop_line_number": 2678,
+  "start_line_number": 2642,
+  "stop_line_number": 2679,
   "value_type": "float"
 }

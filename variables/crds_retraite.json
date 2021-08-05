@@ -479,8 +479,8 @@
         "prelevements_sociaux.contributions_sociales.crds.retraite"
       ],
       "source_code": "def formula(individu, period, parameters):\n    retraite_brute = individu(\"retraite_brute\", period)\n    taux_csg_remplacement = individu(\"taux_csg_remplacement\", period)\n    law = parameters(period)\n\n    montant_crds = (\n        montant_csg_crds(\n            base_sans_abattement=retraite_brute,\n            law_node=law.prelevements_sociaux.contributions_sociales.crds.retraite,\n            plafond_securite_sociale=law.cotsoc.gen.plafond_securite_sociale,) * (taux_csg_remplacement == TypesTauxCSGRemplacement.exonere)\n        )\n    return montant_crds\n",
-      "start_line_number": 206,
-      "stop_line_number": 218,
+      "start_line_number": 212,
+      "stop_line_number": 224,
       "variables": [
         "retraite_brute",
         "taux_csg_remplacement"
@@ -503,8 +503,9 @@
     "retraite_nette",
     "revenus_remplacement_pensions_bruts_menage"
   ],
-  "start_line_number": 198,
-  "stop_line_number": 218,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 203,
+  "stop_line_number": 224,
   "ux_name": "CRDS retraite",
   "value_type": "float"
 }

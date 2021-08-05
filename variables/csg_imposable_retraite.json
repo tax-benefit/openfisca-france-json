@@ -373,8 +373,8 @@
         "prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable"
       ],
       "source_code": "def formula(individu, period, parameters):\n    retraite_brute = individu(\"retraite_brute\", period)\n    law = parameters(period)\n\n    montant_csg = montant_csg_crds(\n        base_sans_abattement=retraite_brute,\n        law_node=law.prelevements_sociaux.contributions_sociales.csg.retraite_invalidite.imposable,\n        plafond_securite_sociale=law.cotsoc.gen.plafond_securite_sociale)\n    return montant_csg\n",
-      "start_line_number": 187,
-      "stop_line_number": 196,
+      "start_line_number": 192,
+      "stop_line_number": 201,
       "variables": [
         "retraite_brute"
       ]
@@ -398,8 +398,9 @@
     "retraite_nette",
     "revenus_remplacement_pensions_bruts_menage"
   ],
-  "start_line_number": 179,
-  "stop_line_number": 196,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 183,
+  "stop_line_number": 201,
   "ux_name": "CSG retraite imposable",
   "value_type": "float"
 }

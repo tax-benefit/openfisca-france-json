@@ -428,8 +428,8 @@
         "prelevements_sociaux.cotisations_securite_sociale_regime_general.casa.pensions_retraite_preretraite_invalidite"
       ],
       "source_code": "def formula_2013_04_01(individu, period, parameters):\n    retraite_brute = individu('retraite_brute', period = period)\n    taux_csg_remplacement = individu('taux_csg_remplacement', period)\n    cotisations = parameters(period).prelevements_sociaux.cotisations_securite_sociale_regime_general\n    casa = (\n        (taux_csg_remplacement == TypesTauxCSGRemplacement.taux_plein)\n        * cotisations.casa.pensions_retraite_preretraite_invalidite.calc(retraite_brute)\n        )\n    return - casa  # TODO Mettre à jour la formule pour prendre en compte les seuils d'exonération\n",
-      "start_line_number": 227,
-      "stop_line_number": 236,
+      "start_line_number": 234,
+      "stop_line_number": 243,
       "variables": [
         "retraite_brute",
         "taux_csg_remplacement"
@@ -453,8 +453,9 @@
     "retraite_nette",
     "revenus_remplacement_pensions_bruts_menage"
   ],
-  "start_line_number": 220,
-  "stop_line_number": 236,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 226,
+  "stop_line_number": 243,
   "ux_name": "Contrib. solidarité et autonomie (CASA)",
   "value_type": "float"
 }

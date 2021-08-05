@@ -456,8 +456,8 @@
         "prestations.prestations_familiales.af.age3"
       ],
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    autonomie_financiere = individu('autonomie_financiere', period)\n\n    pfam = parameters(period).prestations.prestations_familiales\n\n    eligibilite = (\n        # Âge compatible avec les prestations familiales\n        (age >= pfam.af.age1)\n        * (age < pfam.af.age3)\n        * not_(autonomie_financiere)  # Ne perçoit pas plus de ressources que \"55% du SMIC\" au sens CAF\n        )\n\n    return eligibilite\n",
-      "start_line_number": 10,
-      "stop_line_number": 24,
+      "start_line_number": 11,
+      "stop_line_number": 25,
       "variables": [
         "age",
         "autonomie_financiere"
@@ -471,7 +471,8 @@
   "referring_variables": [
     "asf_montant"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 4,
-  "stop_line_number": 24,
+  "stop_line_number": 25,
   "value_type": "bool"
 }

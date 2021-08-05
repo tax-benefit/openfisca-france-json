@@ -914,8 +914,8 @@
         "prestations.minima_sociaux.ppa.bonification.taux_bonification_max"
       ],
       "source_code": "def formula(individu, period, parameters):\n    P = parameters(period)\n    smic_horaire = P.cotsoc.gen.smic_h_b\n    ppa_base = P.prestations.minima_sociaux.ppa.montant_de_base\n    revenu_activite = individu('ppa_revenu_activite_individu', period)\n    seuil_1 = P.prestations.minima_sociaux.ppa.bonification.seuil_bonification * smic_horaire\n    seuil_2 = P.prestations.minima_sociaux.ppa.bonification.seuil_max_bonification * smic_horaire\n    bonification_max = round_(P.prestations.minima_sociaux.ppa.bonification.taux_bonification_max * ppa_base, 2)\n    bonification = bonification_max * (revenu_activite - seuil_1) / (seuil_2 - seuil_1)\n    bonification = max_(bonification, 0)\n    bonification = min_(bonification, bonification_max)\n\n    return bonification\n",
-      "start_line_number": 333,
-      "stop_line_number": 346,
+      "start_line_number": 345,
+      "stop_line_number": 358,
       "variables": [
         "ppa_revenu_activite_individu"
       ]
@@ -927,7 +927,8 @@
   "referring_variables": [
     "ppa_fictive"
   ],
-  "start_line_number": 327,
-  "stop_line_number": 346,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 338,
+  "stop_line_number": 358,
   "value_type": "float"
 }

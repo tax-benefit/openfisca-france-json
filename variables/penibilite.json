@@ -755,8 +755,8 @@
         "cotsoc.cotisations_employeur.public_titulaire_territoriale.penibilite_base"
       ],
       "source_code": "def formula_2015_01_01(individu, period, parameters):\n    exposition_penibilite = individu('exposition_penibilite', period)\n    TypesExpositionPenibilite = exposition_penibilite.possible_values\n    multiplicateur = parameters(period).cotsoc.cotisations_employeur.prive_cadre.penibilite_multiplicateur_exposition_multiple\n\n    cotisation_base = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"penibilite_base\",\n        variable_name = 'penibilite',\n        )\n    cotisation_additionnelle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"penibilite_additionnelle\",\n        variable_name = 'penibilite',\n        )\n\n    cotisation = switch(\n        exposition_penibilite,\n        {\n            TypesExpositionPenibilite.nulle: cotisation_base,\n            TypesExpositionPenibilite.simple: cotisation_base + cotisation_additionnelle,\n            TypesExpositionPenibilite.multiple: cotisation_base + cotisation_additionnelle * multiplicateur,\n            }\n        )\n\n    return cotisation\n",
-      "start_line_number": 153,
-      "stop_line_number": 185,
+      "start_line_number": 157,
+      "stop_line_number": 189,
       "variables": [
         "exposition_penibilite"
       ]
@@ -846,8 +846,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula_2018(individu, period, parameters):\n    return individu.empty_array()\n",
-      "start_line_number": 186,
-      "stop_line_number": 188
+      "start_line_number": 190,
+      "stop_line_number": 192
     }
   },
   "json_type": "number",
@@ -865,8 +865,9 @@
   "referring_variables": [
     "cotisations_employeur_non_contributives"
   ],
-  "start_line_number": 147,
-  "stop_line_number": 188,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 150,
+  "stop_line_number": 192,
   "ux_name": "Cotis. compte pénibilité",
   "value_type": "float"
 }

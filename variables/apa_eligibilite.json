@@ -698,8 +698,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/autonomie.py",
       "source_code": "def formula_2002(individu, period, parameters):\n    period = period.start.offset('first-of', 'month').period('month')\n    parameters = parameters(period).autonomie\n    age = individu('age', period)\n    apa_age_min = parameters.age_ouverture_des_droits.age_d_ouverture_des_droits\n\n    gir = individu('gir', period)\n    eligibilite_gir = (\n        (gir == TypesGir.gir_1)\n        + (gir == TypesGir.gir_2)\n        + (gir == TypesGir.gir_3)\n        + (gir == TypesGir.gir_4)\n        )\n\n    return (age >= apa_age_min) * eligibilite_gir\n",
-      "start_line_number": 133,
-      "stop_line_number": 148,
+      "start_line_number": 135,
+      "stop_line_number": 150,
       "variables": [
         "age",
         "gir"
@@ -715,7 +715,8 @@
     "apa_domicile",
     "apa_etablissement"
   ],
-  "start_line_number": 127,
-  "stop_line_number": 148,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 128,
+  "stop_line_number": 150,
   "value_type": "bool"
 }

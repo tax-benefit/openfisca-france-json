@@ -869,8 +869,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
       "source_code": "def formula(individu, period, parameters):\n    primes_salaires = individu('primes_salaires', period)\n    salaire_de_base = individu('salaire_de_base', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    # indemnites_journalieres_maladie = individu('indemnites_journalieres_maladie', period)\n    # TODO: mettre à part ?\n    indemnite_residence = individu('indemnite_residence', period)\n    supplement_familial_traitement = individu('supplement_familial_traitement', period)\n    hsup = individu('hsup', period)\n    remuneration_principale = individu('remuneration_principale', period)\n    stage_gratification_reintegration = individu('stage_gratification_reintegration', period)\n    indemnite_fin_contrat = individu('indemnite_fin_contrat', period)\n    avantage_en_nature = individu('avantage_en_nature', period)\n\n    return (\n        + indemnite_fin_contrat\n        + indemnite_residence\n        + primes_fonction_publique\n        + primes_salaires\n        + remuneration_principale\n        + salaire_de_base\n        + stage_gratification_reintegration\n        + supplement_familial_traitement\n        + avantage_en_nature\n        - hsup\n        )\n",
-      "start_line_number": 21,
-      "stop_line_number": 47,
+      "start_line_number": 22,
+      "stop_line_number": 48,
       "variables": [
         "avantage_en_nature",
         "hsup",
@@ -893,7 +893,8 @@
     "csg_deductible_salaire",
     "csg_imposable_salaire"
   ],
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 15,
-  "stop_line_number": 47,
+  "stop_line_number": 48,
   "value_type": "float"
 }

@@ -668,8 +668,8 @@
         "prestations.mobili_jeune.montant.minimum"
       ],
       "source_code": "def formula_2012_07(individu, period, parameters):\n    loyer = individu.menage('loyer', period)\n    charges_locatives = individu.menage('charges_locatives', period)\n    aide_logement = individu.famille('aide_logement', period)\n\n    reste_a_charge = loyer + charges_locatives - aide_logement\n\n    eligibilite = individu('mobili_jeune_eligibilite', period)\n\n    return where(\n        reste_a_charge >= parameters(period).prestations.mobili_jeune.montant.minimum,\n        eligibilite * min_(reste_a_charge, parameters(period).prestations.mobili_jeune.montant.maximum),\n        0,\n        )\n",
-      "start_line_number": 15,
-      "stop_line_number": 29,
+      "start_line_number": 16,
+      "stop_line_number": 30,
       "variables": [
         "aide_logement",
         "charges_locatives",
@@ -689,7 +689,8 @@
       }
     ]
   },
+  "set_input": "set_input_divide_by_period",
   "start_line_number": 8,
-  "stop_line_number": 29,
+  "stop_line_number": 30,
   "value_type": "float"
 }

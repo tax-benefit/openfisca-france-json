@@ -691,8 +691,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula(individu, period, parameters):\n    agirc_salarie = individu('agirc_salarie', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    quotite = individu('quotite_de_travail', period)\n\n    cadre_cotisant = (\n        (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        & (assiette_cotisations_sociales > 0)\n        )\n\n    gmp = parameters(period).prelevements_sociaux.regimes_complementaires_retraite_secteur_prive.gmp\n    cotisation_forfaitaire_temps_plein = gmp.cotisation_forfaitaire_mensuelle_en_euros.part_salariale\n    cotisation_forfaitaire = cotisation_forfaitaire_temps_plein * quotite\n\n    # Sachant:\n    # - qu'il faut retourner un nombre négatif car c'est un prélèvement,\n    # - que la cotisation agirc_salarie est négative car c'est un prélèvement,\n    # - que la cotisation_forfaitaire est positive,\n    # le montant de la gmp est cotisation_forfaitaire - (-agirc_salarie) soit:\n    return - max_(cotisation_forfaitaire + agirc_salarie, 0) * cadre_cotisant\n",
-      "start_line_number": 295,
-      "stop_line_number": 316,
+      "start_line_number": 304,
+      "stop_line_number": 325,
       "variables": [
         "agirc_salarie",
         "assiette_cotisations_sociales",
@@ -718,8 +718,9 @@
     "cotisations_salariales_contributives",
     "exoneration_cotisations_salarie_stagiaire"
   ],
-  "start_line_number": 287,
-  "stop_line_number": 316,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 295,
+  "stop_line_number": 325,
   "ux_name": "Cotis. garantie minimal de points (GMP)",
   "value_type": "float"
 }

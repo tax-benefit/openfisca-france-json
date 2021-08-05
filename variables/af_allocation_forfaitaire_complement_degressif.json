@@ -480,8 +480,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
       "source_code": "def formula_2015_07_01(famille, period, parameters):\n    af_nbenf = famille('af_nbenf', period)\n    af_forfaitaire_nbenf = famille('af_allocation_forfaitaire_nb_enfants', period)\n    nb_enf_tot = af_nbenf + af_forfaitaire_nbenf  # noqa F841\n\n    depassement_mensuel = depassement_helper(famille, period, parameters, af_nbenf)\n\n    af_allocation_forfaitaire = famille('af_allocation_forfaitaire', period)\n    return max_(0, af_allocation_forfaitaire - depassement_mensuel) * (depassement_mensuel > 0)\n",
-      "start_line_number": 256,
-      "stop_line_number": 265,
+      "start_line_number": 269,
+      "stop_line_number": 278,
       "variables": [
         "af_allocation_forfaitaire",
         "af_allocation_forfaitaire_nb_enfants",
@@ -496,7 +496,8 @@
   "referring_variables": [
     "af"
   ],
-  "start_line_number": 250,
-  "stop_line_number": 265,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 262,
+  "stop_line_number": 278,
   "value_type": "float"
 }

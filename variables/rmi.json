@@ -649,8 +649,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
       "source_code": "def formula_1988_12(famille, period):\n    activite_i = famille.members('activite', period)\n    condition_activite_i = (\n        (activite_i != TypesActivite.actif)\n        * (activite_i != TypesActivite.etudiant)\n        * (activite_i != TypesActivite.retraite)\n        )\n    condition_activite = famille.any(condition_activite_i)\n\n    rsa_base_ressources = famille('rsa_base_ressources', period)\n    rsa_socle = famille('rsa_socle', period)\n    rsa_forfait_logement = famille('rsa_forfait_logement', period)\n\n    return condition_activite * max_(0, rsa_socle - rsa_forfait_logement - rsa_base_ressources)\n    # TODO: Migré lors de la mensualisation. Probablement faux\n",
-      "start_line_number": 137,
-      "stop_line_number": 152,
+      "start_line_number": 140,
+      "stop_line_number": 155,
       "variables": [
         "activite",
         "rsa_base_ressources",
@@ -664,7 +664,8 @@
   "label": "Revenu Minimum d'Insertion",
   "last_review": "2009-06-01",
   "name": "rmi",
-  "start_line_number": 130,
-  "stop_line_number": 152,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 132,
+  "stop_line_number": 155,
   "value_type": "float"
 }

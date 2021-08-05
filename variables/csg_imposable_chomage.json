@@ -772,8 +772,8 @@
         "prelevements_sociaux.contributions_sociales.csg.chomage.min_exo"
       ],
       "source_code": "def formula(individu, period, parameters):\n    chomage_brut = individu(\"chomage_brut\", period)\n    parameters = parameters(period)\n\n    montant_csg = montant_csg_crds(\n        base_avec_abattement=chomage_brut,\n        law_node=parameters.prelevements_sociaux.contributions_sociales.csg.chomage.imposable,\n        plafond_securite_sociale=parameters.cotsoc.gen.plafond_securite_sociale)\n    nbh_travail = 35 * 52 / 12  # = 151.67  # TODO: depuis 2001 mais avant ?\n    cho_seuil_exo = (parameters.prelevements_sociaux.contributions_sociales.csg.chomage.min_exo * nbh_travail * parameters.cotsoc.gen.smic_h_b)\n    csg_imposable_chomage = max_(-montant_csg - max_(cho_seuil_exo - (chomage_brut + montant_csg), 0), 0)\n    return -csg_imposable_chomage\n",
-      "start_line_number": 73,
-      "stop_line_number": 85,
+      "start_line_number": 75,
+      "stop_line_number": 87,
       "variables": [
         "chomage_brut"
       ]
@@ -799,8 +799,9 @@
     "csg_deductible_chomage",
     "revenus_remplacement_pensions_bruts_menage"
   ],
-  "start_line_number": 65,
-  "stop_line_number": 85,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 66,
+  "stop_line_number": 87,
   "ux_name": "CSG chômage imposable",
   "value_type": "float"
 }

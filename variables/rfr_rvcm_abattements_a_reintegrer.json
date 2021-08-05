@@ -1539,8 +1539,8 @@
         "impot_revenu.rvcm.taux_abattement_capitaux_mobiliers"
       ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    f2da = foyer_fiscal('f2da', period)\n    f2dc = foyer_fiscal('f2dc', period)\n    f2ts = foyer_fiscal('f2ts', period)\n    f2ca = foyer_fiscal('f2ca', period)\n    f2gr = foyer_fiscal('f2gr', period)\n    f2fu = foyer_fiscal('f2fu', period)\n    f2da = foyer_fiscal('f2da', period)  # noqa F841\n    rvcm = parameters(period).impot_revenu.rvcm\n\n    # Calcul de i121\n    # Part des frais s'imputant sur les revenus déclarés case DC\n    den = ((f2dc + f2ts) != 0) * (f2dc + f2ts) + ((f2dc + f2ts) == 0)\n    F1 = f2ca / den * f2dc  # f12\n    # Revenus de capitaux mobiliers nets de frais, ouvrant droit à abattement\n    # partie positive\n    g12b = max_(f2dc * (1 - rvcm.taux_abattement_capitaux_mobiliers * (f2da == 0)) - F1, 0)\n    rev = g12b + f2gr + f2fu * (1 - rvcm.taux_abattement_capitaux_mobiliers * (f2da == 0))\n\n    # Abattements, limité au revenu\n    h12 = rvcm.abatmob * (1 + maries_ou_pacses)\n    i121 = - min_(0, rev - h12)\n    return max_((rvcm.taux_abattement_capitaux_mobiliers) * (f2dc + f2fu) * (f2da == 0) - i121, 0)\n",
-      "start_line_number": 847,
-      "stop_line_number": 871,
+      "start_line_number": 848,
+      "stop_line_number": 872,
       "variables": [
         "f2ca",
         "f2da",
@@ -1897,8 +1897,8 @@
         "impot_revenu.rvcm.taux_abattement_capitaux_mobiliers"
       ],
       "source_code": "def formula_2013_01_01(foyer_fiscal, period, parameters):\n    f2dc = foyer_fiscal('f2dc', period)\n    f2fu = foyer_fiscal('f2fu', period)\n    P = parameters(period).impot_revenu.rvcm\n\n    abattement_dividende = (f2fu + f2dc) * P.taux_abattement_capitaux_mobiliers\n\n    return abattement_dividende\n",
-      "start_line_number": 872,
-      "stop_line_number": 880,
+      "start_line_number": 873,
+      "stop_line_number": 881,
       "variables": [
         "f2dc",
         "f2fu"
@@ -2673,8 +2673,8 @@
         "impot_revenu.rvcm.abat_assvie"
       ],
       "source_code": "def formula_2018_01_01(foyer_fiscal, period, parameters):\n    \"\"\"\n    2 remarques :\n        - L'abattement sur les dividendes devrait être intégré dans cette formule (il s'ajoute au RFR) mais on attends pour cela de coder l'option pour l'imposition au barème des dividendes.\n        - À partir de 2018, les revenus de l'assurance-vie sont taxés au PFU et entrent dans le calcul du RFR via `revenus_capitaux_prelevement_forfaitaire_unique_ir`.\n          Cette variable est brute d'abattement. Or, l'abattement sur les assurance-vie se déduit bien du RFR (contrairement à celui sur les dividendes). On le rajoute donc ici en négatif.\n    \"\"\"\n    maries_ou_pacses = foyer_fiscal('maries_ou_pacses', period)\n    f2ch = foyer_fiscal('f2ch', period)\n    f2dh = foyer_fiscal('f2dh', period)\n    f2vv = foyer_fiscal('f2vv', period)\n    f2ww = foyer_fiscal('f2ww', period)\n    P = parameters(period).impot_revenu.rvcm\n\n    abattement_assurance_vie = (\n        (f2ch < P.abat_assvie * (1 + maries_ou_pacses)) * max_(0, min_(f2vv + f2ww, P.abat_assvie * (1 + maries_ou_pacses) - f2ch - f2dh))\n        )\n\n    return - abattement_assurance_vie\n",
-      "start_line_number": 881,
-      "stop_line_number": 900,
+      "start_line_number": 882,
+      "stop_line_number": 901,
       "variables": [
         "f2ch",
         "f2dh",
@@ -2692,7 +2692,7 @@
     "rfr",
     "rvcm_plus_abat"
   ],
-  "start_line_number": 841,
-  "stop_line_number": 900,
+  "start_line_number": 842,
+  "stop_line_number": 901,
   "value_type": "float"
 }

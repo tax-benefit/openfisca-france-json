@@ -3406,8 +3406,8 @@
         "prestations.prestations_familiales.paje.base.taux_allocation_base"
       ],
       "source_code": "def formula_2004(famille, period, parameters):\n    couple_biactif = famille('biactivite', period)\n    parent_isole = not_(famille('en_couple', period))\n    nombre_enfants = famille('af_nbenf', period)\n    pfam = parameters(period).prestations.prestations_familiales\n\n    # Le montant, précédemment indexé sur la BMAF, est gelé en 2013, et dégelé en 2018\n    date_gel_paje = Instant((2013, 4, 1))\n    date_degel_paje = Instant((2018, 4, 1))\n    periode_de_gel = date_degel_paje > period.start > date_gel_paje\n    indice = parameters(date_gel_paje).prestations.prestations_familiales.af.bmaf if periode_de_gel else pfam.af.bmaf\n    montant_taux_plein = indice * pfam.paje.base.taux_allocation_base\n\n    def plafond_avant_avril_2014():\n        plafond_de_base = pfam.paje.base.avant_2014.plafond_ressources_0_enf\n        maj_plafond_2_premiers_enfants = pfam.paje.base.avant_2014.taux_majoration_2_premiers_enf * plafond_de_base\n        maj_plafond_par_enfant_sup = pfam.paje.base.avant_2014.taux_majoration_3eme_enf_et_plus * plafond_de_base\n        maj_plafond_seul_biactif = pfam.paje.base.avant_2014.majoration_biact_parent_isoles\n\n        plafond = (\n            plafond_de_base\n            + min_(nombre_enfants, 2) * maj_plafond_2_premiers_enfants\n            + max_(nombre_enfants - 2, 0) * maj_plafond_par_enfant_sup\n            + (couple_biactif + parent_isole) * maj_plafond_seul_biactif\n            )\n        return plafond\n\n    def plafond_taux_plein(params):\n        plafond_de_base = params.taux_plein.plaf\n        maj_plafond_seul_biactif = params.taux_plein.plaf_maj\n        maj_plafond_par_enfant = plafond_de_base * params.plaf_tx_par_enf\n\n        return plafond_apres_ajustement(plafond_de_base, maj_plafond_par_enfant, maj_plafond_seul_biactif)\n\n    def plafond_taux_partiel(params):\n        plafond_de_base = params.taux_partiel.plaf\n        maj_plafond_seul_biactif = params.taux_partiel.plaf_maj\n        maj_plafond_par_enfant = plafond_de_base * params.plaf_tx_par_enf\n\n        return plafond_apres_ajustement(plafond_de_base, maj_plafond_par_enfant, maj_plafond_seul_biactif)\n\n    def plafond_apres_ajustement(plafond_de_base, maj_plafond_par_enfant, maj_plafond_seul_biactif):\n        plafond = (\n            plafond_de_base\n            + nombre_enfants * maj_plafond_par_enfant\n            + (couple_biactif + parent_isole) * maj_plafond_seul_biactif\n            )\n        return plafond\n\n    a_un_enfant_eligible = famille.any(famille.members('enfant_eligible_paje', period))\n    date_plus_jeune = famille.reduce(famille.members('date_naissance', period), maximum, datetime64('1066-01-01'))\n    sujet_a_reforme_2014 = date_plus_jeune >= datetime64('2014-04-01')\n    sujet_a_reforme_2018 = date_plus_jeune >= datetime64('2018-04-01')\n    ne_avant_avril_2014 = True\n\n    plafond_taux_partiel = select(\n        [sujet_a_reforme_2018, sujet_a_reforme_2014, ne_avant_avril_2014],\n        [plafond_taux_partiel(pfam.paje.base.apres_2018), plafond_taux_partiel(pfam.paje.base.apres_2014), plafond_avant_avril_2014()]\n        )\n\n    plafond_taux_plein = select(\n        [sujet_a_reforme_2018, sujet_a_reforme_2014, ne_avant_avril_2014],\n        [plafond_taux_plein(pfam.paje.base.apres_2018), plafond_taux_plein(pfam.paje.base.apres_2014), plafond_avant_avril_2014()]\n        )\n\n    ressources = famille('prestations_familiales_base_ressources', period)\n    montant_taux_partiel = montant_taux_plein / 2\n\n    montant = (\n        (ressources <= plafond_taux_plein) * montant_taux_plein\n        + (ressources <= plafond_taux_partiel)\n        * (ressources > plafond_taux_plein) * montant_taux_partiel\n        )\n\n    return a_un_enfant_eligible * montant\n",
-      "start_line_number": 100,
-      "stop_line_number": 175,
+      "start_line_number": 106,
+      "stop_line_number": 181,
       "variables": [
         "af_nbenf",
         "biactivite",
@@ -3438,8 +3438,8 @@
     "paje_colca"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 91,
-  "stop_line_number": 175,
+  "start_line_number": 97,
+  "stop_line_number": 181,
   "ux_name": "Alloc. de base",
   "value_type": "float"
 }

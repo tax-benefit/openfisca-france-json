@@ -339,8 +339,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/cheque_energie.py",
       "source_code": "def formula_2017(menage, period, parameters):\n    eligible = menage('cheque_energie_eligibilite_logement', period)\n    declarant = menage.nb_persons(FoyerFiscal.DECLARANT) > 0  # une colocation de personnes à la charge de leurs parents n'est pas éligible aux chèques énergie, par exemple\n\n    montant = menage('cheque_energie_montant', period.this_year)\n    return declarant * eligible * montant\n",
-      "start_line_number": 83,
-      "stop_line_number": 89,
+      "start_line_number": 85,
+      "stop_line_number": 91,
       "variables": [
         "cheque_energie_eligibilite_logement",
         "cheque_energie_montant"
@@ -358,7 +358,8 @@
       }
     ]
   },
-  "start_line_number": 76,
-  "stop_line_number": 89,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 77,
+  "stop_line_number": 91,
   "value_type": "float"
 }

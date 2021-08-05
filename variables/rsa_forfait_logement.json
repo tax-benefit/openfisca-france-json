@@ -2074,8 +2074,8 @@
         "prestations.minima_sociaux.rsa.majoration_rsa.taux_troisieme_personne"
       ],
       "source_code": "def formula(famille, period, parameters):\n    np_pers = famille('nb_parents', period) + famille('rsa_nb_enfants', period)\n    aide_logement = famille('aide_logement', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    participation_frais = famille.demandeur.menage('participation_frais', period)\n    loyer = famille.demandeur.menage('loyer', period)\n\n    avantage_nature = or_(\n        ((statut_occupation_logement == TypesStatutOccupationLogement.primo_accedant) + (statut_occupation_logement == TypesStatutOccupationLogement.proprietaire)) * not_(loyer),\n        (statut_occupation_logement == TypesStatutOccupationLogement.loge_gratuitement) * not_(participation_frais)\n        )\n\n    avantage_al = aide_logement > 0\n\n    # Les parametres ont changé de nom au moment où le RMI est devenu le RSA\n    # Pour le RSA, on utilise les taux des textes de lois, pour le RMI ils sont déjà aggrégés\n    # Il faudrait uniformiser, mais les taux légaux pour le RMI commencent par \"1\", et ne passent pas en python\n    if period.start.date >= date(2009, 6, 1):\n        params = parameters(period).prestations.minima_sociaux.rsa\n        montant_base = params.montant_de_base_du_rsa\n        taux_2p = 1 + params.majoration_rsa.taux_deuxieme_personne\n        taux_3p = taux_2p + params.majoration_rsa.taux_troisieme_personne\n        forf_logement_taux_1p = params.forfait_logement.taux_1_personne\n        forf_logement_taux_2p = params.forfait_logement.taux_2_personnes * taux_2p\n        forf_logement_taux_3p = params.forfait_logement.taux_3_personnes_ou_plus * taux_3p\n    else:\n        params = parameters(period).prestations.minima_sociaux.rmi\n        montant_base = params.rmi\n        forf_logement_taux_1p = params.forfait_logement.taux1\n        forf_logement_taux_2p = params.forfait_logement.taux2\n        forf_logement_taux_3p = params.forfait_logement.taux3\n\n    montant_forfait = montant_base * (\n        (np_pers == 1) * forf_logement_taux_1p\n        + (np_pers == 2) * forf_logement_taux_2p\n        + (np_pers >= 3) * forf_logement_taux_3p\n        )\n\n    montant_al = avantage_al * min_(aide_logement, montant_forfait)\n    montant_nature = avantage_nature * montant_forfait\n\n    return max_(montant_al, montant_nature)\n",
-      "start_line_number": 797,
-      "stop_line_number": 839,
+      "start_line_number": 819,
+      "stop_line_number": 861,
       "variables": [
         "aide_logement",
         "nb_parents",
@@ -2100,7 +2100,8 @@
     "rsa_activite",
     "rsa_montant"
   ],
-  "start_line_number": 790,
-  "stop_line_number": 839,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 811,
+  "stop_line_number": 861,
   "value_type": "float"
 }

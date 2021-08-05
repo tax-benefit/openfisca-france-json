@@ -1148,8 +1148,8 @@
         "prestations.prestations_familiales.af.taux.enf3"
       ],
       "source_code": "def formula(famille, period, parameters):\n    eligibilite_base = famille('af_eligibilite_base', period)\n    eligibilite_dom = famille('af_eligibilite_dom', period)\n    af_nbenf = famille('af_nbenf', period)\n\n    pfam = parameters(period).prestations.prestations_familiales.af\n\n    eligibilite = or_(eligibilite_base, eligibilite_dom)\n\n    un_seul_enfant = (\n        eligibilite_dom\n        * (af_nbenf == 1)\n        * pfam.af_dom.taux_enfant_seul\n        )\n\n    deux_enfants = (af_nbenf >= 2) * pfam.taux.enf2\n    plus_de_trois_enfants = max_(af_nbenf - 2, 0) * pfam.taux.enf3\n    taux_total = un_seul_enfant + deux_enfants + plus_de_trois_enfants\n    montant_base = eligibilite * round_(pfam.bmaf * taux_total, 2)\n    coeff_garde_alternee = famille('af_coeff_garde_alternee', period)\n    montant_base = montant_base * coeff_garde_alternee\n\n    af_taux_modulation = famille('af_taux_modulation', period)\n    montant_base_module = montant_base * af_taux_modulation\n\n    return montant_base_module\n",
-      "start_line_number": 88,
-      "stop_line_number": 114,
+      "start_line_number": 94,
+      "stop_line_number": 120,
       "variables": [
         "af_coeff_garde_alternee",
         "af_eligibilite_base",
@@ -1177,8 +1177,9 @@
     "ppa_base_ressources_prestations_familiales",
     "rsa_base_ressources_prestations_familiales"
   ],
-  "start_line_number": 81,
-  "stop_line_number": 114,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 86,
+  "stop_line_number": 120,
   "ux_name": "Alloc. de base",
   "value_type": "float"
 }

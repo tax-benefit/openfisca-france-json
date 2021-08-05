@@ -1969,8 +1969,8 @@
         "prestations.aides_logement.taux_participation_fam.taux_enf_supp"
       ],
       "source_code": "def formula(famille, period, parameters):\n    al = parameters(period).prestations.aides_logement\n    couple = famille('al_couple', period)\n    al_nb_pac = famille('al_nb_personnes_a_charge', period)\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n\n    TF_metropole = (\n        al.taux_participation_fam.taux_1_adulte * (not_(couple)) * (al_nb_pac == 0)\n        + al.taux_participation_fam.taux_2_adulte * (couple) * (al_nb_pac == 0)\n        + al.taux_participation_fam.taux_1_enf * (al_nb_pac == 1)\n        + al.taux_participation_fam.taux_2_enf * (al_nb_pac == 2)\n        + al.taux_participation_fam.taux_3_enf * (al_nb_pac == 3)\n        + al.taux_participation_fam.taux_4_enf * (al_nb_pac >= 4)\n        + al.taux_participation_fam.taux_enf_supp * (al_nb_pac > 4) * (al_nb_pac - 4)\n        )\n\n    TF_dom = (\n        al.taux_participation_fam.dom.taux1 * (not_(couple)) * (al_nb_pac == 0)\n        + al.taux_participation_fam.dom.taux2 * (couple) * (al_nb_pac == 0)\n        + al.taux_participation_fam.dom.taux3 * (al_nb_pac == 1)\n        + al.taux_participation_fam.dom.taux4 * (al_nb_pac == 2)\n        + al.taux_participation_fam.dom.taux5 * (al_nb_pac == 3)\n        + al.taux_participation_fam.dom.taux6 * (al_nb_pac == 4)\n        + al.taux_participation_fam.dom.taux7 * (al_nb_pac == 5)\n        + al.taux_participation_fam.dom.taux8 * (al_nb_pac >= 6)\n        )\n\n    return where(residence_dom, TF_dom, TF_metropole)\n",
-      "start_line_number": 1374,
-      "stop_line_number": 1402,
+      "start_line_number": 1406,
+      "stop_line_number": 1434,
       "variables": [
         "al_couple",
         "al_nb_personnes_a_charge"
@@ -1983,7 +1983,8 @@
   "referring_variables": [
     "aide_logement_participation_personnelle"
   ],
-  "start_line_number": 1368,
-  "stop_line_number": 1402,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 1399,
+  "stop_line_number": 1434,
   "value_type": "float"
 }

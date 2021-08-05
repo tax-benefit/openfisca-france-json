@@ -871,8 +871,8 @@
         "prestations.mobili_jeune.age_maximum"
       ],
       "source_code": "def formula_2012_07(individu, period, parameters):\n    condition_age = individu(\"age\", period) < parameters(period).prestations.mobili_jeune.age_maximum\n\n    alternant = individu(\"alternant\", period)  # sous contrat d'apprentissage ou de professionnalisation\n    mobili_jeune_eligibilite_employeur = individu(\"mobili_jeune_eligibilite_employeur\", period)\n\n    smic_mensuel_brut = individu(\"smic_proratise\", period)\n    condition_remuneration = individu(\"salaire_de_base\", period) <= smic_mensuel_brut\n\n    statut_occupation_logement = individu.menage(\"statut_occupation_logement\", period)\n    locataire = (\n        (statut_occupation_logement == TypesStatutOccupationLogement.locataire_hlm)\n        + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_vide)\n        + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_meuble)\n        + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer)\n        )\n\n    return condition_age * alternant * mobili_jeune_eligibilite_employeur * condition_remuneration * locataire\n",
-      "start_line_number": 62,
-      "stop_line_number": 80,
+      "start_line_number": 65,
+      "stop_line_number": 83,
       "variables": [
         "age",
         "alternant",
@@ -898,7 +898,8 @@
   "referring_variables": [
     "mobili_jeune"
   ],
-  "start_line_number": 49,
-  "stop_line_number": 80,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 51,
+  "stop_line_number": 83,
   "value_type": "bool"
 }

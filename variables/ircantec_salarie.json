@@ -517,8 +517,8 @@
         "cotsoc.cotisations_salarie.public_non_titulaire.ircantec"
       ],
       "source_code": "def formula(individu, period, parameters):\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    _P = parameters(period)\n\n    ircantec = apply_bareme_for_relevant_type_sal(\n        bareme_by_type_sal_name = _P.cotsoc.cotisations_salarie,\n        bareme_name = \"ircantec\",\n        base = assiette_cotisations_sociales,\n        plafond_securite_sociale = plafond_securite_sociale,\n        categorie_salarie = categorie_salarie,\n        )\n\n    return ircantec * (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n",
-      "start_line_number": 135,
-      "stop_line_number": 150,
+      "start_line_number": 139,
+      "stop_line_number": 154,
       "variables": [
         "assiette_cotisations_sociales",
         "categorie_salarie",
@@ -541,8 +541,9 @@
   "referring_variables": [
     "cotisations_salariales_contributives"
   ],
-  "start_line_number": 129,
-  "stop_line_number": 150,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 132,
+  "stop_line_number": 154,
   "ux_name": "Cotis. retraite complémentaire non-titulaires (Ircantec)",
   "value_type": "float"
 }

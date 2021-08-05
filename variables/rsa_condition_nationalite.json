@@ -436,8 +436,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(individu, period, parameters):\n    ressortissant_eee = individu('ressortissant_eee', period)\n    ressortissant_suisse = individu('nationalite', period) == b'CH'\n    duree_possession_titre_sejour = individu('duree_possession_titre_sejour', period)\n    duree_min_titre_sejour = parameters(period).prestations.minima_sociaux.rmi.duree_min_titre_sejour\n    return or_(ressortissant_eee, ressortissant_suisse, duree_possession_titre_sejour >= duree_min_titre_sejour)\n",
-      "start_line_number": 631,
-      "stop_line_number": 637,
+      "start_line_number": 648,
+      "stop_line_number": 654,
       "variables": [
         "duree_possession_titre_sejour",
         "nationalite",
@@ -1153,8 +1153,8 @@
         "prestations.minima_sociaux.rsa.duree_min_titre_sejour.non_eee"
       ],
       "source_code": "def formula_2009_06_01(individu, period, parameters):\n    fr = individu('nationalite', period) == b'FR'\n    ressortissant_suisse = individu('nationalite', period) == b'CH'\n    ressortissant_eee = individu('ressortissant_eee', period)\n\n    duree_possession_titre_sejour = individu('duree_possession_titre_sejour', period)\n    duree_min_titre_sejour = parameters(period).prestations.minima_sociaux.rsa.duree_min_titre_sejour\n\n    eligibilite_eee_suisse = (ressortissant_eee + ressortissant_suisse) * duree_possession_titre_sejour >= duree_min_titre_sejour.eee\n    eligibilite_non_eee = not_(ressortissant_eee) * duree_possession_titre_sejour >= duree_min_titre_sejour.non_eee\n\n    return fr + eligibilite_eee_suisse + eligibilite_non_eee\n",
-      "start_line_number": 617,
-      "stop_line_number": 629,
+      "start_line_number": 634,
+      "stop_line_number": 646,
       "variables": [
         "duree_possession_titre_sejour",
         "nationalite",
@@ -1170,7 +1170,8 @@
   "referring_variables": [
     "rsa_eligibilite"
   ],
-  "start_line_number": 610,
-  "stop_line_number": 637,
+  "set_input": "set_input_dispatch_by_period",
+  "start_line_number": 626,
+  "stop_line_number": 654,
   "value_type": "bool"
 }

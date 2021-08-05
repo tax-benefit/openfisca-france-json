@@ -1202,8 +1202,8 @@
         "cotsoc.gen.smic_h_b"
       ],
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    smic = parameters(period).cotsoc.gen.smic_h_b * 52 * 35 / 12\n    professionnalisation = individu('professionnalisation', period)\n    qualifie = individu('qualifie', period)\n    salaire_en_smic = [\n        dict(\n            part_de_smic_by_qualification = {\n                'non_qualifie': .55,\n                'qualifie': .65\n                },\n            age_min = 16,\n            age_max = 21,\n            ),\n        dict(\n            part_de_smic_by_qualification = {\n                1: .70,\n                },\n            age_min = 21,\n            age_max = 25,\n            ),\n        dict(\n            part_de_smic_by_qualification = {\n                1: 1.0,\n                },\n            age_min = 26,\n            age_max = 99\n            )\n        ]\n\n    taux_smic = age * 0.0\n    for age_interval in salaire_en_smic:\n        age_condition = (age_interval['age_min'] <= age) * (age <= age_interval['age_max'])\n        taux_smic[age_condition] = sum([\n            (qualifie[age_condition] == qualification) * part_de_smic\n            for qualification, part_de_smic in age_interval['part_de_smic_by_qualification'].items()\n            ])\n    return taux_smic * smic * professionnalisation\n",
-      "start_line_number": 58,
-      "stop_line_number": 96,
+      "start_line_number": 61,
+      "stop_line_number": 99,
       "variables": [
         "age",
         "professionnalisation",
@@ -1221,7 +1221,8 @@
       }
     ]
   },
-  "start_line_number": 33,
-  "stop_line_number": 96,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 35,
+  "stop_line_number": 99,
   "value_type": "float"
 }

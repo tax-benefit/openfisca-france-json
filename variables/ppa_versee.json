@@ -431,8 +431,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    remainder = famille('ppa_indice_du_mois_trimestre_reference', period)\n    return (\n        + famille('ppa', period) * (remainder == 0)\n        + famille('ppa', period.last_month) * (remainder == 1)\n        + famille('ppa', period.last_month.last_month) * (remainder == 2)\n        )\n",
-      "start_line_number": 500,
-      "stop_line_number": 507,
+      "start_line_number": 519,
+      "stop_line_number": 526,
       "variables": [
         "ppa",
         "ppa_indice_du_mois_trimestre_reference"
@@ -442,7 +442,8 @@
   "json_type": "number",
   "label": "Prime pour l'activité versée en prenant en compte la date de la demande",
   "name": "ppa_versee",
-  "start_line_number": 494,
-  "stop_line_number": 507,
+  "set_input": "set_input_divide_by_period",
+  "start_line_number": 512,
+  "stop_line_number": 526,
   "value_type": "float"
 }

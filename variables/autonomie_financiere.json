@@ -526,8 +526,8 @@
         "prestations.prestations_familiales.af.seuil_rev_taux"
       ],
       "source_code": "def formula(individu, period, parameters):\n    # D'après service-public.fr, la condition de dépassement du salaire plafonds n'est pas évalué de la même manière suivant si l'enfant est étudiant ou salarié/apprenti/stagiaire.\n    salaire_net_mensualise = individu('salaire_net', period.start.period('month', 6).offset(-6), options = [ADD]) / 6\n\n    _P = parameters(period)\n\n    nbh_travaillees = 169\n    smic_mensuel_brut = _P.cotsoc.gen.smic_h_b * nbh_travaillees\n\n    return salaire_net_mensualise >= (_P.prestations.prestations_familiales.af.seuil_rev_taux * smic_mensuel_brut)\n",
-      "start_line_number": 18,
-      "stop_line_number": 28,
+      "start_line_number": 19,
+      "stop_line_number": 29,
       "variables": [
         "salaire_net"
       ]
@@ -555,7 +555,8 @@
     "prestations_familiales_enfant_a_charge",
     "rsa_enfant_a_charge"
   ],
+  "set_input": "set_input_dispatch_by_period",
   "start_line_number": 8,
-  "stop_line_number": 28,
+  "stop_line_number": 29,
   "value_type": "bool"
 }
