@@ -5,31 +5,31 @@
   "entity": "individu",
   "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
   "formulas": {
-    "0001-01-01": {
+    "1991-01-01": {
       "ast": {
         "args": {
           "args": [
             {
               "arg": "individu",
               "ast_class": "arg",
-              "col_offset": 12,
-              "end_col_offset": 20,
+              "col_offset": 17,
+              "end_col_offset": 25,
               "end_lineno": 1,
               "lineno": 1
             },
             {
               "arg": "period",
               "ast_class": "arg",
-              "col_offset": 22,
-              "end_col_offset": 28,
+              "col_offset": 27,
+              "end_col_offset": 33,
               "end_lineno": 1,
               "lineno": 1
             },
             {
               "arg": "parameters",
               "ast_class": "arg",
-              "col_offset": 30,
-              "end_col_offset": 40,
+              "col_offset": 35,
+              "end_col_offset": 45,
               "end_lineno": 1,
               "lineno": 1
             }
@@ -422,10 +422,10 @@
         "end_col_offset": 78,
         "end_lineno": 11,
         "lineno": 1,
-        "name": "formula"
+        "name": "formula_1991"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-      "source_code": "def formula(individu, period, parameters):\n    assiette_cotisations_sociales = individu(\n        'assiette_cotisations_sociales', period)\n    taux_accident_travail = individu('taux_accident_travail', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    assujetti = (\n        (categorie_salarie == TypesCategorieSalarie.prive_non_cadre)\n        + (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        )\n    # TODO: ajouter contractuel du public salarié de moins d'un an ou à temps partiel\n    return - assiette_cotisations_sociales * taux_accident_travail * assujetti\n",
+      "source_code": "def formula_1991(individu, period, parameters):    # TODO : rajouter formule pré-1991 : s'applique au salaire sous PSS uniquement\n    assiette_cotisations_sociales = individu(\n        'assiette_cotisations_sociales', period)\n    taux_accident_travail = individu('taux_accident_travail', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    assujetti = (\n        (categorie_salarie == TypesCategorieSalarie.prive_non_cadre)\n        + (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        )\n    # TODO: ajouter contractuel du public salarié de moins d'un an ou à temps partiel\n    return - assiette_cotisations_sociales * taux_accident_travail * assujetti\n",
       "start_line_number": 201,
       "stop_line_number": 212,
       "variables": [
@@ -437,6 +437,7 @@
   },
   "json_type": "number",
   "label": "Cotisations employeur accident du travail et maladie professionnelle (AT/MP)",
+  "last_review": "1991-01-01",
   "name": "accident_du_travail",
   "reference": {
     "2021-07-27": [

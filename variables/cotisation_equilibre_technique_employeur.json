@@ -368,8 +368,8 @@
         "cotsoc.cotisations_employeur.public_titulaire_territoriale.cet2019"
       ],
       "source_code": "def formula_2019_01_01(individu, period, parameters):\n\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'cet2019',\n        variable_name = 'cotisation_equilibre_technique_employeur',\n        )\n    return cotisation * (assiette_cotisations_sociales > plafond_securite_sociale)\n",
-      "start_line_number": 698,
-      "stop_line_number": 712,
+      "start_line_number": 717,
+      "stop_line_number": 731,
       "variables": [
         "assiette_cotisations_sociales",
         "plafond_securite_sociale"
@@ -393,8 +393,8 @@
     "cotisations_employeur_contributives",
     "exoneration_cotisations_employeur_stagiaire"
   ],
-  "start_line_number": 692,
-  "stop_line_number": 712,
+  "start_line_number": 711,
+  "stop_line_number": 731,
   "ux_name": "Contrib. équilibre technique (CET)",
   "value_type": "float"
 }

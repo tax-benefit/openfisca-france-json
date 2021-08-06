@@ -7,6 +7,7 @@
   "accident_du_travail": {
     "involve": "organization",
     "label": "Cotisations employeur accident du travail et maladie professionnelle (AT/MP)",
+    "last_review": "1991-01-01",
     "ux_name": "Cotis. accident/maladie professionnels"
   },
   "acompte_ir_elus_locaux": {
@@ -679,8 +680,27 @@
     "ux_name": "Charges et aides différées"
   },
   "cout_du_travail": {
+    "children": [
+      {
+        "name": "salaire_super_brut"
+      },
+      {
+        "name": "cout_differe",
+        "negate": true
+      }
+    ],
     "involve": "organization",
     "label": "Salaire super brut sans les charges, crédits et aides différés aux employeurs",
+    "options": [
+      {
+        "then": {
+          "children": null
+        },
+        "waterfall": [
+          "super_brut_to_disponible"
+        ]
+      }
+    ],
     "ux_name": "Salaire super brut avant charges et aides différées"
   },
   "covid_aide_exceptionnelle_famille_montant": {
@@ -1330,6 +1350,16 @@
     "label": "Dépense employeur de cantine et de titres restaurant, après allègement de cotisations sociales",
     "ux_name": "Cantine ou titres restaurant à charge de l'employeur, après allègement"
   },
+  "remuneration_apprenti": {
+    "involve": "organization",
+    "label": "Salaire minimum de l'apprenti",
+    "ux_name": "Salaire min. apprenti"
+  },
+  "remuneration_principale": {
+    "involve": "organization",
+    "label": "Rémunération principale des agents titulaires de la fonction publique",
+    "ux_name": "Salaire principal fonctionnaire"
+  },
   "rente_viagere_titre_onereux": {
     "involve": "person",
     "label": "Rentes viagères versées jusqu'à la mort du bénéficiaire en contrepartie de la cessation d'un bien immobilier ou d'un capital.",
@@ -1438,53 +1468,20 @@
     "last_review": "2009-06-01",
     "ux_name": "RSA"
   },
-  "salaire_de_base_ou_remuneration": {
-    "children": [
-      {
-        "name": "salaire_super_brut"
-      },
-      {
-        "name": "cotisations_employeur"
-      },
-      {
-        "name": "exonerations_et_allegements"
-      },
-      {
-        "name": "indemnite_fin_contrat",
-        "negate": true
-      },
-      {
-        "name": "primes_fonction_publique",
-        "negate": true
-      },
-      {
-        "name": "indemnite_residence",
-        "negate": true
-      },
-      {
-        "name": "supplement_familial_traitement",
-        "negate": true
-      },
-      {
-        "name": "depense_cantine_titre_restaurant_employeur",
-        "negate": true
-      },
-      {
-        "name": "reintegration_titre_restaurant_employeur"
-      }
-    ],
+  "salaire_de_base": {
     "involve": "person",
-    "label": "Salaire de base ou rémunération",
-    "ux_name": "Salaire brut",
-    "virtual": true
+    "label": "Salaire de base, en général appelé salaire brut, la 1ère ligne sur la fiche de paie"
   },
   "salaire_imposable": {
     "children": [
       {
-        "name": "salaire_de_base_ou_remuneration"
+        "name": "salaire_de_base"
       },
       {
         "name": "primes_salaires"
+      },
+      {
+        "name": "remuneration_principale"
       },
       {
         "name": "primes_fonction_publique"
@@ -1516,7 +1513,52 @@
       }
     ],
     "involve": "person",
-    "label": "Salaires imposables"
+    "label": "Salaires imposables",
+    "options": [
+      {
+        "then": {
+          "children": [
+            {
+              "name": "salaire_de_base_ou_remuneration"
+            },
+            {
+              "name": "primes_salaires"
+            },
+            {
+              "name": "primes_fonction_publique"
+            },
+            {
+              "name": "indemnite_residence"
+            },
+            {
+              "name": "supplement_familial_traitement"
+            },
+            {
+              "name": "csg_deductible_salaire"
+            },
+            {
+              "name": "cotisations_salariales"
+            },
+            {
+              "name": "hsup",
+              "negate": true
+            },
+            {
+              "name": "rev_microsocial"
+            },
+            {
+              "name": "indemnite_fin_contrat"
+            },
+            {
+              "name": "complementaire_sante_salarie"
+            }
+          ]
+        },
+        "waterfall": [
+          "super_brut_to_disponible"
+        ]
+      }
+    ]
   },
   "salaire_net": {
     "children": [
@@ -1536,14 +1578,70 @@
   "salaire_super_brut": {
     "children": [
       {
-        "name": "cout_du_travail"
+        "name": "salaire_super_brut_hors_allegements"
       },
       {
-        "name": "cout_differe"
+        "name": "exonerations_et_allegements",
+        "negate": true
       }
     ],
     "involve": "organization",
-    "label": "Salaire super brut"
+    "label": "Salaire super brut",
+    "options": [
+      {
+        "then": {
+          "children": [
+            {
+              "name": "cout_du_travail"
+            },
+            {
+              "name": "cout_differe"
+            }
+          ]
+        },
+        "waterfall": [
+          "super_brut_to_disponible"
+        ]
+      }
+    ]
+  },
+  "salaire_super_brut_hors_allegements": {
+    "children": [
+      {
+        "name": "salaire_de_base"
+      },
+      {
+        "name": "remuneration_apprenti"
+      },
+      {
+        "name": "indemnite_fin_contrat"
+      },
+      {
+        "name": "remuneration_principale"
+      },
+      {
+        "name": "primes_fonction_publique"
+      },
+      {
+        "name": "indemnite_residence"
+      },
+      {
+        "name": "supplement_familial_traitement"
+      },
+      {
+        "name": "depense_cantine_titre_restaurant_employeur"
+      },
+      {
+        "name": "reintegration_titre_restaurant_employeur",
+        "negate": true
+      },
+      {
+        "name": "cotisations_employeur",
+        "negate": true
+      }
+    ],
+    "involve": "person",
+    "label": "Salaire super-brut (fiche de paie): rémunération + cotisations sociales employeur"
   },
   "supplement_familial_traitement": {
     "involve": "organization",

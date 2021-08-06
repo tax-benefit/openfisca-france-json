@@ -76,7 +76,8 @@
     "label": "Plus-values non commerciaux professionnels de cession taxables selon droit commun (régime de la déclaration controlée, revenus bénéficiant de l'abattement association agrée ou viseur)"
   },
   "accident_du_travail": {
-    "label": "Cotisations employeur accident du travail et maladie professionnelle (AT/MP)"
+    "label": "Cotisations employeur accident du travail et maladie professionnelle (AT/MP)",
+    "last_review": "1991-01-01"
   },
   "acompte_ir_elus_locaux": {
     "hidden": true,
@@ -381,8 +382,68 @@
     "label": "Base de ressources individuelle de l'ASS"
   },
   "assiette_csg_plus_values": {
+    "children": [
+      {
+        "name": "f3vg"
+      },
+      {
+        "name": "f3ua"
+      },
+      {
+        "name": "f3vz"
+      },
+      {
+        "name": "f3we"
+      },
+      {
+        "name": "rpns_pvce"
+      },
+      {
+        "name": "f3sj"
+      },
+      {
+        "name": "f3sk"
+      },
+      {
+        "name": "f3vm"
+      },
+      {
+        "name": "f3vt"
+      },
+      {
+        "name": "f3wi"
+      },
+      {
+        "name": "f3wj"
+      },
+      {
+        "name": "f3pi"
+      },
+      {
+        "name": "f3tj"
+      },
+      {
+        "name": "f3an"
+      },
+      {
+        "name": "f3bn",
+        "negate": true
+      },
+      {
+        "name": "f3vd"
+      },
+      {
+        "name": "f3vi"
+      },
+      {
+        "name": "f3vf"
+      }
+    ],
     "label": "Assiette des plus-values soumis à la CSG",
     "last_review": "2019-01-01"
+  },
+  "assiette_csg_revenus_capital": {
+    "label": "Assiette des revenus du capital soumis à la CSG"
   },
   "assiette_proflib": {
     "children": [
@@ -969,6 +1030,15 @@
     "label": "Charges, aides et crédits différés"
   },
   "cout_du_travail": {
+    "children": [
+      {
+        "name": "salaire_super_brut"
+      },
+      {
+        "name": "cout_differe",
+        "negate": true
+      }
+    ],
     "label": "Salaire super brut sans les charges, crédits et aides différés aux employeurs"
   },
   "covid_aide_exceptionnelle_famille_montant": {
@@ -4320,6 +4390,25 @@
     "last_review": "2013-01-01"
   },
   "revenus_nets_du_capital": {
+    "children": [
+      {
+        "name": "assiette_csg_revenus_capital"
+      },
+      {
+        "name": "assiette_csg_plus_values",
+        "negate": true
+      },
+      {
+        "name": "plus_values_base_large"
+      },
+      {
+        "name": "rente_viagere_titre_onereux_net",
+        "negate": true
+      },
+      {
+        "name": "prelevements_sociaux_revenus_capital"
+      }
+    ],
     "label": "Revenus du capital nets de prélèvements sociaux"
   },
   "revenus_nets_du_travail": {
@@ -4819,10 +4908,13 @@
   "salaire_imposable": {
     "children": [
       {
-        "name": "salaire_de_base_ou_remuneration"
+        "name": "salaire_de_base"
       },
       {
         "name": "primes_salaires"
+      },
+      {
+        "name": "remuneration_principale"
       },
       {
         "name": "primes_fonction_publique"
@@ -4892,10 +4984,11 @@
   "salaire_super_brut": {
     "children": [
       {
-        "name": "cout_du_travail"
+        "name": "salaire_super_brut_hors_allegements"
       },
       {
-        "name": "cout_differe"
+        "name": "exonerations_et_allegements",
+        "negate": true
       }
     ],
     "label": "Salaire super brut"

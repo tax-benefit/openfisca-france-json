@@ -461,8 +461,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula(individu, period, parameters):\n    categorie_salarie = individu('categorie_salarie', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    prevoyance_obligatoire_cadre_taux_employeur = individu(\n        'prevoyance_obligatoire_cadre_taux_employeur', period)\n\n    cotisation = - (\n        (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        * min_(assiette_cotisations_sociales, plafond_securite_sociale)\n        * prevoyance_obligatoire_cadre_taux_employeur\n        )\n    return cotisation\n",
-      "start_line_number": 911,
-      "stop_line_number": 924,
+      "start_line_number": 930,
+      "stop_line_number": 943,
       "variables": [
         "assiette_cotisations_sociales",
         "categorie_salarie",
@@ -481,8 +481,8 @@
     "taxe_salaires"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 903,
-  "stop_line_number": 924,
+  "start_line_number": 922,
+  "stop_line_number": 943,
   "ux_name": "Prévoyance des cadres obligatoire",
   "value_type": "float"
 }
