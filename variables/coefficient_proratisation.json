@@ -1038,7 +1038,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 103,
+            "end_col_offset": 41,
             "end_lineno": 47,
             "lineno": 47,
             "targets": [
@@ -1055,68 +1055,47 @@
               }
             ],
             "value": {
-              "ast_class": "Attribute",
-              "attr": "nb_heure_travail_mensuel",
+              "ast_class": "BinOp",
               "col_offset": 29,
-              "ctx": {
-                "ast_class": "Load"
-              },
-              "end_col_offset": 103,
+              "end_col_offset": 41,
               "end_lineno": 47,
-              "lineno": 47,
-              "value": {
-                "ast_class": "Attribute",
-                "attr": "salaire_minimum",
+              "left": {
+                "ast_class": "BinOp",
                 "col_offset": 29,
-                "ctx": {
-                  "ast_class": "Load"
-                },
-                "end_col_offset": 78,
+                "end_col_offset": 36,
                 "end_lineno": 47,
-                "lineno": 47,
-                "value": {
-                  "ast_class": "Attribute",
-                  "attr": "marche_travail",
+                "left": {
+                  "ast_class": "Constant",
                   "col_offset": 29,
-                  "ctx": {
-                    "ast_class": "Load"
-                  },
-                  "end_col_offset": 62,
+                  "end_col_offset": 31,
                   "end_lineno": 47,
                   "lineno": 47,
-                  "value": {
-                    "args": [
-                      {
-                        "ast_class": "Name",
-                        "col_offset": 40,
-                        "ctx": {
-                          "ast_class": "Load"
-                        },
-                        "end_col_offset": 46,
-                        "end_lineno": 47,
-                        "id": "period",
-                        "lineno": 47
-                      }
-                    ],
-                    "ast_class": "Call",
-                    "col_offset": 29,
-                    "end_col_offset": 47,
-                    "end_lineno": 47,
-                    "func": {
-                      "ast_class": "Name",
-                      "col_offset": 29,
-                      "ctx": {
-                        "ast_class": "Load"
-                      },
-                      "end_col_offset": 39,
-                      "end_lineno": 47,
-                      "id": "parameters",
-                      "lineno": 47
-                    },
-                    "keywords": [],
-                    "lineno": 47
-                  }
+                  "value": 35
+                },
+                "lineno": 47,
+                "op": {
+                  "ast_class": "Mult"
+                },
+                "right": {
+                  "ast_class": "Constant",
+                  "col_offset": 34,
+                  "end_col_offset": 36,
+                  "end_lineno": 47,
+                  "lineno": 47,
+                  "value": 52
                 }
+              },
+              "lineno": 47,
+              "op": {
+                "ast_class": "Div"
+              },
+              "right": {
+                "ast_class": "Constant",
+                "col_offset": 39,
+                "end_col_offset": 41,
+                "end_lineno": 47,
+                "lineno": 47,
+                "value": 12
               }
             }
           },
@@ -1891,7 +1870,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
-      "source_code": "def formula(individu, period, parameters):\n    #  * Tous les calculs sont faits sur le mois *\n\n    # Les types de contrats gérés\n    contrat_de_travail = individu('contrat_de_travail', period)\n    TypesContratDeTravail = contrat_de_travail.possible_values\n    # [ temps_plein\n    #   temps_partiel\n    #   forfait_heures_semaines\n    #   forfait_heures_mois\n    #   forfait_heures_annee\n    #   forfait_jours_annee ]\n\n    contrat_de_travail_debut = individu('contrat_de_travail_debut', period)\n    contrat_de_travail_fin = individu('contrat_de_travail_fin', period)\n\n    # Volume des heures rémunérées à un forfait heures\n    forfait_heures_remunerees_volume = individu('forfait_heures_remunerees_volume', period)  # noqa F841\n    # Volume des heures rémunérées à forfait jours\n    forfait_jours_remuneres_volume = individu('forfait_jours_remuneres_volume', period)\n    heures_duree_collective_entreprise = individu('heures_duree_collective_entreprise', period)\n    # Volume des heures rémunérées contractuellement (heures/mois, temps partiel)\n    heures_remunerees_volume = individu('heures_remunerees_volume', period)\n    # Volume des heures non rémunérées (convenance personnelle hors contrat/forfait)\n    heures_non_remunerees_volume = individu('heures_non_remunerees_volume', period)\n\n    # Décompte des jours en début et fin de contrat\n    # http://www.gestiondelapaie.com/flux-paie/?1029-la-bonne-premiere-paye\n\n    debut_mois = datetime64(period.start.offset('first-of', 'month'))\n    fin_mois = datetime64(period.start.offset('last-of', 'month')) + timedelta64(1,\n                                                                                 'D')  # busday ignores the last day\n\n    jours_ouvres_ce_mois = busday_count(\n        debut_mois,\n        fin_mois,\n        weekmask='1111100'\n        )\n\n    # jours travaillables sur l'intersection du contrat de travail et du mois en cours\n    jours_ouvres_ce_mois_incomplet = busday_count(\n        max_(contrat_de_travail_debut, debut_mois),\n        min_(contrat_de_travail_fin, fin_mois),\n        weekmask='1111100'\n        )\n\n    duree_legale_mensuelle = parameters(period).marche_travail.salaire_minimum.nb_heure_travail_mensuel\n\n    heures_temps_plein = switch(heures_duree_collective_entreprise,\n                                {0: duree_legale_mensuelle, 1: heures_duree_collective_entreprise})\n\n    jours_absence = heures_non_remunerees_volume / 7\n\n    coefficient_proratisation_temps_partiel = heures_remunerees_volume / heures_temps_plein\n    coefficient_proratisation_forfait_jours = forfait_jours_remuneres_volume / 218\n\n    # temps plein\n    coefficient = switch(\n        contrat_de_travail,\n        {  # temps plein\n            TypesContratDeTravail.temps_plein: (\n                (jours_ouvres_ce_mois_incomplet - jours_absence)\n                / jours_ouvres_ce_mois\n                ),\n\n            # temps partiel\n            # (en l'absence du détail pour chaque jour de la semaine ou chaque semaine du mois)\n            TypesContratDeTravail.temps_partiel: coefficient_proratisation_temps_partiel * (\n                (jours_ouvres_ce_mois_incomplet * coefficient_proratisation_temps_partiel - jours_absence)\n                / (jours_ouvres_ce_mois * coefficient_proratisation_temps_partiel + 1e-16)\n                ),\n\n            TypesContratDeTravail.forfait_jours_annee: coefficient_proratisation_forfait_jours * (\n                (jours_ouvres_ce_mois_incomplet * coefficient_proratisation_forfait_jours - jours_absence)\n                / (jours_ouvres_ce_mois * coefficient_proratisation_forfait_jours + 1e-16)\n                )\n            }\n        )\n\n    #      Forfait en heures\n    # coefficient = (contrat_de_travail >= 2) * (contrat_de_travail <= 3) * (\n    #     forfait_heures_remunerees_volume / 45.7 * 52 / 12\n    #     ) +\n    return (jours_ouvres_ce_mois_incomplet > 0) * coefficient\n",
+      "source_code": "def formula(individu, period, parameters):\n    #  * Tous les calculs sont faits sur le mois *\n\n    # Les types de contrats gérés\n    contrat_de_travail = individu('contrat_de_travail', period)\n    TypesContratDeTravail = contrat_de_travail.possible_values\n    # [ temps_plein\n    #   temps_partiel\n    #   forfait_heures_semaines\n    #   forfait_heures_mois\n    #   forfait_heures_annee\n    #   forfait_jours_annee ]\n\n    contrat_de_travail_debut = individu('contrat_de_travail_debut', period)\n    contrat_de_travail_fin = individu('contrat_de_travail_fin', period)\n\n    # Volume des heures rémunérées à un forfait heures\n    forfait_heures_remunerees_volume = individu('forfait_heures_remunerees_volume', period)  # noqa F841\n    # Volume des heures rémunérées à forfait jours\n    forfait_jours_remuneres_volume = individu('forfait_jours_remuneres_volume', period)\n    heures_duree_collective_entreprise = individu('heures_duree_collective_entreprise', period)\n    # Volume des heures rémunérées contractuellement (heures/mois, temps partiel)\n    heures_remunerees_volume = individu('heures_remunerees_volume', period)\n    # Volume des heures non rémunérées (convenance personnelle hors contrat/forfait)\n    heures_non_remunerees_volume = individu('heures_non_remunerees_volume', period)\n\n    # Décompte des jours en début et fin de contrat\n    # http://www.gestiondelapaie.com/flux-paie/?1029-la-bonne-premiere-paye\n\n    debut_mois = datetime64(period.start.offset('first-of', 'month'))\n    fin_mois = datetime64(period.start.offset('last-of', 'month')) + timedelta64(1,\n                                                                                 'D')  # busday ignores the last day\n\n    jours_ouvres_ce_mois = busday_count(\n        debut_mois,\n        fin_mois,\n        weekmask='1111100'\n        )\n\n    # jours travaillables sur l'intersection du contrat de travail et du mois en cours\n    jours_ouvres_ce_mois_incomplet = busday_count(\n        max_(contrat_de_travail_debut, debut_mois),\n        min_(contrat_de_travail_fin, fin_mois),\n        weekmask='1111100'\n        )\n\n    duree_legale_mensuelle = 35 * 52 / 12  # ~151,67\n\n    heures_temps_plein = switch(heures_duree_collective_entreprise,\n                                {0: duree_legale_mensuelle, 1: heures_duree_collective_entreprise})\n\n    jours_absence = heures_non_remunerees_volume / 7\n\n    coefficient_proratisation_temps_partiel = heures_remunerees_volume / heures_temps_plein\n    coefficient_proratisation_forfait_jours = forfait_jours_remuneres_volume / 218\n\n    # temps plein\n    coefficient = switch(\n        contrat_de_travail,\n        {  # temps plein\n            TypesContratDeTravail.temps_plein: (\n                (jours_ouvres_ce_mois_incomplet - jours_absence)\n                / jours_ouvres_ce_mois\n                ),\n\n            # temps partiel\n            # (en l'absence du détail pour chaque jour de la semaine ou chaque semaine du mois)\n            TypesContratDeTravail.temps_partiel: coefficient_proratisation_temps_partiel * (\n                (jours_ouvres_ce_mois_incomplet * coefficient_proratisation_temps_partiel - jours_absence)\n                / (jours_ouvres_ce_mois * coefficient_proratisation_temps_partiel + 1e-16)\n                ),\n\n            TypesContratDeTravail.forfait_jours_annee: coefficient_proratisation_forfait_jours * (\n                (jours_ouvres_ce_mois_incomplet * coefficient_proratisation_forfait_jours - jours_absence)\n                / (jours_ouvres_ce_mois * coefficient_proratisation_forfait_jours + 1e-16)\n                )\n            }\n        )\n\n    #      Forfait en heures\n    # coefficient = (contrat_de_travail >= 2) * (contrat_de_travail <= 3) * (\n    #     forfait_heures_remunerees_volume / 45.7 * 52 / 12\n    #     ) +\n    return (jours_ouvres_ce_mois_incomplet > 0) * coefficient\n",
       "start_line_number": 33,
       "stop_line_number": 117,
       "variables": [

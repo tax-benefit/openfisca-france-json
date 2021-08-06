@@ -470,8 +470,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    taille_entreprise = select(\n        [\n            (effectif_entreprise <= 0),\n            (effectif_entreprise <= 9),\n            (effectif_entreprise <= 19),\n            (effectif_entreprise <= 249),\n            (effectif_entreprise >= 250)\n            ],\n        [\n            TypesTailleEntreprise.non_pertinent,\n            TypesTailleEntreprise.moins_de_10,\n            TypesTailleEntreprise.de_10_a_19,\n            TypesTailleEntreprise.de_20_a_249,\n            TypesTailleEntreprise.plus_de_250\n            ]\n        )\n    return taille_entreprise\n",
-      "start_line_number": 996,
-      "stop_line_number": 1016,
+      "start_line_number": 977,
+      "stop_line_number": 997,
       "variables": [
         "effectif_entreprise"
       ]
@@ -496,7 +496,7 @@
     ]
   },
   "set_input": "set_input_dispatch_by_period",
-  "start_line_number": 986,
-  "stop_line_number": 1016,
+  "start_line_number": 967,
+  "stop_line_number": 997,
   "value_type": "Enum"
 }

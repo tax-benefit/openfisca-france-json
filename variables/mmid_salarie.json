@@ -457,8 +457,8 @@
         "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
       ],
       "source_code": "def formula(individu, period, parameters):\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n\n    cotisation_regime_general = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie_alsace_moselle',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation = cotisation_regime_general + salarie_regime_alsace_moselle * cotisation_regime_alsace_moselle\n\n    return cotisation\n",
-      "start_line_number": 817,
-      "stop_line_number": 841,
+      "start_line_number": 798,
+      "stop_line_number": 822,
       "variables": [
         "salarie_regime_alsace_moselle"
       ]
@@ -784,8 +784,8 @@
         "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
       ],
       "source_code": "def formula_2018(individu, period, parameters):\n    \"\"\"\n    La cotisation maladie (hors Alsace-Moselle) disparaît à partir du 1er janvier 2018\n    \"\"\"\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'maladie_alsace_moselle',\n        variable_name = 'mmid_salarie',\n        )\n\n    cotisation = salarie_regime_alsace_moselle * cotisation_regime_alsace_moselle\n\n    return cotisation\n",
-      "start_line_number": 799,
-      "stop_line_number": 816,
+      "start_line_number": 780,
+      "stop_line_number": 797,
       "variables": [
         "salarie_regime_alsace_moselle"
       ]
@@ -809,8 +809,8 @@
     "cotisations_salariales_non_contributives"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 792,
-  "stop_line_number": 841,
+  "start_line_number": 773,
+  "stop_line_number": 822,
   "ux_name": "Cotis. maladie-maternité-invalidité-décès",
   "value_type": "float"
 }
