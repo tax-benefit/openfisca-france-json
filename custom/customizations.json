@@ -845,6 +845,7 @@
     "ux_name": "non-contributives"
   },
   "cotisations_non_salarie": {
+    "hidden":true,
     "label": "Cotisations sociales des travailleurs non salariés (profession libérale, artisan et commerçants)",
     "reference": {
       "2021-07-27": [
@@ -940,6 +941,7 @@
     "ux_name": "CRDS minima sociaux"
   },
   "crds_non_salarie": {
+    "hidden":true,
     "label": "Contribution au remboursement de la dette sociale (CRDS) prélevée sur le revenu professionnel des non-salariés",
     "ux_name": "CRDS non salariés"
   },
@@ -961,7 +963,13 @@
         }
       ]
     },
-    "ux_name": "CRDS salaires"
+    "ux_name": "CRDS salaires",
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "credit_impot_competitivite_emploi": {
     "involve": "organization",
@@ -1058,9 +1066,16 @@
         }
       ]
     },
-    "ux_name": "CSG imposable salaires"
+    "ux_name": "CSG imposable salaires",
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "csg_non_salarie": {
+    "hidden":true,
     "label": "Contribution sociale généralisée (CSG) prélevée sur le revenu professionnel des non-salariés",
     "reference": {
       "0001-01-01": [
@@ -1662,7 +1677,7 @@
         }
       ]
     },
-    "ux_name": "Prélèv. libératoire"
+    "ux_name": "Prélèv. libératoire revenus du capital"
   },
   "prelevement_forfaitaire_non_liberatoire": {
     "label": "Prélèvement forfaitaire non libératoire sur les revenus du capital",
@@ -1914,21 +1929,27 @@
     "label": "Pensions de retraite nettes",
     "ux_name": "Retraite nette"
   },
-  "rev_microsocial": {},
+  "rev_microsocial": {
+    "hidden":true,
+    "label": "Revenus du régime micro-entrepreneur après prélèvement des cotisations sociales",
+    "last_review": "2009-01-01",
+    "ux_name": "Revenus micro-entrepreneur nets des cotisations sociales",
+    "0001-01-01": [
+      {
+        "note": "Ce revenu correspond à la somme des prestations BIC et BNC, ainsi que des ventes BIC ; déduite du montant des cotisations sociales dûes par le micro-entrepreneur."
+      }
+    ]
+  }
+},
   "revenus_nets_du_capital": {
     "children": null,
     "label": "Revenus du capital nets de prélèvements sociaux",
     "ux_name": "Revenus capital nets de prélèvements sociaux"
   },
   "rpns_imposables": {
+    "hidden":true,
     "label": "Revenus imposables des professions non salariées individuelles",
-    "ux_name": "Revenus imposables non salariés",
-    "options": {
-      "activite": "actif",
-      "else": {
-        "hidden":true
-      }
-    }
+    "ux_name": "Revenus imposables non salariés"
   },
   "rsa": {
     "label": "Revenu de solidarité active (RSA)",
