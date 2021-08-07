@@ -1471,16 +1471,73 @@
     "involve": "person",
     "label": "Salaire de base, en général appelé salaire brut, la 1ère ligne sur la fiche de paie"
   },
-  "salaire_imposable": {
+  "salaire_de_base_ou_remuneration": {
     "children": [
       {
         "name": "salaire_de_base"
       },
       {
-        "name": "primes_salaires"
+        "name": "remuneration_principale"
       },
       {
-        "name": "remuneration_principale"
+        "name": "remuneration_apprenti"
+      }
+    ],
+    "involve": "person",
+    "label": "Salaire de base ou rémunération",
+    "options": [
+      {
+        "then": {
+          "children": [
+            {
+              "name": "salaire_super_brut"
+            },
+            {
+              "name": "cotisations_employeur"
+            },
+            {
+              "name": "exonerations_et_allegements"
+            },
+            {
+              "name": "indemnite_fin_contrat",
+              "negate": true
+            },
+            {
+              "name": "primes_fonction_publique",
+              "negate": true
+            },
+            {
+              "name": "indemnite_residence",
+              "negate": true
+            },
+            {
+              "name": "supplement_familial_traitement",
+              "negate": true
+            },
+            {
+              "name": "depense_cantine_titre_restaurant_employeur",
+              "negate": true
+            },
+            {
+              "name": "reintegration_titre_restaurant_employeur"
+            }
+          ]
+        },
+        "waterfall": [
+          "super_brut_to_disponible"
+        ]
+      }
+    ],
+    "ux_name": "Salaire brut",
+    "virtual": true
+  },
+  "salaire_imposable": {
+    "children": [
+      {
+        "name": "salaire_de_base_ou_remuneration"
+      },
+      {
+        "name": "primes_salaires"
       },
       {
         "name": "primes_fonction_publique"
@@ -1512,52 +1569,7 @@
       }
     ],
     "involve": "person",
-    "label": "Salaires imposables",
-    "options": [
-      {
-        "then": {
-          "children": [
-            {
-              "name": "salaire_de_base_ou_remuneration"
-            },
-            {
-              "name": "primes_salaires"
-            },
-            {
-              "name": "primes_fonction_publique"
-            },
-            {
-              "name": "indemnite_residence"
-            },
-            {
-              "name": "supplement_familial_traitement"
-            },
-            {
-              "name": "csg_deductible_salaire"
-            },
-            {
-              "name": "cotisations_salariales"
-            },
-            {
-              "name": "hsup",
-              "negate": true
-            },
-            {
-              "name": "rev_microsocial"
-            },
-            {
-              "name": "indemnite_fin_contrat"
-            },
-            {
-              "name": "complementaire_sante_salarie"
-            }
-          ]
-        },
-        "waterfall": [
-          "super_brut_to_disponible"
-        ]
-      }
-    ]
+    "label": "Salaires imposables"
   },
   "salaire_net": {
     "children": [
@@ -1607,16 +1619,10 @@
   "salaire_super_brut_hors_allegements": {
     "children": [
       {
-        "name": "salaire_de_base"
-      },
-      {
-        "name": "remuneration_apprenti"
+        "name": "salaire_de_base_ou_remuneration"
       },
       {
         "name": "indemnite_fin_contrat"
-      },
-      {
-        "name": "remuneration_principale"
       },
       {
         "name": "primes_fonction_publique"
@@ -1640,7 +1646,17 @@
       }
     ],
     "involve": "person",
-    "label": "Salaire super-brut (fiche de paie): rémunération + cotisations sociales employeur"
+    "label": "Salaire super-brut (fiche de paie): rémunération + cotisations sociales employeur",
+    "options": [
+      {
+        "then": {
+          "children": null
+        },
+        "waterfall": [
+          "super_brut_to_disponible"
+        ]
+      }
+    ]
   },
   "supplement_familial_traitement": {
     "involve": "organization",

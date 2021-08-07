@@ -1977,6 +1977,17 @@
     "ux_name": "RSA"
   },
   "salaire_de_base_ou_remuneration": {
+    "children": [
+      {
+        "name": "salaire_de_base"
+      },
+      {
+        "name": "remuneration_principale"
+      },
+      {
+        "name": "remuneration_apprenti"
+      }
+    ],
     "label": "Salaire de base ou rémunération",
     "options": {
       "waterfall": "super_brut_to_disponible",
@@ -2021,47 +2032,42 @@
     "virtual": true
   },
   "salaire_imposable": {
-    "options": {
-      "waterfall": "super_brut_to_disponible",
-      "then": {
-        "children": [
-          {
-            "name": "salaire_de_base_ou_remuneration"
-          },
-          {
-            "name": "primes_salaires"
-          },
-          {
-            "name": "primes_fonction_publique"
-          },
-          {
-            "name": "indemnite_residence"
-          },
-          {
-            "name": "supplement_familial_traitement"
-          },
-          {
-            "name": "csg_deductible_salaire"
-          },
-          {
-            "name": "cotisations_salariales"
-          },
-          {
-            "name": "hsup",
-            "negate": true
-          },
-          {
-            "name": "rev_microsocial"
-          },
-          {
-            "name": "indemnite_fin_contrat"
-          },
-          {
-            "name": "complementaire_sante_salarie"
-          }
-        ]
+    "children": [
+      {
+        "name": "salaire_de_base_ou_remuneration"
+      },
+      {
+        "name": "primes_salaires"
+      },
+      {
+        "name": "primes_fonction_publique"
+      },
+      {
+        "name": "indemnite_residence"
+      },
+      {
+        "name": "supplement_familial_traitement"
+      },
+      {
+        "name": "csg_deductible_salaire"
+      },
+      {
+        "name": "cotisations_salariales"
+      },
+      {
+        "name": "hsup",
+        "negate": true
+      },
+      {
+        "name": "rev_microsocial"
+      },
+      {
+        "name": "indemnite_fin_contrat"
+      },
+      {
+        "name": "complementaire_sante_salarie"
       }
-    }
+    ]
   },
   "salaire_super_brut": {
     "involve": "organization",
@@ -2077,6 +2083,42 @@
             "name": "cout_differe"
           }
         ]
+      }
+    }
+  },
+  "salaire_super_brut_hors_allegements": {
+    "children": [
+      {
+        "name": "salaire_de_base_ou_remuneration"
+      },
+      {
+        "name": "indemnite_fin_contrat"
+      },
+      {
+        "name": "primes_fonction_publique"
+      },
+      {
+        "name": "indemnite_residence"
+      },
+      {
+        "name": "supplement_familial_traitement"
+      },
+      {
+        "name": "depense_cantine_titre_restaurant_employeur"
+      },
+      {
+        "name": "reintegration_titre_restaurant_employeur",
+        "negate": true
+      },
+      {
+        "name": "cotisations_employeur",
+        "negate": true
+      }
+    ],
+    "options": {
+      "waterfall": "super_brut_to_disponible",
+      "then": {
+        "children": null
       }
     }
   },
