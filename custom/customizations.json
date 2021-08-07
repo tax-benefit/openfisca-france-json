@@ -312,7 +312,14 @@
         }
       ]
     },
-    "ux_name": "Cotis. APEC des cadres"
+    "ux_name": "Cotis. APEC des cadres",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": "prive_cadre", 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "apec_salarie": {
     "label": "Cotisation salariale à l'association pour l'emploi des cadres (APEC)",
@@ -323,7 +330,14 @@
         }
       ]
     },
-    "ux_name": "Cotis. APEC des cadres"
+    "ux_name": "Cotis. APEC des cadres",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": "prive_cadre", 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "api": {
     "label": "Allocation de parent isolé",
@@ -377,7 +391,17 @@
         }
       ]
     },
-    "ux_name": "Cotis. retraite complémentaire (AGIRC-ARRCO)"
+    "ux_name": "Cotis. retraite complémentaire (AGIRC-ARRCO)",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "agirc_arrco_salarie": {
     "label": "Cotisations salariales au régime de retaite complémentaire des salariés du secteur privé",
@@ -391,7 +415,17 @@
         }
       ]
     },
-    "ux_name": "Cotis. retraite complémentaire (AGIRC-ARRCO)"
+    "ux_name": "Cotis. retraite complémentaire (AGIRC-ARRCO)",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "ars": {
     "label": "Allocation de rentrée scolaire (ARS)",
@@ -698,7 +732,17 @@
         }
       ]
     },
-    "ux_name": "Contrib. équilibre technique"
+    "ux_name": "Contrib. équilibre technique",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "cotisation_equilibre_technique_employeur": {
     "label": "Cotisation d'équilibre technique (CET) à la charge de l'employeur",
@@ -754,7 +798,17 @@
         }
       ]
     },
-    "ux_name": "Contrib. équilibre général (CEG)"
+    "ux_name": "Contrib. équilibre général (CEG)",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "cotisations_employeur": {
     "involve": "organization",
@@ -959,7 +1013,13 @@
         }
       ]
     },
-    "ux_name": "CSG déductible salaires"
+    "ux_name": "CSG déductible salaires",
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "csg_imposable_chomage": {
     "label": "Contribution sociale généralisée (CSG) imposable prélevée sur le chômage",
@@ -1239,7 +1299,20 @@
         }
       ]
     },
-    "ux_name": "Indemnité de résidence"
+    "ux_name": "Indemnité de résidence",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "public_non_titulaire",
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "ir_pv_immo": {
     "involve": "organization",
@@ -1267,7 +1340,14 @@
         }
       ]
     },
-    "ux_name": "Cotis. retraite complémentaire non-titulaires (Ircantec)"
+    "ux_name": "Cotis. retraite complémentaire non-titulaires (Ircantec)",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": "public_non_titulaire", 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "ircantec_salarie": {
     "label": "Cotisation salariale à l'institution de retraite complémentaire des agents non-titulaires de l'État et des collectivités publiques (Ircantec)",
@@ -1461,7 +1541,7 @@
   "pensions_invalidite": {
     "label": "Pension d'invalidité",
     "reference": {
-      "0001-01-01": [
+      "2021-08-07": [
         {
           "href": "https://www.ameli.fr/paris/assure/remboursements/pensions-allocations-rentes/invalidite",
           "note": "La pension d’invalidité a pour objet de compenser la perte de revenus qui résulte de la réduction de la capacité de travail. Son montant dépend des revenus et de la catégorie d'invalidité de la personne."
@@ -1473,6 +1553,60 @@
   "pensions_nettes": {
     "label": "Pensions et revenus de remplacement",
     "ux_name": "Revenus de remplacement"
+  },
+  "pension_salarie": {
+    "label": "Cotisation salariale au régime de base de retraite de la fonction publique, dite «retenue pour pension»",
+    "reference": {
+      "2021-08-07": [
+        {
+          "href": "https://retraitesdeletat.gouv.fr/actif/ma-carriere/mes-cotisations",
+          "note": "Cette cotisation salariale concerne les fonctionnaires et permet de financer leur régime de retraite de base. Une cotisation employeur est également prélevée."
+        }
+      ]
+    },
+    "ux_name": "«Retenue pour pension»",
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      },
+      "categorie_salarie": [
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "then": {
+        "hidden":true
+      }  
+    }
+  },
+  "pension_employeur": {
+    "label": "Cotisation employeur au régime de base de retraite de la fonction publique",
+    "ux_name": "Cotis. retraite de base des fonctionnaires",
+    "reference": {
+      "2021-08-07": [
+        {
+          "href": "https://retraitesdeletat.gouv.fr/actif/ma-carriere/mes-cotisations",
+          "note": "Cette cotisation employeur concerne les fonctionnaires et permet de financer leur régime de retraite de base. Une cotisation salariale est également prélevée : «la retenue pour pension»."
+        }
+      ]
+    },
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      },
+      "categorie_salarie": [
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "then": {
+        "hidden":true
+      }  
+    }
   },
   "ppa": {
     "label": "Prime d'activité",
@@ -1572,13 +1706,45 @@
         }
       ]
     },
-    "ux_name": "Primes fonctionnaire"
+    "ux_name": "Primes fonctionnaire",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "public_non_titulaire",
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "primes_salaires": {
     "input": true,
     "label": "Indemnités, primes et avantages en argent (brut) des salariés du secteur privé",
-    "ux_name": "Primes salariés du privé"
-  },
+    "ux_name": "Primes salariés du privé",
+    "options": [
+      {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      }
+    },
+    {
+      "categorie_salarie": [
+        "public_non_titulaire",
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "then": {
+        "hidden":true
+      }  
+    }
+  ],
   "psa": {
     "label": "Prime de solidarité active",
     "obsolete": true,
@@ -1604,7 +1770,22 @@
         }
       ]
     },
-    "ux_name": "Cotis. retraite additionnelle fonctionnaires (RAFP)"
+    "ux_name": "Cotis. retraite additionnelle fonctionnaires (RAFP)",
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      },
+      "categorie_salarie": [
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "then": {
+        "hidden":true
+      }  
+    }
   },
   "rafp_salarie": {
     "label": "Cotisation salariale à la retraite additionnelle de la fonction publique (RAFP) pour les agents titularisés",
@@ -1617,7 +1798,22 @@
         }
       ]
     },
-    "ux_name": "Cotis. retraite additionnelle fonctionnaire (RAFP)"
+    "ux_name": "Cotis. retraite additionnelle fonctionnaire (RAFP)",
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      },
+      "categorie_salarie": [
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "then": {
+        "hidden":true
+      }  
+    }
   },
   "reduction_loyer_solidarite": {
     "label": "Réduction du loyer de solidarité (RLS)",
@@ -1674,7 +1870,20 @@
         }
       ]
     },
-    "ux_name": "Salaire principal fonctionnaire"
+    "ux_name": "Salaire principal fonctionnaire",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "public_non_titulaire",
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "rente_viagere_titre_onereux": {
     "input": true,
@@ -1701,7 +1910,13 @@
   },
   "rpns_imposables": {
     "label": "Revenus imposables des professions non salariées individuelles",
-    "ux_name": "Revenus imposables non salariés"
+    "ux_name": "Revenus imposables non salariés",
+    "options": {
+      "activite": "actif",
+      "else": {
+        "hidden":true
+      }
+    }
   },
   "rsa": {
     "label": "Revenu de solidarité active (RSA)",
@@ -1832,7 +2047,20 @@
         }
       ]
     },
-    "ux_name": "Supplém. familial traitement"
+    "ux_name": "Supplém. familial traitement",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "public_non_titulaire",
+        "public_titulaire_hospitaliere",
+        "public_titulaire_militaire",
+        "public_titulaire_territoriale",
+        "public_titulaire_etat"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "taxe_apprentissage": {
     "involve": "organization",
@@ -1916,7 +2144,18 @@
         }
       ]
     },
-    "ux_name": "Cotis. vieillesse déplafonnée"
+    "ux_name": "Cotis. vieillesse déplafonnée",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre",
+        "public_non_titulaire",
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "vieillesse_deplafonnee_salarie": {
     "label": "Cotisation salariale d'assurance vieillesse déplafonnée",
@@ -1929,7 +2168,18 @@
         }
       ]
     },
-    "ux_name": "Cotis. vieillesse déplafonnée"
+    "ux_name": "Cotis. vieillesse déplafonnée",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre",
+        "public_non_titulaire",
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "vieillesse_plafonnee_employeur": {
     "involve": "organization",
