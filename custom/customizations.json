@@ -14,7 +14,7 @@
   },
   "accident_du_travail": {
     "involve": "organization",
-    "label": "Cotisations employeur accident du travail et maladie professionnelle (AT/MP)",
+    "label": "Cotisations employeur accidents du travail et maladies professionnelles (AT/MP)",
     "reference": {
       "2021-07-27": [
         {
@@ -24,7 +24,17 @@
         }
       ]
     },
-    "ux_name": "Cotis. accident/maladie professionnels"
+    "ux_name": "Cotis. accident-maladie (AT/MP)",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "acompte_ir_elus_locaux": {
     "label": "Acompte d'impôt associé au prélèvement à la source des indemnités des élus locaux",
@@ -758,6 +768,7 @@
     "involve": "organization",
     "label": "Contribution employeur au financement des congés individuels de formation (CIF) des salariées en CDD",
     "obsolete": true,
+    "hidden":true,
     "reference": {
       "2021-07-27": [
         {
@@ -773,6 +784,7 @@
     "involve": "organization",
     "label": "Contribution additionnelle au développement de l'apprentissage",
     "obsolete": true,
+    "hidden": true,
     "reference": {
       "2021-07-27": [
         {
@@ -1564,7 +1576,14 @@
         }
       ]
     },
-    "ux_name": "Cotis. retraite complémentaire non-titulaires (Ircantec)"
+    "ux_name": "Cotis. retraite complémentaire non-titulaires (Ircantec)",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": "public_non_titulaire",
+      "else": {
+        "hidden": true
+      }
+    }
   },
   "irpp": {
     "label": "Impôt sur le revenu (IR) des personnes physiques après déduction des différents acomptes.",
@@ -1626,7 +1645,17 @@
         }
       ]
     },
-    "ux_name": "Cotis. maladie-maternité-invalidité-décès"
+    "ux_name": "Cotis. maladie-maternité-invalidité-décès",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "mmid_salarie": {
     "label": "Cotisation salariale maladie - maternité - invalidité - décès",
@@ -1723,6 +1752,7 @@
     "involve": "organization",
     "label": "Cotisations sociales employeur de base et additionnelle au fonds du compte de prévention de la pénibilité du salarié",
     "obsolete": true,
+    "hidden":true,
     "reference": {
       "0001-01-01": [
         {
@@ -1889,7 +1919,14 @@
   "prevoyance_obligatoire_cadre": {
     "involve": "organization",
     "label": "Cotisation employeur obligatoire au dispositif de prévoyance pour les cadres et assimilés-cadres",
-    "ux_name": "Prévoyance des cadres obligatoire"
+    "ux_name": "Prévoyance des cadres obligatoire",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": "prive_cadre",
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "primes_fonction_publique": {
     "input": true,
