@@ -686,7 +686,18 @@
         }
       ]
     },
-    "ux_name": "Cotis. chômage"
+    "ux_name": "Cotis. chômage",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "public_non_titulaire",
+        "prive_cadre",
+        "prive_non_cadre"
+      ], 
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "chomage_imposable": {
     "label": "Montant de l'allocation chômage soumis à l'impôt sur le revenu.",
@@ -832,7 +843,17 @@
         }
       ]
     },
-    "ux_name": "Contrib. équilibre technique"
+    "ux_name": "Contrib. équilibre technique",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre", 
+        "prive_non_cadre"
+      ],
+      "else": {
+        "hidden": true
+      }
+    }
   },
   "cotisation_exceptionnelle_temporaire_salarie": {
     "hidden": true,
@@ -849,7 +870,10 @@
     "ux_name": "Contrib. équilibre technique",
     "options": {
       "activite": "actif",
-      "categorie_salarie": ["prive_cadre", "prive_non_cadre"],
+      "categorie_salarie": [
+        "prive_cadre", 
+        "prive_non_cadre"
+      ],
       "else": {
         "hidden": true
       }
@@ -895,7 +919,17 @@
         }
       ]
     },
-    "ux_name": "Contrib. équilibre général (CEG)"
+    "ux_name": "Contrib. équilibre général (CEG)",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre", 
+        "prive_non_cadre"
+      ],
+      "else": {
+        "hidden": true
+      }
+    }
   },
   "contribution_equilibre_general_salarie": {
     "label": "Contribution d'équilibre général (CEG) à la charge du salarié",
@@ -912,7 +946,10 @@
     "ux_name": "Contrib. équilibre général (CEG)",
     "options": {
       "activite": "actif",
-      "categorie_salarie": ["prive_cadre", "prive_non_cadre"],
+      "categorie_salarie": [
+        "prive_cadre", 
+        "prive_non_cadre"
+      ],
       "else": {
         "hidden": true
       }
@@ -1379,8 +1416,28 @@
   },
   "fonds_emploi_hospitalier": {
     "involve": "organization",
-    "label": "Cotisation employeur au fonds pour l'emploi hospitalier",
-    "ux_name": "Cotis. emploi hospitalier"
+    "label": "Contribution employeur au fonds pour l'emploi hospitalier (FEH)",
+    "ux_name": "Contrib. emploi hospitalier",
+    "reference": {
+      "2021-08-08": [
+        {
+          "href": "https://www.assemblee-nationale.fr/14/pdf/projets/pl4072-ei.pdf",
+          "note": "Cette contribution versée par les employeurs hospitalier vise à financer le FEH. Ce fonds a pour objet la prise en charge des surcoûts financiers supportés par les établissements hospitaliers au  titre du temps partiel, de la cessation anticipée d’activité, de certaines formations et aides à la mobilité et du compte épargne temps qu’ils accordent à leurs personnels titulaires et contractuels.",
+          "title": "Annexe 10 des fiches d'évaluation préalable des articles du projet de loi PLFSS 2017"
+        },
+        {
+          "href": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000033840495",
+          "title": "Article 1 du décret n° 2016-1942 du 28 décembre 2016"
+        }
+      ]
+    },
+    "options": {
+      "activite": "actif",
+      "categorie_salarie":"public_titulaire_hospitaliere",
+      "else": {
+        "hidden":true
+      }  
+    }
   },
   "forfait_social": {
     "involve": "organization",
@@ -1991,7 +2048,13 @@
           }
         ]
       },
-      "ux_name": "Salaire min. apprenti"
+      "ux_name": "Salaire min. apprenti",
+      "options": {
+        "apprenti": true,
+        "else": {
+          "hidden": true
+        }
+      }
     },
     "remuneration_principale": {
       "input": true,
@@ -2382,7 +2445,18 @@
         }
       ]
     },
-    "ux_name": "Cotis. vieillesse plafonnée"
+    "ux_name": "Cotis. vieillesse plafonnée",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre",
+        "public_non_titulaire"
+      ],
+      "else": {
+        "hidden": true
+      }
+    }
   },
   "vieillesse_plafonnee_salarie": {
     "label": "Cotisation salariale d'assurance vieillesse plafonnée",
@@ -2395,6 +2469,17 @@
         }
       ]
     },
-    "ux_name": "Cotis. vieillesse plafonnée"
+    "ux_name": "Cotis. vieillesse plafonnée",
+    "options": {
+      "activite": "actif",
+      "categorie_salarie": [
+        "prive_cadre",
+        "prive_non_cadre",
+        "public_non_titulaire"
+      ],
+      "else": {
+        "hidden": true
+      }
+    }
   }
 }
