@@ -5,6 +5,7 @@
   },
   "accident_du_travail": {
     "label": "Cotisations employeur accidents du travail et maladies professionnelles (AT/MP)",
+    "last_review": "1991-01-01",
     "options": [
       {
         "activite": [
@@ -309,14 +310,33 @@
     "ux_name": "Aides logement nettes"
   },
   "allegement_cotisation_allocations_familiales": {
-    "label": "Réduction du taux de la cotisation d’allocations familiales",
+    "label": "Réduction générale du taux de la cotisation d’allocations familiales",
     "last_review": "2015-01-01",
-    "ux_name": "Réduc. cotis. alloc. familiales"
+    "ux_name": "Réduc. cotis. famille"
   },
   "allegement_fillon": {
-    "label": "Réduction générale des cotisations patronales sur les «bas salaires» (Ex-réduction Fillon)",
+    "label": "Réduction générale des cotisations patronales sur les «bas salaires» (< 1,6 Smic), dite réduction Fillon",
     "last_review": "2005-07-01",
-    "ux_name": "Ex-réduction Fillon"
+    "ux_name": "Réduc. cotis. bas salaires"
+  },
+  "allegements_employeur_specifiques": {
+    "children": [
+      {
+        "name": "exoneration_cotisations_employeur_geographiques"
+      },
+      {
+        "name": "exoneration_cotisations_employeur_jei"
+      },
+      {
+        "name": "exoneration_cotisations_employeur_apprenti"
+      },
+      {
+        "name": "exoneration_cotisations_employeur_stagiaire"
+      }
+    ],
+    "label": "Allègements employeurs spécifiques",
+    "ux_name": "Allèg. spécifiques",
+    "virtual": true
   },
   "allocation_retour_emploi": {
     "label": "Allocation chômage d'aide au retour à l'emploi (ARE)"
@@ -1126,20 +1146,25 @@
         "name": "allegement_cotisation_allocations_familiales"
       },
       {
-        "name": "exoneration_cotisations_employeur_geographiques"
-      },
-      {
-        "name": "exoneration_cotisations_employeur_jei"
-      },
-      {
-        "name": "exoneration_cotisations_employeur_apprenti"
-      },
-      {
-        "name": "exoneration_cotisations_employeur_stagiaire"
+        "name": "allegements_employeur_specifiques"
       }
     ],
     "label": "Exonérations et allègements pour l'employeur",
-    "ux_name": "Exonérations et allègements employeur"
+    "options": [
+      {
+        "categorie_salarie": [
+          "public_non_titulaire",
+          "public_titulaire_hospitaliere",
+          "public_titulaire_militaire",
+          "public_titulaire_territoriale",
+          "public_titulaire_etat"
+        ],
+        "then": {
+          "hidden": true
+        }
+      }
+    ],
+    "ux_name": "Allègements employeur"
   },
   "f2ck": {
     "label": "Crédit d'impôt égal au prélèvement forfaitaire déjà versé",

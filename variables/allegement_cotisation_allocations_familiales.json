@@ -560,8 +560,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
       "source_code": "def formula_2015_01_01(individu, period, parameters):\n    stagiaire = individu('stagiaire', period)\n    apprenti = individu('apprenti', period)\n    allegement_mode_recouvrement = \\\n        individu('allegement_cotisation_allocations_familiales_mode_recouvrement', period)\n    exoneration_cotisations_employeur_jei = individu('exoneration_cotisations_employeur_jei', period)\n\n    non_cumulee = not_(exoneration_cotisations_employeur_jei)\n\n    # switch on 3 possible payment options\n    allegement = switch_on_allegement_mode(\n        individu, period, parameters,\n        allegement_mode_recouvrement,\n        \"allegement_cotisation_allocations_familiales\",\n        )\n\n    return allegement * not_(stagiaire) * not_(apprenti) * non_cumulee\n",
-      "start_line_number": 396,
-      "stop_line_number": 413,
+      "start_line_number": 399,
+      "stop_line_number": 416,
       "variables": [
         "allegement_cotisation_allocations_familiales_mode_recouvrement",
         "apprenti",
@@ -571,7 +571,7 @@
     }
   },
   "json_type": "number",
-  "label": "Réduction du taux de la cotisation d’allocations familiales",
+  "label": "Réduction générale du taux de la cotisation d’allocations familiales",
   "last_review": "2015-01-01",
   "name": "allegement_cotisation_allocations_familiales",
   "reference": {
@@ -587,8 +587,8 @@
     "exonerations_et_allegements"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 388,
-  "stop_line_number": 413,
-  "ux_name": "Réduc. cotis. alloc. familiales",
+  "start_line_number": 391,
+  "stop_line_number": 416,
+  "ux_name": "Réduc. cotis. famille",
   "value_type": "float"
 }
