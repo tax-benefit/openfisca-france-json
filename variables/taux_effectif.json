@@ -1095,7 +1095,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "parameters": [
-        "impot_revenu.bareme"
+        "impot_revenu.bareme",
+        "impot_revenu.rpns.cga_taux2"
       ],
       "source_code": "def formula_2009_01_01(foyer_fiscal, period, parameters):\n    rni = foyer_fiscal('rni', period)\n    nbptr = foyer_fiscal('nbptr', period)\n    microentreprise = foyer_fiscal('microentreprise', period)\n    abnc_proc_i = foyer_fiscal.members('abnc_proc', period)\n    nbnc_proc_i = foyer_fiscal.members('nbnc_proc', period)\n    bareme = parameters(period).impot_revenu.bareme\n    cga = parameters(period).impot_revenu.rpns.cga_taux2\n    abnc_proc = foyer_fiscal.sum(abnc_proc_i)\n    nbnc_proc = foyer_fiscal.sum(nbnc_proc_i)\n    base_fictive = rni + microentreprise + abnc_proc + nbnc_proc * (1 + cga)\n    trigger = (microentreprise != 0) | (abnc_proc != 0) | (nbnc_proc != 0)\n    return trigger * nbptr * bareme.calc(base_fictive / nbptr) / max_(1, base_fictive)\n",
       "start_line_number": 3110,

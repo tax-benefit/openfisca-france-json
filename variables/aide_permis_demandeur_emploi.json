@@ -327,6 +327,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/aide_permis_demandeur_emploi.py",
+      "parameters": [
+        "prestations.transport.aide_permis_demandeur_emploi.montant_maximum"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    eligibilite_financiere = individu('aide_permis_demandeur_emploi_eligibilite_financiere', period)\n    eligibilite_individu = individu('aide_permis_demandeur_emploi_eligibilite_individu', period)\n\n    montant = parameters(period).prestations.transport.aide_permis_demandeur_emploi.montant_maximum\n    return montant * eligibilite_financiere * eligibilite_individu\n",
       "start_line_number": 57,
       "stop_line_number": 63,

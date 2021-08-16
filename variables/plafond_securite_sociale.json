@@ -425,6 +425,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    plafond_temps_plein = parameters(period).cotsoc.gen.plafond_securite_sociale\n    quotite = individu('quotite_de_travail', period)\n\n    plafond = plafond_temps_plein * quotite\n\n    # 2) Proratisation pour mois incomplet selon la méthode des 30èmes\n\n    # Pour les salariés entrés ou sortis en cours de mois,\n    # le plafond applicable est égal à autant de trentièmes du plafond mensuel\n    # que le salarié a été présent de jours calendaires. Source urssaf.fr \"L’assiette maximale\"\n    # calcul du nombre de jours calendaires de présence du salarié\n    nombre_jours_calendaires = individu('nombre_jours_calendaires', period)\n    plafond = plafond * (min_(nombre_jours_calendaires, 30) / 30)\n\n    return plafond\n",
       "start_line_number": 910,
       "stop_line_number": 926,

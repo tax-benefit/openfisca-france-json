@@ -586,6 +586,9 @@
       },
       "documentation": "\nCrédit d'impôt aide à la mobilité\n2005-2008\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+      "parameters": [
+        "impot_revenu.credits_impot.aidmob.montant"
+      ],
       "source_code": "def formula_2005(foyer_fiscal, period, parameters):\n    '''\n    Crédit d'impôt aide à la mobilité\n    2005-2008\n    '''\n    f1ar = foyer_fiscal('f1ar', period)\n    f1br = foyer_fiscal('f1br', period)\n    f1cr = foyer_fiscal('f1cr', period)\n    f1dr = foyer_fiscal('f1dr', period)\n    f1er = foyer_fiscal('f1er', period)\n    montant = parameters(period).impot_revenu.credits_impot.aidmob.montant\n\n    return (f1ar + f1br + f1cr + f1dr + f1er) * montant\n",
       "start_line_number": 97,
       "stop_line_number": 110,

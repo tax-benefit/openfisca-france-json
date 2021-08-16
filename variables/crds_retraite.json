@@ -299,6 +299,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
+      "parameters": [
+        "prelevements_sociaux.contributions_sociales.crds.retraite.taux"
+      ],
       "source_code": "def formula(individu, period, parameters):  # formula_1997_2014 à corriger (cf. commentaire au niveau de la variable)\n    retraite_brute = individu('retraite_brute', period)\n    parameters = parameters(period)\n    taux = parameters.prelevements_sociaux.contributions_sociales.crds.retraite.taux\n\n    return - taux * retraite_brute\n",
       "start_line_number": 461,
       "stop_line_number": 467,
@@ -2794,6 +2797,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 407,
   "stop_line_number": 467,
+  "unit": "currency",
   "ux_name": "CRDS retraite",
   "value_type": "float"
 }

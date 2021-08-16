@@ -591,6 +591,9 @@
         "name": "formula_2013"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale_annuel"
+      ],
       "source_code": "def formula_2013(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale_annuel\n    bareme = MarginalRateTaxScale(name = 'retraite_complementaire')\n    bareme.add_bracket(0, .09)  # TODO taux à la louche car hétérogène\n    bareme.add_bracket(5, 0)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n        ) * individu('rpns_imposables', period)\n    return -bareme.calc(assiette)\n",
       "start_line_number": 314,
       "stop_line_number": 325,

@@ -507,6 +507,9 @@
         "name": "formula_2018"
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "parameters": [
+        "prestations.reduction_loyer_solidarite.fraction_baisse_aide_logement"
+      ],
       "source_code": "def formula_2018(famille, period, parameters):\n    rls = parameters(period).prestations.reduction_loyer_solidarite\n    aide_logement_montant_brut = famille('aide_logement_montant_brut', period)\n    reduction_loyer_solidarite = famille('reduction_loyer_solidarite', period)\n\n    taux_rls = rls.fraction_baisse_aide_logement\n    rls_apl = reduction_loyer_solidarite * taux_rls\n\n    return max_(0, (aide_logement_montant_brut - rls_apl))\n",
       "start_line_number": 112,
       "stop_line_number": 121,

@@ -938,7 +938,9 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
       "parameters": [
-        "prestations.minima_sociaux.aah.taux_incapacite"
+        "prestations.minima_sociaux.aah.montant",
+        "prestations.minima_sociaux.aah.taux_incapacite",
+        "prestations.minima_sociaux.caah.taux_montant_complement_ressources"
       ],
       "source_code": "def formula_2002_01_01(individu, period, parameters):\n    law = parameters(period).prestations\n\n    cpltx = law.minima_sociaux.caah.taux_montant_complement_ressources\n    aah_montant = law.minima_sociaux.aah.montant\n\n    aah = individu('aah', period)\n    asi_eligibilite = individu('asi_eligibilite', period)\n    asi = individu('asi', period)\n    benef_asi = (asi_eligibilite * (asi > 0))\n    # montant allocs logement de la famille\n    al = individu.famille('aide_logement_montant', period)\n    taux_incapacite = individu('taux_incapacite', period)\n\n    # TODO: & logement indépendant\n    elig_ancien_caah = (al > 0) * ((aah > 0) | (benef_asi > 0)) * (taux_incapacite >= law.minima_sociaux.aah.taux_incapacite)\n\n    ancien_caah = cpltx * aah_montant * elig_ancien_caah\n    # En fait le taux cpltx perdure jusqu'en 2008\n\n    return ancien_caah\n",
       "start_line_number": 428,
@@ -2089,7 +2091,9 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
       "parameters": [
-        "prestations.minima_sociaux.aah.taux_incapacite"
+        "prestations.minima_sociaux.aah.montant",
+        "prestations.minima_sociaux.aah.taux_incapacite",
+        "prestations.minima_sociaux.caah.garantie_ressources"
       ],
       "source_code": "def formula_2005_07_01(individu, period, parameters):\n    law = parameters(period).prestations\n\n    garantie_ressources = law.minima_sociaux.caah.garantie_ressources\n    aah_montant = law.minima_sociaux.aah.montant\n\n    aah = individu('aah', period)\n    asi_eligibilite = individu('asi_eligibilite', period)\n    asi = individu('asi', period)\n    benef_asi = (asi_eligibilite * (asi > 0))\n\n    # montant allocs logement de la famille\n    al = individu.famille('aide_logement_montant', period)\n    taux_incapacite = individu('taux_incapacite', period)\n\n    elig_cpl = ((aah > 0) | (benef_asi > 0)) * (taux_incapacite >= law.minima_sociaux.aah.taux_incapacite)\n    # TODO: & logement indépendant & inactif 12 derniers mois\n    # & capa de travail < 5%\n    compl_ress = elig_cpl * max_(garantie_ressources - aah_montant, 0)\n\n    elig_mva = (al > 0) * ((aah > 0) | (benef_asi > 0))\n    # TODO: & logement indépendant & pas de revenus professionnels\n    # propres & capa de travail < 5% & taux d'incapacité >= 80%\n    # TODO: rentrer mva dans paramètres. mva (mensuelle) = 104,77 en 2015, était de 101,80 en 2006, et de 119,72 en 2007\n    mva = 0.0 * elig_mva\n\n    return max_(compl_ress, mva)\n",
       "start_line_number": 399,
@@ -2643,6 +2647,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 379,
   "stop_line_number": 449,
+  "unit": "currency",
   "ux_name": "Complém. alloc. adulte handicapé",
   "value_type": "float"
 }

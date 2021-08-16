@@ -1036,6 +1036,13 @@
         "name": "formula_2002"
       },
       "file_path": "/openfisca_france/model/prestations/autonomie.py",
+      "parameters": [
+        "autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_1",
+        "autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_2",
+        "autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_3",
+        "autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_4",
+        "autonomie.mtp.mtp"
+      ],
       "source_code": "def formula_2002(individu, period, parameters):\n    gir = individu('gir', period)\n    dependance_plan_aide_domicile = individu('dependance_plan_aide_domicile', period)\n    parameters_autonomie = parameters(period).autonomie\n\n    plafond_gir1 = parameters_autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_1\n    plafond_gir2 = parameters_autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_2\n    plafond_gir3 = parameters_autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_3\n    plafond_gir4 = parameters_autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_4\n    majoration_tierce_personne = parameters_autonomie.mtp.mtp\n\n    condition_plafond_par_gir = [\n        gir == TypesGir.gir_1,\n        gir == TypesGir.gir_2,\n        gir == TypesGir.gir_3,\n        gir == TypesGir.gir_4,\n        ]\n    valeur_plafond_par_gir = [\n        plafond_gir1 * majoration_tierce_personne,\n        plafond_gir2 * majoration_tierce_personne,\n        plafond_gir3 * majoration_tierce_personne,\n        plafond_gir4 * majoration_tierce_personne,\n        ]\n    plafond_par_gir = select(condition_plafond_par_gir, valeur_plafond_par_gir)\n    return min_(plafond_par_gir, dependance_plan_aide_domicile)\n",
       "start_line_number": 370,
       "stop_line_number": 395,

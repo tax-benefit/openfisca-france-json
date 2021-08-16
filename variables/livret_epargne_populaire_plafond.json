@@ -783,7 +783,8 @@
       },
       "file_path": "/openfisca_france/model/patrimoine/livret_epargne_populaire.py",
       "parameters": [
-        "epargne.livret_epargne_populaire.baremes"
+        "epargne.livret_epargne_populaire.baremes",
+        "epargne.livret_epargne_populaire.coefficient_multiplicateur"
       ],
       "source_code": "def formula(individu, period, parameters):\n    params = parameters(period).epargne.livret_epargne_populaire\n    residence = individu.menage('residence', period)\n    bareme = params.baremes[residence]\n\n    nbptr = individu.foyer_fiscal('nbptr', period.n_2)\n    plafond = min_(1, nbptr) * bareme.valeur_de_base + 2 * (min_(max_(0, nbptr - 1), 0.5) * bareme.premiere_demi_part + max_(0, nbptr - 1.5) * bareme.demi_part_supplementaire)\n\n    coef = params.coefficient_multiplicateur\n\n    return ceil(coef * plafond)\n",
       "start_line_number": 17,

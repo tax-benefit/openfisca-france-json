@@ -318,6 +318,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/revenus/activite/non_salarie.py",
+      "parameters": [
+        "tns.micro_entreprise.cotisations_sociales"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    rpns_micro_entreprise_benefice = individu('rpns_micro_entreprise_benefice', period)\n    taux_cotisations_sociales = parameters(period).tns.micro_entreprise.cotisations_sociales\n    rpns_micro_entreprise_charges_sociales = rpns_micro_entreprise_benefice * taux_cotisations_sociales\n    revenus = rpns_micro_entreprise_benefice - rpns_micro_entreprise_charges_sociales\n\n    return revenus\n",
       "start_line_number": 2186,
       "stop_line_number": 2193,

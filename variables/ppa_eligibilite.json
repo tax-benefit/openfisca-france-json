@@ -355,6 +355,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "parameters": [
+        "prestations.minima_sociaux.ppa.age_min"
+      ],
       "source_code": "def formula(famille, period, parameters):\n    P = parameters(period).prestations\n    age_min = P.minima_sociaux.ppa.age_min\n    condition_age_i = famille.members('age', period) >= age_min\n    condition_age = famille.any(condition_age_i)\n\n    return condition_age\n",
       "start_line_number": 13,
       "stop_line_number": 20,

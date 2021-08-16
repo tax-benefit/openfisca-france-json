@@ -439,6 +439,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/covid19/jeunes.py",
+      "parameters": [
+        "bourses_enseignement_superieur.criteres_sociaux.nombre_mensualites"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    bourse_2020 = individu(\"bourse_criteres_sociaux\", 2020, options = [ADD])\n    bourse_2021 = individu(\"bourse_criteres_sociaux\", 2021, options = [ADD])\n    nombre_mensualites = parameters(period).bourses_enseignement_superieur.criteres_sociaux.nombre_mensualites\n\n    return where(\n        bourse_2021 > 0,\n        bourse_2021 / nombre_mensualites,\n        bourse_2020 / nombre_mensualites\n        )\n",
       "start_line_number": 21,
       "stop_line_number": 31,

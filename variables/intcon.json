@@ -337,6 +337,7 @@
       "documentation": "\nIntérêts des prêts à la consommation (case UH)\n2004-2005\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
+        "impot_revenu.reductions_impots.intcon.max",
         "impot_revenu.reductions_impots.intcon.taux"
       ],
       "source_code": "def formula_2004_01_01(foyer_fiscal, period, parameters):\n    '''\n    Intérêts des prêts à la consommation (case UH)\n    2004-2005\n    '''\n    f7uh = foyer_fiscal('f7uh', period)\n    P = parameters(period).impot_revenu.reductions_impots.intcon\n\n    max1 = P.max\n    return P.taux * min_(f7uh, max1)\n",

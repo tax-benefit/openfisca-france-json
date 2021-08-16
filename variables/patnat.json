@@ -337,6 +337,7 @@
       "documentation": "\nDépenses de protections du patrimoine naturel (case 7KA)\n2010\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
+        "impot_revenu.reductions_impots.patnat.max",
         "impot_revenu.reductions_impots.patnat.taux"
       ],
       "source_code": "def formula_2010_01_01(foyer_fiscal, period, parameters):\n    '''\n    Dépenses de protections du patrimoine naturel (case 7KA)\n    2010\n    '''\n    f7ka = foyer_fiscal('f7ka', period)\n    P = parameters(period).impot_revenu.reductions_impots.patnat\n\n    max1 = P.max\n    return P.taux * min_(f7ka, max1)\n",
@@ -759,6 +760,7 @@
       "documentation": "\nDépenses de protections du patrimoine naturel (case 7KA, 7KB)\n2011\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
+        "impot_revenu.reductions_impots.patnat.max",
         "impot_revenu.reductions_impots.patnat.taux"
       ],
       "source_code": "def formula_2011_01_01(foyer_fiscal, period, parameters):\n    '''\n    Dépenses de protections du patrimoine naturel (case 7KA, 7KB)\n    2011\n    '''\n    f7ka = foyer_fiscal('f7ka', period)\n    f7kb = foyer_fiscal('f7kb', period)\n    P = parameters(period).impot_revenu.reductions_impots.patnat\n\n    max1 = P.max\n    return P.taux * min_(f7ka, max1) + f7kb\n",
@@ -1263,6 +1265,7 @@
       "documentation": "\nDépenses de protections du patrimoine naturel (case 7KA, 7KB, 7KC)\n2012\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
+        "impot_revenu.reductions_impots.patnat.max",
         "impot_revenu.reductions_impots.patnat.taux"
       ],
       "source_code": "def formula_2012_01_01(foyer_fiscal, period, parameters):\n    '''\n    Dépenses de protections du patrimoine naturel (case 7KA, 7KB, 7KC)\n    2012\n    '''\n    f7ka = foyer_fiscal('f7ka', period)\n    f7kb = foyer_fiscal('f7kb', period)\n    f7kc = foyer_fiscal('f7kc', period)\n    P = parameters(period).impot_revenu.reductions_impots.patnat\n\n    max1 = P.max\n    return P.taux * min_(f7ka, max1) + f7kb + f7kc\n",
@@ -1849,6 +1852,7 @@
       "documentation": "\nDépenses de protections du patrimoine naturel (case 7KA, 7KB, 7KC)\n2013\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
+        "impot_revenu.reductions_impots.patnat.max",
         "impot_revenu.reductions_impots.patnat.taux"
       ],
       "source_code": "def formula_2013_01_01(foyer_fiscal, period, parameters):\n    '''\n    Dépenses de protections du patrimoine naturel (case 7KA, 7KB, 7KC)\n    2013\n    '''\n    f7ka = foyer_fiscal('f7ka', period)\n    f7kb = foyer_fiscal('f7kb', period)\n    f7kc = foyer_fiscal('f7kc', period)\n    f7kd = foyer_fiscal('f7kd', period)\n    P = parameters(period).impot_revenu.reductions_impots.patnat\n\n    max1 = P.max\n    return P.taux * min_(f7ka, max1) + f7kb + f7kc + f7kd\n",
@@ -2579,5 +2583,6 @@
   },
   "start_line_number": 4380,
   "stop_line_number": 4459,
+  "unit": "currency",
   "value_type": "float"
 }

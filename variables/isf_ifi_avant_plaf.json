@@ -1177,6 +1177,9 @@
         "name": "formula_2009"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "parameters": [
+        "taxation_capital.isf_ifi.reduc_invest_don.max"
+      ],
       "source_code": "def formula_2009(foyer_fiscal, period, parameters):\n    isf_ifi_avant_reduction = foyer_fiscal('isf_ifi_avant_reduction', period)\n    isf_inv_pme = foyer_fiscal('isf_inv_pme', period)\n    isf_org_int_gen = foyer_fiscal('isf_org_int_gen', period)\n    isf_reduc_pac = foyer_fiscal('isf_reduc_pac', period)\n    borne_max = parameters(period).taxation_capital.isf_ifi.reduc_invest_don.max\n\n    return max_(0, isf_ifi_avant_reduction - min_(isf_inv_pme + isf_org_int_gen, borne_max) - isf_reduc_pac)\n",
       "start_line_number": 449,
       "stop_line_number": 457,
@@ -1198,5 +1201,6 @@
   ],
   "start_line_number": 429,
   "stop_line_number": 457,
+  "unit": "currency",
   "value_type": "float"
 }

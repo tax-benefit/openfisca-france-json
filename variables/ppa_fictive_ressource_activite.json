@@ -246,6 +246,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "parameters": [
+        "prestations.minima_sociaux.ppa.pente"
+      ],
       "source_code": "def formula(famille, period, parameters):\n    pente = parameters(period).prestations.minima_sociaux.ppa.pente\n    ppa_revenu_activite = famille('ppa_revenu_activite', period)\n\n    return pente * ppa_revenu_activite\n",
       "start_line_number": 414,
       "stop_line_number": 419,

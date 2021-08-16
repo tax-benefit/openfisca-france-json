@@ -358,6 +358,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/patrimoine/livret_epargne_populaire.py",
+      "parameters": [
+        "epargne.livret_a.taux",
+        "epargne.livret_epargne_populaire.majoration_base_livret_a"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    eligibilite = individu('livret_epargne_populaire_eligibilite', period)\n\n    epargne = parameters(period).epargne\n    base_livret_a = epargne.livret_a.taux\n    majoration = epargne.livret_epargne_populaire.majoration_base_livret_a\n    return 100 * eligibilite * (base_livret_a + majoration)\n",
       "start_line_number": 53,
       "stop_line_number": 60,

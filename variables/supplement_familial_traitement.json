@@ -2904,6 +2904,17 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "parameters": [
+        "",
+        "fonc.supplement_familial.IM_max",
+        "fonc.supplement_familial.IM_min",
+        "fonc.supplement_familial.fixe.enf1",
+        "fonc.supplement_familial.fixe.enf2",
+        "fonc.supplement_familial.fixe.enfsupp",
+        "fonc.supplement_familial.prop.enf2",
+        "fonc.supplement_familial.prop.enf3",
+        "fonc.supplement_familial.prop.enfsupp"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    categorie_salarie = individu('categorie_salarie', period)\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    _P = parameters(period)\n\n    fonc_nbenf = individu.famille('af_nbenf_fonc', period) * individu.has_role(Famille.DEMANDEUR)\n\n    P = _P.fonc.supplement_familial\n    part_fixe_1 = P.fixe.enf1\n    part_fixe_2 = P.fixe.enf2\n    part_fixe_supp = P.fixe.enfsupp\n\n    part_fixe = (\n        part_fixe_1 * (fonc_nbenf == 1)\n        + part_fixe_2 * (fonc_nbenf == 2)\n        + part_fixe_supp * max_(0, fonc_nbenf - 2)\n        )\n\n    # pct_variable_1 = 0\n    pct_variable_2 = P.prop.enf2\n    pct_variable_3 = P.prop.enf3\n    pct_variable_supp = P.prop.enfsupp\n\n    pct_variable = (\n        pct_variable_2 * (fonc_nbenf == 2)\n        + (pct_variable_3) * (fonc_nbenf == 3)\n        + pct_variable_supp * max_(0, fonc_nbenf - 3)\n        )\n\n    indice_maj_min = P.IM_min\n    indice_maj_max = P.IM_max\n\n    traitement_brut_mensuel_min = _traitement_brut_mensuel(indice_maj_min, _P)\n    plancher_mensuel_1 = part_fixe\n    plancher_mensuel_2 = part_fixe + traitement_brut_mensuel_min * pct_variable_2\n    plancher_mensuel_3 = part_fixe + traitement_brut_mensuel_min * pct_variable_3\n    plancher_mensuel_supp = traitement_brut_mensuel_min * pct_variable_supp\n\n    plancher = (\n        plancher_mensuel_1 * (fonc_nbenf == 1)\n        + plancher_mensuel_2 * (fonc_nbenf == 2)\n        + plancher_mensuel_3 * (fonc_nbenf >= 3)\n        + plancher_mensuel_supp * max_(0, fonc_nbenf - 3)\n        )\n\n    traitement_brut_mensuel_max = _traitement_brut_mensuel(indice_maj_max, _P)\n    plafond_mensuel_1 = part_fixe\n    plafond_mensuel_2 = part_fixe + traitement_brut_mensuel_max * pct_variable_2\n    plafond_mensuel_3 = part_fixe + traitement_brut_mensuel_max * pct_variable_3\n    plafond_mensuel_supp = traitement_brut_mensuel_max * pct_variable_supp\n\n    plafond = (\n        plafond_mensuel_1 * (fonc_nbenf == 1)\n        + plafond_mensuel_2 * (fonc_nbenf == 2)\n        + plafond_mensuel_3 * (fonc_nbenf == 3)\n        + plafond_mensuel_supp * max_(0, fonc_nbenf - 3)\n        )\n\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        )\n\n    sft = public * min_(\n        max_(part_fixe + pct_variable * traitement_indiciaire_brut, plancher),\n        plafond\n        )\n\n    return sft\n",
       "start_line_number": 859,
       "stop_line_number": 931,
@@ -2937,6 +2948,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 850,
   "stop_line_number": 931,
+  "unit": "currency",
   "ux_name": "Supplém. familial traitement",
   "value_type": "float"
 }

@@ -610,6 +610,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "parameters": [
+        "prestations.aides_logement.ressources.abattement_chomage_indemnise"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    activite = individu('activite', period)\n    date_debut_chomage = individu('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n    condition_abattement = (activite == TypesActivite.chomeur) * (date_debut_chomage < two_months_ago)\n    revenus_activite_pro = individu('aide_logement_assiette_abattement_chomage', period)\n    taux_abattement = parameters(period).prestations.aides_logement.ressources.abattement_chomage_indemnise\n\n    return condition_abattement * taux_abattement * revenus_activite_pro\n",
       "start_line_number": 725,
       "stop_line_number": 734,
@@ -1326,6 +1329,9 @@
         "name": "formula_2021_01_01"
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "parameters": [
+        "prestations.aides_logement.ressources.abattement_chomage_indemnise"
+      ],
       "source_code": "def formula_2021_01_01(individu, period, parameters):\n    activite = individu('activite', period)\n    date_debut_chomage = individu('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n    condition_neutralisation = individu('aide_logement_condition_neutralisation_chomage', period)\n    condition_abattement = (activite == TypesActivite.chomeur) * (date_debut_chomage < two_months_ago)\n    revenus_activite_pro = individu('aide_logement_assiette_abattement_chomage', period)\n    taux_abattement = parameters(period).prestations.aides_logement.ressources.abattement_chomage_indemnise\n    return condition_abattement * not_(condition_neutralisation) * taux_abattement * revenus_activite_pro\n",
       "start_line_number": 715,
       "stop_line_number": 724,

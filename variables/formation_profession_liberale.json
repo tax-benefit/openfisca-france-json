@@ -690,6 +690,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale_annuel",
+        "prelevements_sociaux.formation_pl.formation_professionnelle.sous_pss"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale_annuel\n    bareme = MarginalRateTaxScale(name = 'formation_profession_liberale')\n    taux = parameters(period).prelevements_sociaux.formation_pl.formation_professionnelle.sous_pss\n    bareme.add_bracket(0, taux)\n    bareme.add_bracket(1, 0)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n        ) * individu('rpns_imposables', period)\n    return -bareme.calc(assiette)\n",
       "start_line_number": 259,
       "stop_line_number": 271,

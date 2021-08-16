@@ -956,6 +956,7 @@
       "documentation": "\nFrais de garde des enfants à l’extérieur du domicile (cases 7GA à 7GC et 7GE à 7GG)\n2005-\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
       "parameters": [
+        "impot_revenu.credits_impot.garext.plafond",
         "impot_revenu.credits_impot.garext.taux"
       ],
       "source_code": "def formula_2005(foyer_fiscal, period, parameters):\n    '''\n    Frais de garde des enfants à l’extérieur du domicile (cases 7GA à 7GC et 7GE à 7GG)\n    2005-\n    '''\n    f7ga = foyer_fiscal('f7ga', period)\n    f7gb = foyer_fiscal('f7gb', period)\n    f7gc = foyer_fiscal('f7gc', period)\n    f7ge = foyer_fiscal('f7ge', period)\n    f7gf = foyer_fiscal('f7gf', period)\n    f7gg = foyer_fiscal('f7gg', period)\n    P = parameters(period).impot_revenu.credits_impot.garext\n\n    max1 = P.plafond\n    return P.taux * (\n        min_(f7ga, max1)\n        + min_(f7gb, max1)\n        + min_(f7gc, max1)\n        + min_(f7ge, max1 / 2)\n        + min_(f7gf, max1 / 2)\n        + min_(f7gg, max1 / 2)\n        )\n",

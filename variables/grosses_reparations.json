@@ -273,6 +273,9 @@
       },
       "documentation": "\nDépenses de grosses réparations des nus-propriétaires (case 6CB et 6HJ)\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/charges_deductibles.py",
+      "parameters": [
+        "impot_revenu.charges_deductibles.grosses_reparations.plafond"
+      ],
       "source_code": "def formula_2009(foyer_fiscal, period, parameters):\n    '''\n    Dépenses de grosses réparations des nus-propriétaires (case 6CB et 6HJ)\n    '''\n\n    f6cb = foyer_fiscal('f6cb', period)\n    plafond_grosses_reparations = parameters(period).impot_revenu.charges_deductibles.grosses_reparations.plafond\n\n    return min_(f6cb, plafond_grosses_reparations)\n",
       "start_line_number": 743,
       "stop_line_number": 752,
@@ -900,6 +903,9 @@
       },
       "documentation": "\nDépenses de grosses réparations des nus-propriétaires\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/charges_deductibles.py",
+      "parameters": [
+        "impot_revenu.charges_deductibles.grosses_reparations.plafond"
+      ],
       "source_code": "def formula_2010(foyer_fiscal, period, parameters):\n    '''\n    Dépenses de grosses réparations des nus-propriétaires\n    '''\n    f6cb = foyer_fiscal('f6cb', period)\n    year = period.start.year\n\n    report_depenses_depuis_2009 = sum(\n        foyer_fiscal(case_report, period)\n        for case_report in [\n            \"f6hj\",\n            \"f6hk\",\n            \"f6hl\",\n            \"f6hm\",\n            \"f6hn\",\n            \"f6ho\",\n            \"f6hp\",\n            \"f6hq\",\n            \"f6hr\",\n            ][0:year - 2009]\n        )\n\n    plafond_grosses_reparations = parameters(period).impot_revenu.charges_deductibles.grosses_reparations.plafond\n    depenses_courantes = f6cb\n\n    return min_(depenses_courantes + report_depenses_depuis_2009, plafond_grosses_reparations)\n",
       "start_line_number": 753,
       "stop_line_number": 779,
@@ -924,5 +930,6 @@
   ],
   "start_line_number": 736,
   "stop_line_number": 779,
+  "unit": "currency",
   "value_type": "float"
 }

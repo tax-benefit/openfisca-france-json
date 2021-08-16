@@ -909,9 +909,11 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "parameters": [
+        "cotsoc.gen.smic_h_b",
         "prestations.minima_sociaux.ppa.bonification.seuil_bonification",
         "prestations.minima_sociaux.ppa.bonification.seuil_max_bonification",
-        "prestations.minima_sociaux.ppa.bonification.taux_bonification_max"
+        "prestations.minima_sociaux.ppa.bonification.taux_bonification_max",
+        "prestations.minima_sociaux.ppa.montant_de_base"
       ],
       "source_code": "def formula(individu, period, parameters):\n    P = parameters(period)\n    smic_horaire = P.cotsoc.gen.smic_h_b\n    ppa_base = P.prestations.minima_sociaux.ppa.montant_de_base\n    revenu_activite = individu('ppa_revenu_activite_individu', period)\n    seuil_1 = P.prestations.minima_sociaux.ppa.bonification.seuil_bonification * smic_horaire\n    seuil_2 = P.prestations.minima_sociaux.ppa.bonification.seuil_max_bonification * smic_horaire\n    bonification_max = round_(P.prestations.minima_sociaux.ppa.bonification.taux_bonification_max * ppa_base, 2)\n    bonification = bonification_max * (revenu_activite - seuil_1) / (seuil_2 - seuil_1)\n    bonification = max_(bonification, 0)\n    bonification = min_(bonification, bonification_max)\n\n    return bonification\n",
       "start_line_number": 345,

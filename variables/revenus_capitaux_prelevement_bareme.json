@@ -781,6 +781,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/revenus/capital/financier.py",
+      "parameters": [
+        "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+      ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    year = period.this_year\n    f2dc = foyer_fiscal('f2dc', year)\n    f2gr = foyer_fiscal('f2gr', year)\n    f2ch = foyer_fiscal('f2ch', year)\n    f2ts = foyer_fiscal('f2ts', year)\n    f2go = foyer_fiscal('f2go', year)\n    f2tr = foyer_fiscal('f2tr', year)\n    f2fu = foyer_fiscal('f2fu', year)\n    majoration_revenus_reputes_distribues = parameters(period).impot_revenu.rvcm.majoration_revenus_reputes_distribues\n\n    return (f2dc + f2gr + f2ch + f2ts + f2go * majoration_revenus_reputes_distribues + f2tr + f2fu) / 12\n",
       "start_line_number": 429,
       "stop_line_number": 441,
@@ -1489,6 +1492,9 @@
         "name": "formula_2013_01_01"
       },
       "file_path": "/openfisca_france/model/revenus/capital/financier.py",
+      "parameters": [
+        "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+      ],
       "source_code": "def formula_2013_01_01(foyer_fiscal, period, parameters):\n    year = period.this_year\n    f2dc = foyer_fiscal('f2dc', year)\n    f2ch = foyer_fiscal('f2ch', year)\n    f2ts = foyer_fiscal('f2ts', year)\n    f2go = foyer_fiscal('f2go', year)\n    f2tr = foyer_fiscal('f2tr', year)\n    f2fu = foyer_fiscal('f2fu', year)\n    majoration_revenus_reputes_distribues = parameters(period).impot_revenu.rvcm.majoration_revenus_reputes_distribues\n\n    return (f2dc + f2ch + f2ts + f2go * majoration_revenus_reputes_distribues + f2tr + f2fu) / 12\n",
       "start_line_number": 442,
       "stop_line_number": 453,
@@ -2277,6 +2283,9 @@
         "name": "formula_2016_01_01"
       },
       "file_path": "/openfisca_france/model/revenus/capital/financier.py",
+      "parameters": [
+        "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+      ],
       "source_code": "def formula_2016_01_01(foyer_fiscal, period, parameters):\n    year = period.this_year\n    f2dc = foyer_fiscal('f2dc', year)\n    f2ch = foyer_fiscal('f2ch', year)\n    f2ts = foyer_fiscal('f2ts', year)\n    f2go = foyer_fiscal('f2go', year)\n    f2tr = foyer_fiscal('f2tr', year)\n    f2fu = foyer_fiscal('f2fu', year)\n    f2tt_2016 = foyer_fiscal('f2tt_2016', year)\n    majoration_revenus_reputes_distribues = parameters(period).impot_revenu.rvcm.majoration_revenus_reputes_distribues\n\n    return (f2dc + f2ch + f2ts + f2go * majoration_revenus_reputes_distribues + f2tr + f2fu + f2tt_2016) / 12\n",
       "start_line_number": 454,
       "stop_line_number": 466,
@@ -3082,6 +3091,9 @@
       },
       "documentation": "\nNote : à partir des revenus 2017, la case 2TT représente les intérêts des prêts participatifs nets des pertes à imputer,\ncontrairement à avant où il s'agissait des intérêts avant déduction des pertes. Donc, à partir de 2017, on a ici,\npar contrainte de la structure des cases de la déclaration des revenus, le montant net au lieu du montant brut.\n",
       "file_path": "/openfisca_france/model/revenus/capital/financier.py",
+      "parameters": [
+        "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+      ],
       "source_code": "def formula_2017_01_01(foyer_fiscal, period, parameters):\n    '''\n    Note : à partir des revenus 2017, la case 2TT représente les intérêts des prêts participatifs nets des pertes à imputer,\n    contrairement à avant où il s'agissait des intérêts avant déduction des pertes. Donc, à partir de 2017, on a ici,\n    par contrainte de la structure des cases de la déclaration des revenus, le montant net au lieu du montant brut.\n    '''\n    year = period.this_year\n    f2dc = foyer_fiscal('f2dc', year)\n    f2ch = foyer_fiscal('f2ch', year)\n    f2ts = foyer_fiscal('f2ts', year)\n    f2go = foyer_fiscal('f2go', year)\n    f2tr = foyer_fiscal('f2tr', year)\n    f2fu = foyer_fiscal('f2fu', year)\n    f2tt = foyer_fiscal('f2tt', year)\n    majoration_revenus_reputes_distribues = parameters(period).impot_revenu.rvcm.majoration_revenus_reputes_distribues\n\n    return (f2dc + f2ch + f2ts + f2go * majoration_revenus_reputes_distribues + f2tr + f2fu + f2tt) / 12\n",
       "start_line_number": 467,
       "stop_line_number": 484,

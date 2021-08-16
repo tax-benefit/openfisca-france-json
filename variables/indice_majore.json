@@ -710,6 +710,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "parameters": [
+        "fonc.IM_100"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    period = period.start.period('month').offset('first-of')\n    categorie_salarie = individu('categorie_salarie', period)\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    _P = parameters(period)\n\n    traitement_annuel_brut = _P.fonc.IM_100\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n\n    return (traitement_indiciaire_brut * 100 * 12 / traitement_annuel_brut) * public\n",
       "start_line_number": 775,
       "stop_line_number": 790,

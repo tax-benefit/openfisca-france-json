@@ -946,6 +946,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/versement_transport.py",
+      "parameters": [
+        "cotsoc.versement_transport.seuil_effectif"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    depcom_entreprise = individu('depcom_entreprise', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    seuil_effectif = parameters(period).cotsoc.versement_transport.seuil_effectif\n\n    preload_taux_versement_transport()\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        + (categorie_salarie == TypesCategorieSalarie.non_pertinent)\n        )\n    taux_versement_transport = fromiter(\n        (\n            get_taux_versement_transport(code_commune, period)\n            for code_commune in depcom_entreprise\n            ),\n        dtype = 'float',\n        )\n    # \"L'entreprise emploie-t-elle plus de 9 ou 10 salariés dans le périmètre de l'Autorité organisatrice de transport\n    # (AOT) suivante ou syndicat mixte de transport (SMT)\"\n    return taux_versement_transport * or_(effectif_entreprise >= seuil_effectif, public) / 100\n",
       "start_line_number": 17,
       "stop_line_number": 43,

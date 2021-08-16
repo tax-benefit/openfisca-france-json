@@ -567,6 +567,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/locapass.py",
+      "parameters": [
+        "action_logement.locapass.jeunes.age_max"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    age_max = parameters(period).action_logement.locapass.jeunes.age_max\n    eligibilite_age = age <= age_max\n\n    activite = individu('activite', period)\n    alternant = individu('alternant', period)\n    eligibilite_activite = (activite == TypesActivite.chomeur) + alternant * (activite == TypesActivite.etudiant)\n\n    return eligibilite_age * eligibilite_activite\n",
       "start_line_number": 65,
       "stop_line_number": 75,
@@ -587,5 +590,6 @@
   "set_input": "set_input_dispatch_by_period",
   "start_line_number": 58,
   "stop_line_number": 75,
+  "unit": "currency",
   "value_type": "bool"
 }

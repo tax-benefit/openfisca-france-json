@@ -782,6 +782,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "parameters": [
+        "cotsoc.indemnite_fin_contrat.taux"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    contrat_de_travail_duree = individu('contrat_de_travail_duree', period)\n    TypesContratDeTravailDuree = contrat_de_travail_duree.possible_values\n    salaire_de_base = individu('salaire_de_base', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    apprenti = individu('apprenti', period)\n\n    # Un grand nombre de conditions peuvent invalider cette indemnité, voir le lien ci-dessus.\n    # A ajouter au fur et à mesure\n    # Pour l'instant, cette variable d'entrée peut les remplacer\n    # Elle est cependant fixée à False par défaut\n    indemnite_fin_contrat_due = individu('indemnite_fin_contrat_due', period)\n    taux = parameters(period).cotsoc.indemnite_fin_contrat.taux\n\n    result = (\n        # CDD\n        (contrat_de_travail_duree == TypesContratDeTravailDuree.cdd)\n        # non fonction publique\n        * (\n            (categorie_salarie == TypesCategorieSalarie.prive_non_cadre)\n            + (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n            )\n        * not_(apprenti)\n        * indemnite_fin_contrat_due\n        # 10% du brut\n        * taux\n        * salaire_de_base\n        )\n\n    return result\n",
       "start_line_number": 82,
       "stop_line_number": 112,
@@ -815,6 +818,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 74,
   "stop_line_number": 112,
+  "unit": "currency",
   "ux_name": "Prime de précarité",
   "value_type": "float"
 }

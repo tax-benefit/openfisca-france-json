@@ -563,6 +563,7 @@
       "documentation": "\nFrais de garde des enfants à l’extérieur du domicile (cases GA, GB, GC de la 2042)\net GE, GF, GG\n2002\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
+        "impot_revenu.credits_impot.garext.plafond",
         "impot_revenu.credits_impot.garext.taux"
       ],
       "source_code": "def formula_2002_01_01(foyer_fiscal, period, parameters):\n    '''\n    Frais de garde des enfants à l’extérieur du domicile (cases GA, GB, GC de la 2042)\n    et GE, GF, GG\n    2002\n    '''\n    f7ga = foyer_fiscal('f7ga', period)\n    f7gb = foyer_fiscal('f7gb', period)\n    f7gc = foyer_fiscal('f7gc', period)\n    P = parameters(period).impot_revenu.credits_impot.garext\n\n    max1 = P.plafond\n    return P.taux * (min_(f7ga, max1) + min_(f7gb, max1) + min_(f7gc, max1))\n",

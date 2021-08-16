@@ -235,6 +235,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/depart1825.py",
+      "parameters": [
+        "prestations.depart1825.montant_maximum"
+      ],
       "source_code": "def formula(individu, period, parameters):\n\n    montant = parameters(period).prestations.depart1825.montant_maximum\n    eligibilite = individu('depart1825_eligibilite', period)\n\n    return montant * eligibilite\n",
       "start_line_number": 56,
       "stop_line_number": 62,

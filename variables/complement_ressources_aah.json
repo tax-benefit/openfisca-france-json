@@ -480,6 +480,11 @@
         "name": "formula_2015_07_01"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+      "parameters": [
+        "prestations.minima_sociaux.aah.montant",
+        "prestations.minima_sociaux.aah.taux_capacite_travail",
+        "prestations.minima_sociaux.caah.garantie_ressources"
+      ],
       "source_code": "def formula_2015_07_01(individu, period, parameters):\n    prestations = parameters(period).prestations\n    garantie_ressources = prestations.minima_sociaux.caah.garantie_ressources\n    aah_montant = prestations.minima_sociaux.aah.montant\n    taux_capacite_travail_max = prestations.minima_sociaux.aah.taux_capacite_travail\n    taux_capacite_travail = individu('taux_capacite_travail', period)\n\n    return (taux_capacite_travail < taux_capacite_travail_max) * max_(garantie_ressources - aah_montant, 0)\n",
       "start_line_number": 460,
       "stop_line_number": 468,

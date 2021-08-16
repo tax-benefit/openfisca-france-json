@@ -288,6 +288,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
+      "parameters": [
+        "prestations.minima_sociaux.rsa.forfait_logement.taux_1_personne",
+        "prestations.minima_sociaux.rsa.montant_de_base_du_rsa"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    params = parameters(period).prestations.minima_sociaux.rsa\n    montant_base = params.montant_de_base_du_rsa\n    taux_1_personne = params.forfait_logement.taux_1_personne\n    return montant_base * (1 - taux_1_personne)\n",
       "start_line_number": 36,
       "stop_line_number": 41

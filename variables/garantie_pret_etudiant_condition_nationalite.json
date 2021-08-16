@@ -454,6 +454,9 @@
         "name": "formula_2021_02_19"
       },
       "file_path": "/openfisca_france/model/prestations/jeunes/garantie_pret_etudiant.py",
+      "parameters": [
+        "prestations.garantie_pret_etudiant.duree_min_residence_continue_annees"
+      ],
       "source_code": "def formula_2021_02_19(individu, period, parameters):\n    nationalite_francaise = individu('nationalite', period) == b'FR'\n\n    ressortissant_eee = individu('ressortissant_eee', period)\n    residence_continue_annees = individu('residence_continue_annees', period)\n    duree_min_residence_continue_annees = parameters(period).prestations.garantie_pret_etudiant.duree_min_residence_continue_annees\n    eligibilite_eee = ressortissant_eee * residence_continue_annees >= duree_min_residence_continue_annees\n\n    return nationalite_francaise + eligibilite_eee\n",
       "start_line_number": 33,
       "stop_line_number": 42,

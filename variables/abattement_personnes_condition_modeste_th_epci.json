@@ -1010,6 +1010,10 @@
       },
       "documentation": "\nPour le nombre de personnes à charge, on ne prend pas en compte les gardes en résidence alternée qui font\nqu'une personne à charge ne compte que pour 0.5 au lieu de 1.\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "parameters": [
+        "taxation_locale.taxe_habitation.maj_seuil_valeur_locative_abattement_condition_modeste",
+        "taxation_locale.taxe_habitation.seuil_valeur_locative_abattement_condition_modeste"
+      ],
       "source_code": "def formula_2017_01_01(menage, period, parameters):\n    '''\n    Pour le nombre de personnes à charge, on ne prend pas en compte les gardes en résidence alternée qui font\n    qu'une personne à charge ne compte que pour 0.5 au lieu de 1.\n    '''\n    enfant_i = menage.members.has_role(Famille.ENFANT)\n    nb_enfants = menage.sum(enfant_i)\n    valeur_locative_cadastrale_brute = menage('valeur_locative_cadastrale_brute', period)\n    P = parameters(period).taxation_locale.taxe_habitation\n    abt_condition_modeste_th_epci = menage('abt_condition_modeste_th_epci', period)\n    valeur_locative_moyenne_th_epci = menage('valeur_locative_moyenne_th_epci', period)\n    taux_plafond_general = P.seuil_valeur_locative_abattement_condition_modeste\n    maj_taux_plafond_par_pac = P.maj_seuil_valeur_locative_abattement_condition_modeste\n    valeur_locative_max = (taux_plafond_general + maj_taux_plafond_par_pac * nb_enfants) * valeur_locative_moyenne_th_epci\n    condition_rfr_exoneration_th_i = menage.members.foyer_fiscal('condition_rfr_exoneration_th', period)\n    condition_rfr_exoneration_th = menage.all(condition_rfr_exoneration_th_i)\n    exonere_taxe_habitation = menage('exonere_taxe_habitation', period)\n    elig = condition_rfr_exoneration_th * not_(exonere_taxe_habitation) * (valeur_locative_cadastrale_brute <= valeur_locative_max)\n\n    return elig * abt_condition_modeste_th_epci\n",
       "start_line_number": 166,
       "stop_line_number": 186,

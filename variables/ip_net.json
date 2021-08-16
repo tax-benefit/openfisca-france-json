@@ -587,6 +587,9 @@
       },
       "documentation": "\nImpôt net avant réductions\n",
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "parameters": [
+        "impot_revenu.rpns.taux16"
+      ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Impôt net avant réductions\n    '''\n    cncn_info_i = foyer_fiscal.members('cncn_info', period)\n    decote = foyer_fiscal('decote', period)\n    ir_plaf_qf = foyer_fiscal('ir_plaf_qf', period)\n    taux = parameters(period).impot_revenu.rpns.taux16\n    # N'est pas véritablement une 'réduction', cf. la définition de cette variable\n    reduction_ss_condition_revenus = foyer_fiscal('reduction_ss_condition_revenus', period)\n\n    return around(max_(0, ir_plaf_qf + foyer_fiscal.sum(cncn_info_i) * taux - decote - reduction_ss_condition_revenus))\n",
       "start_line_number": 1463,
       "stop_line_number": 1475,
@@ -607,5 +610,6 @@
   ],
   "start_line_number": 1457,
   "stop_line_number": 1475,
+  "unit": "currency",
   "value_type": "float"
 }

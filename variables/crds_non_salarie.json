@@ -267,6 +267,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+      "parameters": [
+        "prelevements_sociaux.contributions_sociales.crds.activite.taux"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    assiette_csg_crds_non_salarie = individu('assiette_csg_crds_non_salarie', period)\n    taux = parameters(period).prelevements_sociaux.contributions_sociales.crds.activite.taux\n    return - taux * assiette_csg_crds_non_salarie\n",
       "start_line_number": 351,
       "stop_line_number": 355,
@@ -285,6 +288,7 @@
   ],
   "start_line_number": 345,
   "stop_line_number": 355,
+  "unit": "currency",
   "ux_name": "CRDS non salariés",
   "value_type": "float"
 }

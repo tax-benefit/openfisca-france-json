@@ -482,6 +482,10 @@
         "name": "formula_2014_11"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/stage.py",
+      "parameters": [
+        "cotsoc.gen.plafond_securite_sociale_horaire",
+        "cotsoc.stage.taux_gratification_min"
+      ],
       "source_code": "def formula_2014_11(individu, period, parameters):\n    stage_duree_heures = individu('stage_duree_heures', period)\n    stage_gratification = individu('stage_gratification', period)\n    plafond_securite_sociale_horaire = parameters(period).cotsoc.gen.plafond_securite_sociale_horaire\n    stage_gratification_taux_min = parameters(period).cotsoc.stage.taux_gratification_min\n    stage_gratification_min = plafond_securite_sociale_horaire * stage_duree_heures * stage_gratification_taux_min\n    return max_(stage_gratification - stage_gratification_min, 0)\n",
       "start_line_number": 45,
       "stop_line_number": 52,

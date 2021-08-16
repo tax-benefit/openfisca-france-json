@@ -629,6 +629,9 @@
         "name": "formula_2017_01_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "parameters": [
+        "taxation_locale.taxe_habitation.frais_assiette"
+      ],
       "source_code": "def formula_2017_01_01(menage, period, parameters):\n    taux_th_commune = menage('taux_th_commune', period)\n    taux_th_epci = menage('taux_th_epci', period)\n    # Attention, si (taux_th_commune + taux_th_epci == 0), alors\n    # il n'y a pas de taux de taxe d'habitation défini pour le depcom indiqué.\n\n    base_nette_th_commune = menage('base_nette_th_commune', period)\n    base_nette_th_epci = menage('base_nette_th_epci', period)\n    exonere_taxe_habitation = menage('exonere_taxe_habitation', period)\n    P = parameters(period).taxation_locale.taxe_habitation\n    taux_frais_assiette = P.frais_assiette\n    return (base_nette_th_commune * taux_th_commune + base_nette_th_epci * taux_th_epci) * not_(exonere_taxe_habitation) * (1 + taux_frais_assiette)\n",
       "start_line_number": 246,
       "stop_line_number": 258,

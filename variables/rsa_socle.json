@@ -900,6 +900,7 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "parameters": [
+        "prestations.minima_sociaux.rmi.rmi",
         "prestations.minima_sociaux.rmi.txp2",
         "prestations.minima_sociaux.rmi.txp3",
         "prestations.minima_sociaux.rmi.txps"
@@ -1865,7 +1866,8 @@
       "parameters": [
         "prestations.minima_sociaux.rsa.majoration_rsa.taux_deuxieme_personne",
         "prestations.minima_sociaux.rsa.majoration_rsa.taux_personne_supp",
-        "prestations.minima_sociaux.rsa.majoration_rsa.taux_troisieme_personne"
+        "prestations.minima_sociaux.rsa.majoration_rsa.taux_troisieme_personne",
+        "prestations.minima_sociaux.rsa.montant_de_base_du_rsa"
       ],
       "source_code": "def formula_2009_06_01(famille, period, parameters):\n    nb_parents = famille('nb_parents', period)\n    eligib = famille('rsa_eligibilite', period)\n    rsa_nb_enfants = famille('rsa_nb_enfants', period)\n    nb_personnes = nb_parents + rsa_nb_enfants\n\n    rsa = parameters(period).prestations.minima_sociaux.rsa\n\n    taux = (\n        1\n        + (nb_personnes >= 2) * rsa.majoration_rsa.taux_deuxieme_personne\n        + (nb_personnes >= 3) * rsa.majoration_rsa.taux_troisieme_personne\n        + (nb_personnes >= 4) * where(nb_parents == 1, rsa.majoration_rsa.taux_personne_supp, rsa.majoration_rsa.taux_troisieme_personne)\n        # Si nb_parents == 1, pas de conjoint, la 4e personne est un enfant, donc le taux est de 40%.\n        + max_(nb_personnes - 4, 0) * rsa.majoration_rsa.taux_personne_supp\n        )\n\n    socle = rsa.montant_de_base_du_rsa\n\n    return eligib * socle * taux\n",
       "start_line_number": 957,

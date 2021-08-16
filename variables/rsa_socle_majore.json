@@ -477,7 +477,8 @@
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "parameters": [
         "prestations.minima_sociaux.rsa.majo_rsa.pac0",
-        "prestations.minima_sociaux.rsa.majo_rsa.pac_enf_sup"
+        "prestations.minima_sociaux.rsa.majo_rsa.pac_enf_sup",
+        "prestations.minima_sociaux.rsa.montant_de_base_du_rsa"
       ],
       "source_code": "def formula_2009_06_01(famille, period, parameters):\n    eligib = famille('rsa_majore_eligibilite', period)\n    nbenf = famille('rsa_nb_enfants', period)\n\n    rsa = parameters(period).prestations.minima_sociaux.rsa\n    taux = rsa.majo_rsa.pac0 + rsa.majo_rsa.pac_enf_sup * nbenf\n    socle = rsa.montant_de_base_du_rsa\n\n    return eligib * socle * taux\n",
       "start_line_number": 1007,

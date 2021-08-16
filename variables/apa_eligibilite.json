@@ -697,6 +697,9 @@
         "name": "formula_2002"
       },
       "file_path": "/openfisca_france/model/prestations/autonomie.py",
+      "parameters": [
+        "autonomie.age_ouverture_des_droits.age_d_ouverture_des_droits"
+      ],
       "source_code": "def formula_2002(individu, period, parameters):\n    period = period.start.offset('first-of', 'month').period('month')\n    parameters = parameters(period).autonomie\n    age = individu('age', period)\n    apa_age_min = parameters.age_ouverture_des_droits.age_d_ouverture_des_droits\n\n    gir = individu('gir', period)\n    eligibilite_gir = (\n        (gir == TypesGir.gir_1)\n        + (gir == TypesGir.gir_2)\n        + (gir == TypesGir.gir_3)\n        + (gir == TypesGir.gir_4)\n        )\n\n    return (age >= apa_age_min) * eligibilite_gir\n",
       "start_line_number": 135,
       "stop_line_number": 150,

@@ -397,6 +397,11 @@
         "name": "formula_2002"
       },
       "file_path": "/openfisca_france/model/prestations/autonomie.py",
+      "parameters": [
+        "autonomie.apa_domicile.apa_d_urgence.part_du_plafond_de_l_apa_a_domicile",
+        "autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_1",
+        "autonomie.mtp.mtp"
+      ],
       "source_code": "def formula_2002(individu, period, parameters):\n    period = period.first_month\n    autonomie = parameters(period).autonomie\n    majoration_tierce_personne = autonomie.mtp.mtp\n    plafond_gir1 = autonomie.apa_domicile.plafond_de_l_apa_a_domicile_en_part_du_mtp.gir_1\n    part_urgence_domicile = autonomie.apa_domicile.apa_d_urgence.part_du_plafond_de_l_apa_a_domicile\n    return part_urgence_domicile * plafond_gir1 * majoration_tierce_personne\n",
       "start_line_number": 335,
       "stop_line_number": 342

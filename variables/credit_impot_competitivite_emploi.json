@@ -663,6 +663,9 @@
         "name": "formula_2013_01_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
+      "parameters": [
+        ""
+      ],
       "source_code": "def formula_2013_01_01(individu, period, parameters):\n    assiette_allegement = individu('assiette_allegement', period)\n    jeune_entreprise_innovante = individu('jeune_entreprise_innovante', period)  # noqa F841\n    smic_proratise = individu('smic_proratise', period)\n    stagiaire = individu('stagiaire', period)\n    parameters = parameters(period)\n    taux_cice = taux_exo_cice(assiette_allegement, smic_proratise, parameters)\n    credit_impot_competitivite_emploi = taux_cice * assiette_allegement  # En updatant la formule (>2019) il faudra passer le parametre à null\n    non_cumul = not_(stagiaire)\n    association = individu('entreprise_est_association_non_lucrative', period)\n\n    return credit_impot_competitivite_emploi * non_cumul * not_(association)\n",
       "start_line_number": 127,
       "stop_line_number": 139,
@@ -693,6 +696,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 119,
   "stop_line_number": 139,
+  "unit": "currency",
   "ux_name": "CICE",
   "value_type": "float"
 }

@@ -823,7 +823,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "parameters": [
-        "prestations.minima_sociaux.rsa.pente"
+        "prestations.minima_sociaux.rsa.pente",
+        "prestations.minima_sociaux.rsa.rsa_nv"
       ],
       "source_code": "def formula_2009_06(famille, period, parameters):\n    rsa_socle_non_majore = famille('rsa_socle', period)\n    rsa_socle_majore = famille('rsa_socle_majore', period)\n    rsa_socle = max_(rsa_socle_non_majore, rsa_socle_majore)\n\n    rsa_revenu_activite = famille('rsa_revenu_activite', period)\n    rsa_forfait_logement = famille('rsa_forfait_logement', period)\n    rsa_base_ressources = famille('rsa_base_ressources', period)\n\n    P = parameters(period).prestations.minima_sociaux.rsa\n    seuil_non_versement = P.rsa_nv\n\n    montant = rsa_socle - rsa_forfait_logement - rsa_base_ressources + P.pente * rsa_revenu_activite\n\n    montant = max_(montant, 0)\n    montant = montant * (montant >= seuil_non_versement)\n\n    return montant\n",
       "start_line_number": 553,

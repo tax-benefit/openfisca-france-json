@@ -754,6 +754,9 @@
         "name": "formula_2020_03"
       },
       "file_path": "/openfisca_france/model/covid19/activite.py",
+      "parameters": [
+        "covid19.aide_exceptionnelle_tpe.plafond"
+      ],
       "source_code": "def formula_2020_03(individu, period, parameters):\n    eligibilite_fse = individu('covid_aide_exceptionnelle_tpe_eligible', period)\n    plafond_fse = parameters(period).covid19.aide_exceptionnelle_tpe.plafond\n    chiffre_d_affaire = individu('rpns_auto_entrepreneur_chiffre_affaires', period)\n    period_1 = period.offset(-1, 'year')\n    chiffre_d_affaire_annee_mois_un_an_avant = individu('rpns_auto_entrepreneur_chiffre_affaires', period_1)\n    chiffre_d_affaire_annee_moyenne_annee_precedente = individu('rpns_auto_entrepreneur_chiffre_affaires', period.last_year, options = [ADD]) / 12\n    chiffre_d_affaire_annee_n_1 = max_(chiffre_d_affaire_annee_mois_un_an_avant, chiffre_d_affaire_annee_moyenne_annee_precedente)\n    difference_chiffre_d_affaire = chiffre_d_affaire - chiffre_d_affaire_annee_n_1\n    return eligibilite_fse * (difference_chiffre_d_affaire < 0) * min_(plafond_fse, -difference_chiffre_d_affaire)\n",
       "start_line_number": 34,
       "stop_line_number": 44,
@@ -783,6 +786,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 26,
   "stop_line_number": 44,
+  "unit": "currency",
   "ux_name": "Aide Covid-19 TPE",
   "value_type": "float"
 }

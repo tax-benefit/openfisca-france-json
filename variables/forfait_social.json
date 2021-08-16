@@ -340,6 +340,9 @@
         "name": "formula_2009_01_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+      "parameters": [
+        "prelevements_sociaux.forfait_social.taux_plein"
+      ],
       "source_code": "def formula_2009_01_01(individu, period, parameters):\n    prise_en_charge_employeur_retraite_complementaire = individu('prise_en_charge_employeur_retraite_complementaire', period, options = [ADD])\n    parametres = parameters(period).prelevements_sociaux.forfait_social\n    taux_plein = parametres.taux_plein\n    assiette_taux_plein = prise_en_charge_employeur_retraite_complementaire  # TODO: compléter l'assiette\n\n    return - assiette_taux_plein * taux_plein\n",
       "start_line_number": 154,
       "stop_line_number": 161,
@@ -1272,6 +1275,11 @@
         "name": "formula_2012_08_01"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+      "parameters": [
+        "prelevements_sociaux.forfait_social.seuil_effectif_prevoyance_complementaire",
+        "prelevements_sociaux.forfait_social.taux_plein",
+        "prelevements_sociaux.forfait_social.taux_reduit_1"
+      ],
       "source_code": "def formula_2012_08_01(individu, period, parameters):\n    prise_en_charge_employeur_retraite_complementaire = individu('prise_en_charge_employeur_retraite_complementaire', period, options = [ADD])\n    parametres = parameters(period).prelevements_sociaux.forfait_social\n    taux_plein = parametres.taux_plein\n    assiette_taux_plein = prise_en_charge_employeur_retraite_complementaire  # TODO: compléter l'assiette\n\n    # Les cotisations de prévoyance complémentaire qui rentrent en compte dans l'assiette du taux réduit\n    # ne concernent que les entreprises de 10 ou 11 employés et plus\n    # https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-taux-de-cotisations/le-forfait-social/le-forfait-social-au-taux-de-8.html\n    seuil_effectif_taux_reduit = parametres.seuil_effectif_prevoyance_complementaire\n    prise_en_charge_employeur_prevoyance_complementaire = individu('prise_en_charge_employeur_prevoyance_complementaire', period, options = [ADD])\n    prevoyance_obligatoire_cadre = individu('prevoyance_obligatoire_cadre', period, options = [ADD])\n    effectif_entreprise = individu('effectif_entreprise', period)\n    complementaire_sante_employeur = individu('complementaire_sante_employeur', period, options = [ADD])\n    taux_reduit = parametres.taux_reduit_1  # TODO taux_reduit_2 in 2016\n    assiette_taux_reduit = (\n        - prevoyance_obligatoire_cadre + prise_en_charge_employeur_prevoyance_complementaire\n        - complementaire_sante_employeur\n        ) * (effectif_entreprise >= seuil_effectif_taux_reduit)\n\n    return - (\n        assiette_taux_plein * taux_plein + assiette_taux_reduit * taux_reduit\n        )\n",
       "start_line_number": 162,
       "stop_line_number": 185,
@@ -1307,6 +1315,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 142,
   "stop_line_number": 185,
+  "unit": "currency",
   "ux_name": "Forfait social",
   "value_type": "float"
 }

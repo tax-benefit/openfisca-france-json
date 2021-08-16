@@ -246,6 +246,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/transport.py",
+      "parameters": [
+        "prestations.transport.aide_financement_permis_apprenti.montant"
+      ],
       "source_code": "def formula(individu, period, parameters):\n    montant = parameters(period).prestations.transport.aide_financement_permis_apprenti.montant\n    eligibilite = individu('aide_financement_permis_apprenti_eligibilite', period)\n\n    return montant * eligibilite\n",
       "start_line_number": 40,
       "stop_line_number": 45,

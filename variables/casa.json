@@ -553,6 +553,7 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/remplacement.py",
       "parameters": [
+        "prelevements_sociaux.contributions_sociales.csg.seuils.seuil_ir",
         "prelevements_sociaux.cotisations_securite_sociale_regime_general.casa.pensions_retraite_preretraite_invalidite"
       ],
       "source_code": "def formula_2013_04_01(individu, period, parameters):\n    retraite_brute = individu('retraite_brute', period)\n    ir = individu.foyer_fiscal('irpp', period = period.last_year)\n    parameters = parameters(period)\n    seuil_exoneration = parameters.prelevements_sociaux.contributions_sociales.csg.seuils.seuil_ir\n\n    bareme = parameters.prelevements_sociaux.cotisations_securite_sociale_regime_general.casa\n    casa = (\n        (ir > seuil_exoneration)\n        * bareme.pensions_retraite_preretraite_invalidite.calc(retraite_brute)\n        )\n    return - casa\n",
@@ -3052,6 +3053,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 469,
   "stop_line_number": 530,
+  "unit": "currency",
   "ux_name": "Contrib. solidarité et autonomie (CASA)",
   "value_type": "float"
 }

@@ -256,6 +256,9 @@
         "name": "formula_2009_06_01"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "parameters": [
+        "prelevements_sociaux.contributions_sociales.crds.taux_global"
+      ],
       "source_code": "def formula_2009_06_01(famille, period, parameters):\n    rsa_activite = famille('rsa_activite', period)\n    taux_crds = parameters(period).prelevements_sociaux.contributions_sociales.crds.taux_global\n\n    return - taux_crds * rsa_activite\n",
       "start_line_number": 311,
       "stop_line_number": 316,
@@ -514,6 +517,9 @@
         "name": "formula_2016_01_01"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "parameters": [
+        "prelevements_sociaux.contributions_sociales.crds.taux_global"
+      ],
       "source_code": "def formula_2016_01_01(famille, period, parameters):\n    ppa = famille('ppa', period)\n    taux_crds = parameters(period).prelevements_sociaux.contributions_sociales.crds.taux_global\n\n    return - taux_crds * ppa\n",
       "start_line_number": 305,
       "stop_line_number": 310,
@@ -533,6 +539,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 298,
   "stop_line_number": 316,
+  "unit": "currency",
   "ux_name": "CRDS minima sociaux",
   "value_type": "float"
 }

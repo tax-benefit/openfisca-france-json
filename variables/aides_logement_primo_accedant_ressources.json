@@ -246,6 +246,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "parameters": [
+        "prestations.aides_logement.ressources.dar_3"
+      ],
       "source_code": "def formula(menage, period, parameters):\n    loyer = menage('loyer', period)\n    coef_plancher_ressources = parameters(period).prestations.aides_logement.ressources.dar_3\n    return loyer * coef_plancher_ressources\n",
       "start_line_number": 1245,
       "stop_line_number": 1249,

@@ -627,6 +627,7 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
       "parameters": [
+        "prestations.prestations_familiales.af.bmaf",
         "prestations.prestations_familiales.af.majoration_enfants.taux_allocation_forfaitaire"
       ],
       "source_code": "def formula_2003_07_01(famille, period, parameters):\n    af_nbenf = famille('af_nbenf', period)\n    af_forfaitaire_nbenf = famille('af_allocation_forfaitaire_nb_enfants', period)\n    P = parameters(period).prestations.prestations_familiales.af\n    bmaf = P.bmaf\n    af_forfait = round_(bmaf * P.majoration_enfants.taux_allocation_forfaitaire, 2)\n    af_allocation_forfaitaire = ((af_nbenf >= 2) * af_forfaitaire_nbenf) * af_forfait\n\n    af_forfaitaire_taux_modulation = famille('af_allocation_forfaitaire_taux_modulation', period)\n    af_forfaitaire_module = af_allocation_forfaitaire * af_forfaitaire_taux_modulation\n\n    return af_forfaitaire_module\n",
@@ -659,6 +660,7 @@
   "set_input": "set_input_divide_by_period",
   "start_line_number": 280,
   "stop_line_number": 299,
+  "unit": "currency",
   "ux_name": "Alloc. forfaitaire",
   "value_type": "float"
 }

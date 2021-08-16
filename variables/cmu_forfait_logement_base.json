@@ -342,6 +342,10 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/cmu.py",
+      "parameters": [
+        "cs.cmu.forfait_logement",
+        "prestations.minima_sociaux.rmi"
+      ],
       "source_code": "def formula(famille, period, parameters):\n    cmu_nbp_foyer = famille('cmu_nbp_foyer', period)\n    P = parameters(period).cs.cmu.forfait_logement\n    law_rsa = parameters(period).prestations.minima_sociaux.rmi\n\n    return forfait_logement(cmu_nbp_foyer, P, law_rsa)\n",
       "start_line_number": 27,
       "stop_line_number": 33,

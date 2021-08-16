@@ -1754,6 +1754,9 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "parameters": [
+        "impot_revenu.rpns.cga_taux2"
+      ],
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    f5qf = foyer_fiscal('f5qf', period)\n    f5qg = foyer_fiscal('f5qg', period)\n    f5qn = foyer_fiscal('f5qn', period)\n    f5qo = foyer_fiscal('f5qo', period)\n    f5qp = foyer_fiscal('f5qp', period)\n    f5qq = foyer_fiscal('f5qq', period)\n    frag_impo_i = foyer_fiscal.members('frag_impo', period)\n    mrag_impo_i = foyer_fiscal.members('mrag_impo', period)\n    nrag_impg_i = foyer_fiscal.members('nrag_impg', period)\n    frag_fore_i = foyer_fiscal.members('frag_fore', period)\n    coupe_bois_i = foyer_fiscal.members('coupe_bois', period)\n    frag_pvct_i = foyer_fiscal.members('frag_pvct', period)\n    arag_impg_i = foyer_fiscal.members('arag_impg', period)\n    cga = parameters(period).impot_revenu.rpns.cga_taux2\n\n    frag_fore = foyer_fiscal.sum(frag_fore_i)\n    coupe_bois = foyer_fiscal.sum(coupe_bois_i)\n    frag_impo = foyer_fiscal.sum(frag_impo_i)\n    mrag_impo = foyer_fiscal.sum(mrag_impo_i)\n    arag_impg = foyer_fiscal.sum(arag_impg_i)\n    nrag_impg = foyer_fiscal.sum(nrag_impg_i)\n    frag_pvct = foyer_fiscal.sum(frag_pvct_i)\n    return min_(f5qf + f5qg + f5qn + f5qo + f5qp + f5qq, (1 + cga) * (frag_impo + nrag_impg + frag_pvct)\n                + arag_impg + frag_fore + coupe_bois + mrag_impo)\n",
       "start_line_number": 2393,
       "stop_line_number": 2418,
