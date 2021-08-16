@@ -108,7 +108,7 @@
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 8,
-                "end_col_offset": 31,
+                "end_col_offset": 51,
                 "end_lineno": 6,
                 "left": {
                   "ast_class": "Constant",
@@ -129,27 +129,27 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 31,
+                  "end_col_offset": 51,
                   "end_lineno": 6,
                   "lineno": 6,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "gen",
+                    "attr": "salaire_minimum",
                     "col_offset": 10,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 22,
+                    "end_col_offset": 42,
                     "end_lineno": 6,
                     "lineno": 6,
                     "value": {
                       "ast_class": "Attribute",
-                      "attr": "cotsoc",
+                      "attr": "marche_travail",
                       "col_offset": 10,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 18,
+                      "end_col_offset": 26,
                       "end_lineno": 6,
                       "lineno": 6,
                       "value": {
@@ -238,10 +238,10 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "parameters": [
-        "cotsoc.gen.smic_h_b",
+        "marche_travail.salaire_minimum.smic_h_b",
         "prestations.prestations_familiales.af.seuil_rev_taux"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    P = parameters(period)\n\n    return (\n        169\n        * P.cotsoc.gen.smic_h_b\n        * P.prestations.prestations_familiales.af.seuil_rev_taux\n        )\n",
+      "source_code": "def formula(individu, period, parameters):\n    P = parameters(period)\n\n    return (\n        169\n        * P.marche_travail.salaire_minimum.smic_h_b\n        * P.prestations.prestations_familiales.af.seuil_rev_taux\n        )\n",
       "start_line_number": 29,
       "stop_line_number": 37
     }

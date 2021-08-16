@@ -46,7 +46,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 99,
+            "end_col_offset": 113,
             "end_lineno": 2,
             "lineno": 2,
             "targets": [
@@ -69,27 +69,27 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 99,
+              "end_col_offset": 113,
               "end_lineno": 2,
               "lineno": 2,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "gen",
+                "attr": "pss",
                 "col_offset": 38,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 67,
+                "end_col_offset": 81,
                 "end_lineno": 2,
                 "lineno": 2,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "cotsoc",
+                  "attr": "prelevements_sociaux",
                   "col_offset": 38,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 63,
+                  "end_col_offset": 77,
                   "end_lineno": 2,
                   "lineno": 2,
                   "value": {
@@ -833,12 +833,12 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
       "parameters": [
-        "cotsoc.gen.plafond_securite_sociale_annuel",
+        "prelevements_sociaux.pss.plafond_securite_sociale_annuel",
         "prelevements_sociaux.ret_comp_ac.artisans_industriels_commercants.entre_1_plafond_rci_et_4_plafonds_pss",
         "prelevements_sociaux.ret_comp_ac.artisans_industriels_commercants.montant_du_plafond_rci",
         "prelevements_sociaux.ret_comp_ac.artisans_industriels_commercants.sous_plafond_rci"
       ],
-      "source_code": "def formula_2013(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale_annuel\n    retraite_complementaire = parameters(period).prelevements_sociaux.ret_comp_ac.artisans_industriels_commercants\n    montant_du_plafond_rci = retraite_complementaire.montant_du_plafond_rci\n    bareme = MarginalRateTaxScale(name = 'retraite_complementaire')\n    bareme.add_bracket(0, retraite_complementaire.sous_plafond_rci)\n    bareme.add_bracket(montant_du_plafond_rci, retraite_complementaire.entre_1_plafond_rci_et_4_plafonds_pss)\n    bareme.add_bracket(4 * plafond_securite_sociale_annuel, 0)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        ) * individu('rpns_imposables', period)\n    return -bareme.calc(assiette)\n",
+      "source_code": "def formula_2013(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).prelevements_sociaux.pss.plafond_securite_sociale_annuel\n    retraite_complementaire = parameters(period).prelevements_sociaux.ret_comp_ac.artisans_industriels_commercants\n    montant_du_plafond_rci = retraite_complementaire.montant_du_plafond_rci\n    bareme = MarginalRateTaxScale(name = 'retraite_complementaire')\n    bareme.add_bracket(0, retraite_complementaire.sous_plafond_rci)\n    bareme.add_bracket(montant_du_plafond_rci, retraite_complementaire.entre_1_plafond_rci_et_4_plafonds_pss)\n    bareme.add_bracket(4 * plafond_securite_sociale_annuel, 0)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        ) * individu('rpns_imposables', period)\n    return -bareme.calc(assiette)\n",
       "start_line_number": 179,
       "stop_line_number": 193,
       "variables": [

@@ -655,7 +655,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 82,
+            "end_col_offset": 102,
             "end_lineno": 14,
             "lineno": 14,
             "targets": [
@@ -678,27 +678,27 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 82,
+              "end_col_offset": 102,
               "end_lineno": 14,
               "lineno": 14,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "gen",
+                "attr": "salaire_minimum",
                 "col_offset": 27,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 73,
+                "end_col_offset": 93,
                 "end_lineno": 14,
                 "lineno": 14,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "cotsoc",
+                  "attr": "marche_travail",
                   "col_offset": 27,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 69,
+                  "end_col_offset": 77,
                   "end_lineno": 14,
                   "lineno": 14,
                   "value": {
@@ -3113,7 +3113,7 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "parameters": [
-        "cotsoc.gen.smic_h_b",
+        "marche_travail.salaire_minimum.smic_h_b",
         "prestations.aides_logement.ressources.dar_11",
         "prestations.aides_logement.ressources.dar_12",
         "prestations.aides_logement.ressources.dar_4",
@@ -3121,7 +3121,7 @@
         "prestations.aides_logement.ressources.dar_8",
         "prestations.aides_logement.ressources.dar_9"
       ],
-      "source_code": "def formula(famille, period, parameters):\n    mois_precedent = period.offset(-1)\n    last_day_reference_year = period.n_2.stop\n    base_ressources_defaut = famille('aide_logement_base_ressources_defaut', period)\n    base_ressources_eval_forfaitaire = famille(\n        'aide_logement_base_ressources_eval_forfaitaire', period)\n    en_couple = famille('en_couple', period)\n\n    aah_i = famille.members('aah', mois_precedent)\n    aah = famille.sum(aah_i, role = Famille.PARENT)\n\n    age_demandeur = famille.demandeur('age', period)\n    age_conjoint = famille.conjoint('age', period)\n    smic_horaire_brut_n2 = parameters(last_day_reference_year).cotsoc.gen.smic_h_b\n\n    salaire_imposable_i = famille.members('salaire_imposable', period.offset(-1))\n    somme_salaires = famille.sum(salaire_imposable_i, role = Famille.PARENT)\n\n    plafond_eval_forfaitaire = 1015 * smic_horaire_brut_n2\n\n    plafond_salaire_jeune_isole = parameters(period).prestations.aides_logement.ressources.dar_8\n    plafond_salaire_jeune_couple = parameters(period).prestations.aides_logement.ressources.dar_9\n    plafond_salaire_jeune = where(en_couple, plafond_salaire_jeune_couple, plafond_salaire_jeune_isole)\n\n    neutral_jeune = or_(age_demandeur < 25, and_(en_couple, age_conjoint < 25))\n    neutral_jeune &= somme_salaires < plafond_salaire_jeune\n\n    eval_forfaitaire = base_ressources_defaut <= plafond_eval_forfaitaire\n    eval_forfaitaire &= base_ressources_eval_forfaitaire > 0\n    eval_forfaitaire &= aah == 0\n    eval_forfaitaire &= not_(neutral_jeune)\n    ressources = where(eval_forfaitaire, base_ressources_eval_forfaitaire, base_ressources_defaut)\n\n    # Planchers de ressources pour étudiants\n    # Seul le statut étudiant (et boursier) du demandeur importe, pas celui du conjoint\n    Pr = parameters(period).prestations.aides_logement.ressources\n    demandeur_etudiant = famille.demandeur('etudiant', period)\n    demandeur_boursier = famille.demandeur('boursier', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    logement_crous_ou_foyer = (statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer) + logement_crous\n    montant_plancher_ressources = not_(logement_crous_ou_foyer) * max_(0, demandeur_etudiant * Pr.dar_4 - demandeur_boursier * Pr.dar_5)\n    montant_plancher_ressources_logement_foyer = logement_crous_ou_foyer * max_(0, demandeur_etudiant * Pr.dar_11 - demandeur_boursier * Pr.dar_12)\n\n    ressources = max_(ressources, max_(montant_plancher_ressources, montant_plancher_ressources_logement_foyer))\n\n    # Arrondi au centime, pour éviter qu'une petite imprécision liée à la recombinaison d'une valeur annuelle éclatée ne fasse monter d'un cran l'arrondi au 100€ supérieur.\n\n    ressources = round_(ressources * 100) / 100\n\n    # Arrondi aux 100 euros supérieurs\n    ressources = ceil(ressources / 100) * 100\n\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    plancher = famille.demandeur.menage('aides_logement_primo_accedant_ressources', period)\n\n    return where(accedant, max_(ressources, plancher), ressources)\n",
+      "source_code": "def formula(famille, period, parameters):\n    mois_precedent = period.offset(-1)\n    last_day_reference_year = period.n_2.stop\n    base_ressources_defaut = famille('aide_logement_base_ressources_defaut', period)\n    base_ressources_eval_forfaitaire = famille(\n        'aide_logement_base_ressources_eval_forfaitaire', period)\n    en_couple = famille('en_couple', period)\n\n    aah_i = famille.members('aah', mois_precedent)\n    aah = famille.sum(aah_i, role = Famille.PARENT)\n\n    age_demandeur = famille.demandeur('age', period)\n    age_conjoint = famille.conjoint('age', period)\n    smic_horaire_brut_n2 = parameters(last_day_reference_year).marche_travail.salaire_minimum.smic_h_b\n\n    salaire_imposable_i = famille.members('salaire_imposable', period.offset(-1))\n    somme_salaires = famille.sum(salaire_imposable_i, role = Famille.PARENT)\n\n    plafond_eval_forfaitaire = 1015 * smic_horaire_brut_n2\n\n    plafond_salaire_jeune_isole = parameters(period).prestations.aides_logement.ressources.dar_8\n    plafond_salaire_jeune_couple = parameters(period).prestations.aides_logement.ressources.dar_9\n    plafond_salaire_jeune = where(en_couple, plafond_salaire_jeune_couple, plafond_salaire_jeune_isole)\n\n    neutral_jeune = or_(age_demandeur < 25, and_(en_couple, age_conjoint < 25))\n    neutral_jeune &= somme_salaires < plafond_salaire_jeune\n\n    eval_forfaitaire = base_ressources_defaut <= plafond_eval_forfaitaire\n    eval_forfaitaire &= base_ressources_eval_forfaitaire > 0\n    eval_forfaitaire &= aah == 0\n    eval_forfaitaire &= not_(neutral_jeune)\n    ressources = where(eval_forfaitaire, base_ressources_eval_forfaitaire, base_ressources_defaut)\n\n    # Planchers de ressources pour étudiants\n    # Seul le statut étudiant (et boursier) du demandeur importe, pas celui du conjoint\n    Pr = parameters(period).prestations.aides_logement.ressources\n    demandeur_etudiant = famille.demandeur('etudiant', period)\n    demandeur_boursier = famille.demandeur('boursier', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n    logement_crous_ou_foyer = (statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer) + logement_crous\n    montant_plancher_ressources = not_(logement_crous_ou_foyer) * max_(0, demandeur_etudiant * Pr.dar_4 - demandeur_boursier * Pr.dar_5)\n    montant_plancher_ressources_logement_foyer = logement_crous_ou_foyer * max_(0, demandeur_etudiant * Pr.dar_11 - demandeur_boursier * Pr.dar_12)\n\n    ressources = max_(ressources, max_(montant_plancher_ressources, montant_plancher_ressources_logement_foyer))\n\n    # Arrondi au centime, pour éviter qu'une petite imprécision liée à la recombinaison d'une valeur annuelle éclatée ne fasse monter d'un cran l'arrondi au 100€ supérieur.\n\n    ressources = round_(ressources * 100) / 100\n\n    # Arrondi aux 100 euros supérieurs\n    ressources = ceil(ressources / 100) * 100\n\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    plancher = famille.demandeur.menage('aides_logement_primo_accedant_ressources', period)\n\n    return where(accedant, max_(ressources, plancher), ressources)\n",
       "start_line_number": 1179,
       "stop_line_number": 1236,
       "variables": [

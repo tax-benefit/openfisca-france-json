@@ -310,7 +310,7 @@
               {
                 "ast_class": "Assign",
                 "col_offset": 8,
-                "end_col_offset": 97,
+                "end_col_offset": 137,
                 "end_lineno": 10,
                 "lineno": 10,
                 "targets": [
@@ -329,12 +329,12 @@
                 "value": {
                   "ast_class": "BinOp",
                   "col_offset": 27,
-                  "end_col_offset": 97,
+                  "end_col_offset": 137,
                   "end_lineno": 10,
                   "left": {
                     "ast_class": "BinOp",
                     "col_offset": 27,
-                    "end_col_offset": 55,
+                    "end_col_offset": 75,
                     "end_lineno": 10,
                     "left": {
                       "ast_class": "Constant",
@@ -355,27 +355,27 @@
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 55,
+                      "end_col_offset": 75,
                       "end_lineno": 10,
                       "lineno": 10,
                       "value": {
                         "ast_class": "Attribute",
-                        "attr": "gen",
+                        "attr": "salaire_minimum",
                         "col_offset": 32,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 46,
+                        "end_col_offset": 66,
                         "end_lineno": 10,
                         "lineno": 10,
                         "value": {
                           "ast_class": "Attribute",
-                          "attr": "cotsoc",
+                          "attr": "marche_travail",
                           "col_offset": 32,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 42,
+                          "end_col_offset": 50,
                           "end_lineno": 10,
                           "lineno": 10,
                           "value": {
@@ -400,40 +400,40 @@
                   "right": {
                     "ast_class": "Attribute",
                     "attr": "nb_heure_travail_mensuel",
-                    "col_offset": 58,
+                    "col_offset": 78,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 97,
+                    "end_col_offset": 137,
                     "end_lineno": 10,
                     "lineno": 10,
                     "value": {
                       "ast_class": "Attribute",
-                      "attr": "gen",
-                      "col_offset": 58,
+                      "attr": "salaire_minimum",
+                      "col_offset": 78,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 72,
+                      "end_col_offset": 112,
                       "end_lineno": 10,
                       "lineno": 10,
                       "value": {
                         "ast_class": "Attribute",
-                        "attr": "cotsoc",
-                        "col_offset": 58,
+                        "attr": "marche_travail",
+                        "col_offset": 78,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 68,
+                        "end_col_offset": 96,
                         "end_lineno": 10,
                         "lineno": 10,
                         "value": {
                           "ast_class": "Name",
-                          "col_offset": 58,
+                          "col_offset": 78,
                           "ctx": {
                             "ast_class": "Load"
                           },
-                          "end_col_offset": 61,
+                          "end_col_offset": 81,
                           "end_lineno": 10,
                           "id": "law",
                           "lineno": 10
@@ -1954,10 +1954,10 @@
       },
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
       "parameters": [
-        "cotsoc.gen.nb_heure_travail_mensuel",
-        "cotsoc.gen.smic_h_b"
+        "marche_travail.salaire_minimum.nb_heure_travail_mensuel",
+        "marche_travail.salaire_minimum.smic_h_b"
       ],
-      "source_code": "def formula(famille, period, parameters):\n    law = parameters(period)\n\n    demandeur_en_activite = famille.demandeur('salaire_imposable', period) > 0\n\n    def assiette_conjoint(revenus_conjoint):\n        return 0.9 * (1 - 0.2) * revenus_conjoint\n\n    def assiette_revenu_activite_demandeur(revenus_demandeur):\n        smic_brut_annuel = 12 * law.cotsoc.gen.smic_h_b * law.cotsoc.gen.nb_heure_travail_mensuel\n        tranche1 = min_(0.3 * smic_brut_annuel, revenus_demandeur)\n        tranche2 = revenus_demandeur - tranche1\n        return (1 - 0.8) * tranche1 + (1 - 0.4) * tranche2\n\n    def base_ressource_eval_trim():\n        three_previous_months = period.first_month.start.period('month', 3).offset(-3)\n        base_ressource_activite_demandeur = famille.demandeur('aah_base_ressources_activite_eval_trimestrielle', period) - famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_hors_activite_demandeur = famille.demandeur('aah_base_ressources_hors_activite_eval_trimestrielle', period) + famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(base_ressource_activite_demandeur) + base_ressource_hors_activite_demandeur\n\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_activite_eval_trimestrielle', period) + famille.conjoint('aah_base_ressources_hors_activite_eval_trimestrielle', period)\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    def base_ressource_eval_annuelle():\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(famille.demandeur('salaire_imposable', period.n_2, options = [ADD]) + famille.demandeur('rpns_imposables', period.n_2)) + famille.demandeur('revenu_assimile_pension', period.n_2)\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_eval_annuelle', period)\n\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    return where(\n        demandeur_en_activite,\n        base_ressource_eval_trim(),\n        base_ressource_eval_annuelle()\n        )\n",
+      "source_code": "def formula(famille, period, parameters):\n    law = parameters(period)\n\n    demandeur_en_activite = famille.demandeur('salaire_imposable', period) > 0\n\n    def assiette_conjoint(revenus_conjoint):\n        return 0.9 * (1 - 0.2) * revenus_conjoint\n\n    def assiette_revenu_activite_demandeur(revenus_demandeur):\n        smic_brut_annuel = 12 * law.marche_travail.salaire_minimum.smic_h_b * law.marche_travail.salaire_minimum.nb_heure_travail_mensuel\n        tranche1 = min_(0.3 * smic_brut_annuel, revenus_demandeur)\n        tranche2 = revenus_demandeur - tranche1\n        return (1 - 0.8) * tranche1 + (1 - 0.4) * tranche2\n\n    def base_ressource_eval_trim():\n        three_previous_months = period.first_month.start.period('month', 3).offset(-3)\n        base_ressource_activite_demandeur = famille.demandeur('aah_base_ressources_activite_eval_trimestrielle', period) - famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_hors_activite_demandeur = famille.demandeur('aah_base_ressources_hors_activite_eval_trimestrielle', period) + famille.demandeur('aah_base_ressources_activite_milieu_protege', three_previous_months, options = [ADD])\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(base_ressource_activite_demandeur) + base_ressource_hors_activite_demandeur\n\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_activite_eval_trimestrielle', period) + famille.conjoint('aah_base_ressources_hors_activite_eval_trimestrielle', period)\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    def base_ressource_eval_annuelle():\n        base_ressource_demandeur = assiette_revenu_activite_demandeur(famille.demandeur('salaire_imposable', period.n_2, options = [ADD]) + famille.demandeur('rpns_imposables', period.n_2)) + famille.demandeur('revenu_assimile_pension', period.n_2)\n        base_ressource_conjoint = famille.conjoint('aah_base_ressources_eval_annuelle', period)\n\n        return base_ressource_demandeur + assiette_conjoint(base_ressource_conjoint)\n\n    return where(\n        demandeur_en_activite,\n        base_ressource_eval_trim(),\n        base_ressource_eval_annuelle()\n        )\n",
       "start_line_number": 42,
       "stop_line_number": 76
     }

@@ -244,7 +244,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 71,
+            "end_col_offset": 91,
             "end_lineno": 6,
             "lineno": 6,
             "targets": [
@@ -263,12 +263,12 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 23,
-              "end_col_offset": 71,
+              "end_col_offset": 91,
               "end_lineno": 6,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 23,
-                "end_col_offset": 66,
+                "end_col_offset": 86,
                 "end_lineno": 6,
                 "left": {
                   "ast_class": "Attribute",
@@ -277,27 +277,27 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 61,
+                  "end_col_offset": 81,
                   "end_lineno": 6,
                   "lineno": 6,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "gen",
+                    "attr": "salaire_minimum",
                     "col_offset": 23,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 52,
+                    "end_col_offset": 72,
                     "end_lineno": 6,
                     "lineno": 6,
                     "value": {
                       "ast_class": "Attribute",
-                      "attr": "cotsoc",
+                      "attr": "marche_travail",
                       "col_offset": 23,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 48,
+                      "end_col_offset": 56,
                       "end_lineno": 6,
                       "lineno": 6,
                       "value": {
@@ -341,8 +341,8 @@
                 },
                 "right": {
                   "ast_class": "Constant",
-                  "col_offset": 64,
-                  "end_col_offset": 66,
+                  "col_offset": 84,
+                  "end_col_offset": 86,
                   "end_lineno": 6,
                   "lineno": 6,
                   "value": 52
@@ -354,8 +354,8 @@
               },
               "right": {
                 "ast_class": "Constant",
-                "col_offset": 69,
-                "end_col_offset": 71,
+                "col_offset": 89,
+                "end_col_offset": 91,
                 "end_lineno": 6,
                 "lineno": 6,
                 "value": 35
@@ -1446,9 +1446,9 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "parameters": [
-        "cotsoc.gen.smic_h_b"
+        "marche_travail.salaire_minimum.smic_h_b"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    # version spécifique aux aides logement de revenu_assimile_salaire\n    period_salaire_chomage = period.start.period('year').offset(-1).offset(-1, 'month')\n    period_f1tt_f3vj = period.n_2\n\n    smic_annuel_brut = parameters(period).cotsoc.gen.smic_h_b * 52 * 35\n\n    # salaire imposable pour les journaliste et les assistants mat/fam apres l'aplication de l'abattement forfaitaire\n    # dans le cas des frais réels déclarés superieurs à Zero.\n    salaire_imposable_apres_abattement = individu('al_abattement_forfaitaire_assistants_et_journalistes',\n                                                 period_salaire_chomage, options=[ADD])\n    salaire_imposable_sans_abattement = individu('salaire_imposable', period_salaire_chomage, options=[ADD])\n    frais_reels = individu('frais_reels', period.last_year)\n    salaire_imposable = where(frais_reels > 0, salaire_imposable_sans_abattement, salaire_imposable_apres_abattement)\n\n    chomage_imposable = individu('chomage_imposable', period_salaire_chomage, options=[ADD])\n    f1tt = individu('f1tt', period_f1tt_f3vj)\n    f3vj = individu('f3vj', period_f1tt_f3vj)\n\n    # application du plafond d'exonération fiscale pour les salaires des stagiaires et des apprentis\n    remuneration_apprenti = individu('remuneration_apprenti', period_salaire_chomage, options=[ADD])\n    remuneration_apprenti_apres_abattement = max(0, sum(remuneration_apprenti) - smic_annuel_brut)\n    indemnites_stage = individu('indemnites_stage', period_salaire_chomage, options=[ADD])\n    indemnites_stage_apres_abattement = max(0, sum(indemnites_stage) - smic_annuel_brut)\n\n    return salaire_imposable + chomage_imposable + f1tt + f3vj + remuneration_apprenti_apres_abattement + indemnites_stage_apres_abattement\n",
+      "source_code": "def formula(individu, period, parameters):\n    # version spécifique aux aides logement de revenu_assimile_salaire\n    period_salaire_chomage = period.start.period('year').offset(-1).offset(-1, 'month')\n    period_f1tt_f3vj = period.n_2\n\n    smic_annuel_brut = parameters(period).marche_travail.salaire_minimum.smic_h_b * 52 * 35\n\n    # salaire imposable pour les journaliste et les assistants mat/fam apres l'aplication de l'abattement forfaitaire\n    # dans le cas des frais réels déclarés superieurs à Zero.\n    salaire_imposable_apres_abattement = individu('al_abattement_forfaitaire_assistants_et_journalistes',\n                                                 period_salaire_chomage, options=[ADD])\n    salaire_imposable_sans_abattement = individu('salaire_imposable', period_salaire_chomage, options=[ADD])\n    frais_reels = individu('frais_reels', period.last_year)\n    salaire_imposable = where(frais_reels > 0, salaire_imposable_sans_abattement, salaire_imposable_apres_abattement)\n\n    chomage_imposable = individu('chomage_imposable', period_salaire_chomage, options=[ADD])\n    f1tt = individu('f1tt', period_f1tt_f3vj)\n    f3vj = individu('f3vj', period_f1tt_f3vj)\n\n    # application du plafond d'exonération fiscale pour les salaires des stagiaires et des apprentis\n    remuneration_apprenti = individu('remuneration_apprenti', period_salaire_chomage, options=[ADD])\n    remuneration_apprenti_apres_abattement = max(0, sum(remuneration_apprenti) - smic_annuel_brut)\n    indemnites_stage = individu('indemnites_stage', period_salaire_chomage, options=[ADD])\n    indemnites_stage_apres_abattement = max(0, sum(indemnites_stage) - smic_annuel_brut)\n\n    return salaire_imposable + chomage_imposable + f1tt + f3vj + remuneration_apprenti_apres_abattement + indemnites_stage_apres_abattement\n",
       "start_line_number": 539,
       "stop_line_number": 565,
       "variables": [

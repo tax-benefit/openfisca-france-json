@@ -225,7 +225,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 101,
+            "end_col_offset": 115,
             "end_lineno": 5,
             "lineno": 5,
             "targets": [
@@ -248,27 +248,27 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 101,
+              "end_col_offset": 115,
               "end_lineno": 5,
               "lineno": 5,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "gen",
+                "attr": "pss",
                 "col_offset": 39,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 68,
+                "end_col_offset": 82,
                 "end_lineno": 5,
                 "lineno": 5,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "cotsoc",
+                  "attr": "prelevements_sociaux",
                   "col_offset": 39,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 64,
+                  "end_col_offset": 78,
                   "end_lineno": 5,
                   "lineno": 5,
                   "value": {
@@ -310,7 +310,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 89,
+            "end_col_offset": 107,
             "end_lineno": 6,
             "lineno": 6,
             "targets": [
@@ -333,27 +333,27 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 89,
+              "end_col_offset": 107,
               "end_lineno": 6,
               "lineno": 6,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "stage",
+                "attr": "salaire_minimum",
                 "col_offset": 35,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 66,
+                "end_col_offset": 84,
                 "end_lineno": 6,
                 "lineno": 6,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "cotsoc",
+                  "attr": "marche_travail",
                   "col_offset": 35,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 60,
+                  "end_col_offset": 68,
                   "end_lineno": 6,
                   "lineno": 6,
                   "value": {
@@ -515,10 +515,10 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/stage.py",
       "parameters": [
-        "cotsoc.gen.plafond_securite_sociale_horaire",
-        "cotsoc.stage.taux_gratification_min"
+        "marche_travail.salaire_minimum.taux_gratification_min",
+        "prelevements_sociaux.pss.plafond_securite_sociale_horaire"
       ],
-      "source_code": "def formula_2014_11(individu, period, parameters):\n    stage_duree_heures = individu('stage_duree_heures', period)\n    stage_gratification_taux = individu('stage_gratification_taux', period)\n    stagiaire = individu('stagiaire', period)\n    plafond_securite_sociale_horaire = parameters(period).cotsoc.gen.plafond_securite_sociale_horaire\n    stage_gratification_taux_min = parameters(period).cotsoc.stage.taux_gratification_min\n    return stagiaire * plafond_securite_sociale_horaire * stage_duree_heures * max_(\n        stage_gratification_taux, stage_gratification_taux_min)\n",
+      "source_code": "def formula_2014_11(individu, period, parameters):\n    stage_duree_heures = individu('stage_duree_heures', period)\n    stage_gratification_taux = individu('stage_gratification_taux', period)\n    stagiaire = individu('stagiaire', period)\n    plafond_securite_sociale_horaire = parameters(period).prelevements_sociaux.pss.plafond_securite_sociale_horaire\n    stage_gratification_taux_min = parameters(period).marche_travail.salaire_minimum.taux_gratification_min\n    return stagiaire * plafond_securite_sociale_horaire * stage_duree_heures * max_(\n        stage_gratification_taux, stage_gratification_taux_min)\n",
       "start_line_number": 28,
       "stop_line_number": 36,
       "variables": [

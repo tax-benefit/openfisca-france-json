@@ -866,7 +866,7 @@
               {
                 "ast_class": "Assign",
                 "col_offset": 8,
-                "end_col_offset": 75,
+                "end_col_offset": 95,
                 "end_lineno": 20,
                 "lineno": 20,
                 "targets": [
@@ -889,27 +889,27 @@
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 75,
+                  "end_col_offset": 95,
                   "end_lineno": 20,
                   "lineno": 20,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "gen",
+                    "attr": "salaire_minimum",
                     "col_offset": 28,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 66,
+                    "end_col_offset": 86,
                     "end_lineno": 20,
                     "lineno": 20,
                     "value": {
                       "ast_class": "Attribute",
-                      "attr": "cotsoc",
+                      "attr": "marche_travail",
                       "col_offset": 28,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 62,
+                      "end_col_offset": 70,
                       "end_lineno": 20,
                       "lineno": 20,
                       "value": {
@@ -1225,12 +1225,12 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "parameters": [
-        "cotsoc.gen.smic_h_b",
         "impot_revenu.tspr.abatpro.max",
         "impot_revenu.tspr.abatpro.min",
-        "impot_revenu.tspr.abatpro.taux"
+        "impot_revenu.tspr.abatpro.taux",
+        "marche_travail.salaire_minimum.smic_h_b"
       ],
-      "source_code": "def formula(famille, period, parameters):\n    def eval_forfaitaire_salaries():\n        salaire_imposable_i = famille.members('salaire_imposable', period.offset(-1))\n        salaire_imposable = famille.sum(salaire_imposable_i, role = Famille.PARENT)\n        # Application de l'abattement pour frais professionnels\n        params_abattement = parameters(period).impot_revenu.tspr.abatpro\n        somme_salaires_mois_precedent = 12 * salaire_imposable\n        montant_abattement = round_(\n            min_(\n                max_(params_abattement.taux * somme_salaires_mois_precedent, params_abattement.min),\n                params_abattement.max\n                )\n            )\n        return max_(0, somme_salaires_mois_precedent - montant_abattement)\n\n    def eval_forfaitaire_tns():\n        last_july_first = Instant(\n            (period.start.year if period.start.month >= 7 else period.start.year - 1,\n            7, 1))\n        smic_horaire_brut = parameters(last_july_first).cotsoc.gen.smic_h_b\n        travailleur_non_salarie_i = famille.members('travailleur_non_salarie', period)\n        any_tns = famille.any(travailleur_non_salarie_i)\n        return any_tns * 1500 * smic_horaire_brut\n\n    return max_(eval_forfaitaire_salaries(), eval_forfaitaire_tns())\n",
+      "source_code": "def formula(famille, period, parameters):\n    def eval_forfaitaire_salaries():\n        salaire_imposable_i = famille.members('salaire_imposable', period.offset(-1))\n        salaire_imposable = famille.sum(salaire_imposable_i, role = Famille.PARENT)\n        # Application de l'abattement pour frais professionnels\n        params_abattement = parameters(period).impot_revenu.tspr.abatpro\n        somme_salaires_mois_precedent = 12 * salaire_imposable\n        montant_abattement = round_(\n            min_(\n                max_(params_abattement.taux * somme_salaires_mois_precedent, params_abattement.min),\n                params_abattement.max\n                )\n            )\n        return max_(0, somme_salaires_mois_precedent - montant_abattement)\n\n    def eval_forfaitaire_tns():\n        last_july_first = Instant(\n            (period.start.year if period.start.month >= 7 else period.start.year - 1,\n            7, 1))\n        smic_horaire_brut = parameters(last_july_first).marche_travail.salaire_minimum.smic_h_b\n        travailleur_non_salarie_i = famille.members('travailleur_non_salarie', period)\n        any_tns = famille.any(travailleur_non_salarie_i)\n        return any_tns * 1500 * smic_horaire_brut\n\n    return max_(eval_forfaitaire_salaries(), eval_forfaitaire_tns())\n",
       "start_line_number": 505,
       "stop_line_number": 530,
       "variables": [

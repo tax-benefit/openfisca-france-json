@@ -330,7 +330,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 65,
+            "end_col_offset": 85,
             "end_lineno": 11,
             "lineno": 11,
             "targets": [
@@ -349,7 +349,7 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 24,
-              "end_col_offset": 65,
+              "end_col_offset": 85,
               "end_lineno": 11,
               "left": {
                 "ast_class": "Attribute",
@@ -358,27 +358,27 @@
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 47,
+                "end_col_offset": 67,
                 "end_lineno": 11,
                 "lineno": 11,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "gen",
+                  "attr": "salaire_minimum",
                   "col_offset": 24,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 38,
+                  "end_col_offset": 58,
                   "end_lineno": 11,
                   "lineno": 11,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "cotsoc",
+                    "attr": "marche_travail",
                     "col_offset": 24,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 34,
+                    "end_col_offset": 42,
                     "end_lineno": 11,
                     "lineno": 11,
                     "value": {
@@ -401,11 +401,11 @@
               },
               "right": {
                 "ast_class": "Name",
-                "col_offset": 50,
+                "col_offset": 70,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 65,
+                "end_col_offset": 85,
                 "end_lineno": 11,
                 "id": "nbh_travaillees",
                 "lineno": 11
@@ -928,12 +928,12 @@
       "documentation": "\nCette variable est une version légèrement modifiée de `af_nbenf`. Elle se base sur le salaire de base, tandis que `af_nbenf` se base sur le salaire net.\nOn ne peut pas utiliser la variable `af_nbenf` dans le calcul de `supplement_familial_traitement` (ci-dessous) car `af_nbenf` dépend du `salaire_net`, et `salaire_net` dépends de `supplement_familial_traitement`. Cela créerait une boucle infinie.\nD'où l'introduction de cette variable alternative.\n",
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
       "parameters": [
-        "cotsoc.gen.smic_h_b",
+        "marche_travail.salaire_minimum.smic_h_b",
         "prestations.prestations_familiales.af.age1",
         "prestations.prestations_familiales.af.age2",
         "prestations.prestations_familiales.af.seuil_rev_taux"
       ],
-      "source_code": "def formula(famille, period, parameters):\n    \"\"\"\n        Cette variable est une version légèrement modifiée de `af_nbenf`. Elle se base sur le salaire de base, tandis que `af_nbenf` se base sur le salaire net.\n        On ne peut pas utiliser la variable `af_nbenf` dans le calcul de `supplement_familial_traitement` (ci-dessous) car `af_nbenf` dépend du `salaire_net`, et `salaire_net` dépends de `supplement_familial_traitement`. Cela créerait une boucle infinie.\n        D'où l'introduction de cette variable alternative.\n    \"\"\"\n\n    salaire_de_base_mensualise = famille.members('salaire_de_base', period.start.period('month', 6).offset(-6), options = [ADD])\n    law = parameters(period)\n    nbh_travaillees = 169\n    smic_mensuel_brut = law.cotsoc.gen.smic_h_b * nbh_travaillees\n\n    autonomie_financiere = (salaire_de_base_mensualise >= (\n        law.prestations.prestations_familiales.af.seuil_rev_taux\n        * smic_mensuel_brut\n        ))\n\n    age = famille.members('age', period)\n\n    condition_enfant = (\n        (age >= law.prestations.prestations_familiales.af.age1)\n        * (age <= law.prestations.prestations_familiales.af.age2)\n        * not_(autonomie_financiere)\n        )\n\n    return famille.sum(condition_enfant, role = Famille.ENFANT)\n",
+      "source_code": "def formula(famille, period, parameters):\n    \"\"\"\n        Cette variable est une version légèrement modifiée de `af_nbenf`. Elle se base sur le salaire de base, tandis que `af_nbenf` se base sur le salaire net.\n        On ne peut pas utiliser la variable `af_nbenf` dans le calcul de `supplement_familial_traitement` (ci-dessous) car `af_nbenf` dépend du `salaire_net`, et `salaire_net` dépends de `supplement_familial_traitement`. Cela créerait une boucle infinie.\n        D'où l'introduction de cette variable alternative.\n    \"\"\"\n\n    salaire_de_base_mensualise = famille.members('salaire_de_base', period.start.period('month', 6).offset(-6), options = [ADD])\n    law = parameters(period)\n    nbh_travaillees = 169\n    smic_mensuel_brut = law.marche_travail.salaire_minimum.smic_h_b * nbh_travaillees\n\n    autonomie_financiere = (salaire_de_base_mensualise >= (\n        law.prestations.prestations_familiales.af.seuil_rev_taux\n        * smic_mensuel_brut\n        ))\n\n    age = famille.members('age', period)\n\n    condition_enfant = (\n        (age >= law.prestations.prestations_familiales.af.age1)\n        * (age <= law.prestations.prestations_familiales.af.age2)\n        * not_(autonomie_financiere)\n        )\n\n    return famille.sum(condition_enfant, role = Famille.ENFANT)\n",
       "start_line_number": 822,
       "stop_line_number": 848,
       "variables": [

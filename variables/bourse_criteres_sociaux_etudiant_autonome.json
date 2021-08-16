@@ -341,7 +341,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 105,
+            "end_col_offset": 145,
             "end_lineno": 8,
             "lineno": 8,
             "targets": [
@@ -360,7 +360,7 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 24,
-              "end_col_offset": 105,
+              "end_col_offset": 145,
               "end_lineno": 8,
               "left": {
                 "ast_class": "Attribute",
@@ -369,27 +369,27 @@
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 55,
+                "end_col_offset": 75,
                 "end_lineno": 8,
                 "lineno": 8,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "gen",
+                  "attr": "salaire_minimum",
                   "col_offset": 24,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 46,
+                  "end_col_offset": 66,
                   "end_lineno": 8,
                   "lineno": 8,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "cotsoc",
+                    "attr": "marche_travail",
                     "col_offset": 24,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 42,
+                    "end_col_offset": 50,
                     "end_lineno": 8,
                     "lineno": 8,
                     "value": {
@@ -413,40 +413,40 @@
               "right": {
                 "ast_class": "Attribute",
                 "attr": "nb_heure_travail_mensuel",
-                "col_offset": 58,
+                "col_offset": 78,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 105,
+                "end_col_offset": 145,
                 "end_lineno": 8,
                 "lineno": 8,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "gen",
-                  "col_offset": 58,
+                  "attr": "salaire_minimum",
+                  "col_offset": 78,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 80,
+                  "end_col_offset": 120,
                   "end_lineno": 8,
                   "lineno": 8,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "cotsoc",
-                    "col_offset": 58,
+                    "attr": "marche_travail",
+                    "col_offset": 78,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 76,
+                    "end_col_offset": 104,
                     "end_lineno": 8,
                     "lineno": 8,
                     "value": {
                       "ast_class": "Name",
-                      "col_offset": 58,
+                      "col_offset": 78,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 69,
+                      "end_col_offset": 89,
                       "end_lineno": 8,
                       "id": "legislation",
                       "lineno": 8
@@ -1067,10 +1067,10 @@
       "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
       "parameters": [
         "bourses_enseignement_superieur.criteres_sociaux.seuil_ressources_etudiant_autonome",
-        "cotsoc.gen.nb_heure_travail_mensuel",
-        "cotsoc.gen.smic_h_b"
+        "marche_travail.salaire_minimum.nb_heure_travail_mensuel",
+        "marche_travail.salaire_minimum.smic_h_b"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    statut_marital = individu('statut_marital', period)\n    en_couple = (statut_marital == TypesStatutMarital.marie) + (statut_marital == TypesStatutMarital.pacse)\n\n    ressources = individu('bourse_criteres_sociaux_etudiant_autonome_ressource_mensuelle', period)\n    legislation = parameters(period)\n\n    smic_mensuel_brut = legislation.cotsoc.gen.smic_h_b * legislation.cotsoc.gen.nb_heure_travail_mensuel\n    smic_mensuel_net = smic_mensuel_brut * 8.11 / 10.25\n    seuil_ressources = legislation.bourses_enseignement_superieur.criteres_sociaux.seuil_ressources_etudiant_autonome * smic_mensuel_net\n    eligible_couple = en_couple * (seuil_ressources <= ressources)\n\n    is_parent = individu.has_role(Famille.PARENT)\n    propre_declaration_fiscale = not_(individu('enfant_a_charge', period.this_year))\n    avec_des_enfants = individu.famille('bourse_criteres_sociaux_nombre_enfants_parent_etudiant', period) > 0\n\n    eligible_etudiant_parent_isole = is_parent * propre_declaration_fiscale * avec_des_enfants\n\n    return eligible_couple + eligible_etudiant_parent_isole\n",
+      "source_code": "def formula(individu, period, parameters):\n    statut_marital = individu('statut_marital', period)\n    en_couple = (statut_marital == TypesStatutMarital.marie) + (statut_marital == TypesStatutMarital.pacse)\n\n    ressources = individu('bourse_criteres_sociaux_etudiant_autonome_ressource_mensuelle', period)\n    legislation = parameters(period)\n\n    smic_mensuel_brut = legislation.marche_travail.salaire_minimum.smic_h_b * legislation.marche_travail.salaire_minimum.nb_heure_travail_mensuel\n    smic_mensuel_net = smic_mensuel_brut * 8.11 / 10.25\n    seuil_ressources = legislation.bourses_enseignement_superieur.criteres_sociaux.seuil_ressources_etudiant_autonome * smic_mensuel_net\n    eligible_couple = en_couple * (seuil_ressources <= ressources)\n\n    is_parent = individu.has_role(Famille.PARENT)\n    propre_declaration_fiscale = not_(individu('enfant_a_charge', period.this_year))\n    avec_des_enfants = individu.famille('bourse_criteres_sociaux_nombre_enfants_parent_etudiant', period) > 0\n\n    eligible_etudiant_parent_isole = is_parent * propre_declaration_fiscale * avec_des_enfants\n\n    return eligible_couple + eligible_etudiant_parent_isole\n",
       "start_line_number": 200,
       "stop_line_number": 219,
       "variables": [

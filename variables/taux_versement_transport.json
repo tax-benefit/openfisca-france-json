@@ -225,7 +225,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 81,
+            "end_col_offset": 147,
             "end_lineno": 6,
             "lineno": 6,
             "targets": [
@@ -248,60 +248,82 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 81,
+              "end_col_offset": 147,
               "end_lineno": 6,
               "lineno": 6,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "versement_transport",
+                "attr": "bareme",
                 "col_offset": 21,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 66,
+                "end_col_offset": 132,
                 "end_lineno": 6,
                 "lineno": 6,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "cotsoc",
+                  "attr": "versement_transport",
                   "col_offset": 21,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 46,
+                  "end_col_offset": 125,
                   "end_lineno": 6,
                   "lineno": 6,
                   "value": {
-                    "args": [
-                      {
-                        "ast_class": "Name",
-                        "col_offset": 32,
-                        "ctx": {
-                          "ast_class": "Load"
-                        },
-                        "end_col_offset": 38,
-                        "end_lineno": 6,
-                        "id": "period",
-                        "lineno": 6
-                      }
-                    ],
-                    "ast_class": "Call",
+                    "ast_class": "Attribute",
+                    "attr": "autres_taxes_participations_assises_salaires",
                     "col_offset": 21,
-                    "end_col_offset": 39,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 105,
                     "end_lineno": 6,
-                    "func": {
-                      "ast_class": "Name",
+                    "lineno": 6,
+                    "value": {
+                      "ast_class": "Attribute",
+                      "attr": "prelevements_sociaux",
                       "col_offset": 21,
                       "ctx": {
                         "ast_class": "Load"
                       },
-                      "end_col_offset": 31,
+                      "end_col_offset": 60,
                       "end_lineno": 6,
-                      "id": "parameters",
-                      "lineno": 6
-                    },
-                    "keywords": [],
-                    "lineno": 6
+                      "lineno": 6,
+                      "value": {
+                        "args": [
+                          {
+                            "ast_class": "Name",
+                            "col_offset": 32,
+                            "ctx": {
+                              "ast_class": "Load"
+                            },
+                            "end_col_offset": 38,
+                            "end_lineno": 6,
+                            "id": "period",
+                            "lineno": 6
+                          }
+                        ],
+                        "ast_class": "Call",
+                        "col_offset": 21,
+                        "end_col_offset": 39,
+                        "end_lineno": 6,
+                        "func": {
+                          "ast_class": "Name",
+                          "col_offset": 21,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 31,
+                          "end_lineno": 6,
+                          "id": "parameters",
+                          "lineno": 6
+                        },
+                        "keywords": [],
+                        "lineno": 6
+                      }
+                    }
                   }
                 }
               }
@@ -947,9 +969,9 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/versement_transport.py",
       "parameters": [
-        "cotsoc.versement_transport.seuil_effectif"
+        "prelevements_sociaux.autres_taxes_participations_assises_salaires.versement_transport.bareme.seuil_effectif"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    depcom_entreprise = individu('depcom_entreprise', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    seuil_effectif = parameters(period).cotsoc.versement_transport.seuil_effectif\n\n    preload_taux_versement_transport()\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        + (categorie_salarie == TypesCategorieSalarie.non_pertinent)\n        )\n    taux_versement_transport = fromiter(\n        (\n            get_taux_versement_transport(code_commune, period)\n            for code_commune in depcom_entreprise\n            ),\n        dtype = 'float',\n        )\n    # \"L'entreprise emploie-t-elle plus de 9 ou 10 salariés dans le périmètre de l'Autorité organisatrice de transport\n    # (AOT) suivante ou syndicat mixte de transport (SMT)\"\n    return taux_versement_transport * or_(effectif_entreprise >= seuil_effectif, public) / 100\n",
+      "source_code": "def formula(individu, period, parameters):\n    depcom_entreprise = individu('depcom_entreprise', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    seuil_effectif = parameters(period).prelevements_sociaux.autres_taxes_participations_assises_salaires.versement_transport.bareme.seuil_effectif\n\n    preload_taux_versement_transport()\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        + (categorie_salarie == TypesCategorieSalarie.non_pertinent)\n        )\n    taux_versement_transport = fromiter(\n        (\n            get_taux_versement_transport(code_commune, period)\n            for code_commune in depcom_entreprise\n            ),\n        dtype = 'float',\n        )\n    # \"L'entreprise emploie-t-elle plus de 9 ou 10 salariés dans le périmètre de l'Autorité organisatrice de transport\n    # (AOT) suivante ou syndicat mixte de transport (SMT)\"\n    return taux_versement_transport * or_(effectif_entreprise >= seuil_effectif, public) / 100\n",
       "start_line_number": 17,
       "stop_line_number": 43,
       "variables": [

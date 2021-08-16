@@ -322,7 +322,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 64,
+            "end_col_offset": 84,
             "end_lineno": 8,
             "lineno": 8,
             "targets": [
@@ -341,7 +341,7 @@
             "value": {
               "ast_class": "BinOp",
               "col_offset": 24,
-              "end_col_offset": 64,
+              "end_col_offset": 84,
               "end_lineno": 8,
               "left": {
                 "ast_class": "Attribute",
@@ -350,27 +350,27 @@
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 46,
+                "end_col_offset": 66,
                 "end_lineno": 8,
                 "lineno": 8,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "gen",
+                  "attr": "salaire_minimum",
                   "col_offset": 24,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 37,
+                  "end_col_offset": 57,
                   "end_lineno": 8,
                   "lineno": 8,
                   "value": {
                     "ast_class": "Attribute",
-                    "attr": "cotsoc",
+                    "attr": "marche_travail",
                     "col_offset": 24,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 33,
+                    "end_col_offset": 41,
                     "end_lineno": 8,
                     "lineno": 8,
                     "value": {
@@ -393,11 +393,11 @@
               },
               "right": {
                 "ast_class": "Name",
-                "col_offset": 49,
+                "col_offset": 69,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 64,
+                "end_col_offset": 84,
                 "end_lineno": 8,
                 "id": "nbh_travaillees",
                 "lineno": 8
@@ -522,10 +522,10 @@
       },
       "file_path": "/openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
       "parameters": [
-        "cotsoc.gen.smic_h_b",
+        "marche_travail.salaire_minimum.smic_h_b",
         "prestations.prestations_familiales.af.seuil_rev_taux"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    # D'après service-public.fr, la condition de dépassement du salaire plafonds n'est pas évalué de la même manière suivant si l'enfant est étudiant ou salarié/apprenti/stagiaire.\n    salaire_net_mensualise = individu('salaire_net', period.start.period('month', 6).offset(-6), options = [ADD]) / 6\n\n    _P = parameters(period)\n\n    nbh_travaillees = 169\n    smic_mensuel_brut = _P.cotsoc.gen.smic_h_b * nbh_travaillees\n\n    return salaire_net_mensualise >= (_P.prestations.prestations_familiales.af.seuil_rev_taux * smic_mensuel_brut)\n",
+      "source_code": "def formula(individu, period, parameters):\n    # D'après service-public.fr, la condition de dépassement du salaire plafonds n'est pas évalué de la même manière suivant si l'enfant est étudiant ou salarié/apprenti/stagiaire.\n    salaire_net_mensualise = individu('salaire_net', period.start.period('month', 6).offset(-6), options = [ADD]) / 6\n\n    _P = parameters(period)\n\n    nbh_travaillees = 169\n    smic_mensuel_brut = _P.marche_travail.salaire_minimum.smic_h_b * nbh_travaillees\n\n    return salaire_net_mensualise >= (_P.prestations.prestations_familiales.af.seuil_rev_taux * smic_mensuel_brut)\n",
       "start_line_number": 19,
       "stop_line_number": 29,
       "variables": [

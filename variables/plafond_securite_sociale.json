@@ -45,7 +45,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 80,
+            "end_col_offset": 102,
             "end_lineno": 2,
             "lineno": 2,
             "targets": [
@@ -63,32 +63,32 @@
             ],
             "value": {
               "ast_class": "Attribute",
-              "attr": "plafond_securite_sociale",
+              "attr": "plafond_securite_sociale_mensuel",
               "col_offset": 26,
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 80,
+              "end_col_offset": 102,
               "end_lineno": 2,
               "lineno": 2,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "gen",
+                "attr": "pss",
                 "col_offset": 26,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 55,
+                "end_col_offset": 69,
                 "end_lineno": 2,
                 "lineno": 2,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "cotsoc",
+                  "attr": "prelevements_sociaux",
                   "col_offset": 26,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 51,
+                  "end_col_offset": 65,
                   "end_lineno": 2,
                   "lineno": 2,
                   "value": {
@@ -426,9 +426,9 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "parameters": [
-        "cotsoc.gen.plafond_securite_sociale"
+        "prelevements_sociaux.pss.plafond_securite_sociale_mensuel"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    plafond_temps_plein = parameters(period).cotsoc.gen.plafond_securite_sociale\n    quotite = individu('quotite_de_travail', period)\n\n    plafond = plafond_temps_plein * quotite\n\n    # 2) Proratisation pour mois incomplet selon la méthode des 30èmes\n\n    # Pour les salariés entrés ou sortis en cours de mois,\n    # le plafond applicable est égal à autant de trentièmes du plafond mensuel\n    # que le salarié a été présent de jours calendaires. Source urssaf.fr \"L’assiette maximale\"\n    # calcul du nombre de jours calendaires de présence du salarié\n    nombre_jours_calendaires = individu('nombre_jours_calendaires', period)\n    plafond = plafond * (min_(nombre_jours_calendaires, 30) / 30)\n\n    return plafond\n",
+      "source_code": "def formula(individu, period, parameters):\n    plafond_temps_plein = parameters(period).prelevements_sociaux.pss.plafond_securite_sociale_mensuel\n    quotite = individu('quotite_de_travail', period)\n\n    plafond = plafond_temps_plein * quotite\n\n    # 2) Proratisation pour mois incomplet selon la méthode des 30èmes\n\n    # Pour les salariés entrés ou sortis en cours de mois,\n    # le plafond applicable est égal à autant de trentièmes du plafond mensuel\n    # que le salarié a été présent de jours calendaires. Source urssaf.fr \"L’assiette maximale\"\n    # calcul du nombre de jours calendaires de présence du salarié\n    nombre_jours_calendaires = individu('nombre_jours_calendaires', period)\n    plafond = plafond * (min_(nombre_jours_calendaires, 30) / 30)\n\n    return plafond\n",
       "start_line_number": 910,
       "stop_line_number": 926,
       "variables": [

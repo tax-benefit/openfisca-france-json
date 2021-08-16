@@ -24,14 +24,6 @@
               "end_col_offset": 28,
               "end_lineno": 1,
               "lineno": 1
-            },
-            {
-              "arg": "parameters",
-              "ast_class": "arg",
-              "col_offset": 30,
-              "end_col_offset": 40,
-              "end_lineno": 1,
-              "lineno": 1
             }
           ],
           "ast_class": "arguments",
@@ -150,7 +142,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
-      "source_code": "def formula(individu, period, parameters):\n    # L'association a but non lucratif ne paie pas d'IS de droit commun article 206 du Code général des impôts\n    # -> pas de taxe d'apprentissage\n    association = individu('entreprise_est_association_non_lucrative', period)\n\n    return not_(association)\n",
+      "source_code": "def formula(individu, period):\n    # L'association a but non lucratif ne paie pas d'IS de droit commun article 206 du Code général des impôts\n    # -> pas de taxe d'apprentissage\n    association = individu('entreprise_est_association_non_lucrative', period)\n\n    return not_(association)\n",
       "start_line_number": 48,
       "stop_line_number": 54,
       "variables": [

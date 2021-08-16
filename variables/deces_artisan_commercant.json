@@ -46,7 +46,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 99,
+            "end_col_offset": 113,
             "end_lineno": 2,
             "lineno": 2,
             "targets": [
@@ -69,27 +69,27 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 99,
+              "end_col_offset": 113,
               "end_lineno": 2,
               "lineno": 2,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "gen",
+                "attr": "pss",
                 "col_offset": 38,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 67,
+                "end_col_offset": 81,
                 "end_lineno": 2,
                 "lineno": 2,
                 "value": {
                   "ast_class": "Attribute",
-                  "attr": "cotsoc",
+                  "attr": "prelevements_sociaux",
                   "col_offset": 38,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 63,
+                  "end_col_offset": 77,
                   "end_lineno": 2,
                   "lineno": 2,
                   "value": {
@@ -748,10 +748,10 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
       "parameters": [
-        "cotsoc.gen.plafond_securite_sociale_annuel",
-        "prelevements_sociaux.deces_ac.artisans.sous_pss"
+        "prelevements_sociaux.deces_ac.artisans.sous_pss",
+        "prelevements_sociaux.pss.plafond_securite_sociale_annuel"
       ],
-      "source_code": "def formula_2015(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).cotsoc.gen.plafond_securite_sociale_annuel\n    bareme = MarginalRateTaxScale(name = 'deces')\n    deces = parameters(period).prelevements_sociaux.deces_ac.artisans\n    bareme.add_bracket(0, deces.sous_pss)\n    bareme.add_bracket(1, 0)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        ) * individu('rpns_imposables', period)\n\n    return -bareme.calc(assiette)\n",
+      "source_code": "def formula_2015(individu, period, parameters):\n    plafond_securite_sociale_annuel = parameters(period).prelevements_sociaux.pss.plafond_securite_sociale_annuel\n    bareme = MarginalRateTaxScale(name = 'deces')\n    deces = parameters(period).prelevements_sociaux.deces_ac.artisans\n    bareme.add_bracket(0, deces.sous_pss)\n    bareme.add_bracket(1, 0)\n    bareme.multiply_thresholds(plafond_securite_sociale_annuel)\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    assiette = (\n        (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n        + (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n        ) * individu('rpns_imposables', period)\n\n    return -bareme.calc(assiette)\n",
       "start_line_number": 78,
       "stop_line_number": 92,
       "variables": [

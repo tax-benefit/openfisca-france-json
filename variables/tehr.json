@@ -138,7 +138,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 48,
+            "end_col_offset": 112,
             "end_lineno": 3,
             "lineno": 3,
             "targets": [
@@ -161,50 +161,72 @@
               "ctx": {
                 "ast_class": "Load"
               },
-              "end_col_offset": 48,
+              "end_col_offset": 112,
               "end_lineno": 3,
               "lineno": 3,
               "value": {
                 "ast_class": "Attribute",
-                "attr": "cotsoc",
+                "attr": "tehr",
                 "col_offset": 18,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 43,
+                "end_col_offset": 107,
                 "end_lineno": 3,
                 "lineno": 3,
                 "value": {
-                  "args": [
-                    {
-                      "ast_class": "Name",
-                      "col_offset": 29,
-                      "ctx": {
-                        "ast_class": "Load"
-                      },
-                      "end_col_offset": 35,
-                      "end_lineno": 3,
-                      "id": "period",
-                      "lineno": 3
-                    }
-                  ],
-                  "ast_class": "Call",
+                  "ast_class": "Attribute",
+                  "attr": "autres_taxes_participations_assises_salaires",
                   "col_offset": 18,
-                  "end_col_offset": 36,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 102,
                   "end_lineno": 3,
-                  "func": {
-                    "ast_class": "Name",
+                  "lineno": 3,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "prelevements_sociaux",
                     "col_offset": 18,
                     "ctx": {
                       "ast_class": "Load"
                     },
-                    "end_col_offset": 28,
+                    "end_col_offset": 57,
                     "end_lineno": 3,
-                    "id": "parameters",
-                    "lineno": 3
-                  },
-                  "keywords": [],
-                  "lineno": 3
+                    "lineno": 3,
+                    "value": {
+                      "args": [
+                        {
+                          "ast_class": "Name",
+                          "col_offset": 29,
+                          "ctx": {
+                            "ast_class": "Load"
+                          },
+                          "end_col_offset": 35,
+                          "end_lineno": 3,
+                          "id": "period",
+                          "lineno": 3
+                        }
+                      ],
+                      "ast_class": "Call",
+                      "col_offset": 18,
+                      "end_col_offset": 36,
+                      "end_lineno": 3,
+                      "func": {
+                        "ast_class": "Name",
+                        "col_offset": 18,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 28,
+                        "end_lineno": 3,
+                        "id": "parameters",
+                        "lineno": 3
+                      },
+                      "keywords": [],
+                      "lineno": 3
+                    }
+                  }
                 }
               }
             }
@@ -279,9 +301,9 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
       "parameters": [
-        "cotsoc.tehr"
+        "prelevements_sociaux.autres_taxes_participations_assises_salaires.tehr.tehr"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    salaire_de_base = individu('salaire_de_base', period, options = [ADD])  # TODO: check base\n    bareme_tehr = parameters(period).cotsoc.tehr\n    return -bareme_tehr.calc(salaire_de_base)\n",
+      "source_code": "def formula(individu, period, parameters):\n    salaire_de_base = individu('salaire_de_base', period, options = [ADD])  # TODO: check base\n    bareme_tehr = parameters(period).prelevements_sociaux.autres_taxes_participations_assises_salaires.tehr.tehr\n    return -bareme_tehr.calc(salaire_de_base)\n",
       "start_line_number": 264,
       "stop_line_number": 268,
       "variables": [
