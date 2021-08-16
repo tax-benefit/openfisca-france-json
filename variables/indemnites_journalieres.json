@@ -271,7 +271,15 @@
       "file_path": "/openfisca_france/model/revenus/remplacement/indemnites_journalieres_securite_sociale.py",
       "source_code": "def formula(individu, period, parameters):\n    ressources = [\n        'indemnites_journalieres_maternite',\n        'indemnites_journalieres_paternite',\n        'indemnites_journalieres_adoption',\n        'indemnites_journalieres_maladie',\n        'indemnites_journalieres_accident_travail',\n        'indemnites_journalieres_maladie_professionnelle',\n        ]\n    total = sum(individu(ressource, period) for ressource in ressources)\n\n    return total\n",
       "start_line_number": 59,
-      "stop_line_number": 71
+      "stop_line_number": 71,
+      "variables": [
+        "indemnites_journalieres_accident_travail",
+        "indemnites_journalieres_adoption",
+        "indemnites_journalieres_maladie",
+        "indemnites_journalieres_maladie_professionnelle",
+        "indemnites_journalieres_maternite",
+        "indemnites_journalieres_paternite"
+      ]
     }
   },
   "json_type": "number",
@@ -279,9 +287,13 @@
   "name": "indemnites_journalieres",
   "referring_variables": [
     "aide_logement_base_ressources",
+    "asi_aspa_base_ressources_individu",
+    "cmu_base_ressources_individu",
+    "garantie_jeunes_montant",
     "indemnites_journalieres_imposables",
     "rsa_has_ressources_substitution",
-    "rsa_indemnites_journalieres_hors_activite"
+    "rsa_indemnites_journalieres_hors_activite",
+    "visale_base_ressources_individuelle"
   ],
   "set_input": "set_input_divide_by_period",
   "start_line_number": 52,

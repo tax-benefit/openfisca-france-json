@@ -505,7 +505,19 @@
       "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
       "source_code": "def formula(individu, period):\n    period = period.first_month\n    three_previous_months = period.start.period('month', 3).offset(-3)\n\n    ressources_a_inclure = [\n        'asi',\n        'allocation_securisation_professionnelle',\n        'bourse_recherche',\n        'gains_exceptionnels',\n        'pensions_alimentaires_percues',\n        'pensions_alimentaires_versees_individu',\n        'pensions_invalidite',\n        'prestation_compensatoire',\n        'retraite_nette',\n        'rsa_base_ressources_patrimoine_individu',\n        ]\n\n    ressources = sum(\n        [individu(ressource, three_previous_months, options = [ADD]) for ressource in ressources_a_inclure]\n        )\n\n    return ressources * 4\n",
       "start_line_number": 159,
-      "stop_line_number": 181
+      "stop_line_number": 181,
+      "variables": [
+        "allocation_securisation_professionnelle",
+        "asi",
+        "bourse_recherche",
+        "gains_exceptionnels",
+        "pensions_alimentaires_percues",
+        "pensions_alimentaires_versees_individu",
+        "pensions_invalidite",
+        "prestation_compensatoire",
+        "retraite_nette",
+        "rsa_base_ressources_patrimoine_individu"
+      ]
     }
   },
   "json_type": "number",

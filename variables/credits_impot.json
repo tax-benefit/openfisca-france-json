@@ -451,7 +451,28 @@
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    \"\"\"\n    Crédits d'impôt pour l'impôt sur les revenus\n    \"\"\"\n    credits = [\n        # Depuis 2002\n        'acqgpl',\n        'aidper',\n        'creimp',\n        'drbail',\n        'prlire',\n        # Depuis 2005\n        'ci_garext',\n        'aidmob',\n        'assloy',\n        'divide',\n        'direpa',\n        'drbail',\n        'jeunes',\n        'preetu',\n        'quaenv',\n        # Depuis 2007\n        'inthab',\n        'saldom2',\n        # Depuis 2008\n        'creimp_exc_2008',\n        # Depuis 2009\n        'autent',\n        # Depuis 2010\n        'percvm',\n        # Depuis 2012\n        'credit_cotisations_syndicales'\n        ]\n\n    montants = [around(foyer_fiscal(credit, period)) for credit in credits]\n    total_credits = sum(montants)\n\n    return total_credits\n",
       "start_line_number": 16,
-      "stop_line_number": 54
+      "stop_line_number": 54,
+      "variables": [
+        "acqgpl",
+        "aidmob",
+        "aidper",
+        "assloy",
+        "autent",
+        "ci_garext",
+        "credit_cotisations_syndicales",
+        "creimp",
+        "creimp_exc_2008",
+        "direpa",
+        "divide",
+        "drbail",
+        "inthab",
+        "jeunes",
+        "percvm",
+        "preetu",
+        "prlire",
+        "quaenv",
+        "saldom2"
+      ]
     }
   },
   "json_type": "number",
