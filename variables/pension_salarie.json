@@ -974,7 +974,9 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
       "parameters": [
-        "cotsoc.cotisations_salarie"
+        "cotsoc.cotisations_salarie.public_titulaire_etat.pension",
+        "cotsoc.cotisations_salarie.public_titulaire_territoriale.cnracl1",
+        "cotsoc.cotisations_salarie.public_titulaire_territoriale.cnracl2"
       ],
       "source_code": "def formula(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    nouvelle_bonification_indiciaire = individu('nouvelle_bonification_indiciaire', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    _P = parameters(period)\n    sal = _P.cotsoc.cotisations_salarie\n\n    terr_or_hosp = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale) | (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n    etat_militaire = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        )\n\n    montant = (\n        etat_militaire\n        * sal['public_titulaire_etat']['pension'].calc(traitement_indiciaire_brut + nouvelle_bonification_indiciaire)\n        + terr_or_hosp * sal['public_titulaire_territoriale']['cnracl1'].calc(traitement_indiciaire_brut)\n        + terr_or_hosp * sal['public_titulaire_territoriale']['cnracl2'].calc(nouvelle_bonification_indiciaire)\n        )\n\n    return - montant\n",
       "start_line_number": 187,

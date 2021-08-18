@@ -1495,7 +1495,10 @@
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
         "impot_revenu.reductions_impots.rpinel.plafond",
-        "impot_revenu.reductions_impots.rpinel.taux"
+        "impot_revenu.reductions_impots.rpinel.taux.metropole.6_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.metropole.9_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.outremer.6_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.outremer.9_ans"
       ],
       "source_code": "def formula_2014_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissement locatif privé - Dispositif Pinel\n    2014\n    '''\n    f7ek = foyer_fiscal('f7ek', period)\n    f7el = foyer_fiscal('f7el', period)\n    f7qa = foyer_fiscal('f7qa', period)\n    f7qb = foyer_fiscal('f7qb', period)\n    f7qc = foyer_fiscal('f7qc', period)\n    f7qd = foyer_fiscal('f7qd', period)\n    P = parameters(period).impot_revenu.reductions_impots.rpinel\n\n    max1 = max_(0, P.plafond - f7el - f7qd)  # 2014 : plafond commun 'duflot' et 'rpinel'\n    max2 = max_(0, max1 - f7qc)\n    max3 = max_(0, max2 - f7ek - f7qb)\n\n    return around(\n        P.taux['outremer']['9_ans'] * min_(max_(0, P.plafond - f7el), f7qd) / 9\n        + P.taux['outremer']['6_ans'] * min_(max1, f7qc) / 6\n        + P.taux['metropole']['9_ans'] * min_(max_(0, max2 - f7ek), f7qb) / 9\n        + P.taux['metropole']['6_ans'] * min_(max3, f7qa) / 6\n        )\n",
       "start_line_number": 4710,
@@ -5490,7 +5493,11 @@
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
         "impot_revenu.reductions_impots.rpinel.plafond",
-        "impot_revenu.reductions_impots.rpinel.taux"
+        "impot_revenu.reductions_impots.rpinel.taux",
+        "impot_revenu.reductions_impots.rpinel.taux.metropole.6_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.metropole.9_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.outremer.6_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.outremer.9_ans"
       ],
       "source_code": "def formula_2015_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissement locatif privé - Dispositif Pinel\n    De 2015 à 2018\n    '''\n    f7ek = foyer_fiscal('f7ek', period)\n    f7el = foyer_fiscal('f7el', period)\n    f7qa = foyer_fiscal('f7qa', period)\n    f7qb = foyer_fiscal('f7qb', period)\n    f7qc = foyer_fiscal('f7qc', period)\n    f7qd = foyer_fiscal('f7qd', period)\n\n    cases_investissement = {\n        2015: [\n            ('f7qh', 9, 'outremer'),\n            ('f7qg', 6, 'outremer'),\n            ('f7qf', 9, 'metropole'),\n            ('f7qe', 6, 'metropole')],\n        2016: [\n            ('f7ql', 9, 'outremer'),\n            ('f7qk', 6, 'outremer'),\n            ('f7qj', 9, 'metropole'),\n            ('f7qi', 6, 'metropole')],\n        2017: [\n            ('f7qp', 9, 'outremer'),\n            ('f7qo', 6, 'outremer'),\n            ('f7qn', 9, 'metropole'),\n            ('f7qm', 6, 'metropole')],\n        2018: [\n            ('f7qu', 9, 'outremer'),\n            ('f7qt', 6, 'outremer'),\n            ('f7qs', 9, 'metropole'),\n            ('f7qr', 6, 'metropole')],\n        }\n\n    cases_report = {\n        2014: ['f7ai', 'f7bi', 'f7ci', 'f7di'],\n        2015: ['f7bz', 'f7cz', 'f7dz', 'f7ez'],\n        2016: ['f7qz', 'f7rz', 'f7sz', 'f7tz'],\n        2017: ['f7ra', 'f7rb', 'f7rc', 'f7rd'],\n        }\n\n    P = parameters(period).impot_revenu.reductions_impots.rpinel\n\n    max1 = max_(0, P.plafond - f7el - f7qd)  # 2014 : plafond commun 'duflot' et 'rpinel'\n    max2 = max_(0, max1 - f7qc)\n    max3 = max_(0, max2 - f7ek - f7qb)\n\n    reduc_invest_real_2014 = around(\n        P.taux['outremer']['9_ans'] * min_(max_(0, P.plafond - f7el), f7qd) / 9\n        + P.taux['outremer']['6_ans'] * min_(max1, f7qc) / 6\n        + P.taux['metropole']['9_ans'] * min_(max_(0, max2 - f7ek), f7qb) / 9\n        + P.taux['metropole']['6_ans'] * min_(max3, f7qa) / 6\n        )\n\n    def calcul_reduction_investissement(cases):\n        reduction = foyer_fiscal.empty_array()\n        depenses_cumulees = foyer_fiscal.empty_array()\n        for case in cases:\n            variable, duree, zone = case\n            depense = foyer_fiscal(variable, period)\n            taux = P.taux[zone][str(duree) + '_ans']\n            reduction += around(taux * min_(max_(0, P.plafond - depenses_cumulees), depense) / duree)\n            depenses_cumulees += depense\n        return reduction\n\n    annee_fiscale = period.start.year\n    range_year_investissement = list(set([year for year in range(2015, annee_fiscale + 1)]) & set([year for year in cases_investissement.keys()]))\n    range_year_report = list(set([year for year in range(2014, annee_fiscale)]) & set([year for year in cases_report.keys()]))\n\n    reduction_cumulee = reduc_invest_real_2014 + sum([calcul_reduction_investissement(cases_investissement[year]) for year in range_year_investissement])\n    report = sum([foyer_fiscal(case, period) for year in range_year_report for case in cases_report[year]])\n\n    return reduction_cumulee + report\n",
       "start_line_number": 4734,
@@ -8987,7 +8994,10 @@
       "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "parameters": [
         "impot_revenu.reductions_impots.rpinel.plafond",
-        "impot_revenu.reductions_impots.rpinel.taux"
+        "impot_revenu.reductions_impots.rpinel.taux.metropole.6_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.metropole.9_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.outremer.6_ans",
+        "impot_revenu.reductions_impots.rpinel.taux.outremer.9_ans"
       ],
       "source_code": "def formula_2019_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissement locatif privé - Dispositif Pinel\n    Depuis 2019\n    '''\n    f7nb = foyer_fiscal('f7nb', period)\n    f7nc = foyer_fiscal('f7nc', period)\n    f7nd = foyer_fiscal('f7nd', period)\n    f7qi = foyer_fiscal('f7qi', period)\n    f7qj = foyer_fiscal('f7qj', period)\n    f7qk = foyer_fiscal('f7qk', period)\n    f7ql = foyer_fiscal('f7ql', period)\n    f7qm = foyer_fiscal('f7qm', period)\n    f7qn = foyer_fiscal('f7qn', period)\n    f7qo = foyer_fiscal('f7qo', period)\n    f7qp = foyer_fiscal('f7qp', period)\n    f7qr = foyer_fiscal('f7qr', period)\n    f7qs = foyer_fiscal('f7qs', period)\n    f7qt = foyer_fiscal('f7qt', period)\n    f7qu = foyer_fiscal('f7qu', period)\n    f7qw = foyer_fiscal('f7qw', period)\n    f7qx = foyer_fiscal('f7qx', period)\n    f7qy = foyer_fiscal('f7qy', period)\n    f7qq = foyer_fiscal('f7qq', period)\n\n    pinel_metropole_6ans = f7qi + f7qm + f7qr + f7qw\n    pinel_metropole_9ans = f7qj + f7qn + f7qs + f7qx\n    pinel_outremer_6ans = f7qk + f7qo + f7qt + f7qy\n    pinel_outremer_9ans = f7ql + f7qp + f7qu + f7qq\n\n    cases_report = {\n        2014: ['f7ai', 'f7bi', 'f7ci', 'f7di'],\n        2015: ['f7bz', 'f7cz', 'f7dz', 'f7ez'],\n        2016: ['f7qz', 'f7rz', 'f7sz', 'f7tz'],\n        2017: ['f7ra', 'f7rb', 'f7rc', 'f7rd'],\n        2018: ['f7re', 'f7rf', 'f7rg', 'f7rh'],\n        }\n\n    P = parameters(period).impot_revenu.reductions_impots.rpinel\n\n    max1 = max_(0, P.plafond - f7nd - pinel_outremer_9ans)  # 2019 : plafond commun 'denormandie' et 'rpinel'\n    max2 = max_(0, max1 - f7nc - pinel_outremer_6ans)\n    max3 = max_(0, max2 - f7nb - pinel_metropole_9ans)\n\n    reduc_invest_pinel_2019 = around(\n        P.taux['outremer']['9_ans'] * min_(max_(0, P.plafond), pinel_outremer_9ans) / 9\n        + P.taux['outremer']['6_ans'] * min_(max_(0, max1), pinel_outremer_6ans) / 6\n        + P.taux['metropole']['9_ans'] * min_(max_(0, max2), pinel_metropole_9ans) / 9\n        + P.taux['metropole']['6_ans'] * min_(max_(0, max3), pinel_metropole_6ans) / 6\n        )\n\n    annee_fiscale = period.start.year\n    range_year_report = list(set([year for year in range(2014, annee_fiscale)]) & set([year for year in cases_report.keys()]))\n\n    report = sum([foyer_fiscal(case, period) for year in range_year_report for case in cases_report[year]])\n\n    return reduc_invest_pinel_2019 + report\n",
       "start_line_number": 4809,
@@ -9051,5 +9061,6 @@
   ],
   "start_line_number": 4703,
   "stop_line_number": 4866,
+  "unit": "currency",
   "value_type": "float"
 }

@@ -1226,7 +1226,7 @@
       "parameters": [
         "prestations.prestations_familiales.aes.age_maximum_de_l_enfant",
         "prestations.prestations_familiales.aes.base",
-        "prestations.prestations_familiales.aes.complement_d_allocation",
+        "prestations.prestations_familiales.aes.complement_d_allocation.1ere_categorie",
         "prestations.prestations_familiales.af.bmaf"
       ],
       "source_code": "def formula_2002_04_01(famille, period, parameters):\n    janvier = period.this_year.first_month\n    isole = not_(famille('en_couple', janvier))\n    prestations_familiales = parameters(period).prestations.prestations_familiales\n\n    base = prestations_familiales.aes.base\n    complement_d_allocation = prestations_familiales.aes.complement_d_allocation\n    complement_d_allocation._children['6e_categorie_1'] = complement_d_allocation._children['6e_categorie_2']\n\n    age = famille.members('age', janvier)\n    handicap = famille.members('handicap', janvier)\n    niveau_handicap = famille.members('aeeh_niveau_handicap', period)\n    # Indicatrice d'isolement pour les indidivus\n    isole = famille.project(isole)\n\n    enfant_handicape = handicap * (age < prestations_familiales.aes.age_maximum_de_l_enfant)\n\n    montant_par_enfant = enfant_handicape * prestations_familiales.af.bmaf * (\n        base\n        + (niveau_handicap == 1) * complement_d_allocation._children['1ere_categorie']\n        + (niveau_handicap == 2) * complement_d_allocation._children['1ere_categorie']\n        )\n\n    montant_total = famille.sum(montant_par_enfant, role = Famille.ENFANT)\n    return montant_total\n",
