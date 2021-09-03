@@ -668,9 +668,9 @@
       "parameters": [
         "prelevements_sociaux.reductions_cotisations_sociales.cice"
       ],
-      "source_code": "def formula_2013_01_01(individu, period, parameters):\n    assiette_allegement = individu('assiette_allegement', period)\n    jeune_entreprise_innovante = individu('jeune_entreprise_innovante', period)  # noqa F841\n    smic_proratise = individu('smic_proratise', period)\n    stagiaire = individu('stagiaire', period)\n    taux_cice = taux_exo_cice(assiette_allegement, smic_proratise, parameters(period).prelevements_sociaux.reductions_cotisations_sociales.cice)\n    credit_impot_competitivite_emploi = taux_cice * assiette_allegement  # En updatant la formule (>2019) il faudra passer le parametre à null\n    non_cumul = not_(stagiaire)\n    association = individu('entreprise_est_association_non_lucrative', period)\n\n    return credit_impot_competitivite_emploi * non_cumul * not_(association)\n",
-      "start_line_number": 127,
-      "stop_line_number": 138,
+      "source_code": "def formula_2013_01_01(individu, period, parameters):\n    assiette_allegement = individu('assiette_allegement', period)\n    jeune_entreprise_innovante = individu('jeune_entreprise_innovante', period)  # noqa F841\n    smic_proratise = individu('smic_proratise', period)\n    stagiaire = individu('stagiaire', period)\n    taux_cice = taux_exo_cice(assiette_allegement, smic_proratise, parameters(period).prelevements_sociaux.reductions_cotisations_sociales.cice)\n    credit_impot_competitivite_emploi = taux_cice * assiette_allegement\n    non_cumul = not_(stagiaire)\n    association = individu('entreprise_est_association_non_lucrative', period)\n\n    return credit_impot_competitivite_emploi * non_cumul * not_(association)\n",
+      "start_line_number": 128,
+      "stop_line_number": 139,
       "variables": [
         "assiette_allegement",
         "entreprise_est_association_non_lucrative",
@@ -678,11 +678,12 @@
         "smic_proratise",
         "stagiaire"
       ]
-    }
+    },
+    "2019-01-01": null
   },
   "json_type": "number",
   "label": "Crédit d'impôt pour la compétitivité et l'emploi (CICE)",
-  "last_review": "2013-01-01",
+  "last_review": "2019-01-01",
   "name": "credit_impot_competitivite_emploi",
   "obsolete": true,
   "reference": {
@@ -697,7 +698,7 @@
   ],
   "set_input": "set_input_divide_by_period",
   "start_line_number": 119,
-  "stop_line_number": 138,
+  "stop_line_number": 139,
   "unit": "currency",
   "ux_name": "CICE",
   "value_type": "float"

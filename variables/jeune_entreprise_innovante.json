@@ -791,8 +791,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
       "source_code": "def formula(individu, period, parameters):\n    # Toute entreprise existante au 1er janvier 2004 ou créée entre le 1er janvier 2004 et le 31 décembre 2016 à\n    # condition de remplir les conditions suivantes :\n    #\n    # avoir moins de 8 ans d'existence au moment de la demande\n    #\n    # être réellement nouvelle, c'est-à-dire ne pas avoir été créée dans le cadre d'une concentration,\n    # d'une restructuration, d'une extension d'activité préexistante ou d'une reprise\n    #\n    # employer moins de 250 personnes au cours de l'exercice au titre duquel elle demande à bénéficier de ce statut\n    #\n    # réaliser un chiffre d'affaires inférieur à 50 M€  et disposer d'un total de bilan inférieur à 43 M€\n    #\n    # être indépendante, c'est-à-dire que son capital doit être détenu pour 50 % au minimum par :\n    #\n    # - des personnes physiques\n    #\n    # - une ou plusieurs autres JEI dont 50 % du capital au moins est détenu par des personnes physiques\n    #\n    # - des associations ou fondations reconnues d'utilité publique à caractère scientifique\n    #\n    # - des établissements de recherche et d'enseignement et leurs filiales\n    #\n    # - des structures d'investissement sous réserve qu'il n'y ait pas de lien de dépendance telles que des :\n    #   -  fonds communs de placement dans l'innovation (FCPI)\n    #   -  sociétés de capital-risque\n    #   -  fonds d'investissement de proximité (FIP)\n    #   -  sociétés de développement régional (SDR)\n    #   -  sociétés financières d'innovation (SFI)\n    #   -  sociétés unipersonnelles d'investissements à risques (SUIR).\n    #\n    # réaliser des dépenses de R§D représentant au moins 15 % des charges fiscalement déductibles au titre du même\n    # exercice.\n    effectif_entreprise = individu('effectif_entreprise', period)\n    entreprise_bilan = individu('entreprise_bilan', period)\n    entreprise_chiffre_affaire = individu('entreprise_chiffre_affaire', period)\n    entreprise_creation = individu('entreprise_creation', period)\n    # entreprise_depenses_rd =  individu('entreprise_depenses_rd', period)\n    jei_date_demande = individu('jei_date_demande', period)\n    # TODO: move to parameters file\n    # entreprise_depenses_rd > .15 TODO\n    independance = True\n\n    jeune_entreprise_innovante = (\n        independance\n        * (effectif_entreprise < 250)\n        * (entreprise_creation <= datetime64(\"2016-12-31\"))\n        * ((jei_date_demande + timedelta64(1, 'D') - entreprise_creation).astype('timedelta64[Y]') < timedelta64(8, 'Y'))\n        * (entreprise_chiffre_affaire < 50e6)\n        * (entreprise_bilan < 43e6)\n        )\n\n    return jeune_entreprise_innovante\n",
-      "start_line_number": 436,
-      "stop_line_number": 489,
+      "start_line_number": 441,
+      "stop_line_number": 494,
       "variables": [
         "effectif_entreprise",
         "entreprise_bilan",
@@ -811,7 +811,7 @@
     "exoneration_cotisations_employeur_jei"
   ],
   "set_input": "set_input_dispatch_by_period",
-  "start_line_number": 429,
-  "stop_line_number": 489,
+  "start_line_number": 434,
+  "stop_line_number": 494,
   "value_type": "bool"
 }

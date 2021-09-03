@@ -194,16 +194,11 @@
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "parameters": [
         "cotsoc.cotisations_employeur.prive_cadre.agirc_arrco",
-        "cotsoc.cotisations_employeur.prive_non_cadre.agirc_arrco",
-        "cotsoc.cotisations_employeur.public_non_titulaire.agirc_arrco",
-        "cotsoc.cotisations_employeur.public_titulaire_etat.agirc_arrco",
-        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.agirc_arrco",
-        "cotsoc.cotisations_employeur.public_titulaire_militaire.agirc_arrco",
-        "cotsoc.cotisations_employeur.public_titulaire_territoriale.agirc_arrco"
+        "cotsoc.cotisations_employeur.prive_non_cadre.agirc_arrco"
       ],
       "source_code": "def formula_2019_01_01(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = \"employeur\",\n        bareme_name = \"agirc_arrco\",\n        variable_name = 'agirc_arrco_employeur'\n        )\n    return cotisation\n",
-      "start_line_number": 428,
-      "stop_line_number": 438
+      "start_line_number": 429,
+      "stop_line_number": 439
     }
   },
   "json_type": "number",
@@ -224,8 +219,8 @@
     "exoneration_cotisations_employeur_stagiaire"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 421,
-  "stop_line_number": 438,
+  "start_line_number": 422,
+  "stop_line_number": 439,
   "unit": "currency",
   "ux_name": "Cotis. retraite complémentaire (AGIRC-ARRCO)",
   "value_type": "float"

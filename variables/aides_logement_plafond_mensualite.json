@@ -602,8 +602,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period, parameters):\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    locataire_logement_foyer = statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer\n    logement_crous = famille.demandeur.menage('logement_crous', period)\n\n    aides_accedants = famille('aides_logement_primo_accedant_plafond_mensualite', period)\n    aides_foyer = famille('aides_logement_foyer_plafond_mensualite', period)\n\n    return select([accedant, locataire_logement_foyer + logement_crous], [aides_accedants, aides_foyer])\n",
-      "start_line_number": 1819,
-      "stop_line_number": 1829,
+      "start_line_number": 1593,
+      "stop_line_number": 1603,
       "variables": [
         "aides_logement_foyer_plafond_mensualite",
         "aides_logement_primo_accedant_plafond_mensualite"
@@ -617,7 +617,7 @@
     "aides_logement_accedant_et_foyer"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 1812,
-  "stop_line_number": 1829,
+  "start_line_number": 1586,
+  "stop_line_number": 1603,
   "value_type": "float"
 }

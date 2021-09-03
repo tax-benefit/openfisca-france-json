@@ -503,8 +503,8 @@
       },
       "file_path": "/openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period, parameters):\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    logement_conventionne = famille.demandeur.menage('logement_conventionne', period)\n    coef_k_accedant = famille('aides_logement_primo_accedant_k', period)\n    coef_k_apl = famille('aides_logement_foyer_k_apl', period)\n    coef_k_al = famille('aides_logement_foyer_k_al', period)\n    return select([accedant, logement_conventionne], [coef_k_accedant, coef_k_apl], coef_k_al)\n",
-      "start_line_number": 1644,
-      "stop_line_number": 1651,
+      "start_line_number": 1418,
+      "stop_line_number": 1425,
       "variables": [
         "aides_logement_foyer_k_al",
         "aides_logement_foyer_k_apl",
@@ -529,7 +529,7 @@
     "aides_logement_accedant_et_foyer"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 1635,
-  "stop_line_number": 1651,
+  "start_line_number": 1409,
+  "stop_line_number": 1425,
   "value_type": "float"
 }

@@ -891,8 +891,8 @@
         "prestations.al_plafonds_logement_foyer_crous.rehabilitee"
       ],
       "source_code": "def formula_2017_10(famille, period, parameters):\n    plafond_crous = parameters(period).prestations.al_plafonds_logement_foyer_crous\n    plafond_foyer = parameters(period).prestations.al_plafonds_logement_foyer\n\n    statut_couple = where(famille('al_couple', period), 'couple', 'personne_isolee')\n\n    foyer_plafond = plafond_crous.rehabilitee[statut_couple]\n    foyer_chambre_non_rehabilite_plafond = plafond_crous.non_rehabilitee[statut_couple]\n    foyer_personne_agee_plafond = plafond_foyer.personne_agee[statut_couple]\n\n    foyer_conventionne_plafond = famille('aides_logement_foyer_conventionne_plafond', period)\n\n    logement_conventionne = famille.demandeur.menage('logement_conventionne', period)\n    foyer_chambre_non_rehabilite_eligibilite = famille('aides_logement_foyer_chambre_non_rehabilite_eligibilite', period)\n    foyer_personne_agee_eligibilite = famille('aides_logement_foyer_personne_agee_eligibilite', period)\n\n    return select(\n        [foyer_personne_agee_eligibilite, foyer_chambre_non_rehabilite_eligibilite, logement_conventionne],\n        [foyer_personne_agee_plafond, foyer_chambre_non_rehabilite_plafond, foyer_conventionne_plafond],\n        default = foyer_plafond\n        )\n",
-      "start_line_number": 1896,
-      "stop_line_number": 1917,
+      "start_line_number": 1670,
+      "stop_line_number": 1691,
       "variables": [
         "aides_logement_foyer_chambre_non_rehabilite_eligibilite",
         "aides_logement_foyer_conventionne_plafond",
@@ -919,7 +919,7 @@
     "aides_logement_plafond_mensualite"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 1885,
-  "stop_line_number": 1917,
+  "start_line_number": 1659,
+  "stop_line_number": 1691,
   "value_type": "float"
 }

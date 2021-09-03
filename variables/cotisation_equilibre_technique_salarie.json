@@ -360,12 +360,11 @@
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "parameters": [
         "cotsoc.cotisations_salarie.prive_cadre.cet2019",
-        "cotsoc.cotisations_salarie.prive_non_cadre.cet2019",
-        "cotsoc.cotisations_salarie.public_non_titulaire.cet2019"
+        "cotsoc.cotisations_salarie.prive_non_cadre.cet2019"
       ],
       "source_code": "def formula_2019_01_01(individu, period, parameters):\n\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'cet2019',\n        variable_name = 'cotisation_equilibre_technique_salarie',\n        )\n    return cotisation * (assiette_cotisations_sociales > plafond_securite_sociale)\n",
-      "start_line_number": 700,
-      "stop_line_number": 714,
+      "start_line_number": 701,
+      "stop_line_number": 715,
       "variables": [
         "assiette_cotisations_sociales",
         "plafond_securite_sociale"
@@ -390,8 +389,8 @@
     "exoneration_cotisations_salarie_stagiaire"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 693,
-  "stop_line_number": 714,
+  "start_line_number": 694,
+  "stop_line_number": 715,
   "unit": "currency",
   "ux_name": "Contrib. équilibre technique (CET)",
   "value_type": "float"

@@ -246,16 +246,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 53,
+                  "end_col_offset": 61,
                   "end_lineno": 9,
                   "lineno": 9,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 53,
+                    "end_col_offset": 61,
                     "end_lineno": 9,
                     "lineno": 9,
-                    "value": "fnal_cont_plus_de_10_salaries"
+                    "value": "fnal_contribution_plus_de_10_salaries"
                   }
                 },
                 {
@@ -327,17 +327,17 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "parameters": [
-        "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_10_salaries",
-        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_10_salaries",
-        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_10_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_10_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_10_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_10_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_10_salaries"
+        "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_10_salaries",
+        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_10_salaries",
+        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_10_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_10_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_10_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_10_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_10_salaries"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_10_salaries = effectif_entreprise >= 10\n    contribution_plus_de_10_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_cont_plus_de_10_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_10_salaries * contribution_plus_de_10_salaries\n",
-      "start_line_number": 293,
-      "stop_line_number": 305,
+      "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_10_salaries = effectif_entreprise >= 10\n    contribution_plus_de_10_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_contribution_plus_de_10_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_10_salaries * contribution_plus_de_10_salaries\n",
+      "start_line_number": 297,
+      "stop_line_number": 309,
       "variables": [
         "effectif_entreprise"
       ]
@@ -583,16 +583,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 53,
+                  "end_col_offset": 61,
                   "end_lineno": 9,
                   "lineno": 9,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 53,
+                    "end_col_offset": 61,
                     "end_lineno": 9,
                     "lineno": 9,
-                    "value": "fnal_cont_plus_de_20_salaries"
+                    "value": "fnal_contribution_plus_de_20_salaries"
                   }
                 },
                 {
@@ -664,17 +664,17 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "parameters": [
-        "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_20_salaries"
+        "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_20_salaries"
       ],
-      "source_code": "def formula_2007_01_01(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_20_salaries = effectif_entreprise >= 20\n    contribution_plus_de_20_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_cont_plus_de_20_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_20_salaries * contribution_plus_de_20_salaries\n",
-      "start_line_number": 280,
-      "stop_line_number": 292,
+      "source_code": "def formula_2007_01_01(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_20_salaries = effectif_entreprise >= 20\n    contribution_plus_de_20_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_contribution_plus_de_20_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_20_salaries * contribution_plus_de_20_salaries\n",
+      "start_line_number": 284,
+      "stop_line_number": 296,
       "variables": [
         "effectif_entreprise"
       ]
@@ -920,16 +920,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 53,
+                  "end_col_offset": 61,
                   "end_lineno": 9,
                   "lineno": 9,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 53,
+                    "end_col_offset": 61,
                     "end_lineno": 9,
                     "lineno": 9,
-                    "value": "fnal_cont_plus_de_20_salaries"
+                    "value": "fnal_contribution_plus_de_20_salaries"
                   }
                 },
                 {
@@ -1043,16 +1043,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 54,
+                  "end_col_offset": 62,
                   "end_lineno": 17,
                   "lineno": 17,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 54,
+                    "end_col_offset": 62,
                     "end_lineno": 17,
                     "lineno": 17,
-                    "value": "fnal_cont_moins_de_20_salaries"
+                    "value": "fnal_contribution_moins_de_20_salaries"
                   }
                 },
                 {
@@ -1184,24 +1184,24 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "parameters": [
-        "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_moins_de_20_salaries",
-        "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_moins_de_20_salaries",
-        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_moins_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_moins_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_moins_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_moins_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_moins_de_20_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_20_salaries"
+        "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_moins_de_20_salaries",
+        "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_moins_de_20_salaries",
+        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_moins_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_moins_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_moins_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_moins_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_moins_de_20_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_20_salaries"
       ],
-      "source_code": "def formula_2015_01_01(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_20_salaries = effectif_entreprise >= 20\n    contribution_plus_de_20_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_cont_plus_de_20_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    contribution_moins_de_20_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_cont_moins_de_20_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_20_salaries * contribution_plus_de_20_salaries + (1 - effectif_plus_de_20_salaries) * contribution_moins_de_20_salaries\n",
-      "start_line_number": 259,
-      "stop_line_number": 279,
+      "source_code": "def formula_2015_01_01(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_20_salaries = effectif_entreprise >= 20\n    contribution_plus_de_20_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_contribution_plus_de_20_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    contribution_moins_de_20_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_contribution_moins_de_20_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_20_salaries * contribution_plus_de_20_salaries + (1 - effectif_plus_de_20_salaries) * contribution_moins_de_20_salaries\n",
+      "start_line_number": 263,
+      "stop_line_number": 283,
       "variables": [
         "effectif_entreprise"
       ]
@@ -1447,16 +1447,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 53,
+                  "end_col_offset": 61,
                   "end_lineno": 9,
                   "lineno": 9,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 53,
+                    "end_col_offset": 61,
                     "end_lineno": 9,
                     "lineno": 9,
-                    "value": "fnal_cont_plus_de_50_salaries"
+                    "value": "fnal_contribution_plus_de_50_salaries"
                   }
                 },
                 {
@@ -1570,16 +1570,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 54,
+                  "end_col_offset": 62,
                   "end_lineno": 17,
                   "lineno": 17,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 54,
+                    "end_col_offset": 62,
                     "end_lineno": 17,
                     "lineno": 17,
-                    "value": "fnal_cont_moins_de_50_salaries"
+                    "value": "fnal_contribution_moins_de_50_salaries"
                   }
                 },
                 {
@@ -1711,24 +1711,24 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "parameters": [
-        "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_moins_de_50_salaries",
-        "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_50_salaries",
-        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_moins_de_50_salaries",
-        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_moins_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_moins_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_moins_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_moins_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_moins_de_50_salaries",
-        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_50_salaries"
+        "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_moins_de_50_salaries",
+        "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_50_salaries",
+        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_moins_de_50_salaries",
+        "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_moins_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_moins_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_moins_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_moins_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_moins_de_50_salaries",
+        "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_50_salaries"
       ],
-      "source_code": "def formula_2020_01_01(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_50_salaries = effectif_entreprise >= 50\n    contribution_plus_de_50_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_cont_plus_de_50_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    contribution_moins_de_50_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_cont_moins_de_50_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_50_salaries * contribution_plus_de_50_salaries + (1 - effectif_plus_de_50_salaries) * contribution_moins_de_50_salaries\n",
-      "start_line_number": 238,
-      "stop_line_number": 258,
+      "source_code": "def formula_2020_01_01(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    effectif_plus_de_50_salaries = effectif_entreprise >= 50\n    contribution_plus_de_50_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_contribution_plus_de_50_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    contribution_moins_de_50_salaries = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'fnal_contribution_moins_de_50_salaries',\n        variable_name = \"fnal_contribution\",\n        )\n    return effectif_plus_de_50_salaries * contribution_plus_de_50_salaries + (1 - effectif_plus_de_50_salaries) * contribution_moins_de_50_salaries\n",
+      "start_line_number": 242,
+      "stop_line_number": 262,
       "variables": [
         "effectif_entreprise"
       ]
@@ -1742,8 +1742,8 @@
     "fnal"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 231,
-  "stop_line_number": 305,
+  "start_line_number": 235,
+  "stop_line_number": 309,
   "unit": "currency",
   "value_type": "float"
 }

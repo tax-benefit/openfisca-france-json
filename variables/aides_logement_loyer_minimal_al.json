@@ -476,8 +476,8 @@
         "prestations.al_param_accal.bareme_loyer_minimum_lo"
       ],
       "source_code": "def formula(famille, period, parameters):\n    N = famille('aides_logement_nb_part', period)\n\n    prestations = parameters(period).prestations\n    bareme = prestations.al_param_accal.bareme_loyer_minimum_lo\n    majoration_loyer = prestations.al_param.majoration_du_loyer_minimum_lo\n\n    baseRessource = famille('aide_logement_base_ressources', period)\n\n    return (bareme.calc(baseRessource / N) * N + majoration_loyer) / 12\n",
-      "start_line_number": 1779,
-      "stop_line_number": 1789,
+      "start_line_number": 1553,
+      "stop_line_number": 1563,
       "variables": [
         "aide_logement_base_ressources",
         "aides_logement_nb_part"
@@ -498,7 +498,7 @@
     "aides_logement_loyer_minimal"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 1771,
-  "stop_line_number": 1789,
+  "start_line_number": 1545,
+  "stop_line_number": 1563,
   "value_type": "float"
 }

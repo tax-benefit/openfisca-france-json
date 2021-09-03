@@ -1404,8 +1404,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
       "source_code": "def formula_2015_06_09(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n    apprenti = individu('apprenti', period)\n    contrat_de_travail_duree = individu('contrat_de_travail_duree', period)\n    TypesContratDeTravailDuree = contrat_de_travail_duree.possible_values\n    contrat_de_travail_debut = individu('contrat_de_travail_debut', period)\n    contrat_de_travail_fin = individu('contrat_de_travail_fin', period)\n    coefficient_proratisation = individu('coefficient_proratisation', period)\n    exoneration_cotisations_employeur_jei = individu('exoneration_cotisations_employeur_jei', period)\n\n    # Cette aide est temporaire.\n    # TODO : Si toutefois elle est reconduite et modifiée pour 2017, les dates et le montant seront à\n    # implémenter comme des params xml.\n\n    eligible_contrat = and_(\n        contrat_de_travail_debut >= datetime64(\"2015-06-09\"),\n        contrat_de_travail_debut <= datetime64(\"2016-12-31\")\n        )\n\n    # Si CDD, durée du contrat doit être > 1 an\n    eligible_duree = or_(\n        # durée indéterminée\n        contrat_de_travail_duree == TypesContratDeTravailDuree.cdi,\n        # durée déterminée supérieure à 1 an\n        and_(\n            contrat_de_travail_duree == TypesContratDeTravailDuree.cdd,\n            # > 6 mois\n            (contrat_de_travail_fin - contrat_de_travail_debut).astype('timedelta64[M]') >= timedelta64(6, 'M')\n            # Initialement, la condition était d'un contrat >= 12 mois,\n            # pour les demandes transmises jusqu'au 26 janvier.\n            )\n        )\n\n    eligible_date = datetime64(period.offset(-24, 'month').start) < contrat_de_travail_debut\n    eligible = \\\n        (effectif_entreprise == 1) * not_(apprenti) * eligible_contrat * eligible_duree * eligible_date\n\n    # somme sur 24 mois, à raison de 500 € maximum par trimestre\n    montant_max = 4000\n\n    # non cumul avec le dispositif Jeune Entreprise Innovante (JEI)\n    non_cumulee = not_(exoneration_cotisations_employeur_jei)\n\n    # TODO comment implémenter la condition \"premier employé\" ? L'effectif est insuffisant en cas de rupture\n    # d'un premier contrat\n    # Condition : l’entreprise n’a pas conclu de contrat de travail avec un salarié,\n    # au-delà de la période d’essai, dans les 12 mois précédant la nouvelle\n    # embauche.\n\n    # Si le salarié est embauché à temps partiel,\n    # l’aide est proratisée en fonction de sa durée de travail.\n    # TODO cette multiplication par le coefficient de proratisation suffit-elle pour le cas du temps partiel ?\n    # A tester\n    return eligible * (montant_max / 24) * coefficient_proratisation * non_cumulee\n",
-      "start_line_number": 148,
-      "stop_line_number": 202,
+      "start_line_number": 149,
+      "stop_line_number": 203,
       "variables": [
         "apprenti",
         "coefficient_proratisation",
@@ -1434,8 +1434,8 @@
     "cout_differe"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 140,
-  "stop_line_number": 202,
+  "start_line_number": 141,
+  "stop_line_number": 203,
   "unit": "currency",
   "ux_name": "Aide 1er salarié",
   "value_type": "float"

@@ -561,8 +561,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
       "source_code": "def formula_2005_07_01(individu, period, parameters):\n    stagiaire = individu('stagiaire', period)\n    apprenti = individu('apprenti', period)\n    allegement_mode_recouvrement = individu('allegement_fillon_mode_recouvrement', period)\n    exoneration_cotisations_employeur_jei = individu('exoneration_cotisations_employeur_jei', period)\n\n    non_cumulee = not_(exoneration_cotisations_employeur_jei)\n\n    # switch on 3 possible payment options\n    allegement = switch_on_allegement_mode(\n        individu, period, parameters,\n        allegement_mode_recouvrement,\n        \"allegement_fillon\",\n        )\n\n    return allegement * not_(stagiaire) * not_(apprenti) * non_cumulee\n",
-      "start_line_number": 315,
-      "stop_line_number": 331,
+      "start_line_number": 316,
+      "stop_line_number": 332,
       "variables": [
         "allegement_fillon_mode_recouvrement",
         "apprenti",
@@ -588,8 +588,8 @@
     "exonerations_et_allegements"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 304,
-  "stop_line_number": 331,
+  "start_line_number": 305,
+  "stop_line_number": 332,
   "unit": "currency",
   "ux_name": "Réduc. cotis. bas salaires",
   "value_type": "float"

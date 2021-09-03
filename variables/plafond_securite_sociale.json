@@ -429,8 +429,8 @@
         "prelevements_sociaux.pss.plafond_securite_sociale_mensuel"
       ],
       "source_code": "def formula(individu, period, parameters):\n    plafond_temps_plein = parameters(period).prelevements_sociaux.pss.plafond_securite_sociale_mensuel\n    quotite = individu('quotite_de_travail', period)\n\n    plafond = plafond_temps_plein * quotite\n\n    # 2) Proratisation pour mois incomplet selon la méthode des 30èmes\n\n    # Pour les salariés entrés ou sortis en cours de mois,\n    # le plafond applicable est égal à autant de trentièmes du plafond mensuel\n    # que le salarié a été présent de jours calendaires. Source urssaf.fr \"L’assiette maximale\"\n    # calcul du nombre de jours calendaires de présence du salarié\n    nombre_jours_calendaires = individu('nombre_jours_calendaires', period)\n    plafond = plafond * (min_(nombre_jours_calendaires, 30) / 30)\n\n    return plafond\n",
-      "start_line_number": 910,
-      "stop_line_number": 926,
+      "start_line_number": 914,
+      "stop_line_number": 930,
       "variables": [
         "nombre_jours_calendaires",
         "quotite_de_travail"
@@ -454,14 +454,13 @@
     "exoneration_cotisations_employeur_jei",
     "exoneration_cotisations_employeur_stagiaire",
     "exoneration_cotisations_salarie_stagiaire",
-    "fnal_cotisation",
     "fonds_emploi_hospitalier",
     "ircantec_employeur",
     "ircantec_salarie",
     "prevoyance_obligatoire_cadre"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 902,
-  "stop_line_number": 926,
+  "start_line_number": 906,
+  "stop_line_number": 930,
   "value_type": "float"
 }

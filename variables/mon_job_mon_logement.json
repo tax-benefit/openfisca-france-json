@@ -1,0 +1,313 @@
+{
+  "default_value": 0,
+  "definition_period": "month",
+  "dtype": "float32",
+  "entity": "individu",
+  "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "individu",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 20,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 22,
+              "end_col_offset": 28,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 30,
+              "end_col_offset": 40,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 73,
+            "end_lineno": 2,
+            "lineno": 2,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 2,
+                "id": "montant",
+                "lineno": 2
+              }
+            ],
+            "value": {
+              "ast_class": "Attribute",
+              "attr": "montant",
+              "col_offset": 14,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 73,
+              "end_lineno": 2,
+              "lineno": 2,
+              "value": {
+                "ast_class": "Attribute",
+                "attr": "mon_job_mon_logement",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 65,
+                "end_lineno": 2,
+                "lineno": 2,
+                "value": {
+                  "ast_class": "Attribute",
+                  "attr": "prestations",
+                  "col_offset": 14,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 44,
+                  "end_lineno": 2,
+                  "lineno": 2,
+                  "value": {
+                    "args": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 25,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 31,
+                        "end_lineno": 2,
+                        "id": "period",
+                        "lineno": 2
+                      }
+                    ],
+                    "ast_class": "Call",
+                    "col_offset": 14,
+                    "end_col_offset": 32,
+                    "end_lineno": 2,
+                    "func": {
+                      "ast_class": "Name",
+                      "col_offset": 14,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 24,
+                      "end_lineno": 2,
+                      "id": "parameters",
+                      "lineno": 2
+                    },
+                    "keywords": [],
+                    "lineno": 2
+                  }
+                }
+              }
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 139,
+            "end_lineno": 3,
+            "lineno": 3,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 15,
+                "end_lineno": 3,
+                "id": "eligibilite",
+                "lineno": 3
+              }
+            ],
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 18,
+              "end_col_offset": 139,
+              "end_lineno": 3,
+              "left": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 27,
+                    "end_col_offset": 61,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "mon_job_mon_logement_eligibilite"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 63,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 69,
+                    "end_lineno": 3,
+                    "id": "period",
+                    "lineno": 3
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 18,
+                "end_col_offset": 70,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 18,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 26,
+                  "end_lineno": 3,
+                  "id": "individu",
+                  "lineno": 3
+                },
+                "keywords": [],
+                "lineno": 3
+              },
+              "lineno": 3,
+              "op": {
+                "ast_class": "Add"
+              },
+              "right": {
+                "args": [
+                  {
+                    "ast_class": "Constant",
+                    "col_offset": 82,
+                    "end_col_offset": 130,
+                    "end_lineno": 3,
+                    "lineno": 3,
+                    "value": "mon_job_mon_logement_eligibilite_jeunes_actifs"
+                  },
+                  {
+                    "ast_class": "Name",
+                    "col_offset": 132,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 138,
+                    "end_lineno": 3,
+                    "id": "period",
+                    "lineno": 3
+                  }
+                ],
+                "ast_class": "Call",
+                "col_offset": 73,
+                "end_col_offset": 139,
+                "end_lineno": 3,
+                "func": {
+                  "ast_class": "Name",
+                  "col_offset": 73,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 81,
+                  "end_lineno": 3,
+                  "id": "individu",
+                  "lineno": 3
+                },
+                "keywords": [],
+                "lineno": 3
+              }
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 32,
+            "end_lineno": 4,
+            "lineno": 4,
+            "value": {
+              "ast_class": "BinOp",
+              "col_offset": 11,
+              "end_col_offset": 32,
+              "end_lineno": 4,
+              "left": {
+                "ast_class": "Name",
+                "col_offset": 11,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 18,
+                "end_lineno": 4,
+                "id": "montant",
+                "lineno": 4
+              },
+              "lineno": 4,
+              "op": {
+                "ast_class": "Mult"
+              },
+              "right": {
+                "ast_class": "Name",
+                "col_offset": 21,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 32,
+                "end_lineno": 4,
+                "id": "eligibilite",
+                "lineno": 4
+              }
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 32,
+        "end_lineno": 4,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+      "parameters": [
+        "prestations.mon_job_mon_logement.montant"
+      ],
+      "source_code": "def formula(individu, period, parameters):\n    montant = parameters(period).prestations.mon_job_mon_logement.montant\n    eligibilite = individu('mon_job_mon_logement_eligibilite', period) + individu('mon_job_mon_logement_eligibilite_jeunes_actifs', period)\n    return montant * eligibilite\n",
+      "start_line_number": 69,
+      "stop_line_number": 73,
+      "variables": [
+        "mon_job_mon_logement_eligibilite",
+        "mon_job_mon_logement_eligibilite_jeunes_actifs"
+      ]
+    }
+  },
+  "json_type": "number",
+  "label": "Montant de l'aide mon job mon logement",
+  "name": "mon_job_mon_logement",
+  "reference": {
+    "0001-01-01": [
+      {
+        "href": "https://www.actionlogement.fr/aide-mon-job-mon-logement"
+      }
+    ]
+  },
+  "start_line_number": 62,
+  "stop_line_number": 73,
+  "value_type": "float"
+}

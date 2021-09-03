@@ -548,8 +548,8 @@
         "cotsoc.cotisations_employeur.prive_non_cadre.apprentissage_taxe_alsace_moselle"
       ],
       "source_code": "def formula(individu, period, parameters):\n    redevable_taxe_apprentissage = individu('redevable_taxe_apprentissage', period)\n    salarie_regime_alsace_moselle = individu('salarie_regime_alsace_moselle', period)\n\n    cotisation_regime_alsace_moselle = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'apprentissage_taxe_alsace_moselle',\n        variable_name = 'taxe_apprentissage',\n        )\n\n    cotisation_regime_general = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'apprentissage_taxe',\n        variable_name = 'taxe_apprentissage',\n        )\n\n    cotisation = np.where(\n        salarie_regime_alsace_moselle,\n        cotisation_regime_alsace_moselle,\n        cotisation_regime_general,\n        )\n\n    return cotisation * redevable_taxe_apprentissage\n",
-      "start_line_number": 461,
-      "stop_line_number": 490,
+      "start_line_number": 465,
+      "stop_line_number": 494,
       "variables": [
         "redevable_taxe_apprentissage",
         "salarie_regime_alsace_moselle"
@@ -573,8 +573,8 @@
     "cotisations_employeur_main_d_oeuvre"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 453,
-  "stop_line_number": 490,
+  "start_line_number": 457,
+  "stop_line_number": 494,
   "unit": "currency",
   "ux_name": "Taxe apprentissage",
   "value_type": "float"

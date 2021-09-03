@@ -807,8 +807,8 @@
         "prelevements_sociaux.cotisations_securite_sociale_regime_general.assiette.cantines_titres_restaurants.taux_minimum_exoneration"
       ],
       "source_code": "def formula(individu, period, parameters):\n    valeur_unitaire = individu(\"titre_restaurant_valeur_unitaire\", period)\n    volume = individu(\"titre_restaurant_volume\", period)\n    taux_employeur = individu('titre_restaurant_taux_employeur', period)\n    cantines_titres_restaurants = parameters(period).prelevements_sociaux.cotisations_securite_sociale_regime_general.assiette.cantines_titres_restaurants\n\n    taux_minimum_exoneration = cantines_titres_restaurants.taux_minimum_exoneration\n    taux_maximum_exoneration = cantines_titres_restaurants.taux_maximum_exoneration\n    seuil_prix_titre = cantines_titres_restaurants.seuil_prix_titre\n\n    condition_exoneration_taux = (\n        (taux_minimum_exoneration <= taux_employeur)\n        * (taux_maximum_exoneration >= taux_employeur)\n        )\n\n    montant_reintegration = volume * (\n        condition_exoneration_taux\n        * max_(valeur_unitaire * taux_employeur - seuil_prix_titre, 0)\n        + not_(condition_exoneration_taux)\n        * valeur_unitaire\n        * taux_employeur\n        )\n\n    return montant_reintegration\n",
-      "start_line_number": 121,
-      "stop_line_number": 145,
+      "start_line_number": 122,
+      "stop_line_number": 146,
       "variables": [
         "titre_restaurant_taux_employeur",
         "titre_restaurant_valeur_unitaire",
@@ -833,8 +833,8 @@
     "salaire_super_brut_hors_allegements"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 114,
-  "stop_line_number": 145,
+  "start_line_number": 115,
+  "stop_line_number": 146,
   "unit": "currency",
   "ux_name": "Cantine ou titres restaurant à charge de l'employeur, après allègement",
   "value_type": "float"

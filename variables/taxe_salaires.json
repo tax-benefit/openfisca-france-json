@@ -1975,8 +1975,8 @@
         "prelevements_sociaux.autres_taxes_participations_assises_salaires.taxsal.taux_maj"
       ],
       "source_code": "def formula(individu, period, parameters):\n    assujettie_taxe_salaires = individu('assujettie_taxe_salaires', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    prevoyance_obligatoire_cadre = individu('prevoyance_obligatoire_cadre', period)\n    complementaire_sante_employeur = individu('complementaire_sante_employeur', period)\n    prise_en_charge_employeur_prevoyance_complementaire = individu(\n        'prise_en_charge_employeur_prevoyance_complementaire', period, options = [ADD])\n\n    entreprise_est_association_non_lucrative = individu('entreprise_est_association_non_lucrative', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    # impots.gouv.fr\n    # La taxe est due notamment par les : [...] organismes sans but lucratif\n    assujettissement = assujettie_taxe_salaires + entreprise_est_association_non_lucrative\n\n    taxe_salaires = parameters(period).prelevements_sociaux.autres_taxes_participations_assises_salaires.taxsal\n    bareme = taxe_salaires.taux_maj\n    base = assiette_cotisations_sociales + (\n        - prevoyance_obligatoire_cadre + prise_en_charge_employeur_prevoyance_complementaire\n        - complementaire_sante_employeur\n        )\n\n    # TODO: exonérations apprentis\n    # TODO: modify if DOM\n\n    cotisation_individuelle = (\n        bareme.calc(\n            base,\n            factor = 1 / 12,\n            round_base_decimals = 2\n            )\n        + round_(taxe_salaires.taux.metro * base, 2)\n        )\n\n    # Une franchise et une décôte s'appliquent à cette taxe\n    # Etant donné que nous n'avons pas la distribution de salaires de l'entreprise,\n    # elles sont estimées en prenant l'effectif de l'entreprise et\n    # considérant que l'unique salarié de la individu est la moyenne.\n    # http://www.impots.gouv.fr/portal/dgi/public/popup?typePage=cpr02&espId=2&docOid=documentstandard_1845\n    estimation = cotisation_individuelle * effectif_entreprise * 12\n    conditions = [estimation < taxe_salaires.franchise, estimation <= taxe_salaires.decote_montant, estimation > taxe_salaires.decote_montant]\n    results = [0, estimation - (taxe_salaires.decote_montant - estimation) * taxe_salaires.decote_taux, estimation]\n\n    estimation_reduite = np.select(conditions, results)\n\n    # Abattement spécial de taxe sur les salaires\n    # Les associations à but non lucratif bénéficient d'un abattement important\n    estimation_abattue_negative = estimation_reduite - taxe_salaires.abattement_special\n    estimation_abattue = switch(\n        entreprise_est_association_non_lucrative,\n        {\n            0: estimation_reduite,\n            1: (estimation_abattue_negative >= 0) * estimation_abattue_negative,\n            }\n        )\n\n    with np.errstate(invalid='ignore'):\n        cotisation = switch(effectif_entreprise == 0, {\n            True: individu.filled_array(0),\n            False: estimation_abattue / effectif_entreprise / 12\n            })\n\n    return - cotisation * assujettissement\n",
-      "start_line_number": 501,
-      "stop_line_number": 564,
+      "start_line_number": 505,
+      "stop_line_number": 568,
       "variables": [
         "assiette_cotisations_sociales",
         "assujettie_taxe_salaires",
@@ -2004,8 +2004,8 @@
     "cotisations_employeur_non_contributives"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 492,
-  "stop_line_number": 564,
+  "start_line_number": 496,
+  "stop_line_number": 568,
   "unit": "currency",
   "ux_name": "Taxe salaires",
   "value_type": "float"

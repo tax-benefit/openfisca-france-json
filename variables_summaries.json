@@ -224,7 +224,8 @@
       ]
     },
     "referring_variables": [
-      "aide_logement_base_ressources",
+      "aide_logement_abattement_indemnites_chomage",
+      "aide_logement_abattement_revenus_activite_professionnelle",
       "aide_logement_base_ressources_patrimoine",
       "aide_permis_demandeur_emploi_eligibilite_financiere",
       "asi_aspa_base_ressources_individu",
@@ -1524,8 +1525,8 @@
     "formulas": {
       "1991-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 201,
-        "stop_line_number": 212,
+        "start_line_number": 202,
+        "stop_line_number": 213,
         "variables": [
           "assiette_cotisations_sociales",
           "categorie_salarie",
@@ -1551,8 +1552,8 @@
       "exoneration_cotisations_employeur_apprenti"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 194,
-    "stop_line_number": 212,
+    "start_line_number": 195,
+    "stop_line_number": 213,
     "unit": "currency",
     "ux_name": "Cotis. accident-maladie (AT/MP)",
     "value_type": "float"
@@ -1837,9 +1838,8 @@
     },
     "referring_variables": [
       "aide_jeunes_diplomes_anciens_boursiers_eligibilite",
-      "aide_logement_abattement_chomage_indemnise",
-      "aide_logement_abattement_depart_retraite",
-      "aide_logement_condition_neutralisation_chomage",
+      "aide_logement_abattement_indemnites_chomage",
+      "aide_logement_abattement_revenus_activite_professionnelle",
       "aide_permis_demandeur_emploi_eligibilite_individu",
       "ass_eligibilite_cumul_individu",
       "ass_eligibilite_individu",
@@ -1848,6 +1848,8 @@
       "garantie_jeunes_neet",
       "locapass_eligibilite_jeunes",
       "locapass_eligibilite_salarie",
+      "mon_job_mon_logement_eligibilite",
+      "mon_job_mon_logement_eligibilite_jeunes_actifs",
       "psa",
       "rmi"
     ],
@@ -2802,6 +2804,7 @@
       "logement_social_categorie_menage",
       "majeur",
       "mobili_jeune_eligibilite",
+      "mon_job_mon_logement_eligibilite_jeunes_actifs",
       "pass_culture",
       "pe_nbenf",
       "ppa_eligibilite",
@@ -2936,8 +2939,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.agffc",
           "cotsoc.cotisations_employeur.prive_non_cadre.agffnc"
         ],
-        "start_line_number": 244,
-        "stop_line_number": 268,
+        "start_line_number": 245,
+        "stop_line_number": 269,
         "variables": [
           "assiette_cotisations_sociales",
           "categorie_salarie",
@@ -2964,8 +2967,8 @@
       "cotisations_employeur_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 235,
-    "stop_line_number": 268,
+    "start_line_number": 236,
+    "stop_line_number": 269,
     "unit": "currency",
     "ux_name": "Cotis. retraites anticipées (AGFF)",
     "value_type": "float"
@@ -2983,8 +2986,8 @@
           "cotsoc.cotisations_salarie.prive_cadre.agff",
           "cotsoc.cotisations_salarie.prive_non_cadre.agff"
         ],
-        "start_line_number": 223,
-        "stop_line_number": 233
+        "start_line_number": 224,
+        "stop_line_number": 234
       },
       "2018-12-22": null
     },
@@ -3004,8 +3007,8 @@
       "cotisations_salariales_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 214,
-    "stop_line_number": 233,
+    "start_line_number": 215,
+    "stop_line_number": 234,
     "unit": "currency",
     "ux_name": "Cotis. retraites anticipées (AGFF)",
     "value_type": "float"
@@ -3021,15 +3024,10 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.agirc_arrco",
-          "cotsoc.cotisations_employeur.prive_non_cadre.agirc_arrco",
-          "cotsoc.cotisations_employeur.public_non_titulaire.agirc_arrco",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.agirc_arrco",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.agirc_arrco",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.agirc_arrco",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.agirc_arrco"
+          "cotsoc.cotisations_employeur.prive_non_cadre.agirc_arrco"
         ],
-        "start_line_number": 428,
-        "stop_line_number": 438
+        "start_line_number": 429,
+        "stop_line_number": 439
       }
     },
     "json_type": "number",
@@ -3050,8 +3048,8 @@
       "exoneration_cotisations_employeur_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 421,
-    "stop_line_number": 438,
+    "start_line_number": 422,
+    "stop_line_number": 439,
     "unit": "currency",
     "ux_name": "Cotis. retraite complémentaire (AGIRC-ARRCO)",
     "value_type": "float"
@@ -3067,11 +3065,10 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.agirc_arrco",
-          "cotsoc.cotisations_salarie.prive_non_cadre.agirc_arrco",
-          "cotsoc.cotisations_salarie.public_non_titulaire.agirc_arrco"
+          "cotsoc.cotisations_salarie.prive_non_cadre.agirc_arrco"
         ],
-        "start_line_number": 409,
-        "stop_line_number": 419
+        "start_line_number": 410,
+        "stop_line_number": 420
       }
     },
     "json_type": "number",
@@ -3092,8 +3089,8 @@
       "exoneration_cotisations_salarie_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 402,
-    "stop_line_number": 419,
+    "start_line_number": 403,
+    "stop_line_number": 420,
     "unit": "currency",
     "ux_name": "Cotis. retraite complémentaire (AGIRC-ARRCO)",
     "value_type": "float"
@@ -3110,8 +3107,8 @@
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.agirc"
         ],
-        "start_line_number": 389,
-        "stop_line_number": 400,
+        "start_line_number": 390,
+        "stop_line_number": 401,
         "variables": [
           "categorie_salarie"
         ]
@@ -3136,8 +3133,8 @@
       "exoneration_cotisations_employeur_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 381,
-    "stop_line_number": 400,
+    "start_line_number": 382,
+    "stop_line_number": 401,
     "unit": "currency",
     "ux_name": "Cotis. retraite complémentaire (AGIRC)",
     "value_type": "float"
@@ -3154,8 +3151,8 @@
         "parameters": [
           "prelevements_sociaux.regimes_complementaires_retraite_secteur_prive.gmp.cotisation_forfaitaire_mensuelle_en_euros.part_patronale"
         ],
-        "start_line_number": 337,
-        "stop_line_number": 358,
+        "start_line_number": 338,
+        "stop_line_number": 359,
         "variables": [
           "agirc_employeur",
           "assiette_cotisations_sociales",
@@ -3182,8 +3179,8 @@
       "exoneration_cotisations_employeur_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 328,
-    "stop_line_number": 358,
+    "start_line_number": 329,
+    "stop_line_number": 359,
     "unit": "currency",
     "ux_name": "Cotis. garantie minimal de points (GMP)",
     "value_type": "float"
@@ -3200,8 +3197,8 @@
         "parameters": [
           "prelevements_sociaux.regimes_complementaires_retraite_secteur_prive.gmp.cotisation_forfaitaire_mensuelle_en_euros.part_salariale"
         ],
-        "start_line_number": 305,
-        "stop_line_number": 326,
+        "start_line_number": 306,
+        "stop_line_number": 327,
         "variables": [
           "agirc_salarie",
           "assiette_cotisations_sociales",
@@ -3228,8 +3225,8 @@
       "exoneration_cotisations_salarie_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 296,
-    "stop_line_number": 326,
+    "start_line_number": 297,
+    "stop_line_number": 327,
     "unit": "currency",
     "ux_name": "Cotis. garantie minimal de points (GMP)",
     "value_type": "float"
@@ -3246,8 +3243,8 @@
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.agirc"
         ],
-        "start_line_number": 368,
-        "stop_line_number": 379,
+        "start_line_number": 369,
+        "stop_line_number": 380,
         "variables": [
           "categorie_salarie"
         ]
@@ -3272,8 +3269,8 @@
       "exoneration_cotisations_salarie_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 360,
-    "stop_line_number": 379,
+    "start_line_number": 361,
+    "stop_line_number": 380,
     "unit": "currency",
     "ux_name": "Cotis. retraite complémentaire (AGIRC)",
     "value_type": "float"
@@ -3291,8 +3288,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.ags",
           "cotsoc.cotisations_employeur.prive_non_cadre.ags"
         ],
-        "start_line_number": 447,
-        "stop_line_number": 457
+        "start_line_number": 448,
+        "stop_line_number": 458
       }
     },
     "json_type": "number",
@@ -3311,8 +3308,8 @@
       "cotisations_employeur_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 440,
-    "stop_line_number": 457,
+    "start_line_number": 441,
+    "stop_line_number": 458,
     "unit": "currency",
     "ux_name": "Cotis. garantie des salaires (AGS)",
     "value_type": "float"
@@ -3327,8 +3324,8 @@
     "formulas": {
       "2016-01-18": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
-        "start_line_number": 213,
-        "stop_line_number": 284,
+        "start_line_number": 214,
+        "stop_line_number": 285,
         "variables": [
           "aide_premier_salarie",
           "apprenti",
@@ -3359,8 +3356,8 @@
       "cout_differe"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 204,
-    "stop_line_number": 284,
+    "start_line_number": 205,
+    "stop_line_number": 285,
     "unit": "currency",
     "ux_name": "Aide  TPE/PME à l'embauche",
     "value_type": "float"
@@ -3719,8 +3716,8 @@
           "prestations.minima_sociaux.rmi.montant_de_base_du_rmi",
           "prestations.prestations_familiales.af.bmaf"
         ],
-        "start_line_number": 1346,
-        "stop_line_number": 1377,
+        "start_line_number": 1120,
+        "stop_line_number": 1151,
         "variables": [
           "al_couple",
           "al_nb_personnes_a_charge"
@@ -3739,8 +3736,8 @@
           "prestations.aides_logement.R0.taux_pac_supp",
           "prestations.aides_logement.R0.taux_seul"
         ],
-        "start_line_number": 1379,
-        "stop_line_number": 1397,
+        "start_line_number": 1153,
+        "stop_line_number": 1171,
         "variables": [
           "al_couple",
           "al_nb_personnes_a_charge"
@@ -3755,171 +3752,108 @@
       "aide_logement_participation_personnelle"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1339,
-    "stop_line_number": 1397,
+    "start_line_number": 1113,
+    "stop_line_number": 1171,
     "value_type": "float"
   },
-  "aide_logement_abattement_chomage_indemnise": {
-    "default_value": 0,
+  "aide_logement_abattement_indemnites_chomage": {
+    "default_value": false,
     "definition_period": "month",
-    "dtype": "float32",
+    "dtype": "bool_",
     "entity": "individu",
     "file_path": "/openfisca_france/model/prestations/aides_logement.py",
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "prestations.aides_logement.ressources.abattement_chomage_indemnise"
-        ],
-        "start_line_number": 725,
-        "stop_line_number": 734,
+        "start_line_number": 545,
+        "stop_line_number": 558,
         "variables": [
+          "aah",
           "activite",
-          "aide_logement_assiette_abattement_chomage",
-          "date_debut_chomage"
-        ]
-      },
-      "2021-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "prestations.aides_logement.ressources.abattement_chomage_indemnise"
-        ],
-        "start_line_number": 715,
-        "stop_line_number": 724,
-        "variables": [
-          "activite",
-          "aide_logement_assiette_abattement_chomage",
-          "aide_logement_condition_neutralisation_chomage",
-          "date_debut_chomage"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Montant de l'abattement pour personnes au chômage indemnisé (R351-13 du CCH)",
-    "last_review": "2021-01-01",
-    "name": "aide_logement_abattement_chomage_indemnise",
-    "reference": {
-      "0001-01-01": [
-        {
-          "href": "https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031694522&cidTexte=LEGITEXT000006073189"
-        }
-      ]
-    },
-    "referring_variables": [
-      "aide_logement_base_ressources",
-      "aide_logement_base_ressources_defaut"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 706,
-    "stop_line_number": 734,
-    "value_type": "float"
-  },
-  "aide_logement_abattement_depart_retraite": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "0001-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 755,
-        "stop_line_number": 765,
-        "variables": [
-          "activite",
-          "retraite_imposable",
-          "revenu_assimile_salaire_apres_abattements"
-        ]
-      },
-      "2021-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 745,
-        "stop_line_number": 754,
-        "variables": [
-          "activite",
-          "al_revenu_assimile_salaire_apres_abattements"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Montant de l'abattement sur les salaires en cas de départ en retraite",
-    "last_review": "2021-01-01",
-    "name": "aide_logement_abattement_depart_retraite",
-    "reference": {
-      "0001-01-01": [
-        {
-          "href": "https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006750910&cidTexte=LEGITEXT000006073189&dateTexte=20151231"
-        }
-      ]
-    },
-    "referring_variables": [
-      "aide_logement_base_ressources",
-      "aide_logement_base_ressources_defaut"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 736,
-    "stop_line_number": 765,
-    "value_type": "float"
-  },
-  "aide_logement_assiette_abattement_chomage": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "0001-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "impot_revenu.tspr.abatpro.max",
-          "impot_revenu.tspr.abatpro.min",
-          "impot_revenu.tspr.abatpro.min2",
-          "impot_revenu.tspr.abatpro.taux"
-        ],
-        "start_line_number": 688,
-        "stop_line_number": 704,
-        "variables": [
-          "chomeur_longue_duree",
-          "frais_reels",
+          "rpns_exon",
           "rpns_imposables",
+          "rpns_pvce",
           "salaire_imposable"
         ]
-      },
-      "2021-01-01": {
+      }
+    },
+    "is_period_size_independent": true,
+    "json_type": "boolean",
+    "label": "Condition de l'abattement sur les indemnités chômages pour les personnes partant à la retraite (R351-13 du CCH)",
+    "name": "aide_logement_abattement_indemnites_chomage",
+    "reference": {
+      "0001-01-01": [
+        {
+          "title": "Article 822-13 du code de la construction et de l'habitation"
+        },
+        {
+          "href": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878977"
+        },
+        {
+          "title": "Article 822-14 du code de la construction et de l'habitation"
+        },
+        {
+          "href": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878975"
+        }
+      ]
+    },
+    "referring_variables": [
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu"
+    ],
+    "set_input": "set_input_dispatch_by_period",
+    "start_line_number": 533,
+    "stop_line_number": 558,
+    "value_type": "bool"
+  },
+  "aide_logement_abattement_revenus_activite_professionnelle": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+    "formulas": {
+      "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "impot_revenu.tspr.abatpro.max",
-          "impot_revenu.tspr.abatpro.min",
-          "impot_revenu.tspr.abatpro.min2",
-          "impot_revenu.tspr.abatpro.taux"
-        ],
-        "start_line_number": 668,
-        "stop_line_number": 687,
+        "start_line_number": 520,
+        "stop_line_number": 531,
         "variables": [
-          "chomeur_longue_duree",
-          "frais_reels",
+          "aah",
+          "activite",
+          "date_debut_chomage",
+          "rpns_exon",
           "rpns_imposables",
+          "rpns_pvce",
           "salaire_imposable"
         ]
       }
     },
     "json_type": "number",
-    "label": "Assiette sur laquelle un abattement chômage peut être appliqués pour les AL. Ce sont les revenus d'activité professionnelle, moins les abattements pour frais professionnels.",
-    "last_review": "2021-01-01",
-    "name": "aide_logement_assiette_abattement_chomage",
+    "label": "Condition de l'abattement sur les revenus d'activités pour les personnes au chômage indemnisé ou partant à la retraite (R351-13 du CCH)",
+    "name": "aide_logement_abattement_revenus_activite_professionnelle",
     "reference": {
       "0001-01-01": [
         {
-          "href": "https://www.legifrance.gouv.fr/eli/decret/2019/12/30/LOGL1920187D/jo/texte"
+          "title": "Article 822-13 du code de la construction et de l'habitation"
+        },
+        {
+          "href": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878977"
+        },
+        {
+          "title": "Article 822-14 du code de la construction et de l'habitation"
+        },
+        {
+          "href": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878975"
         }
       ]
     },
     "referring_variables": [
-      "aide_logement_abattement_chomage_indemnise"
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 660,
-    "stop_line_number": 704,
+    "start_line_number": 508,
+    "stop_line_number": 531,
     "value_type": "float"
   },
   "aide_logement_base_ressources": {
@@ -3932,22 +3866,20 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
         "parameters": [
-          "marche_travail.salaire_minimum.smic_h_b",
+          "prestations.aides_logement.ressources.dar_1",
           "prestations.aides_logement.ressources.dar_11",
           "prestations.aides_logement.ressources.dar_12",
           "prestations.aides_logement.ressources.dar_4",
           "prestations.aides_logement.ressources.dar_5",
-          "prestations.aides_logement.ressources.dar_8",
-          "prestations.aides_logement.ressources.dar_9"
+          "prestations.minima_sociaux.aspa.plafond_ressources_seul"
         ],
-        "start_line_number": 1179,
-        "stop_line_number": 1236,
+        "start_line_number": 934,
+        "stop_line_number": 1009,
         "variables": [
-          "aah",
-          "aide_logement_base_ressources_defaut",
           "aide_logement_base_ressources_eval_forfaitaire",
-          "en_couple",
-          "salaire_imposable"
+          "aide_logement_base_ressources_individu",
+          "aide_logement_base_ressources_patrimoine",
+          "aide_logement_biactivite"
         ]
       },
       "2021-01-01": {
@@ -3961,27 +3893,12 @@
           "prestations.aides_logement.ressources.dar_5",
           "prestations.minima_sociaux.aspa.plafond_ressources_seul"
         ],
-        "start_line_number": 1034,
-        "stop_line_number": 1178,
+        "start_line_number": 863,
+        "stop_line_number": 933,
         "variables": [
-          "aide_logement_abattement_chomage_indemnise",
-          "aide_logement_abattement_depart_retraite",
+          "aide_logement_base_ressources_individu",
           "aide_logement_base_ressources_patrimoine",
-          "al_base_ressources_individu",
-          "al_biactivite",
-          "gains_exceptionnels",
-          "indemnites_journalieres",
-          "indemnites_journalieres_atexa",
-          "paje",
-          "pch",
-          "pensions_alimentaires_versees_individu",
-          "rente_accident_travail",
-          "retraite_combattant",
-          "revenus_stage_formation_pro",
-          "rpns_auto_entrepreneur_benefice",
-          "rpns_autres_revenus",
-          "rpns_benefice_exploitant_agricole",
-          "rpns_micro_entreprise_benefice"
+          "aide_logement_biactivite"
         ]
       }
     },
@@ -4009,51 +3926,15 @@
       "reduction_loyer_solidarite"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1023,
-    "stop_line_number": 1236,
-    "value_type": "float"
-  },
-  "aide_logement_base_ressources_defaut": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "famille",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "0001-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "prestations.aides_logement.ressources.dar_1",
-          "prestations.minima_sociaux.aspa.plafond_ressources_seul"
-        ],
-        "start_line_number": 815,
-        "stop_line_number": 860,
-        "variables": [
-          "aide_logement_abattement_chomage_indemnise",
-          "aide_logement_abattement_depart_retraite",
-          "aide_logement_base_ressources_patrimoine",
-          "aide_logement_neutralisation_rsa",
-          "biactivite",
-          "prestations_familiales_base_ressources_individu"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Base ressource par défaut des allocations logement",
-    "name": "aide_logement_base_ressources_defaut",
-    "referring_variables": [
-      "aide_logement_base_ressources"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 808,
-    "stop_line_number": 860,
+    "start_line_number": 852,
+    "stop_line_number": 1009,
     "value_type": "float"
   },
   "aide_logement_base_ressources_eval_forfaitaire": {
     "default_value": 0,
     "definition_period": "month",
     "dtype": "float32",
-    "entity": "famille",
+    "entity": "individu",
     "file_path": "/openfisca_france/model/prestations/aides_logement.py",
     "formulas": {
       "0001-01-01": {
@@ -4062,25 +3943,125 @@
           "impot_revenu.tspr.abatpro.max",
           "impot_revenu.tspr.abatpro.min",
           "impot_revenu.tspr.abatpro.taux",
-          "marche_travail.salaire_minimum.smic_h_b"
+          "marche_travail.salaire_minimum.smic_h_b",
+          "prestations.aides_logement.ressources.abattement_chomage_indemnise",
+          "prestations.aides_logement.ressources.dar_8",
+          "prestations.aides_logement.ressources.dar_9"
         ],
-        "start_line_number": 505,
-        "stop_line_number": 530,
+        "start_line_number": 720,
+        "stop_line_number": 812,
         "variables": [
+          "aide_logement_abattement_indemnites_chomage",
+          "aide_logement_abattement_revenus_activite_professionnelle",
+          "aide_logement_condition_neutralisation",
+          "en_couple",
+          "moins_values_court_terme_non_salaries",
+          "moins_values_long_terme_non_salaries",
+          "rpns_imposables",
+          "rpns_pvce",
+          "rpns_pvct",
           "salaire_imposable",
           "travailleur_non_salarie"
         ]
-      }
+      },
+      "2020-04-01": null
     },
     "json_type": "number",
     "label": "Base ressources en évaluation forfaitaire des aides au logement (R351-7 du CCH)",
+    "last_review": "2020-04-01",
     "name": "aide_logement_base_ressources_eval_forfaitaire",
     "referring_variables": [
       "aide_logement_base_ressources"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 498,
-    "stop_line_number": 530,
+    "start_line_number": 712,
+    "stop_line_number": 812,
+    "value_type": "float"
+  },
+  "aide_logement_base_ressources_individu": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+    "formulas": {
+      "0001-01-01": {
+        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+        "parameters": [
+          "impot_revenu.tspr.abatpro.max",
+          "impot_revenu.tspr.abatpro.min",
+          "impot_revenu.tspr.abatpro.min2",
+          "impot_revenu.tspr.abatpro.taux",
+          "prestations.aides_logement.ressources.abattement_chomage_indemnise"
+        ],
+        "start_line_number": 621,
+        "stop_line_number": 665,
+        "variables": [
+          "aide_logement_abattement_indemnites_chomage",
+          "aide_logement_abattement_revenus_activite_professionnelle",
+          "aide_logement_condition_neutralisation",
+          "chomage_imposable",
+          "chomeur_longue_duree",
+          "f1tt",
+          "f3vj",
+          "frais_reels",
+          "glo",
+          "hsup",
+          "moins_values_court_terme_non_salaries",
+          "moins_values_long_terme_non_salaries",
+          "revenu_assimile_pension_apres_abattements",
+          "rpns_imposables",
+          "rpns_pvce",
+          "rpns_pvct",
+          "salaire_imposable"
+        ]
+      },
+      "2021-01-01": {
+        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+        "parameters": [
+          "impot_revenu.tspr.abatpen.min",
+          "impot_revenu.tspr.abatpen.taux",
+          "impot_revenu.tspr.abatpro.max",
+          "impot_revenu.tspr.abatpro.min",
+          "impot_revenu.tspr.abatpro.min2",
+          "impot_revenu.tspr.abatpro.taux",
+          "prestations.aides_logement.ressources.abattement_chomage_indemnise"
+        ],
+        "start_line_number": 567,
+        "stop_line_number": 620,
+        "variables": [
+          "aide_logement_abattement_indemnites_chomage",
+          "aide_logement_abattement_revenus_activite_professionnelle",
+          "aide_logement_condition_neutralisation",
+          "chomage_imposable",
+          "chomeur_longue_duree",
+          "f1tt",
+          "f3vj",
+          "frais_reels",
+          "glo",
+          "hsup",
+          "moins_values_court_terme_non_salaries",
+          "moins_values_long_terme_non_salaries",
+          "pensions_alimentaires_percues",
+          "pensions_invalidite",
+          "retraite_imposable",
+          "rpns_imposables",
+          "rpns_pvce",
+          "rpns_pvct",
+          "salaire_imposable"
+        ]
+      }
+    },
+    "is_period_size_independent": true,
+    "json_type": "number",
+    "label": "Base ressource individuelle des aides logement",
+    "last_review": "2021-01-01",
+    "name": "aide_logement_base_ressources_individu",
+    "referring_variables": [
+      "aide_logement_base_ressources"
+    ],
+    "start_line_number": 560,
+    "stop_line_number": 665,
     "value_type": "float"
   },
   "aide_logement_base_ressources_patrimoine": {
@@ -4099,8 +4080,8 @@
           "prestations.minima_sociaux.rsa.patrimoine.abattement_valeur_locative_terrains_non_loues",
           "prestations.minima_sociaux.rsa.patrimoine.taux_interet_forfaitaire_epargne_non_imposable"
         ],
-        "start_line_number": 432,
-        "stop_line_number": 481,
+        "start_line_number": 408,
+        "stop_line_number": 457,
         "variables": [
           "aah",
           "aeeh",
@@ -4127,12 +4108,11 @@
       ]
     },
     "referring_variables": [
-      "aide_logement_base_ressources",
-      "aide_logement_base_ressources_defaut"
+      "aide_logement_base_ressources"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 424,
-    "stop_line_number": 481,
+    "start_line_number": 400,
+    "stop_line_number": 457,
     "value_type": "float"
   },
   "aide_logement_base_revenus_fiscaux": {
@@ -4144,26 +4124,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 909,
-        "stop_line_number": 940,
-        "variables": [
-          "f7ga",
-          "f7gb",
-          "f7gc",
-          "pensions_alimentaires_versees",
-          "plus_values_prelevement_forfaitaire_unique_ir",
-          "rente_viagere_titre_onereux_net",
-          "revenu_categoriel_capital",
-          "revenu_categoriel_foncier",
-          "revenu_categoriel_plus_values",
-          "revenus_capitaux_prelevement_forfaitaire_unique_ir",
-          "revenus_capitaux_prelevement_liberatoire"
-        ]
-      },
-      "2021-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 876,
-        "stop_line_number": 908,
+        "start_line_number": 681,
+        "stop_line_number": 710,
         "variables": [
           "f7ga",
           "f7gb",
@@ -4180,7 +4142,6 @@
     },
     "json_type": "number",
     "label": "Revenus fiscaux perçus par le foyer fiscal à prendre en compte dans la base ressource des aides au logement",
-    "last_review": "2021-01-01",
     "name": "aide_logement_base_revenus_fiscaux",
     "reference": {
       "0001-01-01": [
@@ -4204,9 +4165,44 @@
         }
       ]
     },
-    "start_line_number": 862,
-    "stop_line_number": 940,
+    "start_line_number": 667,
+    "stop_line_number": 710,
     "value_type": "float"
+  },
+  "aide_logement_biactivite": {
+    "default_value": false,
+    "definition_period": "month",
+    "dtype": "bool_",
+    "entity": "famille",
+    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+    "formulas": {
+      "0001-01-01": {
+        "documentation": "\nHypothèses/points à éclaircir :\n   (1) A partir d'une certaine date sont apparemment pris en compte\n       dans les \"revenus professinnels\" les indemnités journalières.\n       Cf. circulaire interministérielle DSS/2B n°2011-447 du 01/12/2011\n       Regarder davantage ce point\n   (2) On n'a pas pris en compte les abbattements présents dans la\n       variable abattement_salaires_pensions, car il s'agit d'une\n       variable dépendant conjointement des salaires et des pensions\n       (or, les pensions ne doivent pas être pris en compte ici, et\n       cette variable ne peut pas être décomposée entre une part salaire et\n       une part pensions). Mais cette variable n'existe que jusqu'à 2005\n       inclus.\n",
+        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+        "parameters": [
+          "prestations.prestations_familiales.af.bmaf"
+        ],
+        "start_line_number": 821,
+        "stop_line_number": 850,
+        "variables": [
+          "f1tt",
+          "f3vj",
+          "rpns_imposables",
+          "salaire_imposable"
+        ]
+      }
+    },
+    "is_period_size_independent": true,
+    "json_type": "boolean",
+    "label": "Indicatrice de biactivité dans le cadre du calcul des ressources de l'aide au logement.",
+    "name": "aide_logement_biactivite",
+    "referring_variables": [
+      "aide_logement_base_ressources"
+    ],
+    "set_input": "set_input_dispatch_by_period",
+    "start_line_number": 814,
+    "stop_line_number": 850,
+    "value_type": "bool"
   },
   "aide_logement_charges": {
     "default_value": 0,
@@ -4221,8 +4217,8 @@
           "prestations.aides_logement.forfait_charges.cas_general",
           "prestations.aides_logement.forfait_charges.majoration_par_enfant"
         ],
-        "start_line_number": 1328,
-        "stop_line_number": 1337,
+        "start_line_number": 1102,
+        "stop_line_number": 1111,
         "variables": [
           "al_couple",
           "al_nb_personnes_a_charge"
@@ -4238,11 +4234,11 @@
       "aides_logement_accedant_et_foyer"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1321,
-    "stop_line_number": 1337,
+    "start_line_number": 1095,
+    "stop_line_number": 1111,
     "value_type": "float"
   },
-  "aide_logement_condition_neutralisation_chomage": {
+  "aide_logement_condition_neutralisation": {
     "default_value": false,
     "definition_period": "month",
     "dtype": "bool_",
@@ -4251,46 +4247,41 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 646,
-        "stop_line_number": 658,
+        "start_line_number": 488,
+        "stop_line_number": 506,
         "variables": [
-          "activite",
-          "ass",
-          "chomage_imposable",
-          "date_debut_chomage"
-        ]
-      },
-      "2021-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 633,
-        "stop_line_number": 645,
-        "variables": [
-          "activite",
-          "ass",
-          "chomage_imposable",
-          "date_debut_chomage"
+          "rsa",
+          "type_conges"
         ]
       }
     },
     "is_period_size_independent": true,
     "json_type": "boolean",
-    "label": "Condition de neutralisation du chomage dans le calcul des ressources de l'aide au logement.",
-    "last_review": "2021-01-01",
-    "name": "aide_logement_condition_neutralisation_chomage",
+    "label": "Condition de neutralisation des revenus d'activité professionnelle et des indemnités de chômage dans le calcul des ressources de l'aide au logement.",
+    "name": "aide_logement_condition_neutralisation",
     "reference": {
       "0001-01-01": [
         {
-          "href": "https://www.legifrance.gouv.fr/eli/decret/2019/12/30/LOGL1920187D/jo/texte"
+          "title": "Article 822-15 du code de la construction et de l'habitation"
+        },
+        {
+          "href": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878973/"
+        },
+        {
+          "title": "Article 822-17 du code de la construction et de l'habitation"
+        },
+        {
+          "href": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878969/"
         }
       ]
     },
     "referring_variables": [
-      "aide_logement_abattement_chomage_indemnise",
-      "al_traitements_salaires_pensions_rentes"
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 625,
-    "stop_line_number": 658,
+    "start_line_number": 476,
+    "stop_line_number": 506,
     "value_type": "bool"
   },
   "aide_logement_date_pret_conventionne": {
@@ -4306,8 +4297,8 @@
     "referring_variables": [
       "aides_logement_primo_accedant_eligibilite"
     ],
-    "start_line_number": 280,
-    "stop_line_number": 286,
+    "start_line_number": 256,
+    "stop_line_number": 262,
     "value_type": "date"
   },
   "aide_logement_loyer_plafond": {
@@ -4324,8 +4315,8 @@
           "prestations.aides_logement.loyers_plafond.colocation",
           "prestations.aides_logement.loyers_plafond.par_zone"
         ],
-        "start_line_number": 1258,
-        "stop_line_number": 1282,
+        "start_line_number": 1032,
+        "stop_line_number": 1056,
         "variables": [
           "al_couple",
           "al_nb_personnes_a_charge"
@@ -4340,8 +4331,8 @@
       "aide_logement_montant_brut"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1251,
-    "stop_line_number": 1282,
+    "start_line_number": 1025,
+    "stop_line_number": 1056,
     "value_type": "float"
   },
   "aide_logement_loyer_reel": {
@@ -4353,8 +4344,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1292,
-        "stop_line_number": 1304
+        "start_line_number": 1066,
+        "stop_line_number": 1078
       }
     },
     "json_type": "number",
@@ -4372,8 +4363,8 @@
       "aide_logement_montant_brut"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1284,
-    "stop_line_number": 1304,
+    "start_line_number": 1058,
+    "stop_line_number": 1078,
     "value_type": "float"
   },
   "aide_logement_loyer_retenu": {
@@ -4385,8 +4376,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1313,
-        "stop_line_number": 1319,
+        "start_line_number": 1087,
+        "stop_line_number": 1093,
         "variables": [
           "aide_logement_loyer_plafond",
           "aide_logement_loyer_reel"
@@ -4402,8 +4393,8 @@
       "aide_logement_taux_loyer"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1306,
-    "stop_line_number": 1319,
+    "start_line_number": 1080,
+    "stop_line_number": 1093,
     "value_type": "float"
   },
   "aide_logement_montant": {
@@ -4577,76 +4568,6 @@
     "stop_line_number": 124,
     "value_type": "float"
   },
-  "aide_logement_neutralisation_conge_parental": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "0001-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 775,
-        "stop_line_number": 782,
-        "variables": [
-          "revenu_assimile_salaire_apres_abattements",
-          "type_conges"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Abattement sur les revenus des parents en congé parental.",
-    "name": "aide_logement_neutralisation_conge_parental",
-    "reference": {
-      "0001-01-01": [
-        {
-          "href": "https://github.com/openfisca/openfisca-france/wiki/files/prestations/Integration-de-la-reforme-AL-2019-dans-OpenFisca_PJ_20190722-FAM_Reforme_AL-2019_v1.4.pdf"
-        }
-      ]
-    },
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 767,
-    "stop_line_number": 782,
-    "value_type": "float"
-  },
-  "aide_logement_neutralisation_rsa": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "famille",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "0001-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 797,
-        "stop_line_number": 806,
-        "variables": [
-          "revenu_assimile_salaire_apres_abattements",
-          "rsa"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Abattement sur les revenus n-2 pour les bénéficiaires du RSA",
-    "name": "aide_logement_neutralisation_rsa",
-    "reference": {
-      "0001-01-01": [
-        {
-          "href": "https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000031694522&cidTexte=LEGITEXT000006073189"
-        },
-        {
-          "href": "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006074096&idArticle=LEGIARTI000006897410"
-        }
-      ]
-    },
-    "referring_variables": [
-      "aide_logement_base_ressources_defaut"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 784,
-    "stop_line_number": 806,
-    "value_type": "float"
-  },
   "aide_logement_non_calculable": {
     "default_value": "calculable",
     "definition_period": "month",
@@ -4656,8 +4577,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1510,
-        "stop_line_number": 1518
+        "start_line_number": 1284,
+        "stop_line_number": 1292
       }
     },
     "is_period_size_independent": true,
@@ -4669,8 +4590,8 @@
       "locataire_foyer": "Non calculable (Locataire foyer)"
     },
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1501,
-    "stop_line_number": 1518,
+    "start_line_number": 1275,
+    "stop_line_number": 1292,
     "value_type": "Enum"
   },
   "aide_logement_participation_personnelle": {
@@ -4686,8 +4607,8 @@
           "prestations.aides_logement.participation_min.montant_forfaitaire",
           "prestations.aides_logement.participation_min.taux"
         ],
-        "start_line_number": 1476,
-        "stop_line_number": 1493,
+        "start_line_number": 1250,
+        "stop_line_number": 1267,
         "variables": [
           "aide_logement_R0",
           "aide_logement_base_ressources",
@@ -4705,8 +4626,8 @@
       "aide_logement_montant_brut_avant_degressivite"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1469,
-    "stop_line_number": 1493,
+    "start_line_number": 1243,
+    "stop_line_number": 1267,
     "value_type": "float"
   },
   "aide_logement_taux_famille": {
@@ -4735,8 +4656,8 @@
           "prestations.aides_logement.taux_participation_fam.taux_4_enf",
           "prestations.aides_logement.taux_participation_fam.taux_enf_supp"
         ],
-        "start_line_number": 1406,
-        "stop_line_number": 1434,
+        "start_line_number": 1180,
+        "stop_line_number": 1208,
         "variables": [
           "al_couple",
           "al_nb_personnes_a_charge"
@@ -4750,8 +4671,8 @@
       "aide_logement_participation_personnelle"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 1399,
-    "stop_line_number": 1434,
+    "start_line_number": 1173,
+    "stop_line_number": 1208,
     "value_type": "float"
   },
   "aide_logement_taux_loyer": {
@@ -4771,8 +4692,8 @@
           "prestations.aides_logement.taux_participation_loyer.taux_tranche_2",
           "prestations.aides_logement.taux_participation_loyer.taux_tranche_3"
         ],
-        "start_line_number": 1443,
-        "stop_line_number": 1467,
+        "start_line_number": 1217,
+        "stop_line_number": 1241,
         "variables": [
           "aide_logement_loyer_retenu",
           "al_couple",
@@ -4787,8 +4708,8 @@
       "aide_logement_participation_personnelle"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 1436,
-    "stop_line_number": 1467,
+    "start_line_number": 1210,
+    "stop_line_number": 1241,
     "value_type": "float"
   },
   "aide_merite_eligibilite": {
@@ -5093,8 +5014,8 @@
     "formulas": {
       "2015-06-09": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
-        "start_line_number": 148,
-        "stop_line_number": 202,
+        "start_line_number": 149,
+        "stop_line_number": 203,
         "variables": [
           "apprenti",
           "coefficient_proratisation",
@@ -5123,8 +5044,8 @@
       "cout_differe"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 140,
-    "stop_line_number": 202,
+    "start_line_number": 141,
+    "stop_line_number": 203,
     "unit": "currency",
     "ux_name": "Aide 1er salarié",
     "value_type": "float"
@@ -5173,8 +5094,8 @@
     "formulas": {
       "2007-07-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1616,
-        "stop_line_number": 1633,
+        "start_line_number": 1390,
+        "stop_line_number": 1407,
         "variables": [
           "aide_logement_charges",
           "aides_logement_k",
@@ -5204,8 +5125,8 @@
       "aide_logement_montant_brut_avant_degressivite"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1605,
-    "stop_line_number": 1633,
+    "start_line_number": 1379,
+    "stop_line_number": 1407,
     "value_type": "float"
   },
   "aides_logement_categorie": {
@@ -5217,8 +5138,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1725,
-        "stop_line_number": 1728
+        "start_line_number": 1499,
+        "stop_line_number": 1502
       }
     },
     "is_period_size_independent": true,
@@ -5228,8 +5149,8 @@
       "aides_logement_nb_part"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 1719,
-    "stop_line_number": 1728,
+    "start_line_number": 1493,
+    "stop_line_number": 1502,
     "value_type": "str"
   },
   "aides_logement_foyer_chambre_non_rehabilite_eligibilite": {
@@ -5241,8 +5162,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 336,
-        "stop_line_number": 347
+        "start_line_number": 312,
+        "stop_line_number": 323
       }
     },
     "is_period_size_independent": true,
@@ -5252,8 +5173,8 @@
       "aides_logement_foyer_plafond_mensualite"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 330,
-    "stop_line_number": 347,
+    "start_line_number": 306,
+    "stop_line_number": 323,
     "value_type": "bool"
   },
   "aides_logement_foyer_conventionne_plafond": {
@@ -5268,8 +5189,8 @@
         "parameters": [
           "prestations.al_plafonds_logement_foyer.conventionne"
         ],
-        "start_line_number": 1867,
-        "stop_line_number": 1883,
+        "start_line_number": 1641,
+        "stop_line_number": 1657,
         "variables": [
           "al_couple",
           "al_nb_personnes_a_charge"
@@ -5290,8 +5211,8 @@
       "aides_logement_foyer_plafond_mensualite"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1858,
-    "stop_line_number": 1883,
+    "start_line_number": 1632,
+    "stop_line_number": 1657,
     "value_type": "float"
   },
   "aides_logement_foyer_k_al": {
@@ -5307,8 +5228,8 @@
           "prestations.al_param.multiplicateur_de_n_dans_la_formule_de_k",
           "prestations.al_param_accal.constante_du_coefficient_k"
         ],
-        "start_line_number": 1682,
-        "stop_line_number": 1693,
+        "start_line_number": 1456,
+        "stop_line_number": 1467,
         "variables": [
           "aide_logement_base_ressources",
           "aides_logement_nb_part"
@@ -5332,8 +5253,8 @@
       "aides_logement_k"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1673,
-    "stop_line_number": 1693,
+    "start_line_number": 1447,
+    "stop_line_number": 1467,
     "value_type": "float"
   },
   "aides_logement_foyer_k_apl": {
@@ -5350,8 +5271,8 @@
           "prestations.al_param_accapl.multiplicateur_de_n.dans_la_formule_de_kl",
           "prestations.al_param_accapl.multiplicateur_de_n.dans_la_formule_de_kl_numerateur"
         ],
-        "start_line_number": 1704,
-        "stop_line_number": 1717,
+        "start_line_number": 1478,
+        "stop_line_number": 1491,
         "variables": [
           "aide_logement_base_ressources",
           "aides_logement_nb_part"
@@ -5375,8 +5296,8 @@
       "aides_logement_k"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1695,
-    "stop_line_number": 1717,
+    "start_line_number": 1469,
+    "stop_line_number": 1491,
     "value_type": "float"
   },
   "aides_logement_foyer_personne_agee_eligibilite": {
@@ -5388,8 +5309,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 355,
-        "stop_line_number": 360
+        "start_line_number": 331,
+        "stop_line_number": 336
       }
     },
     "is_period_size_independent": true,
@@ -5399,8 +5320,8 @@
       "aides_logement_foyer_plafond_mensualite"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 349,
-    "stop_line_number": 360,
+    "start_line_number": 325,
+    "stop_line_number": 336,
     "value_type": "bool"
   },
   "aides_logement_foyer_plafond_mensualite": {
@@ -5417,8 +5338,8 @@
           "prestations.al_plafonds_logement_foyer_crous.non_rehabilitee",
           "prestations.al_plafonds_logement_foyer_crous.rehabilitee"
         ],
-        "start_line_number": 1896,
-        "stop_line_number": 1917,
+        "start_line_number": 1670,
+        "stop_line_number": 1691,
         "variables": [
           "aides_logement_foyer_chambre_non_rehabilite_eligibilite",
           "aides_logement_foyer_conventionne_plafond",
@@ -5445,8 +5366,8 @@
       "aides_logement_plafond_mensualite"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1885,
-    "stop_line_number": 1917,
+    "start_line_number": 1659,
+    "stop_line_number": 1691,
     "value_type": "float"
   },
   "aides_logement_k": {
@@ -5458,8 +5379,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1644,
-        "stop_line_number": 1651,
+        "start_line_number": 1418,
+        "stop_line_number": 1425,
         "variables": [
           "aides_logement_foyer_k_al",
           "aides_logement_foyer_k_apl",
@@ -5484,8 +5405,8 @@
       "aides_logement_accedant_et_foyer"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1635,
-    "stop_line_number": 1651,
+    "start_line_number": 1409,
+    "stop_line_number": 1425,
     "value_type": "float"
   },
   "aides_logement_loyer_minimal": {
@@ -5497,8 +5418,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1764,
-        "stop_line_number": 1769,
+        "start_line_number": 1538,
+        "stop_line_number": 1543,
         "variables": [
           "aides_logement_loyer_minimal_al",
           "aides_logement_loyer_minimal_apl"
@@ -5519,8 +5440,8 @@
       "aides_logement_accedant_et_foyer"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1756,
-    "stop_line_number": 1769,
+    "start_line_number": 1530,
+    "stop_line_number": 1543,
     "value_type": "float"
   },
   "aides_logement_loyer_minimal_al": {
@@ -5536,8 +5457,8 @@
           "prestations.al_param.majoration_du_loyer_minimum_lo",
           "prestations.al_param_accal.bareme_loyer_minimum_lo"
         ],
-        "start_line_number": 1779,
-        "stop_line_number": 1789,
+        "start_line_number": 1553,
+        "stop_line_number": 1563,
         "variables": [
           "aide_logement_base_ressources",
           "aides_logement_nb_part"
@@ -5558,8 +5479,8 @@
       "aides_logement_loyer_minimal"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1771,
-    "stop_line_number": 1789,
+    "start_line_number": 1545,
+    "stop_line_number": 1563,
     "value_type": "float"
   },
   "aides_logement_loyer_minimal_apl": {
@@ -5575,8 +5496,8 @@
           "prestations.al_param_accal.bareme_loyer_minimum_lo_apl1",
           "prestations.al_param_accal.majoration_du_loyer_minimum_lo_apl1"
         ],
-        "start_line_number": 1800,
-        "stop_line_number": 1810,
+        "start_line_number": 1574,
+        "stop_line_number": 1584,
         "variables": [
           "aide_logement_base_ressources",
           "aides_logement_nb_part"
@@ -5598,8 +5519,8 @@
       "aides_logement_loyer_minimal"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1791,
-    "stop_line_number": 1810,
+    "start_line_number": 1565,
+    "stop_line_number": 1584,
     "value_type": "float"
   },
   "aides_logement_nb_part": {
@@ -5614,8 +5535,8 @@
         "parameters": [
           "prestations.al_param.parametre_n"
         ],
-        "start_line_number": 1738,
-        "stop_line_number": 1754,
+        "start_line_number": 1512,
+        "stop_line_number": 1528,
         "variables": [
           "aides_logement_categorie",
           "al_couple",
@@ -5641,8 +5562,8 @@
       "aides_logement_primo_accedant_k"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 1730,
-    "stop_line_number": 1754,
+    "start_line_number": 1504,
+    "stop_line_number": 1528,
     "value_type": "float"
   },
   "aides_logement_plafond_mensualite": {
@@ -5654,8 +5575,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1819,
-        "stop_line_number": 1829,
+        "start_line_number": 1593,
+        "stop_line_number": 1603,
         "variables": [
           "aides_logement_foyer_plafond_mensualite",
           "aides_logement_primo_accedant_plafond_mensualite"
@@ -5669,8 +5590,8 @@
       "aides_logement_accedant_et_foyer"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1812,
-    "stop_line_number": 1829,
+    "start_line_number": 1586,
+    "stop_line_number": 1603,
     "value_type": "float"
   },
   "aides_logement_primo_accedant_eligibilite": {
@@ -5682,8 +5603,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 304,
-        "stop_line_number": 328,
+        "start_line_number": 280,
+        "stop_line_number": 304,
         "variables": [
           "aide_logement_date_pret_conventionne",
           "etat_logement",
@@ -5703,8 +5624,8 @@
       ]
     },
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 296,
-    "stop_line_number": 328,
+    "start_line_number": 272,
+    "stop_line_number": 304,
     "value_type": "bool"
   },
   "aides_logement_primo_accedant_k": {
@@ -5720,8 +5641,8 @@
           "prestations.al_param_accal.constante_du_coefficient_k",
           "prestations.al_param_accal.multiplicateur_de_n"
         ],
-        "start_line_number": 1661,
-        "stop_line_number": 1671,
+        "start_line_number": 1435,
+        "stop_line_number": 1445,
         "variables": [
           "aide_logement_base_ressources",
           "aides_logement_nb_part"
@@ -5742,8 +5663,8 @@
       "aides_logement_k"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1653,
-    "stop_line_number": 1671,
+    "start_line_number": 1427,
+    "stop_line_number": 1445,
     "value_type": "float"
   },
   "aides_logement_primo_accedant_plafond_mensualite": {
@@ -5758,8 +5679,8 @@
         "parameters": [
           "prestations.al_plafonds_accession"
         ],
-        "start_line_number": 1839,
-        "stop_line_number": 1856,
+        "start_line_number": 1613,
+        "stop_line_number": 1630,
         "variables": [
           "al_couple",
           "al_nb_personnes_a_charge"
@@ -5780,8 +5701,8 @@
       "aides_logement_plafond_mensualite"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1831,
-    "stop_line_number": 1856,
+    "start_line_number": 1605,
+    "stop_line_number": 1630,
     "value_type": "float"
   },
   "aides_logement_primo_accedant_ressources": {
@@ -5796,8 +5717,8 @@
         "parameters": [
           "prestations.aides_logement.ressources.dar_3"
         ],
-        "start_line_number": 1245,
-        "stop_line_number": 1249,
+        "start_line_number": 1019,
+        "stop_line_number": 1023,
         "variables": [
           "loyer"
         ]
@@ -5813,8 +5734,9 @@
         }
       ]
     },
-    "start_line_number": 1238,
-    "stop_line_number": 1249,
+    "set_input": "set_input_divide_by_period",
+    "start_line_number": 1011,
+    "stop_line_number": 1023,
     "value_type": "float"
   },
   "aidmob": {
@@ -6043,111 +5965,6 @@
     "stop_line_number": 319,
     "value_type": "float"
   },
-  "al_abattement_forfaitaire_assistants_et_journalistes": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "2019-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "prestations.al_assistant_journaliste.abattement.montant.assistant_familial",
-          "prestations.al_assistant_journaliste.abattement.montant.assistant_maternel",
-          "prestations.al_assistant_journaliste.abattement.montant.journaliste"
-        ],
-        "start_line_number": 611,
-        "stop_line_number": 623,
-        "variables": [
-          "assistant_familial",
-          "assistant_maternel",
-          "journaliste",
-          "salaire_imposable"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "L'application de l'abattement forfaitaire pour les journaliste et les assistants maternels et familiaux.",
-    "last_review": "2019-01-01",
-    "name": "al_abattement_forfaitaire_assistants_et_journalistes",
-    "referring_variables": [
-      "al_revenu_assimile_salaire"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 604,
-    "stop_line_number": 623,
-    "value_type": "float"
-  },
-  "al_base_ressources_individu": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "2021-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1011,
-        "stop_line_number": 1021,
-        "variables": [
-          "al_traitements_salaires_pensions_rentes",
-          "assiette_csg_plus_values",
-          "glo",
-          "hsup",
-          "rpns_exon",
-          "rpns_imposables",
-          "rpns_pvce"
-        ]
-      }
-    },
-    "is_period_size_independent": true,
-    "json_type": "number",
-    "label": "Base ressource individuelle des aides logement",
-    "last_review": "2021-01-01",
-    "name": "al_base_ressources_individu",
-    "referring_variables": [
-      "aide_logement_base_ressources"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 1003,
-    "stop_line_number": 1021,
-    "unit": "currency",
-    "value_type": "float"
-  },
-  "al_biactivite": {
-    "default_value": false,
-    "definition_period": "month",
-    "dtype": "bool_",
-    "entity": "famille",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "0001-01-01": {
-        "documentation": "\nHypothèses/points à éclaircir :\n   (1) A partir d'une certaine date sont apparemment pris en compte\n       dans les \"revenus professinnels\" les indemnités journalières.\n       Cf. circulaire interministérielle DSS/2B n°2011-447 du 01/12/2011\n       Regarder davantage ce point\n   (2) On n'a pas pris en compte les abbattements présents dans la\n       variable abattement_salaires_pensions, car il s'agit d'une\n       variable dépendant conjointement des salaires et des pensions\n       (or, les pensions ne doivent pas être pris en compte ici, et\n       cette variable ne peut pas être décomposée entre une part salaire et\n       une part pensions). Mais cette variable n'existe que jusqu'à 2005\n       inclus.\n",
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "prestations.prestations_familiales.af.bmaf"
-        ],
-        "start_line_number": 574,
-        "stop_line_number": 602,
-        "variables": [
-          "revenu_assimile_salaire_apres_abattements",
-          "rpns_imposables"
-        ]
-      }
-    },
-    "is_period_size_independent": true,
-    "json_type": "boolean",
-    "label": "Indicatrice de biactivité dans le cadre du calcul des ressources de l'aide au logement.",
-    "name": "al_biactivite",
-    "referring_variables": [
-      "aide_logement_base_ressources"
-    ],
-    "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 567,
-    "stop_line_number": 602,
-    "value_type": "bool"
-  },
   "al_couple": {
     "default_value": false,
     "definition_period": "month",
@@ -6157,8 +5974,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 490,
-        "stop_line_number": 496,
+        "start_line_number": 466,
+        "stop_line_number": 472,
         "variables": [
           "en_couple",
           "enceinte_fam"
@@ -6183,8 +6000,8 @@
       "reduction_loyer_solidarite_plafond_ressources"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 483,
-    "stop_line_number": 496,
+    "start_line_number": 459,
+    "stop_line_number": 472,
     "unit": "currency",
     "value_type": "bool"
   },
@@ -6203,8 +6020,8 @@
           "prestations.prestations_familiales.af.age1",
           "prestations.prestations_familiales.cf.age_max"
         ],
-        "start_line_number": 369,
-        "stop_line_number": 422,
+        "start_line_number": 345,
+        "stop_line_number": 398,
         "variables": [
           "age",
           "inapte_travail",
@@ -6233,123 +6050,9 @@
       "reduction_loyer_solidarite_plafond_ressources"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 362,
-    "stop_line_number": 422,
+    "start_line_number": 338,
+    "stop_line_number": 398,
     "value_type": "int"
-  },
-  "al_revenu_assimile_salaire": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "0001-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "marche_travail.salaire_minimum.smic_h_b"
-        ],
-        "start_line_number": 539,
-        "stop_line_number": 565,
-        "variables": [
-          "al_abattement_forfaitaire_assistants_et_journalistes",
-          "chomage_imposable",
-          "f1tt",
-          "f3vj",
-          "frais_reels",
-          "indemnites_stage",
-          "remuneration_apprenti",
-          "salaire_imposable"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Revenu imposé comme des salaires dans le cadre du calcul des ressources de l'aide au logement.",
-    "name": "al_revenu_assimile_salaire",
-    "referring_variables": [
-      "al_revenu_assimile_salaire_apres_abattements"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 532,
-    "stop_line_number": 565,
-    "value_type": "float"
-  },
-  "al_revenu_assimile_salaire_apres_abattements": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "2021-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "impot_revenu.tspr.abatpro.max",
-          "impot_revenu.tspr.abatpro.min",
-          "impot_revenu.tspr.abatpro.min2",
-          "impot_revenu.tspr.abatpro.taux"
-        ],
-        "start_line_number": 949,
-        "stop_line_number": 966,
-        "variables": [
-          "al_revenu_assimile_salaire",
-          "chomeur_longue_duree",
-          "frais_reels"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Salaires et chômage imposables après abattements dans le cadre du calcul des ressources de l'aide au logement",
-    "last_review": "2021-01-01",
-    "name": "al_revenu_assimile_salaire_apres_abattements",
-    "referring_variables": [
-      "aide_logement_abattement_depart_retraite",
-      "al_traitements_salaires_pensions_rentes"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 942,
-    "stop_line_number": 966,
-    "value_type": "float"
-  },
-  "al_traitements_salaires_pensions_rentes": {
-    "default_value": 0,
-    "definition_period": "month",
-    "dtype": "float32",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "formulas": {
-      "2021-01-01": {
-        "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "parameters": [
-          "impot_revenu.tspr.abatpen.min",
-          "impot_revenu.tspr.abatpen.taux"
-        ],
-        "start_line_number": 975,
-        "stop_line_number": 1001,
-        "variables": [
-          "aide_logement_condition_neutralisation_chomage",
-          "al_revenu_assimile_salaire_apres_abattements",
-          "pensions_alimentaires_percues",
-          "pensions_alimentaires_percues_decl",
-          "pensions_invalidite",
-          "retraite_imposable",
-          "rsa",
-          "type_conges"
-        ]
-      }
-    },
-    "json_type": "number",
-    "label": "Traitements salaires pensions et rentes individuelles dans le cadre des aides au logement",
-    "last_review": "2021-01-01",
-    "name": "al_traitements_salaires_pensions_rentes",
-    "referring_variables": [
-      "al_base_ressources_individu"
-    ],
-    "set_input": "set_input_divide_by_period",
-    "start_line_number": 968,
-    "stop_line_number": 1001,
-    "unit": "currency",
-    "value_type": "float"
   },
   "alf": {
     "calculate_output": "calculate_output_add",
@@ -6398,8 +6101,8 @@
     "formulas": {
       "2015-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
-        "start_line_number": 398,
-        "stop_line_number": 415,
+        "start_line_number": 399,
+        "stop_line_number": 416,
         "variables": [
           "allegement_cotisation_allocations_familiales_mode_recouvrement",
           "apprenti",
@@ -6425,8 +6128,8 @@
       "exonerations_et_allegements"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 390,
-    "stop_line_number": 415,
+    "start_line_number": 391,
+    "stop_line_number": 416,
     "unit": "currency",
     "ux_name": "Réduc. cotis. famille",
     "value_type": "float"
@@ -6464,8 +6167,8 @@
     "formulas": {
       "2005-07-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
-        "start_line_number": 315,
-        "stop_line_number": 331,
+        "start_line_number": 316,
+        "stop_line_number": 332,
         "variables": [
           "allegement_fillon_mode_recouvrement",
           "apprenti",
@@ -6491,8 +6194,8 @@
       "exonerations_et_allegements"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 304,
-    "stop_line_number": 331,
+    "start_line_number": 305,
+    "stop_line_number": 332,
     "unit": "currency",
     "ux_name": "Réduc. cotis. bas salaires",
     "value_type": "float"
@@ -6724,7 +6427,9 @@
       "bourse_criteres_sociaux_eligibilite_etude",
       "depart1825_eligibilite",
       "locapass_eligibilite_jeunes",
-      "mobili_jeune_eligibilite"
+      "mobili_jeune_eligibilite",
+      "mon_job_mon_logement_eligibilite",
+      "mon_job_mon_logement_eligibilite_jeunes_actifs"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 68,
@@ -7089,8 +6794,8 @@
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.apec"
         ],
-        "start_line_number": 486,
-        "stop_line_number": 496
+        "start_line_number": 487,
+        "stop_line_number": 497
       }
     },
     "json_type": "number",
@@ -7109,8 +6814,8 @@
       "cotisations_employeur_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 479,
-    "stop_line_number": 496,
+    "start_line_number": 480,
+    "stop_line_number": 497,
     "unit": "currency",
     "ux_name": "Cotis. APEC des cadres",
     "value_type": "float"
@@ -7127,8 +6832,8 @@
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.apec"
         ],
-        "start_line_number": 466,
-        "stop_line_number": 477,
+        "start_line_number": 467,
+        "stop_line_number": 478,
         "variables": [
           "categorie_salarie"
         ]
@@ -7148,8 +6853,8 @@
       "cotisations_salariales_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 459,
-    "stop_line_number": 477,
+    "start_line_number": 460,
+    "stop_line_number": 478,
     "unit": "currency",
     "ux_name": "Cotis. APEC des cadres",
     "value_type": "float"
@@ -7601,8 +7306,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.arrco",
           "cotsoc.cotisations_employeur.prive_non_cadre.arrco"
         ],
-        "start_line_number": 548,
-        "stop_line_number": 575,
+        "start_line_number": 549,
+        "stop_line_number": 576,
         "variables": [
           "arrco_tranche_a_taux_employeur",
           "assiette_cotisations_sociales",
@@ -7629,8 +7334,8 @@
       "exoneration_cotisations_employeur_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 539,
-    "stop_line_number": 575,
+    "start_line_number": 540,
+    "stop_line_number": 576,
     "unit": "currency",
     "ux_name": "Cotis. retraite complémentaire (ARRCO)",
     "value_type": "float"
@@ -7648,8 +7353,8 @@
           "cotsoc.cotisations_salarie.prive_cadre.arrco",
           "cotsoc.cotisations_salarie.prive_non_cadre.arrco"
         ],
-        "start_line_number": 507,
-        "stop_line_number": 537,
+        "start_line_number": 508,
+        "stop_line_number": 538,
         "variables": [
           "arrco_tranche_a_taux_salarie",
           "assiette_cotisations_sociales",
@@ -7676,8 +7381,8 @@
       "exoneration_cotisations_salarie_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 498,
-    "stop_line_number": 537,
+    "start_line_number": 499,
+    "stop_line_number": 538,
     "unit": "currency",
     "ux_name": "Cotis. retraite complémentaire (ARRCO)",
     "value_type": "float"
@@ -8357,7 +8062,6 @@
     "referring_variables": [
       "aefa",
       "aide_jeunes_diplomes_anciens_boursiers_eligibilite",
-      "aide_logement_condition_neutralisation_chomage",
       "asi_aspa_base_ressources",
       "cmu_base_ressources_individu",
       "covid_aide_exceptionnelle_famille_montant",
@@ -8684,7 +8388,6 @@
       "contribution_supplementaire_apprentissage",
       "cotisation_equilibre_technique_employeur",
       "cotisation_equilibre_technique_salarie",
-      "fnal_cotisation",
       "ircantec_employeur",
       "ircantec_salarie",
       "prevoyance_obligatoire_cadre",
@@ -8706,7 +8409,7 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "start_line_number": 43,
-        "stop_line_number": 72,
+        "stop_line_number": 73,
         "variables": [
           "avantage_en_nature",
           "categorie_salarie",
@@ -8730,7 +8433,7 @@
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 36,
-    "stop_line_number": 72,
+    "stop_line_number": 73,
     "value_type": "float"
   },
   "assiette_csg_abattue": {
@@ -8941,7 +8644,6 @@
     "last_review": "2019-01-01",
     "name": "assiette_csg_plus_values",
     "referring_variables": [
-      "al_base_ressources_individu",
       "asi_aspa_base_ressources_individu",
       "assiette_csg_revenus_capital",
       "plus_values_base_large",
@@ -9117,42 +8819,6 @@
     "stop_line_number": 1540,
     "unit": "currency",
     "value_type": "float"
-  },
-  "assistant_familial": {
-    "default_value": false,
-    "definition_period": "month",
-    "dtype": "bool_",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "is_period_size_independent": true,
-    "json_type": "boolean",
-    "label": "Exerce la profession d'assistant familial",
-    "name": "assistant_familial",
-    "referring_variables": [
-      "al_abattement_forfaitaire_assistants_et_journalistes"
-    ],
-    "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 264,
-    "stop_line_number": 270,
-    "value_type": "bool"
-  },
-  "assistant_maternel": {
-    "default_value": false,
-    "definition_period": "month",
-    "dtype": "bool_",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "is_period_size_independent": true,
-    "json_type": "boolean",
-    "label": "Exerce la profession d'assistant maternel",
-    "name": "assistant_maternel",
-    "referring_variables": [
-      "al_abattement_forfaitaire_assistants_et_journalistes"
-    ],
-    "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 256,
-    "stop_line_number": 262,
-    "value_type": "bool"
   },
   "assloy": {
     "default_value": 0,
@@ -10209,8 +9875,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 501,
-        "stop_line_number": 505,
+        "start_line_number": 506,
+        "stop_line_number": 510,
         "variables": [
           "effectif_entreprise"
         ]
@@ -10221,8 +9887,8 @@
     "label": "L'entreprise est située dans un bassin d'emploi à redynamiser (BER)",
     "name": "bassin_emploi_redynamiser",
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 491,
-    "stop_line_number": 505,
+    "start_line_number": 496,
+    "stop_line_number": 510,
     "value_type": "bool"
   },
   "biactivite": {
@@ -10251,7 +9917,6 @@
     "label": "Indicatrice de biactivité",
     "name": "biactivite",
     "referring_variables": [
-      "aide_logement_base_ressources_defaut",
       "apje_avant_cumul",
       "cf_plafond",
       "paje_base",
@@ -13360,8 +13025,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.asf",
           "cotsoc.cotisations_employeur.prive_non_cadre.chomage"
         ],
-        "start_line_number": 613,
-        "stop_line_number": 632
+        "start_line_number": 614,
+        "stop_line_number": 633
       }
     },
     "json_type": "number",
@@ -13380,8 +13045,8 @@
       "cotisations_employeur_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 606,
-    "stop_line_number": 632,
+    "start_line_number": 607,
+    "stop_line_number": 633,
     "unit": "currency",
     "ux_name": "Cotis. chômage",
     "value_type": "float"
@@ -13423,8 +13088,7 @@
       ]
     },
     "referring_variables": [
-      "aide_logement_condition_neutralisation_chomage",
-      "al_revenu_assimile_salaire",
+      "aide_logement_base_ressources_individu",
       "chomage_net",
       "cotsyn",
       "revenu_assimile_salaire"
@@ -13502,8 +13166,8 @@
           "cotsoc.cotisations_salarie.prive_non_cadre.asf",
           "cotsoc.cotisations_salarie.prive_non_cadre.chomage"
         ],
-        "start_line_number": 585,
-        "stop_line_number": 604
+        "start_line_number": 586,
+        "stop_line_number": 605
       },
       "2018-10-01": null
     },
@@ -13525,8 +13189,8 @@
       "cotisations_salariales_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 577,
-    "stop_line_number": 604,
+    "start_line_number": 578,
+    "stop_line_number": 605,
     "unit": "currency",
     "ux_name": "Cotis. chômage",
     "value_type": "float"
@@ -13549,8 +13213,7 @@
     "label": "Demandeur d'emploi inscrit depuis plus d'un an",
     "name": "chomeur_longue_duree",
     "referring_variables": [
-      "aide_logement_assiette_abattement_chomage",
-      "al_revenu_assimile_salaire_apres_abattements",
+      "aide_logement_base_ressources_individu",
       "revenu_assimile_salaire_apres_abattements"
     ],
     "start_line_number": 4,
@@ -14349,8 +14012,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 958,
-        "stop_line_number": 965,
+        "start_line_number": 962,
+        "stop_line_number": 969,
         "variables": [
           "complementaire_sante_montant",
           "complementaire_sante_taux_employeur"
@@ -14367,8 +14030,8 @@
       "taxe_salaires"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 951,
-    "stop_line_number": 965,
+    "start_line_number": 955,
+    "stop_line_number": 969,
     "unit": "currency",
     "ux_name": "Mutuelle (part employeur obligatoire)",
     "value_type": "float"
@@ -14400,8 +14063,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 974,
-        "stop_line_number": 981,
+        "start_line_number": 978,
+        "stop_line_number": 985,
         "variables": [
           "complementaire_sante_montant",
           "complementaire_sante_taux_employeur"
@@ -14415,8 +14078,8 @@
       "salaire_imposable"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 967,
-    "stop_line_number": 981,
+    "start_line_number": 971,
+    "stop_line_number": 985,
     "unit": "currency",
     "ux_name": "Mutuelle (part salariée)",
     "value_type": "float"
@@ -14605,6 +14268,8 @@
       "exoneration_cotisations_employeur_zfu",
       "exoneration_cotisations_employeur_zrr",
       "exoneration_is_creation_zrr",
+      "mon_job_mon_logement_eligibilite",
+      "mon_job_mon_logement_eligibilite_jeunes_actifs",
       "nombre_jours_calendaires"
     ],
     "set_input": "set_input_dispatch_by_period",
@@ -14718,15 +14383,10 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.ceg",
-          "cotsoc.cotisations_employeur.prive_non_cadre.ceg",
-          "cotsoc.cotisations_employeur.public_non_titulaire.ceg",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.ceg",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.ceg",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.ceg",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.ceg"
+          "cotsoc.cotisations_employeur.prive_non_cadre.ceg"
         ],
-        "start_line_number": 661,
-        "stop_line_number": 672
+        "start_line_number": 662,
+        "stop_line_number": 673
       }
     },
     "json_type": "number",
@@ -14747,8 +14407,8 @@
       "exoneration_cotisations_employeur_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 654,
-    "stop_line_number": 672,
+    "start_line_number": 655,
+    "stop_line_number": 673,
     "unit": "currency",
     "ux_name": "Contrib. équilibre général (CEG)",
     "value_type": "float"
@@ -14764,11 +14424,10 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.ceg",
-          "cotsoc.cotisations_salarie.prive_non_cadre.ceg",
-          "cotsoc.cotisations_salarie.public_non_titulaire.ceg"
+          "cotsoc.cotisations_salarie.prive_non_cadre.ceg"
         ],
-        "start_line_number": 641,
-        "stop_line_number": 652
+        "start_line_number": 642,
+        "stop_line_number": 653
       }
     },
     "json_type": "number",
@@ -14789,8 +14448,8 @@
       "exoneration_cotisations_salarie_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 634,
-    "stop_line_number": 652,
+    "start_line_number": 635,
+    "stop_line_number": 653,
     "unit": "currency",
     "ux_name": "Contrib. équilibre général (CEG)",
     "value_type": "float"
@@ -14809,8 +14468,8 @@
           "cotsoc.cotisations_salarie.public_titulaire_etat.excep_solidarite",
           "cotsoc.cotisations_salarie.public_titulaire_hospitaliere.excep_solidarite",
           "cotsoc.cotisations_salarie.public_titulaire_territoriale.excep_solidarite",
-          "prelevements_sociaux.cotisations_sociales.fds",
-          "prelevements_sociaux.cotisations_sociales.fds.plafond_base_solidarite"
+          "prelevements_sociaux.cotisations_secteur_public.fds.salarie",
+          "prelevements_sociaux.cotisations_secteur_public.fds.salarie.plafond_base_solidarite"
         ],
         "start_line_number": 54,
         "stop_line_number": 106,
@@ -14870,8 +14529,8 @@
           "cotsoc.cotisations_employeur.public_titulaire_militaire.csa",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.csa"
         ],
-        "start_line_number": 681,
-        "stop_line_number": 691
+        "start_line_number": 682,
+        "stop_line_number": 692
       }
     },
     "json_type": "number",
@@ -14891,8 +14550,8 @@
       "mmida_employeur"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 674,
-    "stop_line_number": 691,
+    "start_line_number": 675,
+    "stop_line_number": 692,
     "unit": "currency",
     "ux_name": "Contrib. solidarité autonomie (CSA)",
     "value_type": "float"
@@ -15014,15 +14673,10 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.cet2019",
-          "cotsoc.cotisations_employeur.prive_non_cadre.cet2019",
-          "cotsoc.cotisations_employeur.public_non_titulaire.cet2019",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.cet2019",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.cet2019",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.cet2019",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.cet2019"
+          "cotsoc.cotisations_employeur.prive_non_cadre.cet2019"
         ],
-        "start_line_number": 723,
-        "stop_line_number": 737,
+        "start_line_number": 724,
+        "stop_line_number": 738,
         "variables": [
           "assiette_cotisations_sociales",
           "plafond_securite_sociale"
@@ -15047,8 +14701,8 @@
       "exoneration_cotisations_employeur_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 716,
-    "stop_line_number": 737,
+    "start_line_number": 717,
+    "stop_line_number": 738,
     "unit": "currency",
     "ux_name": "Contrib. équilibre technique (CET)",
     "value_type": "float"
@@ -15064,11 +14718,10 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.cet2019",
-          "cotsoc.cotisations_salarie.prive_non_cadre.cet2019",
-          "cotsoc.cotisations_salarie.public_non_titulaire.cet2019"
+          "cotsoc.cotisations_salarie.prive_non_cadre.cet2019"
         ],
-        "start_line_number": 700,
-        "stop_line_number": 714,
+        "start_line_number": 701,
+        "stop_line_number": 715,
         "variables": [
           "assiette_cotisations_sociales",
           "plafond_securite_sociale"
@@ -15093,8 +14746,8 @@
       "exoneration_cotisations_salarie_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 693,
-    "stop_line_number": 714,
+    "start_line_number": 694,
+    "stop_line_number": 715,
     "unit": "currency",
     "ux_name": "Contrib. équilibre technique (CET)",
     "value_type": "float"
@@ -15111,8 +14764,8 @@
         "parameters": [
           "cotsoc.cotisations_employeur.prive_cadre.cet"
         ],
-        "start_line_number": 767,
-        "stop_line_number": 777
+        "start_line_number": 768,
+        "stop_line_number": 778
       },
       "2018-12-22": null
     },
@@ -15140,8 +14793,8 @@
       "exoneration_cotisations_employeur_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 759,
-    "stop_line_number": 777,
+    "start_line_number": 760,
+    "stop_line_number": 778,
     "unit": "currency",
     "ux_name": "Contrib. équilibre technique",
     "value_type": "float"
@@ -15158,8 +14811,8 @@
         "parameters": [
           "cotsoc.cotisations_salarie.prive_cadre.cet"
         ],
-        "start_line_number": 747,
-        "stop_line_number": 757
+        "start_line_number": 748,
+        "stop_line_number": 758
       },
       "2018-12-22": null
     },
@@ -15181,8 +14834,8 @@
       "exoneration_cotisations_salarie_stagiaire"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 739,
-    "stop_line_number": 757,
+    "start_line_number": 740,
+    "stop_line_number": 758,
     "unit": "currency",
     "ux_name": "Contrib. équilibre technique",
     "value_type": "float"
@@ -16012,8 +15665,8 @@
         "parameters": [
           "prestations.prestations_familiales.af.crds"
         ],
-        "start_line_number": 1529,
-        "stop_line_number": 1533,
+        "start_line_number": 1303,
+        "stop_line_number": 1307,
         "variables": [
           "aide_logement_montant_brut_crds"
         ]
@@ -16034,8 +15687,8 @@
       "crds"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1520,
-    "stop_line_number": 1533,
+    "start_line_number": 1294,
+    "stop_line_number": 1307,
     "unit": "currency",
     "value_type": "float"
   },
@@ -16460,8 +16113,8 @@
         "parameters": [
           "prelevements_sociaux.reductions_cotisations_sociales.cice"
         ],
-        "start_line_number": 127,
-        "stop_line_number": 138,
+        "start_line_number": 128,
+        "stop_line_number": 139,
         "variables": [
           "assiette_allegement",
           "entreprise_est_association_non_lucrative",
@@ -16469,11 +16122,12 @@
           "smic_proratise",
           "stagiaire"
         ]
-      }
+      },
+      "2019-01-01": null
     },
     "json_type": "number",
     "label": "Crédit d'impôt pour la compétitivité et l'emploi (CICE)",
-    "last_review": "2013-01-01",
+    "last_review": "2019-01-01",
     "name": "credit_impot_competitivite_emploi",
     "obsolete": true,
     "reference": {
@@ -16488,7 +16142,7 @@
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 119,
-    "stop_line_number": 138,
+    "stop_line_number": 139,
     "unit": "currency",
     "ux_name": "CICE",
     "value_type": "float"
@@ -17740,11 +17394,27 @@
     "label": "Date de début de chômage",
     "name": "date_debut_chomage",
     "referring_variables": [
-      "aide_logement_abattement_chomage_indemnise",
-      "aide_logement_condition_neutralisation_chomage"
+      "aide_logement_abattement_revenus_activite_professionnelle"
     ],
-    "start_line_number": 288,
-    "stop_line_number": 294,
+    "start_line_number": 264,
+    "stop_line_number": 270,
+    "value_type": "date"
+  },
+  "date_entree_logement": {
+    "default_value": "1970-01-01",
+    "definition_period": "month",
+    "dtype": "datetime64[D]",
+    "entity": "menage",
+    "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+    "is_period_size_independent": true,
+    "json_type": "string",
+    "label": "Date entrée dans le logement",
+    "name": "date_entree_logement",
+    "referring_variables": [
+      "mon_job_mon_logement_eligibilite_logement"
+    ],
+    "start_line_number": 6,
+    "stop_line_number": 12,
     "value_type": "date"
   },
   "date_naissance": {
@@ -21109,7 +20779,7 @@
       "aah_plafond_ressources",
       "aeeh",
       "aes",
-      "aide_logement_base_ressources",
+      "aide_logement_base_ressources_eval_forfaitaire",
       "al_couple",
       "apa_domicile_participation",
       "apa_etablissement",
@@ -21861,14 +21531,13 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
         "parameters": [
           "cotsoc.cotisations_employeur.prive_non_cadre.famille",
-          "cotsoc.cotisations_employeur.prive_non_cadre.maladie",
           "cotsoc.cotisations_employeur.prive_non_cadre.vieillesse_deplafonnee",
           "cotsoc.cotisations_employeur.prive_non_cadre.vieillesse_plafonnee",
           "prelevements_sociaux.autres_taxes_participations_assises_salaires.fnal.contribution_plus_de_50_salaries",
           "prelevements_sociaux.autres_taxes_participations_assises_salaires.fnal.cotisation"
         ],
         "start_line_number": 147,
-        "stop_line_number": 263,
+        "stop_line_number": 268,
         "variables": [
           "assiette_allegement",
           "contrat_de_travail_debut",
@@ -21898,7 +21567,7 @@
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 87,
-    "stop_line_number": 263,
+    "stop_line_number": 268,
     "unit": "currency",
     "ux_name": "en ZFU (zone franche urbaine)",
     "value_type": "float"
@@ -21912,8 +21581,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 273,
-        "stop_line_number": 302,
+        "start_line_number": 278,
+        "stop_line_number": 307,
         "variables": [
           "assiette_allegement",
           "entreprise_creation",
@@ -21936,8 +21605,8 @@
       "exoneration_cotisations_employeur_geographiques"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 265,
-    "stop_line_number": 302,
+    "start_line_number": 270,
+    "stop_line_number": 307,
     "unit": "currency",
     "ux_name": "en ZRD (zone de restructuration de la défense)",
     "value_type": "float"
@@ -21951,8 +21620,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 325,
-        "stop_line_number": 360,
+        "start_line_number": 330,
+        "stop_line_number": 365,
         "variables": [
           "assiette_allegement",
           "contrat_de_travail_debut",
@@ -21978,8 +21647,8 @@
       "exoneration_cotisations_employeur_geographiques"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 304,
-    "stop_line_number": 360,
+    "start_line_number": 309,
+    "stop_line_number": 365,
     "unit": "currency",
     "ux_name": "en ZRR (zone de revitalisation rurale)",
     "value_type": "float"
@@ -22084,8 +21753,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 371,
-        "stop_line_number": 415,
+        "start_line_number": 376,
+        "stop_line_number": 420,
         "variables": [
           "contrat_de_travail_debut",
           "contrat_de_travail_duree",
@@ -22106,8 +21775,8 @@
         }
       ]
     },
-    "start_line_number": 363,
-    "stop_line_number": 415,
+    "start_line_number": 368,
+    "stop_line_number": 420,
     "value_type": "float"
   },
   "exonerations_et_allegements": {
@@ -22437,7 +22106,8 @@
     "label": "Gains de levée d'options sur titres et gains d'acquisition d'actions gratuites attribuées à compter du 28.9.2012",
     "name": "f1tt",
     "referring_variables": [
-      "al_revenu_assimile_salaire",
+      "aide_logement_base_ressources_individu",
+      "aide_logement_biactivite",
       "revenu_assimile_salaire"
     ],
     "start_line_number": 13,
@@ -23834,7 +23504,8 @@
     "label": "Gains imposables sur option dans la catégorie des salaires",
     "name": "f3vj",
     "referring_variables": [
-      "al_revenu_assimile_salaire",
+      "aide_logement_base_ressources_individu",
+      "aide_logement_biactivite",
       "glo",
       "revenu_assimile_salaire"
     ],
@@ -38017,8 +37688,8 @@
           "cotsoc.cotisations_employeur.public_titulaire_militaire.famille",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.famille"
         ],
-        "start_line_number": 786,
-        "stop_line_number": 796
+        "start_line_number": 790,
+        "stop_line_number": 800
       }
     },
     "json_type": "number",
@@ -38039,8 +37710,8 @@
       "exoneration_cotisations_employeur_professionnalisation"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 779,
-    "stop_line_number": 796,
+    "start_line_number": 780,
+    "stop_line_number": 800,
     "unit": "currency",
     "ux_name": "Cotis. alloc. famililiales",
     "value_type": "float"
@@ -42955,8 +42626,8 @@
           "cotsoc.cotisations_employeur.public_titulaire_militaire.financement_organisations_syndicales",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.financement_organisations_syndicales"
         ],
-        "start_line_number": 314,
-        "stop_line_number": 331,
+        "start_line_number": 318,
+        "stop_line_number": 335,
         "variables": [
           "categorie_salarie"
         ]
@@ -42983,8 +42654,8 @@
       "cotisations_employeur_main_d_oeuvre"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 307,
-    "stop_line_number": 331,
+    "start_line_number": 311,
+    "stop_line_number": 335,
     "unit": "currency",
     "ux_name": "Contrib. dialogue social",
     "value_type": "float"
@@ -43038,16 +42709,16 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
         "parameters": [
-          "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_10_salaries",
-          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_10_salaries",
-          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_10_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_10_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_10_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_10_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_10_salaries"
+          "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_10_salaries",
+          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_10_salaries",
+          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_10_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_10_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_10_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_10_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_10_salaries"
         ],
-        "start_line_number": 293,
-        "stop_line_number": 305,
+        "start_line_number": 297,
+        "stop_line_number": 309,
         "variables": [
           "effectif_entreprise"
         ]
@@ -43055,16 +42726,16 @@
       "2007-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
         "parameters": [
-          "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_20_salaries"
+          "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_20_salaries"
         ],
-        "start_line_number": 280,
-        "stop_line_number": 292,
+        "start_line_number": 284,
+        "stop_line_number": 296,
         "variables": [
           "effectif_entreprise"
         ]
@@ -43072,23 +42743,23 @@
       "2015-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
         "parameters": [
-          "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_moins_de_20_salaries",
-          "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_moins_de_20_salaries",
-          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_moins_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_moins_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_moins_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_moins_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_moins_de_20_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_20_salaries"
+          "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_moins_de_20_salaries",
+          "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_moins_de_20_salaries",
+          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_moins_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_moins_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_moins_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_moins_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_moins_de_20_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_20_salaries"
         ],
-        "start_line_number": 259,
-        "stop_line_number": 279,
+        "start_line_number": 263,
+        "stop_line_number": 283,
         "variables": [
           "effectif_entreprise"
         ]
@@ -43096,23 +42767,23 @@
       "2020-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
         "parameters": [
-          "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_moins_de_50_salaries",
-          "cotsoc.cotisations_employeur.prive_cadre.fnal_cont_plus_de_50_salaries",
-          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_moins_de_50_salaries",
-          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cont_plus_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_moins_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cont_plus_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_moins_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cont_plus_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_moins_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cont_plus_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_moins_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cont_plus_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_moins_de_50_salaries",
-          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cont_plus_de_50_salaries"
+          "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_moins_de_50_salaries",
+          "cotsoc.cotisations_employeur.prive_cadre.fnal_contribution_plus_de_50_salaries",
+          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_moins_de_50_salaries",
+          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_contribution_plus_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_moins_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_contribution_plus_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_moins_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_contribution_plus_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_moins_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_contribution_plus_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_moins_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_contribution_plus_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_moins_de_50_salaries",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_contribution_plus_de_50_salaries"
         ],
-        "start_line_number": 238,
-        "stop_line_number": 258,
+        "start_line_number": 242,
+        "stop_line_number": 262,
         "variables": [
           "effectif_entreprise"
         ]
@@ -43126,8 +42797,8 @@
       "fnal"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 231,
-    "stop_line_number": 305,
+    "start_line_number": 235,
+    "stop_line_number": 309,
     "unit": "currency",
     "value_type": "float"
   },
@@ -43141,14 +42812,16 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
         "parameters": [
-          "prelevements_sociaux.autres_taxes_participations_assises_salaires.fnal.cotisation"
+          "cotsoc.cotisations_employeur.prive_cadre.fnal_cotisation",
+          "cotsoc.cotisations_employeur.prive_non_cadre.fnal_cotisation",
+          "cotsoc.cotisations_employeur.public_non_titulaire.fnal_cotisation",
+          "cotsoc.cotisations_employeur.public_titulaire_etat.fnal_cotisation",
+          "cotsoc.cotisations_employeur.public_titulaire_hospitaliere.fnal_cotisation",
+          "cotsoc.cotisations_employeur.public_titulaire_militaire.fnal_cotisation",
+          "cotsoc.cotisations_employeur.public_titulaire_territoriale.fnal_cotisation"
         ],
         "start_line_number": 224,
-        "stop_line_number": 229,
-        "variables": [
-          "assiette_cotisations_sociales",
-          "plafond_securite_sociale"
-        ]
+        "stop_line_number": 233
       },
       "2015-01-02": null
     },
@@ -43161,7 +42834,7 @@
     ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 216,
-    "stop_line_number": 229,
+    "stop_line_number": 233,
     "unit": "currency",
     "value_type": "float"
   },
@@ -43394,8 +43067,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.formprof_entre_10_et_19_salaries",
           "cotsoc.cotisations_employeur.prive_non_cadre.formprof_moins_de_10_salaries"
         ],
-        "start_line_number": 364,
-        "stop_line_number": 394,
+        "start_line_number": 368,
+        "stop_line_number": 398,
         "variables": [
           "effectif_entreprise"
         ]
@@ -43408,8 +43081,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.formprof_11_salaries_et_plus",
           "cotsoc.cotisations_employeur.prive_non_cadre.formprof_moins_de_11_salaries"
         ],
-        "start_line_number": 342,
-        "stop_line_number": 363,
+        "start_line_number": 346,
+        "stop_line_number": 367,
         "variables": [
           "effectif_entreprise"
         ]
@@ -43433,8 +43106,8 @@
       "cotisations_employeur_main_d_oeuvre"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 333,
-    "stop_line_number": 394,
+    "start_line_number": 337,
+    "stop_line_number": 398,
     "unit": "currency",
     "ux_name": "Contrib. formation pro. et alternance",
     "value_type": "float"
@@ -43668,9 +43341,7 @@
     "label": "Frais réels",
     "name": "frais_reels",
     "referring_variables": [
-      "aide_logement_assiette_abattement_chomage",
-      "al_revenu_assimile_salaire",
-      "al_revenu_assimile_salaire_apres_abattements",
+      "aide_logement_base_ressources_individu",
       "revenu_assimile_salaire_apres_abattements"
     ],
     "start_line_number": 45,
@@ -43689,7 +43360,6 @@
     "name": "gains_exceptionnels",
     "referring_variables": [
       "aah_base_ressources_hors_activite_eval_trimestrielle",
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "cmu_base_ressources_individu",
       "rsa_base_ressources_individu"
@@ -44190,7 +43860,7 @@
       ]
     },
     "referring_variables": [
-      "al_base_ressources_individu",
+      "aide_logement_base_ressources_individu",
       "prestations_familiales_base_ressources_individu"
     ],
     "start_line_number": 2226,
@@ -44413,7 +44083,7 @@
     "last_review": "2013-12-14",
     "name": "hsup",
     "referring_variables": [
-      "al_base_ressources_individu",
+      "aide_logement_base_ressources_individu",
       "assiette_cotisations_sociales_prive",
       "assiette_csg_abattue",
       "contribution_exceptionnelle_solidarite",
@@ -44640,8 +44310,8 @@
         "parameters": [
           "prelevements_sociaux.cotisations_securite_sociale_regime_general.indemnite_fin_contrat.taux"
         ],
-        "start_line_number": 82,
-        "stop_line_number": 112,
+        "start_line_number": 83,
+        "stop_line_number": 113,
         "variables": [
           "apprenti",
           "categorie_salarie",
@@ -44670,8 +44340,8 @@
       "salaire_super_brut_hors_allegements"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 74,
-    "stop_line_number": 112,
+    "start_line_number": 75,
+    "stop_line_number": 113,
     "unit": "currency",
     "ux_name": "Prime de précarité",
     "value_type": "float"
@@ -44830,7 +44500,6 @@
     "label": "Total des indemnités journalières",
     "name": "indemnites_journalieres",
     "referring_variables": [
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "cmu_base_ressources_individu",
       "garantie_jeunes_montant",
@@ -44897,9 +44566,6 @@
         }
       ]
     },
-    "referring_variables": [
-      "aide_logement_base_ressources"
-    ],
     "set_input": "set_input_divide_by_period",
     "start_line_number": 92,
     "stop_line_number": 99,
@@ -45023,7 +44689,6 @@
     "name": "indemnites_stage",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
-      "al_revenu_assimile_salaire",
       "cmu_base_ressources_individu",
       "garantie_jeunes_neet"
     ],
@@ -47228,8 +46893,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 436,
-        "stop_line_number": 489,
+        "start_line_number": 441,
+        "stop_line_number": 494,
         "variables": [
           "effectif_entreprise",
           "entreprise_bilan",
@@ -47248,8 +46913,8 @@
       "exoneration_cotisations_employeur_jei"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 429,
-    "stop_line_number": 489,
+    "start_line_number": 434,
+    "stop_line_number": 494,
     "value_type": "bool"
   },
   "jeune_veuf": {
@@ -47365,24 +47030,6 @@
     "start_line_number": 42,
     "stop_line_number": 48,
     "value_type": "int"
-  },
-  "journaliste": {
-    "default_value": false,
-    "definition_period": "month",
-    "dtype": "bool_",
-    "entity": "individu",
-    "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-    "is_period_size_independent": true,
-    "json_type": "boolean",
-    "label": "Journaliste",
-    "name": "journaliste",
-    "referring_variables": [
-      "al_abattement_forfaitaire_assistants_et_journalistes"
-    ],
-    "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 272,
-    "stop_line_number": 278,
-    "value_type": "bool"
   },
   "livret_a": {
     "default_value": 0,
@@ -49282,8 +48929,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 898,
-        "stop_line_number": 900,
+        "start_line_number": 902,
+        "stop_line_number": 904,
         "variables": [
           "hsup"
         ]
@@ -49293,8 +48940,8 @@
     "label": "Heures supplémentaires comptées négativement",
     "name": "mhsup",
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 890,
-    "stop_line_number": 900,
+    "start_line_number": 894,
+    "stop_line_number": 904,
     "value_type": "float"
   },
   "microentreprise": {
@@ -49493,8 +49140,8 @@
           "cotsoc.cotisations_employeur.public_titulaire_militaire.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.maladie"
         ],
-        "start_line_number": 857,
-        "stop_line_number": 867
+        "start_line_number": 861,
+        "stop_line_number": 871
       }
     },
     "json_type": "number",
@@ -49515,8 +49162,8 @@
       "exoneration_cotisations_employeur_professionnalisation"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 849,
-    "stop_line_number": 867,
+    "start_line_number": 853,
+    "stop_line_number": 871,
     "unit": "currency",
     "ux_name": "Cotis. maladie-maternité-invalidité-décès",
     "value_type": "float"
@@ -49538,8 +49185,8 @@
           "cotsoc.cotisations_salarie.public_non_titulaire.maladie",
           "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
         ],
-        "start_line_number": 823,
-        "stop_line_number": 847,
+        "start_line_number": 827,
+        "stop_line_number": 851,
         "variables": [
           "salarie_regime_alsace_moselle"
         ]
@@ -49552,8 +49199,8 @@
           "cotsoc.cotisations_salarie.prive_non_cadre.maladie_alsace_moselle",
           "cotsoc.cotisations_salarie.public_non_titulaire.maladie_alsace_moselle"
         ],
-        "start_line_number": 805,
-        "stop_line_number": 822,
+        "start_line_number": 809,
+        "stop_line_number": 826,
         "variables": [
           "salarie_regime_alsace_moselle"
         ]
@@ -49577,8 +49224,8 @@
       "cotisations_salariales_non_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 798,
-    "stop_line_number": 847,
+    "start_line_number": 802,
+    "stop_line_number": 851,
     "unit": "currency",
     "ux_name": "Cotis. maladie-maternité-invalidité-décès",
     "value_type": "float"
@@ -49601,8 +49248,8 @@
           "cotsoc.cotisations_employeur.public_titulaire_militaire.maladie",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.maladie"
         ],
-        "start_line_number": 877,
-        "stop_line_number": 888,
+        "start_line_number": 881,
+        "stop_line_number": 892,
         "variables": [
           "contribution_solidarite_autonomie"
         ]
@@ -49612,8 +49259,8 @@
     "label": "Cotisation maladie (employeur)",
     "name": "mmida_employeur",
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 869,
-    "stop_line_number": 888,
+    "start_line_number": 873,
+    "stop_line_number": 892,
     "value_type": "float"
   },
   "mncn_exon": {
@@ -49955,6 +49602,10 @@
     "json_type": "number",
     "label": "Moins values de court terme - Revenu des professions non salariées (toutes)",
     "name": "moins_values_court_terme_non_salaries",
+    "referring_variables": [
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu"
+    ],
     "start_line_number": 2745,
     "stop_line_number": 2757,
     "unit": "currency",
@@ -50052,12 +49703,142 @@
     "label": "Moins values de long terme - Revenu des professions non salariées",
     "name": "moins_values_long_terme_non_salaries",
     "referring_variables": [
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu",
       "rpns_pvce"
     ],
     "start_line_number": 2759,
     "stop_line_number": 2773,
     "unit": "currency",
     "value_type": "float"
+  },
+  "mon_job_mon_logement": {
+    "default_value": 0,
+    "definition_period": "month",
+    "dtype": "float32",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+    "formulas": {
+      "0001-01-01": {
+        "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+        "parameters": [
+          "prestations.mon_job_mon_logement.montant"
+        ],
+        "start_line_number": 69,
+        "stop_line_number": 73,
+        "variables": [
+          "mon_job_mon_logement_eligibilite",
+          "mon_job_mon_logement_eligibilite_jeunes_actifs"
+        ]
+      }
+    },
+    "json_type": "number",
+    "label": "Montant de l'aide mon job mon logement",
+    "name": "mon_job_mon_logement",
+    "reference": {
+      "0001-01-01": [
+        {
+          "href": "https://www.actionlogement.fr/aide-mon-job-mon-logement"
+        }
+      ]
+    },
+    "start_line_number": 62,
+    "stop_line_number": 73,
+    "value_type": "float"
+  },
+  "mon_job_mon_logement_eligibilite": {
+    "default_value": false,
+    "definition_period": "month",
+    "dtype": "bool_",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+    "formulas": {
+      "0001-01-01": {
+        "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+        "start_line_number": 51,
+        "stop_line_number": 60,
+        "variables": [
+          "activite",
+          "alternant",
+          "contrat_de_travail_debut",
+          "mon_job_mon_logement_eligibilite_logement",
+          "salaire_de_base",
+          "smic_proratise"
+        ]
+      }
+    },
+    "is_period_size_independent": true,
+    "json_type": "boolean",
+    "label": "Éligibilité à l'aide mon job mon logement",
+    "name": "mon_job_mon_logement_eligibilite",
+    "referring_variables": [
+      "mon_job_mon_logement"
+    ],
+    "start_line_number": 45,
+    "stop_line_number": 60,
+    "value_type": "bool"
+  },
+  "mon_job_mon_logement_eligibilite_jeunes_actifs": {
+    "default_value": false,
+    "definition_period": "month",
+    "dtype": "bool_",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+    "formulas": {
+      "0001-01-01": {
+        "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+        "start_line_number": 34,
+        "stop_line_number": 43,
+        "variables": [
+          "activite",
+          "age",
+          "alternant",
+          "contrat_de_travail_debut",
+          "mon_job_mon_logement_eligibilite_logement",
+          "salaire_de_base",
+          "smic_proratise"
+        ]
+      }
+    },
+    "is_period_size_independent": true,
+    "json_type": "boolean",
+    "label": "Éligibilité à l'aide mon job mon logement pour les jeunes actifs",
+    "name": "mon_job_mon_logement_eligibilite_jeunes_actifs",
+    "referring_variables": [
+      "mon_job_mon_logement"
+    ],
+    "start_line_number": 28,
+    "stop_line_number": 43,
+    "value_type": "bool"
+  },
+  "mon_job_mon_logement_eligibilite_logement": {
+    "default_value": false,
+    "definition_period": "month",
+    "dtype": "bool_",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+    "formulas": {
+      "0001-01-01": {
+        "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+        "start_line_number": 20,
+        "stop_line_number": 26,
+        "variables": [
+          "date_entree_logement",
+          "statut_occupation_logement"
+        ]
+      }
+    },
+    "is_period_size_independent": true,
+    "json_type": "boolean",
+    "label": "Eligibilité logement de l'aide mon jon mon logement",
+    "name": "mon_job_mon_logement_eligibilite_logement",
+    "referring_variables": [
+      "mon_job_mon_logement_eligibilite",
+      "mon_job_mon_logement_eligibilite_jeunes_actifs"
+    ],
+    "start_line_number": 14,
+    "stop_line_number": 26,
+    "value_type": "bool"
   },
   "mrag_exon": {
     "cerfa_field": {
@@ -51611,7 +51392,6 @@
       ]
     },
     "referring_variables": [
-      "aide_logement_base_ressources",
       "crds_pfam",
       "prestations_familiales"
     ],
@@ -52116,8 +51896,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.construction_plus_de_10_salaries",
           "cotsoc.cotisations_employeur.prive_non_cadre.construction_plus_de_10_salaries"
         ],
-        "start_line_number": 436,
-        "stop_line_number": 451,
+        "start_line_number": 440,
+        "stop_line_number": 455,
         "variables": [
           "effectif_entreprise"
         ]
@@ -52128,8 +51908,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.construction_plus_de_20_salaries",
           "cotsoc.cotisations_employeur.prive_non_cadre.construction_plus_de_20_salaries"
         ],
-        "start_line_number": 420,
-        "stop_line_number": 435,
+        "start_line_number": 424,
+        "stop_line_number": 439,
         "variables": [
           "effectif_entreprise"
         ]
@@ -52140,8 +51920,8 @@
           "cotsoc.cotisations_employeur.prive_cadre.construction_plus_de_50_salaries",
           "cotsoc.cotisations_employeur.prive_non_cadre.construction_plus_de_50_salaries"
         ],
-        "start_line_number": 404,
-        "stop_line_number": 419,
+        "start_line_number": 408,
+        "stop_line_number": 423,
         "variables": [
           "effectif_entreprise"
         ]
@@ -52164,8 +51944,8 @@
       "cotisations_employeur_main_d_oeuvre"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 396,
-    "stop_line_number": 451,
+    "start_line_number": 400,
+    "stop_line_number": 455,
     "unit": "currency",
     "ux_name": "Dispositif 1% logement (PEEC)",
     "value_type": "float"
@@ -52380,7 +52160,6 @@
     "label": "Prestation de compensation du handicap",
     "name": "pch",
     "referring_variables": [
-      "aide_logement_base_ressources",
       "visale_base_ressources_individuelle"
     ],
     "set_input": "set_input_dispatch_by_period",
@@ -52505,8 +52284,8 @@
       "mobili_jeune_eligibilite_employeur"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1116,
-    "stop_line_number": 1123,
+    "start_line_number": 1131,
+    "stop_line_number": 1138,
     "value_type": "bool"
   },
   "penibilite": {
@@ -52535,16 +52314,16 @@
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.penibilite_additionnelle",
           "cotsoc.cotisations_employeur.public_titulaire_territoriale.penibilite_base"
         ],
-        "start_line_number": 157,
-        "stop_line_number": 189,
+        "start_line_number": 158,
+        "stop_line_number": 190,
         "variables": [
           "exposition_penibilite"
         ]
       },
       "2018-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 190,
-        "stop_line_number": 192
+        "start_line_number": 191,
+        "stop_line_number": 193
       }
     },
     "json_type": "number",
@@ -52563,8 +52342,8 @@
       "cotisations_employeur_non_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 150,
-    "stop_line_number": 192,
+    "start_line_number": 151,
+    "stop_line_number": 193,
     "unit": "currency",
     "ux_name": "Cotis. compte pénibilité",
     "value_type": "float"
@@ -52623,8 +52402,8 @@
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_fonction_publique.py",
         "parameters": [
           "cotsoc.cotisations_salarie.public_titulaire_etat.pension",
-          "cotsoc.cotisations_salarie.public_titulaire_territoriale.cnracl1",
-          "cotsoc.cotisations_salarie.public_titulaire_territoriale.cnracl2"
+          "cotsoc.cotisations_salarie.public_titulaire_territoriale.cnracl_s_nbi",
+          "cotsoc.cotisations_salarie.public_titulaire_territoriale.cnracl_s_ti"
         ],
         "start_line_number": 187,
         "stop_line_number": 210,
@@ -52721,7 +52500,7 @@
     "name": "pensions_alimentaires_percues",
     "referring_variables": [
       "aah_base_ressources_hors_activite_eval_trimestrielle",
-      "al_traitements_salaires_pensions_rentes",
+      "aide_logement_base_ressources_individu",
       "asf_montant",
       "asi_aspa_base_ressources_individu",
       "cmu_acs_eligibilite",
@@ -52751,7 +52530,6 @@
     "label": "Pension déclarée",
     "name": "pensions_alimentaires_percues_decl",
     "referring_variables": [
-      "al_traitements_salaires_pensions_rentes",
       "revenu_assimile_pension"
     ],
     "start_line_number": 21,
@@ -52791,7 +52569,6 @@
       ]
     },
     "referring_variables": [
-      "aide_logement_base_revenus_fiscaux",
       "pensions_nettes",
       "rev_coll"
     ],
@@ -52812,7 +52589,6 @@
     "name": "pensions_alimentaires_versees_individu",
     "referring_variables": [
       "aah_base_ressources_hors_activite_eval_trimestrielle",
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "cmu_base_ressources_individu"
@@ -52848,7 +52624,7 @@
     "referring_variables": [
       "aah_base_non_cumulable",
       "aah_base_ressources_hors_activite_eval_trimestrielle",
-      "al_traitements_salaires_pensions_rentes",
+      "aide_logement_base_ressources_individu",
       "asi_aspa_base_ressources_individu",
       "asi_eligibilite",
       "ass_base_ressources_individu",
@@ -53017,8 +52793,8 @@
         "parameters": [
           "prelevements_sociaux.pss.plafond_securite_sociale_mensuel"
         ],
-        "start_line_number": 910,
-        "stop_line_number": 926,
+        "start_line_number": 914,
+        "stop_line_number": 930,
         "variables": [
           "nombre_jours_calendaires",
           "quotite_de_travail"
@@ -53042,15 +52818,14 @@
       "exoneration_cotisations_employeur_jei",
       "exoneration_cotisations_employeur_stagiaire",
       "exoneration_cotisations_salarie_stagiaire",
-      "fnal_cotisation",
       "fonds_emploi_hospitalier",
       "ircantec_employeur",
       "ircantec_salarie",
       "prevoyance_obligatoire_cadre"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 902,
-    "stop_line_number": 926,
+    "start_line_number": 906,
+    "stop_line_number": 930,
     "value_type": "float"
   },
   "plafond_taxe_habitation": {
@@ -55172,7 +54947,6 @@
     "label": "Base ressource individuelle des prestations familiales",
     "name": "prestations_familiales_base_ressources_individu",
     "referring_variables": [
-      "aide_logement_base_ressources_defaut",
       "al_nb_personnes_a_charge",
       "cf_base_ressources_individu",
       "prestations_familiales_base_ressources"
@@ -55314,8 +55088,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 936,
-        "stop_line_number": 949,
+        "start_line_number": 940,
+        "stop_line_number": 953,
         "variables": [
           "assiette_cotisations_sociales",
           "categorie_salarie",
@@ -55334,8 +55108,8 @@
       "taxe_salaires"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 928,
-    "stop_line_number": 949,
+    "start_line_number": 932,
+    "stop_line_number": 953,
     "unit": "currency",
     "ux_name": "Prévoyance des cadres obligatoire",
     "value_type": "float"
@@ -56553,8 +56327,8 @@
         "parameters": [
           "marche_travail.salaire_minimum.nb_heure_travail_mensuel"
         ],
-        "start_line_number": 278,
-        "stop_line_number": 294,
+        "start_line_number": 279,
+        "stop_line_number": 295,
         "variables": [
           "contrat_de_travail",
           "forfait_jours_remuneres_volume",
@@ -56571,8 +56345,8 @@
       "plafond_securite_sociale"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 270,
-    "stop_line_number": 294,
+    "start_line_number": 271,
+    "stop_line_number": 295,
     "value_type": "float"
   },
   "rac": {
@@ -57198,6 +56972,40 @@
     "unit": "currency",
     "value_type": "float"
   },
+  "regime_securite_sociale": {
+    "default_value": "aucun",
+    "definition_period": "month",
+    "dtype": "int16",
+    "entity": "individu",
+    "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+    "is_period_size_independent": true,
+    "json_type": "string",
+    "label": "Régime de sécurité sociale",
+    "name": "regime_securite_sociale",
+    "possible_values": {
+      "aucun": "Aucun",
+      "autres_regimes": "Autres régimes",
+      "fond_special_pensions_ouvriers_etablissements_industriels_etat": "Le Fonds spécial des pensions des ouvriers des établissements industriels de l’Etat (FSPOEIE)",
+      "regime_agricole": "Régime Agricole",
+      "regime_general": "Régime général",
+      "regime_retraite_fonctionnaires_civils_militaires_etat": "Régime de retraite des fonctionnaires civils et militaires de l’Etat",
+      "regime_special_agents_ratp": "Régime spécial des agents de la RATP",
+      "regime_special_agents_sncf": "Régime spécial des agents de la SNCF",
+      "regime_special_fonctionnaires_territoriaux_hospitaliers": "Régime spécial des fonctionnaires territoriaux et hospitaliers",
+      "regime_special_industries_electriques_gazieres": "Régime spécial des industries électriques et gazières (CNIEG)"
+    },
+    "reference": {
+      "0001-01-01": [
+        {
+          "href": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2020/RAPPORT%20CCSS-Sept%202020.pdf"
+        }
+      ]
+    },
+    "set_input": "set_input_dispatch_by_period",
+    "start_line_number": 409,
+    "stop_line_number": 418,
+    "value_type": "Enum"
+  },
   "rehab": {
     "default_value": 0,
     "definition_period": "year",
@@ -57251,8 +57059,8 @@
           "prelevements_sociaux.cotisations_securite_sociale_regime_general.assiette.cantines_titres_restaurants.taux_maximum_exoneration",
           "prelevements_sociaux.cotisations_securite_sociale_regime_general.assiette.cantines_titres_restaurants.taux_minimum_exoneration"
         ],
-        "start_line_number": 121,
-        "stop_line_number": 145,
+        "start_line_number": 122,
+        "stop_line_number": 146,
         "variables": [
           "titre_restaurant_taux_employeur",
           "titre_restaurant_valeur_unitaire",
@@ -57277,8 +57085,8 @@
       "salaire_super_brut_hors_allegements"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 114,
-    "stop_line_number": 145,
+    "start_line_number": 115,
+    "stop_line_number": 146,
     "unit": "currency",
     "ux_name": "Cantine ou titres restaurant à charge de l'employeur, après allègement",
     "value_type": "float"
@@ -57379,7 +57187,6 @@
       ]
     },
     "referring_variables": [
-      "al_revenu_assimile_salaire",
       "assiette_cotisations_sociales_prive",
       "ppa_revenu_activite_individu",
       "rsa_revenu_activite_individu",
@@ -57505,7 +57312,6 @@
       ]
     },
     "referring_variables": [
-      "aide_logement_base_ressources",
       "cmu_base_ressources_individu",
       "garantie_jeunes_montant",
       "visale_base_ressources_individuelle"
@@ -58655,7 +58461,6 @@
     "label": "Retraite du combattant",
     "name": "retraite_combattant",
     "referring_variables": [
-      "aide_logement_base_ressources",
       "cmu_base_ressources_individu",
       "ppa_ressources_hors_activite_individu"
     ],
@@ -58768,8 +58573,7 @@
       ]
     },
     "referring_variables": [
-      "aide_logement_abattement_depart_retraite",
-      "al_traitements_salaires_pensions_rentes",
+      "aide_logement_base_ressources_individu",
       "cotsyn",
       "retraite_nette",
       "revenu_assimile_pension"
@@ -58994,6 +58798,7 @@
     "name": "revenu_assimile_pension_apres_abattements",
     "referring_variables": [
       "abattement_salaires_pensions",
+      "aide_logement_base_ressources_individu",
       "indu_plaf_abat_pen",
       "revenus_et_produits_plafonnement_isf_ifi",
       "traitements_salaires_pensions_rentes"
@@ -59061,10 +58866,6 @@
     "name": "revenu_assimile_salaire_apres_abattements",
     "referring_variables": [
       "abattement_salaires_pensions",
-      "aide_logement_abattement_depart_retraite",
-      "aide_logement_neutralisation_conge_parental",
-      "aide_logement_neutralisation_rsa",
-      "al_biactivite",
       "biactivite",
       "revenus_et_produits_plafonnement_isf_ifi",
       "traitements_salaires_pensions_rentes"
@@ -60027,7 +59828,6 @@
     "name": "revenus_stage_formation_pro",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "cmu_base_ressources_individu",
       "garantie_jeunes_montant",
@@ -60917,7 +60717,6 @@
     "name": "rpns_auto_entrepreneur_benefice",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "ppa_revenu_activite_individu",
@@ -61034,7 +60833,6 @@
     "name": "rpns_autres_revenus",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "rsa_non_calculable_tns_individu",
@@ -61097,7 +60895,6 @@
     "name": "rpns_benefice_exploitant_agricole",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "rente_accident_travail",
@@ -61155,7 +60952,8 @@
     "label": "Plus values de cession exonérées -Revenu des professions non salariées",
     "name": "rpns_exon",
     "referring_variables": [
-      "al_base_ressources_individu",
+      "aide_logement_abattement_indemnites_chomage",
+      "aide_logement_abattement_revenus_activite_professionnelle",
       "prestations_familiales_base_ressources_individu",
       "revenus_et_produits_plafonnement_isf_ifi",
       "rfr"
@@ -61257,9 +61055,11 @@
     "name": "rpns_imposables",
     "referring_variables": [
       "aah_base_ressources_eval_annuelle",
-      "aide_logement_assiette_abattement_chomage",
-      "al_base_ressources_individu",
-      "al_biactivite",
+      "aide_logement_abattement_indemnites_chomage",
+      "aide_logement_abattement_revenus_activite_professionnelle",
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu",
+      "aide_logement_biactivite",
       "assiette_csg_crds_non_salarie",
       "biactivite",
       "deces_artisan_commercant",
@@ -61470,7 +61270,6 @@
     "name": "rpns_micro_entreprise_benefice",
     "referring_variables": [
       "aah_base_ressources_activite_eval_trimestrielle",
-      "aide_logement_base_ressources",
       "asi_aspa_base_ressources_individu",
       "ass_base_ressources_individu",
       "rpns_micro_entreprise_revenus_net"
@@ -61598,7 +61397,10 @@
     "label": "Plus values de cession nettes des moins-values - Revenu des professions non salariées",
     "name": "rpns_pvce",
     "referring_variables": [
-      "al_base_ressources_individu",
+      "aide_logement_abattement_indemnites_chomage",
+      "aide_logement_abattement_revenus_activite_professionnelle",
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu",
       "assiette_csg_plus_values",
       "plus_values_base_large",
       "plus_values_prelevement_forfaitaire_unique_ir",
@@ -61637,6 +61439,8 @@
     "label": "Plus values de court terme -Revenu des professions non salariées",
     "name": "rpns_pvct",
     "referring_variables": [
+      "aide_logement_base_ressources_eval_forfaitaire",
+      "aide_logement_base_ressources_individu",
       "revenus_et_produits_plafonnement_isf_ifi",
       "rpns_imposables"
     ],
@@ -61774,9 +61578,8 @@
       "aefa",
       "aide_formation_gen_eligibilite",
       "aide_jeunes_diplomes_anciens_boursiers_eligibilite",
-      "aide_logement_neutralisation_rsa",
+      "aide_logement_condition_neutralisation",
       "aide_permis_demandeur_emploi_eligibilite_financiere",
-      "al_traitements_salaires_pensions_rentes",
       "api",
       "cmu_c",
       "covid_aide_exceptionnelle_famille_montant",
@@ -63018,6 +62821,8 @@
       "indemnite_fin_contrat",
       "indemnite_residence",
       "mobili_jeune_eligibilite",
+      "mon_job_mon_logement_eligibilite",
+      "mon_job_mon_logement_eligibilite_jeunes_actifs",
       "salaire_imposable",
       "salaire_super_brut_hors_allegements",
       "tehr"
@@ -63067,11 +62872,11 @@
     "name": "salaire_imposable",
     "referring_variables": [
       "aah_base_ressources_eval_annuelle",
-      "aide_logement_assiette_abattement_chomage",
-      "aide_logement_base_ressources",
+      "aide_logement_abattement_indemnites_chomage",
+      "aide_logement_abattement_revenus_activite_professionnelle",
       "aide_logement_base_ressources_eval_forfaitaire",
-      "al_abattement_forfaitaire_assistants_et_journalistes",
-      "al_revenu_assimile_salaire",
+      "aide_logement_base_ressources_individu",
+      "aide_logement_biactivite",
       "ass_eligibilite_cumul_individu",
       "cotsyn",
       "jeunes_ind",
@@ -64440,8 +64245,8 @@
       "mobili_jeune_eligibilite_employeur"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 1125,
-    "stop_line_number": 1134,
+    "start_line_number": 1140,
+    "stop_line_number": 1149,
     "value_type": "Enum"
   },
   "smic_proratise": {
@@ -64457,8 +64262,8 @@
           "marche_travail.salaire_minimum.nb_heure_travail_mensuel",
           "marche_travail.salaire_minimum.smic_h_b"
         ],
-        "start_line_number": 293,
-        "stop_line_number": 302,
+        "start_line_number": 294,
+        "stop_line_number": 303,
         "variables": [
           "coefficient_proratisation"
         ]
@@ -64474,11 +64279,13 @@
       "exoneration_cotisations_employeur_zfu",
       "exoneration_cotisations_employeur_zrd",
       "exoneration_cotisations_employeur_zrr",
-      "mobili_jeune_eligibilite"
+      "mobili_jeune_eligibilite",
+      "mon_job_mon_logement_eligibilite",
+      "mon_job_mon_logement_eligibilite_jeunes_actifs"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 286,
-    "stop_line_number": 302,
+    "start_line_number": 287,
+    "stop_line_number": 303,
     "value_type": "float"
   },
   "sofica": {
@@ -64902,7 +64709,8 @@
       "cheque_energie_eligibilite_logement",
       "eligibilite_caah",
       "locapass_eligibilite_logement",
-      "mobili_jeune_eligibilite"
+      "mobili_jeune_eligibilite",
+      "mon_job_mon_logement_eligibilite_logement"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 71,
@@ -64999,8 +64807,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-        "start_line_number": 1002,
-        "stop_line_number": 1022,
+        "start_line_number": 1006,
+        "stop_line_number": 1026,
         "variables": [
           "effectif_entreprise"
         ]
@@ -65025,8 +64833,8 @@
       ]
     },
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 992,
-    "stop_line_number": 1022,
+    "start_line_number": 996,
+    "stop_line_number": 1026,
     "value_type": "Enum"
   },
   "taux_accident_travail": {
@@ -65039,13 +64847,13 @@
       "2012-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
-          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.bareme.eleve",
-          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.bareme.faible",
-          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.bareme.moyen",
-          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.bareme.treseleve"
+          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.taux.eleve",
+          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.taux.faible",
+          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.taux.moyen",
+          "prelevements_sociaux.cotisations_securite_sociale_regime_general.accidents.taux.treseleve"
         ],
-        "start_line_number": 1031,
-        "stop_line_number": 1038,
+        "start_line_number": 1035,
+        "stop_line_number": 1053,
         "variables": [
           "exposition_accident"
         ]
@@ -65064,8 +64872,8 @@
       "rente_accident_travail_salarie"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 1024,
-    "stop_line_number": 1038,
+    "start_line_number": 1028,
+    "stop_line_number": 1053,
     "value_type": "float"
   },
   "taux_capacite_travail": {
@@ -65557,8 +65365,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.apprentissage_taxe",
           "cotsoc.cotisations_employeur.prive_non_cadre.apprentissage_taxe_alsace_moselle"
         ],
-        "start_line_number": 461,
-        "stop_line_number": 490,
+        "start_line_number": 465,
+        "stop_line_number": 494,
         "variables": [
           "redevable_taxe_apprentissage",
           "salarie_regime_alsace_moselle"
@@ -65582,8 +65390,8 @@
       "cotisations_employeur_main_d_oeuvre"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 453,
-    "stop_line_number": 490,
+    "start_line_number": 457,
+    "stop_line_number": 494,
     "unit": "currency",
     "ux_name": "Taxe apprentissage",
     "value_type": "float"
@@ -65721,8 +65529,8 @@
           "prelevements_sociaux.autres_taxes_participations_assises_salaires.taxsal.taux.metro",
           "prelevements_sociaux.autres_taxes_participations_assises_salaires.taxsal.taux_maj"
         ],
-        "start_line_number": 501,
-        "stop_line_number": 564,
+        "start_line_number": 505,
+        "stop_line_number": 568,
         "variables": [
           "assiette_cotisations_sociales",
           "assujettie_taxe_salaires",
@@ -65750,8 +65558,8 @@
       "cotisations_employeur_non_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 492,
-    "stop_line_number": 564,
+    "start_line_number": 496,
+    "stop_line_number": 568,
     "unit": "currency",
     "ux_name": "Taxe salaires",
     "value_type": "float"
@@ -66071,8 +65879,7 @@
       "non_renseigne": "Non renseigné"
     },
     "referring_variables": [
-      "aide_logement_neutralisation_conge_parental",
-      "al_traitements_salaires_pensions_rentes"
+      "aide_logement_condition_neutralisation"
     ],
     "set_input": "set_input_dispatch_by_period",
     "start_line_number": 1114,
@@ -66417,8 +66224,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.vieillesse_deplafonnee",
           "cotsoc.cotisations_employeur.public_non_titulaire.vieillesse_deplafonnee"
         ],
-        "start_line_number": 1085,
-        "stop_line_number": 1095
+        "start_line_number": 1100,
+        "stop_line_number": 1110
       }
     },
     "json_type": "number",
@@ -66438,8 +66245,8 @@
       "exoneration_cotisations_employeur_apprenti"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1078,
-    "stop_line_number": 1095,
+    "start_line_number": 1093,
+    "stop_line_number": 1110,
     "unit": "currency",
     "ux_name": "Cotis. vieillesse déplafonnée",
     "value_type": "float"
@@ -66458,8 +66265,8 @@
           "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse_deplafonnee",
           "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse_deplafonnee"
         ],
-        "start_line_number": 1047,
-        "stop_line_number": 1057
+        "start_line_number": 1062,
+        "stop_line_number": 1072
       }
     },
     "json_type": "number",
@@ -66478,8 +66285,8 @@
       "cotisations_salariales_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1040,
-    "stop_line_number": 1057,
+    "start_line_number": 1055,
+    "stop_line_number": 1072,
     "unit": "currency",
     "ux_name": "Cotis. vieillesse déplafonnée",
     "value_type": "float"
@@ -66498,8 +66305,8 @@
           "cotsoc.cotisations_employeur.prive_non_cadre.vieillesse_plafonnee",
           "cotsoc.cotisations_employeur.public_non_titulaire.vieillesse_plafonnee"
         ],
-        "start_line_number": 1104,
-        "stop_line_number": 1114
+        "start_line_number": 1119,
+        "stop_line_number": 1129
       }
     },
     "json_type": "number",
@@ -66520,8 +66327,8 @@
       "exoneration_cotisations_employeur_professionnalisation"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1097,
-    "stop_line_number": 1114,
+    "start_line_number": 1112,
+    "stop_line_number": 1129,
     "unit": "currency",
     "ux_name": "Cotis. vieillesse plafonnée",
     "value_type": "float"
@@ -66536,12 +66343,12 @@
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
         "parameters": [
-          "cotsoc.cotisations_salarie.prive_cadre.vieillesse",
-          "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse",
-          "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse"
+          "cotsoc.cotisations_salarie.prive_cadre.vieillesse_plafonnee",
+          "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse_plafonnee",
+          "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse_plafonnee"
         ],
-        "start_line_number": 1066,
-        "stop_line_number": 1076
+        "start_line_number": 1081,
+        "stop_line_number": 1091
       }
     },
     "json_type": "number",
@@ -66560,8 +66367,8 @@
       "cotisations_salariales_contributives"
     ],
     "set_input": "set_input_divide_by_period",
-    "start_line_number": 1059,
-    "stop_line_number": 1076,
+    "start_line_number": 1074,
+    "stop_line_number": 1091,
     "unit": "currency",
     "ux_name": "Cotis. vieillesse plafonnée",
     "value_type": "float"
@@ -66815,8 +66622,8 @@
       "0001-01-01": {
         "documentation": "\nRetrouve la zone APL (aide personnalisée au logement) de la commune\nen fonction du depcom (code INSEE)\n",
         "file_path": "/openfisca_france/model/prestations/aides_logement.py",
-        "start_line_number": 1582,
-        "stop_line_number": 1603,
+        "start_line_number": 1356,
+        "stop_line_number": 1377,
         "variables": [
           "depcom"
         ]
@@ -66837,8 +66644,8 @@
       "indemnite_residence"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 1573,
-    "stop_line_number": 1603,
+    "start_line_number": 1347,
+    "stop_line_number": 1377,
     "value_type": "Enum"
   },
   "zone_franche_urbaine": {
@@ -66850,8 +66657,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 526,
-        "stop_line_number": 529,
+        "start_line_number": 531,
+        "stop_line_number": 534,
         "variables": [
           "effectif_entreprise"
         ]
@@ -66865,8 +66672,8 @@
       "exoneration_cotisations_employeur_zfu"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 519,
-    "stop_line_number": 529,
+    "start_line_number": 524,
+    "stop_line_number": 534,
     "value_type": "bool"
   },
   "zone_logement_social": {
@@ -66909,8 +66716,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 514,
-        "stop_line_number": 517,
+        "start_line_number": 519,
+        "stop_line_number": 522,
         "variables": [
           "effectif_entreprise"
         ]
@@ -66924,8 +66731,8 @@
       "exoneration_cotisations_employeur_zrd"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 507,
-    "stop_line_number": 517,
+    "start_line_number": 512,
+    "stop_line_number": 522,
     "value_type": "bool"
   },
   "zone_revitalisation_rurale": {
@@ -66937,8 +66744,8 @@
     "formulas": {
       "0001-01-01": {
         "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
-        "start_line_number": 538,
-        "stop_line_number": 541,
+        "start_line_number": 543,
+        "stop_line_number": 546,
         "variables": [
           "effectif_entreprise"
         ]
@@ -66953,8 +66760,8 @@
       "exoneration_is_creation_zrr"
     ],
     "set_input": "set_input_dispatch_by_period",
-    "start_line_number": 531,
-    "stop_line_number": 541,
+    "start_line_number": 536,
+    "stop_line_number": 546,
     "value_type": "bool"
   }
 }

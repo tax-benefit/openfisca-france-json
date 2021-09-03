@@ -1127,8 +1127,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
       "source_code": "def formula(individu, period, parameters):\n    assiette_allegement = individu('assiette_allegement', period)\n    entreprise_creation = individu('entreprise_creation', period)\n    smic_proratise = individu('smic_proratise', period)\n    zone_restructuration_defense = individu('zone_restructuration_defense', period)\n\n    eligible = zone_restructuration_defense\n    taux_max = .281  # TODO: move to parameters file\n    seuil_max = 2.4\n    seuil_min = 1.4\n    taux_exoneration = compute_taux_exoneration(assiette_allegement, smic_proratise, taux_max, seuil_max, seuil_min)\n\n    exoneration_relative_year_passed = exoneration_relative_year(period, entreprise_creation)\n    rate_by_year_passed = {\n        0: 1,\n        1: 1,\n        2: 1,\n        3: 2 / 3,\n        4: 1 / 3,\n        }  # TODO: move to parameters file\n    ratio = eligible * 0.0\n    for year_passed, rate in rate_by_year_passed.items():\n        condition_on_year_passed = exoneration_relative_year_passed == timedelta64(year_passed, 'Y')\n        if condition_on_year_passed.any():\n            ratio[condition_on_year_passed] = rate\n\n    exoneration_cotisations_zrd = ratio * taux_exoneration * assiette_allegement * eligible\n\n    return exoneration_cotisations_zrd\n",
-      "start_line_number": 273,
-      "stop_line_number": 302,
+      "start_line_number": 278,
+      "stop_line_number": 307,
       "variables": [
         "assiette_allegement",
         "entreprise_creation",
@@ -1151,8 +1151,8 @@
     "exoneration_cotisations_employeur_geographiques"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 265,
-  "stop_line_number": 302,
+  "start_line_number": 270,
+  "stop_line_number": 307,
   "unit": "currency",
   "ux_name": "en ZRD (zone de restructuration de la défense)",
   "value_type": "float"

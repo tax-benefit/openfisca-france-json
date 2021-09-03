@@ -706,7 +706,7 @@
             "ast_class": "Assign",
             "col_offset": 4,
             "end_col_offset": 9,
-            "end_lineno": 27,
+            "end_lineno": 28,
             "lineno": 16,
             "targets": [
               {
@@ -725,17 +725,17 @@
               "ast_class": "BinOp",
               "col_offset": 8,
               "end_col_offset": 31,
-              "end_lineno": 26,
+              "end_lineno": 27,
               "left": {
                 "ast_class": "BinOp",
                 "col_offset": 8,
                 "end_col_offset": 50,
-                "end_lineno": 25,
+                "end_lineno": 26,
                 "left": {
                   "ast_class": "BinOp",
                   "col_offset": 8,
-                  "end_col_offset": 58,
-                  "end_lineno": 24,
+                  "end_col_offset": 13,
+                  "end_lineno": 25,
                   "left": {
                     "ast_class": "BinOp",
                     "col_offset": 8,
@@ -859,8 +859,8 @@
                   "right": {
                     "ast_class": "BinOp",
                     "col_offset": 10,
-                    "end_col_offset": 58,
-                    "end_lineno": 24,
+                    "end_col_offset": 13,
+                    "end_lineno": 25,
                     "left": {
                       "ast_class": "Compare",
                       "col_offset": 11,
@@ -914,16 +914,16 @@
                     },
                     "right": {
                       "ast_class": "BinOp",
-                      "col_offset": 11,
-                      "end_col_offset": 57,
+                      "col_offset": 12,
+                      "end_col_offset": 58,
                       "end_lineno": 24,
                       "left": {
                         "ast_class": "Name",
-                        "col_offset": 11,
+                        "col_offset": 12,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 30,
+                        "end_col_offset": 31,
                         "end_lineno": 24,
                         "id": "indemnite_residence",
                         "lineno": 24
@@ -934,11 +934,11 @@
                       },
                       "right": {
                         "ast_class": "Name",
-                        "col_offset": 33,
+                        "col_offset": 34,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 57,
+                        "end_col_offset": 58,
                         "end_lineno": 24,
                         "id": "primes_fonction_publique",
                         "lineno": 24
@@ -957,9 +957,9 @@
                     "ast_class": "Load"
                   },
                   "end_col_offset": 50,
-                  "end_lineno": 25,
+                  "end_lineno": 26,
                   "id": "reintegration_titre_restaurant_employeur",
-                  "lineno": 25
+                  "lineno": 26
                 }
               },
               "lineno": 17,
@@ -973,9 +973,9 @@
                   "ast_class": "Load"
                 },
                 "end_col_offset": 31,
-                "end_lineno": 26,
+                "end_lineno": 27,
                 "id": "indemnite_fin_contrat",
-                "lineno": 26
+                "lineno": 27
               }
             }
           },
@@ -983,8 +983,8 @@
             "ast_class": "Return",
             "col_offset": 4,
             "end_col_offset": 19,
-            "end_lineno": 29,
-            "lineno": 29,
+            "end_lineno": 30,
+            "lineno": 30,
             "value": {
               "ast_class": "Name",
               "col_offset": 11,
@@ -992,23 +992,23 @@
                 "ast_class": "Load"
               },
               "end_col_offset": 19,
-              "end_lineno": 29,
+              "end_lineno": 30,
               "id": "assiette",
-              "lineno": 29
+              "lineno": 30
             }
           }
         ],
         "col_offset": 0,
         "decorator_list": [],
         "end_col_offset": 19,
-        "end_lineno": 29,
+        "end_lineno": 30,
         "lineno": 1,
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
-      "source_code": "def formula(individu, period, parameters):\n    avantage_en_nature = individu('avantage_en_nature', period)\n    hsup = individu('hsup', period)\n    indemnites_compensatrices_conges_payes = individu('indemnites_compensatrices_conges_payes', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    primes_salaires = individu('primes_salaires', period)\n    indemnite_fin_contrat = individu('indemnite_fin_contrat', period)\n    reintegration_titre_restaurant_employeur = individu(\n        \"reintegration_titre_restaurant_employeur\", period\n        )\n    remuneration_apprenti = individu('remuneration_apprenti', period)\n    salaire_de_base = individu('salaire_de_base', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    assiette = (\n        salaire_de_base\n        + primes_salaires\n        + avantage_en_nature\n        + hsup\n        + indemnites_compensatrices_conges_payes\n        + remuneration_apprenti\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        * (indemnite_residence + primes_fonction_publique)\n        + reintegration_titre_restaurant_employeur\n        + indemnite_fin_contrat\n        )\n\n    return assiette\n",
+      "source_code": "def formula(individu, period, parameters):\n    avantage_en_nature = individu('avantage_en_nature', period)\n    hsup = individu('hsup', period)\n    indemnites_compensatrices_conges_payes = individu('indemnites_compensatrices_conges_payes', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    primes_salaires = individu('primes_salaires', period)\n    indemnite_fin_contrat = individu('indemnite_fin_contrat', period)\n    reintegration_titre_restaurant_employeur = individu(\n        \"reintegration_titre_restaurant_employeur\", period\n        )\n    remuneration_apprenti = individu('remuneration_apprenti', period)\n    salaire_de_base = individu('salaire_de_base', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    assiette = (\n        salaire_de_base\n        + primes_salaires\n        + avantage_en_nature\n        + hsup\n        + indemnites_compensatrices_conges_payes\n        + remuneration_apprenti\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire) * (\n            indemnite_residence + primes_fonction_publique\n            )\n        + reintegration_titre_restaurant_employeur\n        + indemnite_fin_contrat\n        )\n\n    return assiette\n",
       "start_line_number": 43,
-      "stop_line_number": 72,
+      "stop_line_number": 73,
       "variables": [
         "avantage_en_nature",
         "categorie_salarie",
@@ -1032,6 +1032,6 @@
   ],
   "set_input": "set_input_divide_by_period",
   "start_line_number": 36,
-  "stop_line_number": 72,
+  "stop_line_number": 73,
   "value_type": "float"
 }

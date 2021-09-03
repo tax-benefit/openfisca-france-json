@@ -473,7 +473,7 @@
           {
             "ast_class": "Assign",
             "col_offset": 4,
-            "end_col_offset": 112,
+            "end_col_offset": 132,
             "end_lineno": 12,
             "lineno": 12,
             "targets": [
@@ -483,9 +483,9 @@
                 "ctx": {
                   "ast_class": "Store"
                 },
-                "end_col_offset": 28,
+                "end_col_offset": 48,
                 "end_lineno": 12,
-                "id": "allegement_cot_alloc_fam",
+                "id": "allegement_cotisation_allocations_familiales",
                 "lineno": 12
               }
             ],
@@ -493,35 +493,35 @@
               "args": [
                 {
                   "ast_class": "Constant",
-                  "col_offset": 40,
-                  "end_col_offset": 86,
+                  "col_offset": 60,
+                  "end_col_offset": 106,
                   "end_lineno": 12,
                   "lineno": 12,
                   "value": "allegement_cotisation_allocations_familiales"
                 },
                 {
                   "ast_class": "Name",
-                  "col_offset": 88,
+                  "col_offset": 108,
                   "ctx": {
                     "ast_class": "Load"
                   },
-                  "end_col_offset": 94,
+                  "end_col_offset": 114,
                   "end_lineno": 12,
                   "id": "period",
                   "lineno": 12
                 }
               ],
               "ast_class": "Call",
-              "col_offset": 31,
-              "end_col_offset": 112,
+              "col_offset": 51,
+              "end_col_offset": 132,
               "end_lineno": 12,
               "func": {
                 "ast_class": "Name",
-                "col_offset": 31,
+                "col_offset": 51,
                 "ctx": {
                   "ast_class": "Load"
                 },
-                "end_col_offset": 39,
+                "end_col_offset": 59,
                 "end_lineno": 12,
                 "id": "individu",
                 "lineno": 12
@@ -530,30 +530,30 @@
                 {
                   "arg": "options",
                   "ast_class": "keyword",
-                  "col_offset": 96,
-                  "end_col_offset": 111,
+                  "col_offset": 116,
+                  "end_col_offset": 131,
                   "end_lineno": 12,
                   "lineno": 12,
                   "value": {
                     "ast_class": "List",
-                    "col_offset": 106,
+                    "col_offset": 126,
                     "ctx": {
                       "ast_class": "Load"
                     },
                     "elts": [
                       {
                         "ast_class": "Name",
-                        "col_offset": 107,
+                        "col_offset": 127,
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 110,
+                        "end_col_offset": 130,
                         "end_lineno": 12,
                         "id": "ADD",
                         "lineno": 12
                       }
                     ],
-                    "end_col_offset": 111,
+                    "end_col_offset": 131,
                     "end_lineno": 12,
                     "lineno": 12
                   }
@@ -591,7 +591,7 @@
                     "left": {
                       "ast_class": "BinOp",
                       "col_offset": 8,
-                      "end_col_offset": 34,
+                      "end_col_offset": 54,
                       "end_lineno": 16,
                       "left": {
                         "ast_class": "Name",
@@ -614,9 +614,9 @@
                         "ctx": {
                           "ast_class": "Load"
                         },
-                        "end_col_offset": 34,
+                        "end_col_offset": 54,
                         "end_lineno": 16,
-                        "id": "allegement_cot_alloc_fam",
+                        "id": "allegement_cotisation_allocations_familiales",
                         "lineno": 16
                       }
                     },
@@ -694,7 +694,7 @@
         "name": "formula"
       },
       "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
-      "source_code": "def formula(individu, period, parameters):\n    exoneration_cotisations_employeur_apprenti = individu(\n        'exoneration_cotisations_employeur_apprenti', period, options = [ADD])\n    exoneration_cotisations_employeur_geographiques = individu(\n        'exoneration_cotisations_employeur_geographiques', period)\n    exoneration_cotisations_employeur_jei = individu(\n        'exoneration_cotisations_employeur_jei', period, options = [ADD])\n    exoneration_cotisations_employeur_stagiaire = individu(\n        'exoneration_cotisations_employeur_stagiaire', period, options = [ADD])\n\n    allegement_fillon = individu('allegement_fillon', period, options = [ADD])\n    allegement_cot_alloc_fam = individu('allegement_cotisation_allocations_familiales', period, options = [ADD])\n\n    return (\n        allegement_fillon\n        + allegement_cot_alloc_fam\n        + exoneration_cotisations_employeur_geographiques\n        + exoneration_cotisations_employeur_jei\n        + exoneration_cotisations_employeur_apprenti\n        + exoneration_cotisations_employeur_stagiaire\n        )\n",
+      "source_code": "def formula(individu, period, parameters):\n    exoneration_cotisations_employeur_apprenti = individu(\n        'exoneration_cotisations_employeur_apprenti', period, options = [ADD])\n    exoneration_cotisations_employeur_geographiques = individu(\n        'exoneration_cotisations_employeur_geographiques', period)\n    exoneration_cotisations_employeur_jei = individu(\n        'exoneration_cotisations_employeur_jei', period, options = [ADD])\n    exoneration_cotisations_employeur_stagiaire = individu(\n        'exoneration_cotisations_employeur_stagiaire', period, options = [ADD])\n\n    allegement_fillon = individu('allegement_fillon', period, options = [ADD])\n    allegement_cotisation_allocations_familiales = individu('allegement_cotisation_allocations_familiales', period, options = [ADD])\n\n    return (\n        allegement_fillon\n        + allegement_cotisation_allocations_familiales\n        + exoneration_cotisations_employeur_geographiques\n        + exoneration_cotisations_employeur_jei\n        + exoneration_cotisations_employeur_apprenti\n        + exoneration_cotisations_employeur_stagiaire\n        )\n",
       "start_line_number": 1049,
       "stop_line_number": 1070,
       "variables": [

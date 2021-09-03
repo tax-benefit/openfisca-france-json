@@ -489,8 +489,8 @@
         "prestations.al_param_accal.constante_du_coefficient_k"
       ],
       "source_code": "def formula(famille, period, parameters):\n    param = parameters(period).prestations.al_param_accal\n    param2 = parameters(period).prestations.al_param\n\n    coef_k = param.constante_du_coefficient_k\n    multi_n = param2.multiplicateur_de_n_dans_la_formule_de_k\n\n    R = famille('aide_logement_base_ressources', period)\n    N = famille('aides_logement_nb_part', period)\n\n    return coef_k - (R / (multi_n * N))\n",
-      "start_line_number": 1682,
-      "stop_line_number": 1693,
+      "start_line_number": 1456,
+      "stop_line_number": 1467,
       "variables": [
         "aide_logement_base_ressources",
         "aides_logement_nb_part"
@@ -514,7 +514,7 @@
     "aides_logement_k"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 1673,
-  "stop_line_number": 1693,
+  "start_line_number": 1447,
+  "stop_line_number": 1467,
   "value_type": "float"
 }

@@ -721,8 +721,8 @@
         "cotsoc.cotisations_employeur.prive_non_cadre.formprof_moins_de_10_salaries"
       ],
       "source_code": "def formula(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    cotisation_0_9 = (effectif_entreprise < 10) * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_moins_de_10_salaries',\n        variable_name = 'formation_professionnelle',\n        )\n\n    cotisation_10_19 = ((effectif_entreprise >= 10) * (effectif_entreprise < 20)) * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_entre_10_et_19_salaries',\n        variable_name = 'formation_professionnelle',\n        )\n\n    cotisation_20 = (effectif_entreprise >= 20) * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_20_salaries_et_plus',\n        variable_name = 'formation_professionnelle',\n        )\n    return cotisation_0_9 + cotisation_10_19 + cotisation_20\n",
-      "start_line_number": 364,
-      "stop_line_number": 394,
+      "start_line_number": 368,
+      "stop_line_number": 398,
       "variables": [
         "effectif_entreprise"
       ]
@@ -1211,8 +1211,8 @@
         "cotsoc.cotisations_employeur.prive_non_cadre.formprof_moins_de_11_salaries"
       ],
       "source_code": "def formula_2016_01_01(individu, period, parameters):\n    effectif_entreprise = individu('effectif_entreprise', period)\n\n    cotisation_0_10 = (effectif_entreprise < 11) * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_moins_de_11_salaries',\n        variable_name = 'formation_professionnelle',\n        )\n\n    cotisation_11 = (effectif_entreprise >= 11) * apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'formprof_11_salaries_et_plus',\n        variable_name = 'formation_professionnelle',\n        )\n    return cotisation_0_10 + cotisation_11\n",
-      "start_line_number": 342,
-      "stop_line_number": 363,
+      "start_line_number": 346,
+      "stop_line_number": 367,
       "variables": [
         "effectif_entreprise"
       ]
@@ -1236,8 +1236,8 @@
     "cotisations_employeur_main_d_oeuvre"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 333,
-  "stop_line_number": 394,
+  "start_line_number": 337,
+  "stop_line_number": 398,
   "unit": "currency",
   "ux_name": "Contrib. formation pro. et alternance",
   "value_type": "float"

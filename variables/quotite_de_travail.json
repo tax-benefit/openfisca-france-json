@@ -608,8 +608,8 @@
         "marche_travail.salaire_minimum.nb_heure_travail_mensuel"
       ],
       "source_code": "def formula(individu, period, parameters):\n    contrat_de_travail = individu('contrat_de_travail', period)\n    TypesContratDeTravail = contrat_de_travail.possible_values\n    parameters = parameters(period)\n    heures_temps_plein = parameters.marche_travail.salaire_minimum.nb_heure_travail_mensuel\n    forfait_jours_remuneres_volume = individu('forfait_jours_remuneres_volume', period)\n    heures_remunerees_volume = individu('heures_remunerees_volume', period)\n    return switch(\n        contrat_de_travail,\n        {\n            TypesContratDeTravail.temps_plein: 1,\n            TypesContratDeTravail.temps_partiel: (heures_remunerees_volume / heures_temps_plein),\n            TypesContratDeTravail.forfait_jours_annee: (forfait_jours_remuneres_volume / 218),\n            TypesContratDeTravail.sans_objet: 0\n            }\n        )\n",
-      "start_line_number": 278,
-      "stop_line_number": 294,
+      "start_line_number": 279,
+      "stop_line_number": 295,
       "variables": [
         "contrat_de_travail",
         "forfait_jours_remuneres_volume",
@@ -626,7 +626,7 @@
     "plafond_securite_sociale"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 270,
-  "stop_line_number": 294,
+  "start_line_number": 271,
+  "stop_line_number": 295,
   "value_type": "float"
 }

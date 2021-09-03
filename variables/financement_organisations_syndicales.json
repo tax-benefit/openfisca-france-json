@@ -474,8 +474,8 @@
         "cotsoc.cotisations_employeur.public_titulaire_territoriale.financement_organisations_syndicales"
       ],
       "source_code": "def formula_2015_01_01(individu, period, parameters):\n    categorie_salarie = individu('categorie_salarie', period)\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'employeur',\n        bareme_name = 'financement_organisations_syndicales',\n        variable_name = 'financement_organisations_syndicales',\n        )\n    contrat_de_droit_prive = (\n        + (categorie_salarie == TypesCategorieSalarie.prive_non_cadre)\n        + (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire)\n        )\n\n    return cotisation * contrat_de_droit_prive\n",
-      "start_line_number": 314,
-      "stop_line_number": 331,
+      "start_line_number": 318,
+      "stop_line_number": 335,
       "variables": [
         "categorie_salarie"
       ]
@@ -502,8 +502,8 @@
     "cotisations_employeur_main_d_oeuvre"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 307,
-  "stop_line_number": 331,
+  "start_line_number": 311,
+  "stop_line_number": 335,
   "unit": "currency",
   "ux_name": "Contrib. dialogue social",
   "value_type": "float"

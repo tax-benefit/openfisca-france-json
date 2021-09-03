@@ -1430,8 +1430,8 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
       "source_code": "def formula(individu, period, parameters):\n    assiette_allegement = individu('assiette_allegement', period)\n    contrat_de_travail_duree = individu('contrat_de_travail_duree', period)\n    TypesContratDeTravailDuree = contrat_de_travail_duree.possible_values\n    contrat_de_travail_debut = individu('contrat_de_travail_debut', period)\n    contrat_de_travail_fin = individu('contrat_de_travail_fin', period)\n    effectif_entreprise = individu('effectif_entreprise', period)\n    smic_proratise = individu('smic_proratise', period)\n    zone_revitalisation_rurale = individu('zone_revitalisation_rurale', period)\n\n    duree_cdd_eligible = contrat_de_travail_fin > contrat_de_travail_debut + timedelta64(365, 'D')\n    # TODO: move to parameters file\n    contrat_de_travail_eligible = (\n        contrat_de_travail_duree == TypesContratDeTravailDuree.cdi) + (\n        (contrat_de_travail_duree == TypesContratDeTravailDuree.cdd) * (duree_cdd_eligible)\n        )\n\n    duree_validite = (\n        datetime64(period.start) + timedelta64(1, 'D') - contrat_de_travail_debut\n        ).astype('timedelta64[Y]') < timedelta64(1, 'Y')\n\n    eligible = (\n        contrat_de_travail_eligible\n        * (effectif_entreprise <= 50)\n        * zone_revitalisation_rurale\n        * duree_validite\n        )\n\n    taux_max = .281 if period.start.year < 2015 else .2655  # TODO: move to parameters file\n    seuil_max = 2.4\n    seuil_min = 1.5\n    taux_exoneration = compute_taux_exoneration(assiette_allegement, smic_proratise, taux_max, seuil_max, seuil_min)\n    exoneration_cotisations_zrr = taux_exoneration * assiette_allegement * eligible\n\n    return exoneration_cotisations_zrr\n",
-      "start_line_number": 325,
-      "stop_line_number": 360,
+      "start_line_number": 330,
+      "stop_line_number": 365,
       "variables": [
         "assiette_allegement",
         "contrat_de_travail_debut",
@@ -1457,8 +1457,8 @@
     "exoneration_cotisations_employeur_geographiques"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 304,
-  "stop_line_number": 360,
+  "start_line_number": 309,
+  "stop_line_number": 365,
   "unit": "currency",
   "ux_name": "en ZRR (zone de revitalisation rurale)",
   "value_type": "float"

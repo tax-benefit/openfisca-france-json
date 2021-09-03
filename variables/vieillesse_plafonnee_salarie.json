@@ -133,16 +133,16 @@
                   "arg": "bareme_name",
                   "ast_class": "keyword",
                   "col_offset": 8,
-                  "end_col_offset": 34,
+                  "end_col_offset": 44,
                   "end_lineno": 7,
                   "lineno": 7,
                   "value": {
                     "ast_class": "Constant",
                     "col_offset": 22,
-                    "end_col_offset": 34,
+                    "end_col_offset": 44,
                     "end_lineno": 7,
                     "lineno": 7,
-                    "value": "vieillesse"
+                    "value": "vieillesse_plafonnee"
                   }
                 },
                 {
@@ -193,13 +193,13 @@
       },
       "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "parameters": [
-        "cotsoc.cotisations_salarie.prive_cadre.vieillesse",
-        "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse",
-        "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse"
+        "cotsoc.cotisations_salarie.prive_cadre.vieillesse_plafonnee",
+        "cotsoc.cotisations_salarie.prive_non_cadre.vieillesse_plafonnee",
+        "cotsoc.cotisations_salarie.public_non_titulaire.vieillesse_plafonnee"
       ],
-      "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'vieillesse',\n        variable_name = 'vieillesse_plafonnee_salarie',\n        )\n    return cotisation\n",
-      "start_line_number": 1066,
-      "stop_line_number": 1076
+      "source_code": "def formula(individu, period, parameters):\n    cotisation = apply_bareme(\n        individu,\n        period,\n        parameters,\n        cotisation_type = 'salarie',\n        bareme_name = 'vieillesse_plafonnee',\n        variable_name = 'vieillesse_plafonnee_salarie',\n        )\n    return cotisation\n",
+      "start_line_number": 1081,
+      "stop_line_number": 1091
     }
   },
   "json_type": "number",
@@ -218,8 +218,8 @@
     "cotisations_salariales_contributives"
   ],
   "set_input": "set_input_divide_by_period",
-  "start_line_number": 1059,
-  "stop_line_number": 1076,
+  "start_line_number": 1074,
+  "stop_line_number": 1091,
   "unit": "currency",
   "ux_name": "Cotis. vieillesse plafonnée",
   "value_type": "float"
