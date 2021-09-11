@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
   "formulas": {
     "2006-01-01": {
       "ast": {
@@ -1826,7 +1826,7 @@
         "lineno": 1,
         "name": "formula_2006"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
       "source_code": "def formula_2006(foyer_fiscal, period, parameters):\n    irpp = foyer_fiscal('irpp', period)\n    tax_fonc = foyer_fiscal('tax_fonc', period)\n    isf_ifi = foyer_fiscal('isf_ifi', period)\n    csg_deductible_salaire_i = foyer_fiscal.members('csg_deductible_salaire', period)\n    csg_imposable_salaire_i = foyer_fiscal.members('csg_imposable_salaire', period)\n    crds_salaire_i = foyer_fiscal.members('crds_salaire', period)\n    csg_imposable_chomage_i = foyer_fiscal.members('csg_imposable_chomage', period)\n    csg_deductible_chomage_i = foyer_fiscal.members('csg_deductible_chomage', period)\n    csg_deductible_retraite_i = foyer_fiscal.members('csg_deductible_retraite', period)\n    csg_imposable_retraite_i = foyer_fiscal.members('csg_imposable_retraite', period)\n    prelevement_forfaitaire_liberatoire = foyer_fiscal('prelevement_forfaitaire_liberatoire', period)\n\n    prelevements_sociaux_revenus_capital = foyer_fiscal('prelevements_sociaux_revenus_capital', period)\n    crds_salaire = foyer_fiscal.sum(crds_salaire_i)\n    csg_deductible_chomage = foyer_fiscal.sum(csg_deductible_chomage_i)\n    csg_imposable_chomage = foyer_fiscal.sum(csg_imposable_chomage_i)\n    csg_deductible_salaire = foyer_fiscal.sum(csg_deductible_salaire_i)\n    csg_imposable_salaire = foyer_fiscal.sum(csg_imposable_salaire_i)\n    csg_deductible_retraite = foyer_fiscal.sum(csg_deductible_retraite_i)\n    csg_imposable_retraite = foyer_fiscal.sum(csg_imposable_retraite_i)\n\n    taxe_habitation_i = foyer_fiscal.members.menage('taxe_habitation', period)  # noqa F841\n    taxe_habitation = foyer_fiscal.sum(taxe_habitation_i, role = Menage.PERSONNE_DE_REFERENCE)\n\n    # # ajouter Prelèvements sources/ libé\n    # # ajouter crds rstd\n    # # impôt sur les plus-values immo et cession de fonds de commerce\n    imp1 = prelevements_sociaux_revenus_capital + csg_deductible_salaire + csg_deductible_chomage + crds_salaire + csg_deductible_retraite + prelevement_forfaitaire_liberatoire\n    '''\n    Impôts payés en l'année 'n' au titre des revenus réalisés sur l'année 'n'\n    '''\n    imp2 = irpp + isf_ifi + taxe_habitation + tax_fonc + csg_imposable_salaire + csg_imposable_chomage + csg_imposable_retraite\n    '''\n    Impôts payés en l'année 'n' au titre des revenus réalisés en 'n-1'\n    '''\n    return imp1 + imp2\n",
       "start_line_number": 752,
       "stop_line_number": 789,

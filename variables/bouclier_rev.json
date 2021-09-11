@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
   "formulas": {
     "2006-01-01": {
       "ast": {
@@ -997,7 +997,7 @@
         "name": "formula_2006"
       },
       "documentation": "\nTotal des revenus sur l'année 'n' net de charges\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
       "source_code": "def formula_2006(foyer_fiscal, period, parameters):\n    '''\n    Total des revenus sur l'année 'n' net de charges\n    '''\n    rbg = foyer_fiscal('rbg', period)\n    csg_patrimoine_deductible_ir = foyer_fiscal('csg_patrimoine_deductible_ir', period)\n    rvcm_plus_abat = foyer_fiscal('rvcm_plus_abat', period)\n    revenus_capitaux_prelevement_liberatoire = foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period)\n    rev_exo = foyer_fiscal('rev_exo', period)  # noqa F841\n    rev_or = foyer_fiscal('rev_or', period)\n    pensions_alimentaires_deduites = foyer_fiscal('pensions_alimentaires_deduites', period)\n    cd_eparet = foyer_fiscal('cd_eparet', period)\n\n    maj_cga_i = foyer_fiscal.members('maj_cga', period)  # noqa F841\n    maj_cga = foyer_fiscal.sum(maj_cga)  # noqa F841\n\n    # TODO: réintégrer les déficits antérieur\n    # TODO: intégrer les revenus soumis au prélèvement libératoire\n    # deficit_ante =\n\n    # # Revenus\n    # TODO: UNUSED ?\n    frac_rvcm_rfr = 0.7 * rvcm_plus_abat  # noqa F841\n    # # revenus distribués?\n    # # A majorer de l'abatt de 40% - montant brut en cas de PFL\n    # # pour le calcul de droit à restitution : prendre 0.7*montant_brut_rev_dist_soumis_au_barème\n    # rev_bar = rbg - maj_cga - csg_patrimoine_deductible_ir - deficit_ante\n    rev_bar = rbg - maj_cga - csg_patrimoine_deductible_ir\n\n# # TODO: AJOUTER : indemnités de fonction percus par les élus- revenus soumis à régimes spéciaux\n\n    # Revenu soumis à l'impôt sur le revenu forfaitaire\n    rev_lib = revenus_capitaux_prelevement_liberatoire\n    # # AJOUTER plus-values immo et moins values?\n\n    # #Revenus exonérés d'IR réalisés en France et à l'étranger##\n#    rev_exo = primes_pel + primes_cel + rente_pea + int_livrets + plus_values_per\n\n    # # proposer à l'utilisateur des taux de réference- PER, PEA, PEL,...TODO\n    # # sommes investis- calculer les plus_values annuelles et prendre en compte pour rev_exo?\n    # revenus soumis à la taxe forfaitaire sur les métaux précieux : rev_or\n\n    # revenus = rev_bar + rev_lib + rev_exo + rev_or\n    revenus = rev_bar + rev_lib + rev_or\n\n    # # CHARGES\n    # Pension alimentaires\n    # Cotisations ou primes versées au titre de l'épargne retraite\n\n    charges = pensions_alimentaires_deduites + cd_eparet\n\n    return revenus - charges\n",
       "start_line_number": 691,
       "stop_line_number": 743,

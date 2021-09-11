@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -711,7 +711,7 @@
         "name": "formula"
       },
       "documentation": "\nPrestations sociales\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(famille, period):\n    '''\n    Prestations sociales\n    '''\n    prestations_familiales = famille('prestations_familiales', period)\n    minima_sociaux = famille('minima_sociaux', period)\n    aides_logement = famille('aides_logement', period)\n    reduction_loyer_solidarite = famille('reduction_loyer_solidarite', period, options = [ADD])\n    aide_exceptionnelle_covid = famille('covid_aide_exceptionnelle_famille_montant', period, options =[ADD])\n    fse_i = famille.members('covid_aide_exceptionnelle_tpe_montant', period, options = [ADD])\n    fse = famille.sum(fse_i)\n\n    return prestations_familiales + minima_sociaux + aides_logement + reduction_loyer_solidarite + aide_exceptionnelle_covid + fse\n",
       "start_line_number": 499,
       "stop_line_number": 512,

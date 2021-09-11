@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1138,7 +1138,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period, parameters):\n    # If age_en_mois is known at the same day of another month, compute the new age_en_mois from it.\n    holder = individu.get_holder('age_en_mois')\n    start = period.start\n    known_periods = holder.get_known_periods()\n\n    for last_period in sorted(known_periods, reverse = True):\n        last_start = last_period.start\n        if last_start.day == start.day:\n            last_array = holder.get_array(last_period)\n            return last_array + ((start.year - last_start.year) * 12 + (start.month - last_start.month))\n\n    has_birth = individu.get_holder('date_naissance').get_known_periods()\n    if not has_birth:\n        has_age = bool(individu.get_holder('age').get_known_periods())\n        if has_age:\n            return individu('age', period) * 12\n    date_naissance = individu('date_naissance', period)\n    epsilon = timedelta64(1)\n    return (datetime64(period.start) - date_naissance + epsilon).astype('timedelta64[M]')\n",
       "start_line_number": 105,
       "stop_line_number": 125,

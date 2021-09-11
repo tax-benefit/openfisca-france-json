@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -356,7 +356,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(famille, period):\n    rsa_base_ressources_prestations_familiales = famille('rsa_base_ressources_prestations_familiales', period)\n    rsa_base_ressources_minima_sociaux = famille('rsa_base_ressources_minima_sociaux', period)\n\n    rsa_base_ressources_i = famille.members('rsa_base_ressources_individu', period)\n    rsa_base_ressources_i_total = famille.sum(rsa_base_ressources_i)\n\n    return (\n        rsa_base_ressources_prestations_familiales\n        + rsa_base_ressources_minima_sociaux\n        + rsa_base_ressources_i_total\n        )\n",
       "start_line_number": 44,
       "stop_line_number": 56,
@@ -983,7 +983,7 @@
         "lineno": 1,
         "name": "formula_2009_06_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2009_06_01(famille, period):\n    rsa_base_ressources_prestations_familiales = famille('rsa_base_ressources_prestations_familiales', period)\n    rsa_base_ressources_minima_sociaux = famille('rsa_base_ressources_minima_sociaux', period)\n\n    enfant_i = famille.members('est_enfant_dans_famille', period)\n    rsa_enfant_a_charge_i = famille.members('rsa_enfant_a_charge', period)\n\n    ressources_individuelles_i = (\n        famille.members('rsa_base_ressources_individu', period)\n        + famille.members('rsa_revenu_activite_individu', period)\n        )\n\n    ressources_individuelles = famille.sum((not_(enfant_i) + rsa_enfant_a_charge_i) * ressources_individuelles_i)\n\n    return (\n        rsa_base_ressources_prestations_familiales\n        + rsa_base_ressources_minima_sociaux\n        + ressources_individuelles\n        )\n",
       "start_line_number": 24,
       "stop_line_number": 43,

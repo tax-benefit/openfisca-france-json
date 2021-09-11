@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -852,7 +852,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    forfait_logement = famille('ppa_forfait_logement', period)\n    elig = famille('ppa_eligibilite', period)\n    montant_forfaitaire_familialise = famille('ppa_fictive_montant_forfaitaire', period)\n    ppa_base_ressources = famille('ppa_base_ressources', period)\n    ppa_fictive_ressource_activite = famille('ppa_fictive_ressource_activite', period)\n    bonification_i = famille.members('ppa_bonification', period)\n    bonification = famille.sum(bonification_i)\n\n    ppa_montant_base = (\n        montant_forfaitaire_familialise\n        + bonification\n        + ppa_fictive_ressource_activite\n        - ppa_base_ressources\n        - forfait_logement\n        )\n\n    ppa_deduction = (\n        montant_forfaitaire_familialise\n        - ppa_base_ressources\n        - forfait_logement\n        )\n\n    ppa_fictive = ppa_montant_base - max_(ppa_deduction, 0)\n    ppa_fictive = max_(ppa_fictive, 0)\n    return elig * ppa_fictive\n",
       "start_line_number": 443,
       "stop_line_number": 469,

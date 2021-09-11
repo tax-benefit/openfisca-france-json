@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -913,7 +913,7 @@
         "name": "formula"
       },
       "documentation": "\nVoir le formulaire 2041-ISF-FCP\nhttps://www.impots.gouv.fr/portail/formulaire/2041-isf-fcp/fiche-de-calcul-du-plafonnement-isf\nPoints à améliorer : impôts payés à l'étranger\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
       "source_code": "def formula(foyer_fiscal, period):\n    '''\n    Voir le formulaire 2041-ISF-FCP\n    https://www.impots.gouv.fr/portail/formulaire/2041-isf-fcp/fiche-de-calcul-du-plafonnement-isf\n    Points à améliorer : impôts payés à l'étranger\n    '''\n    isf_ifi_avant_plaf = foyer_fiscal('isf_ifi_avant_plaf', period)\n    irpp_economique = foyer_fiscal('irpp_economique', period)\n    prelevement_forfaitaire_liberatoire = foyer_fiscal('prelevement_forfaitaire_liberatoire', period)\n    prelevement_forfaitaire_unique_ir = foyer_fiscal('prelevement_forfaitaire_unique_ir', period)\n    ir_pv_immo = foyer_fiscal('ir_pv_immo', period)\n    crds_i = foyer_fiscal.members('crds', period)\n    csg_i = foyer_fiscal.members('csg', period)\n    crds = foyer_fiscal.sum(crds_i, role = FoyerFiscal.DECLARANT)\n    csg = foyer_fiscal.sum(csg_i, role = FoyerFiscal.DECLARANT)\n    prelevements_sociaux_revenus_capital_hors_csg_crds = foyer_fiscal('prelevements_sociaux_revenus_capital_hors_csg_crds', period)\n\n    return (\n        isf_ifi_avant_plaf\n        - irpp_economique\n        - prelevement_forfaitaire_liberatoire\n        - prelevement_forfaitaire_unique_ir\n        - ir_pv_immo\n        - crds\n        - csg\n        - prelevements_sociaux_revenus_capital_hors_csg_crds\n        )\n",
       "start_line_number": 466,
       "stop_line_number": 493,

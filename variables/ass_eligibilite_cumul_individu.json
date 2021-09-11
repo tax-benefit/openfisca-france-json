@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ass.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ass.py",
   "formulas": {
     "2017-09-01": {
       "ast": {
@@ -1054,7 +1054,7 @@
         "lineno": 1,
         "name": "formula_2017_09_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ass.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ass.py",
       "source_code": "def formula_2017_09_01(individu, period):\n    douze_mois_precedents = [period.offset(offset) for offset in range(-12, 0 + 1)]\n    nb_mois_cumul = 0\n    nb_mois_consecutif_sans_activite = 0\n\n    for mois in douze_mois_precedents:\n        presence_ressources_activite = individu('salaire_imposable', mois) > 0\n        absence_ressources_activite = not_(presence_ressources_activite)\n        ass_precondition_remplie = individu('ass_precondition_remplie', mois)\n        chomeur = individu('activite', mois) == TypesActivite.chomeur\n        absence_aah = not_(individu('aah', mois) > 0)\n\n        # reinitialisation du nombre de mois de cumul après 3 mois consécutif sans activité\n        nb_mois_cumul = nb_mois_cumul * (nb_mois_consecutif_sans_activite < 3)\n        nb_mois_consecutif_sans_activite = where(absence_ressources_activite * chomeur, nb_mois_consecutif_sans_activite + 1, 0)\n\n        nb_mois_cumul = (\n            nb_mois_cumul\n            + 1\n            * presence_ressources_activite\n            * not_(chomeur)\n            * ass_precondition_remplie\n            * absence_aah\n            )\n\n    # si 3 mois de cumul ou moins en comptant le mois courant, droit au cumul au moins courant\n    return nb_mois_cumul <= 3\n",
       "start_line_number": 183,
       "stop_line_number": 210,

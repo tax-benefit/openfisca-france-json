@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "file_path": "openfisca_france/model/prestations/aides_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -501,7 +501,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "file_path": "openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period, parameters):\n    accedant = famille.demandeur.menage('aides_logement_primo_accedant_eligibilite', period)\n    logement_conventionne = famille.demandeur.menage('logement_conventionne', period)\n    coef_k_accedant = famille('aides_logement_primo_accedant_k', period)\n    coef_k_apl = famille('aides_logement_foyer_k_apl', period)\n    coef_k_al = famille('aides_logement_foyer_k_al', period)\n    return select([accedant, logement_conventionne], [coef_k_accedant, coef_k_apl], coef_k_al)\n",
       "start_line_number": 1418,
       "stop_line_number": 1425,

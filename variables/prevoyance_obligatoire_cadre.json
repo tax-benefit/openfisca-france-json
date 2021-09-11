@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -459,7 +459,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula(individu, period, parameters):\n    categorie_salarie = individu('categorie_salarie', period)\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period)\n    plafond_securite_sociale = individu('plafond_securite_sociale', period)\n    prevoyance_obligatoire_cadre_taux_employeur = individu(\n        'prevoyance_obligatoire_cadre_taux_employeur', period)\n\n    cotisation = - (\n        (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        * min_(assiette_cotisations_sociales, plafond_securite_sociale)\n        * prevoyance_obligatoire_cadre_taux_employeur\n        )\n    return cotisation\n",
       "start_line_number": 940,
       "stop_line_number": 953,

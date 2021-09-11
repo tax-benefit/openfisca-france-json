@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1195,7 +1195,7 @@
         "name": "formula"
       },
       "documentation": "\nRevenu fiscal de référence\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Revenu fiscal de référence\n    '''\n    abattements_plus_values = foyer_fiscal('abattements_plus_values', period)\n    f2dm = foyer_fiscal('f2dm', period)\n    microentreprise = foyer_fiscal('microentreprise', period)\n    rfr_rev_capitaux_mobiliers = foyer_fiscal('rfr_rvcm_abattements_a_reintegrer', period)  # Supprimée à partir de 2018\n    revenus_capitaux_prelevement_liberatoire = foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period, options = [ADD])\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = foyer_fiscal('revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options = [ADD])  # Existe à partir de 2018\n    rfr_charges_deductibles = foyer_fiscal('rfr_cd', period)\n    rfr_plus_values_hors_rni = foyer_fiscal('rfr_plus_values_hors_rni', period)\n    rni = foyer_fiscal('rni', period)\n    rpns_exon_i = foyer_fiscal.members('rpns_exon', period)\n    rpns_info_i = foyer_fiscal.members('rpns_info', period)\n\n    rpns_info = foyer_fiscal.sum(rpns_info_i)\n    rpns_exon = foyer_fiscal.sum(rpns_exon_i)\n\n    return (\n        max_(0, rni)\n        + rfr_charges_deductibles + rfr_plus_values_hors_rni + rfr_rev_capitaux_mobiliers + revenus_capitaux_prelevement_liberatoire + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + rpns_exon + rpns_info\n        + abattements_plus_values\n        + f2dm + microentreprise\n        )\n\n    # TO CHECK : f3vb after 2015 (abattements sur moins-values = interdits)\n",
       "start_line_number": 2196,
       "stop_line_number": 2224,

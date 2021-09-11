@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/activite/non_salarie.py",
+  "file_path": "openfisca_france/model/revenus/activite/non_salarie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -876,7 +876,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/activite/non_salarie.py",
+      "file_path": "openfisca_france/model/revenus/activite/non_salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    this_year_and_last_year = period.start.offset('first-of', 'year').period('year', 2).offset(-1)\n    rpns_auto_entrepreneur_chiffre_affaires = individu('rpns_auto_entrepreneur_chiffre_affaires', period) != 0\n    rpns_micro_entreprise_chiffre_affaires = individu('rpns_micro_entreprise_chiffre_affaires', this_year_and_last_year, options = [ADD]) != 0\n    rpns_autres_revenus = individu('rpns_autres_revenus', this_year_and_last_year, options = [ADD]) != 0\n    rpns_benefice_exploitant_agricole = individu('rpns_benefice_exploitant_agricole', this_year_and_last_year, options = [ADD]) != 0\n    rpns_autres_revenus_chiffre_affaires = individu('rpns_autres_revenus_chiffre_affaires', this_year_and_last_year, options = [ADD]) != 0\n\n    result = (\n        rpns_auto_entrepreneur_chiffre_affaires\n        + rpns_micro_entreprise_chiffre_affaires\n        + rpns_autres_revenus\n        + rpns_benefice_exploitant_agricole\n        + rpns_autres_revenus_chiffre_affaires\n        )\n\n    return result\n",
       "start_line_number": 2087,
       "stop_line_number": 2104,

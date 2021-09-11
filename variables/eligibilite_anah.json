@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "int16",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/prestations/anah/eligibilite_anah.py",
+  "file_path": "openfisca_france/model/prestations/anah/eligibilite_anah.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -2872,7 +2872,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/anah/eligibilite_anah.py",
+      "file_path": "openfisca_france/model/prestations/anah/eligibilite_anah.py",
       "source_code": "def formula(menage, period):\n    in_idf = menage('residence_ile_de_france', period.first_month)\n\n    rfr_declarants_principaux_du_menage = menage.members.has_role(FoyerFiscal.DECLARANT_PRINCIPAL) * menage.members.foyer_fiscal('rfr', period.n_2)\n    rfr = menage.sum(rfr_declarants_principaux_du_menage)\n\n    nb_members = menage.nb_persons()\n\n    bareme_idf = select(\n        [nb_members == 1, nb_members == 2, nb_members == 3, nb_members == 4, nb_members >= 5],\n        [select([rfr <= 19875, rfr <= 24194], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 29171, rfr <= 35510], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 35032, rfr <= 42648], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 40905, rfr <= 49799], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 46798 + ((nb_members - 5) * 5882), rfr <= 56970 + ((nb_members - 5) * 7162)], [2, 1], 0)])\n\n    bareme_out = select(\n        [nb_members == 1, nb_members == 2, nb_members == 3, nb_members == 4, nb_members >= 5],\n        [select([rfr <= 14360, rfr <= 18409], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 21001, rfr <= 26923], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 25257, rfr <= 32377], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 29506, rfr <= 37826], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier),\n         select([rfr <= 33774 + ((nb_members - 5) * 4257), rfr <= 43297 + ((nb_members - 5) * 5454)], [TypesEligibiliteANAH.tres_modeste, TypesEligibiliteANAH.modestes], TypesEligibiliteANAH.a_verifier)])\n\n    return where(in_idf, bareme_idf, bareme_out)\n",
       "start_line_number": 20,
       "stop_line_number": 45,

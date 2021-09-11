@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -141,7 +141,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "source_code": "def formula(individu, period):\n    # L'association a but non lucratif ne paie pas d'IS de droit commun article 206 du Code général des impôts\n    # -> pas de taxe d'apprentissage\n    association = individu('entreprise_est_association_non_lucrative', period)\n\n    return not_(association)\n",
       "start_line_number": 48,
       "stop_line_number": 54,

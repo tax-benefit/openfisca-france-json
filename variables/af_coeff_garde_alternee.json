@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
+  "file_path": "openfisca_france/model/prestations/prestations_familiales/af.py",
   "formulas": {
     "2007-05-01": {
       "ast": {
@@ -477,7 +477,7 @@
         "lineno": 1,
         "name": "formula_2007_05_01"
       },
-      "file_path": "/openfisca_france/model/prestations/prestations_familiales/af.py",
+      "file_path": "openfisca_france/model/prestations/prestations_familiales/af.py",
       "source_code": "def formula_2007_05_01(famille, period):\n    nb_enf = famille('af_nbenf', period)\n    garde_alternee = famille.members('garde_alternee', period)\n    pfam_enfant_a_charge = famille.members('prestations_familiales_enfant_a_charge', period)\n\n    # Le nombre d'enfants à charge en garde alternée, qui vérifient donc pfam_enfant_a_charge = true et garde_alternee = true\n    nb_enf_garde_alternee = famille.sum(garde_alternee * pfam_enfant_a_charge)\n\n    # Avoid division by zero. If nb_enf == 0, necessarily nb_enf_garde_alternee = 0 so coeff = 1\n    coeff = 1 - (nb_enf_garde_alternee / (nb_enf + (nb_enf == 0))) * 0.5\n\n    return coeff\n",
       "start_line_number": 29,
       "stop_line_number": 41,

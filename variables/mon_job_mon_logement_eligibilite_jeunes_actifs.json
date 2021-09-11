@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+  "file_path": "openfisca_france/model/prestations/mon_job_mon_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -834,7 +834,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+      "file_path": "openfisca_france/model/prestations/mon_job_mon_logement.py",
       "source_code": "def formula(individu, period):\n    eligibilite_activite = (individu('activite', period) == TypesActivite.actif) + individu('alternant', period)\n    smic_mensuel_brut = individu(\"smic_proratise\", period)\n    eligibilite_salaire = (individu(\"salaire_de_base\", period) <= smic_mensuel_brut) * (individu(\"salaire_de_base\", period) >= smic_mensuel_brut * 0.3)\n    eligibilite_logement = individu('mon_job_mon_logement_eligibilite_logement', period)\n    eligibilite_activite_debut = individu('contrat_de_travail_debut', period) > datetime64(period.offset(-6, 'month').start)\n    elibilite_age = individu('age', period) < 25\n\n    return eligibilite_activite * eligibilite_salaire * eligibilite_logement * eligibilite_activite_debut * elibilite_age\n",
       "start_line_number": 34,
       "stop_line_number": 43,

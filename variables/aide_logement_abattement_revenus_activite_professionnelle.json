@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "file_path": "openfisca_france/model/prestations/aides_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1046,7 +1046,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "file_path": "openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(individu, period):\n    activite = individu('activite', period)\n    date_debut_chomage = individu('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n\n    aah = individu('aah', period)\n    salaire_imposable = individu('salaire_imposable', period)\n    rpns = individu('rpns_imposables', period.n_2)\n    rpns_pvce = individu('rpns_pvce', period.n_2)\n    rpns_exon = individu('rpns_exon', period.n_2)\n    return min_(1, (activite == TypesActivite.chomeur) * (date_debut_chomage < two_months_ago) + (activite == TypesActivite.retraite) * ((salaire_imposable + rpns + rpns_pvce + rpns_exon) == 0) + (aah > 0) * ((salaire_imposable + rpns + rpns_pvce + rpns_exon) == 0))\n",
       "start_line_number": 520,
       "stop_line_number": 531,

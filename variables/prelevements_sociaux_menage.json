@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -652,7 +652,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(menage, period):\n    csg_i = menage.members('csg', period, options = [ADD])\n    csg = menage.sum(csg_i)\n    crds_hors_presta_i = menage.members('crds_hors_prestations', period, options = [ADD])\n    crds_hors_prestations = menage.sum(crds_hors_presta_i)\n\n    prelevements_sociaux_revenus_capital_hors_csg_crds_i = menage.members.foyer_fiscal('prelevements_sociaux_revenus_capital_hors_csg_crds', period, options = [ADD])\n    prelevements_sociaux_revenus_capital_hors_csg_crds = menage.sum(prelevements_sociaux_revenus_capital_hors_csg_crds_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (\n        + csg\n        + crds_hors_prestations\n        + prelevements_sociaux_revenus_capital_hors_csg_crds\n        )\n",
       "start_line_number": 476,
       "stop_line_number": 490,

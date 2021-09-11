@@ -1,0 +1,456 @@
+{
+  "default_value": 0,
+  "definition_period": "year",
+  "dtype": "float32",
+  "entity": "foyer_fiscal",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "formulas": {
+    "0001-01-01": {
+      "ast": {
+        "args": {
+          "args": [
+            {
+              "arg": "foyer_fiscal",
+              "ast_class": "arg",
+              "col_offset": 12,
+              "end_col_offset": 24,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "period",
+              "ast_class": "arg",
+              "col_offset": 26,
+              "end_col_offset": 32,
+              "end_lineno": 1,
+              "lineno": 1
+            },
+            {
+              "arg": "parameters",
+              "ast_class": "arg",
+              "col_offset": 34,
+              "end_col_offset": 44,
+              "end_lineno": 1,
+              "lineno": 1
+            }
+          ],
+          "ast_class": "arguments",
+          "defaults": [],
+          "kw_defaults": [],
+          "kwonlyargs": [],
+          "posonlyargs": []
+        },
+        "ast_class": "FunctionDef",
+        "body": [
+          {
+            "ast_class": "Expr",
+            "col_offset": 4,
+            "end_col_offset": 7,
+            "end_lineno": 4,
+            "lineno": 2,
+            "value": {
+              "ast_class": "Constant",
+              "col_offset": 4,
+              "end_col_offset": 7,
+              "end_lineno": 4,
+              "lineno": 2,
+              "value": "\n    PPE effectivement versée\n    "
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 49,
+            "end_lineno": 5,
+            "lineno": 5,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 5,
+                "id": "ppe_brute",
+                "lineno": 5
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 29,
+                  "end_col_offset": 40,
+                  "end_lineno": 5,
+                  "lineno": 5,
+                  "value": "ppe_brute"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 42,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 48,
+                  "end_lineno": 5,
+                  "id": "period",
+                  "lineno": 5
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 49,
+              "end_lineno": 5,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 28,
+                "end_lineno": 5,
+                "id": "foyer_fiscal",
+                "lineno": 5
+              },
+              "keywords": [],
+              "lineno": 5
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 86,
+            "end_lineno": 8,
+            "lineno": 8,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 13,
+                "end_lineno": 8,
+                "id": "rsa_act_i",
+                "lineno": 8
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 37,
+                  "end_col_offset": 60,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": "rsa_activite_individu"
+                },
+                {
+                  "ast_class": "Name",
+                  "col_offset": 62,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 68,
+                  "end_lineno": 8,
+                  "id": "period",
+                  "lineno": 8
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 16,
+              "end_col_offset": 86,
+              "end_lineno": 8,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "members",
+                "col_offset": 16,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 36,
+                "end_lineno": 8,
+                "lineno": 8,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 16,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 28,
+                  "end_lineno": 8,
+                  "id": "foyer_fiscal",
+                  "lineno": 8
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "options",
+                  "ast_class": "keyword",
+                  "col_offset": 70,
+                  "end_col_offset": 85,
+                  "end_lineno": 8,
+                  "lineno": 8,
+                  "value": {
+                    "ast_class": "List",
+                    "col_offset": 80,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "elts": [
+                      {
+                        "ast_class": "Name",
+                        "col_offset": 81,
+                        "ctx": {
+                          "ast_class": "Load"
+                        },
+                        "end_col_offset": 84,
+                        "end_lineno": 8,
+                        "id": "ADD",
+                        "lineno": 8
+                      }
+                    ],
+                    "end_col_offset": 85,
+                    "end_lineno": 8,
+                    "lineno": 8
+                  }
+                }
+              ],
+              "lineno": 8
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 71,
+            "end_lineno": 9,
+            "lineno": 9,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 11,
+                "end_lineno": 9,
+                "id": "rsa_act",
+                "lineno": 9
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "Name",
+                  "col_offset": 31,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 40,
+                  "end_lineno": 9,
+                  "id": "rsa_act_i",
+                  "lineno": 9
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 14,
+              "end_col_offset": 71,
+              "end_lineno": 9,
+              "func": {
+                "ast_class": "Attribute",
+                "attr": "sum",
+                "col_offset": 14,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 30,
+                "end_lineno": 9,
+                "lineno": 9,
+                "value": {
+                  "ast_class": "Name",
+                  "col_offset": 14,
+                  "ctx": {
+                    "ast_class": "Load"
+                  },
+                  "end_col_offset": 26,
+                  "end_lineno": 9,
+                  "id": "foyer_fiscal",
+                  "lineno": 9
+                }
+              },
+              "keywords": [
+                {
+                  "arg": "role",
+                  "ast_class": "keyword",
+                  "col_offset": 42,
+                  "end_col_offset": 70,
+                  "end_lineno": 9,
+                  "lineno": 9,
+                  "value": {
+                    "ast_class": "Attribute",
+                    "attr": "DECLARANT",
+                    "col_offset": 49,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 70,
+                    "end_lineno": 9,
+                    "lineno": 9,
+                    "value": {
+                      "ast_class": "Name",
+                      "col_offset": 49,
+                      "ctx": {
+                        "ast_class": "Load"
+                      },
+                      "end_col_offset": 60,
+                      "end_lineno": 9,
+                      "id": "FoyerFiscal",
+                      "lineno": 9
+                    }
+                  }
+                }
+              ],
+              "lineno": 9
+            }
+          },
+          {
+            "ast_class": "Assign",
+            "col_offset": 4,
+            "end_col_offset": 38,
+            "end_lineno": 13,
+            "lineno": 13,
+            "targets": [
+              {
+                "ast_class": "Name",
+                "col_offset": 4,
+                "ctx": {
+                  "ast_class": "Store"
+                },
+                "end_col_offset": 7,
+                "end_lineno": 13,
+                "id": "ppe",
+                "lineno": 13
+              }
+            ],
+            "value": {
+              "args": [
+                {
+                  "ast_class": "BinOp",
+                  "col_offset": 15,
+                  "end_col_offset": 34,
+                  "end_lineno": 13,
+                  "left": {
+                    "ast_class": "Name",
+                    "col_offset": 15,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 24,
+                    "end_lineno": 13,
+                    "id": "ppe_brute",
+                    "lineno": 13
+                  },
+                  "lineno": 13,
+                  "op": {
+                    "ast_class": "Sub"
+                  },
+                  "right": {
+                    "ast_class": "Name",
+                    "col_offset": 27,
+                    "ctx": {
+                      "ast_class": "Load"
+                    },
+                    "end_col_offset": 34,
+                    "end_lineno": 13,
+                    "id": "rsa_act",
+                    "lineno": 13
+                  }
+                },
+                {
+                  "ast_class": "Constant",
+                  "col_offset": 36,
+                  "end_col_offset": 37,
+                  "end_lineno": 13,
+                  "lineno": 13,
+                  "value": 0
+                }
+              ],
+              "ast_class": "Call",
+              "col_offset": 10,
+              "end_col_offset": 38,
+              "end_lineno": 13,
+              "func": {
+                "ast_class": "Name",
+                "col_offset": 10,
+                "ctx": {
+                  "ast_class": "Load"
+                },
+                "end_col_offset": 14,
+                "end_lineno": 13,
+                "id": "max_",
+                "lineno": 13
+              },
+              "keywords": [],
+              "lineno": 13
+            }
+          },
+          {
+            "ast_class": "Return",
+            "col_offset": 4,
+            "end_col_offset": 14,
+            "end_lineno": 14,
+            "lineno": 14,
+            "value": {
+              "ast_class": "Name",
+              "col_offset": 11,
+              "ctx": {
+                "ast_class": "Load"
+              },
+              "end_col_offset": 14,
+              "end_lineno": 14,
+              "id": "ppe",
+              "lineno": 14
+            }
+          }
+        ],
+        "col_offset": 0,
+        "decorator_list": [],
+        "end_col_offset": 14,
+        "end_lineno": 14,
+        "lineno": 1,
+        "name": "formula"
+      },
+      "documentation": "\nPPE effectivement versée\n",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "source_code": "def formula(foyer_fiscal, period, parameters):\n    \"\"\"\n    PPE effectivement versée\n    \"\"\"\n    ppe_brute = foyer_fiscal('ppe_brute', period)\n\n    # TODO: les foyers qui paient l'ISF n'ont pas le droit à la PPE\n    rsa_act_i = foyer_fiscal.members('rsa_activite_individu', period, options = [ADD])\n    rsa_act = foyer_fiscal.sum(rsa_act_i, role = FoyerFiscal.DECLARANT)\n\n    #   On retranche le RSA activité de la PPE\n    #   Dans les agrégats officiels de la DGFP, c'est à la PPE brute qu'il faut comparer\n    ppe = max_(ppe_brute - rsa_act, 0)\n    return ppe\n",
+      "start_line_number": 3491,
+      "stop_line_number": 3505,
+      "variables": [
+        "ppe_brute",
+        "rsa_activite_individu"
+      ]
+    },
+    "2016-01-01": null
+  },
+  "json_type": "number",
+  "label": "Prime pour l'emploi",
+  "last_review": "2016-01-01",
+  "name": "ppe",
+  "obsolete": true,
+  "reference": {
+    "0001-01-01": [
+      {
+        "note": "Ce dispositif est obsolète. Il a été remplacé par la prime d'activité en 2016"
+      }
+    ]
+  },
+  "referring_variables": [
+    "restitutions"
+  ],
+  "start_line_number": 3483,
+  "stop_line_number": 3505,
+  "unit": "currency",
+  "ux_name": "Prime pour l'emploi",
+  "value_type": "float"
+}

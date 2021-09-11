@@ -1,0 +1,238 @@
+{
+  "children": {
+    "landais_piketty_saez": {
+      "children": {
+        "abatt_conj": {
+          "class": "Value",
+          "description": "Abattement forfaitaire sur le revenu si conjoint",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez.abatt_conj",
+          "referring_variables": [
+            "impot_revenu_lps"
+          ],
+          "type": "number",
+          "values": {
+            "2000-01-01": {
+              "value": 0
+            },
+            "2015-01-01": {
+              "value": null
+            }
+          }
+        },
+        "abatt_enfant": {
+          "class": "Value",
+          "description": "Abattement forfaitaire sur le revenu par enfant",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez.abatt_enfant",
+          "referring_variables": [
+            "impot_revenu_lps"
+          ],
+          "type": "number",
+          "values": {
+            "2000-01-01": {
+              "value": 0
+            },
+            "2015-01-01": {
+              "value": null
+            }
+          }
+        },
+        "bareme": {
+          "brackets": [
+            {
+              "rate": {
+                "2000-01-01": {
+                  "value": 0.02
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              },
+              "threshold": {
+                "2000-01-01": {
+                  "value": 1100
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            {
+              "rate": {
+                "2000-01-01": {
+                  "value": 0.1
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              },
+              "threshold": {
+                "2000-01-01": {
+                  "value": 2200
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            {
+              "rate": {
+                "2000-01-01": {
+                  "value": 0.13
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              },
+              "threshold": {
+                "2000-01-01": {
+                  "value": 5000
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            {
+              "rate": {
+                "2000-01-01": {
+                  "value": 0.25
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              },
+              "threshold": {
+                "2000-01-01": {
+                  "value": 10000
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            {
+              "rate": {
+                "2000-01-01": {
+                  "value": 0.5
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              },
+              "threshold": {
+                "2000-01-01": {
+                  "value": 40000
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            {
+              "rate": {
+                "2000-01-01": {
+                  "value": 0.6
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              },
+              "threshold": {
+                "2000-01-01": {
+                  "value": 100000
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            }
+          ],
+          "class": "Scale",
+          "description": "Barème de l'impôt",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez.bareme",
+          "referring_variables": [
+            "impot_revenu_lps"
+          ],
+          "threshold_unit": "currency",
+          "type": "linear_average_rate"
+        },
+        "credit_enfant": {
+          "class": "Value",
+          "description": "Crédit d'impôt forfaitaire par enfant",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez.credit_enfant",
+          "referring_variables": [
+            "impot_revenu_lps"
+          ],
+          "type": "number",
+          "values": {
+            "2000-01-01": {
+              "value": 0
+            },
+            "2015-01-01": {
+              "value": null
+            }
+          }
+        },
+        "imposition": {
+          "class": "Value",
+          "description": "Indicatrice d'imposition",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez.imposition",
+          "type": "boolean",
+          "values": {
+            "2000-01-01": {
+              "value": true
+            },
+            "2015-01-01": {
+              "value": null
+            }
+          }
+        },
+        "reduc_conj": {
+          "class": "Value",
+          "description": "Réduction d'impôt forfaitaire si conjoint",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez.reduc_conj",
+          "referring_variables": [
+            "impot_revenu_lps"
+          ],
+          "type": "number",
+          "values": {
+            "2000-01-01": {
+              "value": 0
+            },
+            "2015-01-01": {
+              "value": null
+            }
+          }
+        },
+        "reduc_enfant": {
+          "class": "Value",
+          "description": "Réduction d'impôt forfaitaire par enfant",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez.reduc_enfant",
+          "referring_variables": [
+            "impot_revenu_lps"
+          ],
+          "type": "number",
+          "values": {
+            "2000-01-01": {
+              "value": 0
+            },
+            "2015-01-01": {
+              "value": null
+            }
+          }
+        }
+      },
+      "class": "Node",
+      "description": "Impôt à base large proposé par Landais Piketty et Saez",
+      "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+      "name": "landais_piketty_saez"
+    }
+  }
+}

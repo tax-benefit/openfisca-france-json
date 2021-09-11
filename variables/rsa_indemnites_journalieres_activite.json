@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -971,7 +971,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(individu, period):\n    m_3 = period.offset(-3, 'month')\n\n    def ijss_activite_sous_condition(period):\n        return sum(\n            individu(ressource, period) for ressource in [\n                # IJSS prises en compte comme un revenu d'activité seulement les 3 premiers mois qui suivent l'arrêt de travail\n                'indemnites_journalieres_maladie',\n                'indemnites_journalieres_accident_travail',\n                'indemnites_journalieres_maladie_professionnelle',\n                ]\n            )\n\n    date_arret_de_travail = individu('date_arret_de_travail', period)\n    three_months_ago = datetime64(m_3.start)\n    condition_date_arret_travail = date_arret_de_travail > three_months_ago\n\n    # Si la date d'arrêt de travail n'est pas définie (et vaut donc par défaut date.min), mais qu'il n'y a pas d'IJSS à M-3, on estime que l'arrêt est récent.\n    is_date_arret_de_travail_undefined = (date_arret_de_travail == date.min)\n    condition_arret_recent = is_date_arret_de_travail_undefined * (ijss_activite_sous_condition(m_3) == 0)\n\n    condition_activite = individu('salaire_net', period) > 0\n\n    ijss_activite = sum(\n        individu(ressource, period) for ressource in [\n            # IJSS toujours prises en compte comme un revenu d'activité\n            'indemnites_journalieres_maternite',\n            'indemnites_journalieres_paternite',\n            'indemnites_journalieres_adoption',\n            ]\n        ) + (\n            condition_date_arret_travail\n            + condition_activite\n            + condition_arret_recent\n            ) * ijss_activite_sous_condition(period)\n\n    return ijss_activite\n",
       "start_line_number": 446,
       "stop_line_number": 483,

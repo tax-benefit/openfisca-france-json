@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/prestations_familiales/asf.py",
+  "file_path": "openfisca_france/model/prestations/prestations_familiales/asf.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -265,7 +265,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/prestations_familiales/asf.py",
+      "file_path": "openfisca_france/model/prestations/prestations_familiales/asf.py",
       "source_code": "def formula(famille, period):\n    isole = not_(famille('en_couple', period))\n    residence_mayotte = famille.demandeur.menage('residence_mayotte', period)\n\n    # Parent isolé et ne résident pas à Mayotte\n    return not_(residence_mayotte) * isole\n",
       "start_line_number": 35,
       "stop_line_number": 41,

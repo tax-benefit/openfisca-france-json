@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
   "formulas": {
     "2002-01-01": {
       "ast": {
@@ -252,7 +252,7 @@
         "lineno": 1,
         "name": "formula_2002_01_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2002_01_01(famille, period):\n    prestations = [\n        'af_base',\n        'cf',\n        'asf',\n        'apje',\n        'ape',\n        ]\n\n    result = sum(famille(prestation, period) for prestation in prestations)\n\n    return result\n",
       "start_line_number": 214,
       "stop_line_number": 226,
@@ -527,7 +527,7 @@
         "lineno": 1,
         "name": "formula_2004_01_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2004_01_01(famille, period):\n    prestations = [\n        'af_base',\n        'cf',\n        'asf',\n        'paje_base',\n        'paje_clca',\n        'paje_prepare',\n        'paje_colca',\n        ]\n\n    result = sum(famille(prestation, period) for prestation in prestations)\n\n    return result\n",
       "start_line_number": 227,
       "stop_line_number": 241,
@@ -1421,7 +1421,7 @@
         "lineno": 1,
         "name": "formula_2014_04_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2014_04_01(famille, period):\n    # TODO : Neutraliser les ressources de type prestations familiales quand elles sont interrompues\n    prestations_calculees = [\n        'rsa_forfait_asf',\n        'paje_base',\n        ]\n\n    prestations_autres = [\n        'paje_clca',\n        'paje_prepare',\n        'paje_colca',\n        ]\n\n    # On réinjecte le montant des prestations calculées\n    result = sum(famille(prestation, period)for prestation in prestations_calculees)\n\n    result += sum(famille(prestation, period.last_3_months, options = [ADD]) / 3 for prestation in prestations_autres)\n\n    cf_non_majore_avant_cumul = famille('cf_non_majore_avant_cumul', period)\n    cf = famille('cf', period)\n    # Seul le montant non majoré est pris en compte dans la base de ressources du RSA\n    cf_non_majore = (cf > 0) * cf_non_majore_avant_cumul\n\n    af_base = famille('af_base', period)\n    af = famille('af', period)\n\n    # Si des AF on été injectées et sont plus faibles que le cf\n    result = result + cf_non_majore + min_(af_base, af)\n\n    return result\n",
       "start_line_number": 242,
       "stop_line_number": 272,
@@ -2111,7 +2111,7 @@
         "lineno": 1,
         "name": "formula_2017_01_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2017_01_01(famille, period, parameters):\n    # Les prestations famillales sont prises en compte sur le mois_courant\n    prestations_calculees = [\n        'paje_base',\n        'paje_clca',\n        'paje_colca',\n        'paje_prepare',\n        'rsa_forfait_asf',\n        ]\n\n    result = sum(famille(prestation, period)for prestation in prestations_calculees)\n\n    cf_non_majore_avant_cumul = famille('cf_non_majore_avant_cumul', period)\n    cf = famille('cf', period)\n    cf_non_majore = (cf > 0) * cf_non_majore_avant_cumul\n\n    af_base = famille('af_base', period)\n    af = famille('af', period)\n\n    # Si des AF on été injectées et sont plus faibles que le cf\n    result = result + cf_non_majore + min_(af_base, af)\n\n    return result\n",
       "start_line_number": 273,
       "stop_line_number": 296,

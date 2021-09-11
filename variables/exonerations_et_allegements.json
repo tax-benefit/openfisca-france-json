@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "file_path": "openfisca_france/model/revenus/activite/salarie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -693,7 +693,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "file_path": "openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    exoneration_cotisations_employeur_apprenti = individu(\n        'exoneration_cotisations_employeur_apprenti', period, options = [ADD])\n    exoneration_cotisations_employeur_geographiques = individu(\n        'exoneration_cotisations_employeur_geographiques', period)\n    exoneration_cotisations_employeur_jei = individu(\n        'exoneration_cotisations_employeur_jei', period, options = [ADD])\n    exoneration_cotisations_employeur_stagiaire = individu(\n        'exoneration_cotisations_employeur_stagiaire', period, options = [ADD])\n\n    allegement_fillon = individu('allegement_fillon', period, options = [ADD])\n    allegement_cotisation_allocations_familiales = individu('allegement_cotisation_allocations_familiales', period, options = [ADD])\n\n    return (\n        allegement_fillon\n        + allegement_cotisation_allocations_familiales\n        + exoneration_cotisations_employeur_geographiques\n        + exoneration_cotisations_employeur_jei\n        + exoneration_cotisations_employeur_apprenti\n        + exoneration_cotisations_employeur_stagiaire\n        )\n",
       "start_line_number": 1049,
       "stop_line_number": 1070,

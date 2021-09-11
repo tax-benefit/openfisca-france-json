@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -291,7 +291,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    ppa_majoree_eligibilite = famille('rsa_majore_eligibilite', period)\n    mff_non_majore = famille('ppa_montant_forfaitaire_familial_non_majore', period)\n    mff_majore = famille('ppa_montant_forfaitaire_familial_majore', period)\n\n    return where(ppa_majoree_eligibilite, mff_majore, mff_non_majore)\n",
       "start_line_number": 428,
       "stop_line_number": 434,

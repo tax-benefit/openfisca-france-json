@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/prestations/visale.py",
+  "file_path": "openfisca_france/model/prestations/visale.py",
   "formulas": {
     "2018-06-19": {
       "ast": {
@@ -1163,7 +1163,7 @@
         "name": "formula_2018_06_19"
       },
       "documentation": "\nLe cas où un ménage est constitué d'une personne éligible et l'autre non éligible n'est pas spécifié dans la documentation Visale, on va donc tester l'égibilité uniquement sur la personne de référence.\nLa documentation Visale indique : « Si vous êtes 2 à rechercher un logement et un garant, votre demande Visale doit être réalisée conjointement. Pour les logements en colocation, au-delà de 2 colocataires, un bail et un visa individuels doivent être faits par colocataire. »\nCette modélisation est impossible à réaliser telle quelle dans OpenFisca, car cela correspondrait à une variable de Ménage pour 1 à 2 personnes, et une variable d'Individu à partir de 3 personnes en colocation, mais pour lesquelles le montant du loyer serait différent (ou en tous cas, serait la quote-part du loyer total du logement loué).\nPar conséquent, le calcul de cette variable fait l'hypothèse d'une déclaration des Ménages avec un Ménage par personne inscrite sur le bail pour 3 personnes ou plus, et avec un seul Ménage pour une colocation (ou un bail solidaire) de 2 personnes.\n",
-      "file_path": "/openfisca_france/model/prestations/visale.py",
+      "file_path": "openfisca_france/model/prestations/visale.py",
       "parameters": [
         "prestations.visale.eligibilite.age_max",
         "prestations.visale.eligibilite.residence_hors_eee"

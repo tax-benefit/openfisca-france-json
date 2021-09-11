@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -319,7 +319,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    rbg = foyer_fiscal('rbg', period)\n    csg_patrimoine_deductible_ir = foyer_fiscal('csg_patrimoine_deductible_ir', period)\n    charges_deduc = foyer_fiscal('charges_deduc', period)\n\n    return max_(0, rbg - csg_patrimoine_deductible_ir - charges_deduc)\n",
       "start_line_number": 1066,
       "stop_line_number": 1072,

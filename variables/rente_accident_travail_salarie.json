@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+  "file_path": "openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -778,7 +778,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+      "file_path": "openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
       "source_code": "def formula(individu, period):\n    previous_year = period.start.period('year').offset(-1)\n    salarie = individu('salaire_net', previous_year, options=[ADD]) != 0\n    rente_accident_travail_rachat = individu('rente_accident_travail_rachat', period)\n    taux_incapacite = individu('taux_accident_travail', period)\n    rente_accident_travail_base = individu('rente_accident_travail_base', period) * salarie\n    rente_accident_travail_apres_rachat = individu('rente_accident_travail_apres_rachat', period)\n\n    montant_rente_accident_travail = where(rente_accident_travail_rachat != 0, rente_accident_travail_apres_rachat,\n                                           rente_accident_travail_base)\n\n    return select(\n        [taux_incapacite < 0.1, taux_incapacite >= 0.1],\n        [0, montant_rente_accident_travail / 12]\n        )\n",
       "start_line_number": 29,
       "stop_line_number": 44,

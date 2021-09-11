@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int16",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -638,7 +638,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(famille, period):\n    # Si le montant du RSA est nul sans tenir compte des revenus\n    # TNS pouvant provoquer une non calculabilité (parce que\n    # les autres revenus sont trop importants), alors a fortiori\n    # la famille ne sera pas éligible au RSA en tenant compte de\n    # ces ressources. Il n'y a donc pas non calculabilité.\n    eligible_rsa = famille('rsa_montant', period) > 0\n\n    non_calculable_tns_parent1 = famille.demandeur('rsa_non_calculable_tns_individu', period)\n    non_calculable_tns_parent2 = famille.conjoint('rsa_non_calculable_tns_individu', period)\n\n    non_calculable = select(\n        [non_calculable_tns_parent1, non_calculable_tns_parent2],\n        [1, 2]\n        )\n\n    non_calculable = eligible_rsa * non_calculable\n\n    return select(\n        [non_calculable == 0, non_calculable == 1, non_calculable == 2],\n        [TypesRSANonCalculable.calculable, TypesRSANonCalculable.tns, TypesRSANonCalculable.conjoint_tns]\n        )\n",
       "start_line_number": 904,
       "stop_line_number": 926,

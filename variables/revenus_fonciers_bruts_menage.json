@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "2013-01-01": {
       "ast": {
@@ -843,7 +843,7 @@
         "name": "formula_2013_01_01"
       },
       "documentation": "\nIl s'agit des bénéfices (ou déficits) fonciers de l'année courante,\nsans abattement. Il s'agit d'une notion davantage économique.\nCette variable n'est relative qu'à l'activité foncière de l'année.\nC'est pourquoi on ne prend pas en compte la case 4BD, qui\ncorrespond à des déficits des années antérieures non encore imputés\nau titre de l'impôt sur le revenu\nFormule vérifiée pour les feuilles d'impôts à partir des revenus 2013,\nd'où le fait que la formule commence à cette date-là\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula_2013_01_01(menage, period):\n    '''\n    Il s'agit des bénéfices (ou déficits) fonciers de l'année courante,\n    sans abattement. Il s'agit d'une notion davantage économique.\n    Cette variable n'est relative qu'à l'activité foncière de l'année.\n    C'est pourquoi on ne prend pas en compte la case 4BD, qui\n    correspond à des déficits des années antérieures non encore imputés\n    au titre de l'impôt sur le revenu\n    Formule vérifiée pour les feuilles d'impôts à partir des revenus 2013,\n    d'où le fait que la formule commence à cette date-là\n    '''\n    f4ba_i = menage.members.foyer_fiscal('f4ba', period)\n    f4be_i = menage.members.foyer_fiscal('f4be', period)\n    f4bb_i = menage.members.foyer_fiscal('f4bb', period)\n    f4bc_i = menage.members.foyer_fiscal('f4bc', period)\n\n    f4ba = menage.sum(f4ba_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    f4be = menage.sum(f4be_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    f4bb = menage.sum(f4bb_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n    f4bc = menage.sum(f4bc_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return f4ba + f4be - f4bb - f4bc\n",
       "start_line_number": 307,
       "stop_line_number": 329,

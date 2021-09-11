@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int16",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "file_path": "openfisca_france/model/prestations/aides_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -243,7 +243,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "file_path": "openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period):\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n\n    return where(\n        statut_occupation_logement == TypesStatutOccupationLogement.locataire_foyer,\n        TypesAideLogementNonCalculable.locataire_foyer,\n        TypesAideLogementNonCalculable.calculable\n        )\n",
       "start_line_number": 1284,
       "stop_line_number": 1292

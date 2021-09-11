@@ -4,7 +4,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -436,7 +436,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
       "source_code": "def formula(individu, period, parameters):\n    cotisations_salariales_contributives = individu('cotisations_salariales_contributives', period)\n    cotisations_salariales_non_contributives = individu(\n        'cotisations_salariales_non_contributives', period)\n    exoneration_cotisations_salariales_apprenti = individu('exoneration_cotisations_salariales_apprenti', period, options = [ADD])\n    exoneration_cotisations_salarie_stagiaire = individu('exoneration_cotisations_salarie_stagiaire', period, options = [ADD])\n\n    return (\n        cotisations_salariales_contributives\n        + cotisations_salariales_non_contributives\n        + exoneration_cotisations_salariales_apprenti\n        + exoneration_cotisations_salarie_stagiaire\n        )\n",
       "start_line_number": 188,
       "stop_line_number": 201,

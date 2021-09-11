@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+  "file_path": "openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -283,7 +283,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+      "file_path": "openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
       "source_code": "def formula(individu, period):\n    autonome = individu('bourse_criteres_sociaux_etudiant_autonome', period)\n    ressources_autonome = individu('bourse_criteres_sociaux_base_ressources_etudiant_autonome', period)\n    ressources_parentales = individu('bourse_criteres_sociaux_base_ressources_parentale', period)\n    return where(autonome, ressources_autonome, ressources_parentales)\n",
       "start_line_number": 140,
       "stop_line_number": 145,

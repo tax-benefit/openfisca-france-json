@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "int32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1002,7 +1002,7 @@
         "name": "formula"
       },
       "documentation": "\nType de menage\nTODO: prendre les enfants du ménage et non ceux de la famille\nAttention : des erreurs peuvent subsister quand ménage et famille ne coincide pas (cas des ménages complexes)\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(menage, period):\n    '''\n    Type de menage\n    TODO: prendre les enfants du ménage et non ceux de la famille\n    Attention : des erreurs peuvent subsister quand ménage et famille ne coincide pas (cas des ménages complexes)\n    '''\n\n    af_nbenf = menage.personne_de_reference.famille('af_nbenf', period.first_month)\n    isole = not_(menage.personne_de_reference.famille('en_couple', period.first_month))\n\n    return (\n        0 * (isole * (af_nbenf == 0))  # Célibataire\n        + 1 * (not_(isole) * (af_nbenf == 0))  # Couple sans enfants\n        + 2 * (not_(isole) * (af_nbenf == 1))  # Couple un enfant\n        + 3 * (not_(isole) * (af_nbenf == 2))  # Couple deux enfants\n        + 4 * (not_(isole) * (af_nbenf == 3))  # Couple trois enfants et plus\n        + 5 * (isole * (af_nbenf == 1))  # Famille monoparentale un enfant\n        + 6 * (isole * (af_nbenf == 2))  # Famille monoparentale deux enfants\n        + 7 * (isole * (af_nbenf == 3))\n        )  # Famille monoparentale trois enfants et plus\n",
       "start_line_number": 24,
       "stop_line_number": 44

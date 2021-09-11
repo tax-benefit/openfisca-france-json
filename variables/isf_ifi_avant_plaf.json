@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -238,7 +238,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    isf_ifi_avant_reduction = foyer_fiscal('isf_ifi_avant_reduction', period)\n    isf_reduc_pac = foyer_fiscal('isf_reduc_pac', period)\n\n    return max_(0, isf_ifi_avant_reduction - isf_reduc_pac)\n",
       "start_line_number": 435,
       "stop_line_number": 440,
@@ -642,7 +642,7 @@
         "lineno": 1,
         "name": "formula_2008"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
       "source_code": "def formula_2008(foyer_fiscal, period, parameters):\n    isf_ifi_avant_reduction = foyer_fiscal('isf_ifi_avant_reduction', period)\n    isf_inv_pme = foyer_fiscal('isf_inv_pme', period)\n    isf_org_int_gen = foyer_fiscal('isf_org_int_gen', period)\n    isf_reduc_pac = foyer_fiscal('isf_reduc_pac', period)\n\n    return max_(0, isf_ifi_avant_reduction - (isf_inv_pme + isf_org_int_gen) - isf_reduc_pac)\n",
       "start_line_number": 441,
       "stop_line_number": 448,
@@ -1176,7 +1176,7 @@
         "lineno": 1,
         "name": "formula_2009"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/isf.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/isf.py",
       "parameters": [
         "taxation_capital.isf_ifi.reduc_invest_don.max"
       ],

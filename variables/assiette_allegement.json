@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -334,7 +334,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
       "source_code": "def formula(individu, period, parameters):\n    assiette_cotisations_sociales = individu('assiette_cotisations_sociales', period, options = [ADD])\n    categorie_salarie = individu('categorie_salarie', period)\n    # TODO vérifier changement d'assiette\n    return assiette_cotisations_sociales * (\n        (categorie_salarie == TypesCategorieSalarie.prive_non_cadre) | (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        )\n",
       "start_line_number": 17,
       "stop_line_number": 24,

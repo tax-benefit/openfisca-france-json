@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
   "formulas": {
     "1988-12-01": {
       "ast": {
@@ -647,7 +647,7 @@
         "lineno": 1,
         "name": "formula_1988_12"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
       "source_code": "def formula_1988_12(famille, period):\n    activite_i = famille.members('activite', period)\n    condition_activite_i = (\n        (activite_i != TypesActivite.actif)\n        * (activite_i != TypesActivite.etudiant)\n        * (activite_i != TypesActivite.retraite)\n        )\n    condition_activite = famille.any(condition_activite_i)\n\n    rsa_base_ressources = famille('rsa_base_ressources', period)\n    rsa_socle = famille('rsa_socle', period)\n    rsa_forfait_logement = famille('rsa_forfait_logement', period)\n\n    return condition_activite * max_(0, rsa_socle - rsa_forfait_logement - rsa_base_ressources)\n    # TODO: Migré lors de la mensualisation. Probablement faux\n",
       "start_line_number": 140,
       "stop_line_number": 155,

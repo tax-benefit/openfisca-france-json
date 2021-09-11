@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -708,7 +708,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula(famille, period):\n    three_previous_months = period.last_3_months\n    aspa = famille('aspa', period)\n\n    ass_i = famille.members('ass', period)\n    aah_i = famille.members('aah', three_previous_months, options = [ADD])\n    asi_i = famille.members('asi', three_previous_months, options = [ADD])\n    caah_i = famille.members('caah', three_previous_months, options = [ADD])\n    return aspa + famille.sum(ass_i) + famille.sum(aah_i + asi_i + caah_i) / 3\n",
       "start_line_number": 195,
       "stop_line_number": 204,

@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -427,7 +427,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period):\n    janvier = period.first_month\n    decembre = janvier.offset(11, 'month')\n\n    majeur = individu('majeur', janvier)\n    handicap = individu('handicap', decembre)\n    is_pac = individu.has_role(FoyerFiscal.PERSONNE_A_CHARGE)\n\n    return is_pac * (not_(majeur) + handicap)\n",
       "start_line_number": 222,
       "stop_line_number": 231,

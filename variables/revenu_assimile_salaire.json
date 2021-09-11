@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -435,7 +435,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period, parameters):\n    salaire_imposable = individu('salaire_imposable', period, options = [ADD])\n    chomage_imposable = individu('chomage_imposable', period, options = [ADD])\n    f1tt = individu('f1tt', period)\n    f3vj = individu('f3vj', period)\n\n    return salaire_imposable + chomage_imposable + f1tt + f3vj\n",
       "start_line_number": 400,
       "stop_line_number": 407,

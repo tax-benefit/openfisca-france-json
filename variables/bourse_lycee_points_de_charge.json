@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/education.py",
+  "file_path": "openfisca_france/model/prestations/education.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -729,7 +729,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/education.py",
+      "file_path": "openfisca_france/model/prestations/education.py",
       "source_code": "def formula(famille, period, parameters):\n    isole = not_(famille('en_couple', period))\n    age_i = famille.members('age', period)\n    nb_enfants = famille.sum(age_i >= 0, role = Famille.ENFANT)\n\n    points_de_charge = (\n        11 * (nb_enfants >= 1)\n        + 1 * (nb_enfants >= 2)  # 1 point de charge pour le 2ème enfant\n        + 2 * (nb_enfants >= 3) + 2 * (nb_enfants >= 4)  # 2 points de charge pour les 3ème et 4ème enfants\n        + 3 * (nb_enfants >= 5) * (nb_enfants - 4)  # 3 points de charge pour chaque enfant au-dessus de 4 enfants\n        + 3 * isole  # 3 points de charge en plus si parent isolé\n        )\n\n    return points_de_charge\n",
       "start_line_number": 122,
       "stop_line_number": 136,

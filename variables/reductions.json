@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -716,7 +716,7 @@
         "name": "formula"
       },
       "documentation": "\nRenvoie la somme des réductions d'impôt\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Renvoie la somme des réductions d'impôt\n    '''\n    reductions = [\n        # Depuis 2002\n        'accult', 'adhcga', 'assvie', 'cappme', 'reduction_cotisations_syndicales',\n        'daepad', 'dfppce', 'doment', 'domlog', 'donapd',\n        'ecpess', 'garext', 'intemp', 'invfor', 'invrev',\n        'prcomp', 'rsceha', 'saldom', 'spfcpi',\n        # Introduites en 2003\n        'mecena', 'repsoc',\n        # Introduites en 2004\n        'intcon', 'invlst',\n        # Introduites en 2005\n        'intagr',\n        # Introduites en 2006\n        'creaen', 'deffor', 'sofica',\n        # Introduites en 2008\n        'mohist',\n        # Introduites en 2009\n        'domsoc', 'ecodev', 'locmeu', 'resimm', 'scelli',\n        'sofipe',\n        # Introduites en 2010\n        'patnat',\n        # Introduites en 2013\n        'duflot', 'donpartipol',\n        'reduction_impot_exceptionnelle',\n        # Introduites en 2014\n        'rpinel',\n        # Introduites en 2017\n        'rehab',\n        # Introduites en 2020\n        'notredame', 'denormandie',\n        ]\n\n    impot_net = foyer_fiscal('ip_net', period)\n    montants = [around(foyer_fiscal(reduction, period)) for reduction in reductions]\n    total_reductions = sum(montants)\n    return min_(impot_net, total_reductions)\n",
       "start_line_number": 17,
       "stop_line_number": 57,

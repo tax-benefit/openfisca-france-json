@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/patrimoine/livret_epargne_populaire.py",
+  "file_path": "openfisca_france/model/patrimoine/livret_epargne_populaire.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -348,7 +348,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/patrimoine/livret_epargne_populaire.py",
+      "file_path": "openfisca_france/model/patrimoine/livret_epargne_populaire.py",
       "source_code": "def formula(individu, period, parameters):\n    rfr = individu.foyer_fiscal('rfr', period.n_2)\n    plafond = individu('livret_epargne_populaire_plafond', period)\n    independent = not_(individu('enfant_a_charge', period.this_year))\n\n    return independent * (rfr <= plafond)\n",
       "start_line_number": 38,
       "stop_line_number": 44,

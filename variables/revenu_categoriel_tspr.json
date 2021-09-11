@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -283,7 +283,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    tspr_i = foyer_fiscal.members('traitements_salaires_pensions_rentes', period)\n    indu_plaf_abat_pen = foyer_fiscal('indu_plaf_abat_pen', period)\n\n    traitements_salaires_pensions_rentes = foyer_fiscal.sum(tspr_i)\n\n    return traitements_salaires_pensions_rentes + indu_plaf_abat_pen\n",
       "start_line_number": 616,
       "stop_line_number": 623,

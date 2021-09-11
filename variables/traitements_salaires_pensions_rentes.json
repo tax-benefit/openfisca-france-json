@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -508,7 +508,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period):\n    revenu_assimile_salaire_apres_abattements = individu('revenu_assimile_salaire_apres_abattements', period)\n    revenu_assimile_pension_apres_abattements = individu('revenu_assimile_pension_apres_abattements', period)\n    abattement_salaires_pensions = individu('abattement_salaires_pensions', period)\n\n    # Quand tspr est calculé sur une année glissante, rente_viagere_titre_onereux_net est calculé sur l'année légale\n    # correspondante.\n    rente_viagere_titre_onereux_net = individu.foyer_fiscal('rente_viagere_titre_onereux_net', period.offset('first-of'))\n    rente_viagere_titre_onereux_net_declarant1 = rente_viagere_titre_onereux_net * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (\n        + revenu_assimile_salaire_apres_abattements\n        + revenu_assimile_pension_apres_abattements\n        + rente_viagere_titre_onereux_net_declarant1\n        - abattement_salaires_pensions\n        )\n",
       "start_line_number": 555,
       "stop_line_number": 571,

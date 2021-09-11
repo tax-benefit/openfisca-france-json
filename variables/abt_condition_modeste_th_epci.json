@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation_import_baremes_locaux.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation_import_baremes_locaux.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -717,7 +717,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation_import_baremes_locaux.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation_import_baremes_locaux.py",
       "source_code": "def formula(menage, period):\n    code_INSEE_commune = menage('depcom', period.first_month)\n    annee = period.start.offset('first-of', 'year').year\n    abt_condition_modeste_by_epci = preload_parametres_locaux_taxe_habitation(year = annee, variable_to_load = 'abt_condition_modeste_epci')\n    default_value = 0\n    if abt_condition_modeste_by_epci is None:\n        montant = fromiter((default_value for code_INSEE_commune_cell in code_INSEE_commune), dtype = float)\n    else:\n        montant = fromiter(\n            (\n                abt_condition_modeste_by_epci.get(code_INSEE_commune_cell if isinstance(code_INSEE_commune_cell, str) else code_INSEE_commune_cell.decode('utf-8'), default_value)\n                for code_INSEE_commune_cell in code_INSEE_commune\n                ),\n            dtype = float,\n            )\n    return montant\n",
       "start_line_number": 311,
       "stop_line_number": 327,

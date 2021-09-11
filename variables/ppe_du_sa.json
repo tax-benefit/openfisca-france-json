@@ -10,7 +10,7 @@
   "definition_period": "month",
   "dtype": "int32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "file_path": "openfisca_france/model/revenus/activite/salarie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -503,7 +503,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "file_path": "openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period):\n    heures_remunerees_volume = individu('heures_remunerees_volume', period)\n    contrat_travail = individu('contrat_de_travail', period)\n    travail_temps_decompte_en_heures = (\n        (contrat_travail == TypesContratDeTravail.temps_partiel)\n        + (contrat_travail == TypesContratDeTravail.forfait_heures_semaines)\n        + (contrat_travail == TypesContratDeTravail.forfait_heures_mois)\n        + (contrat_travail == TypesContratDeTravail.forfait_heures_annee)\n        + (contrat_travail == TypesContratDeTravail.forfait_jours_annee)\n        )\n\n    return heures_remunerees_volume * travail_temps_decompte_en_heures\n",
       "start_line_number": 92,
       "stop_line_number": 104,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int16",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/logement_social.py",
+  "file_path": "openfisca_france/model/prestations/logement_social.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1045,7 +1045,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/logement_social.py",
+      "file_path": "openfisca_france/model/prestations/logement_social.py",
       "source_code": "def formula(famille, period, parameters):\n\n    nb_personnes = famille.nb_persons()\n    personnes_a_charge = famille('al_nb_personnes_a_charge', period)\n    personne_seule = (famille.nb_persons(Famille.PARENT) == 1) * (personnes_a_charge == 0)\n\n    # Jeune ménage : Couple marié, concubins ou pacsés, sans personne à charge,\n    # dont la somme des âges des deux conjoints est inférieure ou égale à 55 ans\n    age = famille.members('age', period)\n    sum_age = famille.sum(age, role = Famille.PARENT)\n    jeune_menage = (not_(personne_seule) * (sum_age <= 55))\n\n    return select(\n        [\n            personne_seule,\n            # Deux personnes ne comportant aucune personne à charge, à l'exclusion des jeunes ménages.\n            ((nb_personnes == 2) * (personnes_a_charge == 0) * not_(jeune_menage)),\n            # Trois personnes, ou une personne seule avec une personne à charge, ou jeune ménage sans personne à charge.\n            (personnes_a_charge == 1) + (jeune_menage * (personnes_a_charge == 0)),\n            # Quatre personnes, ou une personne seule avec deux personnes à charge.\n            (personnes_a_charge == 2),\n            # Cinq personnes, ou une personne seule avec trois personnes à charge.\n            (personnes_a_charge == 3)\n            ],\n        [\n            CategorieMenageLogementSocial.categorie_1,\n            CategorieMenageLogementSocial.categorie_2,\n            CategorieMenageLogementSocial.categorie_3,\n            CategorieMenageLogementSocial.categorie_4,\n            CategorieMenageLogementSocial.categorie_5\n            ],\n        default = CategorieMenageLogementSocial.categorie_6\n        )\n",
       "start_line_number": 100,
       "stop_line_number": 133,

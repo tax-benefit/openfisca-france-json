@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
+  "file_path": "openfisca_france/model/prestations/prestations_familiales/cf.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -348,7 +348,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
+      "file_path": "openfisca_france/model/prestations/prestations_familiales/cf.py",
       "source_code": "def formula(famille, period, parameters):\n    residence_dom = famille.demandeur.menage('residence_dom', period)\n\n    cf_enfant_eligible = famille.members('cf_enfant_eligible', period)\n    cf_nbenf = famille.sum(cf_enfant_eligible)\n\n    return not_(residence_dom) * (cf_nbenf >= 3)\n",
       "start_line_number": 192,
       "stop_line_number": 199,

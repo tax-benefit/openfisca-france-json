@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1129,7 +1129,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/taxes_salaires_main_oeuvre.py",
       "source_code": "def formula(individu, period, parameters):\n    conge_individuel_formation_cdd = individu('conge_individuel_formation_cdd', period)\n    contribution_developpement_apprentissage = individu(\n        'contribution_developpement_apprentissage', period)\n    contribution_supplementaire_apprentissage = individu(\n        'contribution_supplementaire_apprentissage', period)\n    financement_organisations_syndicales = individu('financement_organisations_syndicales', period)\n    fnal = individu('fnal', period)\n    formation_professionnelle = individu('formation_professionnelle', period)\n    participation_effort_construction = individu('participation_effort_construction', period, options = [ADD])\n    prevoyance_obligatoire_cadre = individu('prevoyance_obligatoire_cadre', period, options = [ADD])\n    complementaire_sante_employeur = individu('complementaire_sante_employeur', period, options = [ADD])\n\n    taxe_apprentissage = individu('taxe_apprentissage', period, options = [ADD])\n    versement_transport = individu('versement_transport', period, options = [ADD])\n\n    cotisations_employeur_main_d_oeuvre = (\n        conge_individuel_formation_cdd\n        + contribution_developpement_apprentissage\n        + contribution_supplementaire_apprentissage\n        + financement_organisations_syndicales\n        + fnal\n        + formation_professionnelle\n        + participation_effort_construction\n        + prevoyance_obligatoire_cadre\n        + complementaire_sante_employeur\n        + taxe_apprentissage\n        + versement_transport\n        )\n\n    return cotisations_employeur_main_d_oeuvre\n",
       "start_line_number": 170,
       "stop_line_number": 201,

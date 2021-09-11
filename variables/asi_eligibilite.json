@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -650,7 +650,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
       "source_code": "def formula(individu, period):\n    last_month = period.start.period('month').offset(-1)\n\n    non_eligible_aspa = not_(individu('aspa_eligibilite', period))\n    touche_pension_invalidite = individu('pensions_invalidite', period) > 0\n    handicap = individu('handicap', period)\n    touche_retraite = individu('retraite_nette', last_month) > 0\n    condition_nationalite = individu('asi_aspa_condition_nationalite', period)\n\n    eligible = (\n        non_eligible_aspa\n        * condition_nationalite\n        * (handicap * touche_retraite + touche_pension_invalidite)\n        )\n\n    return eligible\n",
       "start_line_number": 146,
       "stop_line_number": 162,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/capital/foncier.py",
+  "file_path": "openfisca_france/model/revenus/capital/foncier.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -300,7 +300,7 @@
         "name": "formula"
       },
       "documentation": "\nRevenus locatifs utilisés pour les bases ressources des minima sociaux\nSi cette variable n'est pas renseignée, on prend les revenus fonciers catégoriels de la section 4 de la déclaration 2042\nNéanmoins, selon la législation, le concept de revenus locatifs pour ces bases ressources peut être plus large, notamment\npour les indépendants (exemple : case 5ND du formulaire 2042-C-PRO). Ce point reste à améliorer.\n",
-      "file_path": "/openfisca_france/model/revenus/capital/foncier.py",
+      "file_path": "openfisca_france/model/revenus/capital/foncier.py",
       "source_code": "def formula(individu, period):\n    \"\"\"\n    Revenus locatifs utilisés pour les bases ressources des minima sociaux\n    Si cette variable n'est pas renseignée, on prend les revenus fonciers catégoriels de la section 4 de la déclaration 2042\n    Néanmoins, selon la législation, le concept de revenus locatifs pour ces bases ressources peut être plus large, notamment\n    pour les indépendants (exemple : case 5ND du formulaire 2042-C-PRO). Ce point reste à améliorer.\n    \"\"\"\n    revenu_categoriel_foncier = individu.foyer_fiscal('revenu_categoriel_foncier', period.this_year)\n    montant = revenu_categoriel_foncier * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL) / 12\n    return max_(montant, 0)\n",
       "start_line_number": 122,
       "stop_line_number": 132,

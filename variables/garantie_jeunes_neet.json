@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
+  "file_path": "openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -584,7 +584,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
+      "file_path": "openfisca_france/model/prestations/jeunes/garantie_jeunes.py",
       "source_code": "def formula(individu, period):\n    not_in_employment = individu('salaire_net', period) == 0\n\n    activite = individu('activite', period)\n    not_in_education = (activite != TypesActivite.etudiant) * (activite != TypesActivite.actif)\n\n    no_indemnites_stage = individu('indemnites_stage', period) == 0\n    no_revenus_stage_formation_pro = individu('revenus_stage_formation_pro', period) == 0\n    not_in_training = no_indemnites_stage * no_revenus_stage_formation_pro\n\n    return not_in_employment * not_in_education * not_in_training\n",
       "start_line_number": 12,
       "stop_line_number": 23,

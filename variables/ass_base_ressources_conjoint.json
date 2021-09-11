@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ass.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ass.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -685,7 +685,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ass.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ass.py",
       "source_code": "def formula(individu, period, parameters):\n    # Rolling year\n    previous_year = period.start.period('year').offset(-1)\n\n    last_month = period.start.period('month').offset(-1)\n\n    ass_base_ressources_individu = individu('ass_base_ressources_individu', period)\n    chomage_net_interrompue = individu('chomage_net', last_month) == 0\n    chomage_net = individu('chomage_net', previous_year, options=[ADD]) * (1 - chomage_net_interrompue)\n    indemnites_journalieres = calculateWithAbatement(individu, parameters, period, 'indemnites_journalieres')\n\n    return (\n        ass_base_ressources_individu\n        + chomage_net\n        + indemnites_journalieres\n        )\n",
       "start_line_number": 127,
       "stop_line_number": 143,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/acs.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/cs/acs.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -593,7 +593,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/acs.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/cs/acs.py",
       "source_code": "def formula(famille, period):\n    cmu_c = famille('cmu_c', period)\n    cmu_base_ressources = famille('cmu_base_ressources', period)\n    acs_plafond = famille('acs_plafond', period)\n    acs_montant = famille('acs_montant', period)\n    residence_mayotte = famille.demandeur.menage('residence_mayotte', period)\n    cmu_acs_eligibilite = famille('cmu_acs_eligibilite', period)\n\n    return (\n        cmu_acs_eligibilite\n        * not_(residence_mayotte)\n        * not_(cmu_c)\n        * (cmu_base_ressources <= acs_plafond)\n        * acs_montant\n        )\n",
       "start_line_number": 73,
       "stop_line_number": 88,
@@ -649,7 +649,7 @@
         "lineno": 1,
         "name": "formula_2019_11_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/acs.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/cs/acs.py",
       "source_code": "def formula_2019_11_01(famille, period):\n    return\n",
       "start_line_number": 70,
       "stop_line_number": 72

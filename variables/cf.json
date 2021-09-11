@@ -4,7 +4,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
+  "file_path": "openfisca_france/model/prestations/prestations_familiales/cf.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -643,7 +643,7 @@
         "name": "formula"
       },
       "documentation": "\nL'allocation de base de la paje n'est pas cumulable avec le complément familial\n",
-      "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
+      "file_path": "openfisca_france/model/prestations/prestations_familiales/cf.py",
       "source_code": "def formula(famille, period, parameters):\n    '''\n    L'allocation de base de la paje n'est pas cumulable avec le complément familial\n    '''\n    paje_base = famille('paje_base', period)\n    apje_avant_cumul = famille('apje_avant_cumul', period)\n    ape_avant_cumul = famille('ape_avant_cumul', period)\n    cf_montant = famille('cf_montant', period)\n    residence_mayotte = famille.demandeur.menage('residence_mayotte', period)\n\n    cf_brut = (\n        not_(paje_base)\n        * (apje_avant_cumul <= cf_montant)\n        * (ape_avant_cumul <= cf_montant)\n        * cf_montant\n        )\n\n    return not_(residence_mayotte) * round(cf_brut, 2)\n",
       "start_line_number": 319,
       "stop_line_number": 337,

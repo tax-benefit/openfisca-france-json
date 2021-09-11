@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/covid19/activite.py",
+  "file_path": "openfisca_france/model/covid19/activite.py",
   "formulas": {
     "2020-03-01": {
       "ast": {
@@ -566,7 +566,7 @@
         "lineno": 1,
         "name": "formula_2020_03"
       },
-      "file_path": "/openfisca_france/model/covid19/activite.py",
+      "file_path": "openfisca_france/model/covid19/activite.py",
       "source_code": "def formula_2020_03(individu, period):\n    chiffre_d_affaire = individu('rpns_auto_entrepreneur_chiffre_affaires', period)\n    period_1 = period.offset(-1, 'year')\n    chiffre_d_affaire_annee_mois_un_an_avant = individu('rpns_auto_entrepreneur_chiffre_affaires', period_1)\n    chiffre_d_affaire_annee_moyenne_annee_precedente = individu('rpns_auto_entrepreneur_chiffre_affaires', period.last_year, options = [ADD]) / 12\n    chiffre_d_affaire_annee_n_1 = max_(chiffre_d_affaire_annee_mois_un_an_avant, chiffre_d_affaire_annee_moyenne_annee_precedente)\n    return individu('travailleur_non_salarie', period) * (((chiffre_d_affaire - chiffre_d_affaire_annee_n_1) / chiffre_d_affaire_annee_n_1) < -0.5)\n",
       "start_line_number": 17,
       "stop_line_number": 24,

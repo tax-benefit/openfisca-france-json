@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+  "file_path": "openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -463,7 +463,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
+      "file_path": "openfisca_france/model/prestations/enseignement_superieur/bourse_criteres_sociaux.py",
       "source_code": "def formula(individu, period):\n    enseignement_superieur = individu('scolarite', period) == TypesScolarite.enseignement_superieur\n\n    temps_plein = not_(individu('alternant', period))\n\n    etablissement = individu('statuts_etablissement_scolaire', period)\n    etablissement_eligible = (etablissement == StatutsEtablissementScolaire.public) + (etablissement == StatutsEtablissementScolaire.prive_sous_contrat)\n\n    return enseignement_superieur * temps_plein * etablissement_eligible\n",
       "start_line_number": 35,
       "stop_line_number": 44,

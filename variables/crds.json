@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1175,7 +1175,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/csg_crds.py",
       "source_code": "def formula(individu, period):\n    # CRDS sur revenus individuels\n    crds_salaire = individu('crds_salaire', period, options = [ADD])\n    crds_retraite = individu('crds_retraite', period, options = [ADD])\n    crds_chomage = individu('crds_chomage', period, options = [ADD])\n    crds_non_salarie = individu('crds_non_salarie', period, options = [ADD])\n    crds_individu = crds_salaire + crds_retraite + crds_chomage + crds_non_salarie\n    # CRDS sur revenus de la famille, projetés seulement sur la première personne\n    crds_pfam = individu.famille('crds_pfam', period)\n    crds_logement = individu.famille('crds_logement', period, options = [ADD])\n    crds_mini = individu.famille('crds_mini', period, options = [ADD])\n    crds_famille = crds_pfam + crds_logement + crds_mini\n    crds_famille_projetes = crds_famille * individu.has_role(Famille.DEMANDEUR)\n    # CRDS sur revenus du capital, définie à l'échelle du foyer fiscal, mais projetée sur le déclarant principal\n    crds_revenus_capital = individu.foyer_fiscal('crds_revenus_capital', period)\n    crds_revenus_capital_projetee = crds_revenus_capital * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return crds_individu + crds_famille_projetes + crds_revenus_capital_projetee\n",
       "start_line_number": 45,
       "stop_line_number": 63,

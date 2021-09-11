@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -328,7 +328,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    ppa_mois_demande = famille('ppa_mois_demande', period)\n    nombre_mois = (datetime64(period.start).astype('datetime64[M]') - ppa_mois_demande.astype('datetime64[M]')).astype('int')\n    return remainder_(nombre_mois, 3)\n",
       "start_line_number": 506,
       "stop_line_number": 510,

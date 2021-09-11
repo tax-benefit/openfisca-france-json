@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+  "file_path": "openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -261,7 +261,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+      "file_path": "openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
       "source_code": "def formula(famille, period):\n    # Note : Cette variable est « instantanée » : quelle que soit la période demandée, elle retourne la valeur au premier\n    # jour, sans changer la période.\n    statut_marital = famille.members('statut_marital', period)\n    individu_marie = (statut_marital == TypesStatutMarital.marie)\n\n    return famille.any(individu_marie, role = Famille.PARENT)\n",
       "start_line_number": 270,
       "stop_line_number": 277,

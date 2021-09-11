@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -225,7 +225,7 @@
         "name": "formula"
       },
       "documentation": "\nImpôt après imputation des réductions d'impôt\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Impôt après imputation des réductions d'impôt\n    '''\n    ip_net = foyer_fiscal('ip_net', period)\n    reductions = foyer_fiscal('reductions', period)\n\n    return ip_net - reductions\n",
       "start_line_number": 1483,
       "stop_line_number": 1491,

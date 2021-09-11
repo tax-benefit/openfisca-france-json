@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -918,7 +918,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
       "source_code": "def formula(individu, period, parameters):\n    penibilite = individu('penibilite', period, options = [ADD])\n    accident_du_travail = individu('accident_du_travail', period, options = [ADD])\n    ati_atiacl = individu('ati_atiacl', period, options = [ADD])\n    contribution_solidarite_autonomie = individu('contribution_solidarite_autonomie', period)\n    famille = individu('famille', period)\n    mmid_employeur = individu('mmid_employeur', period, options = [ADD])\n    taxe_salaires = individu('taxe_salaires', period, options = [ADD])\n    forfait_social = individu('forfait_social', period, options = [ADD])\n\n    cotisations_employeur_non_contributives = (\n        ati_atiacl\n        + penibilite\n        + accident_du_travail\n        + contribution_solidarite_autonomie\n        + famille\n        + mmid_employeur\n        + taxe_salaires\n        + forfait_social\n        )\n\n    return cotisations_employeur_non_contributives\n",
       "start_line_number": 88,
       "stop_line_number": 110,

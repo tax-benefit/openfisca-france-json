@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "bool_",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -328,7 +328,7 @@
         "name": "formula"
       },
       "documentation": "\nRenvoie True si le foyer est imposable, False sinon\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Renvoie True si le foyer est imposable, False sinon\n    '''\n    iai = foyer_fiscal('iai', period)\n    credits_impot = foyer_fiscal('credits_impot', period)\n    cehr = foyer_fiscal('cehr', period)\n\n    # def _nat_imp(rni, nbptr, non_imposable = law.impot_revenu.non_imposable):\n    # seuil = non_imposable.seuil + (nbptr - 1)*non_imposable.supp\n    return (iai - credits_impot + cehr) > 0\n",
       "start_line_number": 1444,
       "stop_line_number": 1455,

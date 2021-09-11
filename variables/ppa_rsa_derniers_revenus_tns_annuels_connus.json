@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -597,7 +597,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(individu, period):\n\n    def get_last_known(variable_name):\n        valeur_n = individu(variable_name, period)\n        valeur_n_1 = individu(variable_name, period.last_year)\n        valeur_n_2 = individu(variable_name, period.n_2)\n        return select(\n            [valeur_n > 0, valeur_n_1 > 0, valeur_n_2 > 0],\n            [valeur_n, valeur_n_1, valeur_n_2]\n            ) / 12.\n\n    return (\n        get_last_known('rpns_benefice_exploitant_agricole')\n        + get_last_known('rpns_autres_revenus')\n        + get_last_known('rpns_micro_entreprise_benefice')\n        )\n",
       "start_line_number": 193,
       "stop_line_number": 209,

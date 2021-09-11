@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int16",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+  "file_path": "openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -240,7 +240,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+      "file_path": "openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
       "source_code": "def formula(individu, period, parameters):\n    # Par défault, on considère que deux adultes dans un foyer fiscal sont PACSÉS\n    deux_adultes = individu.foyer_fiscal.nb_persons(FoyerFiscal.DECLARANT) >= 2\n    return where(deux_adultes, TypesStatutMarital.pacse, TypesStatutMarital.celibataire)\n",
       "start_line_number": 113,
       "stop_line_number": 117

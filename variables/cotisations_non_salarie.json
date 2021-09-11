@@ -4,7 +4,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1234,7 +1234,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_non_salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    categorie_non_salarie = individu('categorie_non_salarie', period)\n    artisan = (categorie_non_salarie == TypesCategorieNonSalarie.artisan)\n    commercant = (categorie_non_salarie == TypesCategorieNonSalarie.commercant)\n    profession_liberale = (categorie_non_salarie == TypesCategorieNonSalarie.profession_liberale)\n\n    deces_artisan_commercant = individu('deces_artisan_commercant', period)\n    famille_independant = individu('famille_independant', period)\n    formation_artisan_commercant = individu('formation_artisan_commercant', period)\n    retraite_complementaire_artisan_commercant = individu('retraite_complementaire_artisan_commercant', period)\n    maladie_maternite_artisan_commercant = individu('maladie_maternite_artisan_commercant', period)\n    vieillesse_artisan_commercant = individu('vieillesse_artisan_commercant', period)\n    formation_profession_liberale = individu('formation_profession_liberale', period)\n    maladie_maternite_profession_liberale = individu('maladie_maternite_profession_liberale', period)\n    vieillesse_profession_liberale = individu('vieillesse_profession_liberale', period)\n    retraite_complementaire_profession_liberale = individu('retraite_complementaire_profession_liberale', period)\n\n    cotisations_non_salarie = (\n        (artisan + commercant) * (\n            deces_artisan_commercant\n            + famille_independant\n            + formation_artisan_commercant\n            + retraite_complementaire_artisan_commercant\n            + maladie_maternite_artisan_commercant\n            + vieillesse_artisan_commercant\n            )\n        + profession_liberale * (\n            famille_independant\n            + formation_profession_liberale\n            + maladie_maternite_profession_liberale\n            + vieillesse_profession_liberale\n            + retraite_complementaire_profession_liberale\n            )\n        )\n    return cotisations_non_salarie\n",
       "start_line_number": 34,
       "stop_line_number": 69,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "file_path": "openfisca_france/model/revenus/activite/salarie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -531,7 +531,7 @@
         "name": "formula"
       },
       "documentation": "\nCalcul du salaire net à payer après déduction des sommes\ndues par les salarié avancées par l'employeur\n",
-      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "file_path": "openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    '''\n    Calcul du salaire net à payer après déduction des sommes\n    dues par les salarié avancées par l'employeur\n    '''\n    salaire_net = individu('salaire_net', period, options = [ADD])\n    depense_cantine_titre_restaurant_employe = individu(\n        'depense_cantine_titre_restaurant_employe', period)\n    indemnites_forfaitaires = individu('indemnites_forfaitaires', period)\n    remuneration_apprenti = individu('remuneration_apprenti', period)\n    stage_gratification = individu('stage_gratification', period)\n    salaire_net_a_payer = (\n        salaire_net\n        + remuneration_apprenti\n        + stage_gratification\n        + depense_cantine_titre_restaurant_employe\n        + indemnites_forfaitaires\n        )\n    return salaire_net_a_payer\n",
       "start_line_number": 971,
       "stop_line_number": 990,

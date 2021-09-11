@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -853,7 +853,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(individu, period):\n    chomage_net = individu('chomage_net', period, options = [ADD])\n    retraite_nette = individu('retraite_nette', period, options = [ADD])\n    pensions_alimentaires_percues = individu('pensions_alimentaires_percues', period, options = [ADD])\n    pensions_invalidite = individu('pensions_invalidite', period, options = [ADD])\n\n    # Revenus du foyer fiscal, que l'on projette uniquement sur le 1er déclarant\n    foyer_fiscal = individu.foyer_fiscal\n    pensions_alimentaires_versees = foyer_fiscal('pensions_alimentaires_versees', period)\n    rente_viagere_titre_onereux = foyer_fiscal('rente_viagere_titre_onereux', period, options = [ADD])\n    pen_foyer_fiscal = pensions_alimentaires_versees + rente_viagere_titre_onereux\n    pen_foyer_fiscal_projetees = pen_foyer_fiscal * (individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL))\n\n    return (\n        chomage_net\n        + retraite_nette\n        + pensions_alimentaires_percues\n        + pensions_invalidite\n        + pen_foyer_fiscal_projetees\n        )\n",
       "start_line_number": 129,
       "stop_line_number": 149,

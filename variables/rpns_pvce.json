@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1116,7 +1116,7 @@
         "name": "formula"
       },
       "documentation": "\nPlus values de cession\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period, parameters):\n    '''\n    Plus values de cession\n    '''\n    frag_pvce = individu('frag_pvce', period)\n    arag_pvce = individu('arag_pvce', period)\n    mrag_pvce = individu('mrag_pvce', period)\n    mbic_pvce = individu('mbic_pvce', period)\n    abic_pvce = individu('abic_pvce', period)\n    macc_pvce = individu('macc_pvce', period)\n    aacc_pvce = individu('aacc_pvce', period)\n    mbnc_pvce = individu('mbnc_pvce', period)\n    abnc_pvce = individu('abnc_pvce', period)\n    mncn_pvce = individu('mncn_pvce', period)\n    cncn_pvce = individu('cncn_pvce', period)\n    cncn_info = individu('cncn_info', period)\n    moins_values_long_terme_non_salaries = individu('moins_values_long_terme_non_salaries', period)\n\n    return (\n        frag_pvce\n        + arag_pvce\n        + mrag_pvce\n        + mbic_pvce\n        + abic_pvce\n        + macc_pvce\n        + aacc_pvce\n        + mbnc_pvce\n        + abnc_pvce\n        + mncn_pvce\n        + cncn_pvce\n        + cncn_info\n        - moins_values_long_terme_non_salaries\n        )\n",
       "start_line_number": 2286,
       "stop_line_number": 2319,

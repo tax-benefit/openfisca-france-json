@@ -4,7 +4,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -432,7 +432,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    year = period.this_year\n    f1aw = foyer_fiscal('f1aw', year)\n    f1bw = foyer_fiscal('f1bw', year)\n    f1cw = foyer_fiscal('f1cw', year)\n    f1dw = foyer_fiscal('f1dw', year)\n\n    return (f1aw + f1bw + f1cw + f1dw) / 12\n",
       "start_line_number": 512,
       "stop_line_number": 520,

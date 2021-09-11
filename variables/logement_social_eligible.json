@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/logement_social.py",
+  "file_path": "openfisca_france/model/prestations/logement_social.py",
   "formulas": {
     "2017-01-01": {
       "ast": {
@@ -401,7 +401,7 @@
         "lineno": 1,
         "name": "formula_2017"
       },
-      "file_path": "/openfisca_france/model/prestations/logement_social.py",
+      "file_path": "openfisca_france/model/prestations/logement_social.py",
       "source_code": "def formula_2017(famille, period, parameters):\n    parent_majeur = famille.any(famille.members('majeur', period), role = Famille.PARENT)\n    logement_social_plafond_ressources = famille('logement_social_plafond_ressources', period)\n    revenu_fiscal_de_reference = famille.demandeur.foyer_fiscal('rfr', period.n_2)\n\n    return parent_majeur * (revenu_fiscal_de_reference <= logement_social_plafond_ressources)\n",
       "start_line_number": 169,
       "stop_line_number": 175,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
   "formulas": {
     "2009-06-01": {
       "ast": {
@@ -379,7 +379,7 @@
         "lineno": 1,
         "name": "formula_2009_06_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/rsa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/rsa.py",
       "source_code": "def formula_2009_06_01(famille, period):\n    rsa_revenu_activite_i = famille.members('rsa_revenu_activite_individu', period)\n    rsa_enfant_a_charge_i = famille.members('rsa_enfant_a_charge', period)\n    enfant_i = famille.members('est_enfant_dans_famille', period)\n\n    return famille.sum(or_(not_(enfant_i), rsa_enfant_a_charge_i) * rsa_revenu_activite_i)\n",
       "start_line_number": 431,
       "stop_line_number": 437,

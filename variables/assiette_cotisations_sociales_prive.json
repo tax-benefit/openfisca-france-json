@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1005,7 +1005,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula(individu, period, parameters):\n    avantage_en_nature = individu('avantage_en_nature', period)\n    hsup = individu('hsup', period)\n    indemnites_compensatrices_conges_payes = individu('indemnites_compensatrices_conges_payes', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    primes_salaires = individu('primes_salaires', period)\n    indemnite_fin_contrat = individu('indemnite_fin_contrat', period)\n    reintegration_titre_restaurant_employeur = individu(\n        \"reintegration_titre_restaurant_employeur\", period\n        )\n    remuneration_apprenti = individu('remuneration_apprenti', period)\n    salaire_de_base = individu('salaire_de_base', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    assiette = (\n        salaire_de_base\n        + primes_salaires\n        + avantage_en_nature\n        + hsup\n        + indemnites_compensatrices_conges_payes\n        + remuneration_apprenti\n        + (categorie_salarie == TypesCategorieSalarie.public_non_titulaire) * (\n            indemnite_residence + primes_fonction_publique\n            )\n        + reintegration_titre_restaurant_employeur\n        + indemnite_fin_contrat\n        )\n\n    return assiette\n",
       "start_line_number": 43,
       "stop_line_number": 73,

@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -987,7 +987,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(menage, period, parameters):\n    pensions_nettes_i = menage.members('pensions_nettes', period)\n    revenus_nets_du_capital_i = menage.members('revenus_nets_du_capital', period)\n    revenus_nets_du_travail_i = menage.members('revenus_nets_du_travail', period)\n    pensions_nettes = menage.sum(pensions_nettes_i)\n    revenus_nets_du_capital = menage.sum(revenus_nets_du_capital_i)\n    revenus_nets_du_travail = menage.sum(revenus_nets_du_travail_i)\n\n    impots_directs = menage('impots_directs', period)\n\n    # On prend en compte les PPE touchés par un foyer fiscal dont le déclarant principal est dans le ménage\n    ppe_i = menage.members.foyer_fiscal('ppe', period)  # PPE du foyer fiscal auquel appartient chaque membre du ménage\n    ppe = menage.sum(ppe_i, role = FoyerFiscal.DECLARANT_PRINCIPAL)  # On somme seulement pour les déclarants principaux\n\n    # On prend en compte les prestations sociales touchées par une famille dont le demandeur est dans le ménage\n    prestations_sociales_i = menage.members.famille('prestations_sociales', period)  # PF de la famille auquel appartient chaque membre du ménage\n    prestations_sociales = menage.sum(prestations_sociales_i, role = Famille.DEMANDEUR)  # On somme seulement pour les demandeurs\n\n    return (\n        revenus_nets_du_travail\n        + impots_directs\n        + pensions_nettes\n        + ppe\n        + prestations_sociales\n        + revenus_nets_du_capital\n        )\n",
       "start_line_number": 53,
       "stop_line_number": 79,

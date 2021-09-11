@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
+  "file_path": "openfisca_france/model/prestations/prestations_familiales/cf.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -314,7 +314,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/prestations_familiales/cf.py",
+      "file_path": "openfisca_france/model/prestations/prestations_familiales/cf.py",
       "source_code": "def formula(individu, period):\n    base_ressources = individu('prestations_familiales_base_ressources_individu', period)\n    est_enfant_dans_famille = individu('est_enfant_dans_famille', period)\n    cf_enfant_a_charge = individu('cf_enfant_a_charge', period)\n\n    return or_(not_(est_enfant_dans_famille), cf_enfant_a_charge) * base_ressources\n",
       "start_line_number": 95,
       "stop_line_number": 101,

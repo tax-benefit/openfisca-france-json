@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
+  "file_path": "openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -468,7 +468,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
+      "file_path": "openfisca_france/model/prestations/prestations_familiales/base_ressource.py",
       "source_code": "def formula(famille, period):\n    annee_fiscale_n_2 = period.n_2\n\n    demandeur_declarant_principal = famille.demandeur.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n    conjoint_declarant_principal = famille.conjoint.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    rev_coll = (\n        famille.demandeur.foyer_fiscal('rev_coll', annee_fiscale_n_2)\n        * demandeur_declarant_principal\n        + famille.conjoint.foyer_fiscal('rev_coll', annee_fiscale_n_2)\n        * conjoint_declarant_principal\n        )\n\n    return rev_coll\n",
       "start_line_number": 170,
       "stop_line_number": 184

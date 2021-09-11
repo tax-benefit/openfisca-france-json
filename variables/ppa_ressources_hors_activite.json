@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -425,7 +425,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    aspa = famille('aspa', period)\n    pf = famille('ppa_base_ressources_prestations_familiales', period)\n\n    ass_i = famille.members('ass', period)\n    ressources_hors_activite_i = famille.members('ppa_ressources_hors_activite_individu', period)\n\n    return aspa + pf + famille.sum(ass_i + ressources_hors_activite_i)\n",
       "start_line_number": 218,
       "stop_line_number": 226,

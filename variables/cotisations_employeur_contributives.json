@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1743,7 +1743,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
       "source_code": "def formula(individu, period, parameters):\n    ags = individu('ags', period)\n    agff_employeur = individu('agff_employeur', period, options = [ADD])\n    agirc_arrco_employeur = individu('agirc_arrco_employeur', period)\n    agirc_employeur = individu('agirc_employeur', period, options = [ADD])\n    agirc_gmp_employeur = individu('agirc_gmp_employeur', period, options = [ADD])\n    apec_employeur = individu('apec_employeur', period)\n    arrco_employeur = individu('arrco_employeur', period)\n    chomage_employeur = individu('chomage_employeur', period)\n    contribution_equilibre_general_employeur = individu('contribution_equilibre_general_employeur', period)\n    cotisation_equilibre_technique_employeur = individu('cotisation_equilibre_technique_employeur', period)\n    cotisation_exceptionnelle_temporaire_employeur = individu(\n        'cotisation_exceptionnelle_temporaire_employeur', period)\n    fonds_emploi_hospitalier = individu('fonds_emploi_hospitalier', period, options = [ADD])\n    ircantec_employeur = individu('ircantec_employeur', period, options = [ADD])\n    pension_employeur = individu('pension_employeur', period, options = [ADD])\n    rafp_employeur = individu('rafp_employeur', period, options = [ADD])\n    vieillesse_deplafonnee_employeur = individu('vieillesse_deplafonnee_employeur', period, options = [ADD])\n    vieillesse_plafonnee_employeur = individu('vieillesse_plafonnee_employeur', period, options = [ADD])\n\n    cotisations = (\n        # prive\n        ags\n        + agff_employeur\n        + agirc_employeur\n        + agirc_arrco_employeur\n        + agirc_gmp_employeur\n        + apec_employeur\n        + arrco_employeur\n        + chomage_employeur\n        + contribution_equilibre_general_employeur\n        + cotisation_equilibre_technique_employeur\n        + cotisation_exceptionnelle_temporaire_employeur\n        + vieillesse_deplafonnee_employeur\n        + vieillesse_plafonnee_employeur\n        # public\n        + fonds_emploi_hospitalier\n        + ircantec_employeur\n        + pension_employeur\n        + rafp_employeur\n        )\n\n    return cotisations\n",
       "start_line_number": 36,
       "stop_line_number": 79,

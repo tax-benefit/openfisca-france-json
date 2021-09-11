@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
   "formulas": {
     "2008-01-01": {
       "ast": {
@@ -819,7 +819,7 @@
         "name": "formula_2008_01_01"
       },
       "documentation": "\nCrédit d'impôt exceptionnel sur les revenus 2008\nhttp://www11.minefi.gouv.fr/boi/boi2009/5fppub/textes/5b2509/5b2509.pdf\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
       "source_code": "def formula_2008_01_01(foyer_fiscal, period, parameters):\n    '''\n    Crédit d'impôt exceptionnel sur les revenus 2008\n    http://www11.minefi.gouv.fr/boi/boi2009/5fppub/textes/5b2509/5b2509.pdf\n    '''\n    rni = foyer_fiscal('rni', period)\n    nbptr = foyer_fiscal('nbptr', period)\n    iai = foyer_fiscal('iai', period)\n    mohist = foyer_fiscal('mohist', period)\n    elig_creimp_exc_2008 = foyer_fiscal('elig_creimp_exc_2008', period)\n\n    # TODO: gérer les DOM-TOM, corriger les formules, inclure 7KA\n    rpp = rni / nbptr\n\n    return (\n        elig_creimp_exc_2008\n        * (mohist < 10700)\n        * (rpp <= 12475)\n        * around(\n            (2 / 3)\n            * min_(12475, iai)\n            * (rpp < 11674)\n            + (rpp > 11673)\n            * max_(0, 8317 * (12475 - rpp) / 802)\n            )\n        )\n",
       "start_line_number": 408,
       "stop_line_number": 434,

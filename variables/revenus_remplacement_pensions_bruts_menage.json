@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1529,7 +1529,7 @@
         "name": "formula"
       },
       "documentation": "\nRevenus de remplacement et pensions bruts du ménage : avant CSG et CRDS\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(menage, period):\n    '''\n    Revenus de remplacement et pensions bruts du ménage : avant CSG et CRDS\n    '''\n    pensions_nettes_i = menage.members('pensions_nettes', period)\n    casa_i = menage.members('casa', period, options = [ADD])\n    csg_imposable_chomage_i = menage.members('csg_imposable_chomage', period, options = [ADD])\n    csg_deductible_chomage_i = menage.members('csg_deductible_chomage', period, options = [ADD])\n    csg_imposable_retraite_i = menage.members('csg_imposable_retraite', period, options = [ADD])\n    csg_deductible_retraite_i = menage.members('csg_deductible_retraite', period, options = [ADD])\n    crds_chomage_i = menage.members('crds_chomage', period, options = [ADD])\n    crds_retraite_i = menage.members('crds_retraite', period, options = [ADD])\n\n    pensions_nettes = menage.sum(pensions_nettes_i)\n    casa = menage.sum(casa_i)\n    csg_imposable_chomage = menage.sum(csg_imposable_chomage_i)\n    csg_deductible_chomage = menage.sum(csg_deductible_chomage_i)\n    csg_imposable_retraite = menage.sum(csg_imposable_retraite_i)\n    csg_deductible_retraite = menage.sum(csg_deductible_retraite_i)\n    crds_chomage = menage.sum(crds_chomage_i)\n    crds_retraite = menage.sum(crds_retraite_i)\n\n    return (\n        + pensions_nettes\n        - casa\n        - csg_imposable_chomage  # On veut ajouter le montant de cotisations. Vu que ce montant est négatif, on met un \"moins\". Idem pour les autres items ci-dessous\n        - csg_deductible_chomage\n        - csg_imposable_retraite\n        - csg_deductible_retraite\n        - crds_chomage\n        - crds_retraite\n        )\n",
       "start_line_number": 378,
       "stop_line_number": 410,

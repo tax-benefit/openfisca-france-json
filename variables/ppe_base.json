@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -344,7 +344,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period, parameters):\n    ppe_rev = individu('ppe_rev', period)\n    ppe_coef_tp = individu('ppe_coef_tp', period)\n    ppe_coef = individu.foyer_fiscal('ppe_coef', period)\n\n    return ppe_rev / (ppe_coef_tp + (ppe_coef_tp == 0)) * ppe_coef\n",
       "start_line_number": 3350,
       "stop_line_number": 3356,

@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
   "formulas": {
     "2010-01-01": {
       "ast": {
@@ -306,7 +306,7 @@
         "name": "formula_2010_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2010\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2010_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2010\n    '''\n    f7qn = foyer_fiscal('f7qn_2012', period)\n    f7qk = foyer_fiscal('f7qk', period)\n    f7kg = foyer_fiscal('f7kg', period)\n\n    return f7qn + f7qk + f7kg\n",
       "start_line_number": 2241,
       "stop_line_number": 2251,
@@ -860,7 +860,7 @@
         "name": "formula_2011_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2011\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2011_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2011\n    '''\n    f7qn = foyer_fiscal('f7qn_2012', period)\n    f7qk = foyer_fiscal('f7qk', period)\n    f7qu = foyer_fiscal('f7qu_2012', period)\n    f7kg = foyer_fiscal('f7kg', period)\n    f7kh = foyer_fiscal('f7kh', period)\n    f7ki = foyer_fiscal('f7ki', period)\n\n    return f7qn + f7qk + f7qu + f7kg + f7kh + f7ki\n",
       "start_line_number": 2252,
       "stop_line_number": 2265,
@@ -1741,7 +1741,7 @@
         "name": "formula_2012_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2012\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2012_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2012\n    '''\n    f7qn = foyer_fiscal('f7qn_2012', period)\n    f7qk = foyer_fiscal('f7qk', period)\n    f7qu = foyer_fiscal('f7qu_2012', period)\n    f7kg = foyer_fiscal('f7kg', period)\n    f7kh = foyer_fiscal('f7kh', period)\n    f7ki = foyer_fiscal('f7ki', period)\n    f7qj = foyer_fiscal('f7qj', period)\n    f7qs = foyer_fiscal('f7qs_2012', period)\n    f7qw_2012 = foyer_fiscal('f7qw_2012', period)\n    f7qx_2012 = foyer_fiscal('f7qx_2012', period)\n\n    return f7qn + f7qk + f7qu + f7kg + f7kh + f7ki + f7qj + f7qs + f7qw_2012 + f7qx_2012\n",
       "start_line_number": 2266,
       "stop_line_number": 2283,
@@ -3105,7 +3105,7 @@
         "name": "formula_2013_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2013\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2013_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2013\n    '''\n    fhkg = foyer_fiscal('fhkg', period)\n    fhkh = foyer_fiscal('fhkh', period)\n    fhki = foyer_fiscal('fhki', period)\n    fhqj = foyer_fiscal('fhqj', period)\n    fhqk = foyer_fiscal('fhqk', period)\n    fhqn = foyer_fiscal('fhqn', period)\n    fhqs = foyer_fiscal('fhqs', period)\n    fhqu = foyer_fiscal('fhqu', period)\n    fhqw = foyer_fiscal('fhqw', period)\n    fhqx = foyer_fiscal('fhqx', period)\n    fhra = foyer_fiscal('fhra', period)\n    fhrb = foyer_fiscal('fhrb', period)\n    fhrc = foyer_fiscal('fhrc', period)\n    fhrd = foyer_fiscal('fhrd', period)\n\n    report_reduc_2009 = fhkg\n    report_reduc_2010 = fhkh + fhki\n    report_reduc_2011 = fhqn + fhqu + fhqk\n    report_reduc_2012 = fhqj + fhqs + fhqw + fhqx\n    reduc_invest_2013 = fhra + fhrb + fhrc + fhrd\n\n    return (\n        report_reduc_2009\n        + report_reduc_2010\n        + report_reduc_2011\n        + report_reduc_2012\n        + reduc_invest_2013\n        )\n",
       "start_line_number": 2284,
       "stop_line_number": 2317,
@@ -4828,7 +4828,7 @@
         "name": "formula_2014_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2014\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2014_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2014\n    '''\n    fhkg = foyer_fiscal('fhkg', period)\n    fhkh = foyer_fiscal('fhkh', period)\n    fhki = foyer_fiscal('fhki', period)\n    fhqj = foyer_fiscal('fhqj', period)\n    fhqk = foyer_fiscal('fhqk', period)\n    fhqn = foyer_fiscal('fhqn', period)\n    fhqs = foyer_fiscal('fhqs', period)\n    fhqu = foyer_fiscal('fhqu', period)\n    fhqw = foyer_fiscal('fhqw', period)\n    fhqx = foyer_fiscal('fhqx', period)\n    fhra = foyer_fiscal('fhra', period)\n    fhrb = foyer_fiscal('fhrb', period)\n    fhrc = foyer_fiscal('fhrc', period)\n    fhrd = foyer_fiscal('fhrd', period)\n    fhxa = foyer_fiscal('fhxa', period)\n    fhxb = foyer_fiscal('fhxb', period)\n    fhxc = foyer_fiscal('fhxc', period)\n    fhxe = foyer_fiscal('fhxe', period)\n\n    report_reduc_2009 = fhkg\n    report_reduc_2010 = fhkh + fhki\n    report_reduc_2011 = fhqn + fhqu + fhqk\n    report_reduc_2012 = fhqj + fhqs + fhqw + fhqx\n    report_reduc_2013 = fhra + fhrb + fhrc + fhrd\n    reduc_invest_2014 = fhxa + fhxb + fhxc + fhxe\n\n    return (\n        report_reduc_2009\n        + report_reduc_2010\n        + report_reduc_2011\n        + report_reduc_2012\n        + report_reduc_2013\n        + reduc_invest_2014\n        )\n",
       "start_line_number": 2318,
       "stop_line_number": 2357,
@@ -6879,7 +6879,7 @@
         "name": "formula_2015_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2015\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2015_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2015\n    '''\n    fhkh = foyer_fiscal('fhkh', period)\n    fhki = foyer_fiscal('fhki', period)\n    fhqj = foyer_fiscal('fhqj', period)\n    fhqk = foyer_fiscal('fhqk', period)\n    fhqn = foyer_fiscal('fhqn', period)\n    fhqs = foyer_fiscal('fhqs', period)\n    fhqu = foyer_fiscal('fhqu', period)\n    fhqw = foyer_fiscal('fhqw', period)\n    fhqx = foyer_fiscal('fhqx', period)\n    fhra = foyer_fiscal('fhra', period)\n    fhrb = foyer_fiscal('fhrb', period)\n    fhrc = foyer_fiscal('fhrc', period)\n    fhrd = foyer_fiscal('fhrd', period)\n    fhxa = foyer_fiscal('fhxa', period)\n    fhxb = foyer_fiscal('fhxb', period)\n    fhxc = foyer_fiscal('fhxc', period)\n    fhxe = foyer_fiscal('fhxe', period)\n    fhxf = foyer_fiscal('fhxf', period)\n    fhxg = foyer_fiscal('fhxg', period)\n    fhxh = foyer_fiscal('fhxh', period)\n    fhxi = foyer_fiscal('fhxi', period)\n    fhxk = foyer_fiscal('fhxk', period)\n\n    report_reduc_2010 = fhkh + fhki\n    report_reduc_2011 = fhqn + fhqu + fhqk\n    report_reduc_2012 = fhqj + fhqs + fhqw + fhqx\n    report_reduc_2013 = fhra + fhrb + fhrc + fhrd\n    report_reduc_2014 = fhxa + fhxb + fhxc + fhxe\n    reduc_invest_2015 = fhxf + fhxg + fhxh + fhxi + fhxk\n\n    return (\n        report_reduc_2010\n        + report_reduc_2011\n        + report_reduc_2012\n        + report_reduc_2013\n        + report_reduc_2014\n        + reduc_invest_2015\n        )\n",
       "start_line_number": 2358,
       "stop_line_number": 2401,
@@ -9297,7 +9297,7 @@
         "name": "formula_2016_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2016\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2016_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2016\n    '''\n    fhkh = foyer_fiscal('fhkh', period)  # noqa F841\n    fhki = foyer_fiscal('fhki', period)  # noqa F841\n    fhqj = foyer_fiscal('fhqj', period)\n    fhqk = foyer_fiscal('fhqk', period)\n    fhqn = foyer_fiscal('fhqn', period)\n    fhqs = foyer_fiscal('fhqs', period)\n    fhqu = foyer_fiscal('fhqu', period)\n    fhqw = foyer_fiscal('fhqw', period)\n    fhqx = foyer_fiscal('fhqx', period)\n    fhra = foyer_fiscal('fhra', period)\n    fhrb = foyer_fiscal('fhrb', period)\n    fhrc = foyer_fiscal('fhrc', period)\n    fhrd = foyer_fiscal('fhrd', period)\n    fhxa = foyer_fiscal('fhxa', period)\n    fhxb = foyer_fiscal('fhxb', period)\n    fhxc = foyer_fiscal('fhxc', period)\n    fhxe = foyer_fiscal('fhxe', period)\n    fhxf = foyer_fiscal('fhxf', period)\n    fhxg = foyer_fiscal('fhxg', period)\n    fhxh = foyer_fiscal('fhxh', period)\n    fhxi = foyer_fiscal('fhxi', period)\n    fhxk = foyer_fiscal('fhxk', period)\n    fhxl = foyer_fiscal('fhxl', period)\n    fhxm = foyer_fiscal('fhxm', period)\n    fhxn = foyer_fiscal('fhxn', period)\n    fhxo = foyer_fiscal('fhxo', period)\n    fhxp = foyer_fiscal('fhxp', period)\n\n    report_reduc_2011 = fhqn + fhqu + fhqk\n    report_reduc_2012 = fhqj + fhqs + fhqw + fhqx\n    report_reduc_2013 = fhra + fhrb + fhrc + fhrd\n    report_reduc_2014 = fhxa + fhxb + fhxc + fhxe\n    report_reduc_2015 = fhxf + fhxg + fhxh + fhxi + fhxk\n    reduc_invest_2016 = fhxl + fhxm + fhxn + fhxo + fhxp\n\n    return (\n        report_reduc_2011\n        + report_reduc_2012\n        + report_reduc_2013\n        + report_reduc_2014\n        + report_reduc_2015\n        + reduc_invest_2016\n        )\n",
       "start_line_number": 2402,
       "stop_line_number": 2450,
@@ -11882,7 +11882,7 @@
         "name": "formula_2017_01_01"
       },
       "documentation": "\nInvestissements outre-mer dans le logement social (déclaration n°2042 IOM)\n2017\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/reductions_impot.py",
       "source_code": "def formula_2017_01_01(foyer_fiscal, period, parameters):\n    '''\n    Investissements outre-mer dans le logement social (déclaration n°2042 IOM)\n    2017\n    '''\n    fhkh = foyer_fiscal('fhkh', period)  # noqa F841\n    fhki = foyer_fiscal('fhki', period)  # noqa F841\n    fhqj = foyer_fiscal('fhqj', period)\n    fhqs = foyer_fiscal('fhqs', period)\n    fhqw = foyer_fiscal('fhqw', period)\n    fhqx = foyer_fiscal('fhqx', period)\n    fhra = foyer_fiscal('fhra', period)\n    fhrb = foyer_fiscal('fhrb', period)\n    fhrc = foyer_fiscal('fhrc', period)\n    fhrd = foyer_fiscal('fhrd', period)\n    fhxa = foyer_fiscal('fhxa', period)\n    fhxb = foyer_fiscal('fhxb', period)\n    fhxc = foyer_fiscal('fhxc', period)\n    fhxe = foyer_fiscal('fhxe', period)\n    fhxf = foyer_fiscal('fhxf', period)\n    fhxg = foyer_fiscal('fhxg', period)\n    fhxh = foyer_fiscal('fhxh', period)\n    fhxi = foyer_fiscal('fhxi', period)\n    fhxk = foyer_fiscal('fhxk', period)\n    fhxl = foyer_fiscal('fhxl', period)\n    fhxm = foyer_fiscal('fhxm', period)\n    fhxn = foyer_fiscal('fhxn', period)\n    fhxo = foyer_fiscal('fhxo', period)\n    fhxp = foyer_fiscal('fhxp', period)\n    fhxq = foyer_fiscal('fhxq', period)\n    fhxr = foyer_fiscal('fhxr', period)\n    fhxs = foyer_fiscal('fhxs', period)\n    fhxt = foyer_fiscal('fhxt', period)\n    fhxu = foyer_fiscal('fhxu', period)\n\n    report_reduc_2012 = fhqj + fhqs + fhqw + fhqx\n    report_reduc_2013 = fhra + fhrb + fhrc + fhrd\n    report_reduc_2014 = fhxa + fhxb + fhxc + fhxe\n    report_reduc_2015 = fhxf + fhxg + fhxh + fhxi + fhxk\n    report_reduc_2016 = fhxl + fhxm + fhxn + fhxo + fhxp\n    reduc_invest_2017 = fhxq + fhxr + fhxs + fhxt + fhxu\n\n    return (\n        report_reduc_2012\n        + report_reduc_2013\n        + report_reduc_2014\n        + report_reduc_2015\n        + report_reduc_2016\n        + reduc_invest_2017\n        )\n",
       "start_line_number": 2451,
       "stop_line_number": 2501,

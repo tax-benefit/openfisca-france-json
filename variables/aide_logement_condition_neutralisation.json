@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "file_path": "openfisca_france/model/prestations/aides_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1264,7 +1264,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "file_path": "openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(individu, period):\n    activite_i = individu.famille.members('activite', period)\n    date_debut_chomage_i = individu.famille.members('date_debut_chomage', period)\n    two_months_ago = datetime64(period.offset(-2, 'month').start)\n\n    chomage_imposable_i = individu.famille.members('chomage_imposable', period)\n    ass_i = individu.famille.members('ass', period)\n\n    # chomage non indemnisé ou indemnisé mais donnant lieu au versement de l'ass\n    chomage_non_indemnise_i = (activite_i == TypesActivite.chomeur) * (chomage_imposable_i == 0) + ((chomage_imposable_i > 0) * (ass_i > 0))\n    chomage_non_indemnise_i = chomage_non_indemnise_i * (date_debut_chomage_i < two_months_ago)\n    chomage_non_indemnise = individu.famille.sum(chomage_non_indemnise_i, role = Famille.PARENT)\n    type_conges = individu('type_conges', period)\n    conge_parental = (type_conges == TypesConges.conge_parental)\n\n    rsa_mois_dernier = individu.famille('rsa', period.last_month)\n\n    return min_((((chomage_non_indemnise > 0) + conge_parental + (rsa_mois_dernier > 0)) * individu.has_role(Famille.PARENT)), 1)\n",
       "start_line_number": 488,
       "stop_line_number": 506,

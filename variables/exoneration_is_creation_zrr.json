@@ -4,7 +4,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1429,7 +1429,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
       "source_code": "def formula(individu, period, parameters):\n    decembre = period.first_month.offset(11, 'month')\n    effectif_entreprise = individu('effectif_entreprise', decembre)\n    entreprise_benefice = individu('entreprise_benefice', period, options = [ADD])\n    # TODO: MODIFIER avec création d'entreprise\n    contrat_de_travail_duree = individu('contrat_de_travail_duree', decembre)\n    TypesContratDeTravailDuree = contrat_de_travail_duree.possible_values\n\n    contrat_de_travail_debut = individu('contrat_de_travail_debut', decembre)\n    contrat_de_travail_fin = individu('contrat_de_travail_fin', decembre)\n    duree_eligible = contrat_de_travail_fin > contrat_de_travail_debut + timedelta64(365, 'D')\n    # TODO: move to parameters file\n    contrat_de_travail_eligible = (\n        contrat_de_travail_duree == TypesContratDeTravailDuree.cdi) + (\n        (contrat_de_travail_duree == TypesContratDeTravailDuree.cdd) * (duree_eligible)\n        )\n    zone_revitalisation_rurale = individu('zone_revitalisation_rurale', decembre)\n\n    eligible = (\n        contrat_de_travail_eligible\n        * (effectif_entreprise <= 50)\n        * zone_revitalisation_rurale\n        )\n\n    exoneration_relative_year_passed = exoneration_relative_year(period, contrat_de_travail_debut)\n\n    rate_by_year_passed = {\n        0: 1,\n        1: 1,\n        2: 1,\n        3: 1,\n        4: 1,\n        5: .75,\n        6: .50,\n        7: .25,\n        }  # TODO: move to parameters file\n    taux_exoneraion = eligible * 0.0\n\n    for year_passed, rate in rate_by_year_passed.items():\n        condition_on_year_passed = exoneration_relative_year_passed == timedelta64(year_passed, 'Y')\n        taux_exoneraion[condition_on_year_passed] = rate\n\n    return taux_exoneraion * entreprise_benefice\n    # TODO: mettre sur toutes les années\n",
       "start_line_number": 376,
       "stop_line_number": 420,

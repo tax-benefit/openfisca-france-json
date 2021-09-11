@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
   "formulas": {
     "2013-01-01": {
       "ast": {
@@ -136,7 +136,7 @@
         "name": "formula_2013_01_01"
       },
       "documentation": "\nA partir des revenus de 2013, certains revenus du capital qui pouvaient\nprofiter du prélèvement forfaitaire libératoire sont passés à l'imposition obligatoire au barème.\nMais un prélèvement forfaitaire demeure à partir de 2013, pour éviter les trous de trésorerie\n(car un prélèvement forfaitaire est à la source). Ce prélèvement est non-libératoire : il\ncorrespond à un acompte d'IRPP, qui est donc déduit de l'impôt dû au moment du calcul de\nl'impôt final après déclaration des revenus\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
       "source_code": "def formula_2013_01_01(foyer_fiscal, period):\n    '''\n    A partir des revenus de 2013, certains revenus du capital qui pouvaient\n    profiter du prélèvement forfaitaire libératoire sont passés à l'imposition obligatoire au barème.\n    Mais un prélèvement forfaitaire demeure à partir de 2013, pour éviter les trous de trésorerie\n    (car un prélèvement forfaitaire est à la source). Ce prélèvement est non-libératoire : il\n    correspond à un acompte d'IRPP, qui est donc déduit de l'impôt dû au moment du calcul de\n    l'impôt final après déclaration des revenus\n    '''\n    f2ck = foyer_fiscal('f2ck', period)\n\n    return f2ck\n",
       "start_line_number": 865,
       "stop_line_number": 877,

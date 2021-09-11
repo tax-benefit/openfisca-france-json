@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
   "formulas": {
     "1991-01-01": {
       "ast": {
@@ -424,7 +424,7 @@
         "lineno": 1,
         "name": "formula_1991"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_prive.py",
       "source_code": "def formula_1991(individu, period, parameters):    # TODO : rajouter formule pré-1991 : s'applique au salaire sous PSS uniquement\n    assiette_cotisations_sociales = individu(\n        'assiette_cotisations_sociales', period)\n    taux_accident_travail = individu('taux_accident_travail', period)\n    categorie_salarie = individu('categorie_salarie', period)\n    assujetti = (\n        (categorie_salarie == TypesCategorieSalarie.prive_non_cadre)\n        + (categorie_salarie == TypesCategorieSalarie.prive_cadre)\n        )\n    # TODO: ajouter contractuel du public salarié de moins d'un an ou à temps partiel\n    return - assiette_cotisations_sociales * taux_accident_travail * assujetti\n",
       "start_line_number": 202,
       "stop_line_number": 213,

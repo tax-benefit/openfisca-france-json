@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "file_path": "openfisca_france/model/prestations/aides_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -775,7 +775,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "file_path": "openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(famille, period):\n    statut_occupation_logement = famille.demandeur.menage('statut_occupation_logement', period)\n    loyer = famille.demandeur.menage('loyer', period)\n    categorie_apl = famille.demandeur.menage('logement_conventionne', period)\n    logement_chambre = famille.demandeur.menage('logement_chambre', period)\n    locataire_meuble = statut_occupation_logement == TypesStatutOccupationLogement.locataire_meuble\n\n    # Coeff de 2/3 pour les logements meublés pour l'AL\n    coeff_meuble_al = where(locataire_meuble, 2 / 3, 1)\n    # Coeff de 2/3 pour les seules chambres meublées pour l'APL\n    coeff_meuble_apl = where(locataire_meuble * logement_chambre, 2 / 3, 1)\n    return where(categorie_apl, round_(loyer * coeff_meuble_apl), round_(loyer * coeff_meuble_al))\n",
       "start_line_number": 1066,
       "stop_line_number": 1078

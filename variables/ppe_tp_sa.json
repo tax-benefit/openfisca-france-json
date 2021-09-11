@@ -10,7 +10,7 @@
   "definition_period": "year",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "file_path": "openfisca_france/model/revenus/activite/salarie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -419,7 +419,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "file_path": "openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period):\n    mois = period.first_month\n    indicateur = individu('contrat_de_travail', mois) == 0\n    # On parcours tous les mois de l'année pour s'assurer que l'individu était employé à temps plein\n    # durant toute l'année.\n    while mois.start.month < 12:\n        mois = mois.offset(1)\n        indicateur = indicateur & (individu('contrat_de_travail', mois) == 0)\n    return indicateur\n",
       "start_line_number": 119,
       "stop_line_number": 128,

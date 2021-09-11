@@ -4,7 +4,7 @@
   "documentation": "\nComplémentaire à la bourse sur critères sociaux, pour les étudiants\nayant eu mention très bien au baccalauréat.\n\nNon modélisé :\nL'étudiant respecte les conditions d'inscription pédagogique, d'assiduité\net de présentation aux examens (non applicable si nouveau bachelier)\nou redouble pour raisons médicales.\nL'étudiant éligible à la bourse sur critères sociaux et éligible à une aide au mérite\nen année universitaire N-1 et ayant réalisé un Service Civique\nau titre de cette même année, peut percevoir son aide au mérite en N.\nUn étudiant ne peut bénéficier de plus de 3 fois de l'aide au mérite.\n",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_merite.py",
+  "file_path": "openfisca_france/model/prestations/enseignement_superieur/aide_merite.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1228,7 +1228,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/enseignement_superieur/aide_merite.py",
+      "file_path": "openfisca_france/model/prestations/enseignement_superieur/aide_merite.py",
       "source_code": "def formula(individu, period):\n\n    def periode_universitaire_precedente(mois_calcul):\n        nb_mois_annee_courante = mois_calcul.date.month - mois_calcul.this_year.date.month + 1\n\n        # https://www.campusfrance.org/fr/node/2176\n        if nb_mois_annee_courante < 9:\n            debut_annee_courante = mois_calcul.last_year\n        else:\n            debut_annee_courante = mois_calcul.this_year\n\n        rentree_an_passe = Instant((debut_annee_courante.offset(-1), 9, 1))\n        periode_universitaire_precedente = str(Period((MONTH, rentree_an_passe, 10)))\n        return periode_universitaire_precedente\n\n    # l'individu intègre un établissement supérieur à la rentrée\n    etudiant = individu(\"etudiant\", period)\n\n    bourse_criteres_sociaux = individu(\"bourse_criteres_sociaux\", period)\n    allocation_annuelle_etudiant = individu(\"allocation_annuelle_etudiant\", period)\n    condition_ressources = (bourse_criteres_sociaux + allocation_annuelle_etudiant) > 0\n\n    mention_baccalaureat = individu(\"mention_baccalaureat\", period)\n    condition_mention = (\n        (mention_baccalaureat == TypesMention.mention_tres_bien)\n        + (mention_baccalaureat == TypesMention.mention_tres_bien_felicitations_jury)\n        )\n\n    # a déjà perçu l'aide l'année [universitaire] précédente\n    periode_universitaire_precedente = periode_universitaire_precedente(period)\n    aide_merite_eligibilite_an_dernier = individu(\n        \"aide_merite_eligibilite\",\n        periode_universitaire_precedente,\n        options = [ADD]\n        )\n\n    return etudiant * condition_ressources * (condition_mention + aide_merite_eligibilite_an_dernier)\n",
       "start_line_number": 30,
       "stop_line_number": 67,

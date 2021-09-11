@@ -4,7 +4,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
   "formulas": {
     "2005-07-01": {
       "ast": {
@@ -559,7 +559,7 @@
         "lineno": 1,
         "name": "formula_2005_07_01"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/allegements.py",
       "source_code": "def formula_2005_07_01(individu, period, parameters):\n    stagiaire = individu('stagiaire', period)\n    apprenti = individu('apprenti', period)\n    allegement_mode_recouvrement = individu('allegement_fillon_mode_recouvrement', period)\n    exoneration_cotisations_employeur_jei = individu('exoneration_cotisations_employeur_jei', period)\n\n    non_cumulee = not_(exoneration_cotisations_employeur_jei)\n\n    # switch on 3 possible payment options\n    allegement = switch_on_allegement_mode(\n        individu, period, parameters,\n        allegement_mode_recouvrement,\n        \"allegement_fillon\",\n        )\n\n    return allegement * not_(stagiaire) * not_(apprenti) * non_cumulee\n",
       "start_line_number": 316,
       "stop_line_number": 332,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/aah.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1022,7 +1022,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/aah.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/aah.py",
       "source_code": "def formula(individu, period):\n    period = period.first_month\n    three_previous_months = period.start.period('month', 3).offset(-3)\n    last_year = period.last_year\n\n    ressources_a_inclure = [\n        'chomage_net',\n        'indemnites_chomage_partiel',\n        'indemnites_journalieres_imposables',\n        'indemnites_stage',\n        'revenus_stage_formation_pro',\n        'salaire_net',\n        ]\n\n    ressources = sum(\n        [individu(ressource, three_previous_months, options = [ADD]) for ressource in ressources_a_inclure]\n        )\n\n    def revenus_tns():\n        revenus_auto_entrepreneur = individu('rpns_auto_entrepreneur_benefice', three_previous_months, options = [ADD])\n\n        # Les revenus TNS hors AE sont estimés en se basant sur le revenu N-1\n        rpns_micro_entreprise_benefice = individu('rpns_micro_entreprise_benefice', last_year) * 3 / 12\n        rpns_benefice_exploitant_agricole = individu('rpns_benefice_exploitant_agricole', last_year) * 3 / 12\n        rpns_autres_revenus = individu('rpns_autres_revenus', last_year) * 3 / 12\n\n        return revenus_auto_entrepreneur + rpns_micro_entreprise_benefice + rpns_benefice_exploitant_agricole + rpns_autres_revenus\n\n    return (ressources + revenus_tns()) * 4\n",
       "start_line_number": 99,
       "stop_line_number": 128,

@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/remplacement/indemnites_journalieres_securite_sociale.py",
+  "file_path": "openfisca_france/model/revenus/remplacement/indemnites_journalieres_securite_sociale.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -268,7 +268,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/remplacement/indemnites_journalieres_securite_sociale.py",
+      "file_path": "openfisca_france/model/revenus/remplacement/indemnites_journalieres_securite_sociale.py",
       "source_code": "def formula(individu, period, parameters):\n    ressources = [\n        'indemnites_journalieres_maternite',\n        'indemnites_journalieres_paternite',\n        'indemnites_journalieres_adoption',\n        'indemnites_journalieres_maladie',\n        'indemnites_journalieres_accident_travail',\n        'indemnites_journalieres_maladie_professionnelle',\n        ]\n    total = sum(individu(ressource, period) for ressource in ressources)\n\n    return total\n",
       "start_line_number": 59,
       "stop_line_number": 71,

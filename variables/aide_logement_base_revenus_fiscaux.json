@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "file_path": "openfisca_france/model/prestations/aides_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -923,7 +923,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "file_path": "openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(foyer_fiscal, period):\n    rente_viagere_titre_onereux_net = foyer_fiscal('rente_viagere_titre_onereux_net', period)\n    # Supprimée à partir de 2018\n    rev_cat_rvcm = foyer_fiscal('revenu_categoriel_capital', period)\n    # Supprimée à partir de 2018\n    revenus_capitaux_prelevement_liberatoire = foyer_fiscal('revenus_capitaux_prelevement_liberatoire', period, options = [ADD])\n    # Apparait à partir de 2018\n    revenus_capitaux_prelevement_forfaitaire_unique_ir = foyer_fiscal('revenus_capitaux_prelevement_forfaitaire_unique_ir', period, options = [ADD])\n    revenu_categoriel_foncier = foyer_fiscal('revenu_categoriel_foncier', period)\n    f7ga = foyer_fiscal('f7ga', period)\n    f7gb = foyer_fiscal('f7gb', period)\n    f7gc = foyer_fiscal('f7gc', period)\n    # Supprimée à partir de 2018\n    rev_cat_pv = foyer_fiscal('revenu_categoriel_plus_values', period)\n    # Apparait à partir de 2018\n    plus_values_prelevement_forfaitaire_unique_ir = foyer_fiscal('plus_values_prelevement_forfaitaire_unique_ir', period)\n\n    return (\n        + revenu_categoriel_foncier\n        + rente_viagere_titre_onereux_net\n        + rev_cat_rvcm\n        + revenus_capitaux_prelevement_liberatoire\n        + revenus_capitaux_prelevement_forfaitaire_unique_ir\n        + rev_cat_pv\n        + plus_values_prelevement_forfaitaire_unique_ir\n        - f7ga\n        - f7gb\n        - f7gc\n        )\n",
       "start_line_number": 681,
       "stop_line_number": 710,

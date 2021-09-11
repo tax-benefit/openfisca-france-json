@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -136,7 +136,7 @@
         "name": "formula"
       },
       "documentation": "\nSi un élu local a été prélevé à la source de l'impôt associé à ses indemnités\net qu'il décide au final d'être imposé comme au titre des salaires et traitements,\nson impôt est calculé après déclaration 2042 des revenus, mais est diminué de l'acompte correspondant au montant déjà prélevé à la source\nCf. document 2041 GI. Pour l'année 2016 :\nhttps://www.impots.gouv.fr/portail/files/formulaires/2041-gi/2017/2041-gi_1936.pdf\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/credits_impot.py",
       "source_code": "def formula(foyer_fiscal, period):\n    '''\n    Si un élu local a été prélevé à la source de l'impôt associé à ses indemnités\n    et qu'il décide au final d'être imposé comme au titre des salaires et traitements,\n    son impôt est calculé après déclaration 2042 des revenus, mais est diminué de l'acompte correspondant au montant déjà prélevé à la source\n    Cf. document 2041 GI. Pour l'année 2016 :\n    https://www.impots.gouv.fr/portail/files/formulaires/2041-gi/2017/2041-gi_1936.pdf\n    '''\n    f8th = foyer_fiscal('f8th', period)\n\n    return f8th\n",
       "start_line_number": 846,
       "stop_line_number": 857,

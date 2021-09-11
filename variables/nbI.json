@@ -4,7 +4,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -398,7 +398,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    janvier = period.first_month\n\n    enfant_a_charge = foyer_fiscal.members('enfant_a_charge', period)\n    garde_alternee = foyer_fiscal.members('garde_alternee', janvier)\n    invalidite = foyer_fiscal.members('invalidite', janvier)\n    return foyer_fiscal.sum(enfant_a_charge * garde_alternee * invalidite)\n",
       "start_line_number": 287,
       "stop_line_number": 294,

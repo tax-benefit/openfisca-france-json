@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+  "file_path": "openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -447,7 +447,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
+      "file_path": "openfisca_france/model/revenus/remplacement/rente_accident_travail.py",
       "source_code": "def formula(individu, period):\n    previous_year = period.start.period('year').offset(-1)\n    non_salarie_agricole = individu('rpns_benefice_exploitant_agricole', previous_year, options=[ADD]) != 0\n    rente_accident_travail_salarie = individu('rente_accident_travail_salarie', period)\n    rente_accident_travail_exploitant_agricole = individu('rente_accident_travail_exploitant_agricole', period)\n\n    return where(non_salarie_agricole, rente_accident_travail_exploitant_agricole, rente_accident_travail_salarie)\n",
       "start_line_number": 12,
       "stop_line_number": 19,

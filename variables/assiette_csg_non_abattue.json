@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -364,7 +364,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
       "source_code": "def formula(individu, period, parameters):\n    prevoyance_obligatoire_cadre = individu('prevoyance_obligatoire_cadre', period)\n    complementaire_sante_employeur = individu('complementaire_sante_employeur', period, options = [ADD])\n    prise_en_charge_employeur_prevoyance_complementaire = individu(\n        'prise_en_charge_employeur_prevoyance_complementaire', period, options = [ADD])\n\n    # TODO + indemnites_journalieres_maladie,\n    return (\n        - prevoyance_obligatoire_cadre + prise_en_charge_employeur_prevoyance_complementaire\n        - complementaire_sante_employeur\n        )\n",
       "start_line_number": 57,
       "stop_line_number": 68,

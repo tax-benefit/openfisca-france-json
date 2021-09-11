@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/autonomie.py",
+  "file_path": "openfisca_france/model/prestations/autonomie.py",
   "formulas": {
     "2002-01-01": {
       "ast": {
@@ -566,7 +566,7 @@
         "lineno": 1,
         "name": "formula_2002"
       },
-      "file_path": "/openfisca_france/model/prestations/autonomie.py",
+      "file_path": "openfisca_france/model/prestations/autonomie.py",
       "source_code": "def formula_2002(individu, period):\n    gir = individu(\"gir\", period)\n    tarif_gir_1_2 = individu(\"dependance_tarif_etablissement_gir_1_2\", period)\n    tarif_gir_3_4 = individu(\"dependance_tarif_etablissement_gir_3_4\", period)\n\n    # Vérifie si l'individu est rattaché à l'un des groupes 1 à 4 de la grille Aggir\n    gir_1_2 = (gir == TypesGir.gir_1) + (gir == TypesGir.gir_2)\n    gir_3_4 = (gir == TypesGir.gir_3) + (gir == TypesGir.gir_4)\n\n    # Sélectionne le tarif correspondant à la grille de la personne\n    return select([gir_1_2, gir_3_4], [tarif_gir_1_2, tarif_gir_3_4])\n",
       "start_line_number": 315,
       "stop_line_number": 326,

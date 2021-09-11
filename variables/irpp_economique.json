@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -225,7 +225,7 @@
         "name": "formula"
       },
       "documentation": "\nCette variable d'IRPP comptabilise dans les montants\nd'imposition les acomptes qui, dans la déclaration fiscale, sont considérés comme des crédits\nd'impôt. Ajouter ces acomptes au montant \"administratif\" d'impôt correspond donc au \"véritable impôt\"\npayé en totalité, alors que la variable 'irpp' correspond à une notion administrative.\nExemple :\nCertains revenus du capital sont soumis à un prélèvement forfaitaire à la source non libératoire,\nfaisant office d'acompte. Puis, l'impôt au barème sur ces revenus est calculé, et confronté à l'acompte.\nCet acompte, est en case 2CK, et considéré comme un crédit d'impôt. Retrancher de l'impôt au barème ce\ncrédit permet d'obtenir l'impôt dû suite à la déclaration de revenus, qui correspond à la variable 'irpp'.\nCette notion est administrative. L'impôt total payé correspond à cette notion administrative, augmentée des acomptes.\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(foyer_fiscal, period, parameters):\n    '''\n    Cette variable d'IRPP comptabilise dans les montants\n    d'imposition les acomptes qui, dans la déclaration fiscale, sont considérés comme des crédits\n    d'impôt. Ajouter ces acomptes au montant \"administratif\" d'impôt correspond donc au \"véritable impôt\"\n    payé en totalité, alors que la variable 'irpp' correspond à une notion administrative.\n    Exemple :\n    Certains revenus du capital sont soumis à un prélèvement forfaitaire à la source non libératoire,\n    faisant office d'acompte. Puis, l'impôt au barème sur ces revenus est calculé, et confronté à l'acompte.\n    Cet acompte, est en case 2CK, et considéré comme un crédit d'impôt. Retrancher de l'impôt au barème ce\n    crédit permet d'obtenir l'impôt dû suite à la déclaration de revenus, qui correspond à la variable 'irpp'.\n    Cette notion est administrative. L'impôt total payé correspond à cette notion administrative, augmentée des acomptes.\n    '''\n    irpp = foyer_fiscal('irpp', period)\n    acomptes_ir = foyer_fiscal('acomptes_ir', period)\n\n    return irpp - acomptes_ir  # Car par convention, irpp est un montant négatif et acomptes_ir un montant positif\n",
       "start_line_number": 588,
       "stop_line_number": 605,

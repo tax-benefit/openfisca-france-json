@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
   "formulas": {
     "2017-01-01": {
       "ast": {
@@ -491,7 +491,7 @@
         "name": "formula_2017_01_01"
       },
       "documentation": "\nDans les personnes à charge :\n    (1) on ne compte pas les ascendants de plus de 70 ans ou infirmes, ayant un\n        revenu fiscal de référence inférieur à un certain seuil.\n    (2) on ne prend pas en compte les gardes en résidence alternée qui font qu'une personne à charge ne compte\n        que pour 0.5 au lieu de 1.\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
       "source_code": "def formula_2017_01_01(menage, period, parameters):\n    '''\n    Dans les personnes à charge :\n        (1) on ne compte pas les ascendants de plus de 70 ans ou infirmes, ayant un\n            revenu fiscal de référence inférieur à un certain seuil.\n        (2) on ne prend pas en compte les gardes en résidence alternée qui font qu'une personne à charge ne compte\n            que pour 0.5 au lieu de 1.\n    '''\n    enfant_i = menage.members.has_role(Famille.ENFANT)\n    nb_enfants = menage.sum(enfant_i)\n    abt_pac_1_2_th_commune = menage('abt_pac_1_2_th_commune', period)\n    abt_pac_3pl_th_commune = menage('abt_pac_3pl_th_commune', period)\n    return (\n        abt_pac_1_2_th_commune * min_(nb_enfants, 2)\n        + abt_pac_3pl_th_commune * max_(nb_enfants - 2, 0)\n        )\n",
       "start_line_number": 87,
       "stop_line_number": 103,

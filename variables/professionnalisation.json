@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/contrat_professionnalisation.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/contrat_professionnalisation.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -659,7 +659,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/contrat_professionnalisation.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/contrat_professionnalisation.py",
       "source_code": "def formula(individu, period, parameters):\n    age = individu('age', period)\n    ass = individu('ass', period)\n    rsa = individu.famille('rsa', period)\n    aah = individu('aah', period)\n\n    age_condition = (16 <= age) * (age < 25)\n    dummy_ass = ass > 0\n    dummy_rmi = rsa > 0\n    dummy_aah = aah > 0\n\n    return (age_condition + dummy_ass + dummy_aah + dummy_rmi) > 0\n",
       "start_line_number": 12,
       "stop_line_number": 24,

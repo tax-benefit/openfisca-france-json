@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -419,7 +419,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/asi_aspa.py",
       "source_code": "def formula(famille, period, parameters):\n    aspa_elig_i = famille.members('aspa_eligibilite', period)\n    asi_elig_i = famille.members('asi_eligibilite', period)\n\n    nb_allocataire_asi = famille.sum(asi_elig_i, role = Famille.PARENT)\n    nb_allocataire_aspa = famille.sum(aspa_elig_i, role = Famille.PARENT)\n\n    return nb_allocataire_asi + nb_allocataire_aspa\n",
       "start_line_number": 188,
       "stop_line_number": 196,

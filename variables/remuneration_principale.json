@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+  "file_path": "openfisca_france/model/revenus/activite/salarie.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -528,7 +528,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/revenus/activite/salarie.py",
+      "file_path": "openfisca_france/model/revenus/activite/salarie.py",
       "source_code": "def formula(individu, period, parameters):\n    traitement_indiciaire_brut = individu('traitement_indiciaire_brut', period)\n    nouvelle_bonification_indiciaire = individu('nouvelle_bonification_indiciaire', period)\n    categorie_salarie = individu('categorie_salarie', period)\n\n    public = (\n        (categorie_salarie == TypesCategorieSalarie.public_titulaire_etat)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_militaire)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_territoriale)\n        + (categorie_salarie == TypesCategorieSalarie.public_titulaire_hospitaliere)\n        )\n\n    return (\n        public * (\n            traitement_indiciaire_brut + nouvelle_bonification_indiciaire\n            )\n        )\n",
       "start_line_number": 945,
       "stop_line_number": 962,

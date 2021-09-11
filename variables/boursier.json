@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/education.py",
+  "file_path": "openfisca_france/model/prestations/education.py",
   "formulas": {
     "2021-01-01": {
       "ast": {
@@ -370,7 +370,7 @@
         "lineno": 1,
         "name": "formula_2021"
       },
-      "file_path": "/openfisca_france/model/prestations/education.py",
+      "file_path": "openfisca_france/model/prestations/education.py",
       "source_code": "def formula_2021(individu, period):\n    college = individu.famille('bourse_college_echelon', period)\n    lycee = individu.famille('bourse_lycee', period)\n    sup = individu('bourse_criteres_sociaux', period)\n    return (college > 0) + (lycee > 0) + (sup > 0)\n",
       "start_line_number": 338,
       "stop_line_number": 343,
@@ -388,6 +388,7 @@
   "name": "boursier",
   "referring_variables": [
     "cmu_base_ressources_individu",
+    "crous_repas_un_euro_eligibilite",
     "depart1825_eligibilite",
     "locapass_eligibilite_etudiant"
   ],

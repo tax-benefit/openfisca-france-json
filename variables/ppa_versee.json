@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -429,7 +429,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/ppa.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/ppa.py",
       "source_code": "def formula(famille, period, parameters):\n    remainder = famille('ppa_indice_du_mois_trimestre_reference', period)\n    return (\n        + famille('ppa', period) * (remainder == 0)\n        + famille('ppa', period.last_month) * (remainder == 1)\n        + famille('ppa', period.last_month.last_month) * (remainder == 2)\n        )\n",
       "start_line_number": 519,
       "stop_line_number": 526,

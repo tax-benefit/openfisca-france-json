@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
   "formulas": {
     "2017-01-01": {
       "ast": {
@@ -447,7 +447,7 @@
         "name": "formula_2017_01_01"
       },
       "documentation": "\nNotes :\n    (1) on ne prend pas en compte l'abattement en faveur des personnes handicapées\n    (2) on ne prend pas en compte les abattements temporaires pour certains contribuables\n        ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n",
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
       "source_code": "def formula_2017_01_01(menage, period, parameters):\n    '''\n    Notes :\n        (1) on ne prend pas en compte l'abattement en faveur des personnes handicapées\n        (2) on ne prend pas en compte les abattements temporaires pour certains contribuables\n            ayant perdu l'éligibilité à l'éxonération (I bis de l'art. 1414 du CGI)\n    '''\n    valeur_locative_cadastrale_brute = menage('valeur_locative_cadastrale_brute', period)\n    abattement_charge_famille_th_commune = menage('abattement_charge_famille_th_commune', period)\n    abattement_personnes_condition_modeste_th_commune = menage('abattement_personnes_condition_modeste_th_commune', period)\n    abt_general_base_th_commune = menage('abt_general_base_th_commune', period)\n    base_brute_moins_abattements = (\n        valeur_locative_cadastrale_brute\n        - abattement_charge_famille_th_commune\n        - abattement_personnes_condition_modeste_th_commune\n        - abt_general_base_th_commune\n        )\n    return max_(base_brute_moins_abattements, 0)\n",
       "start_line_number": 194,
       "stop_line_number": 212,

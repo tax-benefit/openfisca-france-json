@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
   "formulas": {
     "2009-06-01": {
       "ast": {
@@ -463,7 +463,7 @@
         "lineno": 1,
         "name": "formula_2009_06_01"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/anciens_ms.py",
       "source_code": "def formula_2009_06_01(famille, period):\n    rsa = famille('rsa', period, period)\n    rsa_base_ressources = famille('rsa_base_ressources', period)\n    rsa_socle = famille('rsa_socle', period)\n    rsa_forfait_logement = famille('rsa_forfait_logement', period)\n    rmi = max_(0, rsa_socle - rsa_forfait_logement - rsa_base_ressources)\n    return max_(rsa - rmi, 0)\n",
       "start_line_number": 165,
       "stop_line_number": 172,

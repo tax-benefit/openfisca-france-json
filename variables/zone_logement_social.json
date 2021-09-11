@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "int16",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/prestations/logement_social.py",
+  "file_path": "openfisca_france/model/prestations/logement_social.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -374,7 +374,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/logement_social.py",
+      "file_path": "openfisca_france/model/prestations/logement_social.py",
       "source_code": "def formula(menage, period):\n    depcom = menage('depcom', period)\n    in_paris_communes_limitrophes = isin(depcom, paris_communes_limitrophes)\n    in_idf = menage('residence_ile_de_france', period)\n\n    return select(\n        [\n            in_paris_communes_limitrophes,\n            in_idf\n            ],\n        [\n            ZoneLogementSocial.paris_communes_limitrophes,\n            ZoneLogementSocial.ile_de_france,\n            ],\n        default = ZoneLogementSocial.autres_regions\n        )\n",
       "start_line_number": 59,
       "stop_line_number": 75,

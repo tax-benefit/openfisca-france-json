@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -417,7 +417,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/exonerations.py",
       "source_code": "def formula(individu, period, parameters):\n    exoneration_cotisations_employeur_zfu = individu('exoneration_cotisations_employeur_zfu', period, options = [ADD])\n    exoneration_cotisations_employeur_zrd = individu('exoneration_cotisations_employeur_zrd', period, options = [ADD])\n    exoneration_cotisations_employeur_zrr = individu('exoneration_cotisations_employeur_zrr', period, options = [ADD])\n\n    exonerations_geographiques = (\n        exoneration_cotisations_employeur_zfu\n        + exoneration_cotisations_employeur_zrd\n        + exoneration_cotisations_employeur_zrr\n        )\n\n    return exonerations_geographiques\n",
       "start_line_number": 24,
       "stop_line_number": 36,

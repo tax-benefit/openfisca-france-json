@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1293,7 +1293,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/cotisations_sociales/travail_totaux.py",
       "source_code": "def formula(individu, period, parameters):\n    agff_salarie = individu('agff_salarie', period)\n    agirc_arrco_salarie = individu('agirc_arrco_salarie', period)\n    agirc_salarie = individu('agirc_salarie', period)\n    agirc_gmp_salarie = individu('agirc_gmp_salarie', period)\n    apec_salarie = individu('apec_salarie', period)\n    arrco_salarie = individu('arrco_salarie', period)\n    chomage_salarie = individu('chomage_salarie', period)\n    contribution_equilibre_general_salarie = individu('contribution_equilibre_general_salarie', period)\n    cotisation_equilibre_technique_salarie = individu('cotisation_equilibre_technique_salarie', period)\n    cotisation_exceptionnelle_temporaire_salarie = individu('cotisation_exceptionnelle_temporaire_salarie', period)\n    ircantec_salarie = individu('ircantec_salarie', period)\n    pension_salarie = individu('pension_salarie', period)\n    rafp_salarie = individu('rafp_salarie', period)\n    vieillesse_deplafonnee_salarie = individu('vieillesse_deplafonnee_salarie', period)\n    vieillesse_plafonnee_salarie = individu('vieillesse_plafonnee_salarie', period)\n\n    cotisations_salariales_contributives = (\n        # prive\n        agff_salarie\n        + agirc_arrco_salarie\n        + agirc_salarie\n        + agirc_gmp_salarie\n        + apec_salarie\n        + arrco_salarie\n        + chomage_salarie\n        + contribution_equilibre_general_salarie\n        + cotisation_equilibre_technique_salarie\n        + cotisation_exceptionnelle_temporaire_salarie\n        + vieillesse_deplafonnee_salarie\n        + vieillesse_plafonnee_salarie\n        # public\n        + ircantec_salarie\n        + pension_salarie\n        + rafp_salarie\n        )\n\n    return cotisations_salariales_contributives\n",
       "start_line_number": 119,
       "stop_line_number": 157,

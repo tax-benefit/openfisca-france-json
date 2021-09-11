@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "menage",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
   "formulas": {
     "2017-01-01": {
       "ast": {
@@ -321,7 +321,7 @@
         "lineno": 1,
         "name": "formula_2017_01_01"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
       "source_code": "def formula_2017_01_01(menage, period):\n    taxe_habitation_commune_epci_apres_degrevement_plafonnement = menage('taxe_habitation_commune_epci_apres_degrevement_plafonnement', period)\n    degrevement_office_taxe_habitation = menage('degrevement_office_taxe_habitation', period)\n    prelevement_base_imposition_elevee_taxe_habitation = menage('prelevement_base_imposition_elevee_taxe_habitation', period)\n    return - max_(taxe_habitation_commune_epci_apres_degrevement_plafonnement - degrevement_office_taxe_habitation, 0) - prelevement_base_imposition_elevee_taxe_habitation\n",
       "start_line_number": 459,
       "stop_line_number": 464,
@@ -647,7 +647,7 @@
         "lineno": 1,
         "name": "formula_2020_01_01"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/taxe_habitation/taxe_habitation.py",
       "source_code": "def formula_2020_01_01(menage, period):\n    taxe_habitation_commune_epci_avant_degrevement = menage('taxe_habitation_commune_epci_avant_degrevement', period)\n    degrevement_office_taxe_habitation = menage('degrevement_office_taxe_habitation', period)\n    prelevement_base_imposition_elevee_taxe_habitation = menage('prelevement_base_imposition_elevee_taxe_habitation', period)\n    return - max_(taxe_habitation_commune_epci_avant_degrevement - degrevement_office_taxe_habitation, 0) - prelevement_base_imposition_elevee_taxe_habitation\n",
       "start_line_number": 465,
       "stop_line_number": 470,

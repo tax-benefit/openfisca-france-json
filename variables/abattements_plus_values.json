@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "int32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/revenus/capital/plus_value.py",
+  "file_path": "openfisca_france/model/revenus/capital/plus_value.py",
   "formulas": {
     "2013-01-01": {
       "ast": {
@@ -583,7 +583,7 @@
         "lineno": 1,
         "name": "formula_2013_01_01"
       },
-      "file_path": "/openfisca_france/model/revenus/capital/plus_value.py",
+      "file_path": "openfisca_france/model/revenus/capital/plus_value.py",
       "source_code": "def formula_2013_01_01(foyer_fiscal, period):\n    f3sg = foyer_fiscal('f3sg', period)\n    f3sh = foyer_fiscal('f3sh', period)\n    f3sl = foyer_fiscal('f3sl', period)\n    f3sm = foyer_fiscal('f3sm', period)\n    f3va = foyer_fiscal('f3va_2014', period)\n    f3vb = foyer_fiscal('f3vb', period)\n\n    return max_(0, f3sg - f3sh) + max_(0, f3sl - f3sm) + f3va - f3vb\n",
       "start_line_number": 383,
       "stop_line_number": 392,
@@ -947,7 +947,7 @@
         "lineno": 1,
         "name": "formula_2015_01_01"
       },
-      "file_path": "/openfisca_france/model/revenus/capital/plus_value.py",
+      "file_path": "openfisca_france/model/revenus/capital/plus_value.py",
       "source_code": "def formula_2015_01_01(foyer_fiscal, period):\n    f3sg = foyer_fiscal('f3sg', period)\n    f3sl = foyer_fiscal('f3sl', period)\n    f3va_i = foyer_fiscal.members('f3va_2016', period)\n    f3va = foyer_fiscal.sum(f3va_i)\n\n    return f3sg + f3sl + f3va\n",
       "start_line_number": 393,
       "stop_line_number": 400,
@@ -1234,7 +1234,7 @@
         "lineno": 1,
         "name": "formula_2017_01_01"
       },
-      "file_path": "/openfisca_france/model/revenus/capital/plus_value.py",
+      "file_path": "openfisca_france/model/revenus/capital/plus_value.py",
       "source_code": "def formula_2017_01_01(foyer_fiscal, period):\n    f3sg = foyer_fiscal('f3sg', period)\n    f3sl = foyer_fiscal('f3sl', period)\n    f3va = foyer_fiscal('f3va', period)\n\n    return f3sg + f3sl + f3va\n",
       "start_line_number": 401,
       "stop_line_number": 407,

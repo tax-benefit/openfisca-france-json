@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+  "file_path": "openfisca_france/model/prestations/aides_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -667,7 +667,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/aides_logement.py",
+      "file_path": "openfisca_france/model/prestations/aides_logement.py",
       "source_code": "def formula(individu, period):\n    activite = individu('activite', period)\n\n    aah = individu('aah', period)\n    salaire_imposable = individu('salaire_imposable', period)\n    rpns = individu('rpns_imposables', period.n_2)\n    rpns_pvce = individu('rpns_pvce', period.n_2)\n    rpns_exon = individu('rpns_exon', period.n_2)\n\n    return min_(\n        1,\n        ((activite == TypesActivite.retraite) + (aah > 0)) * ((salaire_imposable + rpns + rpns_pvce + rpns_exon) == 0)\n        )\n",
       "start_line_number": 545,
       "stop_line_number": 558,

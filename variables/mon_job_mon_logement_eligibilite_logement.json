@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+  "file_path": "openfisca_france/model/prestations/mon_job_mon_logement.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -477,7 +477,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/mon_job_mon_logement.py",
+      "file_path": "openfisca_france/model/prestations/mon_job_mon_logement.py",
       "source_code": "def formula(individu, period):\n    statut_occupation_logement = individu.menage('statut_occupation_logement', period)\n    locataire = ((statut_occupation_logement == TypesStatutOccupationLogement.locataire_hlm)\n                 + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_vide)\n                 + (statut_occupation_logement == TypesStatutOccupationLogement.locataire_meuble))\n    return locataire * (individu.menage('date_entree_logement', period) > datetime64(period.offset(-3, 'month').start))\n",
       "start_line_number": 20,
       "stop_line_number": 26,

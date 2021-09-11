@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -491,7 +491,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
       "source_code": "def formula(individu, period):\n    pensions_alimentaires_percues = individu('pensions_alimentaires_percues', period, options = [ADD])\n    pensions_alimentaires_percues_decl = individu('pensions_alimentaires_percues_decl', period, options = [ADD])\n    retraite_imposable = individu('retraite_imposable', period, options = [ADD])\n    pension_invalidite = individu('pensions_invalidite', period, options = [ADD])\n\n    return pensions_alimentaires_percues * pensions_alimentaires_percues_decl + retraite_imposable + pension_invalidite\n",
       "start_line_number": 437,
       "stop_line_number": 444,

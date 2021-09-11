@@ -3,7 +3,7 @@
   "definition_period": "year",
   "dtype": "float32",
   "entity": "foyer_fiscal",
-  "file_path": "/openfisca_france/model/mesures.py",
+  "file_path": "openfisca_france/model/mesures.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -491,7 +491,7 @@
         "name": "formula"
       },
       "documentation": "\nLa CSG sur plus-values n'est pas calculée sur toutes les plus-values : cf. docstring de la variable v1_assiette_csg_plus_values\nDonc, il existe certaines plus-values pour lesquelles on calcul l'impôt sur le revenu (imposition au barème ou forfaitaire),\nmais pour lesquelles on n'a pas de prélèvements sociaux\nCette variable est l'assiette de plus-values pour lesquelles au moins un prélèvement est calculé. On l'utilise dans le\ncalcul du revenu disponible, afin de n'oublier aucun revenu. Elle vaut la somme de assiette_csg_plus_values et rfr_plus_values_hors_rni,\noù l'on enlève les cases communes entre ces deux variables, et où l'on ajoute les variables présentes dans 'revenu_categoriel_plus_values', mais pas présente\ndans assiette_csg_plus_values\nAttention : pour les variables de 'revenu_categoriel_plus_values' ajoutées, elles peuvent représenter des montants nets, alors qu'il faudrait le brut. Améliorer ce point\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula(foyer_fiscal, period):\n    '''\n    La CSG sur plus-values n'est pas calculée sur toutes les plus-values : cf. docstring de la variable v1_assiette_csg_plus_values\n    Donc, il existe certaines plus-values pour lesquelles on calcul l'impôt sur le revenu (imposition au barème ou forfaitaire),\n    mais pour lesquelles on n'a pas de prélèvements sociaux\n    Cette variable est l'assiette de plus-values pour lesquelles au moins un prélèvement est calculé. On l'utilise dans le\n    calcul du revenu disponible, afin de n'oublier aucun revenu. Elle vaut la somme de assiette_csg_plus_values et rfr_plus_values_hors_rni,\n    où l'on enlève les cases communes entre ces deux variables, et où l'on ajoute les variables présentes dans 'revenu_categoriel_plus_values', mais pas présente\n    dans assiette_csg_plus_values\n    Attention : pour les variables de 'revenu_categoriel_plus_values' ajoutées, elles peuvent représenter des montants nets, alors qu'il faudrait le brut. Améliorer ce point\n    '''\n\n    v1_assiette_csg_plus_values = foyer_fiscal('assiette_csg_plus_values', period)\n    v2_rfr_plus_values_hors_rni = foyer_fiscal('rfr_plus_values_hors_rni', period)\n\n    f3vg = foyer_fiscal('f3vg', period)\n    f3we = foyer_fiscal('f3we', period)\n    f3vz = foyer_fiscal('f3vz', period)\n\n    intersection_v1_v2 = f3vg + f3we + f3vz\n\n    return v1_assiette_csg_plus_values + v2_rfr_plus_values_hors_rni - intersection_v1_v2\n",
       "start_line_number": 157,
       "stop_line_number": 179,
@@ -1182,7 +1182,7 @@
         "name": "formula_2013_01_01"
       },
       "documentation": "\nCf. docstring période précédente\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula_2013_01_01(foyer_fiscal, period):\n    '''\n    Cf. docstring période précédente\n    '''\n\n    v1_assiette_csg_plus_values = foyer_fiscal('assiette_csg_plus_values', period)\n    v2_rfr_plus_values_hors_rni = foyer_fiscal('rfr_plus_values_hors_rni', period)\n\n    f3we = foyer_fiscal('f3we', period)\n    f3vz = foyer_fiscal('f3vz', period)\n    f3sb = foyer_fiscal('f3sb', period)\n    f3vl = foyer_fiscal('f3vl', period)\n    f3wb = foyer_fiscal('f3wb', period)\n\n    intersection_v1_v2 = f3we + f3vz\n    ajouts_de_rev_cat_pv = f3sb + f3vl + f3wb\n\n    return v1_assiette_csg_plus_values + v2_rfr_plus_values_hors_rni - intersection_v1_v2 + ajouts_de_rev_cat_pv\n",
       "start_line_number": 180,
       "stop_line_number": 198,
@@ -1794,7 +1794,7 @@
         "name": "formula_2014_01_01"
       },
       "documentation": "\nCf. docstring période précédente\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula_2014_01_01(foyer_fiscal, period):\n    '''\n    Cf. docstring période précédente\n    '''\n\n    v1_assiette_csg_plus_values = foyer_fiscal('assiette_csg_plus_values', period)\n    v2_rfr_plus_values_hors_rni = foyer_fiscal('rfr_plus_values_hors_rni', period)\n\n    f3we = foyer_fiscal('f3we', period)\n    f3vz = foyer_fiscal('f3vz', period)\n    f3sb = foyer_fiscal('f3sb', period)\n    f3wb = foyer_fiscal('f3wb', period)\n\n    intersection_v1_v2 = f3we + f3vz\n    ajouts_de_rev_cat_pv = f3sb + f3wb\n\n    return v1_assiette_csg_plus_values + v2_rfr_plus_values_hors_rni - intersection_v1_v2 + ajouts_de_rev_cat_pv\n",
       "start_line_number": 199,
       "stop_line_number": 216,
@@ -3642,7 +3642,7 @@
         "name": "formula_2018_01_01"
       },
       "documentation": "\nCf. docstring période précédente\n",
-      "file_path": "/openfisca_france/model/mesures.py",
+      "file_path": "openfisca_france/model/mesures.py",
       "source_code": "def formula_2018_01_01(foyer_fiscal, period):\n    '''\n    Cf. docstring période précédente\n    '''\n\n    v1_assiette_csg_plus_values = foyer_fiscal('assiette_csg_plus_values', period)\n    v2_rfr_plus_values_hors_rni = foyer_fiscal('rfr_plus_values_hors_rni', period)\n\n    f3ua = foyer_fiscal('f3ua', period)\n    f3vg = foyer_fiscal('f3vg', period)\n    f3we = foyer_fiscal('f3we', period)\n    f3vz = foyer_fiscal('f3vz', period)\n    f3vd_i = foyer_fiscal.members('f3vd', period)\n    f3vi_i = foyer_fiscal.members('f3vi', period)\n    f3vf_i = foyer_fiscal.members('f3vf', period)\n    f3sj = foyer_fiscal('f3sj', period)\n    f3tj = foyer_fiscal('f3tj', period)\n    f3sk = foyer_fiscal('f3sk', period)\n    f3vm = foyer_fiscal('f3vm', period)\n    f3vt = foyer_fiscal('f3vt', period)\n    f3wi = foyer_fiscal('f3wi', period)\n    f3wj = foyer_fiscal('f3wj', period)\n    rpns_pvce_i = foyer_fiscal.members('rpns_pvce', period)\n    f3pi = foyer_fiscal('f3pi', period)\n\n    rpns_pvce = foyer_fiscal.sum(rpns_pvce_i)\n    f3vd = foyer_fiscal.sum(f3vd_i)\n    f3vi = foyer_fiscal.sum(f3vi_i)\n    f3vf = foyer_fiscal.sum(f3vf_i)\n\n    intersection_v1_v2 = f3vg + f3ua + f3vz + f3we + rpns_pvce + f3sj + f3sk + f3vm + f3vt + f3wi + f3wj + f3pi + f3tj + f3vd + f3vi + f3vf\n\n    return v1_assiette_csg_plus_values + v2_rfr_plus_values_hors_rni - intersection_v1_v2\n",
       "start_line_number": 217,
       "stop_line_number": 250,

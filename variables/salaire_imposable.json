@@ -10,7 +10,7 @@
   "definition_period": "month",
   "dtype": "float32",
   "entity": "individu",
-  "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+  "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1156,7 +1156,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
+      "file_path": "openfisca_france/model/prelevements_obligatoires/prelevements_sociaux/contributions_sociales/activite.py",
       "source_code": "def formula(individu, period):\n    salaire_de_base = individu('salaire_de_base', period)\n    primes_salaires = individu('primes_salaires', period)\n    primes_fonction_publique = individu('primes_fonction_publique', period)\n    indemnite_residence = individu('indemnite_residence', period)\n    supplement_familial_traitement = individu('supplement_familial_traitement', period)\n    csg_deductible_salaire = individu('csg_deductible_salaire', period)\n    cotisations_salariales = individu('cotisations_salariales', period)\n    remuneration_principale = individu('remuneration_principale', period)\n    hsup = individu('hsup', period)\n    indemnite_fin_contrat = individu('indemnite_fin_contrat', period)\n    complementaire_sante_salarie = individu('complementaire_sante_salarie', period)\n\n    # Revenu du foyer fiscal projeté sur le demandeur\n    rev_microsocial = individu.foyer_fiscal('rev_microsocial', period, options = [DIVIDE])\n    rev_microsocial_declarant1 = rev_microsocial * individu.has_role(FoyerFiscal.DECLARANT_PRINCIPAL)\n\n    return (\n        salaire_de_base\n        + primes_salaires\n        + remuneration_principale\n        + primes_fonction_publique\n        + indemnite_residence\n        + supplement_familial_traitement\n        + csg_deductible_salaire\n        + cotisations_salariales\n        - hsup\n        + rev_microsocial_declarant1\n        + indemnite_fin_contrat\n        + complementaire_sante_salarie\n        )\n",
       "start_line_number": 203,
       "stop_line_number": 234,

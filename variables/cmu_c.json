@@ -3,7 +3,7 @@
   "definition_period": "month",
   "dtype": "bool_",
   "entity": "famille",
-  "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/cmu.py",
+  "file_path": "openfisca_france/model/prestations/minima_sociaux/cs/cmu.py",
   "formulas": {
     "0001-01-01": {
       "ast": {
@@ -1141,7 +1141,7 @@
         "lineno": 1,
         "name": "formula"
       },
-      "file_path": "/openfisca_france/model/prestations/minima_sociaux/cs/cmu.py",
+      "file_path": "openfisca_france/model/prestations/minima_sociaux/cs/cmu.py",
       "source_code": "def formula(famille, period):\n    cmu_c_plafond = famille('cmu_c_plafond', period)\n    cmu_base_ressources = famille('cmu_base_ressources', period)\n    residence_mayotte = famille.demandeur.menage('residence_mayotte', period)\n    cmu_acs_eligibilite = famille('cmu_acs_eligibilite', period)\n\n    if period.start.date >= date(2016, 1, 1):\n        eligibilite_rsa = famille('rsa', period) > 0\n    else:\n        # Avant 2016, seules les bénéficiaires du RSA socle avait le droit d'office à la CMU.\n        rsa_socle = famille('rsa_socle', period)\n        rsa_socle_majore = famille('rsa_socle_majore', period)\n        rsa_forfait_logement = famille('rsa_forfait_logement', period)\n        rsa_base_ressources = famille('rsa_base_ressources', period)\n        socle = max_(rsa_socle, rsa_socle_majore)\n        rsa = famille('rsa', period)\n        eligibilite_rsa = (rsa > 0) * (rsa_base_ressources < socle - rsa_forfait_logement)\n\n    eligibilite_basique = cmu_base_ressources <= cmu_c_plafond\n\n    return (\n        cmu_acs_eligibilite\n        * not_(residence_mayotte)\n        * or_(eligibilite_basique, eligibilite_rsa)\n        )\n",
       "start_line_number": 161,
       "stop_line_number": 186,
