@@ -82,7 +82,7 @@
       "2021-07-27": [
         {
           "href": "https://www.service-public.fr/particuliers/vosdroits/F13213",
-          "note": "Les allocations familiales sont versées aux personnes ayant au moins 2 enfants de moins de 20 ans à charge. Le montant des prestations dépend des ressources, du nombre d'enfants à charge et de leur âge. Les allocations sont versées tous les mois.",
+          "note": "Les allocations familiales sont versées aux personnes ayant au moins 2 enfants de moins de 20 ans à charge. Elles ont pour objectif de compenser partiellement les dépenses liées à la subsistance et à l'éducation des enfants. Le montant des prestations dépend des ressources, du nombre d'enfants à charge et de leur âge. Les allocations sont versées tous les mois.",
           "title": "Service-Public.fr"
         }
       ]
@@ -109,6 +109,7 @@
       "2021-07-27": [
         {
           "href": "https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/petite-enfance/l-allocation-de-base",
+          "note": "Cette allocation constitue l'allocation de base des allocations familiales. Elle est versée aux personnes ayant au moins 2 enfants de moins de 20 ans à charge.",
           "title": "Caf.fr"
         }
       ]
@@ -287,6 +288,37 @@
       }
     }
   },
+  "aides_logement": {
+    "children": [
+      {
+        "name": "aide_logement"
+      }
+    ],
+    "label": "Aides au logement après impôts et CSG/CRDS",
+    "reference": {
+      "2021-09-07": [
+        {
+          "href": "https://www.service-public.fr/particuliers/vosdroits/N20360",
+          "note": "Cette allocation peut être versée, sous certaines conditions, à toute personne qui loue, achète un logement ou est résident en foyer. Le montant calculé ici correspond à la somme des aides au logement après prélèvement des impôts et de al CSG/CRDS. Il existe 3 types d'allocations : l'aide personnalisée au logement (APL), l'allocation de logement familiale (ALF) et l'allocation de logement sociale (ALS).",
+          "title": "Service-Public.fr"
+        }
+      ]
+    },
+    "ux_name": "Aides logement nettes"
+  },
+  "aide_logement": {
+    "label": "Aides au logement (APL, ALF et ASL)",
+    "reference": {
+      "2021-09-07": [
+        {
+          "href": "https://www.service-public.fr/particuliers/vosdroits/N20360",
+          "note": "Ce montant correspond à la somme des 3 types d'allocations logement : l'APL, versée en raison d'un critère de financement du logement (conventionné) ; l'ALF, versée en raison de la situation familiale, et l'ALS, versée dans tous les autres cas.",
+          "title": "Service-Public.fr"
+        }
+      ]
+    },
+    "ux_name": "Aides logement (APL, ALF et ASL)"
+  },
   "aide_embauche_pme": {
     "hidden": true,
     "label": "Aide à l'embauche pour les petites (TPE) et moyennes entreprises (PME)",
@@ -313,10 +345,7 @@
     },
     "ux_name": "Aide 1er salarié"
   },
-  "aides_logement": {
-    "label": "Aides au logement après impôts et CSG/CRDS",
-    "ux_name": "Aides logement nettes"
-  },
+
   "allegement_cotisation_allocations_familiales": {
     "label": "Réduction générale du taux de la cotisation d’allocations familiales",
     "reference": {
@@ -628,7 +657,12 @@
         }
       ]
     },
-    "ux_name": "Chômage brut"
+    "ux_name": "Chômage brut",
+    "options": {
+      "activite": "chomeur",
+      "else": {
+        "hidden": true
+      }
   },
   "chomage_employeur": {
     "label": "Cotisation employeur d'assurance chômage",
@@ -665,11 +699,15 @@
         }
       ]
     },
-    "ux_name": "Montant imposable"
+    "ux_name": "Montant imposable",
+    "options": {
+      "activite": "chomeur",
+      "else": {
+        "hidden": true
+      }
   },
   "chomage_net": {
     "label": "Allocations chômage d'aide au retour à l'emploi (ARE) après impôts et CSG/CRDS",
-    "hidden": true,
     "reference": {
       "2021-07-27": [
         {
@@ -679,7 +717,12 @@
         }
       ]
     },
-    "ux_name": "Alloc. chômage (ARE) nettes"
+    "ux_name": "Alloc. chômage (ARE) nettes",
+    "options": {
+      "activite": "chomeur",
+      "else": {
+        "hidden": true
+      }
   },
   "chomage_salarie": {
     "label": "Cotisation salariale d'assurance chômage",
@@ -1077,7 +1120,16 @@
       {
         "name": "exoneration_cotisations_salarie_stagiaire"
       }
-    ]
+    ],
+    "reference": {
+      "2021-09-06": [
+        {
+          "href": "https://www.service-public.fr/particuliers/recherche?keyword=cotisations+salariales",
+          "note": "Les rémunérations des salariés du secteur privé, des fonctionnaires et des contractuels du secteur public sont soumise à des cotisations et contributions salariales. Elles sont prélevées sur le salaire brut.",
+          "title": "Service-public.fr"
+        }
+      ]
+    }
   },
   "cout_differe": {
     "label": "Charges, aides et crédits différés",
@@ -1668,6 +1720,19 @@
   "irpp_economique": {
     "label": "Impôt sur le revenu des personnes physiques (IR)",
     "ux_name": "Impôt sur le revenu (IR)",
+    "reference": {
+      "2021-09-07": [
+        {
+          "href": "https://www.vie-publique.fr/fiches/21885-quest-ce-que-limpot-sur-le-revenu",
+          "note": "L'impôt sur le revenu est un impôt direct calculé au niveau du foyer fiscal (ex. : un célibataire, ou un couple et ses enfants à charge). Il porte sur l’ensemble des revenus (salaires, revenus financiers, loyers perçus…) des personnes physiques composant le foyer. Les redevables de l’impôt sur le revenu sont les personnes ayant leur foyer fiscal en France, ou ceux domiciliés fiscalement à l’étranger mais touchant des revenus de source française.",
+          "title": "Vie-publique.fr"
+        },
+        {
+          "href": "https://leximpact.an.fr/ir",
+          "title": "Utiliser le simulateur LexImpact de l'impôt sur le revenu."
+        }
+      ]
+    },
     "children": null
   },
   "isf_ifi": {
@@ -1685,6 +1750,41 @@
   },
   "minima_sociaux": {
     "label": "Minima sociaux",
+    "children": [
+      {
+        "name": "aah"
+      },
+      {
+        "name": "caah"
+      },
+      {
+        "name": "asi"
+      },
+      {
+        "name": "aspa"
+      },
+      {
+        "name": "rsa"
+      },
+      {
+        "name": "aefa"
+      },
+      {
+        "name": "api"
+      },
+      {
+        "name": "ass"
+      },
+      {
+        "name": "psa"
+      },
+      {
+        "name": "ppa"
+      },
+      {
+        "name": "crds_mini"
+      }
+    ],
     "reference": {
       "2021-07-27": [
         {
@@ -1749,7 +1849,9 @@
     "reference": {
       "0001-01-01": [
         {
-          "note": "Pour un enfant né ou adopté, la famille peut bénéficier de la prestation d’accueil du jeune enfant."
+          "href": "https://www.economie.gouv.fr/particuliers/suppression-des-cotisations-chomage-et-maladie-pour-salaries-secteur-prive",
+          "note": "Pour un enfant né ou adopté, la famille peut bénéficier de la prestation d’accueil du jeune enfant. Cette prestation comprend différentes aides qui peuvent êtreversées jusqu'aux 6 ans de l'enfant.",
+          "title": "Économie.gouv.fr"
         }
       ]
     },
@@ -1761,7 +1863,7 @@
       "2021-07-27": [
         {
           "href": "https://www.service-public.fr/particuliers/vosdroits/F2552",
-          "note": "L'allocation de base de la prestation d'accueil du jeune enfant (Paje) vous aide à financer les dépenses liées à l'entretien et l'éducation d'un enfant. Elle est destinée aux parents d'un enfant de moins de 3 ans. Elle est versée sous conditions de ressources.",
+          "note": "L'allocation de base de la prestation d'accueil du jeune enfant (Paje) aide à financer les dépenses liées à l'entretien et l'éducation d'un enfant. Elle est destinée aux parents d'un enfant de moins de 3 ans. Elle est versée sous conditions de ressources.",
           "title": "Service-Public.fr"
         }
       ]
@@ -1849,7 +1951,8 @@
       "2021-08-07": [
         {
           "href": "https://www.ameli.fr/paris/assure/remboursements/pensions-allocations-rentes/invalidite",
-          "note": "La pension d’invalidité a pour objet de compenser la perte de revenus qui résulte de la réduction de la capacité de travail. Son montant dépend des revenus et de la catégorie d'invalidité de la personne."
+          "note": "La pension d’invalidité a pour objet de compenser la perte de revenus qui résulte de la réduction de la capacité de travail. Son montant dépend des revenus et de la catégorie d'invalidité de la personne.",
+          "title": "Ameli.fr"
         }
       ]
     },
@@ -1857,6 +1960,15 @@
   },
   "pensions_nettes": {
     "label": "Pensions et revenus de remplacement",
+    "reference": {
+      "2021-09-07": [
+        {
+          "href": "https://www.urssaf.fr/portail/home/employeur/calculer-les-cotisations/les-elements-a-prendre-en-compte/revenus-de-remplacement--regime.html",
+          "note": "Les revenus de remplacement sont destinés à compenser la perte de rémunération pendant une période d’inactivité partielle ou totale : maladie, maternité, invalidité, préretraite, retraite, réduction temporaire d’activité...",
+          "title": "Urssaf.fr"
+        }
+      ]
+    },
     "ux_name": "Revenus de remplacement"
   },
   "pension_salarie": {
@@ -1865,7 +1977,8 @@
       "2021-08-07": [
         {
           "href": "https://retraitesdeletat.gouv.fr/actif/ma-carriere/mes-cotisations",
-          "note": "Cette cotisation salariale concerne les fonctionnaires et permet de financer leur régime de retraite de base. Une cotisation employeur est également prélevée."
+          "note": "Cette cotisation salariale concerne les fonctionnaires et permet de financer leur régime de retraite de base. Une cotisation employeur est également prélevée.",
+          "title": "RetraitesdelEtat.gouv.fr"
         }
       ]
     },
@@ -1890,7 +2003,8 @@
       "2021-08-07": [
         {
           "href": "https://retraitesdeletat.gouv.fr/actif/ma-carriere/mes-cotisations",
-          "note": "Cette cotisation employeur concerne les fonctionnaires et permet de financer leur régime de retraite de base. Une cotisation salariale est également prélevée : «la retenue pour pension»."
+          "note": "Cette cotisation employeur concerne les fonctionnaires et permet de financer leur régime de retraite de base. Une cotisation salariale est également prélevée : «la retenue pour pension».",
+          "title": "RetraitesdelEtat.gouv.fr"
         }
       ]
     },
@@ -1984,7 +2098,7 @@
       "2021-09-02": [
         {
           "href": "https://www.economie.gouv.fr/particuliers/prelevement-forfaitaire-unique-pfu",
-          "note": "Les revenus de placements financiers font l'objet d'un prélèvement forfaitaire unique (PFU), sauf si l'individu a opté pour une taxation au barème progressif de l'impôt sur le revenu. Le PFU est composé d'un prélèvement au titre de l'impôt sur le revenu, et d'un second au titre des prélèvements sociaux. Ce montant ne considère que la partie impôt sur le revenu et ne prend pas en compte les gains liés aux assurances-vie, épargnes solidaires et produits venant des états non-coopératifs.",
+          "note": "Ce dispositif du prélèvement forfaitaire unique (PFU) ne prend pas en compte les gains liés aux assurances-vie, épargnes solidaires et produits venant des états non-coopératifs. La part du PFU ici présente ne considère que la partie au titre de l'impôt sur le revenu et ne prend pas en compte la partie au titre des prélèvements sociaux.",
           "title": "Service-Public.fr"
         }
       ]
@@ -1997,7 +2111,7 @@
       "2021-09-02": [
         {
           "href": "https://www.economie.gouv.fr/particuliers/prelevement-forfaitaire-unique-pfu",
-          "note": "Les revenus de placements financiers font l'objet d'un prélèvement forfaitaire unique (PFU), sauf si l'individu a opté pour une taxation au barème progressif de l'impôt sur le revenu. Le PFU est composé d'un prélèvement au titre de l'impôt sur le revenu, et d'un second au titre des prélèvements sociaux. Ce montant ne considère que la partie impôt sur le revenu et le cas particulier des revenus tirés d'une assurance-vie.",
+          "note": "Ce dispositif du prélèvement forfaitaire unique (PFU) concerne uniquement le cas particulier des revenus tirés d'une assurance-vie. La part du PFU ici présente ne considère que la partie au titre de l'impôt sur le revenu et ne prend pas en compte la partie au titre des prélèvements sociaux.",
           "title": "Service-Public.fr"
         }
       ]
@@ -2006,10 +2120,28 @@
   },
   "prestations_familiales": {
     "label": "Prestations familiales",
+    "reference": {
+      "2021-09-07": [
+        {
+          "href": "https://www.insee.fr/fr/metadonnees/definition/c1130",
+          "note": "Les prestations familiales sont des prestations sociales dont l'objet est d'apporter aux familles une aide compensant partiellement les dépenses engagées pour la subsistance et l'éducation des enfants.",
+          "title": "Insee.fr"
+        }
+      ]
+    },
     "ux_name": "Prestations familiales"
   },
   "prestations_sociales": {
     "label": "Prestations sociales",
+    "reference": {
+      "2021-09-07": [
+        {
+          "href": "https://www.insee.fr/fr/metadonnees/definition/c1562",
+          "note": "Les prestations sociales (ou transferts sociaux) sont des transferts versés (en espèces ou en nature) à des individus ou à des familles afin de réduire la charge financière que représente la protection contre divers risques (vieillesse et survie, santé, maternité-famille, perte d'emploi, difficultés de logement) et pauvreté et exclusion sociale)",
+          "title": "Insee.fr"
+        }
+      ]
+    },
     "ux_name": "Prestations sociales"
   },
   "prevoyance_obligatoire_cadre": {
