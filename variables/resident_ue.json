@@ -306,8 +306,8 @@
         "geopolitique.ue"
       ],
       "source_code": "def formula(individu, period, parameters):\n    '''\n    La résidence est supposée par la nationalité.\n    Si la résidence est déterminée d'une autre manière plus précise, écraser cette variable en la définissant plutôt qu'en la laissant calculer par la nationalité.\n    '''\n    nationalite = individu('nationalite', period)\n    return sum([nationalite == str.encode(etat_membre) for etat_membre in parameters(period).geopolitique.ue])  # TOOPTIMIZE: string encoding into bytes array should be done at load time\n",
-      "start_line_number": 363,
-      "stop_line_number": 370,
+      "start_line_number": 362,
+      "stop_line_number": 369,
       "variables": [
         "nationalite"
       ]
@@ -322,7 +322,7 @@
     "gratuite_musees_monuments"
   ],
   "set_input": "set_input_dispatch_by_period",
-  "start_line_number": 355,
-  "stop_line_number": 370,
+  "start_line_number": 354,
+  "stop_line_number": 369,
   "value_type": "bool"
 }
