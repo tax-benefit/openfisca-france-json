@@ -272,7 +272,8 @@
     "ux_name": "Aide  TPE/PME à l'embauche"
   },
   "aide_logement": {
-    "label": "Aide au logement (tout type)"
+    "label": "Aides au logement (APL, ALF et ASL)",
+    "ux_name": "Aides logement (APL, ALF et ASL)"
   },
   "aide_premier_salarie": {
     "hidden": true,
@@ -468,6 +469,16 @@
       }
     ],
     "label": "Montant de l’allocation chômage indiqué sur les documents d’information remis par Pôle emploi",
+    "options": [
+      {
+        "activite": [
+          "chomeur"
+        ],
+        "else": {
+          "hidden": true
+        }
+      }
+    ],
     "ux_name": "Chômage brut"
   },
   "chomage_employeur": {
@@ -499,6 +510,16 @@
       }
     ],
     "label": "Montant de l'allocation chômage soumis à l'impôt sur le revenu.",
+    "options": [
+      {
+        "activite": [
+          "chomeur"
+        ],
+        "else": {
+          "hidden": true
+        }
+      }
+    ],
     "ux_name": "Montant imposable"
   },
   "chomage_net": {
@@ -513,8 +534,17 @@
         "name": "crds_chomage"
       }
     ],
-    "hidden": true,
     "label": "Allocations chômage d'aide au retour à l'emploi (ARE) après impôts et CSG/CRDS",
+    "options": [
+      {
+        "activite": [
+          "chomeur"
+        ],
+        "else": {
+          "hidden": true
+        }
+      }
+    ],
     "ux_name": "Alloc. chômage (ARE) nettes"
   },
   "chomage_salarie": {
@@ -1256,7 +1286,10 @@
         "name": "caah"
       },
       {
-        "name": "minimum_vieillesse"
+        "name": "asi"
+      },
+      {
+        "name": "aspa"
       },
       {
         "name": "rsa"
@@ -1282,19 +1315,6 @@
     ],
     "label": "Minima sociaux",
     "ux_name": "Minima sociaux"
-  },
-  "minimum_vieillesse": {
-    "children": [
-      {
-        "name": "asi"
-      },
-      {
-        "name": "aspa"
-      }
-    ],
-    "label": "Minimum vieillesse",
-    "obsolete": true,
-    "ux_name": "Minimum vieillesse"
   },
   "mmid_employeur": {
     "label": "Cotisation employeur maladie - maternité - invalidité - décès",
