@@ -1,0 +1,1096 @@
+{
+  "landais_piketty_saez": {
+    "decompositions": {
+      "impot_revenu_lps": {
+        "label": "Impôt individuel sur l'ensemble de l'assiette de la CSG"
+      },
+      "impots_directs": null,
+      "ir_pv_immo": null,
+      "irpp_economique": null,
+      "isf_ifi": null,
+      "ppe": null,
+      "prelevement_forfaitaire_liberatoire": null,
+      "prelevement_forfaitaire_unique_ir": null,
+      "prelevement_forfaitaire_unique_ir_hors_assurance_vie_epargne_solidaire_etats_non_cooperatifs": null,
+      "prelevement_forfaitaire_unique_ir_sur_assurance_vie": null,
+      "revenu_disponible": {
+        "children": [
+          {
+            "name": "revenus_nets_du_travail"
+          },
+          {
+            "name": "pensions_nettes"
+          },
+          {
+            "name": "revenus_nets_du_capital"
+          },
+          {
+            "name": "impot_revenu_lps"
+          },
+          {
+            "name": "prestations_sociales"
+          }
+        ],
+        "label": "Revenu disponible du ménage"
+      },
+      "taxe_habitation": null
+    },
+    "editable_processed_parameters": {
+      "children": {
+        "landais_piketty_saez": {
+          "children": {
+            "abatt_conj": {
+              "class": "Value",
+              "description": "Abattement forfaitaire sur le revenu si conjoint",
+              "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+              "name": "landais_piketty_saez.abatt_conj",
+              "referring_variables": [
+                "impot_revenu_lps"
+              ],
+              "type": "number",
+              "values": {
+                "2000-01-01": {
+                  "value": 0
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            "abatt_enfant": {
+              "class": "Value",
+              "description": "Abattement forfaitaire sur le revenu par enfant",
+              "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+              "name": "landais_piketty_saez.abatt_enfant",
+              "referring_variables": [
+                "impot_revenu_lps"
+              ],
+              "type": "number",
+              "values": {
+                "2000-01-01": {
+                  "value": 0
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            "bareme": {
+              "brackets": [
+                {
+                  "rate": {
+                    "2000-01-01": {
+                      "value": 0.02
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  },
+                  "threshold": {
+                    "2000-01-01": {
+                      "value": 1100
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2000-01-01": {
+                      "value": 0.1
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  },
+                  "threshold": {
+                    "2000-01-01": {
+                      "value": 2200
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2000-01-01": {
+                      "value": 0.13
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  },
+                  "threshold": {
+                    "2000-01-01": {
+                      "value": 5000
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2000-01-01": {
+                      "value": 0.25
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  },
+                  "threshold": {
+                    "2000-01-01": {
+                      "value": 10000
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2000-01-01": {
+                      "value": 0.5
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  },
+                  "threshold": {
+                    "2000-01-01": {
+                      "value": 40000
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2000-01-01": {
+                      "value": 0.6
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  },
+                  "threshold": {
+                    "2000-01-01": {
+                      "value": 100000
+                    },
+                    "2015-01-01": {
+                      "value": null
+                    }
+                  }
+                }
+              ],
+              "class": "Scale",
+              "description": "Barème de l'impôt",
+              "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+              "name": "landais_piketty_saez.bareme",
+              "referring_variables": [
+                "impot_revenu_lps"
+              ],
+              "threshold_unit": "currency",
+              "type": "linear_average_rate"
+            },
+            "credit_enfant": {
+              "class": "Value",
+              "description": "Crédit d'impôt forfaitaire par enfant",
+              "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+              "name": "landais_piketty_saez.credit_enfant",
+              "referring_variables": [
+                "impot_revenu_lps"
+              ],
+              "type": "number",
+              "values": {
+                "2000-01-01": {
+                  "value": 0
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            "imposition": {
+              "class": "Value",
+              "description": "Indicatrice d'imposition",
+              "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+              "name": "landais_piketty_saez.imposition",
+              "type": "boolean",
+              "values": {
+                "2000-01-01": {
+                  "value": true
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            "reduc_conj": {
+              "class": "Value",
+              "description": "Réduction d'impôt forfaitaire si conjoint",
+              "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+              "name": "landais_piketty_saez.reduc_conj",
+              "referring_variables": [
+                "impot_revenu_lps"
+              ],
+              "type": "number",
+              "values": {
+                "2000-01-01": {
+                  "value": 0
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            },
+            "reduc_enfant": {
+              "class": "Value",
+              "description": "Réduction d'impôt forfaitaire par enfant",
+              "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+              "name": "landais_piketty_saez.reduc_enfant",
+              "referring_variables": [
+                "impot_revenu_lps"
+              ],
+              "type": "number",
+              "values": {
+                "2000-01-01": {
+                  "value": 0
+                },
+                "2015-01-01": {
+                  "value": null
+                }
+              }
+            }
+          },
+          "class": "Node",
+          "description": "Impôt à base large proposé par Landais Piketty et Saez",
+          "file_path": "openfisca_france_reforms/landais_piketty_saez/parameters.yaml",
+          "name": "landais_piketty_saez"
+        }
+      }
+    },
+    "variables_summaries": {
+      "assiette_csg": {
+        "default_value": 0,
+        "definition_period": "year",
+        "dtype": "float32",
+        "entity": "individu",
+        "file_path": "openfisca_france_reforms/landais_piketty_saez/__init__.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france_reforms/landais_piketty_saez/__init__.py",
+            "start_line_number": 24,
+            "stop_line_number": 51,
+            "variables": [
+              "chomage_brut",
+              "retraite_brute",
+              "revenus_capitaux_prelevement_bareme",
+              "revenus_capitaux_prelevement_forfaitaire_unique_ir",
+              "revenus_capitaux_prelevement_liberatoire",
+              "salaire_de_base"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Assiette de la CSG",
+        "name": "assiette_csg",
+        "referring_variables": [
+          "impot_revenu_lps"
+        ],
+        "start_line_number": 18,
+        "stop_line_number": 51,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "chomage_brut": {
+        "calculate_output": "calculate_output_add",
+        "default_value": 0,
+        "definition_period": "month",
+        "dtype": "float32",
+        "entity": "individu",
+        "file_path": "openfisca_france/model/revenus/remplacement/chomage.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france/model/revenus/remplacement/chomage.py",
+            "start_line_number": 27,
+            "stop_line_number": 29,
+            "variables": [
+              "allocation_retour_emploi"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Montant de l’allocation chômage indiqué sur les documents d’information remis par Pôle emploi",
+        "name": "chomage_brut",
+        "reference": {
+          "2021-07-27": [
+            {
+              "href": "https://www.pole-emploi.fr/candidat/mes-droits-aux-aides-et-allocati/lessentiel-a-savoir-sur-lallocat/quelle-somme-vais-je-recevoir/quelles-retenues-sociales-sont-a.html",
+              "title": "Pôle-Emploi.fr"
+            }
+          ]
+        },
+        "referring_variables": [
+          "aide_jeunes_diplomes_anciens_boursiers_eligibilite",
+          "assiette_csg",
+          "chomage_imposable",
+          "crds_chomage",
+          "csg_deductible_chomage",
+          "csg_imposable_chomage"
+        ],
+        "set_input": "set_input_divide_by_period",
+        "start_line_number": 19,
+        "stop_line_number": 29,
+        "unit": "currency",
+        "ux_name": "Chômage brut",
+        "value_type": "float"
+      },
+      "impot_revenu_lps": {
+        "default_value": 0,
+        "definition_period": "year",
+        "dtype": "float32",
+        "entity": "individu",
+        "file_path": "openfisca_france_reforms/landais_piketty_saez/__init__.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france_reforms/landais_piketty_saez/__init__.py",
+            "parameters": [
+              "landais_piketty_saez.abatt_conj",
+              "landais_piketty_saez.abatt_enfant",
+              "landais_piketty_saez.bareme",
+              "landais_piketty_saez.credit_enfant",
+              "landais_piketty_saez.reduc_conj",
+              "landais_piketty_saez.reduc_enfant"
+            ],
+            "start_line_number": 59,
+            "stop_line_number": 81,
+            "variables": [
+              "assiette_csg",
+              "nbF",
+              "nbH",
+              "statut_marital"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Impôt individuel sur l'ensemble de l'assiette de la CSG",
+        "name": "impot_revenu_lps",
+        "referring_variables": [
+          "revenu_disponible"
+        ],
+        "start_line_number": 53,
+        "stop_line_number": 81,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "impots_directs": {
+        "default_value": 0,
+        "definition_period": "year",
+        "dtype": "float32",
+        "entity": "menage",
+        "file_path": "openfisca_france/model/mesures.py",
+        "formulas": {
+          "0001-01-01": {
+            "documentation": "\nPour les impôts définis au niveau du foyer fiscal :\non prend en compte l'impôt des foyers fiscaux dont le déclarant principal est dans le ménage\n",
+            "file_path": "openfisca_france/model/mesures.py",
+            "start_line_number": 614,
+            "stop_line_number": 645,
+            "variables": [
+              "ir_pv_immo",
+              "irpp_economique",
+              "isf_ifi",
+              "prelevement_forfaitaire_liberatoire",
+              "prelevement_forfaitaire_unique_ir",
+              "taxe_habitation"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Impôts directs",
+        "name": "impots_directs",
+        "reference": {
+          "0001-01-01": [
+            {
+              "href": "http://fr.wikipedia.org/wiki/Imp%C3%B4t_direct"
+            }
+          ]
+        },
+        "start_line_number": 607,
+        "stop_line_number": 645,
+        "unit": "currency",
+        "ux_name": "Impôts directs",
+        "value_type": "float"
+      },
+      "nbF": {
+        "cerfa_field": "F",
+        "default_value": 0,
+        "definition_period": "year",
+        "dtype": "float32",
+        "entity": "foyer_fiscal",
+        "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+            "start_line_number": 241,
+            "stop_line_number": 247,
+            "variables": [
+              "enfant_a_charge",
+              "garde_alternee"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Nombre d'enfants à charge non mariés, qui ne sont pas en résidence alternée, de moins de 18 ans au 1er janvier de l'année de perception des revenus, ou nés durant la même année ou handicapés quel que soit leur âge",
+        "name": "nbF",
+        "referring_variables": [
+          "impot_revenu_lps",
+          "ir_plaf_qf",
+          "nb_pac",
+          "nb_pac2",
+          "nbptr"
+        ],
+        "start_line_number": 233,
+        "stop_line_number": 247,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "nbH": {
+        "cerfa_field": "H",
+        "default_value": 0,
+        "definition_period": "year",
+        "dtype": "float32",
+        "entity": "foyer_fiscal",
+        "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+            "start_line_number": 272,
+            "stop_line_number": 278,
+            "variables": [
+              "enfant_a_charge",
+              "garde_alternee"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Nombre d'enfants à charge en résidence alternée, non mariés de moins de 18 ans au 1er janvier de l'année de perception des revenus, ou nés durant la même année ou handicapés quel que soit leur âge",
+        "name": "nbH",
+        "referring_variables": [
+          "aidper",
+          "impot_revenu_lps",
+          "ir_plaf_qf",
+          "isf_reduc_pac",
+          "nb_pac2",
+          "nbptr",
+          "ppe_brute"
+        ],
+        "start_line_number": 265,
+        "stop_line_number": 278,
+        "value_type": "float"
+      },
+      "ppe": {
+        "default_value": 0,
+        "definition_period": "year",
+        "dtype": "float32",
+        "entity": "foyer_fiscal",
+        "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+        "formulas": {
+          "0001-01-01": {
+            "documentation": "\nPPE effectivement versée\n",
+            "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/ir.py",
+            "start_line_number": 3491,
+            "stop_line_number": 3505,
+            "variables": [
+              "ppe_brute",
+              "rsa_activite_individu"
+            ]
+          },
+          "2016-01-01": null
+        },
+        "json_type": "number",
+        "label": "Prime pour l'emploi",
+        "last_review": "2016-01-01",
+        "name": "ppe",
+        "obsolete": true,
+        "reference": {
+          "0001-01-01": [
+            {
+              "note": "Ce dispositif est obsolète. Il a été remplacé par la prime d'activité en 2016"
+            }
+          ]
+        },
+        "referring_variables": [
+          "restitutions"
+        ],
+        "start_line_number": 3483,
+        "stop_line_number": 3505,
+        "unit": "currency",
+        "ux_name": "Prime pour l'emploi",
+        "value_type": "float"
+      },
+      "retraite_brute": {
+        "calculate_output": "calculate_output_add",
+        "default_value": 0,
+        "definition_period": "month",
+        "dtype": "float32",
+        "entity": "individu",
+        "file_path": "openfisca_france/model/revenus/remplacement/retraite.py",
+        "json_type": "number",
+        "label": "Retraite brute",
+        "name": "retraite_brute",
+        "referring_variables": [
+          "aide_permis_demandeur_emploi_eligibilite_financiere",
+          "asi_aspa_base_ressources_individu",
+          "assiette_csg",
+          "casa",
+          "crds_retraite",
+          "csg_deductible_retraite",
+          "csg_imposable_retraite",
+          "retraite_imposable"
+        ],
+        "set_input": "set_input_divide_by_period",
+        "start_line_number": 4,
+        "stop_line_number": 11,
+        "unit": "currency",
+        "ux_name": "Retraite brute",
+        "value_type": "float"
+      },
+      "revenu_disponible": {
+        "baseline_variable": "revenu_disponible",
+        "default_value": 0,
+        "definition_period": "year",
+        "dtype": "float32",
+        "entity": "menage",
+        "file_path": "openfisca_france_reforms/landais_piketty_saez/__init__.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france_reforms/landais_piketty_saez/__init__.py",
+            "start_line_number": 90,
+            "stop_line_number": 111,
+            "variables": [
+              "impot_revenu_lps",
+              "pensions_nettes",
+              "prestations_sociales",
+              "revenus_nets_du_capital",
+              "revenus_nets_du_travail"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Revenu disponible du ménage",
+        "name": "revenu_disponible",
+        "reference": {
+          "0001-01-01": [
+            {
+              "href": "http://fr.wikipedia.org/wiki/Revenu_disponible"
+            }
+          ]
+        },
+        "referring_variables": [
+          "niveau_de_vie"
+        ],
+        "start_line_number": 83,
+        "stop_line_number": 111,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "revenus_capitaux_prelevement_bareme": {
+        "default_value": 0,
+        "definition_period": "month",
+        "dtype": "float32",
+        "entity": "foyer_fiscal",
+        "file_path": "openfisca_france/model/revenus/capital/financier.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "parameters": [
+              "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+            ],
+            "start_line_number": 429,
+            "stop_line_number": 441,
+            "variables": [
+              "f2ch",
+              "f2dc",
+              "f2fu",
+              "f2go",
+              "f2gr",
+              "f2tr",
+              "f2ts"
+            ]
+          },
+          "2013-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "parameters": [
+              "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+            ],
+            "start_line_number": 442,
+            "stop_line_number": 453,
+            "variables": [
+              "f2ch",
+              "f2dc",
+              "f2fu",
+              "f2go",
+              "f2tr",
+              "f2ts"
+            ]
+          },
+          "2016-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "parameters": [
+              "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+            ],
+            "start_line_number": 454,
+            "stop_line_number": 466,
+            "variables": [
+              "f2ch",
+              "f2dc",
+              "f2fu",
+              "f2go",
+              "f2tr",
+              "f2ts",
+              "f2tt_2016"
+            ]
+          },
+          "2017-01-01": {
+            "documentation": "\nNote : à partir des revenus 2017, la case 2TT représente les intérêts des prêts participatifs nets des pertes à imputer,\ncontrairement à avant où il s'agissait des intérêts avant déduction des pertes. Donc, à partir de 2017, on a ici,\npar contrainte de la structure des cases de la déclaration des revenus, le montant net au lieu du montant brut.\n",
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "parameters": [
+              "impot_revenu.rvcm.majoration_revenus_reputes_distribues"
+            ],
+            "start_line_number": 467,
+            "stop_line_number": 484,
+            "variables": [
+              "f2ch",
+              "f2dc",
+              "f2fu",
+              "f2go",
+              "f2tr",
+              "f2ts",
+              "f2tt"
+            ]
+          },
+          "2018-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "start_line_number": 485,
+            "stop_line_number": 491,
+            "variables": [
+              "f2ch",
+              "f2yy"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Revenus du capital imposés au barème (montants bruts)",
+        "last_review": "2018-01-01",
+        "name": "revenus_capitaux_prelevement_bareme",
+        "reference": {
+          "0001-01-01": [
+            {
+              "href": "http://bofip.impots.gouv.fr/bofip/3775-PGP"
+            }
+          ]
+        },
+        "referring_variables": [
+          "assiette_csg",
+          "assiette_csg_revenus_capital",
+          "revenus_capital",
+          "revenus_capitaux_mobiliers_plus_values_bruts_menage",
+          "revenus_et_produits_plafonnement_isf_ifi"
+        ],
+        "set_input": "set_input_divide_by_period",
+        "start_line_number": 421,
+        "stop_line_number": 491,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "revenus_capitaux_prelevement_forfaitaire_unique_ir": {
+        "default_value": 0,
+        "definition_period": "month",
+        "dtype": "float32",
+        "entity": "foyer_fiscal",
+        "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/prelevements_forfaitaires/ir_prelevement_forfaitaire_unique.py",
+        "formulas": {
+          "2018-01-01": {
+            "documentation": "\nNote : cette variable est définie à l'échelle du mois pour être en cohérence avec les variables qu'elle remplace\n        (à savoir revenus_capitaux_prelevement_bareme et revenus_capitaux_prelevement_liberatoire)\n",
+            "file_path": "openfisca_france/model/prelevements_obligatoires/impot_revenu/prelevements_forfaitaires/ir_prelevement_forfaitaire_unique.py",
+            "start_line_number": 105,
+            "stop_line_number": 120,
+            "variables": [
+              "assurance_vie_pfu_ir",
+              "f2dc",
+              "f2fu",
+              "f2go",
+              "f2tr",
+              "f2ts",
+              "f2tt"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Revenus des valeurs et capitaux mobiliers soumis au prélèvement forfaitaire unique (partie impôt sur le revenu)",
+        "last_review": "2018-01-01",
+        "name": "revenus_capitaux_prelevement_forfaitaire_unique_ir",
+        "referring_variables": [
+          "aide_logement_base_revenus_fiscaux",
+          "assiette_csg",
+          "assiette_csg_revenus_capital",
+          "prelevement_forfaitaire_unique_ir_hors_assurance_vie_epargne_solidaire_etats_non_cooperatifs",
+          "rev_coll",
+          "revenus_capital",
+          "revenus_capitaux_mobiliers_plus_values_bruts_menage",
+          "revenus_et_produits_plafonnement_isf_ifi",
+          "rfr"
+        ],
+        "set_input": "set_input_divide_by_period",
+        "start_line_number": 98,
+        "stop_line_number": 120,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "revenus_capitaux_prelevement_liberatoire": {
+        "default_value": 0,
+        "definition_period": "month",
+        "dtype": "float32",
+        "entity": "foyer_fiscal",
+        "file_path": "openfisca_france/model/revenus/capital/financier.py",
+        "formulas": {
+          "2002-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "start_line_number": 501,
+            "stop_line_number": 506,
+            "variables": [
+              "f2dh",
+              "f2ee"
+            ]
+          },
+          "2008-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "start_line_number": 507,
+            "stop_line_number": 513,
+            "variables": [
+              "f2da",
+              "f2dh",
+              "f2ee"
+            ]
+          },
+          "2013-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "start_line_number": 514,
+            "stop_line_number": 520,
+            "variables": [
+              "f2dh",
+              "f2ee",
+              "f2fa"
+            ]
+          },
+          "2018-01-01": {
+            "file_path": "openfisca_france/model/revenus/capital/financier.py",
+            "start_line_number": 521,
+            "stop_line_number": 527,
+            "variables": [
+              "f2dh",
+              "f2ee",
+              "f2xx"
+            ]
+          }
+        },
+        "json_type": "number",
+        "label": "Revenu du capital imposé au prélèvement libératoire (montants bruts)",
+        "last_review": "2018-01-01",
+        "name": "revenus_capitaux_prelevement_liberatoire",
+        "reference": {
+          "0001-01-01": [
+            {
+              "href": "http://bofip.impots.gouv.fr/bofip/3817-PGP"
+            }
+          ]
+        },
+        "referring_variables": [
+          "aide_logement_base_revenus_fiscaux",
+          "assiette_csg",
+          "assiette_csg_revenus_capital",
+          "bouclier_rev",
+          "rev_coll",
+          "revenus_capital",
+          "revenus_capitaux_mobiliers_plus_values_bruts_menage",
+          "revenus_et_produits_plafonnement_isf_ifi",
+          "rfr"
+        ],
+        "set_input": "set_input_divide_by_period",
+        "start_line_number": 493,
+        "stop_line_number": 527,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "salaire_de_base": {
+        "default_value": 0,
+        "definition_period": "month",
+        "dtype": "float32",
+        "entity": "individu",
+        "file_path": "openfisca_france/model/revenus/activite/salarie.py",
+        "json_type": "number",
+        "label": "Salaire de base, en général appelé salaire brut, la 1ère ligne sur la fiche de paie",
+        "name": "salaire_de_base",
+        "reference": {
+          "0001-01-01": [
+            {
+              "href": "http://www.insee.fr/fr/methodes/default.asp?page=definitions/salaire-mensuel-base-smb.htm"
+            }
+          ]
+        },
+        "referring_variables": [
+          "af_nbenf_fonc",
+          "aide_embauche_pme",
+          "asi_aspa_base_ressources_individu",
+          "assiette_cotisations_sociales_prive",
+          "assiette_csg",
+          "assiette_csg_abattue",
+          "contribution_exceptionnelle_solidarite",
+          "covid_activite_partielle_eligible",
+          "covid_activite_partielle_montant",
+          "indemnite_fin_contrat",
+          "indemnite_residence",
+          "mobili_jeune_eligibilite",
+          "mon_job_mon_logement_eligibilite",
+          "mon_job_mon_logement_eligibilite_jeunes_actifs",
+          "salaire_imposable",
+          "salaire_super_brut_hors_allegements",
+          "tehr"
+        ],
+        "set_input": "set_input_divide_by_period",
+        "start_line_number": 522,
+        "stop_line_number": 529,
+        "unit": "currency",
+        "value_type": "float"
+      },
+      "statut_marital": {
+        "default_value": "celibataire",
+        "definition_period": "month",
+        "dtype": "int16",
+        "entity": "individu",
+        "file_path": "openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+        "formulas": {
+          "0001-01-01": {
+            "file_path": "openfisca_france/model/caracteristiques_socio_demographiques/demographie.py",
+            "start_line_number": 112,
+            "stop_line_number": 116
+          }
+        },
+        "is_period_size_independent": true,
+        "json_type": "string",
+        "label": "Statut marital",
+        "name": "statut_marital",
+        "possible_values": {
+          "celibataire": "Celibataire",
+          "divorce": "Divorcé",
+          "jeune_veuf": "Jeune veuf",
+          "marie": "Marié",
+          "non_renseigne": "Non renseigné",
+          "pacse": "Pacsé",
+          "veuf": "Veuf"
+        },
+        "referring_variables": [
+          "bourse_criteres_sociaux_etudiant_autonome",
+          "impot_revenu_lps",
+          "maries",
+          "rsa_activite_individu"
+        ],
+        "set_input": "set_input_dispatch_by_period",
+        "start_line_number": 103,
+        "stop_line_number": 116,
+        "value_type": "Enum"
+      }
+    }
+  },
+  "lfi_progressivite_bareme_impot_revenu": {
+    "decompositions": {},
+    "editable_processed_parameters": {
+      "children": {
+        "impot_revenu": {
+          "children": {
+            "bareme": {
+              "brackets": [
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.01
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 0
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.05
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 10293
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.1
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 15439
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.15
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 20585
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.2
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 27790
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.25
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 30877
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.3
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 33965
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.35
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 38082
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.4
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 44257
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.45
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 61753
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.5
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 102922
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.55
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 144090
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.6
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 267595
+                    }
+                  }
+                },
+                {
+                  "rate": {
+                    "2021-09-01": {
+                      "value": 0.9
+                    }
+                  },
+                  "threshold": {
+                    "2021-09-01": {
+                      "value": 411684
+                    }
+                  }
+                }
+              ],
+              "description": "Barème progressif de l'impôt sur le revenu",
+              "file_path": "openfisca_france_reforms/lfi_progressivite_bareme_impot_revenu/parameters.yaml",
+              "reference": null
+            }
+          }
+        }
+      }
+    },
+    "variables_summaries": {}
+  }
+}
